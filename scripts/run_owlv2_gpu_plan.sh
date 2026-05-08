@@ -11,6 +11,7 @@ export HF_HOME="$EXP_ROOT/cache/huggingface"
 export HUGGINGFACE_HUB_CACHE="$EXP_ROOT/cache/huggingface/hub"
 export HF_DATASETS_CACHE="$EXP_ROOT/cache/huggingface/datasets"
 export TRANSFORMERS_CACHE="$EXP_ROOT/cache/huggingface/transformers"
+export HF_HUB_DISABLE_XET=1
 export TORCH_HOME="$EXP_ROOT/cache/torch"
 export TMPDIR="$EXP_ROOT/tmp"
 

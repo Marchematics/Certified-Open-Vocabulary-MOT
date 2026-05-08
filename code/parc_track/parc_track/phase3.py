@@ -63,9 +63,10 @@ def _label_metrics(selected: pd.DataFrame, candidate_budget_m: int, runtime_sec:
     unsupported = selected[~supported]
     labeled = selected[selected["label"].isin(["actually_true", "actually_false"])].copy()
     false_count = int((labeled["label"] == "actually_false").sum())
-    uncertain_count = int((selected["label"] == "uncertain").sum())
-    unlabeled_count = int((selected["label"].fillna("").astype(str).str.strip() == "").sum())
-    conservative_false = false_count + uncertain_count + unlabeled_count
+    unsupported_false = int((unsupported["label"] == "actually_false").sum())
+    unsupported_uncertain = int((unsupported["label"] == "uncertain").sum())
+    unsupported_unlabeled = int((unsupported["label"].fillna("").astype(str).str.strip() == "").sum())
+    conservative_false = unsupported_false + unsupported_uncertain + unsupported_unlabeled
     return {
         "released": released,
         "official_supported": int(supported.sum()),
