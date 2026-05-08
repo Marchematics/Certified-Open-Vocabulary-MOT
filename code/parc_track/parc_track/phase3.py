@@ -13,6 +13,8 @@ import yaml
 
 from .adapters.datasets import ensure_data_output, inspect_dataset_from_config, load_yaml, write_json
 from .phase2 import (
+    AUDIT_LABEL_COLUMNS,
+    RELEASE_AUDIT_COLUMNS,
     _block_evalues,
     _candidate_budgets,
     _coverage_diag_for_method,
@@ -290,6 +292,277 @@ def run_ovtb_matrix(config_path: str | Path) -> dict[str, Any]:
     }
     write_json(output_dir / "ovtb_matrix_summary.json", summary)
     return summary
+
+
+def export_matrix_release_audit_candidates(
+    config_path: str | Path,
+    unsupported_only: bool = True,
+    out_csv: str | Path | None = None,
+    labels_out: str | Path | None = None,
+) -> dict[str, Any]:
+    cfg = load_yaml(config_path)
+    matrix = cfg.get("matrix", {})
+    audit_cfg = cfg.get("release_audit", {})
+    alphas = [float(value) for value in audit_cfg.get("alpha1", matrix.get("alpha1", [cfg.get("risk", {}).get("alpha1", 0.10)]))]
+    seeds = [int(value) for value in audit_cfg.get("seeds", matrix.get("seeds", [cfg.get("splits", {}).get("seed", 0)]))]
+    budget = int(audit_cfg.get("candidate_budget_M", 150))
+    method = str(audit_cfg.get("method", "parc_track_gamma_tuned_uniform_scs"))
+    output_dir = ensure_data_output(cfg.get("output", {}).get("output_dir", DATA_ROOT / "outputs/phase3_ovtb"))
+    combined_labels = _combined_audit_labels(cfg, output_dir)
+    run_cfg_base = json.loads(json.dumps(cfg))
+    if combined_labels:
+        run_cfg_base.setdefault("input", {})["audit_labels"] = combined_labels
+
+    universe = _load_universe_with_labels(run_cfg_base)
+    if universe.empty:
+        raise RuntimeError("cannot export release audit: candidate universe is empty or missing")
+    rows: list[dict[str, Any]] = []
+    manifest_runs: list[dict[str, Any]] = []
+    for alpha1 in alphas:
+        for seed in seeds:
+            run_name = f"alpha{_safe_name(alpha1)}_seed{seed}"
+            evalue_path = output_dir / f"candidate_evalues_{run_name}.csv"
+            if not evalue_path.exists():
+                manifest_runs.append(
+                    {
+                        "alpha1": alpha1,
+                        "seed": seed,
+                        "status": "missing_candidate_evalues",
+                        "candidate_evalues": str(evalue_path),
+                    }
+                )
+                continue
+            evalues = pd.read_csv(evalue_path)
+            if evalues.empty or "method" not in evalues:
+                manifest_runs.append({"alpha1": alpha1, "seed": seed, "status": "empty_candidate_evalues"})
+                continue
+            method_evalues = evalues[evalues["method"].astype(str) == method].copy()
+            if method_evalues.empty:
+                manifest_runs.append({"alpha1": alpha1, "seed": seed, "status": "missing_method", "method": method})
+                continue
+            run_cfg = json.loads(json.dumps(run_cfg_base))
+            run_cfg.setdefault("risk", {})["alpha1"] = alpha1
+            run_cfg.setdefault("splits", {})["seed"] = seed
+            split_map = _split_video_ids(universe["video_id"].astype(int).tolist(), run_cfg)
+            scoped = universe.copy()
+            scoped["split"] = scoped["video_id"].astype(int).map(split_map)
+            test = scoped[scoped["split"] == "test"].sort_values(["candidate_rank", "score"], ascending=[True, False]).copy()
+            pool = test.head(budget).copy()
+            method_evalues["e_value"] = pd.to_numeric(method_evalues["e_value"], errors="coerce").fillna(0.0)
+            for column in ("p_any", "p_block"):
+                if column in method_evalues:
+                    method_evalues[column] = pd.to_numeric(method_evalues[column], errors="coerce")
+                else:
+                    method_evalues[column] = None
+            value_map = method_evalues.set_index("path_id")[["e_value", "p_any", "p_block"]].to_dict(orient="index")
+            pool_values = [float(value_map.get(path_id, {}).get("e_value", 0.0)) for path_id in pool["path_id"]]
+            k, tau, margin = _scs_release_count(pool_values, alpha1=alpha1, candidate_budget_m=budget)
+            selected_positions = sorted(range(len(pool_values)), key=lambda idx: pool_values[idx], reverse=True)[:k]
+            selected = pool.iloc[selected_positions].copy() if selected_positions else pool.iloc[[]].copy()
+            released_total = int(len(selected))
+            if unsupported_only and not selected.empty:
+                selected = selected[
+                    (~selected["is_matched_to_gt"].astype(bool)) & (~selected["is_verified_positive"].astype(bool))
+                ].copy()
+            exported = 0
+            needs_audit = 0
+            for release_rank, (_, row) in enumerate(selected.iterrows(), start=1):
+                path_id = str(row["path_id"])
+                ev = value_map.get(path_id, {})
+                label = str(row.get("label", "") or "").strip()
+                row_needs_audit = label not in {"actually_true", "actually_false", "uncertain"}
+                needs_audit += int(row_needs_audit)
+                audit_row = {
+                    "dataset": row.get("dataset", cfg.get("dataset", {}).get("name", "")),
+                    "video_id": row.get("video_id", ""),
+                    "path_id": path_id,
+                    "query": row.get("query", ""),
+                    "category_id": row.get("category_id", ""),
+                    "score": row.get("score", ""),
+                    "objectness": row.get("objectness", row.get("score", "")),
+                    "semantic_margin": row.get("semantic_margin", row.get("score", "")),
+                    "temporal_stability": row.get("temporal_stability", ""),
+                    "association_score": row.get("association_score", ""),
+                    "matched_gt_id": row.get("matched_gt_id", ""),
+                    "matched_iou": row.get("matched_iou", ""),
+                    "temporal_overlap": row.get("temporal_overlap", ""),
+                    "is_unmatched": row.get("is_unmatched", ""),
+                    "cell_id": row.get("cell_id", ""),
+                    "novelty_bin": row.get("novelty_bin", ""),
+                    "query_cluster": row.get("query_cluster", ""),
+                    "occ_bin": row.get("occ_bin", ""),
+                    "domain_bin": row.get("domain_bin", ""),
+                    "frame_start": row.get("frame_start", ""),
+                    "frame_end": row.get("frame_end", ""),
+                    "clip_path": "",
+                    "montage_path": "",
+                    "method": method,
+                    "candidate_budget_M": budget,
+                    "selected_rank": release_rank,
+                    "e_value": ev.get("e_value", ""),
+                    "p_any": ev.get("p_any", ""),
+                    "p_block": ev.get("p_block", ""),
+                    "tau_k": tau if k else "",
+                    "self_consistency_margin": margin if k else "",
+                    "release_source": str(evalue_path),
+                    "alpha1": alpha1,
+                    "seed": seed,
+                    "audit_label": label,
+                    "needs_audit": row_needs_audit,
+                    "verified_positive_for_calibration": row.get("verified_positive_for_calibration", ""),
+                }
+                rows.append(audit_row)
+                exported += 1
+            manifest_runs.append(
+                {
+                    "alpha1": alpha1,
+                    "seed": seed,
+                    "status": "completed",
+                    "method": method,
+                    "candidate_budget_M": budget,
+                    "released_total": released_total,
+                    "exported_rows": exported,
+                    "needs_audit_rows": needs_audit,
+                    "unsupported_only": unsupported_only,
+                    "tau_k": tau if k else None,
+                    "self_consistency_margin": margin if k else None,
+                    "candidate_evalues": str(evalue_path),
+                }
+            )
+
+    default_name = "release_audit_fixed_M150_unsupported.csv" if unsupported_only else "release_audit_fixed_M150.csv"
+    out = ensure_data_output(out_csv or audit_cfg.get("out", output_dir / default_name))
+    base_columns = RELEASE_AUDIT_COLUMNS + ["alpha1", "seed", "audit_label", "needs_audit", "verified_positive_for_calibration"]
+    pd.DataFrame(rows, columns=base_columns).to_csv(out, index=False)
+    labels_path = ensure_data_output(labels_out or audit_cfg.get("labels_out", out.with_name(out.stem + "_labels.csv")))
+    label_rows = []
+    for row in rows:
+        if not row.get("needs_audit"):
+            continue
+        label_rows.append(
+            {
+                "dataset": row["dataset"],
+                "video_id": row["video_id"],
+                "path_id": row["path_id"],
+                "label": "",
+                "reason": "",
+                "auditor": "",
+                "confidence": "",
+                "review_status": "",
+                "verified_positive_for_calibration": "",
+            }
+        )
+    pd.DataFrame(label_rows, columns=AUDIT_LABEL_COLUMNS).to_csv(labels_path, index=False)
+    manifest_path = ensure_data_output(out.with_name(out.stem + "_manifest.json"))
+    manifest = {
+        "status": "completed",
+        "config": str(config_path),
+        "method": method,
+        "candidate_budget_M": budget,
+        "alphas": alphas,
+        "seeds": seeds,
+        "unsupported_only": unsupported_only,
+        "release_audit_csv": str(out),
+        "label_template_csv": str(labels_path),
+        "rows": int(len(rows)),
+        "needs_audit_rows": int(len(label_rows)),
+        "runs": manifest_runs,
+    }
+    write_json(manifest_path, manifest)
+    manifest["manifest"] = str(manifest_path)
+    return manifest
+
+
+def run_cross_generator_report(config_path: str | Path) -> dict[str, Any]:
+    cfg = load_yaml(config_path)
+    output_dir = ensure_data_output(cfg.get("output", {}).get("output_dir", DATA_ROOT / "outputs/milestones/ijcv_cross_generator_v1"))
+    generators = cfg.get("generators", [])
+    fixed_m = int(cfg.get("reporting", {}).get("fixed_M", 150))
+    method = str(cfg.get("reporting", {}).get("method", "parc_track_gamma_tuned_uniform_scs"))
+    rows: list[dict[str, Any]] = []
+    missing: list[str] = []
+    for entry in generators:
+        matrix_path = Path(entry.get("matrix_csv", ""))
+        if not matrix_path.exists():
+            missing.append(str(matrix_path))
+            continue
+        frame = pd.read_csv(matrix_path)
+        if frame.empty:
+            continue
+        scoped = frame[
+            (frame["method"].astype(str) == method)
+            & (pd.to_numeric(frame["candidate_budget_M"], errors="coerce") == fixed_m)
+        ].copy()
+        if scoped.empty:
+            continue
+        scoped["alpha1_num"] = pd.to_numeric(scoped["alpha1"], errors="coerce")
+        for alpha, group in scoped.groupby("alpha1_num", dropna=True):
+            released = pd.to_numeric(group["released"], errors="coerce").fillna(0.0)
+            supported = pd.to_numeric(group.get("official_supported", 0), errors="coerce").fillna(0.0)
+            margins = pd.to_numeric(group.get("self_consistency_margin", None), errors="coerce")
+            rows.append(
+                {
+                    "Dataset": entry.get("dataset", ""),
+                    "Generator": entry.get("generator", ""),
+                    "Alpha": float(alpha),
+                    "Non-empty seeds": int((released > 0).sum()),
+                    "Seeds": int(group["seed"].nunique()) if "seed" in group else int(len(group)),
+                    "Released": float(released.mean()),
+                    "Rel./M": float((released / max(fixed_m, 1)).mean()),
+                    "Supported": float(supported.mean()),
+                    "Supp./M": float((supported / max(fixed_m, 1)).mean()),
+                    "UTR": float(pd.to_numeric(group.get("utr", 0), errors="coerce").fillna(0.0).mean()),
+                    "Audited FTR": float(
+                        pd.to_numeric(group.get("audited_ftr_on_labeled_released", 0), errors="coerce").dropna().mean()
+                    )
+                    if pd.to_numeric(group.get("audited_ftr_on_labeled_released", pd.Series(dtype=float)), errors="coerce").dropna().size
+                    else None,
+                    "Conservative FTR": float(
+                        pd.to_numeric(
+                            group.get("conservative_ftr_uncertain_and_unlabeled_false", 0),
+                            errors="coerce",
+                        )
+                        .fillna(0.0)
+                        .mean()
+                    ),
+                    "Margin": float(margins.dropna().mean()) if margins.dropna().size else None,
+                    "Matrix CSV": str(matrix_path),
+                }
+            )
+    table = pd.DataFrame(
+        rows,
+        columns=[
+            "Dataset",
+            "Generator",
+            "Alpha",
+            "Non-empty seeds",
+            "Seeds",
+            "Released",
+            "Rel./M",
+            "Supported",
+            "Supp./M",
+            "UTR",
+            "Audited FTR",
+            "Conservative FTR",
+            "Margin",
+            "Matrix CSV",
+        ],
+    )
+    table_csv = ensure_data_output(output_dir / "table_cross_generator.csv")
+    table.to_csv(table_csv, index=False)
+    table_tex = _to_latex(table_csv, output_dir / "table_cross_generator.tex")
+    manifest = {
+        "status": "completed" if not missing else "completed_with_missing_inputs",
+        "config": str(config_path),
+        "table_cross_generator_csv": str(table_csv),
+        "table_cross_generator_tex": table_tex,
+        "rows": int(len(table)),
+        "missing_inputs": missing,
+        "fixed_M": fixed_m,
+        "method": method,
+    }
+    write_json(output_dir / "cross_generator_manifest.json", manifest)
+    return manifest
 
 
 def _core_method_ids() -> list[str]:

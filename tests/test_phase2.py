@@ -6,6 +6,7 @@ from pathlib import Path
 from uuid import uuid4
 
 import pandas as pd
+import pytest
 import yaml
 
 from parc_track.adapters.datasets import (
@@ -24,13 +25,22 @@ from parc_track.phase2 import (
     gamma_star,
     groundingdino_status,
     iou_xywh,
+    owlv2_status,
     _best_mass_summary,
+    run_phase2_propose,
     run_real_certify,
     run_real_coverage_sweep,
     run_real_high_e_diagnostics,
     summarize_audit,
 )
-from parc_track.phase3 import evaluate_clear_mot_idsw, run_idsw_eval, run_ovtb_matrix, run_tpami_report, run_tuned_m_selection
+from parc_track.phase3 import (
+    evaluate_clear_mot_idsw,
+    export_matrix_release_audit_candidates,
+    run_idsw_eval,
+    run_ovtb_matrix,
+    run_tpami_report,
+    run_tuned_m_selection,
+)
 
 
 DATA_ROOT = Path("/home/waas/paper_experiments")
@@ -979,6 +989,117 @@ def test_phase3_ovtb_matrix_writes_expanded_baseline_schema() -> None:
     assert set(["method", "alpha1", "seed", "candidate_budget_M", "released", "utr", "recall_proxy", "runtime_sec"]).issubset(matrix.columns)
     assert {"confidence_threshold", "tracklet_p_bh", "tracklet_e_bh", "post_filter_e_bh", "greedy_score_no_risk"}.issubset(set(matrix["method"]))
     assert matrix.groupby(["alpha1", "seed"]).size().shape[0] == 4
+
+
+def test_owlv2_configs_route_to_isolated_outputs_and_backend() -> None:
+    ovtb = yaml.safe_load(Path("/home/waas/paper_experiments/configs/phase3_ovtb_owlv2_audit.yaml").read_text())
+    tao = yaml.safe_load(Path("/home/waas/paper_experiments/configs/phase3_tao_owlv2_audit.yaml").read_text())
+    for cfg, marker in ((ovtb, "/outputs/phase3_ovtb_owlv2/"), (tao, "/outputs/phase3_tao_owlv2/")):
+        assert cfg["proposal"]["backend"] == "owlv2_hf"
+        assert cfg["proposal"]["backbone"] == "owlv2_hf"
+        assert cfg["owlv2"]["device"].startswith("cuda")
+        assert marker in cfg["output"]["candidate_universe"]
+        assert marker in cfg["output"]["candidate_scores"]
+        assert marker in cfg["output"]["candidate_nodes"]
+        assert marker in cfg["audit_export"]["output_viewer"]
+
+
+def test_owlv2_phase2_propose_fails_loudly_when_dataset_missing() -> None:
+    root = _test_root("owlv2_loud_fail")
+    cfg = _write_yaml(
+        root / "owlv2_missing_dataset.yaml",
+        {
+            "dataset": {
+                "name": "OVT-B",
+                "root": str(root / "missing_root"),
+                "ann_file": str(root / "missing_ann.json"),
+                "format_hint": "tao_or_coco_video",
+            },
+            "proposal": {"backend": "owlv2_hf", "backbone": "owlv2_hf"},
+            "owlv2": {"device": "cuda:0"},
+            "output": {"candidates": str(root / "audit_candidates.csv")},
+        },
+    )
+    with pytest.raises(RuntimeError, match="dataset_not_ready"):
+        run_phase2_propose(cfg)
+
+
+def test_owlv2_status_reports_runtime_requirements() -> None:
+    root = _test_root("owlv2_status")
+    cfg = _write_yaml(
+        root / "owlv2_status.yaml",
+        {
+            "proposal": {"backend": "owlv2_hf"},
+            "owlv2": {
+                "model": "google/owlv2-base-patch16-ensemble",
+                "device": "cuda:0",
+                "cache_dir": str(root / "hf_cache"),
+            },
+        },
+    )
+    status = owlv2_status(cfg)
+    assert status["backend"] == "OWLv2"
+    assert status["model"] == "google/owlv2-base-patch16-ensemble"
+    assert status["cuda_required"] is True
+    assert "ready" in status
+
+
+def test_phase3_matrix_release_audit_exports_unsupported_template() -> None:
+    root = _test_root("matrix_release_audit")
+    universe = root / "candidate_universe.csv"
+    rows = []
+    for idx, video_id in enumerate(range(1, 5)):
+        rows.append(
+            {
+                "dataset": "OVT-B",
+                "video_id": video_id,
+                "path_id": f"p{idx}",
+                "query": "object",
+                "category_id": 3,
+                "score": 1.0 - idx * 0.05,
+                "candidate_rank": idx + 1,
+                "is_unmatched": idx == 0,
+                "is_matched_to_gt": idx != 0,
+                "verified_positive_for_calibration": "no",
+                "cell_id": "global",
+            }
+        )
+    _write_candidate_universe(universe, rows)
+    output_dir = root / "phase3_owlv2"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    pd.DataFrame(
+        [
+            {"method": "parc_track_gamma_tuned_uniform_scs", "path_id": "p0", "e_value": 20.0, "p_any": 0.01, "p_block": 0.01},
+            {"method": "parc_track_gamma_tuned_uniform_scs", "path_id": "p1", "e_value": 20.0, "p_any": 0.01, "p_block": 0.01},
+            {"method": "parc_track_gamma_tuned_uniform_scs", "path_id": "p2", "e_value": 1.0, "p_any": 1.0, "p_block": 1.0},
+            {"method": "parc_track_gamma_tuned_uniform_scs", "path_id": "p3", "e_value": 1.0, "p_any": 1.0, "p_block": 1.0},
+        ]
+    ).to_csv(output_dir / "candidate_evalues_alpha0p1_seed0.csv", index=False)
+    cfg = _write_yaml(
+        root / "phase3_owlv2_matrix.yaml",
+        {
+            "dataset": {"name": "OVT-B"},
+            "splits": {"tune_ratio": 0.0, "cal_ratio": 0.0, "seed": 0},
+            "risk": {"alpha1": 0.10},
+            "matrix": {"alpha1": [0.10], "seeds": [0], "candidate_budget_M": [2]},
+            "input": {"candidate_universe": str(universe), "audit_labels": str(root / "missing_labels.csv")},
+            "output": {"output_dir": str(output_dir)},
+            "release_audit": {
+                "candidate_budget_M": 2,
+                "alpha1": [0.10],
+                "seeds": [0],
+                "out": str(output_dir / "release_audit_unsupported.csv"),
+                "labels_out": str(output_dir / "release_audit_unsupported_labels.csv"),
+            },
+        },
+    )
+    summary = export_matrix_release_audit_candidates(cfg, unsupported_only=True)
+    audit_rows = pd.read_csv(output_dir / "release_audit_unsupported.csv")
+    label_rows = pd.read_csv(output_dir / "release_audit_unsupported_labels.csv")
+    assert summary["rows"] == 1
+    assert summary["needs_audit_rows"] == 1
+    assert audit_rows["path_id"].tolist() == ["p0"]
+    assert label_rows["path_id"].tolist() == ["p0"]
 
 
 def test_tuned_m_selection_uses_tune_split_and_writes_protocol() -> None:

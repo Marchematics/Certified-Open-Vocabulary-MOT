@@ -7,6 +7,7 @@ from pathlib import Path
 from .adapters.datasets import fetch_ovtb_from_config, inspect_bdd100k_zip, inspect_dataset_from_config
 from .phase2 import (
     export_release_audit_candidates,
+    run_phase2_propose,
     run_real_certify,
     run_real_coverage_sweep,
     run_real_high_e_diagnostics,
@@ -14,7 +15,14 @@ from .phase2 import (
     sample_audit_candidates,
     summarize_audit,
 )
-from .phase3 import run_idsw_eval, run_ovtb_matrix, run_tpami_report, run_tuned_m_selection
+from .phase3 import (
+    export_matrix_release_audit_candidates,
+    run_cross_generator_report,
+    run_idsw_eval,
+    run_ovtb_matrix,
+    run_tpami_report,
+    run_tuned_m_selection,
+)
 from .reports import build_phase1b_report
 from .smoke import run_smoke
 from .sweeps import run_sweep
@@ -82,6 +90,33 @@ def build_parser() -> argparse.ArgumentParser:
     real_mini = subparsers.add_parser("real-mini", help="Run the Phase-2 minimal real PARC scaffold.")
     real_mini.add_argument("--config", required=True, help="Path to Phase-2 real mini YAML config.")
     real_mini.add_argument("--out", required=True, help="Path for real mini summary JSON.")
+
+    phase2 = subparsers.add_parser("phase2", help="Server-friendly Phase-2 proposal commands.")
+    phase2_subparsers = phase2.add_subparsers(dest="phase2_command", required=True)
+    phase2_propose = phase2_subparsers.add_parser("propose", help="Generate a real candidate universe from config.")
+    phase2_propose.add_argument("--config", required=True, help="Path to Phase-2 proposal YAML config.")
+
+    phase3 = subparsers.add_parser("phase3", help="Server-friendly Phase-3 matrix and audit commands.")
+    phase3_subparsers = phase3.add_subparsers(dest="phase3_command", required=True)
+    phase3_matrix = phase3_subparsers.add_parser("matrix", help="Run alpha/seed/M matrix from config.")
+    phase3_matrix.add_argument("--config", required=True, help="Path to Phase-3 matrix YAML config.")
+    phase3_release_audit = phase3_subparsers.add_parser(
+        "export-release-audit",
+        help="Export matrix released unsupported paths for audit.",
+    )
+    phase3_release_audit.add_argument("--config", required=True, help="Path to Phase-3 matrix YAML config.")
+    phase3_release_audit.add_argument("--out", default=None, help="Combined release-audit CSV path.")
+    phase3_release_audit.add_argument("--labels-out", default=None, help="Label-template CSV path.")
+    phase3_release_audit.add_argument(
+        "--unsupported-only",
+        action="store_true",
+        help="Export only released paths unsupported by official GT and verified positives.",
+    )
+    phase3_cross = phase3_subparsers.add_parser(
+        "cross-generator-report",
+        help="Build GroundingDINO/OWLv2 cross-generator table from matrix CSVs.",
+    )
+    phase3_cross.add_argument("--config", required=True, help="Path to cross-generator report YAML config.")
 
     real = subparsers.add_parser("real", help="Run real-data PARC scaffolds.")
     real_subparsers = real.add_subparsers(dest="real_command", required=True)
@@ -191,6 +226,29 @@ def main(argv: list[str] | None = None) -> None:
     elif args.command == "real-mini":
         summary = run_real_mini(Path(args.config), args.out)
         print(json.dumps(summary, indent=2, ensure_ascii=False))
+    elif args.command == "phase2":
+        if args.phase2_command == "propose":
+            summary = run_phase2_propose(Path(args.config))
+            print(json.dumps(summary, indent=2, ensure_ascii=False))
+        else:
+            parser.error(f"unknown phase2 command: {args.phase2_command}")
+    elif args.command == "phase3":
+        if args.phase3_command == "matrix":
+            summary = run_ovtb_matrix(Path(args.config))
+            print(json.dumps(summary, indent=2, ensure_ascii=False))
+        elif args.phase3_command == "export-release-audit":
+            summary = export_matrix_release_audit_candidates(
+                Path(args.config),
+                unsupported_only=args.unsupported_only,
+                out_csv=args.out,
+                labels_out=args.labels_out,
+            )
+            print(json.dumps(summary, indent=2, ensure_ascii=False))
+        elif args.phase3_command == "cross-generator-report":
+            summary = run_cross_generator_report(Path(args.config))
+            print(json.dumps(summary, indent=2, ensure_ascii=False))
+        else:
+            parser.error(f"unknown phase3 command: {args.phase3_command}")
     elif args.command == "real":
         if args.real_command == "certify":
             summary = run_real_certify(Path(args.config), args.out)

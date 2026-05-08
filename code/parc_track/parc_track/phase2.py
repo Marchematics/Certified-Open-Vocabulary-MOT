@@ -159,6 +159,62 @@ def groundingdino_status(config_path: str | Path) -> dict[str, Any]:
     }
 
 
+def _proposal_backend(cfg: dict[str, Any]) -> str:
+    proposal = cfg.get("proposal", {})
+    backend = str(proposal.get("backend", proposal.get("backbone", "groundingdino_audit_generator"))).strip().lower()
+    aliases = {
+        "groundingdino": "groundingdino",
+        "groundingdino_audit_generator": "groundingdino",
+        "groundingdino_audit": "groundingdino",
+        "owlv2": "owlv2_hf",
+        "owlv2_hf": "owlv2_hf",
+        "owlv2_hf_audit_generator": "owlv2_hf",
+    }
+    if backend not in aliases:
+        raise ValueError(f"unknown proposal backend/backbone: {backend}")
+    return aliases[backend]
+
+
+def owlv2_status(config_path: str | Path) -> dict[str, Any]:
+    cfg = load_yaml(config_path)
+    ow = cfg.get("owlv2", {})
+    model_id = str(ow.get("model", "google/owlv2-base-patch16-ensemble"))
+    device = str(ow.get("device", "cuda:0"))
+    cache_dir = ow.get("cache_dir", "/home/waas/paper_experiments/cache/huggingface")
+    missing_imports = []
+    torch_mod = None
+    for module in ("torch", "transformers", "PIL"):
+        try:
+            imported = __import__(module)
+            if module == "torch":
+                torch_mod = imported
+        except Exception as exc:
+            missing_imports.append(f"{module}:{type(exc).__name__}")
+    cuda_required = device.startswith("cuda")
+    cuda_ready = True
+    cuda_device_count = None
+    if torch_mod is not None:
+        try:
+            cuda_ready = bool(torch_mod.cuda.is_available()) if cuda_required else True
+            cuda_device_count = int(torch_mod.cuda.device_count()) if hasattr(torch_mod, "cuda") else 0
+        except Exception:
+            cuda_ready = False if cuda_required else True
+    elif cuda_required:
+        cuda_ready = False
+    return {
+        "backend": "OWLv2",
+        "model": model_id,
+        "device": device,
+        "cache_dir": str(cache_dir),
+        "import_ready": not missing_imports,
+        "missing_imports": missing_imports,
+        "cuda_required": cuda_required,
+        "cuda_ready": cuda_ready,
+        "cuda_device_count": cuda_device_count,
+        "ready": (not missing_imports) and cuda_ready,
+    }
+
+
 def write_empty_audit_files(
     out_csv: str | Path,
     labels_path: str | Path,
@@ -257,6 +313,101 @@ def _sample_evenly(items: list[dict[str, Any]], count: int) -> list[dict[str, An
 def _xyxy_to_xywh(box: list[float]) -> list[float]:
     x1, y1, x2, y2 = box
     return [float(x1), float(y1), float(max(0.0, x2 - x1)), float(max(0.0, y2 - y1))]
+
+
+def _load_owlv2_detector(cfg: dict[str, Any]) -> dict[str, Any]:
+    import torch
+    from transformers import Owlv2ForObjectDetection, Owlv2Processor
+
+    ow = cfg.get("owlv2", {})
+    model_id = str(ow.get("model", "google/owlv2-base-patch16-ensemble"))
+    device = str(ow.get("device", "cuda:0"))
+    if device.startswith("cuda") and not torch.cuda.is_available():
+        raise RuntimeError(f"OWLv2 requested {device}, but torch.cuda.is_available() is false")
+    cache_dir = ow.get("cache_dir", "/home/waas/paper_experiments/cache/huggingface")
+    local_files_only = bool(ow.get("local_files_only", False))
+    dtype_name = str(ow.get("dtype", "")).strip().lower()
+    dtype = None
+    if dtype_name in {"float16", "fp16"}:
+        dtype = torch.float16
+    elif dtype_name in {"bfloat16", "bf16"}:
+        dtype = torch.bfloat16
+    elif dtype_name in {"float32", "fp32"}:
+        dtype = torch.float32
+
+    processor = Owlv2Processor.from_pretrained(
+        model_id,
+        cache_dir=cache_dir,
+        local_files_only=local_files_only,
+    )
+    model_kwargs = {"cache_dir": cache_dir, "local_files_only": local_files_only}
+    if dtype is not None:
+        model_kwargs["torch_dtype"] = dtype
+    model = Owlv2ForObjectDetection.from_pretrained(model_id, **model_kwargs)
+    model.to(device)
+    model.eval()
+    return {"processor": processor, "model": model, "device": device, "torch": torch, "model_id": model_id}
+
+
+def _predict_owlv2_with_classes(
+    detector: dict[str, Any],
+    image_path: Path,
+    classes: list[str],
+    cfg: dict[str, Any],
+) -> list[dict[str, Any]]:
+    from PIL import Image
+
+    ow = cfg.get("owlv2", {})
+    threshold = float(ow.get("threshold", ow.get("score_threshold", 0.10)))
+    template = str(ow.get("text_template", "a photo of a {query}"))
+    prompts = [template.format(query=value, class_name=value) for value in classes]
+    if not prompts:
+        return []
+    torch = detector["torch"]
+    processor = detector["processor"]
+    model = detector["model"]
+    device = detector["device"]
+    image = Image.open(image_path).convert("RGB")
+    text_labels = [prompts]
+    inputs = processor(text=text_labels, images=image, return_tensors="pt").to(device)
+    with torch.no_grad():
+        outputs = model(**inputs)
+    target_sizes = torch.tensor([(image.height, image.width)], device=device)
+    if hasattr(processor, "post_process_grounded_object_detection"):
+        results = processor.post_process_grounded_object_detection(
+            outputs=outputs,
+            target_sizes=target_sizes,
+            threshold=threshold,
+            text_labels=text_labels,
+        )
+    else:
+        results = processor.post_process_object_detection(
+            outputs=outputs,
+            target_sizes=target_sizes,
+            threshold=threshold,
+        )
+    if not results:
+        return []
+    result = results[0]
+    boxes = result.get("boxes", [])
+    scores = result.get("scores", [])
+    grounded_labels = result.get("text_labels")
+    indexed_labels = result.get("labels")
+    prompt_to_idx = {prompt: idx for idx, prompt in enumerate(prompts)}
+    predictions: list[dict[str, Any]] = []
+    for idx, box in enumerate(boxes):
+        score = float(scores[idx].item() if hasattr(scores[idx], "item") else scores[idx])
+        class_idx = -1
+        if grounded_labels is not None:
+            class_idx = int(prompt_to_idx.get(str(grounded_labels[idx]), -1))
+        elif indexed_labels is not None:
+            label_value = indexed_labels[idx]
+            class_idx = int(label_value.item() if hasattr(label_value, "item") else label_value)
+        if class_idx < 0 or class_idx >= len(classes):
+            continue
+        box_list = box.detach().cpu().tolist() if hasattr(box, "detach") else list(box)
+        predictions.append({"xyxy": [float(value) for value in box_list], "score": score, "class_idx": class_idx})
+    return predictions
 
 
 def _create_montage(path: dict[str, Any], montage_path: Path, frames_per_path: int) -> None:
@@ -466,7 +617,6 @@ def _run_groundingdino_audit(
     viewer_path: str | Path,
 ) -> dict[str, Any]:
     import cv2
-    from groundingdino.util.inference import Model
 
     annotation = _load_annotation(cfg)
     dataset = cfg.get("dataset", {})
@@ -495,8 +645,10 @@ def _run_groundingdino_audit(
     total_samples = int(sampling.get("total_samples", 300))
     top_b_per_cell = int(sampling.get("top_b_per_cell", 10))
     frames_per_path = int(audit_export.get("frames_per_path", 8))
+    make_montages = bool(audit_export.get("make_montages", True))
     montage_dir = Path(audit_export.get("montage_dir", "/home/waas/paper_experiments/audit_viewer/montages"))
     viewer = Path(viewer_path)
+    backend = _proposal_backend(cfg)
 
     categories = {int(cat["id"]): cat["name"].replace("_", " ") for cat in annotation.get("categories", [])}
     images_by_video: dict[int, list[dict[str, Any]]] = defaultdict(list)
@@ -513,12 +665,22 @@ def _run_groundingdino_audit(
         anns_by_image[image_id].append(ann)
         category_counts_by_video[video_id][category_id] += 1
 
-    config_path = _local_groundingdino_config(cfg)
-    model = Model(
-        model_config_path=config_path,
-        model_checkpoint_path=gd_status["weights"],
-        device=gd.get("device", "cuda"),
-    )
+    config_path = ""
+    detector: Any
+    if backend == "groundingdino":
+        from groundingdino.util.inference import Model
+
+        config_path = _local_groundingdino_config(cfg)
+        detector = Model(
+            model_config_path=config_path,
+            model_checkpoint_path=gd_status["weights"],
+            device=gd.get("device", "cuda"),
+        )
+    elif backend == "owlv2_hf":
+        detector = _load_owlv2_detector(cfg)
+        config_path = str(detector["model_id"])
+    else:
+        raise ValueError(f"unsupported proposal backend: {backend}")
 
     detections: list[dict[str, Any]] = []
     all_selected_videos = sorted(images_by_video.keys())[:max_videos]
@@ -551,29 +713,40 @@ def _run_groundingdino_audit(
             bgr = cv2.imread(str(image_path))
             if bgr is None:
                 continue
-            pred = model.predict_with_classes(
-                image=bgr,
-                classes=classes,
-                box_threshold=float(gd.get("box_threshold", 0.30)),
-                text_threshold=float(gd.get("text_threshold", 0.25)),
-            )
-            xyxy = getattr(pred, "xyxy", [])
-            confidence = getattr(pred, "confidence", None)
-            class_ids = getattr(pred, "class_id", None)
-            if confidence is None or class_ids is None:
-                continue
-            order = sorted(range(len(xyxy)), key=lambda idx: float(confidence[idx]), reverse=True)[:max_det_per_frame]
-            for idx in order:
-                raw_class_id = class_ids[idx]
-                if raw_class_id is None:
+            if backend == "groundingdino":
+                pred = detector.predict_with_classes(
+                    image=bgr,
+                    classes=classes,
+                    box_threshold=float(gd.get("box_threshold", 0.30)),
+                    text_threshold=float(gd.get("text_threshold", 0.25)),
+                )
+                xyxy = getattr(pred, "xyxy", [])
+                confidence = getattr(pred, "confidence", None)
+                class_ids = getattr(pred, "class_id", None)
+                if confidence is None or class_ids is None:
                     continue
-                try:
-                    class_idx = int(raw_class_id)
-                except (TypeError, ValueError):
-                    continue
-                if class_idx < 0:
-                    continue
-                if class_idx >= len(top_categories):
+                raw_predictions = []
+                for idx in range(len(xyxy)):
+                    raw_class_id = class_ids[idx]
+                    if raw_class_id is None:
+                        continue
+                    try:
+                        class_idx = int(raw_class_id)
+                    except (TypeError, ValueError):
+                        continue
+                    raw_predictions.append(
+                        {
+                            "xyxy": [float(value) for value in xyxy[idx]],
+                            "score": float(confidence[idx]),
+                            "class_idx": class_idx,
+                        }
+                    )
+            else:
+                raw_predictions = _predict_owlv2_with_classes(detector, image_path, classes, cfg)
+            raw_predictions = sorted(raw_predictions, key=lambda item: float(item["score"]), reverse=True)[:max_det_per_frame]
+            for pred_row in raw_predictions:
+                class_idx = int(pred_row["class_idx"])
+                if class_idx < 0 or class_idx >= len(top_categories):
                     continue
                 category_id = int(top_categories[class_idx])
                 detections.append(
@@ -585,8 +758,8 @@ def _run_groundingdino_audit(
                         "image_path": str(image_path),
                         "category_id": category_id,
                         "query": categories.get(category_id, str(category_id)),
-                        "bbox": _xyxy_to_xywh([float(value) for value in xyxy[idx]]),
-                        "score": float(confidence[idx]),
+                        "bbox": _xyxy_to_xywh([float(value) for value in pred_row["xyxy"]]),
+                        "score": float(pred_row["score"]),
                     }
                 )
 
@@ -645,7 +818,8 @@ def _run_groundingdino_audit(
             continue
         path_id = row["path_id"]
         montage_path = montage_dir / f"{path_id}.jpg"
-        _create_montage(path, montage_path, frames_per_path)
+        if make_montages:
+            _create_montage(path, montage_path, frames_per_path)
         rows.append(
             {
                 "dataset": row["dataset"],
@@ -736,10 +910,12 @@ def _run_groundingdino_audit(
         "status": "completed",
         "reason": "",
         "dataset": dataset_name,
+        "proposal_backend": backend,
         "candidate_csv": str(out),
         "label_template_csv": str(labels),
         "viewer_index": str(index_path),
         "groundingdino": gd_status | {"runtime_config": config_path},
+        "proposal_runtime": gd_status | {"runtime_config": config_path},
         "num_videos_requested": max_videos,
         "num_videos_processed": len(selected_videos),
         "num_videos_selected_before_shard": len(all_selected_videos),
@@ -768,8 +944,13 @@ def sample_audit_candidates(config_path: str | Path, dataset_name: str, out_csv:
     manifest_path = phase2.get("manifest", "/home/waas/paper_experiments/outputs/phase2/audit_manifest.json")
     labels_path = phase2.get("labels", "/home/waas/paper_experiments/outputs/phase2/audit_labels.csv")
     dataset_report = inspect_dataset_from_config(config_path)
-    gd_status = groundingdino_status(config_path)
+    backend = _proposal_backend(cfg)
+    gd_status = owlv2_status(config_path) if backend == "owlv2_hf" else groundingdino_status(config_path)
     if dataset_report.get("status") != "tracking_layout_ok":
+        if backend == "owlv2_hf":
+            raise RuntimeError(
+                f"dataset_not_ready:{dataset_report.get('status')}:{dataset_report.get('reason')}"
+            )
         return write_empty_audit_files(
             out_csv,
             labels_path,
@@ -778,7 +959,9 @@ def sample_audit_candidates(config_path: str | Path, dataset_name: str, out_csv:
             gd_status=gd_status,
             viewer_path=viewer_path,
         )
-    if not gd_status["import_ready"]:
+    if backend == "owlv2_hf" and not gd_status["ready"]:
+        raise RuntimeError(f"owlv2_runtime_not_ready:{json.dumps(gd_status, ensure_ascii=False)}")
+    if backend == "groundingdino" and not gd_status["import_ready"]:
         return write_empty_audit_files(
             out_csv,
             labels_path,
@@ -790,6 +973,8 @@ def sample_audit_candidates(config_path: str | Path, dataset_name: str, out_csv:
     try:
         return _run_groundingdino_audit(cfg, dataset_name, out_csv, labels_path, manifest_path, gd_status, viewer_path)
     except Exception as exc:
+        if backend == "owlv2_hf":
+            raise RuntimeError(f"owlv2_audit_failed:{type(exc).__name__}:{exc}") from exc
         return write_empty_audit_files(
             out_csv,
             labels_path,
@@ -798,6 +983,15 @@ def sample_audit_candidates(config_path: str | Path, dataset_name: str, out_csv:
             gd_status=gd_status,
             viewer_path=viewer_path,
         )
+
+
+def run_phase2_propose(config_path: str | Path) -> dict[str, Any]:
+    cfg = load_yaml(config_path)
+    dataset_name = str(cfg.get("dataset", {}).get("name", "unknown"))
+    out_csv = cfg.get("output", {}).get("candidates")
+    if not out_csv:
+        raise ValueError("phase2 propose requires output.candidates in the config")
+    return sample_audit_candidates(config_path, dataset_name, out_csv)
 
 
 def summarize_audit(candidates_path: str | Path, labels_path: str | Path, out_path: str | Path) -> dict[str, Any]:
