@@ -1,0 +1,72 @@
+dataset:
+  name: TAO
+  root: /home/waas/paper_experiments/data/TAO
+  ann_file: /home/waas/paper_experiments/data/TAO/annotations/trainval.json
+  format_hint: tao
+splits:
+  tune_ratio: 0.1
+  cal_ratio: 0.5
+  test_ratio: 0.4
+  seed: 1
+risk:
+  alpha1: 0.05
+release_grid:
+  times_sec:
+  - 2.0
+  weights: uniform
+calibration:
+  empty_block_policy: coverage_conditional
+  use_verified_positive_for_calibration: true
+e_calibrator:
+  type: power
+  gamma_selection: effective_finite_resolution_tuned
+  gamma_candidates:
+  - 0.1
+  - 0.15
+  - 0.2
+  - 0.25
+  - 0.3
+  - 0.35
+  - 0.5
+selector:
+  type: uniform_scs_greedy
+  candidate_budget_sweep:
+  - 75
+  - 100
+  - 125
+  - 150
+  - 175
+  - 200
+  - 250
+matrix:
+  alpha1:
+  - 0.05
+  - 0.1
+  - 0.2
+  seeds:
+  - 0
+  - 1
+  - 2
+  candidate_budget_M:
+  - 75
+  - 100
+  - 125
+  - 150
+  - 175
+  - 200
+  - 250
+tune_selection:
+  internal_cal_ratio: 0.5
+  fallback_M: 150
+  out: /home/waas/paper_experiments/outputs/phase3_tao_full/tuned_m_selection.csv
+input:
+  candidate_universe: /home/waas/paper_experiments/outputs/phase3_tao_full/candidate_universe.csv
+  audit_labels: /home/waas/paper_experiments/outputs/phase3_tao_full/combined_audit_labels.csv
+output:
+  output_dir: /home/waas/paper_experiments/outputs/phase3_tao_full
+  candidate_nodes: /home/waas/paper_experiments/outputs/phase3_tao_full/candidate_nodes.csv
+  summary: /home/waas/paper_experiments/outputs/phase3_tao_full/real_cert_alpha0p05_seed1.json
+  real_cert_summary: /home/waas/paper_experiments/outputs/phase3_tao_full/real_cert_alpha0p05_seed1.csv
+  candidate_evalues: /home/waas/paper_experiments/outputs/phase3_tao_full/candidate_evalues_alpha0p05_seed1.csv
+  cell_effective_n: /home/waas/paper_experiments/outputs/phase3_tao_full/cell_effective_n_alpha0p05_seed1.csv
+  per_video_candidate_coverage: /home/waas/paper_experiments/outputs/phase3_tao_full/per_video_candidate_coverage_alpha0p05_seed1.csv

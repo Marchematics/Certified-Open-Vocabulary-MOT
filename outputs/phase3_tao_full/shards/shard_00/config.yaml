@@ -1,0 +1,57 @@
+audit_export:
+  clip_dir: /home/waas/paper_experiments/outputs/phase3_tao_full/shards/shard_00/audit_viewer/clips
+  frames_per_path: 8
+  make_montages: true
+  montage_dir: /home/waas/paper_experiments/outputs/phase3_tao_full/shards/shard_00/audit_viewer/montages
+  output_viewer: /home/waas/paper_experiments/outputs/phase3_tao_full/shards/shard_00/audit_viewer
+dataset:
+  ann_file: /home/waas/paper_experiments/data/TAO/annotations/trainval.json
+  format_hint: tao
+  frame_subdir: ''
+  name: TAO
+  root: /home/waas/paper_experiments/data/TAO
+groundingdino:
+  box_threshold: 0.3
+  config: /datasets/ComfyUI/models/grounding-dino/GroundingDINO_SwinT_OGC.cfg.py
+  device: cuda:0
+  local_text_encoder: /home/waas/paper_experiments/cache/huggingface/manual/bert-base-uncased
+  text_threshold: 0.25
+  weights: /datasets/ComfyUI/models/grounding-dino/groundingdino_swint_ogc.pth
+matching:
+  iou_threshold: 0.5
+  temporal_overlap_threshold: 0.3
+  unmatched_only: true
+mondrian:
+  fallback_min_videos: 100
+  use_domain: false
+  use_novelty: true
+  use_occlusion: true
+  use_query_cluster: true
+output:
+  candidate_nodes: /home/waas/paper_experiments/outputs/phase3_tao_full/shards/shard_00/candidate_nodes.csv
+  candidate_scores: /home/waas/paper_experiments/outputs/phase3_tao_full/shards/shard_00/candidate_scores.csv
+  candidate_universe: /home/waas/paper_experiments/outputs/phase3_tao_full/shards/shard_00/candidate_universe.csv
+  candidates: /home/waas/paper_experiments/outputs/phase3_tao_full/shards/shard_00/audit_candidates.csv
+  labels: /home/waas/paper_experiments/outputs/phase3_tao_full/shards/shard_00/audit_labels.csv
+  manifest: /home/waas/paper_experiments/outputs/phase3_tao_full/shards/shard_00/audit_manifest.json
+  summary: /home/waas/paper_experiments/outputs/phase3_tao_full/shards/shard_00/audit_summary.csv
+proposal:
+  backbone: groundingdino_audit_generator
+  cache_dir: /home/waas/paper_experiments/outputs/phase3_tao_full/cache
+  candidate_budget_M: 5000
+  classes_per_video: 3
+  frames_per_video: 8
+  link_iou_threshold: 0.15
+  max_detections_per_frame: 30
+  max_frame_gap: 1000
+  max_paths_per_video: 200
+  max_videos: 2000
+  min_path_length: 2
+  video_stride: 3
+  video_offset: 0
+  progress_every: 25
+sampling:
+  min_score_percentile: 80
+  strategy: stratified_by_mondrian_cell
+  top_b_per_cell: 15
+  total_samples: 500

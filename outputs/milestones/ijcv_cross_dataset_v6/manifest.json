@@ -1,0 +1,40 @@
+{
+  "status": "completed",
+  "created_at": "2026-05-08T13:52:06",
+  "bundle": "/home/waas/paper_experiments/outputs/milestones/ijcv_cross_dataset_v6",
+  "tao_alpha0p10_bestM_released_unsupported_all_covered": true,
+  "tao_alpha0p10_bestM_unlabeled_unsupported_rows": 0,
+  "tao_all_parc_matrix_released_unsupported_all_covered": false,
+  "tao_all_parc_matrix_rows_with_unlabeled_unsupported": 6,
+  "includes_tao_alpha0p20_fixed_M150": true,
+  "protocol_note": "Fixed-M is paper-facing; best-M is diagnostic. TAO alpha=0.10 best-M released unsupported paths are fully audit-covered after supplemental review.",
+  "sources": {
+    "ovtb_matrix": "/home/waas/paper_experiments/outputs/phase3_ovtb_full/ovtb_alpha_seed_m_matrix.csv",
+    "tao_matrix": "/home/waas/paper_experiments/outputs/phase3_tao_full/ovtb_alpha_seed_m_matrix.csv",
+    "tao_labels": "/home/waas/paper_experiments/outputs/phase3_tao_full/audit_labels.csv"
+  },
+  "tables": {
+    "cross_dataset_certification": "/home/waas/paper_experiments/outputs/milestones/ijcv_cross_dataset_v6/table_cross_dataset_certification.csv",
+    "cross_dataset_certification_meanstd": "/home/waas/paper_experiments/outputs/milestones/ijcv_cross_dataset_v6/table_cross_dataset_certification_meanstd.csv",
+    "cross_dataset_audit": "/home/waas/paper_experiments/outputs/milestones/ijcv_cross_dataset_v6/table_cross_dataset_audit.csv",
+    "tao_alpha0p10_bestM_released_unsupported_audit_coverage": "/home/waas/paper_experiments/outputs/milestones/ijcv_cross_dataset_v6/table_tao_alpha0p10_bestM_released_unsupported_audit_coverage.csv",
+    "released_unsupported_audit_coverage_summary": "/home/waas/paper_experiments/outputs/milestones/ijcv_cross_dataset_v6/table_released_unsupported_audit_coverage_summary.csv",
+    "tao_empty_diagnostics": "/home/waas/paper_experiments/outputs/milestones/ijcv_cross_dataset_v6/table_empty_diagnostics_tao.csv",
+    "tao_empty_only_diagnostics": "/home/waas/paper_experiments/outputs/milestones/ijcv_cross_dataset_v6/table_empty_only_diagnostics_tao.csv",
+    "tao_baseline_meanstd": "/home/waas/paper_experiments/outputs/milestones/ijcv_cross_dataset_v6/table_baseline_meanstd_tao.csv"
+  },
+  "hashes": {
+    "table_cross_dataset_certification.csv": "b5fd91772f6af800ab78c297c6517215b35015a2f4c5b292907593decf453d85",
+    "table_cross_dataset_certification_meanstd.csv": "6ff56428e1ea48ffe46561ce610f2131d3f550d25b311bb4d92e5d9b896ae758",
+    "table_cross_dataset_audit.csv": "5029e3f7d1dab7fc5531c7a05b25626ff93e5cf5b7d50bc9c2b727700833c31e",
+    "table_released_unsupported_audit_coverage.csv": "a1b06a3cfdf2bb07079e462468968c1e13006de7b8e7451353872e7f52c363a1",
+    "table_released_unsupported_audit_coverage_summary.csv": "fb4b29733eb810bd1ee45c12096fd9ebb826e4f10dbbb3610d11963e17051ebf",
+    "table_tao_alpha0p10_bestM_released_unsupported_audit_coverage.csv": "720817e96a035f22b65b7ae94bbb9e68b9077cea4516d913b5ca8b74b7c6fee4",
+    "table_empty_diagnostics_tao.csv": "8300556c19d780313c23b7cb9d5c39bf9df174556bc438ad58a9829aa6688edc",
+    "table_empty_only_diagnostics_tao.csv": "de682a9e4c497a464f6b17057bec059cc3d5824fc802d9121693288aac625362",
+    "table_baseline_meanstd_tao.csv": "70dc2c33895679b8d1fb67aee6c364ea707eeb109da1de642e6fce34821eb667",
+    "tao_parc_alpha0p10_bestM_released_unsupported_paths.csv": "ee9303e1135ee001fcd5ef813e2f42b4e04c249739de05a9c2ac2c0b2281dc7c",
+    "tao_parc_alpha0p10_bestM_released_unsupported_unlabeled_paths.csv": "092b572094e28ebefe4c18c21069d752d41d4bd380256abf7c5770ea06436cfe",
+    "README.md": "ffd665d9cd1898b6c2c40ce44e399f819c88a1621441f0bc4053bacb1c640aa6"
+  }
+}

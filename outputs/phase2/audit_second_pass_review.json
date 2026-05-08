@@ -1,0 +1,28 @@
+{
+  "status": "completed",
+  "reviewer": "codex_visual_audit_v2_second_pass",
+  "scope": "all first-pass actually_true rows reviewed via positive review sheets; non-positive labels retained unless previously reviewed as non-positive",
+  "old_label_counts": {
+    "uncertain": 75,
+    "actually_true": 119,
+    "actually_false": 52
+  },
+  "new_label_counts": {
+    "uncertain": 83,
+    "actually_true": 110,
+    "actually_false": 53
+  },
+  "verified_positive_for_calibration": 101,
+  "revised_indices": [
+    54,
+    55,
+    100,
+    108,
+    131,
+    132,
+    140,
+    173,
+    233
+  ],
+  "positive_review_sheets_dir": "/home/waas/paper_experiments/outputs/phase2/audit_positive_review_sheets"
+}

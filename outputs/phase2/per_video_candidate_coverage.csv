@@ -1,0 +1,9 @@
+video_id,split,num_detections,num_paths,num_unmatched_paths,num_verified_positive_paths,num_null_paths,has_null_block
+1,cal,0,1,1,1,0,False
+2,cal,0,1,1,0,1,True
+3,cal,0,1,1,0,1,True
+4,cal,0,1,1,0,1,True
+5,cal,0,1,1,0,1,True
+6,cal,0,1,1,0,1,True
+7,cal,0,1,1,0,1,True
+8,cal,0,1,1,0,1,True

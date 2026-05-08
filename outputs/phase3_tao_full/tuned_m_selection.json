@@ -1,0 +1,24 @@
+{
+  "status": "completed",
+  "tuned_m_selection_csv": "/home/waas/paper_experiments/outputs/phase3_tao_full/tuned_m_selection.csv",
+  "rows": 72,
+  "alphas": [
+    0.05,
+    0.1,
+    0.2
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "budgets": [
+    75,
+    100,
+    125,
+    150,
+    175,
+    200,
+    250
+  ]
+}

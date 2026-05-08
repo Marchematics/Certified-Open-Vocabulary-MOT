@@ -1,0 +1,4 @@
+method,method_id,candidate_budget_M,released,official_supported,unsupported,utr,unsupported_actually_true,unsupported_actually_false,unsupported_uncertain,unsupported_unlabeled,audited_ftr_supported_plus_labeled,conservative_ftr_uncertain_and_unlabeled_false,self_consistency_margin,selected_e_min,tau_k,empty_diagnostic
+unmatched-as-false block,unmatched_as_false_block,150,0,0,0,0.0,0,0,0,0,,0.0,,,,resolution_below_required_emax
+null-superset no audit,null_superset_no_audit,150,126,116,10,0.0793650793650793,9,0,1,0,0.0,0.007936507936507936,0.3799031636804688,12.284665068442372,11.904761904761903,
+PARC full,parc_track_gamma_tuned_uniform_scs,150,126,116,10,0.0793650793650793,9,0,1,0,0.0,0.007936507936507936,0.006637713462112,11.911399618224015,11.904761904761903,

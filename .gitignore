@@ -1,0 +1,38 @@
+# Python/cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# Local environments and credentials
+.venv/
+.env
+.config/
+.netrc
+*token*
+*secret*
+
+# Raw data, model weights, and caches are intentionally not versioned
+data/
+cache/
+tmp/
+tools/
+third_party/
+*.pth
+*.pt
+*.safetensors
+*.ckpt
+*.whl
+*.zip
+*.tar.gz
+*.tgz
+
+# Logs/runtime state
+*.log
+*.pid
+wandb/
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/

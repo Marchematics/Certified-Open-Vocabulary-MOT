@@ -1,0 +1,60 @@
+dataset:
+  name: OVT-B
+  root: /home/waas/paper_experiments/data/OVT-B
+  ann_file: /home/waas/paper_experiments/data/OVT-B/ovtb_ann.json
+  format_hint: tao_or_coco_video
+
+proposal:
+  backbone: groundingdino_audit_generator
+  max_videos: 1000
+  frames_per_video: 8
+  classes_per_video: 3
+  max_paths_per_video: 200
+  candidate_budget_M: 5000
+  min_path_length: 2
+  link_iou_threshold: 0.15
+  max_frame_gap: 1000
+  max_detections_per_frame: 30
+  cache_dir: /home/waas/paper_experiments/outputs/phase2_1000/cache
+
+groundingdino:
+  config: /datasets/ComfyUI/models/grounding-dino/GroundingDINO_SwinT_OGC.cfg.py
+  weights: /datasets/ComfyUI/models/grounding-dino/groundingdino_swint_ogc.pth
+  local_text_encoder: /home/waas/paper_experiments/cache/huggingface/manual/bert-base-uncased
+  device: cuda
+  text_threshold: 0.25
+  box_threshold: 0.30
+
+matching:
+  iou_threshold: 0.5
+  temporal_overlap_threshold: 0.3
+  unmatched_only: true
+
+sampling:
+  strategy: stratified_by_mondrian_cell
+  total_samples: 300
+  top_b_per_cell: 10
+  min_score_percentile: 80
+
+mondrian:
+  use_novelty: true
+  use_query_cluster: true
+  use_occlusion: true
+  use_domain: false
+  fallback_min_videos: 100
+
+audit_export:
+  make_montages: true
+  frames_per_path: 8
+  output_viewer: /home/waas/paper_experiments/outputs/phase2_1000/audit_viewer
+  montage_dir: /home/waas/paper_experiments/outputs/phase2_1000/audit_viewer/montages
+  clip_dir: /home/waas/paper_experiments/outputs/phase2_1000/audit_viewer/clips
+
+output:
+  candidates: /home/waas/paper_experiments/outputs/phase2_1000/audit_candidates.csv
+  labels: /home/waas/paper_experiments/outputs/phase2/audit_labels.csv
+  manifest: /home/waas/paper_experiments/outputs/phase2_1000/audit_manifest.json
+  summary: /home/waas/paper_experiments/outputs/phase2_1000/audit_summary.csv
+  candidate_universe: /home/waas/paper_experiments/outputs/phase2_1000/candidate_universe.csv
+  candidate_scores: /home/waas/paper_experiments/outputs/phase2_1000/candidate_scores.csv
+  candidate_nodes: /home/waas/paper_experiments/outputs/phase2_1000/candidate_nodes.csv

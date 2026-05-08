@@ -1,0 +1,29 @@
+{
+  "dataset_name": "OVT-B",
+  "dataset_root": "/home/waas/paper_experiments/data/OVT-B",
+  "status": "already_present",
+  "present_expected_files": [
+    "OVT-B",
+    "ovtb_ann.json",
+    "ovtb_classname.py",
+    "OVTB-format.txt",
+    "ovtb_classes.txt",
+    "ovtb_class_prompt.pt"
+  ],
+  "present_expected_groups": {
+    "frames": "OVT-B",
+    "annotation": "ovtb_ann.json",
+    "classname": "ovtb_classname.py",
+    "format": "OVTB-format.txt",
+    "classes": "ovtb_classes.txt",
+    "prompt": "ovtb_class_prompt.pt"
+  },
+  "missing_expected_files": [],
+  "attempted_urls": {
+    "google_drive": "https://drive.google.com/drive/folders/1Qfmb6tEF92I2k84NgrkjEbOKnFlsrTVZ?usp=drive_link",
+    "baidu": "https://pan.baidu.com/s/1hy44z_om609jIhXjRxXCug?pwd=8yy3"
+  },
+  "download_attempt": null,
+  "reason": "All expected files are present.",
+  "expected_manual_destination": "/home/waas/paper_experiments/data/OVT-B"
+}

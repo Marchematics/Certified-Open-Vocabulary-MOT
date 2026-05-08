@@ -1,0 +1,21 @@
+{
+  "status": "completed_full_universe_scaffold",
+  "dataset": "TAO",
+  "candidate_universe": "/home/waas/paper_experiments/outputs/phase3_tao_full/candidate_universe.csv",
+  "candidate_universe_rows": 13342,
+  "processed_videos": 1417,
+  "test_candidates": 5348,
+  "calibration_candidates": 6687,
+  "cell_effective_n": {
+    "cell_effective_n_csv": "/home/waas/paper_experiments/outputs/phase3_tao_full/cell_effective_n_alpha0p1_seed1.csv",
+    "rows": 1,
+    "dataset_status": "tracking_layout_ok"
+  },
+  "per_video_candidate_coverage": {
+    "per_video_candidate_coverage_csv": "/home/waas/paper_experiments/outputs/phase3_tao_full/per_video_candidate_coverage_alpha0p1_seed1.csv",
+    "rows": 1417
+  },
+  "real_cert_summary_csv": "/home/waas/paper_experiments/outputs/phase3_tao_full/real_cert_alpha0p1_seed1.csv",
+  "candidate_evalues_csv": "/home/waas/paper_experiments/outputs/phase3_tao_full/candidate_evalues_alpha0p1_seed1.csv",
+  "rows": 21
+}

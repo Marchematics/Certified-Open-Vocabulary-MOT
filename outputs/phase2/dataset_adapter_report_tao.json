@@ -1,0 +1,18 @@
+{
+  "dataset_name": "TAO",
+  "dataset_root": "/home/waas/paper_experiments/data/TAO",
+  "ann_file": "/home/waas/paper_experiments/data/TAO/annotations/train.json",
+  "status": "missing_files",
+  "reason": "ann_file_missing:/home/waas/paper_experiments/data/TAO/annotations/train.json",
+  "has_video_frames": false,
+  "has_tracking_annotations": false,
+  "has_track_ids": false,
+  "has_category_labels": false,
+  "has_frame_indices": false,
+  "has_video_ids": false,
+  "annotation_format": "tao",
+  "annotation_mode": "partial_or_unknown",
+  "errors": [
+    "ann_file_missing:/home/waas/paper_experiments/data/TAO/annotations/train.json"
+  ]
+}

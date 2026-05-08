@@ -1,0 +1,41 @@
+seed: 20260507
+M: 128
+alpha1: 0.10
+alpha2: 1.0
+gamma: 0.5
+release_grid: [0.5, 1, 2, 4, 8]
+release_weights: [0.2, 0.2, 0.2, 0.2, 0.2]
+min_cal_blocks: 10
+output_dir: /home/waas/paper_experiments/outputs/smoke
+bdd100k_zip: /datasets/MoGuiMianJu/dataset_bdd100k.zip
+alpha1_grid: [0.05, 0.10, 0.20]
+sweeps:
+  quick_seed_count: 5
+  paper_seed_count: 50
+  quick_tune_videos: 0
+  quick_test_videos: 8
+selector:
+  lambda_plus: 0.85
+  lambda_minus: 0.85
+synthetic:
+  # The formal paper default is 20/60/40. For the alpha=0.10 smoke, the
+  # finite p-value resolution of f_gamma(p)=0.5/sqrt(p) needs more calibration
+  # videos to produce non-empty self-consistent discoveries under the 5-point
+  # release-grid correction.
+  split:
+    tune: 20
+    cal: 2400
+    test: 40
+  true_rate: 0.96
+  verified_positive_rate: 0.985
+  cal_verified_positive_rate: 1.0
+  test_verified_positive_rate: 0.985
+  false_quota_per_cell: 1
+  false_score_shift: 0.0
+  video_cluster_noise: 0.15
+  false_track_correlation: 0.0
+  rank_candidates_by_utility: false
+  conflict_rate: 0.01
+  bad_safe_edge_rate: 0.01
+  sensor_gap_rate: 0.2
+  minutes_per_video: 0.5

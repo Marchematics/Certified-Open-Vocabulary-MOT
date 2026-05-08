@@ -1,0 +1,13 @@
+dataset:
+  name: TAO
+  root: /home/waas/paper_experiments/data/TAO
+  ann_file: /home/waas/paper_experiments/data/TAO/annotations/trainval.json
+  format_hint: tao
+  require:
+    video_frames: true
+    track_ids: true
+    category_labels: true
+    frame_indices: true
+
+output:
+  report: /home/waas/paper_experiments/outputs/phase3_tao_full/dataset_adapter_report_tao_trainval.json

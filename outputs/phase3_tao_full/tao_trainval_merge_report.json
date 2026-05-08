@@ -1,0 +1,29 @@
+{
+  "status": "completed",
+  "out": "/home/waas/paper_experiments/data/TAO/annotations/trainval.json",
+  "train": {
+    "videos": 500,
+    "images": 18274,
+    "annotations": 54639,
+    "tracks": 2647
+  },
+  "validation": {
+    "videos": 988,
+    "images": 36375,
+    "annotations": 113112,
+    "tracks": 5485
+  },
+  "merged": {
+    "videos": 1488,
+    "images": 54649,
+    "annotations": 167751,
+    "tracks": 8132,
+    "categories": 1230
+  },
+  "offsets": {
+    "video_offset": 2988,
+    "image_offset": 109979,
+    "annotation_offset": 407528,
+    "track_offset": 17616
+  }
+}
