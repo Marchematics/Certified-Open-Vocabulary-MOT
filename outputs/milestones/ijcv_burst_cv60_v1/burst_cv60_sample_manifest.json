@@ -1,0 +1,42 @@
+{
+  "counts": {
+    "by_audit_source": {
+      "high_score_unmatched": 49,
+      "released_unsupported": 11
+    },
+    "by_query_segment": {
+      "head": 31,
+      "mid": 18,
+      "tail": 11
+    },
+    "by_reference_label": {
+      "actually_false": 6,
+      "actually_true": 36,
+      "uncertain": 18
+    },
+    "total": 60,
+    "unique_queries": 34,
+    "verified_positive_reference": 36
+  },
+  "created_utc": "2026-05-09T18:25:10.820721+00:00",
+  "dataset": "BURST",
+  "hashes": {
+    "burst_cv60_blind_labels_template.csv": "86f2475daed22ed8c633aa296fe25c9cf6a383eec7c4ddbd5632840d67218f39",
+    "burst_cv60_candidates_blind.csv": "c7ce4cb28e25c06476dcb396d32da8b3df6c3f995ee5664653576b5185da923a",
+    "burst_cv60_reference_labels.csv": "060426ab6cfde4e9bd1ff86bdca088c32fe2f8daacab29f9ae155400c74de5ec",
+    "index.html": "58fa238235d57b765f8399d0b7f75f88b3cb45c1b544fac72ddad253483d3a24"
+  },
+  "integrity_note": "Reference labels are model-assisted first-pass labels and are not independent second-rater labels.",
+  "outputs": {
+    "blind_candidates": "/home/waas/paper_experiments/outputs/phase7_burst_cv60/burst_cv60_candidates_blind.csv",
+    "blind_label_template": "/home/waas/paper_experiments/outputs/phase7_burst_cv60/burst_cv60_blind_labels_template.csv",
+    "index_html": "/home/waas/paper_experiments/outputs/phase7_burst_cv60/index.html",
+    "reference_labels": "/home/waas/paper_experiments/outputs/phase7_burst_cv60/burst_cv60_reference_labels.csv"
+  },
+  "random_seed": 7,
+  "sample_size": 60,
+  "sampling_protocol": "include all released-unsupported audit200 paths, include all actually_false paths, stratified sample uncertain paths, fill remaining actually_true paths by query-segment strata",
+  "source_candidates": "/home/waas/paper_experiments/outputs/phase7_burst/burst_audit200_with_release_coverage_candidates.csv",
+  "source_labels": "/home/waas/paper_experiments/outputs/phase7_burst/burst_audit200_with_release_coverage_labels.csv",
+  "status": "requires_independent_cross_validation_labels"
+}
