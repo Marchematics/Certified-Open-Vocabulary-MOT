@@ -35,6 +35,15 @@ def _safe_name(value: Any) -> str:
     return str(value).replace("/", "_").replace(" ", "_").replace(".", "p")
 
 
+def _dataset_slug(cfg: dict[str, Any]) -> str:
+    name = str(cfg.get("dataset", {}).get("name", "ovtb")).strip().lower()
+    if "tao" in name:
+        return "tao"
+    if "ovt" in name or "ovtb" in name:
+        return "ovtb"
+    return "".join(ch if ch.isalnum() else "_" for ch in name).strip("_") or "dataset"
+
+
 def _write_yaml(path: Path, data: dict[str, Any]) -> Path:
     out = ensure_data_output(path)
     with out.open("w", encoding="utf-8") as handle:
@@ -257,8 +266,12 @@ def run_ovtb_matrix(config_path: str | Path) -> dict[str, Any]:
             rows.append(pd.concat([cert, extra], ignore_index=True, sort=False))
 
     combined = pd.concat(rows, ignore_index=True, sort=False) if rows else pd.DataFrame()
-    matrix_csv = ensure_data_output(output_dir / "ovtb_alpha_seed_m_matrix.csv")
+    dataset_slug = _dataset_slug(cfg)
+    matrix_csv = ensure_data_output(output_dir / f"{dataset_slug}_alpha_seed_m_matrix.csv")
     combined.to_csv(matrix_csv, index=False)
+    legacy_matrix_csv = output_dir / "ovtb_alpha_seed_m_matrix.csv"
+    if dataset_slug != "ovtb":
+        combined.to_csv(ensure_data_output(legacy_matrix_csv), index=False)
 
     baseline_csv = ensure_data_output(output_dir / "table_baseline_expanded.csv")
     combined.to_csv(baseline_csv, index=False)

@@ -1,0 +1,1 @@
+Audited FTR is an empirical diagnostic on the supported-plus-audited released subset. It is not a verified upper bound on actual FTR. The formal certificate is the self-consistent e-value guarantee; conservative and worst-case FTR columns are reported to make the audit coverage assumptions explicit.

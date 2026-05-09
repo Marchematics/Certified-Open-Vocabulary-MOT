@@ -23,6 +23,25 @@ from .phase3 import (
     run_tpami_report,
     run_tuned_m_selection,
 )
+from .phase4 import (
+    run_alpha_frontier,
+    run_failure_manifest,
+    run_confidence_calibration_baselines,
+    run_ijcv_stability_bundle,
+    run_mondrian_ablation,
+    run_mot_metrics,
+    run_ncalib_sensitivity,
+    run_owlv2_top_audit_sample,
+    run_per_class_breakdown,
+    run_phase4_sprint,
+    run_prop5_validation,
+    run_runtime_report,
+    run_score_ablation,
+    run_second_rater_sample,
+)
+from .phase5_trackeval import run_trackeval_grid, run_trackeval_motchallenge
+from .phase6_metric_scope import run_metric_scope_report
+from .phase7 import inspect_third_dataset, run_anytime_demo, run_burst_milestone, run_stability_v2
 from .reports import build_phase1b_report
 from .smoke import run_smoke
 from .sweeps import run_sweep
@@ -182,6 +201,63 @@ def build_parser() -> argparse.ArgumentParser:
     )
     tpami = report_subparsers.add_parser("tpami-core", help="Freeze TPAMI-core tables, LaTeX exports, and summary docs.")
     tpami.add_argument("--config", required=True, help="Path to Phase-3 paper export YAML config.")
+
+    phase4 = subparsers.add_parser("phase4", help="Run IJCV sprint experiments and diagnostics.")
+    phase4_subparsers = phase4.add_subparsers(dest="phase4_command", required=True)
+    for name in (
+        "sprint",
+        "prop5",
+        "score-ablation",
+        "owlv2-top-audit",
+        "alpha-frontier",
+        "ncalib-sensitivity",
+        "runtime",
+        "per-class",
+        "second-rater",
+        "failure-cases",
+        "confidence-calibration",
+        "mondrian-ablation",
+        "ijcv-stability",
+        "motmetrics",
+    ):
+        sub = phase4_subparsers.add_parser(name, help=f"Run Phase-4 {name}.")
+        sub.add_argument("--output-dir", default=None, help="Output directory under /home/waas/paper_experiments.")
+
+    trackeval_cmd = subparsers.add_parser("trackeval", help="Export MOTChallenge format and run TrackEval.")
+    trackeval_subparsers = trackeval_cmd.add_subparsers(dest="trackeval_command", required=True)
+    trackeval_one = trackeval_subparsers.add_parser("run", help="Run one TrackEval MOTChallenge export/eval.")
+    trackeval_one.add_argument("--dataset", default="OVT-B", choices=("OVT-B", "TAO"))
+    trackeval_one.add_argument("--generator", default="GroundingDINO")
+    trackeval_one.add_argument("--alpha", type=float, default=0.10)
+    trackeval_one.add_argument("--seed", type=int, default=0)
+    trackeval_one.add_argument("--budget", type=int, default=150)
+    trackeval_one.add_argument("--scope", choices=("standard", "supported", "release_size"), default="standard")
+    trackeval_one.add_argument("--output-dir", default=None)
+    trackeval_grid = trackeval_subparsers.add_parser("grid", help="Run the OVT-B TrackEval grid.")
+    trackeval_grid.add_argument("--dataset", default="OVT-B", choices=("OVT-B", "TAO"))
+    trackeval_grid.add_argument("--scope", choices=("standard", "supported", "release_size"), default="standard")
+    trackeval_grid.add_argument("--output-dir", default=None)
+    phase6 = subparsers.add_parser("phase6", help="Run IJCV metric-scope and controllability reports.")
+    phase6_subparsers = phase6.add_subparsers(dest="phase6_command", required=True)
+    phase6_metric = phase6_subparsers.add_parser("metric-scope", help="Run Phase-6 metric-scope report bundle.")
+    phase6_metric.add_argument("--output-dir", default=None, help="Output directory under /home/waas/paper_experiments.")
+    phase7 = subparsers.add_parser("phase7", help="Run Phase-7 stability and third-dataset diagnostics.")
+    phase7_subparsers = phase7.add_subparsers(dest="phase7_command", required=True)
+    phase7_anytime = phase7_subparsers.add_parser("anytime", help="Run OVT-B anytime-valid release diagnostic.")
+    phase7_anytime.add_argument("--output-dir", default=None, help="Output directory under /home/waas/paper_experiments.")
+    phase7_third = phase7_subparsers.add_parser("third-dataset", help="Inspect third dataset readiness.")
+    third_subparsers = phase7_third.add_subparsers(dest="third_dataset_command", required=True)
+    third_inspect = third_subparsers.add_parser("inspect", help="Inspect BURST/LV-VIS third dataset layout.")
+    third_inspect.add_argument("--dataset", default="BURST", choices=("BURST", "LV-VIS", "LVVIS"))
+    third_inspect.add_argument("--root", default=None, help="Optional dataset root override.")
+    third_inspect.add_argument("--ann-file", default=None, help="Optional annotation JSON override.")
+    third_inspect.add_argument("--output-dir", default=None, help="Output directory under /home/waas/paper_experiments.")
+    phase7_stability = phase7_subparsers.add_parser("stability-v2", help="Freeze IJCV stability v2 bundle.")
+    phase7_stability.add_argument("--output-dir", default=None, help="Output directory under /home/waas/paper_experiments.")
+    phase7_burst = phase7_subparsers.add_parser("burst-freeze", help="Freeze BURST v1 scaffold outputs.")
+    phase7_burst.add_argument("--output-dir", default=None, help="Milestone output directory under /home/waas/paper_experiments.")
+    phase7_burst.add_argument("--source-dir", default=None, help="BURST phase output directory.")
+    phase7_burst.add_argument("--third-dataset-dir", default=None, help="Third-dataset adapter output directory.")
     return parser
 
 
@@ -290,6 +366,84 @@ def main(argv: list[str] | None = None) -> None:
             print(json.dumps(summary, indent=2, ensure_ascii=False))
         else:
             parser.error(f"unknown report: {args.report_name}")
+    elif args.command == "phase4":
+        if args.phase4_command == "sprint":
+            summary = run_phase4_sprint(args.output_dir)
+        elif args.phase4_command == "prop5":
+            summary = run_prop5_validation(args.output_dir)
+        elif args.phase4_command == "score-ablation":
+            summary = run_score_ablation(args.output_dir)
+        elif args.phase4_command == "owlv2-top-audit":
+            summary = run_owlv2_top_audit_sample(args.output_dir)
+        elif args.phase4_command == "alpha-frontier":
+            summary = run_alpha_frontier(args.output_dir)
+        elif args.phase4_command == "ncalib-sensitivity":
+            summary = run_ncalib_sensitivity(args.output_dir)
+        elif args.phase4_command == "runtime":
+            summary = run_runtime_report(args.output_dir)
+        elif args.phase4_command == "per-class":
+            summary = run_per_class_breakdown(args.output_dir)
+        elif args.phase4_command == "second-rater":
+            summary = run_second_rater_sample(args.output_dir)
+        elif args.phase4_command == "failure-cases":
+            summary = run_failure_manifest(args.output_dir)
+        elif args.phase4_command == "confidence-calibration":
+            summary = run_confidence_calibration_baselines(args.output_dir)
+        elif args.phase4_command == "mondrian-ablation":
+            summary = run_mondrian_ablation(args.output_dir)
+        elif args.phase4_command == "ijcv-stability":
+            summary = run_ijcv_stability_bundle(args.output_dir)
+        elif args.phase4_command == "motmetrics":
+            summary = run_mot_metrics(args.output_dir)
+        else:
+            parser.error(f"unknown phase4 command: {args.phase4_command}")
+        print(json.dumps(summary, indent=2, ensure_ascii=False))
+    elif args.command == "trackeval":
+        if args.trackeval_command == "run":
+            summary = run_trackeval_motchallenge(
+                dataset=args.dataset,
+                generator=args.generator,
+                alpha=args.alpha,
+                seed=args.seed,
+                budget=args.budget,
+                out_dir=args.output_dir,
+                scope=args.scope,
+            )
+        elif args.trackeval_command == "grid":
+            summary = run_trackeval_grid(args.output_dir, dataset=args.dataset, scope=args.scope)
+        else:
+            parser.error(f"unknown trackeval command: {args.trackeval_command}")
+        print(json.dumps(summary, indent=2, ensure_ascii=False))
+    elif args.command == "phase6":
+        if args.phase6_command == "metric-scope":
+            summary = run_metric_scope_report(args.output_dir)
+        else:
+            parser.error(f"unknown phase6 command: {args.phase6_command}")
+        print(json.dumps(summary, indent=2, ensure_ascii=False))
+    elif args.command == "phase7":
+        if args.phase7_command == "anytime":
+            summary = run_anytime_demo(args.output_dir)
+        elif args.phase7_command == "third-dataset":
+            if args.third_dataset_command == "inspect":
+                summary = inspect_third_dataset(
+                    dataset=args.dataset,
+                    out_dir=args.output_dir,
+                    root=args.root,
+                    ann_file=args.ann_file,
+                )
+            else:
+                parser.error(f"unknown phase7 third-dataset command: {args.third_dataset_command}")
+        elif args.phase7_command == "stability-v2":
+            summary = run_stability_v2(args.output_dir)
+        elif args.phase7_command == "burst-freeze":
+            summary = run_burst_milestone(
+                output_dir=args.output_dir,
+                source_dir=args.source_dir,
+                third_dataset_dir=args.third_dataset_dir,
+            )
+        else:
+            parser.error(f"unknown phase7 command: {args.phase7_command}")
+        print(json.dumps(summary, indent=2, ensure_ascii=False))
     else:
         parser.error(f"unknown command: {args.command}")
 

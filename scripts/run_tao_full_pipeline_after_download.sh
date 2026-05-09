@@ -4,7 +4,7 @@ set -euo pipefail
 cd /home/waas/paper_experiments
 source /home/waas/paper_experiments/env.sh
 
-status_file="/home/waas/paper_experiments/outputs/phase3_tao/tao_hf_trainval.json"
+status_file="/home/waas/paper_experiments/outputs/phase3_tao/tao_hf_extract_watcher_status.json"
 log_file="/home/waas/paper_experiments/outputs/phase3_tao_full/logs/tao_full_pipeline.log"
 mkdir -p "$(dirname "$log_file")"
 
@@ -14,7 +14,7 @@ while true; do
     status="$(
       /home/waas/paper_experiments/.venv/bin/python - <<'PY'
 import json
-p='/home/waas/paper_experiments/outputs/phase3_tao/tao_hf_trainval.json'
+p='/home/waas/paper_experiments/outputs/phase3_tao/tao_hf_extract_watcher_status.json'
 try:
     print(json.load(open(p)).get('status',''))
 except Exception:

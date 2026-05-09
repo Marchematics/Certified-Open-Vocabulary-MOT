@@ -1,0 +1,6 @@
+dataset,generator,alpha1,candidate_budget_M,released_mean,released_std,utr_mean,utr_std,conservative_ftr_uncertain_and_unlabeled_false_mean,conservative_ftr_uncertain_and_unlabeled_false_std,audited_ftr_on_labeled_released_mean,audited_ftr_on_labeled_released_std,best_mass_ratio_mean,best_mass_ratio_std,self_consistency_margin_mean,self_consistency_margin_std
+TAO,GroundingDINO,0.1,150,0.0,0.0,0.0,0.0,,,,,0.8495096192931962,0.06844390103766065,,
+TAO,GroundingDINO,0.1,300,0.0,0.0,0.0,0.0,,,,,0.4247548096465981,0.03422195051883033,,
+TAO,GroundingDINO,0.1,500,0.0,0.0,0.0,0.0,,,,,0.2548528857879589,0.020533170311298237,,
+TAO,GroundingDINO,0.1,1000,0.0,0.0,0.0,0.0,,,,,0.12742644289397945,0.010266585155649119,,
+TAO,GroundingDINO,0.1,2000,0.0,0.0,0.0,0.0,,,,,0.06371322144698972,0.005133292577824559,,

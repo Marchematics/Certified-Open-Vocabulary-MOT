@@ -42,11 +42,11 @@ def main() -> int:
     parser.add_argument("--pid-file", default=str(DATA_ROOT / "outputs" / "phase3_tao" / "tao_hf_trainval_download.pid"))
     parser.add_argument(
         "--download-manifest",
-        default=str(DATA_ROOT / "outputs" / "phase3_tao" / "tao_hf_trainval.json"),
+        default=str(DATA_ROOT / "outputs" / "phase3_tao" / "tao_hf_trainval_download_manifest.json"),
     )
     parser.add_argument(
         "--status",
-        default=str(DATA_ROOT / "outputs" / "phase3_tao" / "tao_hf_trainval.json"),
+        default=str(DATA_ROOT / "outputs" / "phase3_tao" / "tao_hf_extract_watcher_status.json"),
     )
     parser.add_argument("--poll-sec", type=int, default=60)
     args = parser.parse_args()
@@ -102,7 +102,7 @@ def main() -> int:
             "--zip-root",
             str(DATA_ROOT / "data" / "TAO" / "frames"),
             "--manifest",
-            str(DATA_ROOT / "outputs" / "phase3_tao" / "tao_hf_trainval.json"),
+            str(DATA_ROOT / "outputs" / "phase3_tao" / "tao_hf_trainval_extract_manifest.json"),
             "--clean-partial",
         ],
         [

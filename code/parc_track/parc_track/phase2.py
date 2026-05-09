@@ -169,6 +169,10 @@ def _proposal_backend(cfg: dict[str, Any]) -> str:
         "owlv2": "owlv2_hf",
         "owlv2_hf": "owlv2_hf",
         "owlv2_hf_audit_generator": "owlv2_hf",
+        "owlvit": "owlvit_hf",
+        "owlvit_hf": "owlvit_hf",
+        "owlvit_v1": "owlvit_hf",
+        "owlvit_hf_audit_generator": "owlvit_hf",
     }
     if backend not in aliases:
         raise ValueError(f"unknown proposal backend/backbone: {backend}")
@@ -212,6 +216,54 @@ def owlv2_status(config_path: str | Path) -> dict[str, Any]:
         "cuda_ready": cuda_ready,
         "cuda_device_count": cuda_device_count,
         "ready": (not missing_imports) and cuda_ready,
+    }
+
+
+def owlvit_status(config_path: str | Path) -> dict[str, Any]:
+    cfg = load_yaml(config_path)
+    ow = cfg.get("owlvit", {})
+    model_id = str(ow.get("model", "google/owlvit-base-patch32"))
+    device = str(ow.get("device", "cuda:0"))
+    cache_dir = ow.get("cache_dir", "/home/waas/paper_experiments/cache/huggingface")
+    missing_imports = []
+    torch_mod = None
+    for module in ("torch", "transformers", "PIL"):
+        try:
+            imported = __import__(module)
+            if module == "torch":
+                torch_mod = imported
+        except Exception as exc:
+            missing_imports.append(f"{module}:{type(exc).__name__}")
+    class_ready = True
+    if not missing_imports:
+        try:
+            from transformers import OwlViTForObjectDetection, OwlViTProcessor  # noqa: F401
+        except Exception as exc:
+            class_ready = False
+            missing_imports.append(f"transformers.OwlViT:{type(exc).__name__}")
+    cuda_required = device.startswith("cuda")
+    cuda_ready = True
+    cuda_device_count = None
+    if torch_mod is not None:
+        try:
+            cuda_ready = bool(torch_mod.cuda.is_available()) if cuda_required else True
+            cuda_device_count = int(torch_mod.cuda.device_count()) if hasattr(torch_mod, "cuda") else 0
+        except Exception:
+            cuda_ready = False if cuda_required else True
+    elif cuda_required:
+        cuda_ready = False
+    return {
+        "backend": "OWL-ViT",
+        "model": model_id,
+        "device": device,
+        "cache_dir": str(cache_dir),
+        "import_ready": not missing_imports,
+        "class_ready": class_ready,
+        "missing_imports": missing_imports,
+        "cuda_required": cuda_required,
+        "cuda_ready": cuda_ready,
+        "cuda_device_count": cuda_device_count,
+        "ready": (not missing_imports) and cuda_ready and class_ready,
     }
 
 
@@ -349,6 +401,40 @@ def _load_owlv2_detector(cfg: dict[str, Any]) -> dict[str, Any]:
     return {"processor": processor, "model": model, "device": device, "torch": torch, "model_id": model_id}
 
 
+def _load_owlvit_detector(cfg: dict[str, Any]) -> dict[str, Any]:
+    import torch
+    from transformers import OwlViTForObjectDetection, OwlViTProcessor
+
+    ow = cfg.get("owlvit", {})
+    model_id = str(ow.get("model", "google/owlvit-base-patch32"))
+    device = str(ow.get("device", "cuda:0"))
+    if device.startswith("cuda") and not torch.cuda.is_available():
+        raise RuntimeError(f"OWL-ViT requested {device}, but torch.cuda.is_available() is false")
+    cache_dir = ow.get("cache_dir", "/home/waas/paper_experiments/cache/huggingface")
+    local_files_only = bool(ow.get("local_files_only", False))
+    dtype_name = str(ow.get("dtype", "")).strip().lower()
+    dtype = None
+    if dtype_name in {"float16", "fp16"}:
+        dtype = torch.float16
+    elif dtype_name in {"bfloat16", "bf16"}:
+        dtype = torch.bfloat16
+    elif dtype_name in {"float32", "fp32"}:
+        dtype = torch.float32
+
+    processor = OwlViTProcessor.from_pretrained(
+        model_id,
+        cache_dir=cache_dir,
+        local_files_only=local_files_only,
+    )
+    model_kwargs = {"cache_dir": cache_dir, "local_files_only": local_files_only}
+    if dtype is not None:
+        model_kwargs["torch_dtype"] = dtype
+    model = OwlViTForObjectDetection.from_pretrained(model_id, **model_kwargs)
+    model.to(device)
+    model.eval()
+    return {"processor": processor, "model": model, "device": device, "torch": torch, "model_id": model_id}
+
+
 def _predict_owlv2_with_classes(
     detector: dict[str, Any],
     image_path: Path,
@@ -403,6 +489,52 @@ def _predict_owlv2_with_classes(
         elif indexed_labels is not None:
             label_value = indexed_labels[idx]
             class_idx = int(label_value.item() if hasattr(label_value, "item") else label_value)
+        if class_idx < 0 or class_idx >= len(classes):
+            continue
+        box_list = box.detach().cpu().tolist() if hasattr(box, "detach") else list(box)
+        predictions.append({"xyxy": [float(value) for value in box_list], "score": score, "class_idx": class_idx})
+    return predictions
+
+
+def _predict_owlvit_with_classes(
+    detector: dict[str, Any],
+    image_path: Path,
+    classes: list[str],
+    cfg: dict[str, Any],
+) -> list[dict[str, Any]]:
+    from PIL import Image
+
+    ow = cfg.get("owlvit", {})
+    threshold = float(ow.get("threshold", ow.get("score_threshold", 0.10)))
+    template = str(ow.get("text_template", "a photo of a {query}"))
+    prompts = [template.format(query=value, class_name=value) for value in classes]
+    if not prompts:
+        return []
+    torch = detector["torch"]
+    processor = detector["processor"]
+    model = detector["model"]
+    device = detector["device"]
+    image = Image.open(image_path).convert("RGB")
+    inputs = processor(text=[prompts], images=image, return_tensors="pt").to(device)
+    with torch.no_grad():
+        outputs = model(**inputs)
+    target_sizes = torch.tensor([(image.height, image.width)], device=device)
+    results = processor.post_process_object_detection(
+        outputs=outputs,
+        target_sizes=target_sizes,
+        threshold=threshold,
+    )
+    if not results:
+        return []
+    result = results[0]
+    boxes = result.get("boxes", [])
+    scores = result.get("scores", [])
+    indexed_labels = result.get("labels", [])
+    predictions: list[dict[str, Any]] = []
+    for idx, box in enumerate(boxes):
+        score = float(scores[idx].item() if hasattr(scores[idx], "item") else scores[idx])
+        label_value = indexed_labels[idx]
+        class_idx = int(label_value.item() if hasattr(label_value, "item") else label_value)
         if class_idx < 0 or class_idx >= len(classes):
             continue
         box_list = box.detach().cpu().tolist() if hasattr(box, "detach") else list(box)
@@ -679,6 +811,9 @@ def _run_groundingdino_audit(
     elif backend == "owlv2_hf":
         detector = _load_owlv2_detector(cfg)
         config_path = str(detector["model_id"])
+    elif backend == "owlvit_hf":
+        detector = _load_owlvit_detector(cfg)
+        config_path = str(detector["model_id"])
     else:
         raise ValueError(f"unsupported proposal backend: {backend}")
 
@@ -741,8 +876,12 @@ def _run_groundingdino_audit(
                             "class_idx": class_idx,
                         }
                     )
-            else:
+            elif backend == "owlv2_hf":
                 raw_predictions = _predict_owlv2_with_classes(detector, image_path, classes, cfg)
+            elif backend == "owlvit_hf":
+                raw_predictions = _predict_owlvit_with_classes(detector, image_path, classes, cfg)
+            else:
+                raise ValueError(f"unsupported proposal backend: {backend}")
             raw_predictions = sorted(raw_predictions, key=lambda item: float(item["score"]), reverse=True)[:max_det_per_frame]
             for pred_row in raw_predictions:
                 class_idx = int(pred_row["class_idx"])
@@ -945,9 +1084,14 @@ def sample_audit_candidates(config_path: str | Path, dataset_name: str, out_csv:
     labels_path = phase2.get("labels", "/home/waas/paper_experiments/outputs/phase2/audit_labels.csv")
     dataset_report = inspect_dataset_from_config(config_path)
     backend = _proposal_backend(cfg)
-    gd_status = owlv2_status(config_path) if backend == "owlv2_hf" else groundingdino_status(config_path)
+    if backend == "owlv2_hf":
+        gd_status = owlv2_status(config_path)
+    elif backend == "owlvit_hf":
+        gd_status = owlvit_status(config_path)
+    else:
+        gd_status = groundingdino_status(config_path)
     if dataset_report.get("status") != "tracking_layout_ok":
-        if backend == "owlv2_hf":
+        if backend in {"owlv2_hf", "owlvit_hf"}:
             raise RuntimeError(
                 f"dataset_not_ready:{dataset_report.get('status')}:{dataset_report.get('reason')}"
             )
@@ -961,6 +1105,8 @@ def sample_audit_candidates(config_path: str | Path, dataset_name: str, out_csv:
         )
     if backend == "owlv2_hf" and not gd_status["ready"]:
         raise RuntimeError(f"owlv2_runtime_not_ready:{json.dumps(gd_status, ensure_ascii=False)}")
+    if backend == "owlvit_hf" and not gd_status["ready"]:
+        raise RuntimeError(f"owlvit_runtime_not_ready:{json.dumps(gd_status, ensure_ascii=False)}")
     if backend == "groundingdino" and not gd_status["import_ready"]:
         return write_empty_audit_files(
             out_csv,
@@ -975,6 +1121,8 @@ def sample_audit_candidates(config_path: str | Path, dataset_name: str, out_csv:
     except Exception as exc:
         if backend == "owlv2_hf":
             raise RuntimeError(f"owlv2_audit_failed:{type(exc).__name__}:{exc}") from exc
+        if backend == "owlvit_hf":
+            raise RuntimeError(f"owlvit_audit_failed:{type(exc).__name__}:{exc}") from exc
         return write_empty_audit_files(
             out_csv,
             labels_path,
@@ -1009,6 +1157,25 @@ def summarize_audit(candidates_path: str | Path, labels_path: str | Path, out_pa
         labels = labels.copy()
         labels["label"] = labels["label"].fillna("").astype(str).str.strip()
         labeled = labels[labels["label"].isin(valid_labels)].copy()
+    extra_labeled = 0
+    if not labeled.empty and not candidates.empty and {"dataset", "video_id", "path_id"}.issubset(candidates.columns) and {"dataset", "video_id", "path_id"}.issubset(labeled.columns):
+        candidate_keys = set(
+            zip(
+                candidates["dataset"].astype(str),
+                candidates["video_id"].astype(str),
+                candidates["path_id"].astype(str),
+            )
+        )
+        label_keys = list(
+            zip(
+                labeled["dataset"].astype(str),
+                labeled["video_id"].astype(str),
+                labeled["path_id"].astype(str),
+            )
+        )
+        in_candidate = pd.Series([key in candidate_keys for key in label_keys], index=labeled.index)
+        extra_labeled = int((~in_candidate).sum())
+        labeled = labeled[in_candidate].copy()
     total = int(len(labeled))
     true_count = int((labeled["label"] == "actually_true").sum()) if total else 0
     false_count = int((labeled["label"] == "actually_false").sum()) if total else 0
@@ -1024,6 +1191,7 @@ def summarize_audit(candidates_path: str | Path, labels_path: str | Path, out_pa
                 "Dataset": dataset,
                 "High-score unmatched": int(len(candidates)),
                 "Labeled": total,
+                "Extra labels outside audit candidates": extra_labeled,
                 "Pending": max(0, int(len(candidates)) - total),
                 "Actually true": true_count,
                 "Actually false": false_count,

@@ -305,6 +305,16 @@ def inspect_dataset_from_config(config_path: str | Path, out_path: str | Path | 
             ann_file=dataset.get("ann_file", "/home/waas/paper_experiments/data/TAO/annotations/train.json"),
             annotation_format=dataset.get("format_hint", "tao"),
         )
+    elif name in {"burst", "lv-vis", "lvvis", "lv_vis"}:
+        report = inspect_coco_video_dataset(
+            dataset_name=dataset.get("name", "BURST"),
+            dataset_root=dataset.get("root", "/home/waas/paper_experiments/data/BURST"),
+            ann_file=dataset.get(
+                "ann_file",
+                "/home/waas/paper_experiments/outputs/phase7_third_dataset/burst_val_box_annotations.json",
+            ),
+            annotation_format=dataset.get("format_hint", "coco_video_or_tracking_json"),
+        )
     elif name in {"bdd100k", "bdd100k-mot"}:
         report = inspect_bdd100k_mot_layout(dataset.get("root", "/home/waas/paper_experiments/data/BDD100K"))
     else:

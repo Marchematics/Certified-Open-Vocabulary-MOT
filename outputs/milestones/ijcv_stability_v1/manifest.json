@@ -1,0 +1,128 @@
+{
+  "status": "ijcv_stability_v1",
+  "contains_raw_data": false,
+  "contains_model_weights": false,
+  "contains_hf_cache": false,
+  "second_rater_status": "requires_independent_second_rater",
+  "second_rater_labeled": 0,
+  "statistical_confidence_status": "completed",
+  "main_results_protocol": "fixed_M150_with_tune_fallback_and_best_M_diagnostic_separated",
+  "idsw_status": "appendix_extension_not_full_certificate",
+  "files": [
+    {
+      "file": "second_rater_sample.csv",
+      "sha256": "a2517b8b86389f0beb0ee95eaf69690f2dfac69e9f849ad2d9314b092eb60eb0",
+      "bytes": 16292
+    },
+    {
+      "file": "second_rater_labels_template.csv",
+      "sha256": "cb6337c6b229980cbd1a15a369d309e8e07b4181a60aa233f9070223d33df111",
+      "bytes": 5084
+    },
+    {
+      "file": "second_rater_agreement.csv",
+      "sha256": "793aa6fa13731f8752ce9d4fd40115320f3700363c526b325e239eea42224092",
+      "bytes": 518
+    },
+    {
+      "file": "second_rater_disagreements.csv",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "bytes": 1
+    },
+    {
+      "file": "table_main_bootstrap_ci.csv",
+      "sha256": "ed74365b3780ce427ad9a4115af7a8360ca9b5e46cc3a6cf09d7eb629690e526",
+      "bytes": 5102
+    },
+    {
+      "file": "table_worst_case_cons_ftr.csv",
+      "sha256": "6262c4c56bc267b79831f09b959573adbc6cbb515a7dba5373686478d939a7de",
+      "bytes": 2380
+    },
+    {
+      "file": "audited_ftr_caveat.md",
+      "sha256": "aaefbef9b5adf484a78cf8eeeeccfc7e0da51a92f6ed37a26a70163f37f89b21",
+      "bytes": 301
+    },
+    {
+      "file": "table_mondrian_ablation_summary.csv",
+      "sha256": "ff94f151f8aaeec84d18fadd6a19571e0638cba8c86d793cb7c46f8e30ecee15",
+      "bytes": 2034
+    },
+    {
+      "file": "table_mondrian_ablation.csv",
+      "sha256": "331bb26af7a26ecde4bbeade69f9a07314787fa671ff446c06c2693250b7d817",
+      "bytes": 7380
+    },
+    {
+      "file": "table_per_class_breakdown.csv",
+      "sha256": "07c14c928114fab6e9888d77cc7c98900752d46892b05d59d9257106c9ec5a58",
+      "bytes": 26193
+    },
+    {
+      "file": "table_runtime_report.csv",
+      "sha256": "4c836b2ad31ab0a393d5fc13e543f08639cdb46cee1c45c2ad1feab3a971eacf",
+      "bytes": 690
+    },
+    {
+      "file": "table_prop5_three_generator.csv",
+      "sha256": "54492072016178898d13212483d5557002bf29cf324bf52f5392e937befed5ef",
+      "bytes": 1664
+    },
+    {
+      "file": "prop5_three_generator_by_seed.csv",
+      "sha256": "ef87716d60ce44586efb74aba2f88e8a4865dd501f4182cf89cc3e391450c464",
+      "bytes": 3814
+    },
+    {
+      "file": "table_hota_scope_meanstd.csv",
+      "sha256": "9a4ec4790b6b98139109334934105acfc1bd99dcbcf7b5850de807b77dfa3e0b",
+      "bytes": 4946
+    },
+    {
+      "file": "table_alpha_controllability_meanstd.csv",
+      "sha256": "0e936ec36ba967a698e237ff450f9f7723629a41cda034b037e6570cd19551eb",
+      "bytes": 4646
+    },
+    {
+      "file": "table_tao_m_scaling_meanstd.csv",
+      "sha256": "788c50143cf707c6e816deced00e07cbfb853afd126e6f0261ce29263d38387f",
+      "bytes": 804
+    },
+    {
+      "file": "table_size_matched_baseline_meanstd.csv",
+      "sha256": "dd4fcf48ba337378a590d1d8435663abdad2291cef9befe44d7759c5b5ff916c",
+      "bytes": 1268
+    },
+    {
+      "file": "parc_track_formal_spec.md",
+      "sha256": "a9b2b8dd5abb6d934daff8dcf90c96398def5c684b5ad8905d2df82556ac22c5",
+      "bytes": 48139
+    },
+    {
+      "file": "second_rater/second_rater_agreement.csv",
+      "sha256": "793aa6fa13731f8752ce9d4fd40115320f3700363c526b325e239eea42224092",
+      "bytes": 518
+    },
+    {
+      "file": "second_rater/second_rater_disagreements.csv",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "bytes": 1
+    },
+    {
+      "file": "statistical_confidence/table_main_bootstrap_ci.csv",
+      "sha256": "ed74365b3780ce427ad9a4115af7a8360ca9b5e46cc3a6cf09d7eb629690e526",
+      "bytes": 5102
+    },
+    {
+      "file": "statistical_confidence/table_worst_case_cons_ftr.csv",
+      "sha256": "6262c4c56bc267b79831f09b959573adbc6cbb515a7dba5373686478d939a7de",
+      "bytes": 2380
+    },
+    {
+      "file": "statistical_confidence/audited_ftr_caveat.md",
+      "sha256": "aaefbef9b5adf484a78cf8eeeeccfc7e0da51a92f6ed37a26a70163f37f89b21",
+      "bytes": 301
+    }
+  ]
+}

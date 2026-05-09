@@ -38,7 +38,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--token-file", default="")
     parser.add_argument("--local-dir", default="/home/waas/paper_experiments/data/TAO")
-    parser.add_argument("--manifest", default="/home/waas/paper_experiments/outputs/phase3_tao/tao_hf_trainval.json")
+    parser.add_argument("--manifest", default="/home/waas/paper_experiments/outputs/phase3_tao/tao_hf_trainval_download_manifest.json")
     args = parser.parse_args()
 
     token = ""

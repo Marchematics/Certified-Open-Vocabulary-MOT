@@ -11,8 +11,8 @@ import zipfile
 
 DATA_ROOT = Path("/home/waas/paper_experiments")
 DEFAULT_LOCAL_DIR = DATA_ROOT / "data" / "TAO"
-DEFAULT_DOWNLOAD_MANIFEST = DATA_ROOT / "outputs" / "phase3_tao" / "tao_hf_trainval.json"
-DEFAULT_EXTRACT_MANIFEST = DATA_ROOT / "outputs" / "phase3_tao" / "tao_hf_trainval.json"
+DEFAULT_DOWNLOAD_MANIFEST = DATA_ROOT / "outputs" / "phase3_tao" / "tao_hf_trainval_download_manifest.json"
+DEFAULT_EXTRACT_MANIFEST = DATA_ROOT / "outputs" / "phase3_tao" / "tao_hf_trainval_extract_manifest.json"
 
 
 def _is_under_workspace(path: Path) -> bool:

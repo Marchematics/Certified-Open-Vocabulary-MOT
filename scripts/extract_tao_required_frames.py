@@ -70,7 +70,7 @@ def main() -> int:
     parser.add_argument("--zip-root", default=str(DATA_ROOT / "data" / "TAO" / "frames"))
     parser.add_argument(
         "--manifest",
-        default=str(DATA_ROOT / "outputs" / "phase3_tao" / "tao_hf_trainval.json"),
+        default=str(DATA_ROOT / "outputs" / "phase3_tao" / "tao_hf_trainval_extract_manifest.json"),
     )
     parser.add_argument("--clean-partial", action="store_true")
     args = parser.parse_args()

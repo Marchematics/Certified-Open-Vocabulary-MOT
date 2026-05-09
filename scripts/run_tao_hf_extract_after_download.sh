@@ -20,8 +20,8 @@ fi
 /home/waas/paper_experiments/.venv/bin/python \
   /home/waas/paper_experiments/scripts/extract_tao_hf_trainval.py \
   --local-dir /home/waas/paper_experiments/data/TAO \
-  --download-manifest /home/waas/paper_experiments/outputs/phase3_tao/tao_hf_trainval.json \
-  --extract-manifest /home/waas/paper_experiments/outputs/phase3_tao/tao_hf_trainval.json \
+  --download-manifest /home/waas/paper_experiments/outputs/phase3_tao/tao_hf_trainval_download_manifest.json \
+  --extract-manifest /home/waas/paper_experiments/outputs/phase3_tao/tao_hf_trainval_extract_manifest.json \
   >> "$extract_log" 2>&1
 
 /home/waas/paper_experiments/.venv/bin/python -m parc_track.cli dataset inspect \

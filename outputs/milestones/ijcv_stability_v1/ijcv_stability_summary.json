@@ -1,0 +1,29 @@
+{
+  "status": "completed",
+  "output_dir": "/home/waas/paper_experiments/outputs/milestones/ijcv_stability_v1",
+  "manifest": "/home/waas/paper_experiments/outputs/milestones/ijcv_stability_v1/manifest.json",
+  "package": "/home/waas/paper_experiments/outputs/packages/ijcv_stability_v1.tar.gz",
+  "package_sha256": "95844cf93924a9bf058150276baf14fda25dceb6603f8328857342f3c0047802",
+  "second_rater": {
+    "status": "requires_independent_second_rater",
+    "source": "/home/waas/paper_experiments/outputs/phase4_second_rater/second_rater_labels_template.csv",
+    "n_sample": 100,
+    "n_second_rater_labeled": 0,
+    "label_agreement": null,
+    "cohen_kappa_label": null,
+    "verified_positive_agreement": null,
+    "cohen_kappa_verified_positive": null,
+    "n_disagreements": 0,
+    "disagreements": "/home/waas/paper_experiments/outputs/phase4_second_rater/second_rater_disagreements.csv",
+    "note": "Second-rater agreement is only an independent audit statistic when second_rater_label is filled by a separate annotator."
+  },
+  "statistical_confidence": {
+    "status": "completed",
+    "source": "/home/waas/paper_experiments/outputs/milestones/ijcv_cross_dataset_v6/table_cross_dataset_certification.csv",
+    "bootstrap_ci": "/home/waas/paper_experiments/outputs/phase4_statistical_confidence/table_main_bootstrap_ci.csv",
+    "worst_case_ftr": "/home/waas/paper_experiments/outputs/phase4_statistical_confidence/table_worst_case_cons_ftr.csv",
+    "caveat": "/home/waas/paper_experiments/outputs/phase4_statistical_confidence/audited_ftr_caveat.md",
+    "rows": 18
+  },
+  "copied_files": 26
+}

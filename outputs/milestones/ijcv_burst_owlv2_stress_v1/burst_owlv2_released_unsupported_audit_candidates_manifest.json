@@ -1,0 +1,106 @@
+{
+  "status": "completed",
+  "config": "configs/phase7_burst_owlv2_matrix.yaml",
+  "method": "parc_track_gamma_tuned_uniform_scs",
+  "candidate_budget_M": 150,
+  "alphas": [
+    0.1,
+    0.2
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "unsupported_only": true,
+  "release_audit_csv": "/home/waas/paper_experiments/outputs/phase7_burst_owlv2/burst_owlv2_released_unsupported_audit_candidates.csv",
+  "label_template_csv": "/home/waas/paper_experiments/outputs/phase7_burst_owlv2/burst_owlv2_released_unsupported_audit_labels.csv",
+  "rows": 0,
+  "needs_audit_rows": 0,
+  "runs": [
+    {
+      "alpha1": 0.1,
+      "seed": 0,
+      "status": "completed",
+      "method": "parc_track_gamma_tuned_uniform_scs",
+      "candidate_budget_M": 150,
+      "released_total": 0,
+      "exported_rows": 0,
+      "needs_audit_rows": 0,
+      "unsupported_only": true,
+      "tau_k": null,
+      "self_consistency_margin": null,
+      "candidate_evalues": "/home/waas/paper_experiments/outputs/phase7_burst_owlv2/candidate_evalues_alpha0p1_seed0.csv"
+    },
+    {
+      "alpha1": 0.1,
+      "seed": 1,
+      "status": "completed",
+      "method": "parc_track_gamma_tuned_uniform_scs",
+      "candidate_budget_M": 150,
+      "released_total": 0,
+      "exported_rows": 0,
+      "needs_audit_rows": 0,
+      "unsupported_only": true,
+      "tau_k": null,
+      "self_consistency_margin": null,
+      "candidate_evalues": "/home/waas/paper_experiments/outputs/phase7_burst_owlv2/candidate_evalues_alpha0p1_seed1.csv"
+    },
+    {
+      "alpha1": 0.1,
+      "seed": 2,
+      "status": "completed",
+      "method": "parc_track_gamma_tuned_uniform_scs",
+      "candidate_budget_M": 150,
+      "released_total": 0,
+      "exported_rows": 0,
+      "needs_audit_rows": 0,
+      "unsupported_only": true,
+      "tau_k": null,
+      "self_consistency_margin": null,
+      "candidate_evalues": "/home/waas/paper_experiments/outputs/phase7_burst_owlv2/candidate_evalues_alpha0p1_seed2.csv"
+    },
+    {
+      "alpha1": 0.2,
+      "seed": 0,
+      "status": "completed",
+      "method": "parc_track_gamma_tuned_uniform_scs",
+      "candidate_budget_M": 150,
+      "released_total": 0,
+      "exported_rows": 0,
+      "needs_audit_rows": 0,
+      "unsupported_only": true,
+      "tau_k": null,
+      "self_consistency_margin": null,
+      "candidate_evalues": "/home/waas/paper_experiments/outputs/phase7_burst_owlv2/candidate_evalues_alpha0p2_seed0.csv"
+    },
+    {
+      "alpha1": 0.2,
+      "seed": 1,
+      "status": "completed",
+      "method": "parc_track_gamma_tuned_uniform_scs",
+      "candidate_budget_M": 150,
+      "released_total": 0,
+      "exported_rows": 0,
+      "needs_audit_rows": 0,
+      "unsupported_only": true,
+      "tau_k": null,
+      "self_consistency_margin": null,
+      "candidate_evalues": "/home/waas/paper_experiments/outputs/phase7_burst_owlv2/candidate_evalues_alpha0p2_seed1.csv"
+    },
+    {
+      "alpha1": 0.2,
+      "seed": 2,
+      "status": "completed",
+      "method": "parc_track_gamma_tuned_uniform_scs",
+      "candidate_budget_M": 150,
+      "released_total": 0,
+      "exported_rows": 0,
+      "needs_audit_rows": 0,
+      "unsupported_only": true,
+      "tau_k": null,
+      "self_consistency_margin": null,
+      "candidate_evalues": "/home/waas/paper_experiments/outputs/phase7_burst_owlv2/candidate_evalues_alpha0p2_seed2.csv"
+    }
+  ]
+}

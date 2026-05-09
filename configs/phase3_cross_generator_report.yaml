@@ -7,10 +7,10 @@ generators:
     matrix_csv: /home/waas/paper_experiments/outputs/phase3_ovtb_owlv2/ovtb_alpha_seed_m_matrix.csv
   - dataset: TAO
     generator: GroundingDINO
-    matrix_csv: /home/waas/paper_experiments/outputs/phase3_tao_full/ovtb_alpha_seed_m_matrix.csv
+    matrix_csv: /home/waas/paper_experiments/outputs/phase3_tao_full/tao_alpha_seed_m_matrix.csv
   - dataset: TAO
     generator: OWLv2
-    matrix_csv: /home/waas/paper_experiments/outputs/phase3_tao_owlv2/ovtb_alpha_seed_m_matrix.csv
+    matrix_csv: /home/waas/paper_experiments/outputs/phase3_tao_owlv2/tao_alpha_seed_m_matrix.csv
 
 reporting:
   fixed_M: 150
