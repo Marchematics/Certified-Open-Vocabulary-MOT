@@ -39,6 +39,7 @@ from .phase4 import (
     run_score_ablation,
     run_second_rater_sample,
 )
+from .ovtrack_adapter import convert_ovtrack_predictions, inspect_ovtrack_public_outputs, write_ovtrack_matrix_config
 from .phase5_trackeval import run_trackeval_grid, run_trackeval_motchallenge
 from .phase6_metric_scope import run_metric_scope_report
 from .phase7 import inspect_third_dataset, run_anytime_demo, run_burst_milestone, run_stability_v2
@@ -258,6 +259,38 @@ def build_parser() -> argparse.ArgumentParser:
     phase7_burst.add_argument("--output-dir", default=None, help="Milestone output directory under /home/waas/paper_experiments.")
     phase7_burst.add_argument("--source-dir", default=None, help="BURST phase output directory.")
     phase7_burst.add_argument("--third-dataset-dir", default=None, help="Third-dataset adapter output directory.")
+    phase7_ovtrack_probe = phase7_subparsers.add_parser(
+        "ovtrack-public-report",
+        help="Check local OVTrack/OVT-B/TETA repos for public prediction files.",
+    )
+    phase7_ovtrack_probe.add_argument("--output-dir", default=None, help="Output directory under /home/waas/paper_experiments.")
+    phase7_ovtrack_convert = phase7_subparsers.add_parser(
+        "ovtrack-convert",
+        help="Convert TAO/TETA COCO-VID OVTrack predictions to PARC candidate schema.",
+    )
+    phase7_ovtrack_convert.add_argument("--pred", required=True, help="OVTrack prediction JSON.")
+    phase7_ovtrack_convert.add_argument(
+        "--ann",
+        default="/home/waas/paper_experiments/data/OVT-B/ovtb_ann.json",
+        help="OVT-B/TAO-format annotation JSON.",
+    )
+    phase7_ovtrack_convert.add_argument(
+        "--out-dir",
+        default="/home/waas/paper_experiments/outputs/phase7_ovtrack_ovtb",
+        help="Output directory for candidate_universe/scores/nodes.",
+    )
+    phase7_ovtrack_convert.add_argument("--dataset", default="OVT-B", help="Dataset name to write into candidate_universe.")
+    phase7_ovtrack_convert.add_argument(
+        "--dataset-root",
+        default="/home/waas/paper_experiments/data/OVT-B",
+        help="Dataset root used to resolve relative frame paths.",
+    )
+    phase7_ovtrack_convert.add_argument("--frame-subdir", default="OVT-B", help="Frame subdirectory below dataset root.")
+    phase7_ovtrack_convert.add_argument(
+        "--config-out",
+        default="/home/waas/paper_experiments/configs/phase7_ovtrack_ovtb_matrix.yaml",
+        help="Matrix config path to write after conversion.",
+    )
     return parser
 
 
@@ -441,6 +474,19 @@ def main(argv: list[str] | None = None) -> None:
                 source_dir=args.source_dir,
                 third_dataset_dir=args.third_dataset_dir,
             )
+        elif args.phase7_command == "ovtrack-public-report":
+            summary = inspect_ovtrack_public_outputs(args.output_dir)
+        elif args.phase7_command == "ovtrack-convert":
+            summary = convert_ovtrack_predictions(
+                pred_path=args.pred,
+                ann_file=args.ann,
+                out_dir=args.out_dir,
+                dataset_name=args.dataset,
+                dataset_root=args.dataset_root,
+                frame_subdir=args.frame_subdir,
+            )
+            config_summary = write_ovtrack_matrix_config(args.out_dir, args.config_out, ann_file=args.ann)
+            summary["matrix_config"] = config_summary["config"]
         else:
             parser.error(f"unknown phase7 command: {args.phase7_command}")
         print(json.dumps(summary, indent=2, ensure_ascii=False))
