@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import hashlib
+import pickle
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
@@ -19,10 +21,59 @@ from .phase2 import (
 
 DATA_ROOT = Path("/home/waas/paper_experiments")
 
+PUBLISHED_TRACKERS: dict[str, dict[str, Any]] = {
+    "ovtrack": {
+        "display_name": "OVTrack",
+        "repo": "https://github.com/SysCV/ovtrack",
+        "score_source": "ovtrack_public_prediction",
+    },
+    "ovtb_baseline": {
+        "display_name": "OVT-B baseline",
+        "repo": "https://github.com/Coo1Sea/OVT-B-Dataset",
+        "score_source": "ovtb_baseline_public_prediction",
+    },
+    "ovtr": {
+        "display_name": "OVTR",
+        "repo": "https://github.com/jinyanglii/OVTR",
+        "score_source": "ovtr_public_prediction",
+    },
+}
+
+PUBLISHED_DATASETS: dict[str, dict[str, Any]] = {
+    "ovtb": {
+        "display_name": "OVT-B",
+        "root": DATA_ROOT / "data/OVT-B",
+        "ann_file": DATA_ROOT / "data/OVT-B/ovtb_ann.json",
+        "frame_subdir": "OVT-B",
+        "format_hint": "tao_or_coco_video",
+    },
+    "tao": {
+        "display_name": "TAO",
+        "root": DATA_ROOT / "data/TAO",
+        "ann_file": DATA_ROOT / "data/TAO/annotations/trainval.json",
+        "frame_subdir": "",
+        "format_hint": "tao",
+    },
+}
+
 
 def _load_json(path: Path) -> Any:
     with path.open("r", encoding="utf-8") as handle:
         return json.load(handle)
+
+
+def _safe_slug(value: Any) -> str:
+    return "".join(ch.lower() if ch.isalnum() else "_" for ch in str(value)).strip("_") or "tracker"
+
+
+def _sha256_file(path: Path) -> str | None:
+    if not path.exists() or not path.is_file():
+        return None
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def _prediction_rows(data: Any) -> list[dict[str, Any]]:
@@ -41,6 +92,24 @@ def _prediction_rows(data: Any) -> list[dict[str, Any]]:
     return [dict(row) for row in rows if isinstance(row, dict)]
 
 
+def _prediction_rows_from_file(path: Path) -> tuple[list[dict[str, Any]], str]:
+    suffix = path.suffix.lower()
+    if suffix == ".json":
+        return _prediction_rows(_load_json(path)), "TAO/TETA COCO-VID JSON"
+    if suffix in {".pkl", ".pickle"}:
+        with path.open("rb") as handle:
+            data = pickle.load(handle)
+        try:
+            rows = _prediction_rows(data)
+        except Exception as exc:
+            raise ValueError(
+                "unsupported MMTracking PKL object; expected a list of COCO-VID rows "
+                "or a dict containing annotations/predictions/results/detections"
+            ) from exc
+        return rows, "PKL containing TAO/TETA COCO-VID rows"
+    raise ValueError("unsupported prediction format; expected .json, .pkl, or .pickle")
+
+
 def _frame_path(root: Path, frame_subdir: str, file_name: str) -> str:
     path = Path(file_name)
     if path.is_absolute():
@@ -53,11 +122,18 @@ def _as_bool(value: Any) -> bool:
     return str(value).strip().lower() in {"true", "1", "yes", "y"}
 
 
-def _empty_report(out_dir: Path, status: str, reason: str, extra: dict[str, Any] | None = None) -> dict[str, Any]:
+def _empty_report(
+    out_dir: Path,
+    status: str,
+    reason: str,
+    extra: dict[str, Any] | None = None,
+    *,
+    report_name: str = "ovtrack_conversion_report.json",
+) -> dict[str, Any]:
     report = {"status": status, "reason": reason}
     if extra:
         report.update(extra)
-    write_json(ensure_data_output(out_dir / "ovtrack_conversion_report.json"), report)
+    write_json(ensure_data_output(out_dir / report_name), report)
     return report
 
 
@@ -111,24 +187,57 @@ def convert_ovtrack_predictions(
     frame_subdir: str = "OVT-B",
     iou_threshold: float = 0.5,
     temporal_overlap_threshold: float = 0.3,
+    tracker_name: str = "ovtrack",
+    tracker_display_name: str | None = None,
+    report_filename: str = "ovtrack_conversion_report.json",
 ) -> dict[str, Any]:
-    """Convert TAO/TETA-style OVTrack predictions into PARC candidate files."""
+    """Convert TAO/TETA-style tracker predictions into PARC candidate files.
+
+    The historical name is kept for backward compatibility with existing OVTrack
+    scripts.  ``tracker_name`` makes the converter usable for OVTrack, the
+    OVT-B author baseline, OVTR, and future published tracker outputs that can
+    be represented as COCO-VID rows.
+    """
     pred_path = Path(pred_path)
     ann_file = Path(ann_file)
     out_dir = ensure_data_output(out_dir)
+    tracker_slug = _safe_slug(tracker_name)
+    tracker_spec = PUBLISHED_TRACKERS.get(tracker_slug, {})
+    tracker_display = tracker_display_name or tracker_spec.get("display_name", tracker_name)
+    prediction_hash = _sha256_file(pred_path)
     if not pred_path.exists():
-        return _empty_report(out_dir, "requires_ovtrack_prediction_file", f"prediction file missing: {pred_path}")
-    if pred_path.suffix.lower() != ".json":
+        return _empty_report(
+            out_dir,
+            "requires_prediction_file",
+            f"prediction file missing: {pred_path}",
+            {"tracker_name": tracker_slug, "tracker_display_name": tracker_display},
+            report_name=report_filename,
+        )
+    try:
+        pred_rows, format_name = _prediction_rows_from_file(pred_path)
+    except Exception as exc:
         return _empty_report(
             out_dir,
             "unsupported_prediction_format",
-            "Only TAO/TETA COCO-VID JSON prediction files are supported by this converter.",
-            {"prediction_file": str(pred_path)},
+            str(exc),
+            {
+                "prediction_file": str(pred_path),
+                "prediction_sha256": prediction_hash,
+                "tracker_name": tracker_slug,
+                "tracker_display_name": tracker_display,
+                "expected_prediction_format": "TAO/TETA COCO-VID rows with image_id, video_id, track_id, category_id, bbox, score.",
+            },
+            report_name=report_filename,
         )
     ann = _load_json(ann_file)
-    pred_rows = _prediction_rows(_load_json(pred_path))
     if not pred_rows:
-        return _empty_report(out_dir, "empty_prediction_file", "prediction JSON contains no rows", {"prediction_file": str(pred_path)})
+        return _empty_report(
+            out_dir,
+            "empty_prediction_file",
+            "prediction file contains no rows",
+            {"prediction_file": str(pred_path), "prediction_sha256": prediction_hash, "tracker_name": tracker_slug},
+            report_name=report_filename,
+        )
 
     categories = {int(cat["id"]): str(cat.get("name", cat["id"])).replace("_", " ") for cat in ann.get("categories", [])}
     images = {int(img["id"]): img for img in ann.get("images", [])}
@@ -191,7 +300,7 @@ def convert_ovtrack_predictions(
         temporal_overlap = len(matches) / max(1, len(dets))
         is_unmatched = temporal_overlap < temporal_overlap_threshold
         score = sum(float(det["score"]) for det in dets) / max(1, len(dets))
-        path_id = f"ovtrack_v{video_id}_t{track_id}_c{category_id}_p{idx:06d}"
+        path_id = f"{tracker_slug}_v{video_id}_t{track_id}_c{category_id}_p{idx:06d}"
         row = {
             "dataset": dataset_name,
             "video_id": video_id,
@@ -223,7 +332,7 @@ def convert_ovtrack_predictions(
             "occ_bin": "unknown",
             "domain_bin": "global",
             "fallback_level": 0,
-            "score_source": "ovtrack_public_prediction",
+            "score_source": tracker_spec.get("score_source", f"{tracker_slug}_public_prediction"),
         }
         universe_rows.append(row)
         score_rows.append(
@@ -276,8 +385,11 @@ def convert_ovtrack_predictions(
 
     summary = {
         "status": "completed",
+        "tracker_name": tracker_slug,
+        "tracker_display_name": tracker_display,
         "dataset": dataset_name,
         "prediction_file": str(pred_path),
+        "prediction_sha256": prediction_hash,
         "ann_file": str(ann_file),
         "candidate_universe": str(out_dir / "candidate_universe.csv"),
         "candidate_scores": str(out_dir / "candidate_scores.csv"),
@@ -289,10 +401,43 @@ def convert_ovtrack_predictions(
         "num_matched_paths": int((~universe["is_unmatched"].map(_as_bool)).sum()) if not universe.empty else 0,
         "num_unmatched_paths": int(universe["is_unmatched"].map(_as_bool).sum()) if not universe.empty else 0,
         "skipped_rows": dict(skipped),
-        "format": "TAO/TETA COCO-VID JSON",
+        "format": format_name,
+        "canonical_prediction_format": "TAO/TETA COCO-VID rows",
     }
-    write_json(ensure_data_output(out_dir / "ovtrack_conversion_report.json"), summary)
+    write_json(ensure_data_output(out_dir / report_filename), summary)
+    if report_filename != "ovtrack_conversion_report.json":
+        write_json(ensure_data_output(out_dir / "ovtrack_conversion_report.json"), summary)
     return summary
+
+
+def convert_published_tracker_predictions(
+    pred_path: str | Path,
+    ann_file: str | Path,
+    out_dir: str | Path,
+    *,
+    tracker_name: str,
+    dataset_name: str,
+    dataset_root: str | Path,
+    frame_subdir: str = "",
+    iou_threshold: float = 0.5,
+    temporal_overlap_threshold: float = 0.3,
+) -> dict[str, Any]:
+    """Generic published-tracker wrapper around :func:`convert_ovtrack_predictions`."""
+    tracker_slug = _safe_slug(tracker_name)
+    tracker_spec = PUBLISHED_TRACKERS.get(tracker_slug, {})
+    return convert_ovtrack_predictions(
+        pred_path=pred_path,
+        ann_file=ann_file,
+        out_dir=out_dir,
+        dataset_name=dataset_name,
+        dataset_root=dataset_root,
+        frame_subdir=frame_subdir,
+        iou_threshold=iou_threshold,
+        temporal_overlap_threshold=temporal_overlap_threshold,
+        tracker_name=tracker_slug,
+        tracker_display_name=tracker_spec.get("display_name", tracker_name),
+        report_filename="published_tracker_conversion_report.json",
+    )
 
 
 def write_ovtrack_matrix_config(

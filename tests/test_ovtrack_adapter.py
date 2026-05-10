@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 import json
+import pickle
 from pathlib import Path
 
 import pandas as pd
 
-from parc_track.ovtrack_adapter import convert_ovtrack_predictions
+from parc_track.ovtrack_adapter import convert_ovtrack_predictions, convert_published_tracker_predictions
 
 
 def test_convert_ovtrack_coco_vid_predictions_to_candidate_schema(tmp_path: Path) -> None:
@@ -60,5 +61,26 @@ def test_convert_ovtrack_missing_prediction_writes_report(tmp_path: Path) -> Non
     ann_path = tmp_path / "ann.json"
     ann_path.write_text(json.dumps({"images": [], "annotations": [], "categories": []}), encoding="utf-8")
     summary = convert_ovtrack_predictions(tmp_path / "missing.json", ann_path, tmp_path / "out")
-    assert summary["status"] == "requires_ovtrack_prediction_file"
+    assert summary["status"] == "requires_prediction_file"
     assert (tmp_path / "out" / "ovtrack_conversion_report.json").exists()
+
+
+def test_published_tracker_pkl_fails_loudly_on_unsupported_object(tmp_path: Path) -> None:
+    ann_path = tmp_path / "ann.json"
+    ann_path.write_text(json.dumps({"images": [], "annotations": [], "categories": []}), encoding="utf-8")
+    pred_path = tmp_path / "pred.pkl"
+    with pred_path.open("wb") as handle:
+        pickle.dump({"not_predictions": [{"foo": "bar"}]}, handle)
+
+    summary = convert_published_tracker_predictions(
+        pred_path,
+        ann_path,
+        tmp_path / "out",
+        tracker_name="ovtr",
+        dataset_name="OVT-B",
+        dataset_root=tmp_path,
+    )
+
+    assert summary["status"] == "unsupported_prediction_format"
+    assert summary["tracker_name"] == "ovtr"
+    assert (tmp_path / "out" / "published_tracker_conversion_report.json").exists()

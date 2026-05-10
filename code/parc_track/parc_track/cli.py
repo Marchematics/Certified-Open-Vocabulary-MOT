@@ -43,6 +43,14 @@ from .ovtrack_adapter import convert_ovtrack_predictions, inspect_ovtrack_public
 from .phase5_trackeval import run_trackeval_grid, run_trackeval_motchallenge
 from .phase6_metric_scope import run_metric_scope_report
 from .phase7 import inspect_third_dataset, run_anytime_demo, run_burst_milestone, run_stability_v2
+from .phase8 import (
+    convert_published_tracker,
+    export_published_tracker_release_audit,
+    inspect_published_tracker_sources,
+    run_published_tracker_matrix,
+    run_published_tracker_report,
+    scaffold_published_tracker_experiments,
+)
 from .reports import build_phase1b_report
 from .smoke import run_smoke
 from .sweeps import run_sweep
@@ -291,6 +299,33 @@ def build_parser() -> argparse.ArgumentParser:
         default="/home/waas/paper_experiments/configs/phase7_ovtrack_ovtb_matrix.yaml",
         help="Matrix config path to write after conversion.",
     )
+
+    phase8 = subparsers.add_parser("phase8", help="Run published OVMOT tracker certification experiments.")
+    phase8_subparsers = phase8.add_subparsers(dest="phase8_command", required=True)
+    phase8_pub = phase8_subparsers.add_parser("published-trackers", help="Inspect, convert, certify, and report published trackers.")
+    pub_subparsers = phase8_pub.add_subparsers(dest="published_tracker_command", required=True)
+    pub_inspect = pub_subparsers.add_parser("inspect", help="Inspect local tracker repos and prediction availability.")
+    pub_inspect.add_argument("--output-dir", default=None, help="Output root under /home/waas/paper_experiments.")
+    pub_scaffold = pub_subparsers.add_parser("scaffold", help="Create all tracker/dataset run manifests and matrix configs.")
+    pub_scaffold.add_argument("--output-dir", default=None, help="Output root under /home/waas/paper_experiments.")
+    pub_convert = pub_subparsers.add_parser("convert", help="Convert one tracker prediction file to PARC candidate schema.")
+    pub_convert.add_argument("--tracker", required=True, choices=("ovtrack", "ovtb_baseline", "ovtr"))
+    pub_convert.add_argument("--dataset", required=True, choices=("ovtb", "tao"))
+    pub_convert.add_argument("--pred", required=True, help="Official prediction JSON/PKL.")
+    pub_convert.add_argument("--out-dir", default=None, help="Pair output directory.")
+    pub_convert.add_argument("--ann", default=None, help="Dataset annotation override.")
+    pub_convert.add_argument("--dataset-root", default=None, help="Dataset root override.")
+    pub_convert.add_argument("--frame-subdir", default=None, help="Frame subdir override.")
+    pub_convert.add_argument("--config-out", default=None, help="Matrix config path to write.")
+    pub_matrix = pub_subparsers.add_parser("matrix", help="Run M-effective-aware PARC wrapper matrix for converted tracker candidates.")
+    pub_matrix.add_argument("--config", required=True, help="Published tracker matrix YAML.")
+    pub_audit = pub_subparsers.add_parser("export-release-audit", help="Export deduplicated released-unsupported paths for audit.")
+    pub_audit.add_argument("--config", required=True, help="Published tracker matrix YAML.")
+    pub_audit.add_argument("--out", default=None, help="Release audit CSV.")
+    pub_audit.add_argument("--labels-out", default=None, help="Label template CSV.")
+    pub_audit.add_argument("--unsupported-only", action="store_true", help="Only export unsupported released paths.")
+    pub_report = pub_subparsers.add_parser("report", help="Aggregate completed published tracker matrices.")
+    pub_report.add_argument("--output-dir", default=None, help="Output root under /home/waas/paper_experiments.")
     return parser
 
 
@@ -489,6 +524,39 @@ def main(argv: list[str] | None = None) -> None:
             summary["matrix_config"] = config_summary["config"]
         else:
             parser.error(f"unknown phase7 command: {args.phase7_command}")
+        print(json.dumps(summary, indent=2, ensure_ascii=False))
+    elif args.command == "phase8":
+        if args.phase8_command == "published-trackers":
+            if args.published_tracker_command == "inspect":
+                summary = inspect_published_tracker_sources(args.output_dir)
+            elif args.published_tracker_command == "scaffold":
+                summary = scaffold_published_tracker_experiments(args.output_dir)
+            elif args.published_tracker_command == "convert":
+                summary = convert_published_tracker(
+                    tracker=args.tracker,
+                    dataset=args.dataset,
+                    pred_path=args.pred,
+                    out_dir=args.out_dir,
+                    ann_file=args.ann,
+                    dataset_root=args.dataset_root,
+                    frame_subdir=args.frame_subdir,
+                    config_out=args.config_out,
+                )
+            elif args.published_tracker_command == "matrix":
+                summary = run_published_tracker_matrix(Path(args.config))
+            elif args.published_tracker_command == "export-release-audit":
+                summary = export_published_tracker_release_audit(
+                    Path(args.config),
+                    out_csv=args.out,
+                    labels_out=args.labels_out,
+                    unsupported_only=args.unsupported_only,
+                )
+            elif args.published_tracker_command == "report":
+                summary = run_published_tracker_report(args.output_dir)
+            else:
+                parser.error(f"unknown phase8 published-trackers command: {args.published_tracker_command}")
+        else:
+            parser.error(f"unknown phase8 command: {args.phase8_command}")
         print(json.dumps(summary, indent=2, ensure_ascii=False))
     else:
         parser.error(f"unknown command: {args.command}")
