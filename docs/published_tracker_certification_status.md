@@ -27,6 +27,33 @@ Unsupported PKL/MMTracking objects fail loudly with
 
 ## Commands
 
+Download official weights:
+
+```bash
+bash /home/waas/paper_experiments/scripts/phase8_download_published_tracker_weights.sh
+```
+
+Run official OVTrack-family inference:
+
+```bash
+TRACKER=ovtrack DATASET=tao GPUS=4 CUDA_VISIBLE_DEVICES=0,1,2,3 \
+  bash /home/waas/paper_experiments/scripts/phase8_run_ovtrack_family_inference.sh
+
+TRACKER=ovtb_baseline DATASET=ovtb GPUS=4 CUDA_VISIBLE_DEVICES=0,1,2,3 \
+  bash /home/waas/paper_experiments/scripts/phase8_run_ovtrack_family_inference.sh
+```
+
+Run official OVTR inference:
+
+```bash
+DATASET=tao GPUS=1 CUDA_VISIBLE_DEVICES=0 \
+  bash /home/waas/paper_experiments/scripts/phase8_run_ovtr_inference.sh
+```
+
+OVTR does not ship an OVT-B config in the cloned repository.  OVT-B must be run
+with `OVTR_CONFIG_OVERRIDE=/path/to/ovtb_config.py`; otherwise the script exits
+with `unsupported_without_custom_config`.
+
 Create manifests and matrix configs:
 
 ```bash
