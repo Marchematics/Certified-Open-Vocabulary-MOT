@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, asdict
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -30,7 +31,16 @@ class DatasetCatalogEntry:
 
 def _is_under_data_root(path: Path) -> bool:
     resolved = path.resolve()
-    return resolved == DATA_ROOT or DATA_ROOT in resolved.parents
+    if resolved == DATA_ROOT or DATA_ROOT in resolved.parents:
+        return True
+    extra_roots = os.environ.get("PARC_TRACK_EXTRA_OUTPUT_ROOTS", "")
+    for raw_root in extra_roots.split(":"):
+        if not raw_root.strip():
+            continue
+        root = Path(raw_root).resolve()
+        if resolved == root or root in resolved.parents:
+            return True
+    return False
 
 
 def ensure_data_output(path: str | Path) -> Path:
