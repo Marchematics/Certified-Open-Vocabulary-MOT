@@ -2,7 +2,7 @@
 
 PARC-Track is a post-hoc certification layer for open-vocabulary multi-object tracking (OVMOT) proposal generators. It takes candidate tracklets from an external detector/tracker, calibrates against a null-superset under partial annotations, and releases only a self-consistent certified subset.
 
-This repository is the public-safe reproducibility package for the TPAMI reliability-fortress version of the project. It contains the certification code, frozen configs, audit benchmark CSVs, result tables, tiny fixtures, and documentation needed to reproduce the certification flow without redistributing raw benchmark videos, raw annotations, model weights, or local caches.
+This repository is the public-safe reproducibility package for the  reliability-fortress version of the project. It contains the certification code, frozen configs, audit benchmark CSVs, result tables, tiny fixtures, and documentation needed to reproduce the certification flow without redistributing raw benchmark videos, raw annotations, model weights, or local caches.
 
 ## Repository Layout
 
