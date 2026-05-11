@@ -1,0 +1,121 @@
+{
+  "status": "completed",
+  "table": "${PARC_TRACK_ROOT}/outputs/phase10_null_inflation/table_null_inflation_verified_removal_actual_results.csv",
+  "runs": [
+    {
+      "ratio": 0.0,
+      "config": "${PARC_TRACK_ROOT}/configs/phase10/phase10_ovtb_verified_ratio_0p0.yaml",
+      "summary": {
+        "status": "completed",
+        "matrix_csv": "${PARC_TRACK_ROOT}/outputs/phase10_null_inflation/ovtb_verified_ratio_0p0/ovtb_alpha_seed_m_matrix.csv",
+        "baseline_csv": "${PARC_TRACK_ROOT}/outputs/phase10_null_inflation/ovtb_verified_ratio_0p0/table_baseline_expanded.csv",
+        "alpha_sweep_csv": "${PARC_TRACK_ROOT}/outputs/phase10_null_inflation/ovtb_verified_ratio_0p0/table_alpha_sweep.csv",
+        "rows": 48,
+        "alphas": [
+          0.1,
+          0.2
+        ],
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "candidate_budget_M": [
+          150
+        ]
+      }
+    },
+    {
+      "ratio": 0.25,
+      "config": "${PARC_TRACK_ROOT}/configs/phase10/phase10_ovtb_verified_ratio_0p25.yaml",
+      "summary": {
+        "status": "completed",
+        "matrix_csv": "${PARC_TRACK_ROOT}/outputs/phase10_null_inflation/ovtb_verified_ratio_0p25/ovtb_alpha_seed_m_matrix.csv",
+        "baseline_csv": "${PARC_TRACK_ROOT}/outputs/phase10_null_inflation/ovtb_verified_ratio_0p25/table_baseline_expanded.csv",
+        "alpha_sweep_csv": "${PARC_TRACK_ROOT}/outputs/phase10_null_inflation/ovtb_verified_ratio_0p25/table_alpha_sweep.csv",
+        "rows": 48,
+        "alphas": [
+          0.1,
+          0.2
+        ],
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "candidate_budget_M": [
+          150
+        ]
+      }
+    },
+    {
+      "ratio": 0.5,
+      "config": "${PARC_TRACK_ROOT}/configs/phase10/phase10_ovtb_verified_ratio_0p5.yaml",
+      "summary": {
+        "status": "completed",
+        "matrix_csv": "${PARC_TRACK_ROOT}/outputs/phase10_null_inflation/ovtb_verified_ratio_0p5/ovtb_alpha_seed_m_matrix.csv",
+        "baseline_csv": "${PARC_TRACK_ROOT}/outputs/phase10_null_inflation/ovtb_verified_ratio_0p5/table_baseline_expanded.csv",
+        "alpha_sweep_csv": "${PARC_TRACK_ROOT}/outputs/phase10_null_inflation/ovtb_verified_ratio_0p5/table_alpha_sweep.csv",
+        "rows": 48,
+        "alphas": [
+          0.1,
+          0.2
+        ],
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "candidate_budget_M": [
+          150
+        ]
+      }
+    },
+    {
+      "ratio": 0.75,
+      "config": "${PARC_TRACK_ROOT}/configs/phase10/phase10_ovtb_verified_ratio_0p75.yaml",
+      "summary": {
+        "status": "completed",
+        "matrix_csv": "${PARC_TRACK_ROOT}/outputs/phase10_null_inflation/ovtb_verified_ratio_0p75/ovtb_alpha_seed_m_matrix.csv",
+        "baseline_csv": "${PARC_TRACK_ROOT}/outputs/phase10_null_inflation/ovtb_verified_ratio_0p75/table_baseline_expanded.csv",
+        "alpha_sweep_csv": "${PARC_TRACK_ROOT}/outputs/phase10_null_inflation/ovtb_verified_ratio_0p75/table_alpha_sweep.csv",
+        "rows": 48,
+        "alphas": [
+          0.1,
+          0.2
+        ],
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "candidate_budget_M": [
+          150
+        ]
+      }
+    },
+    {
+      "ratio": 1.0,
+      "config": "${PARC_TRACK_ROOT}/configs/phase10/phase10_ovtb_verified_ratio_1p0.yaml",
+      "summary": {
+        "status": "completed",
+        "matrix_csv": "${PARC_TRACK_ROOT}/outputs/phase10_null_inflation/ovtb_verified_ratio_1p0/ovtb_alpha_seed_m_matrix.csv",
+        "baseline_csv": "${PARC_TRACK_ROOT}/outputs/phase10_null_inflation/ovtb_verified_ratio_1p0/table_baseline_expanded.csv",
+        "alpha_sweep_csv": "${PARC_TRACK_ROOT}/outputs/phase10_null_inflation/ovtb_verified_ratio_1p0/table_alpha_sweep.csv",
+        "rows": 48,
+        "alphas": [
+          0.1,
+          0.2
+        ],
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "candidate_budget_M": [
+          150
+        ]
+      }
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 dataset:
   name: OVT-B
-  root: /home/waas/paper_experiments/data/OVT-B
-  ann_file: /home/waas/paper_experiments/data/OVT-B/ovtb_ann.json
+  root: ./data/OVT-B
+  ann_file: ./data/OVT-B/ovtb_ann.json
   format_hint: tao_or_coco_video
 
 splits:
@@ -36,9 +36,9 @@ matrix:
   candidate_budget_M: [150]
 
 input:
-  candidate_universe: /home/waas/paper_experiments/outputs/phase4_ovtb_owlvit_v1/candidate_universe.csv
-  audit_labels: /home/waas/paper_experiments/outputs/phase4_ovtb_owlvit_v1/audit_labels.csv
+  candidate_universe: ./outputs/phase4_ovtb_owlvit_v1/candidate_universe.csv
+  audit_labels: ./outputs/phase4_ovtb_owlvit_v1/audit_labels.csv
 
 output:
-  output_dir: /home/waas/paper_experiments/outputs/phase4_ovtb_owlvit_v1
-  candidate_nodes: /home/waas/paper_experiments/outputs/phase4_ovtb_owlvit_v1/candidate_nodes.csv
+  output_dir: ./outputs/phase4_ovtb_owlvit_v1
+  candidate_nodes: ./outputs/phase4_ovtb_owlvit_v1/candidate_nodes.csv

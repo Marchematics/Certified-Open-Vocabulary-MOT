@@ -1,7 +1,7 @@
 dataset:
   name: BURST
-  root: /home/waas/paper_experiments/data/BURST
-  ann_file: /home/waas/paper_experiments/outputs/phase7_third_dataset/burst_val_box_annotations.json
+  root: ./data/BURST
+  ann_file: ./outputs/phase7_third_dataset/burst_val_box_annotations.json
   format_hint: burst_box
 
 splits:
@@ -38,15 +38,15 @@ matrix:
 tune_selection:
   internal_cal_ratio: 0.50
   fallback_M: 150
-  out: /home/waas/paper_experiments/outputs/phase7_burst_owlv2/tuned_m_selection.csv
+  out: ./outputs/phase7_burst_owlv2/tuned_m_selection.csv
 
 input:
-  candidate_universe: /home/waas/paper_experiments/outputs/phase7_burst_owlv2/candidate_universe.csv
-  audit_labels: /home/waas/paper_experiments/outputs/phase7_burst_owlv2/audit_labels.csv
+  candidate_universe: ./outputs/phase7_burst_owlv2/candidate_universe.csv
+  audit_labels: ./outputs/phase7_burst_owlv2/audit_labels.csv
 
 output:
-  output_dir: /home/waas/paper_experiments/outputs/phase7_burst_owlv2
-  candidate_nodes: /home/waas/paper_experiments/outputs/phase7_burst_owlv2/candidate_nodes.csv
+  output_dir: ./outputs/phase7_burst_owlv2
+  candidate_nodes: ./outputs/phase7_burst_owlv2/candidate_nodes.csv
 
 release_audit:
   method: parc_track_gamma_tuned_uniform_scs

@@ -6,7 +6,7 @@ gamma: 0.5
 release_grid: [0.5, 1, 2, 4, 8]
 release_weights: [0.2, 0.2, 0.2, 0.2, 0.2]
 min_cal_blocks: 10
-output_dir: /home/waas/paper_experiments/outputs/smoke
+output_dir: ./outputs/smoke
 bdd100k_zip: /datasets/MoGuiMianJu/dataset_bdd100k.zip
 alpha1_grid: [0.05, 0.10, 0.20]
 sweeps:

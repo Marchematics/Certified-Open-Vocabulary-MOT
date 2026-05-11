@@ -2,7 +2,7 @@
 
 This repository snapshot is synchronized with the local post-Phase-4 writing bundle:
 
-- Package: `/home/waas/paper_experiments/outputs/packages/parc_track_post_phase4_delta_for_writing_20260510_013544.tar.gz`
+- Package: `./outputs/packages/parc_track_post_phase4_delta_for_writing_20260510_013544.tar.gz`
 - SHA256: `04ead85d895d274404c006ef8adad9473058a594c04700e7d7cee7dfcb14391f`
 - Anchor package: `outputs/packages/phase4_third_generator_delta_from_ijcv_extra_cpu_v1_20260509_160838.tar.gz`
 

@@ -1,7 +1,7 @@
 dataset:
   name: OVT-B
-  root: /home/waas/paper_experiments/data/OVT-B
-  ann_file: /home/waas/paper_experiments/data/OVT-B/ovtb_ann.json
+  root: ./data/OVT-B
+  ann_file: ./data/OVT-B/ovtb_ann.json
   format_hint: tao_or_coco_video
 
 splits:
@@ -32,9 +32,9 @@ calibration:
   fallback_min_videos: 100
 
 proposal:
-  cache_dir: /home/waas/paper_experiments/outputs/phase2/cache
+  cache_dir: ./outputs/phase2/cache
 
 output:
-  summary: /home/waas/paper_experiments/outputs/phase2/real_mini_summary.json
-  cell_effective_n: /home/waas/paper_experiments/outputs/phase2/cell_effective_n.csv
-  real_cert_summary: /home/waas/paper_experiments/outputs/phase2/real_cert_summary.csv
+  summary: ./outputs/phase2/real_mini_summary.json
+  cell_effective_n: ./outputs/phase2/cell_effective_n.csv
+  real_cert_summary: ./outputs/phase2/real_cert_summary.csv

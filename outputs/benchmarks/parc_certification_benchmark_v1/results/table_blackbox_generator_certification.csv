@@ -1,0 +1,67 @@
+generator,dataset,alpha1,seed,released,UTR,conservative_FTR,mass_ratio,empty_reason,result_type
+GroundingDINO,OVT-B,0.1,meanstd,192.33333333333331,0.0245628334321279,0.0127630409010076,,,meanstd_existing_certificate
+GroundingDINO,OVT-B,0.1,meanstd,135.0,0.0219047619047618,0.012063492063492,,,meanstd_existing_certificate
+GroundingDINO,OVT-B,0.2,meanstd,150.0,0.0199999999999999,0.011111111111111,,,meanstd_existing_certificate
+GroundingDINO,TAO,0.1,meanstd,99.0,0.0067697594501718,0.0,,,meanstd_existing_certificate
+GroundingDINO,TAO,0.1,meanstd,0.0,0.0,0.0,,certified_refusal_or_empty_mean,meanstd_existing_certificate
+GroundingDINO,TAO,0.2,meanstd,147.33333333333334,0.0245696400625977,0.0177777777777777,,,meanstd_existing_certificate
+OWLv2,OVT-B,0.1,0,0.0,0.0,0.0,0.034713283839640875,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWLv2,OVT-B,0.1,1,0.0,0.0,0.0,0.019245673322341464,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWLv2,OVT-B,0.1,2,0.0,0.0,0.0,0.034865540604171796,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWLv2,OVT-B,0.2,0,0.0,0.0,0.0,0.06942656767928175,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWLv2,OVT-B,0.2,1,0.0,0.0,0.0,0.03849134664468293,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWLv2,OVT-B,0.2,2,0.0,0.0,0.0,0.06973108120834359,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWLv2,TAO,0.1,0,0.0,0.0,0.0,0.02518784122576811,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWLv2,TAO,0.1,1,0.0,0.0,0.0,0.025155929022135304,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWLv2,TAO,0.1,2,0.0,0.0,0.0,0.02512401079746747,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWLv2,TAO,0.2,0,0.0,0.0,0.0,0.05037568245153622,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWLv2,TAO,0.2,1,0.0,0.0,0.0,0.05031185804427061,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWLv2,TAO,0.2,2,0.0,0.0,0.0,0.05024802159493494,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWL-ViT v1,OVT-B,0.1,0,0.0,0.0,0.0,0.0026593762559245344,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWL-ViT v1,OVT-B,0.1,1,0.0,0.0,0.0,0.0025620321005338184,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWL-ViT v1,OVT-B,0.1,2,0.0,0.0,0.0,0.0015772990392313552,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWL-ViT v1,OVT-B,0.2,0,0.0,0.0,0.0,0.005318752511849069,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWL-ViT v1,OVT-B,0.2,1,0.0,0.0,0.0,0.005124064201067637,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWL-ViT v1,OVT-B,0.2,2,0.0,0.0,0.0,0.0031545980784627105,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWL-ViT v1,TAO,0.1,0,0.0,0.0,0.0,0.0020608227618976066,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWL-ViT v1,TAO,0.1,1,0.0,0.0,0.0,0.0022139982858059874,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWL-ViT v1,TAO,0.1,2,0.0,0.0,0.0,0.0020608227618976066,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWL-ViT v1,TAO,0.2,0,0.0,0.0,0.0,0.004121645523795213,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWL-ViT v1,TAO,0.2,1,0.0,0.0,0.0,0.004427996571611975,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+OWL-ViT v1,TAO,0.2,2,0.0,0.0,0.0,0.004121645523795213,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+GroundingDINO detector-only,OVT-B,0.1,0,105.0,0.019047619047619,0.0095238095238095,1.0642654355923875,,existing_certificate_row
+GroundingDINO detector-only,OVT-B,0.1,1,150.0,0.0266666666666666,0.02,1.46913017622778,,existing_certificate_row
+GroundingDINO detector-only,OVT-B,0.1,2,150.0,0.02,0.0066666666666666,2.0832338022762347,,existing_certificate_row
+GroundingDINO detector-only,OVT-B,0.2,0,150.0,0.0133333333333333,0.0066666666666666,1.972956755701122,,existing_certificate_row
+GroundingDINO detector-only,OVT-B,0.2,1,150.0,0.0266666666666666,0.02,2.93826035245556,,existing_certificate_row
+GroundingDINO detector-only,OVT-B,0.2,2,150.0,0.02,0.0066666666666666,4.166467604552469,,existing_certificate_row
+GroundingDINO detector-only,TAO,0.1,0,0.0,0.0,0.0,0.02264727845722091,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+GroundingDINO detector-only,TAO,0.1,1,0.0,0.0,0.0,0.022712108814515977,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+GroundingDINO detector-only,TAO,0.1,2,0.0,0.0,0.0,0.022517533317600667,no_k_satisfies_uniform_self_consistency,existing_certificate_row
+GroundingDINO detector-only,TAO,0.2,0,150.0,0.0333333333333333,0.0266666666666666,1.1766095486506838,,existing_certificate_row
+GroundingDINO detector-only,TAO,0.2,1,150.0,0.0333333333333333,0.0266666666666666,1.1797734080157765,,existing_certificate_row
+GroundingDINO detector-only,TAO,0.2,2,142.0,0.0070422535211267,0.0,1.00313951993378,,existing_certificate_row
+ovtb_baseline,ovtb,0.1,0,0.0,0.0,0.0,0.2523602974037985,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtb_baseline,ovtb,0.1,1,0.0,0.0,0.0,0.1720718080442748,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtb_baseline,ovtb,0.1,2,0.0,0.0,0.0,0.2523437447338315,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtb_baseline,ovtb,0.2,0,0.0,0.0,0.0,0.504720594807597,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtb_baseline,ovtb,0.2,1,0.0,0.0,0.0,0.3441436160885497,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtb_baseline,ovtb,0.2,2,0.0,0.0,0.0,0.504687489467663,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtb_baseline,tao,0.1,0,0.0,0.0,0.0,0.090045649006778,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtb_baseline,tao,0.1,1,0.0,0.0,0.0,0.0972975855898529,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtb_baseline,tao,0.1,2,0.0,0.0,0.0,0.0782651851959332,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtb_baseline,tao,0.2,0,0.0,0.0,0.0,0.1800912980135561,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtb_baseline,tao,0.2,1,0.0,0.0,0.0,0.1945951711797058,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtb_baseline,tao,0.2,2,0.0,0.0,0.0,0.1565303703918665,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtr,ovtb,0.1,0,0.0,0.0,0.0,0.2917207006052842,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtr,ovtb,0.1,1,0.0,0.0,0.0,0.4595653594091288,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtr,ovtb,0.1,2,0.0,0.0,0.0,0.237863089348974,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtr,ovtb,0.2,0,0.0,0.0,0.0,0.5834414012105684,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtr,ovtb,0.2,1,0.0,0.0,0.0,0.9191307188182576,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtr,ovtb,0.2,2,0.0,0.0,0.0,0.4757261786979481,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtr,tao,0.1,0,0.0,0.0,0.0,0.3818533711222706,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtr,tao,0.1,1,0.0,0.0,0.0,0.3818533711222706,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtr,tao,0.1,2,0.0,0.0,0.0,0.1552870375897233,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtr,tao,0.2,0,0.0,0.0,0.0,0.7637067422445412,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtr,tao,0.2,1,0.0,0.0,0.0,0.7637067422445412,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row
+ovtr,tao,0.2,2,0.0,0.0,0.0,0.3105740751794467,no_k_satisfies_uniform_self_consistency,published_tracker_existing_certificate_row

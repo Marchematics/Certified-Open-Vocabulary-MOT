@@ -184,7 +184,7 @@ def owlv2_status(config_path: str | Path) -> dict[str, Any]:
     ow = cfg.get("owlv2", {})
     model_id = str(ow.get("model", "google/owlv2-base-patch16-ensemble"))
     device = str(ow.get("device", "cuda:0"))
-    cache_dir = ow.get("cache_dir", "/home/waas/paper_experiments/cache/huggingface")
+    cache_dir = ow.get("cache_dir", "./cache/huggingface")
     missing_imports = []
     torch_mod = None
     for module in ("torch", "transformers", "PIL"):
@@ -224,7 +224,7 @@ def owlvit_status(config_path: str | Path) -> dict[str, Any]:
     ow = cfg.get("owlvit", {})
     model_id = str(ow.get("model", "google/owlvit-base-patch32"))
     device = str(ow.get("device", "cuda:0"))
-    cache_dir = ow.get("cache_dir", "/home/waas/paper_experiments/cache/huggingface")
+    cache_dir = ow.get("cache_dir", "./cache/huggingface")
     missing_imports = []
     torch_mod = None
     for module in ("torch", "transformers", "PIL"):
@@ -273,7 +273,7 @@ def write_empty_audit_files(
     manifest_path: str | Path,
     reason: str,
     gd_status: dict[str, Any],
-    viewer_path: str | Path = "/home/waas/paper_experiments/audit_viewer",
+    viewer_path: str | Path = "./audit_viewer",
 ) -> dict[str, Any]:
     out = ensure_data_output(out_csv)
     labels = ensure_data_output(labels_path)
@@ -329,7 +329,7 @@ def _local_groundingdino_config(cfg: dict[str, Any]) -> str:
     required = ["config.json", "vocab.txt"]
     if not all((local_text_path / name).exists() for name in required):
         return str(config_path)
-    target = Path(cfg.get("proposal", {}).get("cache_dir", "/home/waas/paper_experiments/outputs/phase2/cache"))
+    target = Path(cfg.get("proposal", {}).get("cache_dir", "./outputs/phase2/cache"))
     target.mkdir(parents=True, exist_ok=True)
     patched = ensure_data_output(target / "GroundingDINO_SwinT_OGC.local_bert.py")
     text = config_path.read_text(encoding="utf-8")
@@ -376,7 +376,7 @@ def _load_owlv2_detector(cfg: dict[str, Any]) -> dict[str, Any]:
     device = str(ow.get("device", "cuda:0"))
     if device.startswith("cuda") and not torch.cuda.is_available():
         raise RuntimeError(f"OWLv2 requested {device}, but torch.cuda.is_available() is false")
-    cache_dir = ow.get("cache_dir", "/home/waas/paper_experiments/cache/huggingface")
+    cache_dir = ow.get("cache_dir", "./cache/huggingface")
     local_files_only = bool(ow.get("local_files_only", False))
     dtype_name = str(ow.get("dtype", "")).strip().lower()
     dtype = None
@@ -410,7 +410,7 @@ def _load_owlvit_detector(cfg: dict[str, Any]) -> dict[str, Any]:
     device = str(ow.get("device", "cuda:0"))
     if device.startswith("cuda") and not torch.cuda.is_available():
         raise RuntimeError(f"OWL-ViT requested {device}, but torch.cuda.is_available() is false")
-    cache_dir = ow.get("cache_dir", "/home/waas/paper_experiments/cache/huggingface")
+    cache_dir = ow.get("cache_dir", "./cache/huggingface")
     local_files_only = bool(ow.get("local_files_only", False))
     dtype_name = str(ow.get("dtype", "")).strip().lower()
     dtype = None
@@ -759,7 +759,7 @@ def _run_groundingdino_audit(
     phase2 = cfg.get("output", {})
     gd = cfg.get("groundingdino", {})
 
-    root = Path(dataset.get("root", "/home/waas/paper_experiments/data/OVT-B"))
+    root = Path(dataset.get("root", "./data/OVT-B"))
     frame_subdir = dataset.get("frame_subdir")
     if frame_subdir is None:
         dataset_name_lower = str(dataset.get("name", dataset_name)).lower()
@@ -778,7 +778,7 @@ def _run_groundingdino_audit(
     top_b_per_cell = int(sampling.get("top_b_per_cell", 10))
     frames_per_path = int(audit_export.get("frames_per_path", 8))
     make_montages = bool(audit_export.get("make_montages", True))
-    montage_dir = Path(audit_export.get("montage_dir", "/home/waas/paper_experiments/audit_viewer/montages"))
+    montage_dir = Path(audit_export.get("montage_dir", "./audit_viewer/montages"))
     viewer = Path(viewer_path)
     backend = _proposal_backend(cfg)
 
@@ -1008,9 +1008,9 @@ def _run_groundingdino_audit(
             seen.add(row["path_id"])
     selected = selected[:total_samples]
 
-    universe_path = phase2.get("candidate_universe", "/home/waas/paper_experiments/outputs/phase2/candidate_universe.csv")
-    scores_path = phase2.get("candidate_scores", "/home/waas/paper_experiments/outputs/phase2/candidate_scores.csv")
-    nodes_path = phase2.get("candidate_nodes", "/home/waas/paper_experiments/outputs/phase2/candidate_nodes.csv")
+    universe_path = phase2.get("candidate_universe", "./outputs/phase2/candidate_universe.csv")
+    scores_path = phase2.get("candidate_scores", "./outputs/phase2/candidate_scores.csv")
+    nodes_path = phase2.get("candidate_nodes", "./outputs/phase2/candidate_nodes.csv")
     universe_export = _write_csv_and_optional_parquet(universe_rows, CANDIDATE_UNIVERSE_COLUMNS, universe_path)
     scores_export = _write_csv_and_optional_parquet(score_rows, CANDIDATE_SCORE_COLUMNS, scores_path)
     nodes_export = _write_csv_and_optional_parquet(node_rows, CANDIDATE_NODE_COLUMNS, nodes_path)
@@ -1079,9 +1079,9 @@ def _run_groundingdino_audit(
 def sample_audit_candidates(config_path: str | Path, dataset_name: str, out_csv: str | Path) -> dict[str, Any]:
     cfg = load_yaml(config_path)
     phase2 = cfg.get("output", {})
-    viewer_path = cfg.get("audit_export", {}).get("output_viewer", "/home/waas/paper_experiments/audit_viewer")
-    manifest_path = phase2.get("manifest", "/home/waas/paper_experiments/outputs/phase2/audit_manifest.json")
-    labels_path = phase2.get("labels", "/home/waas/paper_experiments/outputs/phase2/audit_labels.csv")
+    viewer_path = cfg.get("audit_export", {}).get("output_viewer", "./audit_viewer")
+    manifest_path = phase2.get("manifest", "./outputs/phase2/audit_manifest.json")
+    labels_path = phase2.get("labels", "./outputs/phase2/audit_labels.csv")
     dataset_report = inspect_dataset_from_config(config_path)
     backend = _proposal_backend(cfg)
     if backend == "owlv2_hf":
@@ -1287,7 +1287,7 @@ def _output_paths_from_cfg(cfg: dict[str, Any]) -> dict[str, Path]:
     candidate_universe = Path(
         inputs.get(
             "candidate_universe",
-            output.get("candidate_universe", "/home/waas/paper_experiments/outputs/phase2/candidate_universe.csv"),
+            output.get("candidate_universe", "./outputs/phase2/candidate_universe.csv"),
         )
     )
     sibling_scores = candidate_universe.with_name("candidate_scores.csv")
@@ -1296,37 +1296,37 @@ def _output_paths_from_cfg(cfg: dict[str, Any]) -> dict[str, Path]:
         "candidate_universe": candidate_universe,
         "candidate_scores": Path(output.get("candidate_scores", sibling_scores)),
         "candidate_nodes": Path(output.get("candidate_nodes", sibling_nodes)),
-        "candidate_evalues": Path(output.get("candidate_evalues", "/home/waas/paper_experiments/outputs/phase2/candidate_evalues.csv")),
+        "candidate_evalues": Path(output.get("candidate_evalues", "./outputs/phase2/candidate_evalues.csv")),
         "audit_labels": Path(
-            inputs.get("audit_labels", output.get("labels", "/home/waas/paper_experiments/outputs/phase2/audit_labels.csv"))
+            inputs.get("audit_labels", output.get("labels", "./outputs/phase2/audit_labels.csv"))
         ),
-        "cell_effective_n": Path(output.get("cell_effective_n", "/home/waas/paper_experiments/outputs/phase2/cell_effective_n.csv")),
+        "cell_effective_n": Path(output.get("cell_effective_n", "./outputs/phase2/cell_effective_n.csv")),
         "per_video_candidate_coverage": Path(
             output.get(
                 "per_video_candidate_coverage",
-                "/home/waas/paper_experiments/outputs/phase2/per_video_candidate_coverage.csv",
+                "./outputs/phase2/per_video_candidate_coverage.csv",
             )
         ),
-        "coverage_sweep": Path(output.get("coverage_sweep", "/home/waas/paper_experiments/outputs/phase2/coverage_sweep.csv")),
+        "coverage_sweep": Path(output.get("coverage_sweep", "./outputs/phase2/coverage_sweep.csv")),
         "projection_vs_observed": Path(
             output.get(
                 "projection_vs_observed",
-                "/home/waas/paper_experiments/outputs/phase2/coverage_projection_check.csv",
+                "./outputs/phase2/coverage_projection_check.csv",
             )
         ),
         "high_e_mass_diagnostics": Path(
             output.get(
                 "high_e_mass_diagnostics",
-                "/home/waas/paper_experiments/outputs/phase2/high_e_mass_diagnostics.csv",
+                "./outputs/phase2/high_e_mass_diagnostics.csv",
             )
         ),
         "gamma_mass_sweep": Path(
-            output.get("gamma_mass_sweep", "/home/waas/paper_experiments/outputs/phase2/gamma_mass_sweep.csv")
+            output.get("gamma_mass_sweep", "./outputs/phase2/gamma_mass_sweep.csv")
         ),
         "real_cert_summary": Path(
-            output.get("real_cert_summary", "/home/waas/paper_experiments/outputs/phase2/real_cert_summary.csv")
+            output.get("real_cert_summary", "./outputs/phase2/real_cert_summary.csv")
         ),
-        "summary": Path(output.get("summary", "/home/waas/paper_experiments/outputs/phase2/real_certify_summary.json")),
+        "summary": Path(output.get("summary", "./outputs/phase2/real_certify_summary.json")),
     }
 
 
@@ -1335,9 +1335,53 @@ def _split_video_ids(video_ids: list[int], cfg: dict[str, Any]) -> dict[int, str
     tune_ratio = float(splits.get("tune_ratio", 0.15))
     cal_ratio = float(splits.get("cal_ratio", 0.35))
     seed = int(splits.get("seed", 0))
+    strategy = str(splits.get("strategy", "random")).strip()
     ordered = sorted({int(video_id) for video_id in video_ids})
     rng = random.Random(seed)
-    rng.shuffle(ordered)
+    if strategy == "severe_sparse_annotation_shift":
+        universe_path = Path(
+            cfg.get("input", {}).get(
+                "candidate_universe",
+                cfg.get("output", {}).get("candidate_universe", ""),
+            )
+        )
+        support_ratio: dict[int, float] = {}
+        path_count: dict[int, int] = {}
+        if universe_path.exists():
+            try:
+                universe = pd.read_csv(
+                    universe_path,
+                    usecols=lambda col: col in {"video_id", "is_matched_to_gt", "is_unmatched", "matched_gt_id"},
+                )
+                universe["video_id"] = universe["video_id"].astype(int)
+                if "is_matched_to_gt" in universe:
+                    matched = universe["is_matched_to_gt"].astype(str).str.lower().isin(["true", "1", "yes"])
+                else:
+                    matched = ~universe.get("is_unmatched", pd.Series([True] * len(universe))).astype(str).str.lower().isin(
+                        ["true", "1", "yes"]
+                    )
+                universe["_matched"] = matched
+                grouped = universe.groupby("video_id")
+                for video_id, group in grouped:
+                    paths = int(len(group))
+                    path_count[int(video_id)] = paths
+                    support_ratio[int(video_id)] = (float(group["_matched"].sum()) + 1.0) / (paths + 2.0)
+            except Exception:
+                support_ratio = {}
+        # Calibration gets dense/officially supported videos, test gets sparse
+        # unsupported videos. This is deliberately non-exchangeable and must be
+        # reported as an assumption-boundary stress test.
+        rng.shuffle(ordered)
+        ordered = sorted(
+            ordered,
+            key=lambda video_id: (
+                -support_ratio.get(int(video_id), 0.0),
+                -path_count.get(int(video_id), 0),
+                int(video_id),
+            ),
+        )
+    else:
+        rng.shuffle(ordered)
     total = len(ordered)
     tune_end = int(round(total * tune_ratio))
     cal_end = tune_end + int(round(total * cal_ratio))
@@ -2685,10 +2729,10 @@ def run_real_mini(config_path: str | Path, out_path: str | Path) -> dict[str, An
     cfg = load_yaml(config_path)
     dataset = cfg.get("dataset", {}).get("name", "unknown")
     dataset_report = inspect_dataset_from_config(config_path)
-    cell_out = cfg.get("output", {}).get("cell_effective_n", "/home/waas/paper_experiments/outputs/phase2/cell_effective_n.csv")
+    cell_out = cfg.get("output", {}).get("cell_effective_n", "./outputs/phase2/cell_effective_n.csv")
     cell_summary = compute_cell_effective_n(config_path, cell_out)
-    default_candidates = Path("/home/waas/paper_experiments/outputs/phase2/audit_candidates.csv")
-    default_labels = Path("/home/waas/paper_experiments/outputs/phase2/audit_labels.csv")
+    default_candidates = Path("./outputs/phase2/audit_candidates.csv")
+    default_labels = Path("./outputs/phase2/audit_labels.csv")
     candidate_rows = 0
     labeled_rows = 0
     if default_candidates.exists():
@@ -2729,7 +2773,7 @@ def run_real_mini(config_path: str | Path, out_path: str | Path) -> dict[str, An
     if status == "completed_audited_subset_scaffold":
         cert_out = cfg.get("output", {}).get(
             "real_cert_summary",
-            "/home/waas/paper_experiments/outputs/phase2/real_cert_summary.csv",
+            "./outputs/phase2/real_cert_summary.csv",
         )
         real_cert_summary = _build_real_cert_summary(cfg, default_candidates, default_labels, cell_out, cert_out)
         try:

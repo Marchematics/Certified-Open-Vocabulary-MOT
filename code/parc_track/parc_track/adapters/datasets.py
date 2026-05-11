@@ -10,7 +10,7 @@ from typing import Any
 import zipfile
 
 
-DATA_ROOT = Path("/home/waas/paper_experiments")
+DATA_ROOT = Path(os.environ.get("PARC_TRACK_ROOT", ".")).resolve()
 
 
 @dataclass(frozen=True)
@@ -304,29 +304,29 @@ def inspect_dataset_from_config(config_path: str | Path, out_path: str | Path | 
     if name in {"ovt-b", "ovtb"}:
         report = inspect_coco_video_dataset(
             dataset_name="OVT-B",
-            dataset_root=dataset.get("root", "/home/waas/paper_experiments/data/OVT-B"),
-            ann_file=dataset.get("ann_file", "/home/waas/paper_experiments/data/OVT-B/ovtb_ann.json"),
+            dataset_root=dataset.get("root", "./data/OVT-B"),
+            ann_file=dataset.get("ann_file", "./data/OVT-B/ovtb_ann.json"),
             annotation_format=dataset.get("format_hint", "tao_or_coco_video"),
         )
     elif name in {"tao", "ov-tao", "ov_tao"}:
         report = inspect_coco_video_dataset(
             dataset_name=dataset.get("name", "TAO"),
-            dataset_root=dataset.get("root", "/home/waas/paper_experiments/data/TAO"),
-            ann_file=dataset.get("ann_file", "/home/waas/paper_experiments/data/TAO/annotations/train.json"),
+            dataset_root=dataset.get("root", "./data/TAO"),
+            ann_file=dataset.get("ann_file", "./data/TAO/annotations/train.json"),
             annotation_format=dataset.get("format_hint", "tao"),
         )
     elif name in {"burst", "lv-vis", "lvvis", "lv_vis"}:
         report = inspect_coco_video_dataset(
             dataset_name=dataset.get("name", "BURST"),
-            dataset_root=dataset.get("root", "/home/waas/paper_experiments/data/BURST"),
+            dataset_root=dataset.get("root", "./data/BURST"),
             ann_file=dataset.get(
                 "ann_file",
-                "/home/waas/paper_experiments/outputs/phase7_third_dataset/burst_val_box_annotations.json",
+                "./outputs/phase7_third_dataset/burst_val_box_annotations.json",
             ),
             annotation_format=dataset.get("format_hint", "coco_video_or_tracking_json"),
         )
     elif name in {"bdd100k", "bdd100k-mot"}:
-        report = inspect_bdd100k_mot_layout(dataset.get("root", "/home/waas/paper_experiments/data/BDD100K"))
+        report = inspect_bdd100k_mot_layout(dataset.get("root", "./data/BDD100K"))
     else:
         report = {"dataset_name": dataset.get("name", "unknown"), "status": "missing_files", "reason": "unknown_dataset_name"}
     if out_path is not None:
@@ -337,7 +337,7 @@ def inspect_dataset_from_config(config_path: str | Path, out_path: str | Path | 
 def fetch_ovtb_from_config(config_path: str | Path, out_path: str | Path | None = None) -> dict[str, Any]:
     cfg = load_yaml(config_path)
     dataset = cfg.get("dataset", {})
-    root = Path(dataset.get("root", "/home/waas/paper_experiments/data/OVT-B")).resolve()
+    root = Path(dataset.get("root", "./data/OVT-B")).resolve()
     if not _is_under_data_root(root):
         raise ValueError(f"Refusing to prepare OVT-B outside data disk workspace: {root}")
     root.mkdir(parents=True, exist_ok=True)

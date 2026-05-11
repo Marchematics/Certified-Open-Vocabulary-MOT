@@ -28,7 +28,7 @@ from .phase2 import (
 )
 
 
-DATA_ROOT = Path("/home/waas/paper_experiments")
+DATA_ROOT = Path(".")
 
 
 def _safe_name(value: Any) -> str:

@@ -1,7 +1,7 @@
 dataset:
   name: OVT-B
-  root: /home/waas/paper_experiments/data/OVT-B
-  ann_file: /home/waas/paper_experiments/data/OVT-B/ovtb_ann.json
+  root: ./data/OVT-B
+  ann_file: ./data/OVT-B/ovtb_ann.json
   format_hint: tao_or_coco_video
   frame_subdir: OVT-B
 
@@ -16,12 +16,12 @@ proposal:
   link_iou_threshold: 0.15
   max_frame_gap: 1000
   max_detections_per_frame: 30
-  cache_dir: /home/waas/paper_experiments/outputs/phase2_full/cache
+  cache_dir: ./outputs/phase2_full/cache
 
 groundingdino:
   config: /datasets/ComfyUI/models/grounding-dino/GroundingDINO_SwinT_OGC.cfg.py
   weights: /datasets/ComfyUI/models/grounding-dino/groundingdino_swint_ogc.pth
-  local_text_encoder: /home/waas/paper_experiments/cache/huggingface/manual/bert-base-uncased
+  local_text_encoder: ./cache/huggingface/manual/bert-base-uncased
   device: cuda
   text_threshold: 0.25
   box_threshold: 0.30
@@ -47,15 +47,15 @@ mondrian:
 audit_export:
   make_montages: true
   frames_per_path: 8
-  output_viewer: /home/waas/paper_experiments/outputs/phase2_full/audit_viewer
-  montage_dir: /home/waas/paper_experiments/outputs/phase2_full/audit_viewer/montages
-  clip_dir: /home/waas/paper_experiments/outputs/phase2_full/audit_viewer/clips
+  output_viewer: ./outputs/phase2_full/audit_viewer
+  montage_dir: ./outputs/phase2_full/audit_viewer/montages
+  clip_dir: ./outputs/phase2_full/audit_viewer/clips
 
 output:
-  candidates: /home/waas/paper_experiments/outputs/phase2_full/audit_candidates.csv
-  labels: /home/waas/paper_experiments/outputs/phase2/audit_labels.csv
-  manifest: /home/waas/paper_experiments/outputs/phase2_full/audit_manifest.json
-  summary: /home/waas/paper_experiments/outputs/phase2_full/audit_summary.csv
-  candidate_universe: /home/waas/paper_experiments/outputs/phase2_full/candidate_universe.csv
-  candidate_scores: /home/waas/paper_experiments/outputs/phase2_full/candidate_scores.csv
-  candidate_nodes: /home/waas/paper_experiments/outputs/phase2_full/candidate_nodes.csv
+  candidates: ./outputs/phase2_full/audit_candidates.csv
+  labels: ./outputs/phase2/audit_labels.csv
+  manifest: ./outputs/phase2_full/audit_manifest.json
+  summary: ./outputs/phase2_full/audit_summary.csv
+  candidate_universe: ./outputs/phase2_full/candidate_universe.csv
+  candidate_scores: ./outputs/phase2_full/candidate_scores.csv
+  candidate_nodes: ./outputs/phase2_full/candidate_nodes.csv

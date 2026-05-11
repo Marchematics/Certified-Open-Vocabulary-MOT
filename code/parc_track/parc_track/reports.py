@@ -275,7 +275,7 @@ def build_phase1b_report(
     output_root: str | Path | None = None,
 ) -> dict[str, object]:
     cfg = load_config(config_path)
-    root = ensure_data_disk_output_dir(output_root or "/home/waas/paper_experiments/outputs")
+    root = ensure_data_disk_output_dir(output_root or "./outputs")
     sweeps_dir = root / "sweeps"
     smoke_dir = root / "smoke"
     figures_dir = ensure_data_disk_output_dir(root / "figures")

@@ -1,7 +1,7 @@
 dataset:
   name: OVT-B
-  root: /home/waas/paper_experiments/data/OVT-B
-  ann_file: /home/waas/paper_experiments/data/OVT-B/ovtb_ann.json
+  root: ./data/OVT-B
+  ann_file: ./data/OVT-B/ovtb_ann.json
   format_hint: tao_or_coco_video
 
 splits:
@@ -38,20 +38,20 @@ matrix:
 tune_selection:
   internal_cal_ratio: 0.50
   fallback_M: 150
-  out: /home/waas/paper_experiments/outputs/phase3_ovtb_owlv2_smallM/tuned_m_selection.csv
+  out: ./outputs/phase3_ovtb_owlv2_smallM/tuned_m_selection.csv
 
 input:
-  candidate_universe: /home/waas/paper_experiments/outputs/phase3_ovtb_owlv2/candidate_universe.csv
-  audit_labels: /home/waas/paper_experiments/outputs/phase3_ovtb_owlv2/audit_labels.csv
+  candidate_universe: ./outputs/phase3_ovtb_owlv2/candidate_universe.csv
+  audit_labels: ./outputs/phase3_ovtb_owlv2/audit_labels.csv
 
 release_audit:
   method: parc_track_gamma_tuned_uniform_scs
   candidate_budget_M: 150
   alpha1: [0.10, 0.20]
   seeds: [0, 1, 2]
-  out: /home/waas/paper_experiments/outputs/phase3_ovtb_owlv2_smallM/release_audit_owlv2_ovtb_fixed_M150_unsupported.csv
-  labels_out: /home/waas/paper_experiments/outputs/phase3_ovtb_owlv2_smallM/release_audit_owlv2_ovtb_fixed_M150_unsupported_labels.csv
+  out: ./outputs/phase3_ovtb_owlv2_smallM/release_audit_owlv2_ovtb_fixed_M150_unsupported.csv
+  labels_out: ./outputs/phase3_ovtb_owlv2_smallM/release_audit_owlv2_ovtb_fixed_M150_unsupported_labels.csv
 
 output:
-  output_dir: /home/waas/paper_experiments/outputs/phase3_ovtb_owlv2_smallM
-  candidate_nodes: /home/waas/paper_experiments/outputs/phase3_ovtb_owlv2/candidate_nodes.csv
+  output_dir: ./outputs/phase3_ovtb_owlv2_smallM
+  candidate_nodes: ./outputs/phase3_ovtb_owlv2/candidate_nodes.csv

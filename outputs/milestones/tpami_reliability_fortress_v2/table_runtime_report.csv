@@ -1,0 +1,5 @@
+dataset,generator,matrix_csv,rows,runtime_sec_sum,runtime_sec_mean,candidate_universe_rows
+OVT-B,GroundingDINO,${PARC_TRACK_ROOT}/outputs/phase3_ovtb_full/ovtb_alpha_seed_m_matrix.csv,504,0.06061205174772331,0.0001924192118975343,16813
+TAO,GroundingDINO,${PARC_TRACK_ROOT}/outputs/phase3_tao_full/tao_alpha_seed_m_matrix.csv,504,0.06503795459865039,0.00020646969713857265,13342
+OVT-B,OWLv2,${PARC_TRACK_ROOT}/outputs/phase3_ovtb_owlv2/ovtb_alpha_seed_m_matrix.csv,48,0.0056919651105985,0.00018973217035328334,43155
+TAO,OWLv2,${PARC_TRACK_ROOT}/outputs/phase3_tao_owlv2/tao_alpha_seed_m_matrix.csv,48,0.005904265679417499,0.00019680885598058332,59360

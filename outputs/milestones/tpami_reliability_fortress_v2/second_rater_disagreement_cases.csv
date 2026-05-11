@@ -1,0 +1,2 @@
+second_rater_sample_id,dataset,video_id,path_id,label,human_second_label,verified_positive_for_calibration,human_second_verified_positive_for_calibration,disagreement_type,human_second_notes
+sr300_037,BURST,2820,ovtb_v2820_p003578,actually_true,uncertain,no,no,actually_true_vs_uncertain,Blind second-review result was reported by user to match the Codex prefill; final fields are human-confirmed for agreement computation.

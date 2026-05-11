@@ -10,6 +10,12 @@ from parc_track.ovtrack_adapter import convert_published_tracker_predictions
 from parc_track.phase8 import run_published_tracker_matrix
 
 
+def _data_disk_tmp(tmp_path: Path, name: str) -> Path:
+    out = Path("./outputs/test_tmp") / tmp_path.name / name
+    out.mkdir(parents=True, exist_ok=True)
+    return out
+
+
 def _write_tiny_tracker_universe(tmp_path: Path) -> tuple[Path, Path, Path]:
     images = []
     annotations = []
@@ -34,7 +40,7 @@ def _write_tiny_tracker_universe(tmp_path: Path) -> tuple[Path, Path, Path]:
     ann = {"images": images, "annotations": annotations, "categories": [{"id": 1, "name": "object"}]}
     ann_path = tmp_path / "ann.json"
     pred_path = tmp_path / "pred.json"
-    out_dir = tmp_path / "converted"
+    out_dir = _data_disk_tmp(tmp_path, "converted")
     ann_path.write_text(json.dumps(ann), encoding="utf-8")
     pred_path.write_text(json.dumps(predictions), encoding="utf-8")
     convert_published_tracker_predictions(

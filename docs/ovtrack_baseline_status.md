@@ -12,11 +12,11 @@ Prepared interface:
 ```bash
 python -m parc_track.cli phase7 ovtrack-convert \
   --pred PATH_TO_OVTRACK_JSON \
-  --ann /home/waas/paper_experiments/data/OVT-B/ovtb_ann.json \
-  --out-dir /home/waas/paper_experiments/outputs/phase7_ovtrack_ovtb
+  --ann ./data/OVT-B/ovtb_ann.json \
+  --out-dir ./outputs/phase7_ovtrack_ovtb
 
 python -m parc_track.cli phase3 matrix \
-  --config /home/waas/paper_experiments/configs/phase7_ovtrack_ovtb_matrix.yaml
+  --config ./configs/phase7_ovtrack_ovtb_matrix.yaml
 ```
 
 Expected prediction format is TAO/TETA COCO-VID JSON:

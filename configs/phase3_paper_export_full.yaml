@@ -1,19 +1,19 @@
 sources:
-  - /home/waas/paper_experiments/outputs/milestones/phase2h_first_real_nonempty/table_real_first_nonempty.csv
-  - /home/waas/paper_experiments/outputs/milestones/phase2h_first_real_nonempty/table_m_sweep_parc_full_with_audit.csv
-  - /home/waas/paper_experiments/outputs/milestones/phase2h_first_real_nonempty/table_baseline_three_methods_M150.csv
-  - /home/waas/paper_experiments/outputs/milestones/phase2h_first_real_nonempty/table_seed_stability_M150.csv
-  - /home/waas/paper_experiments/outputs/milestones/phase2h_first_real_nonempty/audit_summary_after_uncertain_recheck.csv
-  - /home/waas/paper_experiments/outputs/phase3_ovtb_full/table_baseline_expanded.csv
-  - /home/waas/paper_experiments/outputs/phase3_ovtb_full/table_alpha_sweep.csv
+  - ./outputs/milestones/phase2h_first_real_nonempty/table_real_first_nonempty.csv
+  - ./outputs/milestones/phase2h_first_real_nonempty/table_m_sweep_parc_full_with_audit.csv
+  - ./outputs/milestones/phase2h_first_real_nonempty/table_baseline_three_methods_M150.csv
+  - ./outputs/milestones/phase2h_first_real_nonempty/table_seed_stability_M150.csv
+  - ./outputs/milestones/phase2h_first_real_nonempty/audit_summary_after_uncertain_recheck.csv
+  - ./outputs/phase3_ovtb_full/table_baseline_expanded.csv
+  - ./outputs/phase3_ovtb_full/table_alpha_sweep.csv
 
-matrix_csv: /home/waas/paper_experiments/outputs/phase3_ovtb_full/ovtb_alpha_seed_m_matrix.csv
+matrix_csv: ./outputs/phase3_ovtb_full/ovtb_alpha_seed_m_matrix.csv
 
 reporting:
   main_alpha1: 0.10
   fixed_main_M: 150
-  tuned_m_selection: /home/waas/paper_experiments/outputs/phase3_ovtb_full/tuned_m_selection.csv
+  tuned_m_selection: ./outputs/phase3_ovtb_full/tuned_m_selection.csv
 
 output:
-  output_dir: /home/waas/paper_experiments/outputs/milestones/ijcv_full_ovtb_v1
-  docs_summary: /home/waas/paper_experiments/docs/paper_results_summary_full_ovtb.md
+  output_dir: ./outputs/milestones/ijcv_full_ovtb_v1
+  docs_summary: ./docs/paper_results_summary_full_ovtb.md

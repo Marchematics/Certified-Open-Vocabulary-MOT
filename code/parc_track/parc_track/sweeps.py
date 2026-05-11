@@ -275,7 +275,7 @@ def run_sweep(
 ) -> dict[str, object]:
     base_cfg = load_config(config_path)
     out_dir = ensure_data_disk_output_dir(
-        output_dir or "/home/waas/paper_experiments/outputs/sweeps"
+        output_dir or "./outputs/sweeps"
     )
     if sweep_name == "calibration-size":
         df = run_calibration_size_sweep(base_cfg, preset)

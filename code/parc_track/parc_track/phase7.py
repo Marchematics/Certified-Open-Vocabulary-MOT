@@ -649,11 +649,11 @@ def run_burst_milestone(
         source / "shards/logs/shard1.log",
         source / "shards/logs/shard2.log",
         source / "shards/logs/shard3.log",
-        Path("/home/waas/paper_experiments/configs/phase7_burst_audit.yaml"),
-        Path("/home/waas/paper_experiments/configs/phase7_burst_matrix.yaml"),
-        Path("/home/waas/paper_experiments/configs/phase7_burst_owlv2_audit.yaml"),
-        Path("/home/waas/paper_experiments/configs/phase7_burst_owlv2_matrix.yaml"),
-        Path("/home/waas/paper_experiments/scripts/merge_phase2_shards.py"),
+        Path("./configs/phase7_burst_audit.yaml"),
+        Path("./configs/phase7_burst_matrix.yaml"),
+        Path("./configs/phase7_burst_owlv2_audit.yaml"),
+        Path("./configs/phase7_burst_owlv2_matrix.yaml"),
+        Path("./scripts/merge_phase2_shards.py"),
     ]
     for src in sources:
         dst = _copy_if_exists(src, milestone)

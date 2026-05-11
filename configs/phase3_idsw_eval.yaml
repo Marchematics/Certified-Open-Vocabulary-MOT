@@ -2,10 +2,10 @@ dataset:
   name: OVT-B
 
 input:
-  idsw_events: /home/waas/paper_experiments/outputs/phase3_idsw/clear_mot_events.csv
+  idsw_events: ./outputs/phase3_idsw/clear_mot_events.csv
 
 evaluator:
   fps: 30.0
 
 output:
-  output_dir: /home/waas/paper_experiments/outputs/phase3_idsw
+  output_dir: ./outputs/phase3_idsw

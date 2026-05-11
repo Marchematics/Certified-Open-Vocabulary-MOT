@@ -1,45 +1,46 @@
-# Certified Open-Vocabulary MOT under Partial Annotations
+# PARC-Track: Certified Open-Vocabulary MOT under Partial Annotations
 
-This repository contains the reproducibility package for **PARC-Track**:
-**Partial-Annotation Robust Certification for Open-Vocabulary Tracking**.
+PARC-Track is a post-hoc certification layer for open-vocabulary multi-object tracking (OVMOT) proposal generators. It takes candidate tracklets from an external detector/tracker, calibrates against a null-superset under partial annotations, and releases only a self-consistent certified subset.
 
-The project studies certified open-vocabulary multi-object tracking under partial annotations. The main ingredients are null-superset video-block calibration, finite-resolution aware e-value tuning, and polynomial self-consistent greedy selection.
+This repository is the public-safe reproducibility package for the TPAMI reliability-fortress version of the project. It contains the certification code, frozen configs, audit benchmark CSVs, result tables, tiny fixtures, and documentation needed to reproduce the certification flow without redistributing raw benchmark videos, raw annotations, model weights, or local caches.
+
+## Repository Layout
+
+```text
+parc-track/
+├── README.md
+├── LICENSE
+├── DATA_AVAILABILITY.md
+├── CODE_AVAILABILITY.md
+├── REPRODUCIBILITY.md
+├── MANIFEST_SHA256.txt
+├── code/parc_track/                  # Python package and CLI
+├── configs/                          # Frozen experiment configs, sanitized paths
+├── outputs/
+│   ├── milestones/tpami_reliability_fortress_v2/
+│   └── benchmarks/parc_certification_benchmark_v1/
+├── tests/                            # pytest suite and tiny fixtures
+├── scripts/                          # public-safe helper scripts
+├── tools/                            # notes for external metric/export tooling
+└── docs/                             # API, audit protocol, getting started
+```
 
 ## What Is Included
 
-This repository intentionally contains **code, configs, scripts, documentation, paper figures, and derived experiment tables/artifacts** needed for reproducibility and writing.
-
-Included highlights:
-
-- `code/parc_track/`: Python package and CLI implementation.
-- `configs/`: smoke, Phase-2, OVT-B full, TAO full, and report-export configs.
-- `scripts/`: dataset download/extract helpers and experiment runners.
-- `docs/`: formal spec and result summaries.
-- `outputs/milestones/ijcv_full_ovtb_v1/`: full OVT-B result tables.
-- `outputs/milestones/ijcv_tao_full_v2_clean/`: clean TAO result tables.
-- `outputs/milestones/ijcv_cross_dataset_v6/`: OVT-B + TAO cross-dataset tables.
-- `outputs/milestones/ijcv_stability_v1/`: bootstrap CI, worst-case FTR, runtime, Mondrian, per-class, and Prop.5 diagnostics.
-- `outputs/milestones/ijcv_stability_v2/`: anytime-release diagnostic and stability-v2 writing tables.
-- `outputs/milestones/ijcv_burst_v2/`: BURST third-dataset scaffold, audit-200, certification, and Prop.5 tables.
-- `outputs/milestones/ijcv_burst_owlv2_stress_v1/`: BURST OWLv2 cross-generator stress/failure analysis.
-- `outputs/phase*_*/`: derived CSV/JSON artifacts used to reproduce tables.
+- PARC-Track certification code: null-superset block calibration, coverage-conditional empty-block handling, e-value generation, finite-resolution diagnostics, SCS-Greedy release, report builders, TrackEval export helpers, and adapter utilities.
+- Audit benchmark: `outputs/benchmarks/parc_certification_benchmark_v1/audit/` and the full frozen milestone under `outputs/milestones/tpami_reliability_fortress_v2/`.
+- Result tables for OVT-B, TAO, BURST, black-box generators, published-tracker adapters, non-exchangeability stress tests, null-inflation sensitivity, OVVIS mask-path scaffold, Mondrian/per-class/runtime/anytime diagnostics, and Prop. 5 high-evidence mass diagnostics.
+- Tiny fixture for validating the full schema-to-certification path without downloading external datasets.
 
 ## What Is Not Included
 
-To avoid license, size, and credential contamination, this repository does **not** include:
-
-- raw OVT-B / TAO image data,
-- detector model weights,
-- Hugging Face / GitHub tokens,
-- `.venv`, package caches, temporary downloads, or third-party repos.
-
-See `CLEANING_REPORT.md` and `SECRET_SCAN_REPORT.json` for the cleaning policy and final secret-scan status.
+This repository intentionally excludes raw videos, raw dataset annotations, model weights, third-party detector/tracker repositories, Hugging Face caches, GPU caches, frame caches, and montage images. Please obtain OVT-B, TAO, BURST, detector weights, and published tracker weights from their original maintainers under their respective licenses.
 
 ## Quick Start
 
 ```bash
-cd Certified-Open-Vocabulary-MOT
-source env.sh
+git clone https://github.com/Marchematics/Certified-Open-Vocabulary-MOT.git parc-track
+cd parc-track
 python -m venv .venv
 source .venv/bin/activate
 pip install -e code/parc_track
@@ -47,105 +48,20 @@ pip install numpy scipy pandas opencv-python pyyaml tqdm pytest motmetrics pycoc
 pytest -q tests
 ```
 
-## Reproduce Synthetic Smoke
+Run the tiny fixture through the public API path:
 
 ```bash
-source env.sh
-source .venv/bin/activate
-python -m parc_track.cli smoke --config configs/smoke.yaml
+python -m parc_track.cli phase9 certification-api --output-dir outputs/tmp_cert_api
 ```
 
-## Reproduce Existing Paper Tables From Derived Outputs
+For full benchmark reproduction, see `REPRODUCIBILITY.md`.
 
-The latest paper-facing tables are already exported under:
+## Main Frozen Artifacts
 
-```text
-outputs/milestones/ijcv_full_ovtb_v1/
-outputs/milestones/ijcv_tao_full_v2_clean/
-outputs/milestones/ijcv_cross_dataset_v6/
-outputs/milestones/ijcv_stability_v1/
-outputs/milestones/ijcv_stability_v2/
-outputs/milestones/ijcv_burst_v2/
-outputs/milestones/ijcv_burst_owlv2_stress_v1/
-```
+- Final reliability milestone: `outputs/milestones/tpami_reliability_fortress_v2/`
+- Community benchmark: `outputs/benchmarks/parc_certification_benchmark_v1/`
+- File integrity manifest: `MANIFEST_SHA256.txt`
 
-For cross-dataset writing, start with:
+## Citation
 
-```text
-outputs/milestones/ijcv_cross_dataset_v6/table_cross_dataset_certification.csv
-outputs/milestones/ijcv_cross_dataset_v6/table_cross_dataset_certification_meanstd.csv
-outputs/milestones/ijcv_cross_dataset_v6/table_cross_dataset_audit.csv
-```
-
-For the late IJCV sprint additions, start with:
-
-```text
-docs/latest_experiment_delta.md
-outputs/milestones/ijcv_stability_v1/table_main_bootstrap_ci.csv
-outputs/milestones/ijcv_stability_v1/table_worst_case_cons_ftr.csv
-outputs/milestones/ijcv_stability_v2/table_anytime_release.csv
-outputs/milestones/ijcv_burst_v2/table_burst_certification_summary.csv
-outputs/milestones/ijcv_burst_v2/table_burst_released_unsupported_audit_summary.csv
-outputs/milestones/ijcv_burst_v2/table_burst_cross_generator_prop5.csv
-outputs/milestones/ijcv_burst_owlv2_stress_v1/table_burst_owlv2_prop5_mass_ratio.csv
-```
-
-## Re-running Real Data Experiments
-
-Real data experiments require the datasets and detector weights to be downloaded separately under `/home/waas/paper_experiments/data` or equivalent paths. Configs currently use the original experiment root paths and may need editing if you clone this repository elsewhere.
-
-Representative commands:
-
-```bash
-source env.sh
-source .venv/bin/activate
-python -m parc_track.cli real ovtb-matrix --config configs/phase3_ovtb_full_matrix.yaml
-python -m parc_track.cli real ovtb-matrix --config configs/phase3_tao_full_matrix.yaml
-python -m parc_track.cli report tpami-core --config configs/phase3_paper_export_full.yaml
-python -m parc_track.cli report tpami-core --config configs/phase3_paper_export_tao_full.yaml
-```
-
-Late-stage BURST and IJCV diagnostics:
-
-```bash
-# BURST GroundingDINO proposal universe, if data/weights are present.
-python -m parc_track.cli phase2 propose --config configs/phase7_burst_audit.yaml
-python -m parc_track.cli phase3 matrix --config configs/phase7_burst_matrix.yaml
-python -m parc_track.cli phase7 burst-freeze --output-dir outputs/milestones/ijcv_burst_v2 --source-dir outputs/phase7_burst
-
-# BURST OWLv2 stress test, if GPU/model access is present.
-python -m parc_track.cli phase2 propose --config configs/phase7_burst_owlv2_audit.yaml
-python -m parc_track.cli phase3 matrix --config configs/phase7_burst_owlv2_matrix.yaml
-
-# Anytime diagnostic from existing OVT-B e-values.
-python -m parc_track.cli phase7 anytime --output-dir outputs/phase7_anytime
-```
-
-## Current Result Milestones
-
-- OVT-B full matrix and tables: `outputs/milestones/ijcv_full_ovtb_v1/`
-- TAO full clean matrix and tables: `outputs/milestones/ijcv_tao_full_v2_clean/`
-- OVT-B + TAO cross-dataset bundle: `outputs/milestones/ijcv_cross_dataset_v6/`
-- IJCV stability v1: `outputs/milestones/ijcv_stability_v1/`
-- IJCV stability v2: `outputs/milestones/ijcv_stability_v2/`
-- BURST third-dataset evidence: `outputs/milestones/ijcv_burst_v2/`
-- BURST OWLv2 cross-generator stress analysis: `outputs/milestones/ijcv_burst_owlv2_stress_v1/`
-
-## External Writing Bundle
-
-The latest local writing delta package is not tracked directly in Git:
-
-```text
-/home/waas/paper_experiments/outputs/packages/parc_track_post_phase4_delta_for_writing_20260510_013544.tar.gz
-SHA256: 04ead85d895d274404c006ef8adad9473058a594c04700e7d7cee7dfcb14391f
-```
-
-It contains code/config/doc/script deltas and derived CSV/JSON/figures/tables created after
-`phase4_third_generator_delta_from_ijcv_extra_cpu_v1_20260509_160838.tar.gz`.
-It excludes raw datasets, raw annotations, model weights, HF/GroundingDINO caches, viewer media,
-sharded intermediate duplicate candidates, and compiled extensions.
-
-## Cleaning Notes
-
-This repository was assembled from `parc_track_clean_results_bundle_20260508_184842`.
-Final staged scan found no raw Hugging Face token patterns. Raw datasets and model weights are excluded by design.
+A formal citation will be added after archival release. Until then, cite the repository title and commit hash.

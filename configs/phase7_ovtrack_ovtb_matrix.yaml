@@ -1,7 +1,7 @@
 dataset:
   name: OVT-B
-  root: /home/waas/paper_experiments/data/OVT-B
-  ann_file: /home/waas/paper_experiments/data/OVT-B/ovtb_ann.json
+  root: ./data/OVT-B
+  ann_file: ./data/OVT-B/ovtb_ann.json
   format_hint: tao_or_coco_video
 splits:
   tune_ratio: 0.1
@@ -45,10 +45,10 @@ matrix:
 tune_selection:
   internal_cal_ratio: 0.5
   fallback_M: 150
-  out: /home/waas/paper_experiments/outputs/phase7_ovtrack_ovtb/tuned_m_selection.csv
+  out: ./outputs/phase7_ovtrack_ovtb/tuned_m_selection.csv
 input:
-  candidate_universe: /home/waas/paper_experiments/outputs/phase7_ovtrack_ovtb/candidate_universe.csv
-  audit_labels: /home/waas/paper_experiments/outputs/phase7_ovtrack_ovtb/audit_labels.csv
+  candidate_universe: ./outputs/phase7_ovtrack_ovtb/candidate_universe.csv
+  audit_labels: ./outputs/phase7_ovtrack_ovtb/audit_labels.csv
 output:
-  output_dir: /home/waas/paper_experiments/outputs/phase7_ovtrack_ovtb
-  candidate_nodes: /home/waas/paper_experiments/outputs/phase7_ovtrack_ovtb/candidate_nodes.csv
+  output_dir: ./outputs/phase7_ovtrack_ovtb
+  candidate_nodes: ./outputs/phase7_ovtrack_ovtb/candidate_nodes.csv

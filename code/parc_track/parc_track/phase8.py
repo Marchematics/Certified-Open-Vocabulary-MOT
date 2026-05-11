@@ -20,7 +20,7 @@ from .phase2 import (
 from .phase3 import _label_metrics
 
 
-DATA_ROOT = Path("/home/waas/paper_experiments")
+DATA_ROOT = Path(".")
 PARC_METHOD = "parc_track_gamma_tuned_uniform_scs"
 TRACKERS = ("ovtrack", "ovtb_baseline", "ovtr")
 DATASETS = ("ovtb", "tao")

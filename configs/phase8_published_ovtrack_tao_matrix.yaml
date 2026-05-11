@@ -3,8 +3,8 @@ tracker:
   display_name: OVTrack
 dataset:
   name: TAO
-  root: /home/waas/paper_experiments/data/TAO
-  ann_file: /home/waas/paper_experiments/data/TAO/annotations/trainval.json
+  root: ./data/TAO
+  ann_file: ./data/TAO/annotations/trainval.json
   format_hint: tao
 splits:
   tune_ratio: 0.1
@@ -46,8 +46,8 @@ matrix:
   candidate_budget_M:
   - 150
 input:
-  candidate_universe: /home/waas/paper_experiments/outputs/phase8_published_trackers/ovtrack/tao/candidate_universe.csv
-  audit_labels: /home/waas/paper_experiments/outputs/phase8_published_trackers/ovtrack/tao/audit_labels.csv
+  candidate_universe: ./outputs/phase8_published_trackers/ovtrack/tao/candidate_universe.csv
+  audit_labels: ./outputs/phase8_published_trackers/ovtrack/tao/audit_labels.csv
 output:
-  output_dir: /home/waas/paper_experiments/outputs/phase8_published_trackers/ovtrack/tao
-  candidate_nodes: /home/waas/paper_experiments/outputs/phase8_published_trackers/ovtrack/tao/candidate_nodes.csv
+  output_dir: ./outputs/phase8_published_trackers/ovtrack/tao
+  candidate_nodes: ./outputs/phase8_published_trackers/ovtrack/tao/candidate_nodes.csv

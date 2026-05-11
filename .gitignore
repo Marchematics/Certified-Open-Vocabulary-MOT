@@ -16,7 +16,6 @@ __pycache__/
 data/
 cache/
 tmp/
-tools/
 third_party/
 *.pth
 *.pt

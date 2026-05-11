@@ -19,7 +19,7 @@ from .phase2 import (
 )
 
 
-DATA_ROOT = Path("/home/waas/paper_experiments")
+DATA_ROOT = Path(".")
 
 PUBLISHED_TRACKERS: dict[str, dict[str, Any]] = {
     "ovtrack": {
@@ -166,7 +166,7 @@ def inspect_ovtrack_public_outputs(output_dir: str | Path | None = None) -> dict
         "checked_repositories": candidate_names,
         "finding": "The public repositories expose OVT-B/OVTrack configs and model/download instructions, but no ready-to-use OVT-B prediction JSON/PKL was found in the cloned file trees.",
         "expected_prediction_format": "TAO/TETA COCO-VID JSON list with image_id, video_id, track_id, category_id, bbox, score.",
-        "converter_command": "python -m parc_track.cli phase7 ovtrack-convert --pred PATH_TO_OVTRACK_JSON --ann /home/waas/paper_experiments/data/OVT-B/ovtb_ann.json --out-dir /home/waas/paper_experiments/outputs/phase7_ovtrack_ovtb",
+        "converter_command": "python -m parc_track.cli phase7 ovtrack-convert --pred PATH_TO_OVTRACK_JSON --ann ./data/OVT-B/ovtb_ann.json --out-dir ./outputs/phase7_ovtrack_ovtb",
         "sources": [
             "https://github.com/SysCV/ovtrack",
             "https://github.com/Coo1Sea/OVT-B-Dataset",

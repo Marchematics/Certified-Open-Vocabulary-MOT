@@ -1,1 +1,0 @@
-dataset,video_id,path_id,query,category_id,score,objectness,semantic_margin,temporal_stability,association_score,matched_gt_id,matched_iou,temporal_overlap,is_unmatched,cell_id,novelty_bin,query_cluster,occ_bin,domain_bin,frame_start,frame_end,clip_path,montage_path

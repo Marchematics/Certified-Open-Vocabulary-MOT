@@ -23,7 +23,7 @@ from .synthetic import SyntheticSplit, generate_synthetic_split
 from .types import ExperimentConfig, VideoBlock
 
 
-DATA_DISK_ROOT = Path("/home/waas/paper_experiments")
+DATA_DISK_ROOT = Path(".")
 
 
 def load_config(path: str | Path) -> dict:

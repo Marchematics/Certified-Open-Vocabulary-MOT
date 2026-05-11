@@ -1,7 +1,7 @@
 dataset:
   name: OVT-B
-  root: /home/waas/paper_experiments/data/OVT-B
-  ann_file: /home/waas/paper_experiments/data/OVT-B/ovtb_ann.json
+  root: ./data/OVT-B
+  ann_file: ./data/OVT-B/ovtb_ann.json
   format_hint: tao_or_coco_video
   require:
     video_frames: true
@@ -16,4 +16,4 @@ download:
   timeout_sec: 120
 
 output:
-  report: /home/waas/paper_experiments/outputs/phase2/dataset_adapter_report_ovtb.json
+  report: ./outputs/phase2/dataset_adapter_report_ovtb.json

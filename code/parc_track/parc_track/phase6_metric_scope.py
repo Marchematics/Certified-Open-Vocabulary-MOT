@@ -16,7 +16,7 @@ from .phase4 import _base_entries, _load_cfg, _method_evalues, _select_from_eval
 from .phase5_trackeval import CONF_MATCHED_METHOD, CONF_METHOD, PARC_METHOD, run_trackeval_grid, run_trackeval_motchallenge
 
 
-DATA_ROOT = Path("/home/waas/paper_experiments")
+DATA_ROOT = Path(".")
 
 
 def _read_csv(path: str | Path) -> pd.DataFrame:

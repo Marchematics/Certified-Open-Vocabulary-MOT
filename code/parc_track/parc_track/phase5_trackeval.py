@@ -16,7 +16,7 @@ from .phase2 import _load_universe_with_labels, _split_video_ids
 from .phase4 import _base_entries, _select_from_evalues, _test_pool
 
 
-DATA_ROOT = Path("/home/waas/paper_experiments")
+DATA_ROOT = Path(".")
 TRACK_EVAL_ROOT = DATA_ROOT / "third_party/TrackEval"
 PARC_METHOD = "PARC"
 CONF_METHOD = "confidence_top_m"

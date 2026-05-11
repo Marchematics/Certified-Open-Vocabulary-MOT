@@ -1,7 +1,7 @@
 dataset:
   name: BURST
-  root: /home/waas/paper_experiments/data/BURST
-  ann_file: /home/waas/paper_experiments/outputs/phase7_third_dataset/burst_val_box_annotations.json
+  root: ./data/BURST
+  ann_file: ./outputs/phase7_third_dataset/burst_val_box_annotations.json
   format_hint: burst_box
   frame_subdir: ""
 
@@ -17,13 +17,13 @@ proposal:
   link_iou_threshold: 0.15
   max_frame_gap: 1000
   max_detections_per_frame: 30
-  cache_dir: /home/waas/paper_experiments/outputs/phase7_burst_owlv2/cache
+  cache_dir: ./outputs/phase7_burst_owlv2/cache
   progress_every: 25
 
 owlv2:
   model: google/owlv2-base-patch16-ensemble
   device: cuda:0
-  cache_dir: /home/waas/paper_experiments/cache/huggingface
+  cache_dir: ./cache/huggingface
   local_files_only: false
   threshold: 0.10
   text_template: "a photo of a {query}"
@@ -49,15 +49,15 @@ mondrian:
 audit_export:
   make_montages: false
   frames_per_path: 8
-  output_viewer: /home/waas/paper_experiments/outputs/phase7_burst_owlv2/audit_viewer
-  montage_dir: /home/waas/paper_experiments/outputs/phase7_burst_owlv2/audit_viewer/montages
-  clip_dir: /home/waas/paper_experiments/outputs/phase7_burst_owlv2/audit_viewer/clips
+  output_viewer: ./outputs/phase7_burst_owlv2/audit_viewer
+  montage_dir: ./outputs/phase7_burst_owlv2/audit_viewer/montages
+  clip_dir: ./outputs/phase7_burst_owlv2/audit_viewer/clips
 
 output:
-  candidates: /home/waas/paper_experiments/outputs/phase7_burst_owlv2/audit_candidates.csv
-  labels: /home/waas/paper_experiments/outputs/phase7_burst_owlv2/audit_labels.csv
-  manifest: /home/waas/paper_experiments/outputs/phase7_burst_owlv2/audit_manifest.json
-  summary: /home/waas/paper_experiments/outputs/phase7_burst_owlv2/audit_summary.csv
-  candidate_universe: /home/waas/paper_experiments/outputs/phase7_burst_owlv2/candidate_universe.csv
-  candidate_scores: /home/waas/paper_experiments/outputs/phase7_burst_owlv2/candidate_scores.csv
-  candidate_nodes: /home/waas/paper_experiments/outputs/phase7_burst_owlv2/candidate_nodes.csv
+  candidates: ./outputs/phase7_burst_owlv2/audit_candidates.csv
+  labels: ./outputs/phase7_burst_owlv2/audit_labels.csv
+  manifest: ./outputs/phase7_burst_owlv2/audit_manifest.json
+  summary: ./outputs/phase7_burst_owlv2/audit_summary.csv
+  candidate_universe: ./outputs/phase7_burst_owlv2/candidate_universe.csv
+  candidate_scores: ./outputs/phase7_burst_owlv2/candidate_scores.csv
+  candidate_nodes: ./outputs/phase7_burst_owlv2/candidate_nodes.csv

@@ -129,7 +129,7 @@ The alpha sweep supports a finite-sample power frontier: `alpha1=0.20` is non-em
 
 ## 8. Second Dataset Status
 
-TAO/OV-TAO has been started via official data acquisition. The full annotation archive was downloaded from the official TAO GitHub annotation release, and the original train/validation JSONs now exist under `/home/waas/paper_experiments/data/TAO/annotations/`. The current full-train adapter report is annotation-complete but frame-incomplete, because full TAO frames are distributed through gated HuggingFace access or source-dataset downloads.
+TAO/OV-TAO has been started via official data acquisition. The full annotation archive was downloaded from the official TAO GitHub annotation release, and the original train/validation JSONs now exist under `./data/TAO/annotations/`. The current full-train adapter report is annotation-complete but frame-incomplete, because full TAO frames are distributed through gated HuggingFace access or source-dataset downloads.
 
 To verify the second-dataset adapter path without claiming a full TAO benchmark result, we created a one-video TAO AVA mini subset using a real public AVA movie from the TAO annotations. This mini subset now passes strict tracking-layout inspection:
 
@@ -139,8 +139,8 @@ To verify the second-dataset adapter path without claiming a full TAO benchmark 
 
 Artifacts:
 
-- Download report: `/home/waas/paper_experiments/outputs/phase3_tao/tao_download_report.json`
-- Mini adapter report: `/home/waas/paper_experiments/outputs/phase3_tao/dataset_adapter_report_tao_ava_mini.json`
+- Download report: `./outputs/phase3_tao/tao_download_report.json`
+- Mini adapter report: `./outputs/phase3_tao/dataset_adapter_report_tao_ava_mini.json`
 
 No full TAO audit or certification claim is made yet. The next TAO step is to obtain a larger frame subset through accepted HuggingFace access or source-dataset downloads, then run the same missing-GT audit/certification scaffold.
 

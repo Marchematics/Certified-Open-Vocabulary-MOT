@@ -1,16 +1,16 @@
 sources:
-  - /home/waas/paper_experiments/outputs/phase3_tao_full/audit_summary.csv
-  - /home/waas/paper_experiments/outputs/phase3_tao_full/table_baseline_expanded.csv
-  - /home/waas/paper_experiments/outputs/phase3_tao_full/table_alpha_sweep.csv
+  - ./outputs/phase3_tao_full/audit_summary.csv
+  - ./outputs/phase3_tao_full/table_baseline_expanded.csv
+  - ./outputs/phase3_tao_full/table_alpha_sweep.csv
 
-matrix_csv: /home/waas/paper_experiments/outputs/phase3_tao_full/ovtb_alpha_seed_m_matrix.csv
+matrix_csv: ./outputs/phase3_tao_full/ovtb_alpha_seed_m_matrix.csv
 
 reporting:
   fixed_main_M: 150
   main_alpha1: 0.10
-  tuned_m_selection: /home/waas/paper_experiments/outputs/phase3_tao_full/tuned_m_selection.csv
+  tuned_m_selection: ./outputs/phase3_tao_full/tuned_m_selection.csv
 
 output:
-  output_dir: /home/waas/paper_experiments/outputs/milestones/ijcv_tao_full_v1
-  results_summary_md: /home/waas/paper_experiments/docs/paper_results_summary_tao_full.md
-  docs_summary: /home/waas/paper_experiments/docs/paper_results_summary_tao_full.md
+  output_dir: ./outputs/milestones/ijcv_tao_full_v1
+  results_summary_md: ./docs/paper_results_summary_tao_full.md
+  docs_summary: ./docs/paper_results_summary_tao_full.md

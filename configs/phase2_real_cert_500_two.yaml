@@ -1,7 +1,7 @@
 dataset:
   name: OVT-B
-  root: /home/waas/paper_experiments/data/OVT-B
-  ann_file: /home/waas/paper_experiments/data/OVT-B/ovtb_ann.json
+  root: ./data/OVT-B
+  ann_file: ./data/OVT-B/ovtb_ann.json
   format_hint: tao_or_coco_video
 
 splits:
@@ -39,17 +39,17 @@ coverage_sweep:
   empty_block_policy:
     - conservative_infinity
     - coverage_conditional
-  projection_baseline: /home/waas/paper_experiments/outputs/phase2/coverage_sweep.csv
+  projection_baseline: ./outputs/phase2/coverage_sweep.csv
 
 input:
-  candidate_universe: /home/waas/paper_experiments/outputs/phase2_500/candidate_universe.csv
-  audit_labels: /home/waas/paper_experiments/outputs/phase2/audit_labels.csv
+  candidate_universe: ./outputs/phase2_500/candidate_universe.csv
+  audit_labels: ./outputs/phase2/audit_labels.csv
 
 output:
-  summary: /home/waas/paper_experiments/outputs/phase2_500/real_cert_500_two_summary.json
-  real_cert_summary: /home/waas/paper_experiments/outputs/phase2_500/real_cert_500_two_summary.csv
-  candidate_evalues: /home/waas/paper_experiments/outputs/phase2_500/candidate_evalues_500_two.csv
-  cell_effective_n: /home/waas/paper_experiments/outputs/phase2_500/cell_effective_n_500_two.csv
-  per_video_candidate_coverage: /home/waas/paper_experiments/outputs/phase2_500/per_video_candidate_coverage_500_two.csv
-  coverage_sweep: /home/waas/paper_experiments/outputs/phase2_500/coverage_sweep_500_two.csv
-  projection_vs_observed: /home/waas/paper_experiments/outputs/phase2_500/coverage_projection_check_500_two.csv
+  summary: ./outputs/phase2_500/real_cert_500_two_summary.json
+  real_cert_summary: ./outputs/phase2_500/real_cert_500_two_summary.csv
+  candidate_evalues: ./outputs/phase2_500/candidate_evalues_500_two.csv
+  cell_effective_n: ./outputs/phase2_500/cell_effective_n_500_two.csv
+  per_video_candidate_coverage: ./outputs/phase2_500/per_video_candidate_coverage_500_two.csv
+  coverage_sweep: ./outputs/phase2_500/coverage_sweep_500_two.csv
+  projection_vs_observed: ./outputs/phase2_500/coverage_projection_check_500_two.csv

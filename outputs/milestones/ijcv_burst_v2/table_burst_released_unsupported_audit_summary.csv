@@ -1,7 +1,0 @@
-dataset,alpha1,seed,method,released_total,unsupported_released_rows,unsupported_unique_paths,labeled_rows,actually_true,actually_false,uncertain,unlabeled,verified_positive,utr,audited_ftr_on_labeled_released,conservative_ftr_if_uncertain_false,all_unsupported_audited,audit_status
-BURST,0.1,0,parc_track_gamma_tuned_uniform_scs,150,6,6,6,6,0,0,0,6,0.04,0.0,0.0,True,model_assisted_visual_audit
-BURST,0.1,1,parc_track_gamma_tuned_uniform_scs,150,6,6,6,6,0,0,0,6,0.04,0.0,0.0,True,model_assisted_visual_audit
-BURST,0.1,2,parc_track_gamma_tuned_uniform_scs,0,0,0,0,0,0,0,0,0,,,,True,model_assisted_visual_audit
-BURST,0.2,0,parc_track_gamma_tuned_uniform_scs,150,6,6,6,6,0,0,0,6,0.04,0.0,0.0,True,model_assisted_visual_audit
-BURST,0.2,1,parc_track_gamma_tuned_uniform_scs,150,6,6,6,6,0,0,0,6,0.04,0.0,0.0,True,model_assisted_visual_audit
-BURST,0.2,2,parc_track_gamma_tuned_uniform_scs,150,7,7,7,7,0,0,0,7,0.04666666666666667,0.0,0.0,True,model_assisted_visual_audit

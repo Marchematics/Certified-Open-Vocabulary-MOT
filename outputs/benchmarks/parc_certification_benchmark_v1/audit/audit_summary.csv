@@ -1,0 +1,8 @@
+dataset,label,count
+BURST,actually_true,587
+BURST,uncertain,13
+OVT-B,actually_false,18
+OVT-B,actually_true,655
+OVT-B,uncertain,27
+TAO,actually_false,15
+TAO,actually_true,685

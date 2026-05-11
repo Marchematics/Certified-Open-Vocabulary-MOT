@@ -1,0 +1,12 @@
+metric,value
+status,completed
+rows_total,300
+label_agreement_rate,0.9966666666666667
+cohens_kappa,0.9916594845561456
+verified_positive_agreement_rate,1.0
+BURST_label_agreement_rate,0.99
+BURST_cohens_kappa,0.9571917808219178
+OVT-B_label_agreement_rate,1.0
+OVT-B_cohens_kappa,1.0
+TAO_label_agreement_rate,1.0
+TAO_cohens_kappa,1.0

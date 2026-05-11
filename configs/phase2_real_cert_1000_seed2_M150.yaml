@@ -1,7 +1,7 @@
 dataset:
   name: OVT-B
-  root: /home/waas/paper_experiments/data/OVT-B
-  ann_file: /home/waas/paper_experiments/data/OVT-B/ovtb_ann.json
+  root: ./data/OVT-B
+  ann_file: ./data/OVT-B/ovtb_ann.json
   format_hint: tao_or_coco_video
 
 splits:
@@ -31,12 +31,12 @@ selector:
   candidate_budget_sweep: [150]
 
 input:
-  candidate_universe: /home/waas/paper_experiments/outputs/phase2_1000/candidate_universe.csv
-  audit_labels: /home/waas/paper_experiments/outputs/phase2/audit_labels.csv
+  candidate_universe: ./outputs/phase2_1000/candidate_universe.csv
+  audit_labels: ./outputs/phase2/audit_labels.csv
 
 output:
-  summary: /home/waas/paper_experiments/outputs/phase2_1000/seed_stability/real_cert_seed2_M150_summary.json
-  real_cert_summary: /home/waas/paper_experiments/outputs/phase2_1000/seed_stability/real_cert_seed2_M150_summary.csv
-  candidate_evalues: /home/waas/paper_experiments/outputs/phase2_1000/seed_stability/candidate_evalues_seed2_M150.csv
-  cell_effective_n: /home/waas/paper_experiments/outputs/phase2_1000/seed_stability/cell_effective_n_seed2_M150.csv
-  per_video_candidate_coverage: /home/waas/paper_experiments/outputs/phase2_1000/seed_stability/per_video_candidate_coverage_seed2_M150.csv
+  summary: ./outputs/phase2_1000/seed_stability/real_cert_seed2_M150_summary.json
+  real_cert_summary: ./outputs/phase2_1000/seed_stability/real_cert_seed2_M150_summary.csv
+  candidate_evalues: ./outputs/phase2_1000/seed_stability/candidate_evalues_seed2_M150.csv
+  cell_effective_n: ./outputs/phase2_1000/seed_stability/cell_effective_n_seed2_M150.csv
+  per_video_candidate_coverage: ./outputs/phase2_1000/seed_stability/per_video_candidate_coverage_seed2_M150.csv

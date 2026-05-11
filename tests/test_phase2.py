@@ -43,7 +43,7 @@ from parc_track.phase3 import (
 )
 
 
-DATA_ROOT = Path("/home/waas/paper_experiments")
+DATA_ROOT = Path(".")
 
 
 def _test_root(name: str) -> Path:
@@ -635,30 +635,30 @@ def test_coverage_sweep_writes_projection_vs_observed() -> None:
 
 
 def test_phase2_500_configs_route_outputs_to_phase2_500_and_reuse_labels() -> None:
-    audit_cfg = yaml.safe_load(Path("/home/waas/paper_experiments/configs/phase2_audit_500.yaml").read_text())
-    single_cfg = yaml.safe_load(Path("/home/waas/paper_experiments/configs/phase2_real_cert_500_single.yaml").read_text())
-    two_cfg = yaml.safe_load(Path("/home/waas/paper_experiments/configs/phase2_real_cert_500_two.yaml").read_text())
+    audit_cfg = yaml.safe_load(Path("./configs/phase2_audit_500.yaml").read_text())
+    single_cfg = yaml.safe_load(Path("./configs/phase2_real_cert_500_single.yaml").read_text())
+    two_cfg = yaml.safe_load(Path("./configs/phase2_real_cert_500_two.yaml").read_text())
     assert int(audit_cfg["proposal"]["max_videos"]) == 500
     assert "/outputs/phase2_500/" in audit_cfg["output"]["candidate_universe"]
-    assert audit_cfg["output"]["labels"] == "/home/waas/paper_experiments/outputs/phase2/audit_labels.csv"
+    assert audit_cfg["output"]["labels"] == "./outputs/phase2/audit_labels.csv"
     for cfg in (single_cfg, two_cfg):
-        assert cfg["input"]["audit_labels"] == "/home/waas/paper_experiments/outputs/phase2/audit_labels.csv"
+        assert cfg["input"]["audit_labels"] == "./outputs/phase2/audit_labels.csv"
         assert "/outputs/phase2_500/" in cfg["input"]["candidate_universe"]
         assert "/outputs/phase2_500/" in cfg["output"]["real_cert_summary"]
         assert cfg["calibration"]["empty_block_policy"] == "coverage_conditional"
 
 
 def test_phase2_1000_configs_route_outputs_to_phase2_1000_and_reuse_labels() -> None:
-    audit_cfg = yaml.safe_load(Path("/home/waas/paper_experiments/configs/phase2_audit_1000.yaml").read_text())
-    cert_cfg = yaml.safe_load(Path("/home/waas/paper_experiments/configs/phase2_real_cert_1000_single.yaml").read_text())
+    audit_cfg = yaml.safe_load(Path("./configs/phase2_audit_1000.yaml").read_text())
+    cert_cfg = yaml.safe_load(Path("./configs/phase2_real_cert_1000_single.yaml").read_text())
     assert int(audit_cfg["proposal"]["max_videos"]) == 1000
     assert "/outputs/phase2_1000/" in audit_cfg["output"]["candidate_universe"]
-    assert audit_cfg["output"]["labels"] == "/home/waas/paper_experiments/outputs/phase2/audit_labels.csv"
-    assert cert_cfg["input"]["audit_labels"] == "/home/waas/paper_experiments/outputs/phase2/audit_labels.csv"
+    assert audit_cfg["output"]["labels"] == "./outputs/phase2/audit_labels.csv"
+    assert cert_cfg["input"]["audit_labels"] == "./outputs/phase2/audit_labels.csv"
     assert "/outputs/phase2_1000/" in cert_cfg["input"]["candidate_universe"]
     assert "/outputs/phase2_1000/" in cert_cfg["output"]["real_cert_summary"]
     assert cert_cfg["calibration"]["empty_block_policy"] == "coverage_conditional"
-    assert cert_cfg["coverage_sweep"]["projection_baseline"] == "/home/waas/paper_experiments/outputs/phase2_500/coverage_sweep_500_single.csv"
+    assert cert_cfg["coverage_sweep"]["projection_baseline"] == "./outputs/phase2_500/coverage_sweep_500_single.csv"
 
 
 def test_best_mass_summary_matches_self_consistency_ratio() -> None:
@@ -926,11 +926,11 @@ def test_export_release_audit_reconstructs_selected_candidates_and_preserves_lab
 
 
 def test_phase3_config_routes_outputs_to_phase3_and_reuses_frozen_labels() -> None:
-    cfg = yaml.safe_load(Path("/home/waas/paper_experiments/configs/phase3_ovtb_matrix.yaml").read_text())
-    assert cfg["input"]["audit_labels"] == "/home/waas/paper_experiments/outputs/phase2/audit_labels.csv"
+    cfg = yaml.safe_load(Path("./configs/phase3_ovtb_matrix.yaml").read_text())
+    assert cfg["input"]["audit_labels"] == "./outputs/phase2/audit_labels.csv"
     assert "extra_audit_labels" in cfg["input"]
     assert "/outputs/phase3_ovtb" in cfg["output"]["output_dir"]
-    assert cfg["tune_selection"]["out"] == "/home/waas/paper_experiments/outputs/phase3_ovtb/tuned_m_selection.csv"
+    assert cfg["tune_selection"]["out"] == "./outputs/phase3_ovtb/tuned_m_selection.csv"
     assert cfg["matrix"]["alpha1"] == [0.05, 0.10, 0.20]
     assert cfg["matrix"]["seeds"] == [0, 1, 2]
     assert 150 in cfg["matrix"]["candidate_budget_M"]
@@ -992,8 +992,8 @@ def test_phase3_ovtb_matrix_writes_expanded_baseline_schema() -> None:
 
 
 def test_owlv2_configs_route_to_isolated_outputs_and_backend() -> None:
-    ovtb = yaml.safe_load(Path("/home/waas/paper_experiments/configs/phase3_ovtb_owlv2_audit.yaml").read_text())
-    tao = yaml.safe_load(Path("/home/waas/paper_experiments/configs/phase3_tao_owlv2_audit.yaml").read_text())
+    ovtb = yaml.safe_load(Path("./configs/phase3_ovtb_owlv2_audit.yaml").read_text())
+    tao = yaml.safe_load(Path("./configs/phase3_tao_owlv2_audit.yaml").read_text())
     for cfg, marker in ((ovtb, "/outputs/phase3_ovtb_owlv2/"), (tao, "/outputs/phase3_tao_owlv2/")):
         assert cfg["proposal"]["backend"] == "owlv2_hf"
         assert cfg["proposal"]["backbone"] == "owlv2_hf"

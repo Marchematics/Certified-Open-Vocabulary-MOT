@@ -1,0 +1,52 @@
+{
+  "status": "completed",
+  "table": "${PARC_TRACK_ROOT}/outputs/phase10_nonexchangeability/table_nonexchangeability_severe_actual_results.csv",
+  "runs": [
+    {
+      "dataset": "OVT-B",
+      "config": "${PARC_TRACK_ROOT}/configs/phase10/phase10_ovtb_severe_nonexchangeability.yaml",
+      "summary": {
+        "status": "completed",
+        "matrix_csv": "${PARC_TRACK_ROOT}/outputs/phase10_nonexchangeability/ovtb_severe_sparse_annotation_shift/ovtb_alpha_seed_m_matrix.csv",
+        "baseline_csv": "${PARC_TRACK_ROOT}/outputs/phase10_nonexchangeability/ovtb_severe_sparse_annotation_shift/table_baseline_expanded.csv",
+        "alpha_sweep_csv": "${PARC_TRACK_ROOT}/outputs/phase10_nonexchangeability/ovtb_severe_sparse_annotation_shift/table_alpha_sweep.csv",
+        "rows": 48,
+        "alphas": [
+          0.1,
+          0.2
+        ],
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "candidate_budget_M": [
+          150
+        ]
+      }
+    },
+    {
+      "dataset": "TAO",
+      "config": "${PARC_TRACK_ROOT}/configs/phase10/phase10_tao_severe_nonexchangeability.yaml",
+      "summary": {
+        "status": "completed",
+        "matrix_csv": "${PARC_TRACK_ROOT}/outputs/phase10_nonexchangeability/tao_severe_sparse_annotation_shift/tao_alpha_seed_m_matrix.csv",
+        "baseline_csv": "${PARC_TRACK_ROOT}/outputs/phase10_nonexchangeability/tao_severe_sparse_annotation_shift/table_baseline_expanded.csv",
+        "alpha_sweep_csv": "${PARC_TRACK_ROOT}/outputs/phase10_nonexchangeability/tao_severe_sparse_annotation_shift/table_alpha_sweep.csv",
+        "rows": 48,
+        "alphas": [
+          0.1,
+          0.2
+        ],
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "candidate_budget_M": [
+          150
+        ]
+      }
+    }
+  ]
+}

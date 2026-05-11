@@ -1,7 +1,7 @@
 dataset:
   name: TAO
-  root: /home/waas/paper_experiments/data/TAO
-  ann_file: /home/waas/paper_experiments/data/TAO/annotations/trainval.json
+  root: ./data/TAO
+  ann_file: ./data/TAO/annotations/trainval.json
   format_hint: tao
 
 splits:
@@ -36,9 +36,9 @@ matrix:
   candidate_budget_M: [150]
 
 input:
-  candidate_universe: /home/waas/paper_experiments/outputs/phase4_tao_owlvit_v1/candidate_universe.csv
-  audit_labels: /home/waas/paper_experiments/outputs/phase4_tao_owlvit_v1/audit_labels.csv
+  candidate_universe: ./outputs/phase4_tao_owlvit_v1/candidate_universe.csv
+  audit_labels: ./outputs/phase4_tao_owlvit_v1/audit_labels.csv
 
 output:
-  output_dir: /home/waas/paper_experiments/outputs/phase4_tao_owlvit_v1
-  candidate_nodes: /home/waas/paper_experiments/outputs/phase4_tao_owlvit_v1/candidate_nodes.csv
+  output_dir: ./outputs/phase4_tao_owlvit_v1
+  candidate_nodes: ./outputs/phase4_tao_owlvit_v1/candidate_nodes.csv

@@ -51,6 +51,19 @@ from .phase8 import (
     run_published_tracker_report,
     scaffold_published_tracker_experiments,
 )
+from .phase9 import (
+    run_audit_benchmark_industrialization,
+    run_certification_api_package,
+    run_ovvis_mask_scaffold,
+    run_reliability_stress_suite,
+    run_tpami_reliability_bundle,
+    run_tpami_reliability_bundle_v2,
+)
+from .phase10 import (
+    run_phase10_nonexchangeability_reruns,
+    run_phase10_null_inflation_reruns,
+    run_phase10_rerun_suite,
+)
 from .reports import build_phase1b_report
 from .smoke import run_smoke
 from .sweeps import run_sweep
@@ -83,7 +96,7 @@ def build_parser() -> argparse.ArgumentParser:
         sub.add_argument(
             "--output-dir",
             default=None,
-            help="Output directory under /home/waas/paper_experiments.",
+            help="Output directory under ..",
         )
 
     catalog = subparsers.add_parser("catalog-bdd", help="Inspect a BDD100K zip archive.")
@@ -97,7 +110,7 @@ def build_parser() -> argparse.ArgumentParser:
     fetch_ovtb.add_argument("--config", required=True, help="Path to OVT-B inspect YAML config.")
     fetch_ovtb.add_argument(
         "--out",
-        default="/home/waas/paper_experiments/outputs/phase2/dataset_fetch_ovtb.json",
+        default="./outputs/phase2/dataset_fetch_ovtb.json",
         help="Path for the fetch/setup report.",
     )
     dataset_inspect = dataset_subparsers.add_parser("inspect", help="Validate tracking-layout contract.")
@@ -206,7 +219,7 @@ def build_parser() -> argparse.ArgumentParser:
     phase1b.add_argument(
         "--output-root",
         default=None,
-        help="Output root under /home/waas/paper_experiments; defaults to outputs/.",
+        help="Output root under .; defaults to outputs/.",
     )
     tpami = report_subparsers.add_parser("tpami-core", help="Freeze TPAMI-core tables, LaTeX exports, and summary docs.")
     tpami.add_argument("--config", required=True, help="Path to Phase-3 paper export YAML config.")
@@ -230,7 +243,7 @@ def build_parser() -> argparse.ArgumentParser:
         "motmetrics",
     ):
         sub = phase4_subparsers.add_parser(name, help=f"Run Phase-4 {name}.")
-        sub.add_argument("--output-dir", default=None, help="Output directory under /home/waas/paper_experiments.")
+        sub.add_argument("--output-dir", default=None, help="Output directory under ..")
 
     trackeval_cmd = subparsers.add_parser("trackeval", help="Export MOTChallenge format and run TrackEval.")
     trackeval_subparsers = trackeval_cmd.add_subparsers(dest="trackeval_command", required=True)
@@ -249,29 +262,29 @@ def build_parser() -> argparse.ArgumentParser:
     phase6 = subparsers.add_parser("phase6", help="Run IJCV metric-scope and controllability reports.")
     phase6_subparsers = phase6.add_subparsers(dest="phase6_command", required=True)
     phase6_metric = phase6_subparsers.add_parser("metric-scope", help="Run Phase-6 metric-scope report bundle.")
-    phase6_metric.add_argument("--output-dir", default=None, help="Output directory under /home/waas/paper_experiments.")
+    phase6_metric.add_argument("--output-dir", default=None, help="Output directory under ..")
     phase7 = subparsers.add_parser("phase7", help="Run Phase-7 stability and third-dataset diagnostics.")
     phase7_subparsers = phase7.add_subparsers(dest="phase7_command", required=True)
     phase7_anytime = phase7_subparsers.add_parser("anytime", help="Run OVT-B anytime-valid release diagnostic.")
-    phase7_anytime.add_argument("--output-dir", default=None, help="Output directory under /home/waas/paper_experiments.")
+    phase7_anytime.add_argument("--output-dir", default=None, help="Output directory under ..")
     phase7_third = phase7_subparsers.add_parser("third-dataset", help="Inspect third dataset readiness.")
     third_subparsers = phase7_third.add_subparsers(dest="third_dataset_command", required=True)
     third_inspect = third_subparsers.add_parser("inspect", help="Inspect BURST/LV-VIS third dataset layout.")
     third_inspect.add_argument("--dataset", default="BURST", choices=("BURST", "LV-VIS", "LVVIS"))
     third_inspect.add_argument("--root", default=None, help="Optional dataset root override.")
     third_inspect.add_argument("--ann-file", default=None, help="Optional annotation JSON override.")
-    third_inspect.add_argument("--output-dir", default=None, help="Output directory under /home/waas/paper_experiments.")
+    third_inspect.add_argument("--output-dir", default=None, help="Output directory under ..")
     phase7_stability = phase7_subparsers.add_parser("stability-v2", help="Freeze IJCV stability v2 bundle.")
-    phase7_stability.add_argument("--output-dir", default=None, help="Output directory under /home/waas/paper_experiments.")
+    phase7_stability.add_argument("--output-dir", default=None, help="Output directory under ..")
     phase7_burst = phase7_subparsers.add_parser("burst-freeze", help="Freeze BURST v1 scaffold outputs.")
-    phase7_burst.add_argument("--output-dir", default=None, help="Milestone output directory under /home/waas/paper_experiments.")
+    phase7_burst.add_argument("--output-dir", default=None, help="Milestone output directory under ..")
     phase7_burst.add_argument("--source-dir", default=None, help="BURST phase output directory.")
     phase7_burst.add_argument("--third-dataset-dir", default=None, help="Third-dataset adapter output directory.")
     phase7_ovtrack_probe = phase7_subparsers.add_parser(
         "ovtrack-public-report",
         help="Check local OVTrack/OVT-B/TETA repos for public prediction files.",
     )
-    phase7_ovtrack_probe.add_argument("--output-dir", default=None, help="Output directory under /home/waas/paper_experiments.")
+    phase7_ovtrack_probe.add_argument("--output-dir", default=None, help="Output directory under ..")
     phase7_ovtrack_convert = phase7_subparsers.add_parser(
         "ovtrack-convert",
         help="Convert TAO/TETA COCO-VID OVTrack predictions to PARC candidate schema.",
@@ -279,24 +292,24 @@ def build_parser() -> argparse.ArgumentParser:
     phase7_ovtrack_convert.add_argument("--pred", required=True, help="OVTrack prediction JSON.")
     phase7_ovtrack_convert.add_argument(
         "--ann",
-        default="/home/waas/paper_experiments/data/OVT-B/ovtb_ann.json",
+        default="./data/OVT-B/ovtb_ann.json",
         help="OVT-B/TAO-format annotation JSON.",
     )
     phase7_ovtrack_convert.add_argument(
         "--out-dir",
-        default="/home/waas/paper_experiments/outputs/phase7_ovtrack_ovtb",
+        default="./outputs/phase7_ovtrack_ovtb",
         help="Output directory for candidate_universe/scores/nodes.",
     )
     phase7_ovtrack_convert.add_argument("--dataset", default="OVT-B", help="Dataset name to write into candidate_universe.")
     phase7_ovtrack_convert.add_argument(
         "--dataset-root",
-        default="/home/waas/paper_experiments/data/OVT-B",
+        default="./data/OVT-B",
         help="Dataset root used to resolve relative frame paths.",
     )
     phase7_ovtrack_convert.add_argument("--frame-subdir", default="OVT-B", help="Frame subdirectory below dataset root.")
     phase7_ovtrack_convert.add_argument(
         "--config-out",
-        default="/home/waas/paper_experiments/configs/phase7_ovtrack_ovtb_matrix.yaml",
+        default="./configs/phase7_ovtrack_ovtb_matrix.yaml",
         help="Matrix config path to write after conversion.",
     )
 
@@ -305,9 +318,9 @@ def build_parser() -> argparse.ArgumentParser:
     phase8_pub = phase8_subparsers.add_parser("published-trackers", help="Inspect, convert, certify, and report published trackers.")
     pub_subparsers = phase8_pub.add_subparsers(dest="published_tracker_command", required=True)
     pub_inspect = pub_subparsers.add_parser("inspect", help="Inspect local tracker repos and prediction availability.")
-    pub_inspect.add_argument("--output-dir", default=None, help="Output root under /home/waas/paper_experiments.")
+    pub_inspect.add_argument("--output-dir", default=None, help="Output root under ..")
     pub_scaffold = pub_subparsers.add_parser("scaffold", help="Create all tracker/dataset run manifests and matrix configs.")
-    pub_scaffold.add_argument("--output-dir", default=None, help="Output root under /home/waas/paper_experiments.")
+    pub_scaffold.add_argument("--output-dir", default=None, help="Output root under ..")
     pub_convert = pub_subparsers.add_parser("convert", help="Convert one tracker prediction file to PARC candidate schema.")
     pub_convert.add_argument("--tracker", required=True, choices=("ovtrack", "ovtb_baseline", "ovtr"))
     pub_convert.add_argument("--dataset", required=True, choices=("ovtb", "tao"))
@@ -325,7 +338,33 @@ def build_parser() -> argparse.ArgumentParser:
     pub_audit.add_argument("--labels-out", default=None, help="Label template CSV.")
     pub_audit.add_argument("--unsupported-only", action="store_true", help="Only export unsupported released paths.")
     pub_report = pub_subparsers.add_parser("report", help="Aggregate completed published tracker matrices.")
-    pub_report.add_argument("--output-dir", default=None, help="Output root under /home/waas/paper_experiments.")
+    pub_report.add_argument("--output-dir", default=None, help="Output root under ..")
+
+    phase9 = subparsers.add_parser("phase9", help="Run TPAMI-scale reliability fortress artifacts.")
+    phase9_subparsers = phase9.add_subparsers(dest="phase9_command", required=True)
+    phase9_audit = phase9_subparsers.add_parser("audit-benchmark", help="Build 2000-row audit benchmark scaffold.")
+    phase9_audit.add_argument("--output-dir", default=None, help="Output directory under ..")
+    phase9_audit.add_argument("--total", type=int, default=2000, help="Total audit rows to target.")
+    phase9_audit.add_argument("--second-rater-total", type=int, default=300, help="Blind second-rater template size.")
+    phase9_stress = phase9_subparsers.add_parser("stress", help="Build reliability stress-test design/projection tables.")
+    phase9_stress.add_argument("--output-dir", default=None, help="Output directory under ..")
+    phase9_ovvis = phase9_subparsers.add_parser("ovvis-scaffold", help="Build OVVIS box-to-mask scaffold.")
+    phase9_ovvis.add_argument("--output-dir", default=None, help="Output directory under ..")
+    phase9_ovvis.add_argument("--limit", type=int, default=500, help="Maximum mask paths in scaffold.")
+    phase9_api = phase9_subparsers.add_parser("certification-api", help="Build public PARC API fixture and docs.")
+    phase9_api.add_argument("--output-dir", default=None, help="Output directory under ..")
+    phase9_bundle = phase9_subparsers.add_parser("reliability-bundle", help="Freeze TPAMI reliability fortress bundle.")
+    phase9_bundle.add_argument("--output-dir", default=None, help="Milestone output directory under ..")
+    phase9_bundle_v2 = phase9_subparsers.add_parser("reliability-bundle-v2", help="Freeze TPAMI reliability fortress v2 bundle.")
+    phase9_bundle_v2.add_argument("--output-dir", default=None, help="Milestone output directory under ..")
+    phase10 = subparsers.add_parser("phase10", help="Run actual reruns for TPAMI reliability fortress.")
+    phase10_subparsers = phase10.add_subparsers(dest="phase10_command", required=True)
+    phase10_nonex = phase10_subparsers.add_parser("nonexchangeability", help="Run severe custom-split non-exchangeability reruns.")
+    phase10_nonex.add_argument("--output-dir", default=None, help="Output directory under ..")
+    phase10_null = phase10_subparsers.add_parser("null-inflation", help="Run verified-positive removal-ratio reruns.")
+    phase10_null.add_argument("--output-dir", default=None, help="Output directory under ..")
+    phase10_suite = phase10_subparsers.add_parser("suite", help="Run both Phase-10 actual rerun suites.")
+    phase10_suite.add_argument("--output-dir", default=None, help="Output directory under ..")
     return parser
 
 
@@ -557,6 +596,36 @@ def main(argv: list[str] | None = None) -> None:
                 parser.error(f"unknown phase8 published-trackers command: {args.published_tracker_command}")
         else:
             parser.error(f"unknown phase8 command: {args.phase8_command}")
+        print(json.dumps(summary, indent=2, ensure_ascii=False))
+    elif args.command == "phase9":
+        if args.phase9_command == "audit-benchmark":
+            summary = run_audit_benchmark_industrialization(
+                args.output_dir,
+                total=args.total,
+                second_rater_total=args.second_rater_total,
+            )
+        elif args.phase9_command == "stress":
+            summary = run_reliability_stress_suite(args.output_dir)
+        elif args.phase9_command == "ovvis-scaffold":
+            summary = run_ovvis_mask_scaffold(args.output_dir, limit=args.limit)
+        elif args.phase9_command == "certification-api":
+            summary = run_certification_api_package(args.output_dir)
+        elif args.phase9_command == "reliability-bundle":
+            summary = run_tpami_reliability_bundle(args.output_dir)
+        elif args.phase9_command == "reliability-bundle-v2":
+            summary = run_tpami_reliability_bundle_v2(args.output_dir)
+        else:
+            parser.error(f"unknown phase9 command: {args.phase9_command}")
+        print(json.dumps(summary, indent=2, ensure_ascii=False))
+    elif args.command == "phase10":
+        if args.phase10_command == "nonexchangeability":
+            summary = run_phase10_nonexchangeability_reruns(args.output_dir)
+        elif args.phase10_command == "null-inflation":
+            summary = run_phase10_null_inflation_reruns(args.output_dir)
+        elif args.phase10_command == "suite":
+            summary = run_phase10_rerun_suite(args.output_dir)
+        else:
+            parser.error(f"unknown phase10 command: {args.phase10_command}")
         print(json.dumps(summary, indent=2, ensure_ascii=False))
     else:
         parser.error(f"unknown command: {args.command}")
