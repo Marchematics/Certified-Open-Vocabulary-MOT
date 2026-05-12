@@ -1,0 +1,23 @@
+dataset,generator,seed,certified_risk_level_alpha,M,mass_ratio,mass_ratio_threshold,max_observed_e,mean_observed_e,required_emax,release_feasible,safe_refusal_reason,empty_reason,raw_topM_false_rate,raw_topM_unsupported_rate,raw_topM_risk_available,figure_role
+OVT-B,OWLv2,0,0.1,150,0.0347132838396408,1.0,,,,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,,False,safe_refusal_mass_evidence
+OVT-B,OWLv2,1,0.1,150,0.0192456733223414,1.0,,,,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,,False,safe_refusal_mass_evidence
+OVT-B,OWLv2,2,0.1,150,0.0348655406041717,1.0,,,,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,,False,safe_refusal_mass_evidence
+TAO,OWLv2,0,0.1,150,0.0251878412257681,1.0,,,,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,,False,safe_refusal_mass_evidence
+TAO,OWLv2,1,0.1,150,0.0251559290221353,1.0,,,,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,,False,safe_refusal_mass_evidence
+TAO,OWLv2,2,0.1,150,0.0251240107974674,1.0,,,,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,,False,safe_refusal_mass_evidence
+OVT-B,OWL-ViT v1,0,0.1,150,0.0026593762559245,1.0,,,,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,,False,safe_refusal_mass_evidence
+OVT-B,OWL-ViT v1,1,0.1,150,0.0025620321005338,1.0,,,,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,,False,safe_refusal_mass_evidence
+OVT-B,OWL-ViT v1,2,0.1,150,0.0015772990392313,1.0,,,,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,,False,safe_refusal_mass_evidence
+TAO,OWL-ViT v1,0,0.1,150,0.0020608227618976,1.0,,,,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,,False,safe_refusal_mass_evidence
+TAO,OWL-ViT v1,1,0.1,150,0.0022139982858059,1.0,,,,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,,False,safe_refusal_mass_evidence
+TAO,OWL-ViT v1,2,0.1,150,0.0020608227618976,1.0,,,,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,,False,safe_refusal_mass_evidence
+TAO,GroundingDINO detector-only,0,0.1,150,0.0226472784572209,1.0,,,,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,,False,safe_refusal_mass_evidence
+TAO,GroundingDINO detector-only,1,0.1,150,0.0227121088145159,1.0,,,,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,,False,safe_refusal_mass_evidence
+TAO,GroundingDINO detector-only,2,0.1,150,0.0225175333176006,1.0,,,,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,,False,safe_refusal_mass_evidence
+TAO,GroundingDINO + tracker,0,0.1,150,,1.0,33.97091768583136,,,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,,False,safe_refusal_mass_evidence
+TAO,GroundingDINO + tracker,1,0.1,150,,1.0,34.068163221773965,,,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,,False,safe_refusal_mass_evidence
+TAO,GroundingDINO + tracker,2,0.1,150,,1.0,33.776299976401,,,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,,False,safe_refusal_mass_evidence
+BURST,GroundingDINO,2,0.1,150,0.7922557480050123,1.0,25.172852016760327,10.787999274737524,10.0,True,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,,False,safe_refusal_mass_evidence
+BURST,OWLv2,0,0.1,150,0.0831533391600178,1.0,29.349444448474973,2.3338423410306044,10.0,True,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,,False,safe_refusal_mass_evidence
+BURST,OWLv2,1,0.1,150,0.0766515245019775,1.0,29.29970226451609,1.6162013605691072,10.0,True,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,,False,safe_refusal_mass_evidence
+BURST,OWLv2,2,0.1,150,0.0600543449927483,1.0,6.518818912046924,1.149439445570874,10.0,True,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,,False,safe_refusal_mass_evidence

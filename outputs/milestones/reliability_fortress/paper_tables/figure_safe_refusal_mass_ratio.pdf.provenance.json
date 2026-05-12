@@ -1,0 +1,15 @@
+{
+  "figure": "figure_safe_refusal_mass_ratio.pdf",
+  "repo_commit": "819c00dd16d4cf8b14c7668cbdf483a7563ae76d",
+  "command": "python -m parc_track.cli phase14 closeout",
+  "runtime_sec": 1.107564,
+  "source_files": [
+    {
+      "path": "outputs/milestones/reliability_fortress/paper_tables/figure_safe_refusal_mass_ratio.csv",
+      "sha256": "1345661e2fd5b77eb3378631b4656e0d688ca45f718d1069b86bfc94ad104411"
+    }
+  ],
+  "output_sha256": "412e152454f9c01643ed9e0f35adc291c9d514f20ffaacca42626b77ef8ae815",
+  "paper_facing_figure": true,
+  "notes": "Generated from sanitized figure-ready CSV; no raw data embedded."
+}

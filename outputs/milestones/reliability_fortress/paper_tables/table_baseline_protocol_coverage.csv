@@ -1,0 +1,5 @@
+baseline_family,current_coverage,main_protocol_all_generator_dataset_grid,paper_use,notes
+score_threshold,LVVIS extension table plus selected legacy diagnostic matrices,False,appendix_baseline_evidence,Not claimed as full OVT-B/TAO/BURST x generator coverage.
+post_filter_e_BH,LVVIS extension table plus selected legacy diagnostic matrices,False,appendix_baseline_evidence,"Useful component ablation, not a full black-box generator baseline grid."
+topM_no_risk,count reference in main risk-utility table,False,main_reference_count_only,Raw top-M release count is shown; raw false-rate audit is not available for every generator/dataset.
+completed_methods_in_table_baseline_comparison,PARC_full;null_superset_without_audit;post_filter_e_BH;score_threshold;topM_no_risk;tracklet_e_BH;tracklet_p_BH;unmatched_as_false_block_calibration,False,appendix_status,Status row prevents overclaiming baseline coverage.

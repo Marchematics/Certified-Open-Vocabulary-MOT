@@ -273,6 +273,11 @@ def test_closeout_tables_are_clean_and_have_refusal_diagnostics(tmp_path: Path, 
         "selected_e_min",
         "selected_e_mean",
         "selected_e_max",
+        "official_supported",
+        "unsupported_actually_true",
+        "unsupported_actually_false",
+        "unsupported_uncertain",
+        "unsupported_unlabeled",
         "release_feasible",
         "empty_reason",
         "safe_refusal_reason",
@@ -286,6 +291,10 @@ def test_closeout_tables_are_clean_and_have_refusal_diagnostics(tmp_path: Path, 
     assert {"included_main_table", "appendix_only_official_prediction_metadata_incomplete"}.issubset(
         set(coverage["main_protocol_status"])
     )
+    baseline_coverage = pd.read_csv(out_dir / "table_baseline_protocol_coverage.csv")
+    assert baseline_coverage["main_protocol_all_generator_dataset_grid"].eq(False).all()
+    oracle = pd.read_csv(out_dir / "table_oracle_true_upper_bound_appendix.csv")
+    assert {"oracle_status", "oracle_upper_bound_release_if_unknown_true"}.issubset(oracle.columns)
     summary = pd.read_csv(out_dir / "table_main_raw_vs_parc_summary.csv")
     assert {"nonempty_seeds", "safe_refusal_rate"}.issubset(summary.columns)
     refusal = pd.read_csv(out_dir / "table_safe_refusal_diagnostics.csv")
@@ -300,9 +309,14 @@ def test_closeout_tables_are_clean_and_have_refusal_diagnostics(tmp_path: Path, 
         set(frontier["policy"])
     )
     assert (out_dir / "figure_3_risk_utility_frontier.csv").exists()
+    assert (out_dir / "figure_3_risk_utility_frontier.pdf").exists()
     safe_mass = pd.read_csv(out_dir / "figure_safe_refusal_mass_ratio.csv")
     assert {"mass_ratio", "mass_ratio_threshold", "unconstrained_feasible"}.issubset(safe_mass.columns)
-    assert (out_dir / "figure_safe_refusal_raw_false_rate.csv").exists()
+    safe_evidence = pd.read_csv(out_dir / "figure_safe_refusal_mass_evidence.csv")
+    assert {"mass_ratio", "max_observed_e", "raw_topM_risk_available"}.issubset(safe_evidence.columns)
+    assert (out_dir / "figure_safe_refusal_mass_ratio.pdf").exists()
+    assert (out_dir / "figure_safe_refusal_mass_evidence.pdf").exists()
+    assert not (out_dir / "figure_safe_refusal_raw_false_rate.csv").exists()
     assert (tmp_path / "docs/qualitative_release_gallery.md").exists()
     for folder in ("released_examples", "refusal_examples", "borderline_examples"):
         assert (tmp_path / "figures" / folder / "manifest.csv").exists()

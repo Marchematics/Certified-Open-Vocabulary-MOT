@@ -1,15 +1,15 @@
 {
   "table": "table_safe_refusal_diagnostics.csv",
-  "repo_commit": "20152155345bebe2fb8aa04cfbc5aa290f6ac2c6",
+  "repo_commit": "819c00dd16d4cf8b14c7668cbdf483a7563ae76d",
   "command": "python -m parc_track.cli phase14 closeout",
-  "runtime_sec": 0.058872,
+  "runtime_sec": 0.060987,
   "source_files": [
     {
       "path": "outputs/milestones/reliability_fortress/paper_tables/table_main_raw_vs_parc.csv",
-      "sha256": "8ba8743ef0b9fedf825b336c5e4b52f513e15cdcd667725d5677342c821771f3"
+      "sha256": "22923008cf445a6b25e5324198290cfa6761d9ec9cde5be2ad99d894d3c8924e"
     }
   ],
-  "output_sha256": "c93d7f83cb4a07783b92ed0bd87317faed3db6ac430bb5a503377c74c129f245",
+  "output_sha256": "db3911ca706a2d688e2e6d2bbab658b1dd4c7eb175f869ffef92d585f0730707",
   "config_sha256": "",
   "candidate_universe_sha256": "",
   "candidate_nodes_sha256": "",

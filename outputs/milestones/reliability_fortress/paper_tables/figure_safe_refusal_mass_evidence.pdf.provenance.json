@@ -1,0 +1,15 @@
+{
+  "figure": "figure_safe_refusal_mass_evidence.pdf",
+  "repo_commit": "819c00dd16d4cf8b14c7668cbdf483a7563ae76d",
+  "command": "python -m parc_track.cli phase14 closeout",
+  "runtime_sec": 1.296195,
+  "source_files": [
+    {
+      "path": "outputs/milestones/reliability_fortress/paper_tables/figure_safe_refusal_mass_evidence.csv",
+      "sha256": "bc808c53c3a0a48ec07bc2659dfb881d6eaeacaef32737ab9472d4a3d21444c3"
+    }
+  ],
+  "output_sha256": "118bb74646ef2aa601913948c6e48782685bd5e010391b0032af4b00ed3e1d34",
+  "paper_facing_figure": true,
+  "notes": "Generated from sanitized figure-ready CSV; no raw data embedded."
+}

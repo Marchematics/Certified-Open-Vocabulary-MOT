@@ -161,9 +161,82 @@ def _write_csv(frame: pd.DataFrame, path: Path, source_paths: list[Path], comman
     return out
 
 
+def _write_pdf_provenance(pdf_path: Path, source_paths: list[Path], started: float) -> None:
+    write_json(
+        pdf_path.with_suffix(pdf_path.suffix + ".provenance.json"),
+        {
+            "figure": pdf_path.name,
+            "repo_commit": _git_commit(),
+            "command": "python -m parc_track.cli phase14 closeout",
+            "runtime_sec": round(time.time() - started, 6),
+            "source_files": [
+                {"path": _rel(src), "sha256": _sha256(src)} for src in source_paths if src.exists()
+            ],
+            "output_sha256": _sha256(pdf_path),
+            "paper_facing_figure": True,
+            "notes": "Generated from sanitized figure-ready CSV; no raw data embedded.",
+        },
+    )
+
+
+def _save_simple_pdf(kind: str, source_csv: Path, pdf_path: Path, started: float) -> Path:
+    import matplotlib
+
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    frame = _read_csv(source_csv)
+    ensure_data_output(pdf_path)
+    fig, ax = plt.subplots(figsize=(8.0, 4.8))
+    if frame.empty:
+        ax.text(0.5, 0.5, "No data", ha="center", va="center")
+        ax.set_axis_off()
+    elif kind == "risk_utility":
+        data = frame[frame.get("policy", "").astype(str).eq("PARC_certified_release_or_refusal")].copy()
+        data["released"] = pd.to_numeric(data["released"], errors="coerce")
+        data["risk"] = pd.to_numeric(data["conservative_label_uncertainty_FTR"], errors="coerce")
+        grouped = data.groupby(["dataset", "source"], dropna=False)[["released", "risk"]].mean().reset_index()
+        for _, row in grouped.iterrows():
+            ax.scatter(row["released"], row["risk"], s=60)
+            ax.annotate(f"{row['dataset']} / {row['source']}", (row["released"], row["risk"]), fontsize=7, xytext=(4, 3), textcoords="offset points")
+        ax.set_xlabel("Mean certified release count")
+        ax.set_ylabel("Mean conservative label-uncertainty FTR")
+        ax.set_title("Risk-utility frontier")
+        ax.grid(True, alpha=0.25)
+    elif kind == "safe_mass":
+        data = frame.copy()
+        data["mass_ratio"] = pd.to_numeric(data["mass_ratio"], errors="coerce")
+        grouped = data.groupby(["dataset", "generator"], dropna=False)["mass_ratio"].mean().dropna().reset_index()
+        labels = [f"{r.dataset}\n{r.generator}" for r in grouped.itertuples()]
+        ax.bar(range(len(grouped)), grouped["mass_ratio"])
+        ax.axhline(1.0, color="black", linestyle="--", linewidth=1.0)
+        ax.set_xticks(range(len(grouped)))
+        ax.set_xticklabels(labels, rotation=45, ha="right", fontsize=7)
+        ax.set_ylabel("Mean high-evidence mass ratio")
+        ax.set_title("Safe-refusal mass evidence")
+    elif kind == "safe_evidence":
+        data = frame.copy()
+        data["mass_ratio"] = pd.to_numeric(data["mass_ratio"], errors="coerce")
+        data["max_observed_e"] = pd.to_numeric(data["max_observed_e"], errors="coerce")
+        for _, row in data.iterrows():
+            ax.scatter(row["mass_ratio"], row["max_observed_e"], s=45)
+        ax.axvline(1.0, color="black", linestyle="--", linewidth=1.0)
+        ax.set_xlabel("High-evidence mass ratio")
+        ax.set_ylabel("Max observed e-value")
+        ax.set_title("Safe-refusal evidence diagnostics")
+        ax.grid(True, alpha=0.25)
+    fig.tight_layout()
+    fig.savefig(pdf_path)
+    plt.close(fig)
+    _write_pdf_provenance(pdf_path, [source_csv], started)
+    return pdf_path
+
+
 def _validate_clean_tables(paths: list[Path]) -> None:
     failures: list[str] = []
     for path in paths:
+        if Path(path).suffix.lower() == ".pdf":
+            continue
         text = path.read_text(encoding="utf-8", errors="ignore")
         for token in DIRTY_TOKENS:
             if token in text:
@@ -213,6 +286,11 @@ def _main_protocol_row(row: pd.Series, dataset: str, generator: str) -> dict[str
         "selected_e_min": row.get("selected_e_min", ""),
         "selected_e_mean": row.get("selected_e_mean", ""),
         "selected_e_max": row.get("selected_e_max", ""),
+        "official_supported": row.get("official_supported", ""),
+        "unsupported_actually_true": row.get("unsupported_actually_true", ""),
+        "unsupported_actually_false": row.get("unsupported_actually_false", ""),
+        "unsupported_uncertain": row.get("unsupported_uncertain", ""),
+        "unsupported_unlabeled": row.get("unsupported_unlabeled", ""),
         "release_feasible": release_feasible,
         "empty_reason": empty_reason,
         "safe_refusal_reason": "",
@@ -299,6 +377,11 @@ def _build_main_raw_vs_parc(out_dir: Path, started: float) -> Path:
                     "selected_e_min": row.get("selected_e_min", ""),
                     "selected_e_mean": row.get("selected_e_mean", ""),
                     "selected_e_max": row.get("selected_e_max", ""),
+                    "official_supported": row.get("official_supported", ""),
+                    "unsupported_actually_true": row.get("unsupported_actually_true", ""),
+                    "unsupported_actually_false": row.get("unsupported_actually_false", ""),
+                    "unsupported_uncertain": row.get("unsupported_uncertain", ""),
+                    "unsupported_unlabeled": row.get("unsupported_unlabeled", ""),
                     "release_feasible": bool(released > 0 or _num(mass, default=0.0) >= 1.0),
                     "empty_reason": empty_reason,
                     "safe_refusal_reason": _safe_reason(row),
@@ -468,7 +551,7 @@ def _build_main_summary(out_dir: Path, main_path: Path, started: float) -> Path:
     )
 
 
-def _build_risk_utility_frontier(out_dir: Path, main_path: Path, baseline_path: Path, started: float) -> Path:
+def _build_risk_utility_frontier(out_dir: Path, main_path: Path, baseline_path: Path, started: float) -> tuple[Path, Path, Path]:
     rows: list[dict[str, Any]] = []
     main = _read_csv(main_path)
     if not main.empty:
@@ -544,19 +627,21 @@ def _build_risk_utility_frontier(out_dir: Path, main_path: Path, baseline_path: 
         "python -m parc_track.cli phase14 closeout",
         started,
     )
-    _write_csv(
+    figure3_csv = _write_csv(
         table,
         out_dir / "figure_3_risk_utility_frontier.csv",
         [main_path, baseline_path],
         "python -m parc_track.cli phase14 closeout",
         started,
     )
-    return primary
+    figure3_pdf = _save_simple_pdf("risk_utility", figure3_csv, out_dir / "figure_3_risk_utility_frontier.pdf", started)
+    return primary, figure3_csv, figure3_pdf
 
 
-def _build_safe_refusal_figures(out_dir: Path, refusal_path: Path, started: float) -> tuple[Path, Path]:
+def _build_safe_refusal_figures(out_dir: Path, refusal_path: Path, started: float) -> tuple[Path, Path, Path, Path, Path]:
     refusal = _read_csv(refusal_path)
     mass_rows: list[dict[str, Any]] = []
+    evidence_rows: list[dict[str, Any]] = []
     reason_rows: list[dict[str, Any]] = []
     if not refusal.empty:
         for _, row in refusal.iterrows():
@@ -574,6 +659,29 @@ def _build_safe_refusal_figures(out_dir: Path, refusal_path: Path, started: floa
                     "safe_refusal_reason": row.get("safe_refusal_reason", ""),
                     "empty_reason": row.get("empty_reason", ""),
                     "figure_role": "safe_refusal_mass_ratio",
+                }
+            )
+            raw_false = row.get("raw_topM_false_rate", "")
+            raw_unsupported = row.get("raw_topM_unsupported_rate", "")
+            evidence_rows.append(
+                {
+                    "dataset": row.get("dataset", ""),
+                    "generator": row.get("generator", ""),
+                    "seed": row.get("seed", ""),
+                    "certified_risk_level_alpha": row.get("certified_risk_level_alpha", ""),
+                    "M": row.get("M", 150),
+                    "mass_ratio": mass,
+                    "mass_ratio_threshold": 1.0,
+                    "max_observed_e": row.get("max_observed_e", ""),
+                    "mean_observed_e": row.get("mean_observed_e", ""),
+                    "required_emax": row.get("required_emax", ""),
+                    "release_feasible": row.get("release_feasible", ""),
+                    "safe_refusal_reason": row.get("safe_refusal_reason", ""),
+                    "empty_reason": row.get("empty_reason", ""),
+                    "raw_topM_false_rate": raw_false,
+                    "raw_topM_unsupported_rate": raw_unsupported,
+                    "raw_topM_risk_available": bool(_text(raw_false) or _text(raw_unsupported)),
+                    "figure_role": "safe_refusal_mass_evidence",
                 }
             )
         grouped = (
@@ -605,34 +713,22 @@ def _build_safe_refusal_figures(out_dir: Path, refusal_path: Path, started: floa
         "python -m parc_track.cli phase14 closeout",
         started,
     )
-    raw_false_path = _write_csv(
-        refusal[
-            [
-                col
-                for col in (
-                    "dataset",
-                    "generator",
-                    "seed",
-                    "certified_risk_level_alpha",
-                    "M",
-                    "raw_topM_false_rate",
-                    "raw_topM_unsupported_rate",
-                    "parc_released",
-                    "safe_refusal_reason",
-                    "mass_ratio",
-                    "empty_reason",
-                )
-                if col in refusal.columns
-            ]
-        ]
-        if not refusal.empty
-        else pd.DataFrame(),
-        out_dir / "figure_safe_refusal_raw_false_rate.csv",
+    evidence_path = _write_csv(
+        pd.DataFrame(evidence_rows),
+        out_dir / "figure_safe_refusal_mass_evidence.csv",
         [refusal_path],
         "python -m parc_track.cli phase14 closeout",
         started,
     )
-    return mass_path, reason_path, raw_false_path
+    for stale in (
+        out_dir / "figure_safe_refusal_raw_false_rate.csv",
+        out_dir / "figure_safe_refusal_raw_false_rate.csv.provenance.json",
+    ):
+        if stale.exists():
+            stale.unlink()
+    mass_pdf = _save_simple_pdf("safe_mass", mass_path, out_dir / "figure_safe_refusal_mass_ratio.pdf", started)
+    evidence_pdf = _save_simple_pdf("safe_evidence", evidence_path, out_dir / "figure_safe_refusal_mass_evidence.pdf", started)
+    return mass_path, reason_path, evidence_path, mass_pdf, evidence_pdf
 
 
 def _build_baseline_and_ablation(out_dir: Path, started: float) -> tuple[Path, Path]:
@@ -723,6 +819,87 @@ def _build_baseline_and_ablation(out_dir: Path, started: float) -> tuple[Path, P
         started,
     )
     return baseline_path, ablation_path
+
+
+def _build_oracle_upper_bound(out_dir: Path, main_path: Path, started: float) -> Path:
+    main = _read_csv(main_path)
+    rows: list[dict[str, Any]] = []
+    if not main.empty:
+        for _, row in main.iterrows():
+            supported = _num(row.get("official_supported"), default=float("nan"))
+            true_unsupported = _num(row.get("unsupported_actually_true"), default=float("nan"))
+            false_unsupported = _num(row.get("unsupported_actually_false"), default=float("nan"))
+            uncertain = _num(row.get("unsupported_uncertain"), default=float("nan"))
+            unlabeled = _num(row.get("unsupported_unlabeled"), default=float("nan"))
+            available = not pd.isna(supported)
+            known_true = (0.0 if pd.isna(supported) else supported) + (0.0 if pd.isna(true_unsupported) else true_unsupported)
+            known_false = 0.0 if pd.isna(false_unsupported) else false_unsupported
+            unknown = (0.0 if pd.isna(uncertain) else uncertain) + (0.0 if pd.isna(unlabeled) else unlabeled)
+            rows.append(
+                {
+                    "dataset": row.get("dataset", ""),
+                    "generator": row.get("generator", ""),
+                    "certified_risk_level_alpha": row.get("certified_risk_level_alpha", ""),
+                    "M": row.get("M", 150),
+                    "seed": row.get("seed", ""),
+                    "parc_released": row.get("parc_released", ""),
+                    "oracle_known_true_release": known_true if available else "",
+                    "oracle_known_false_release": known_false if available else "",
+                    "oracle_unknown_release": unknown if available else "",
+                    "oracle_upper_bound_release_if_unknown_true": known_true + unknown if available else "",
+                    "oracle_status": "available_from_audited_release_counts" if available else "not_available_in_public_safe_main_table",
+                    "paper_table_scope": "appendix_oracle_upper_bound",
+                }
+            )
+    return _write_csv(
+        pd.DataFrame(rows),
+        out_dir / "table_oracle_true_upper_bound_appendix.csv",
+        [main_path],
+        "python -m parc_track.cli phase14 closeout",
+        started,
+    )
+
+
+def _build_baseline_protocol_coverage(out_dir: Path, baseline_path: Path, started: float) -> Path:
+    baseline = _read_csv(baseline_path)
+    completed_methods = sorted(set(baseline["method"].dropna().astype(str))) if not baseline.empty and "method" in baseline else []
+    rows = [
+        {
+            "baseline_family": "score_threshold",
+            "current_coverage": "LVVIS extension table plus selected legacy diagnostic matrices",
+            "main_protocol_all_generator_dataset_grid": False,
+            "paper_use": "appendix_baseline_evidence",
+            "notes": "Not claimed as full OVT-B/TAO/BURST x generator coverage.",
+        },
+        {
+            "baseline_family": "post_filter_e_BH",
+            "current_coverage": "LVVIS extension table plus selected legacy diagnostic matrices",
+            "main_protocol_all_generator_dataset_grid": False,
+            "paper_use": "appendix_baseline_evidence",
+            "notes": "Useful component ablation, not a full black-box generator baseline grid.",
+        },
+        {
+            "baseline_family": "topM_no_risk",
+            "current_coverage": "count reference in main risk-utility table",
+            "main_protocol_all_generator_dataset_grid": False,
+            "paper_use": "main_reference_count_only",
+            "notes": "Raw top-M release count is shown; raw false-rate audit is not available for every generator/dataset.",
+        },
+        {
+            "baseline_family": "completed_methods_in_table_baseline_comparison",
+            "current_coverage": ";".join(completed_methods),
+            "main_protocol_all_generator_dataset_grid": False,
+            "paper_use": "appendix_status",
+            "notes": "Status row prevents overclaiming baseline coverage.",
+        },
+    ]
+    return _write_csv(
+        pd.DataFrame(rows),
+        out_dir / "table_baseline_protocol_coverage.csv",
+        [baseline_path],
+        "python -m parc_track.cli phase14 closeout",
+        started,
+    )
 
 
 def _build_stress_tables(out_dir: Path, started: float) -> tuple[Path, Path]:
@@ -891,8 +1068,10 @@ def run_phase14_closeout(out_dir: str | Path | None = None) -> dict[str, Any]:
     refusal = _build_safe_refusal(output_dir, main, started)
     baseline, ablation = _build_baseline_and_ablation(output_dir, started)
     summary = _build_main_summary(output_dir, main, started)
-    frontier = _build_risk_utility_frontier(output_dir, main, baseline, started)
-    safe_mass, safe_reasons, safe_raw_false = _build_safe_refusal_figures(output_dir, refusal, started)
+    oracle = _build_oracle_upper_bound(output_dir, main, started)
+    baseline_coverage = _build_baseline_protocol_coverage(output_dir, baseline, started)
+    frontier, frontier_figure3, frontier_pdf = _build_risk_utility_frontier(output_dir, main, baseline, started)
+    safe_mass, safe_reasons, safe_evidence, safe_mass_pdf, safe_evidence_pdf = _build_safe_refusal_figures(output_dir, refusal, started)
     stress, projection = _build_stress_tables(output_dir, started)
     gallery_outputs = _build_qualitative_gallery(started)
     outputs = [
@@ -901,12 +1080,17 @@ def run_phase14_closeout(out_dir: str | Path | None = None) -> dict[str, Any]:
         summary,
         refusal,
         baseline,
+        baseline_coverage,
         ablation,
+        oracle,
         frontier,
-        output_dir / "figure_3_risk_utility_frontier.csv",
+        frontier_figure3,
+        frontier_pdf,
         safe_mass,
         safe_reasons,
-        safe_raw_false,
+        safe_evidence,
+        safe_mass_pdf,
+        safe_evidence_pdf,
         stress,
         projection,
         *gallery_outputs,

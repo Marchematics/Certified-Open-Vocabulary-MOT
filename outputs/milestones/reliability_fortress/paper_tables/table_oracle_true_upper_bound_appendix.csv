@@ -1,0 +1,31 @@
+dataset,generator,certified_risk_level_alpha,M,seed,parc_released,oracle_known_true_release,oracle_known_false_release,oracle_unknown_release,oracle_upper_bound_release_if_unknown_true,oracle_status,paper_table_scope
+OVT-B,OWLv2,0.1,150,0,0.0,,,,,not_available_in_public_safe_main_table,appendix_oracle_upper_bound
+OVT-B,OWLv2,0.1,150,1,0.0,,,,,not_available_in_public_safe_main_table,appendix_oracle_upper_bound
+OVT-B,OWLv2,0.1,150,2,0.0,,,,,not_available_in_public_safe_main_table,appendix_oracle_upper_bound
+TAO,OWLv2,0.1,150,0,0.0,,,,,not_available_in_public_safe_main_table,appendix_oracle_upper_bound
+TAO,OWLv2,0.1,150,1,0.0,,,,,not_available_in_public_safe_main_table,appendix_oracle_upper_bound
+TAO,OWLv2,0.1,150,2,0.0,,,,,not_available_in_public_safe_main_table,appendix_oracle_upper_bound
+OVT-B,OWL-ViT v1,0.1,150,0,0.0,,,,,not_available_in_public_safe_main_table,appendix_oracle_upper_bound
+OVT-B,OWL-ViT v1,0.1,150,1,0.0,,,,,not_available_in_public_safe_main_table,appendix_oracle_upper_bound
+OVT-B,OWL-ViT v1,0.1,150,2,0.0,,,,,not_available_in_public_safe_main_table,appendix_oracle_upper_bound
+TAO,OWL-ViT v1,0.1,150,0,0.0,,,,,not_available_in_public_safe_main_table,appendix_oracle_upper_bound
+TAO,OWL-ViT v1,0.1,150,1,0.0,,,,,not_available_in_public_safe_main_table,appendix_oracle_upper_bound
+TAO,OWL-ViT v1,0.1,150,2,0.0,,,,,not_available_in_public_safe_main_table,appendix_oracle_upper_bound
+OVT-B,GroundingDINO detector-only,0.1,150,0,105.0,,,,,not_available_in_public_safe_main_table,appendix_oracle_upper_bound
+OVT-B,GroundingDINO detector-only,0.1,150,1,150.0,,,,,not_available_in_public_safe_main_table,appendix_oracle_upper_bound
+OVT-B,GroundingDINO detector-only,0.1,150,2,150.0,,,,,not_available_in_public_safe_main_table,appendix_oracle_upper_bound
+TAO,GroundingDINO detector-only,0.1,150,0,0.0,,,,,not_available_in_public_safe_main_table,appendix_oracle_upper_bound
+TAO,GroundingDINO detector-only,0.1,150,1,0.0,,,,,not_available_in_public_safe_main_table,appendix_oracle_upper_bound
+TAO,GroundingDINO detector-only,0.1,150,2,0.0,,,,,not_available_in_public_safe_main_table,appendix_oracle_upper_bound
+OVT-B,GroundingDINO + tracker,0.1,150,0,105.0,104.0,0.0,1.0,105.0,available_from_audited_release_counts,appendix_oracle_upper_bound
+OVT-B,GroundingDINO + tracker,0.1,150,1,150.0,147.0,0.0,3.0,150.0,available_from_audited_release_counts,appendix_oracle_upper_bound
+OVT-B,GroundingDINO + tracker,0.1,150,2,150.0,149.0,0.0,1.0,150.0,available_from_audited_release_counts,appendix_oracle_upper_bound
+TAO,GroundingDINO + tracker,0.1,150,0,0.0,0.0,0.0,0.0,0.0,available_from_audited_release_counts,appendix_oracle_upper_bound
+TAO,GroundingDINO + tracker,0.1,150,1,0.0,0.0,0.0,0.0,0.0,available_from_audited_release_counts,appendix_oracle_upper_bound
+TAO,GroundingDINO + tracker,0.1,150,2,0.0,0.0,0.0,0.0,0.0,available_from_audited_release_counts,appendix_oracle_upper_bound
+BURST,GroundingDINO,0.1,150,0,150.0,144.0,0.0,6.0,150.0,available_from_audited_release_counts,appendix_oracle_upper_bound
+BURST,GroundingDINO,0.1,150,1,150.0,144.0,0.0,6.0,150.0,available_from_audited_release_counts,appendix_oracle_upper_bound
+BURST,GroundingDINO,0.1,150,2,0.0,0.0,0.0,0.0,0.0,available_from_audited_release_counts,appendix_oracle_upper_bound
+BURST,OWLv2,0.1,150,0,0.0,0.0,0.0,0.0,0.0,available_from_audited_release_counts,appendix_oracle_upper_bound
+BURST,OWLv2,0.1,150,1,0.0,0.0,0.0,0.0,0.0,available_from_audited_release_counts,appendix_oracle_upper_bound
+BURST,OWLv2,0.1,150,2,0.0,0.0,0.0,0.0,0.0,available_from_audited_release_counts,appendix_oracle_upper_bound

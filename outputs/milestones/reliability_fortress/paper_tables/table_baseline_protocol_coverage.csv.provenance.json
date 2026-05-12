@@ -1,15 +1,15 @@
 {
-  "table": "table_ablation_components.csv",
+  "table": "table_baseline_protocol_coverage.csv",
   "repo_commit": "819c00dd16d4cf8b14c7668cbdf483a7563ae76d",
   "command": "python -m parc_track.cli phase14 closeout",
-  "runtime_sec": 0.085893,
+  "runtime_sec": 0.131263,
   "source_files": [
     {
-      "path": "outputs/milestones/lvvis_certification/table_baseline_expanded.csv",
-      "sha256": "bb8760a2d41141039874ea04fd78b06a36007fc751b6efb012c347a44b18295a"
+      "path": "outputs/milestones/reliability_fortress/paper_tables/table_baseline_comparison.csv",
+      "sha256": "2e8008f38a38618a5c9fc65a22ff5761eccda45275e8e2bc3f76569707d29778"
     }
   ],
-  "output_sha256": "750c9ec56c44334faa8ba6e426e340db17ce3ba02eee446e5fb30211543c63ce",
+  "output_sha256": "93dcc52a82f67e334ffb855b33d5100d60c4c94bd96233103eb1c83b3c54422c",
   "config_sha256": "",
   "candidate_universe_sha256": "",
   "candidate_nodes_sha256": "",
