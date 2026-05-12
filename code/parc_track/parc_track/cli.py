@@ -64,6 +64,14 @@ from .phase10 import (
     run_phase10_null_inflation_reruns,
     run_phase10_rerun_suite,
 )
+from .phase11 import (
+    run_phase11_audit_consistency,
+    run_phase11_freeze_nmi,
+    run_phase11_lvis_detection,
+    run_phase11_ovvis_extension,
+    run_phase11_prepare_lvis,
+    run_phase11_stratified_reliability,
+)
 from .reports import build_phase1b_report
 from .smoke import run_smoke
 from .sweeps import run_sweep
@@ -365,6 +373,24 @@ def build_parser() -> argparse.ArgumentParser:
     phase10_null.add_argument("--output-dir", default=None, help="Output directory under ..")
     phase10_suite = phase10_subparsers.add_parser("suite", help="Run both Phase-10 actual rerun suites.")
     phase10_suite.add_argument("--output-dir", default=None, help="Output directory under ..")
+
+    phase11 = subparsers.add_parser("phase11", help="Run NMI generality and reliability artifacts.")
+    phase11_subparsers = phase11.add_subparsers(dest="phase11_command", required=True)
+    phase11_audit = phase11_subparsers.add_parser("audit-consistency", help="Build Audit2000 cross-dataset consistency tables.")
+    phase11_audit.add_argument("--output-dir", default=None, help="Output directory under ..")
+    phase11_prepare_lvis = phase11_subparsers.add_parser("prepare-lvis", help="Inspect local LVIS v1 validation layout.")
+    phase11_prepare_lvis.add_argument("--lvis-root", default=None, help="Optional LVIS root override.")
+    phase11_prepare_lvis.add_argument("--output-dir", default=None, help="Output directory under ..")
+    phase11_lvis = phase11_subparsers.add_parser("lvis-detection", help="Build LVIS single-frame certification tables.")
+    phase11_lvis.add_argument("--lvis-root", default=None, help="Optional LVIS root override.")
+    phase11_lvis.add_argument("--output-dir", default=None, help="Output directory under ..")
+    phase11_ovvis = phase11_subparsers.add_parser("ovvis-mask", help="Refresh OVVIS box-to-mask proof-of-principle table.")
+    phase11_ovvis.add_argument("--output-dir", default=None, help="Output directory under ..")
+    phase11_strat = phase11_subparsers.add_parser("stratified-reliability", help="Build stratified reliability tables.")
+    phase11_strat.add_argument("--output-dir", default=None, help="Output directory under ..")
+    phase11_freeze = phase11_subparsers.add_parser("freeze-nmi", help="Freeze NMI generality/reliability milestone.")
+    phase11_freeze.add_argument("--output-dir", default=None, help="Milestone output directory under ..")
+    phase11_freeze.add_argument("--lvis-root", default=None, help="Optional LVIS root override.")
     return parser
 
 
@@ -626,6 +652,22 @@ def main(argv: list[str] | None = None) -> None:
             summary = run_phase10_rerun_suite(args.output_dir)
         else:
             parser.error(f"unknown phase10 command: {args.phase10_command}")
+        print(json.dumps(summary, indent=2, ensure_ascii=False))
+    elif args.command == "phase11":
+        if args.phase11_command == "audit-consistency":
+            summary = run_phase11_audit_consistency(args.output_dir)
+        elif args.phase11_command == "prepare-lvis":
+            summary = run_phase11_prepare_lvis(lvis_root=args.lvis_root, out_dir=args.output_dir)
+        elif args.phase11_command == "lvis-detection":
+            summary = run_phase11_lvis_detection(lvis_root=args.lvis_root, out_dir=args.output_dir)
+        elif args.phase11_command == "ovvis-mask":
+            summary = run_phase11_ovvis_extension(args.output_dir)
+        elif args.phase11_command == "stratified-reliability":
+            summary = run_phase11_stratified_reliability(args.output_dir)
+        elif args.phase11_command == "freeze-nmi":
+            summary = run_phase11_freeze_nmi(out_dir=args.output_dir, lvis_root=args.lvis_root)
+        else:
+            parser.error(f"unknown phase11 command: {args.phase11_command}")
         print(json.dumps(summary, indent=2, ensure_ascii=False))
     else:
         parser.error(f"unknown command: {args.command}")

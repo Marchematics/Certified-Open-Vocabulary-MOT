@@ -1,0 +1,10 @@
+{
+  "status": "requires_lvis_v1_val_and_coco_val_images",
+  "lvis_root": "${PARC_TRACK_ROOT}/data/LVIS",
+  "annotation_file": "",
+  "image_root": "",
+  "image_count": 0,
+  "annotation_count": 0,
+  "category_count": 0,
+  "note": "Raw LVIS/COCO files are not packaged; provide them locally before detector candidate generation."
+}

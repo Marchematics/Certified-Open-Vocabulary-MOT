@@ -1,0 +1,13 @@
+dataset,detector,method,alpha1,seed,M,released,UTR,conservative_FTR,mass_ratio,empty_reason,result_status
+LVIS,GroundingDINO,parc_track_gamma_tuned_uniform_scs,0.1,0,150,150.0,0.0,0.0,0.0,nan,completed_from_detector_matrix
+LVIS,GroundingDINO,parc_track_gamma_tuned_uniform_scs,0.1,1,150,150.0,0.0,0.0,0.0,nan,completed_from_detector_matrix
+LVIS,GroundingDINO,parc_track_gamma_tuned_uniform_scs,0.1,2,150,150.0,0.0,0.0,0.0,nan,completed_from_detector_matrix
+LVIS,GroundingDINO,parc_track_gamma_tuned_uniform_scs,0.2,0,150,150.0,0.0,0.0,0.0,nan,completed_from_detector_matrix
+LVIS,GroundingDINO,parc_track_gamma_tuned_uniform_scs,0.2,1,150,150.0,0.0,0.0,0.0,nan,completed_from_detector_matrix
+LVIS,GroundingDINO,parc_track_gamma_tuned_uniform_scs,0.2,2,150,150.0,0.0,0.0,0.0,nan,completed_from_detector_matrix
+LVIS,OWLv2,parc_track_gamma_tuned_uniform_scs,0.1,0,150,0.0,0.0,0.0,0.0,no_k_satisfies_uniform_self_consistency,completed_from_detector_matrix
+LVIS,OWLv2,parc_track_gamma_tuned_uniform_scs,0.1,1,150,0.0,0.0,0.0,0.0,no_k_satisfies_uniform_self_consistency,completed_from_detector_matrix
+LVIS,OWLv2,parc_track_gamma_tuned_uniform_scs,0.1,2,150,5.0,0.6,0.6,0.0,nan,completed_from_detector_matrix
+LVIS,OWLv2,parc_track_gamma_tuned_uniform_scs,0.2,0,150,150.0,0.5933333333333334,0.5933333333333334,0.0,nan,completed_from_detector_matrix
+LVIS,OWLv2,parc_track_gamma_tuned_uniform_scs,0.2,1,150,150.0,0.5866666666666667,0.5866666666666667,0.0,nan,completed_from_detector_matrix
+LVIS,OWLv2,parc_track_gamma_tuned_uniform_scs,0.2,2,150,150.0,0.5533333333333333,0.5533333333333333,0.0,nan,completed_from_detector_matrix

@@ -315,7 +315,7 @@ def inspect_dataset_from_config(config_path: str | Path, out_path: str | Path | 
             ann_file=dataset.get("ann_file", "./data/TAO/annotations/train.json"),
             annotation_format=dataset.get("format_hint", "tao"),
         )
-    elif name in {"burst", "lv-vis", "lvvis", "lv_vis"}:
+    elif name in {"burst", "lv-vis", "lvvis", "lv_vis", "lvis"}:
         report = inspect_coco_video_dataset(
             dataset_name=dataset.get("name", "BURST"),
             dataset_root=dataset.get("root", "./data/BURST"),
