@@ -1,0 +1,15 @@
+{
+  "figure": "figure_audit_noise_sensitivity.pdf",
+  "repo_commit": "584a45817d030a769ca29e113eaf5275e85ebb36",
+  "command": "python -m parc_track.cli phase15 full-experiments",
+  "runtime_sec": 0.957605,
+  "source_files": [
+    {
+      "path": "outputs/milestones/reliability_fortress/paper_tables/table_stress_audit_noise.csv",
+      "sha256": "4887cb5bdd317150c8c2dfea62d0847d4265d52c734704fad0194170d0a8dc9a"
+    }
+  ],
+  "output_sha256": "c05e16498b715cadc3fb672bb642a33f1e1305ae9b4579e00e4a0d19d7260f7f",
+  "paper_facing_figure": true,
+  "notes": ""
+}

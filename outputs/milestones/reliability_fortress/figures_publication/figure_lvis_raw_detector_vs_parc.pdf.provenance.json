@@ -1,0 +1,16 @@
+{
+  "table": "figure_lvis_raw_detector_vs_parc.pdf",
+  "repo_commit": "584a45817d030a769ca29e113eaf5275e85ebb36",
+  "command": "python -m parc_track.cli phase16 generality-closeout",
+  "runtime_sec": 1.784301,
+  "environment": "python",
+  "random_seed": "not_applicable",
+  "sources": [
+    {
+      "path": "outputs/milestones/generality_reliability/paper_tables/table_lvis_raw_detector_vs_parc.csv",
+      "sha256": "52b1880f2d7ab96e5cc497605d1a5fdca47f7c65bf3c18229d9ccb273e5b18c1"
+    }
+  ],
+  "output_sha256": "40f18328d4e83645aa50122e93007fb2c542be2729b564d60915040e566727b9",
+  "notes": ""
+}

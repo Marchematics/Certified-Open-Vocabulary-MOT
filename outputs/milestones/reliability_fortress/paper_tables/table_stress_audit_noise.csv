@@ -1,0 +1,751 @@
+dataset,generator,alpha1,seed,M,noise_type,noise_rate,released,base_false_count,base_uncertain_or_unlabeled_count,audited_FTR,conservative_FTR,mass_ratio,empty_reason,result_status
+OVT-B,OWLv2,0.1,0,150,flip_true_to_false,0.0,0.0,0.0,0.0,0.0,0.0,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,flip_true_to_false,0.01,0.0,0.0,0.0,0.0,0.01,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,flip_true_to_false,0.02,0.0,0.0,0.0,0.0,0.02,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,flip_true_to_false,0.05,0.0,0.0,0.0,0.0,0.05,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,flip_true_to_false,0.1,0.0,0.0,0.0,0.0,0.1,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,flip_false_to_true,0.0,0.0,0.0,0.0,0.0,0.0,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,flip_false_to_true,0.01,0.0,0.0,0.0,0.0,0.0,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,flip_false_to_true,0.02,0.0,0.0,0.0,0.0,0.0,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,flip_false_to_true,0.05,0.0,0.0,0.0,0.0,0.0,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,flip_false_to_true,0.1,0.0,0.0,0.0,0.0,0.0,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.0,0.0,0.0,0.0,0.0,0.0,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.01,0.0,0.0,0.0,0.0,0.015,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.02,0.0,0.0,0.0,0.0,0.03,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.05,0.0,0.0,0.0,0.0,0.07500000000000001,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.1,0.0,0.0,0.0,0.0,0.15000000000000002,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,remove_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,remove_verified_positives,0.01,0.0,0.0,0.0,0.0,0.003,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,remove_verified_positives,0.02,0.0,0.0,0.0,0.0,0.006,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,remove_verified_positives,0.05,0.0,0.0,0.0,0.0,0.015,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,remove_verified_positives,0.1,0.0,0.0,0.0,0.0,0.03,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,add_fake_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,add_fake_verified_positives,0.01,0.0,0.0,0.0,0.0,0.02,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,add_fake_verified_positives,0.02,0.0,0.0,0.0,0.0,0.04,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,add_fake_verified_positives,0.05,0.0,0.0,0.0,0.0,0.1,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,0,150,add_fake_verified_positives,0.1,0.0,0.0,0.0,0.0,0.2,0.0347132838396408,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,flip_true_to_false,0.0,0.0,0.0,0.0,0.0,0.0,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,flip_true_to_false,0.01,0.0,0.0,0.0,0.0,0.01,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,flip_true_to_false,0.02,0.0,0.0,0.0,0.0,0.02,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,flip_true_to_false,0.05,0.0,0.0,0.0,0.0,0.05,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,flip_true_to_false,0.1,0.0,0.0,0.0,0.0,0.1,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,flip_false_to_true,0.0,0.0,0.0,0.0,0.0,0.0,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,flip_false_to_true,0.01,0.0,0.0,0.0,0.0,0.0,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,flip_false_to_true,0.02,0.0,0.0,0.0,0.0,0.0,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,flip_false_to_true,0.05,0.0,0.0,0.0,0.0,0.0,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,flip_false_to_true,0.1,0.0,0.0,0.0,0.0,0.0,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.0,0.0,0.0,0.0,0.0,0.0,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.01,0.0,0.0,0.0,0.0,0.015,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.02,0.0,0.0,0.0,0.0,0.03,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.05,0.0,0.0,0.0,0.0,0.07500000000000001,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.1,0.0,0.0,0.0,0.0,0.15000000000000002,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,remove_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,remove_verified_positives,0.01,0.0,0.0,0.0,0.0,0.003,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,remove_verified_positives,0.02,0.0,0.0,0.0,0.0,0.006,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,remove_verified_positives,0.05,0.0,0.0,0.0,0.0,0.015,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,remove_verified_positives,0.1,0.0,0.0,0.0,0.0,0.03,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,add_fake_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,add_fake_verified_positives,0.01,0.0,0.0,0.0,0.0,0.02,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,add_fake_verified_positives,0.02,0.0,0.0,0.0,0.0,0.04,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,add_fake_verified_positives,0.05,0.0,0.0,0.0,0.0,0.1,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,1,150,add_fake_verified_positives,0.1,0.0,0.0,0.0,0.0,0.2,0.0192456733223414,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,flip_true_to_false,0.0,0.0,0.0,0.0,0.0,0.0,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,flip_true_to_false,0.01,0.0,0.0,0.0,0.0,0.01,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,flip_true_to_false,0.02,0.0,0.0,0.0,0.0,0.02,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,flip_true_to_false,0.05,0.0,0.0,0.0,0.0,0.05,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,flip_true_to_false,0.1,0.0,0.0,0.0,0.0,0.1,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,flip_false_to_true,0.0,0.0,0.0,0.0,0.0,0.0,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,flip_false_to_true,0.01,0.0,0.0,0.0,0.0,0.0,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,flip_false_to_true,0.02,0.0,0.0,0.0,0.0,0.0,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,flip_false_to_true,0.05,0.0,0.0,0.0,0.0,0.0,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,flip_false_to_true,0.1,0.0,0.0,0.0,0.0,0.0,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.0,0.0,0.0,0.0,0.0,0.0,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.01,0.0,0.0,0.0,0.0,0.015,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.02,0.0,0.0,0.0,0.0,0.03,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.05,0.0,0.0,0.0,0.0,0.07500000000000001,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.1,0.0,0.0,0.0,0.0,0.15000000000000002,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,remove_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,remove_verified_positives,0.01,0.0,0.0,0.0,0.0,0.003,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,remove_verified_positives,0.02,0.0,0.0,0.0,0.0,0.006,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,remove_verified_positives,0.05,0.0,0.0,0.0,0.0,0.015,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,remove_verified_positives,0.1,0.0,0.0,0.0,0.0,0.03,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,add_fake_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,add_fake_verified_positives,0.01,0.0,0.0,0.0,0.0,0.02,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,add_fake_verified_positives,0.02,0.0,0.0,0.0,0.0,0.04,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,add_fake_verified_positives,0.05,0.0,0.0,0.0,0.0,0.1,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWLv2,0.1,2,150,add_fake_verified_positives,0.1,0.0,0.0,0.0,0.0,0.2,0.0348655406041717,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,flip_true_to_false,0.0,0.0,0.0,0.0,0.0,0.0,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,flip_true_to_false,0.01,0.0,0.0,0.0,0.0,0.01,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,flip_true_to_false,0.02,0.0,0.0,0.0,0.0,0.02,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,flip_true_to_false,0.05,0.0,0.0,0.0,0.0,0.05,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,flip_true_to_false,0.1,0.0,0.0,0.0,0.0,0.1,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,flip_false_to_true,0.0,0.0,0.0,0.0,0.0,0.0,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,flip_false_to_true,0.01,0.0,0.0,0.0,0.0,0.0,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,flip_false_to_true,0.02,0.0,0.0,0.0,0.0,0.0,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,flip_false_to_true,0.05,0.0,0.0,0.0,0.0,0.0,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,flip_false_to_true,0.1,0.0,0.0,0.0,0.0,0.0,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.0,0.0,0.0,0.0,0.0,0.0,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.01,0.0,0.0,0.0,0.0,0.015,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.02,0.0,0.0,0.0,0.0,0.03,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.05,0.0,0.0,0.0,0.0,0.07500000000000001,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.1,0.0,0.0,0.0,0.0,0.15000000000000002,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,remove_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,remove_verified_positives,0.01,0.0,0.0,0.0,0.0,0.003,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,remove_verified_positives,0.02,0.0,0.0,0.0,0.0,0.006,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,remove_verified_positives,0.05,0.0,0.0,0.0,0.0,0.015,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,remove_verified_positives,0.1,0.0,0.0,0.0,0.0,0.03,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,add_fake_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,add_fake_verified_positives,0.01,0.0,0.0,0.0,0.0,0.02,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,add_fake_verified_positives,0.02,0.0,0.0,0.0,0.0,0.04,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,add_fake_verified_positives,0.05,0.0,0.0,0.0,0.0,0.1,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,0,150,add_fake_verified_positives,0.1,0.0,0.0,0.0,0.0,0.2,0.0251878412257681,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,flip_true_to_false,0.0,0.0,0.0,0.0,0.0,0.0,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,flip_true_to_false,0.01,0.0,0.0,0.0,0.0,0.01,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,flip_true_to_false,0.02,0.0,0.0,0.0,0.0,0.02,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,flip_true_to_false,0.05,0.0,0.0,0.0,0.0,0.05,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,flip_true_to_false,0.1,0.0,0.0,0.0,0.0,0.1,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,flip_false_to_true,0.0,0.0,0.0,0.0,0.0,0.0,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,flip_false_to_true,0.01,0.0,0.0,0.0,0.0,0.0,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,flip_false_to_true,0.02,0.0,0.0,0.0,0.0,0.0,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,flip_false_to_true,0.05,0.0,0.0,0.0,0.0,0.0,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,flip_false_to_true,0.1,0.0,0.0,0.0,0.0,0.0,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.0,0.0,0.0,0.0,0.0,0.0,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.01,0.0,0.0,0.0,0.0,0.015,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.02,0.0,0.0,0.0,0.0,0.03,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.05,0.0,0.0,0.0,0.0,0.07500000000000001,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.1,0.0,0.0,0.0,0.0,0.15000000000000002,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,remove_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,remove_verified_positives,0.01,0.0,0.0,0.0,0.0,0.003,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,remove_verified_positives,0.02,0.0,0.0,0.0,0.0,0.006,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,remove_verified_positives,0.05,0.0,0.0,0.0,0.0,0.015,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,remove_verified_positives,0.1,0.0,0.0,0.0,0.0,0.03,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,add_fake_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,add_fake_verified_positives,0.01,0.0,0.0,0.0,0.0,0.02,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,add_fake_verified_positives,0.02,0.0,0.0,0.0,0.0,0.04,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,add_fake_verified_positives,0.05,0.0,0.0,0.0,0.0,0.1,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,1,150,add_fake_verified_positives,0.1,0.0,0.0,0.0,0.0,0.2,0.0251559290221353,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,flip_true_to_false,0.0,0.0,0.0,0.0,0.0,0.0,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,flip_true_to_false,0.01,0.0,0.0,0.0,0.0,0.01,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,flip_true_to_false,0.02,0.0,0.0,0.0,0.0,0.02,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,flip_true_to_false,0.05,0.0,0.0,0.0,0.0,0.05,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,flip_true_to_false,0.1,0.0,0.0,0.0,0.0,0.1,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,flip_false_to_true,0.0,0.0,0.0,0.0,0.0,0.0,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,flip_false_to_true,0.01,0.0,0.0,0.0,0.0,0.0,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,flip_false_to_true,0.02,0.0,0.0,0.0,0.0,0.0,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,flip_false_to_true,0.05,0.0,0.0,0.0,0.0,0.0,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,flip_false_to_true,0.1,0.0,0.0,0.0,0.0,0.0,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.0,0.0,0.0,0.0,0.0,0.0,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.01,0.0,0.0,0.0,0.0,0.015,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.02,0.0,0.0,0.0,0.0,0.03,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.05,0.0,0.0,0.0,0.0,0.07500000000000001,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.1,0.0,0.0,0.0,0.0,0.15000000000000002,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,remove_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,remove_verified_positives,0.01,0.0,0.0,0.0,0.0,0.003,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,remove_verified_positives,0.02,0.0,0.0,0.0,0.0,0.006,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,remove_verified_positives,0.05,0.0,0.0,0.0,0.0,0.015,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,remove_verified_positives,0.1,0.0,0.0,0.0,0.0,0.03,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,add_fake_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,add_fake_verified_positives,0.01,0.0,0.0,0.0,0.0,0.02,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,add_fake_verified_positives,0.02,0.0,0.0,0.0,0.0,0.04,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,add_fake_verified_positives,0.05,0.0,0.0,0.0,0.0,0.1,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWLv2,0.1,2,150,add_fake_verified_positives,0.1,0.0,0.0,0.0,0.0,0.2,0.0251240107974674,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,flip_true_to_false,0.0,0.0,0.0,0.0,0.0,0.0,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,flip_true_to_false,0.01,0.0,0.0,0.0,0.0,0.01,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,flip_true_to_false,0.02,0.0,0.0,0.0,0.0,0.02,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,flip_true_to_false,0.05,0.0,0.0,0.0,0.0,0.05,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,flip_true_to_false,0.1,0.0,0.0,0.0,0.0,0.1,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,flip_false_to_true,0.0,0.0,0.0,0.0,0.0,0.0,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,flip_false_to_true,0.01,0.0,0.0,0.0,0.0,0.0,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,flip_false_to_true,0.02,0.0,0.0,0.0,0.0,0.0,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,flip_false_to_true,0.05,0.0,0.0,0.0,0.0,0.0,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,flip_false_to_true,0.1,0.0,0.0,0.0,0.0,0.0,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.0,0.0,0.0,0.0,0.0,0.0,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.01,0.0,0.0,0.0,0.0,0.015,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.02,0.0,0.0,0.0,0.0,0.03,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.05,0.0,0.0,0.0,0.0,0.07500000000000001,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.1,0.0,0.0,0.0,0.0,0.15000000000000002,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,remove_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,remove_verified_positives,0.01,0.0,0.0,0.0,0.0,0.003,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,remove_verified_positives,0.02,0.0,0.0,0.0,0.0,0.006,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,remove_verified_positives,0.05,0.0,0.0,0.0,0.0,0.015,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,remove_verified_positives,0.1,0.0,0.0,0.0,0.0,0.03,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,add_fake_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,add_fake_verified_positives,0.01,0.0,0.0,0.0,0.0,0.02,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,add_fake_verified_positives,0.02,0.0,0.0,0.0,0.0,0.04,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,add_fake_verified_positives,0.05,0.0,0.0,0.0,0.0,0.1,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,0,150,add_fake_verified_positives,0.1,0.0,0.0,0.0,0.0,0.2,0.0026593762559245,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,flip_true_to_false,0.0,0.0,0.0,0.0,0.0,0.0,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,flip_true_to_false,0.01,0.0,0.0,0.0,0.0,0.01,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,flip_true_to_false,0.02,0.0,0.0,0.0,0.0,0.02,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,flip_true_to_false,0.05,0.0,0.0,0.0,0.0,0.05,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,flip_true_to_false,0.1,0.0,0.0,0.0,0.0,0.1,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,flip_false_to_true,0.0,0.0,0.0,0.0,0.0,0.0,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,flip_false_to_true,0.01,0.0,0.0,0.0,0.0,0.0,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,flip_false_to_true,0.02,0.0,0.0,0.0,0.0,0.0,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,flip_false_to_true,0.05,0.0,0.0,0.0,0.0,0.0,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,flip_false_to_true,0.1,0.0,0.0,0.0,0.0,0.0,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.0,0.0,0.0,0.0,0.0,0.0,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.01,0.0,0.0,0.0,0.0,0.015,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.02,0.0,0.0,0.0,0.0,0.03,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.05,0.0,0.0,0.0,0.0,0.07500000000000001,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.1,0.0,0.0,0.0,0.0,0.15000000000000002,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,remove_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,remove_verified_positives,0.01,0.0,0.0,0.0,0.0,0.003,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,remove_verified_positives,0.02,0.0,0.0,0.0,0.0,0.006,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,remove_verified_positives,0.05,0.0,0.0,0.0,0.0,0.015,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,remove_verified_positives,0.1,0.0,0.0,0.0,0.0,0.03,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,add_fake_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,add_fake_verified_positives,0.01,0.0,0.0,0.0,0.0,0.02,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,add_fake_verified_positives,0.02,0.0,0.0,0.0,0.0,0.04,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,add_fake_verified_positives,0.05,0.0,0.0,0.0,0.0,0.1,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,1,150,add_fake_verified_positives,0.1,0.0,0.0,0.0,0.0,0.2,0.0025620321005338,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,flip_true_to_false,0.0,0.0,0.0,0.0,0.0,0.0,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,flip_true_to_false,0.01,0.0,0.0,0.0,0.0,0.01,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,flip_true_to_false,0.02,0.0,0.0,0.0,0.0,0.02,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,flip_true_to_false,0.05,0.0,0.0,0.0,0.0,0.05,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,flip_true_to_false,0.1,0.0,0.0,0.0,0.0,0.1,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,flip_false_to_true,0.0,0.0,0.0,0.0,0.0,0.0,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,flip_false_to_true,0.01,0.0,0.0,0.0,0.0,0.0,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,flip_false_to_true,0.02,0.0,0.0,0.0,0.0,0.0,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,flip_false_to_true,0.05,0.0,0.0,0.0,0.0,0.0,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,flip_false_to_true,0.1,0.0,0.0,0.0,0.0,0.0,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.0,0.0,0.0,0.0,0.0,0.0,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.01,0.0,0.0,0.0,0.0,0.015,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.02,0.0,0.0,0.0,0.0,0.03,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.05,0.0,0.0,0.0,0.0,0.07500000000000001,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.1,0.0,0.0,0.0,0.0,0.15000000000000002,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,remove_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,remove_verified_positives,0.01,0.0,0.0,0.0,0.0,0.003,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,remove_verified_positives,0.02,0.0,0.0,0.0,0.0,0.006,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,remove_verified_positives,0.05,0.0,0.0,0.0,0.0,0.015,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,remove_verified_positives,0.1,0.0,0.0,0.0,0.0,0.03,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,add_fake_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,add_fake_verified_positives,0.01,0.0,0.0,0.0,0.0,0.02,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,add_fake_verified_positives,0.02,0.0,0.0,0.0,0.0,0.04,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,add_fake_verified_positives,0.05,0.0,0.0,0.0,0.0,0.1,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,OWL-ViT v1,0.1,2,150,add_fake_verified_positives,0.1,0.0,0.0,0.0,0.0,0.2,0.0015772990392313,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,flip_true_to_false,0.0,0.0,0.0,0.0,0.0,0.0,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,flip_true_to_false,0.01,0.0,0.0,0.0,0.0,0.01,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,flip_true_to_false,0.02,0.0,0.0,0.0,0.0,0.02,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,flip_true_to_false,0.05,0.0,0.0,0.0,0.0,0.05,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,flip_true_to_false,0.1,0.0,0.0,0.0,0.0,0.1,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,flip_false_to_true,0.0,0.0,0.0,0.0,0.0,0.0,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,flip_false_to_true,0.01,0.0,0.0,0.0,0.0,0.0,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,flip_false_to_true,0.02,0.0,0.0,0.0,0.0,0.0,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,flip_false_to_true,0.05,0.0,0.0,0.0,0.0,0.0,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,flip_false_to_true,0.1,0.0,0.0,0.0,0.0,0.0,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.0,0.0,0.0,0.0,0.0,0.0,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.01,0.0,0.0,0.0,0.0,0.015,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.02,0.0,0.0,0.0,0.0,0.03,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.05,0.0,0.0,0.0,0.0,0.07500000000000001,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.1,0.0,0.0,0.0,0.0,0.15000000000000002,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,remove_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,remove_verified_positives,0.01,0.0,0.0,0.0,0.0,0.003,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,remove_verified_positives,0.02,0.0,0.0,0.0,0.0,0.006,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,remove_verified_positives,0.05,0.0,0.0,0.0,0.0,0.015,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,remove_verified_positives,0.1,0.0,0.0,0.0,0.0,0.03,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,add_fake_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,add_fake_verified_positives,0.01,0.0,0.0,0.0,0.0,0.02,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,add_fake_verified_positives,0.02,0.0,0.0,0.0,0.0,0.04,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,add_fake_verified_positives,0.05,0.0,0.0,0.0,0.0,0.1,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,0,150,add_fake_verified_positives,0.1,0.0,0.0,0.0,0.0,0.2,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,flip_true_to_false,0.0,0.0,0.0,0.0,0.0,0.0,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,flip_true_to_false,0.01,0.0,0.0,0.0,0.0,0.01,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,flip_true_to_false,0.02,0.0,0.0,0.0,0.0,0.02,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,flip_true_to_false,0.05,0.0,0.0,0.0,0.0,0.05,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,flip_true_to_false,0.1,0.0,0.0,0.0,0.0,0.1,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,flip_false_to_true,0.0,0.0,0.0,0.0,0.0,0.0,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,flip_false_to_true,0.01,0.0,0.0,0.0,0.0,0.0,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,flip_false_to_true,0.02,0.0,0.0,0.0,0.0,0.0,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,flip_false_to_true,0.05,0.0,0.0,0.0,0.0,0.0,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,flip_false_to_true,0.1,0.0,0.0,0.0,0.0,0.0,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.0,0.0,0.0,0.0,0.0,0.0,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.01,0.0,0.0,0.0,0.0,0.015,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.02,0.0,0.0,0.0,0.0,0.03,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.05,0.0,0.0,0.0,0.0,0.07500000000000001,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.1,0.0,0.0,0.0,0.0,0.15000000000000002,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,remove_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,remove_verified_positives,0.01,0.0,0.0,0.0,0.0,0.003,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,remove_verified_positives,0.02,0.0,0.0,0.0,0.0,0.006,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,remove_verified_positives,0.05,0.0,0.0,0.0,0.0,0.015,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,remove_verified_positives,0.1,0.0,0.0,0.0,0.0,0.03,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,add_fake_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,add_fake_verified_positives,0.01,0.0,0.0,0.0,0.0,0.02,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,add_fake_verified_positives,0.02,0.0,0.0,0.0,0.0,0.04,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,add_fake_verified_positives,0.05,0.0,0.0,0.0,0.0,0.1,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,1,150,add_fake_verified_positives,0.1,0.0,0.0,0.0,0.0,0.2,0.0022139982858059,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,flip_true_to_false,0.0,0.0,0.0,0.0,0.0,0.0,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,flip_true_to_false,0.01,0.0,0.0,0.0,0.0,0.01,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,flip_true_to_false,0.02,0.0,0.0,0.0,0.0,0.02,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,flip_true_to_false,0.05,0.0,0.0,0.0,0.0,0.05,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,flip_true_to_false,0.1,0.0,0.0,0.0,0.0,0.1,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,flip_false_to_true,0.0,0.0,0.0,0.0,0.0,0.0,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,flip_false_to_true,0.01,0.0,0.0,0.0,0.0,0.0,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,flip_false_to_true,0.02,0.0,0.0,0.0,0.0,0.0,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,flip_false_to_true,0.05,0.0,0.0,0.0,0.0,0.0,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,flip_false_to_true,0.1,0.0,0.0,0.0,0.0,0.0,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.0,0.0,0.0,0.0,0.0,0.0,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.01,0.0,0.0,0.0,0.0,0.015,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.02,0.0,0.0,0.0,0.0,0.03,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.05,0.0,0.0,0.0,0.0,0.07500000000000001,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.1,0.0,0.0,0.0,0.0,0.15000000000000002,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,remove_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,remove_verified_positives,0.01,0.0,0.0,0.0,0.0,0.003,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,remove_verified_positives,0.02,0.0,0.0,0.0,0.0,0.006,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,remove_verified_positives,0.05,0.0,0.0,0.0,0.0,0.015,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,remove_verified_positives,0.1,0.0,0.0,0.0,0.0,0.03,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,add_fake_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,add_fake_verified_positives,0.01,0.0,0.0,0.0,0.0,0.02,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,add_fake_verified_positives,0.02,0.0,0.0,0.0,0.0,0.04,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,add_fake_verified_positives,0.05,0.0,0.0,0.0,0.0,0.1,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,OWL-ViT v1,0.1,2,150,add_fake_verified_positives,0.1,0.0,0.0,0.0,0.0,0.2,0.0020608227618976,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,flip_true_to_false,0.0,105.0,0.0,0.0,0.0,0.0095238095238095,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,flip_true_to_false,0.01,105.0,0.0,0.0,0.0,0.0195238095238095,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,flip_true_to_false,0.02,105.0,0.0,0.0,0.0,0.0295238095238095,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,flip_true_to_false,0.05,105.0,0.0,0.0,0.0,0.05952380952380951,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,flip_true_to_false,0.1,105.0,0.0,0.0,0.0,0.10952380952380951,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,flip_false_to_true,0.0,105.0,0.0,0.0,0.0,0.0095238095238095,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,flip_false_to_true,0.01,105.0,0.0,0.0,0.0,0.0045238095238095,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,flip_false_to_true,0.02,105.0,0.0,0.0,0.0,0.0,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,flip_false_to_true,0.05,105.0,0.0,0.0,0.0,0.0,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,flip_false_to_true,0.1,105.0,0.0,0.0,0.0,0.0,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.0,105.0,0.0,0.0,0.0,0.0095238095238095,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.01,105.0,0.0,0.0,0.0,0.0245238095238095,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.02,105.0,0.0,0.0,0.0,0.0395238095238095,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.05,105.0,0.0,0.0,0.0,0.08452380952380951,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.1,105.0,0.0,0.0,0.0,0.1595238095238095,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,remove_verified_positives,0.0,105.0,0.0,0.0,0.0,0.0095238095238095,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,remove_verified_positives,0.01,105.0,0.0,0.0,0.0,0.0125238095238095,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,remove_verified_positives,0.02,105.0,0.0,0.0,0.0,0.0155238095238095,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,remove_verified_positives,0.05,105.0,0.0,0.0,0.0,0.0245238095238095,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,remove_verified_positives,0.1,105.0,0.0,0.0,0.0,0.0395238095238095,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,add_fake_verified_positives,0.0,105.0,0.0,0.0,0.0,0.0095238095238095,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,add_fake_verified_positives,0.01,105.0,0.0,0.0,0.0,0.0295238095238095,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,add_fake_verified_positives,0.02,105.0,0.0,0.0,0.0,0.0495238095238095,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,add_fake_verified_positives,0.05,105.0,0.0,0.0,0.0,0.10952380952380951,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,0,150,add_fake_verified_positives,0.1,105.0,0.0,0.0,0.0,0.2095238095238095,1.0642654355923875,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,flip_true_to_false,0.0,150.0,0.0,0.0,0.0,0.02,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,flip_true_to_false,0.01,150.0,0.0,0.0,0.0,0.03,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,flip_true_to_false,0.02,150.0,0.0,0.0,0.0,0.04,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,flip_true_to_false,0.05,150.0,0.0,0.0,0.0,0.07,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,flip_true_to_false,0.1,150.0,0.0,0.0,0.0,0.12000000000000001,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,flip_false_to_true,0.0,150.0,0.0,0.0,0.0,0.02,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,flip_false_to_true,0.01,150.0,0.0,0.0,0.0,0.015,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,flip_false_to_true,0.02,150.0,0.0,0.0,0.0,0.01,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,flip_false_to_true,0.05,150.0,0.0,0.0,0.0,0.0,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,flip_false_to_true,0.1,150.0,0.0,0.0,0.0,0.0,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.0,150.0,0.0,0.0,0.0,0.02,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.01,150.0,0.0,0.0,0.0,0.035,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.02,150.0,0.0,0.0,0.0,0.05,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.05,150.0,0.0,0.0,0.0,0.09500000000000001,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.1,150.0,0.0,0.0,0.0,0.17,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,remove_verified_positives,0.0,150.0,0.0,0.0,0.0,0.02,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,remove_verified_positives,0.01,150.0,0.0,0.0,0.0,0.023,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,remove_verified_positives,0.02,150.0,0.0,0.0,0.0,0.026000000000000002,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,remove_verified_positives,0.05,150.0,0.0,0.0,0.0,0.035,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,remove_verified_positives,0.1,150.0,0.0,0.0,0.0,0.05,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,add_fake_verified_positives,0.0,150.0,0.0,0.0,0.0,0.02,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,add_fake_verified_positives,0.01,150.0,0.0,0.0,0.0,0.04,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,add_fake_verified_positives,0.02,150.0,0.0,0.0,0.0,0.06,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,add_fake_verified_positives,0.05,150.0,0.0,0.0,0.0,0.12000000000000001,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,1,150,add_fake_verified_positives,0.1,150.0,0.0,0.0,0.0,0.22,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,flip_true_to_false,0.0,150.0,0.0,0.0,0.0,0.0066666666666666,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,flip_true_to_false,0.01,150.0,0.0,0.0,0.0,0.0166666666666666,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,flip_true_to_false,0.02,150.0,0.0,0.0,0.0,0.026666666666666602,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,flip_true_to_false,0.05,150.0,0.0,0.0,0.0,0.0566666666666666,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,flip_true_to_false,0.1,150.0,0.0,0.0,0.0,0.1066666666666666,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,flip_false_to_true,0.0,150.0,0.0,0.0,0.0,0.0066666666666666,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,flip_false_to_true,0.01,150.0,0.0,0.0,0.0,0.0016666666666666002,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,flip_false_to_true,0.02,150.0,0.0,0.0,0.0,0.0,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,flip_false_to_true,0.05,150.0,0.0,0.0,0.0,0.0,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,flip_false_to_true,0.1,150.0,0.0,0.0,0.0,0.0,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.0,150.0,0.0,0.0,0.0,0.0066666666666666,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.01,150.0,0.0,0.0,0.0,0.021666666666666598,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.02,150.0,0.0,0.0,0.0,0.0366666666666666,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.05,150.0,0.0,0.0,0.0,0.08166666666666661,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.1,150.0,0.0,0.0,0.0,0.15666666666666662,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,remove_verified_positives,0.0,150.0,0.0,0.0,0.0,0.0066666666666666,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,remove_verified_positives,0.01,150.0,0.0,0.0,0.0,0.009666666666666601,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,remove_verified_positives,0.02,150.0,0.0,0.0,0.0,0.0126666666666666,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,remove_verified_positives,0.05,150.0,0.0,0.0,0.0,0.021666666666666598,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,remove_verified_positives,0.1,150.0,0.0,0.0,0.0,0.0366666666666666,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,add_fake_verified_positives,0.0,150.0,0.0,0.0,0.0,0.0066666666666666,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,add_fake_verified_positives,0.01,150.0,0.0,0.0,0.0,0.026666666666666602,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,add_fake_verified_positives,0.02,150.0,0.0,0.0,0.0,0.0466666666666666,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,add_fake_verified_positives,0.05,150.0,0.0,0.0,0.0,0.1066666666666666,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO detector-only,0.1,2,150,add_fake_verified_positives,0.1,150.0,0.0,0.0,0.0,0.2066666666666666,2.0832338022762347,,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,flip_true_to_false,0.0,0.0,0.0,0.0,0.0,0.0,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,flip_true_to_false,0.01,0.0,0.0,0.0,0.0,0.01,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,flip_true_to_false,0.02,0.0,0.0,0.0,0.0,0.02,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,flip_true_to_false,0.05,0.0,0.0,0.0,0.0,0.05,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,flip_true_to_false,0.1,0.0,0.0,0.0,0.0,0.1,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,flip_false_to_true,0.0,0.0,0.0,0.0,0.0,0.0,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,flip_false_to_true,0.01,0.0,0.0,0.0,0.0,0.0,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,flip_false_to_true,0.02,0.0,0.0,0.0,0.0,0.0,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,flip_false_to_true,0.05,0.0,0.0,0.0,0.0,0.0,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,flip_false_to_true,0.1,0.0,0.0,0.0,0.0,0.0,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.0,0.0,0.0,0.0,0.0,0.0,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.01,0.0,0.0,0.0,0.0,0.015,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.02,0.0,0.0,0.0,0.0,0.03,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.05,0.0,0.0,0.0,0.0,0.07500000000000001,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.1,0.0,0.0,0.0,0.0,0.15000000000000002,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,remove_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,remove_verified_positives,0.01,0.0,0.0,0.0,0.0,0.003,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,remove_verified_positives,0.02,0.0,0.0,0.0,0.0,0.006,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,remove_verified_positives,0.05,0.0,0.0,0.0,0.0,0.015,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,remove_verified_positives,0.1,0.0,0.0,0.0,0.0,0.03,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,add_fake_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,add_fake_verified_positives,0.01,0.0,0.0,0.0,0.0,0.02,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,add_fake_verified_positives,0.02,0.0,0.0,0.0,0.0,0.04,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,add_fake_verified_positives,0.05,0.0,0.0,0.0,0.0,0.1,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,0,150,add_fake_verified_positives,0.1,0.0,0.0,0.0,0.0,0.2,0.0226472784572209,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,flip_true_to_false,0.0,0.0,0.0,0.0,0.0,0.0,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,flip_true_to_false,0.01,0.0,0.0,0.0,0.0,0.01,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,flip_true_to_false,0.02,0.0,0.0,0.0,0.0,0.02,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,flip_true_to_false,0.05,0.0,0.0,0.0,0.0,0.05,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,flip_true_to_false,0.1,0.0,0.0,0.0,0.0,0.1,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,flip_false_to_true,0.0,0.0,0.0,0.0,0.0,0.0,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,flip_false_to_true,0.01,0.0,0.0,0.0,0.0,0.0,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,flip_false_to_true,0.02,0.0,0.0,0.0,0.0,0.0,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,flip_false_to_true,0.05,0.0,0.0,0.0,0.0,0.0,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,flip_false_to_true,0.1,0.0,0.0,0.0,0.0,0.0,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.0,0.0,0.0,0.0,0.0,0.0,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.01,0.0,0.0,0.0,0.0,0.015,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.02,0.0,0.0,0.0,0.0,0.03,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.05,0.0,0.0,0.0,0.0,0.07500000000000001,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.1,0.0,0.0,0.0,0.0,0.15000000000000002,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,remove_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,remove_verified_positives,0.01,0.0,0.0,0.0,0.0,0.003,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,remove_verified_positives,0.02,0.0,0.0,0.0,0.0,0.006,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,remove_verified_positives,0.05,0.0,0.0,0.0,0.0,0.015,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,remove_verified_positives,0.1,0.0,0.0,0.0,0.0,0.03,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,add_fake_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,add_fake_verified_positives,0.01,0.0,0.0,0.0,0.0,0.02,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,add_fake_verified_positives,0.02,0.0,0.0,0.0,0.0,0.04,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,add_fake_verified_positives,0.05,0.0,0.0,0.0,0.0,0.1,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,1,150,add_fake_verified_positives,0.1,0.0,0.0,0.0,0.0,0.2,0.0227121088145159,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,flip_true_to_false,0.0,0.0,0.0,0.0,0.0,0.0,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,flip_true_to_false,0.01,0.0,0.0,0.0,0.0,0.01,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,flip_true_to_false,0.02,0.0,0.0,0.0,0.0,0.02,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,flip_true_to_false,0.05,0.0,0.0,0.0,0.0,0.05,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,flip_true_to_false,0.1,0.0,0.0,0.0,0.0,0.1,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,flip_false_to_true,0.0,0.0,0.0,0.0,0.0,0.0,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,flip_false_to_true,0.01,0.0,0.0,0.0,0.0,0.0,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,flip_false_to_true,0.02,0.0,0.0,0.0,0.0,0.0,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,flip_false_to_true,0.05,0.0,0.0,0.0,0.0,0.0,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,flip_false_to_true,0.1,0.0,0.0,0.0,0.0,0.0,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.0,0.0,0.0,0.0,0.0,0.0,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.01,0.0,0.0,0.0,0.0,0.015,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.02,0.0,0.0,0.0,0.0,0.03,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.05,0.0,0.0,0.0,0.0,0.07500000000000001,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.1,0.0,0.0,0.0,0.0,0.15000000000000002,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,remove_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,remove_verified_positives,0.01,0.0,0.0,0.0,0.0,0.003,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,remove_verified_positives,0.02,0.0,0.0,0.0,0.0,0.006,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,remove_verified_positives,0.05,0.0,0.0,0.0,0.0,0.015,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,remove_verified_positives,0.1,0.0,0.0,0.0,0.0,0.03,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,add_fake_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,add_fake_verified_positives,0.01,0.0,0.0,0.0,0.0,0.02,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,add_fake_verified_positives,0.02,0.0,0.0,0.0,0.0,0.04,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,add_fake_verified_positives,0.05,0.0,0.0,0.0,0.0,0.1,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO detector-only,0.1,2,150,add_fake_verified_positives,0.1,0.0,0.0,0.0,0.0,0.2,0.0225175333176006,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,flip_true_to_false,0.0,105.0,0.0,1.0,0.0,0.0095238095238095,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,flip_true_to_false,0.01,105.0,0.0,1.0,0.0,0.0195238095238095,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,flip_true_to_false,0.02,105.0,0.0,1.0,0.0,0.0295238095238095,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,flip_true_to_false,0.05,105.0,0.0,1.0,0.0,0.05952380952380951,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,flip_true_to_false,0.1,105.0,0.0,1.0,0.0,0.10952380952380951,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,flip_false_to_true,0.0,105.0,0.0,1.0,0.0,0.0095238095238095,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,flip_false_to_true,0.01,105.0,0.0,1.0,0.0,0.0045238095238095,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,flip_false_to_true,0.02,105.0,0.0,1.0,0.0,0.0,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,flip_false_to_true,0.05,105.0,0.0,1.0,0.0,0.0,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,flip_false_to_true,0.1,105.0,0.0,1.0,0.0,0.0,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.0,105.0,0.0,1.0,0.0,0.0095238095238095,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.01,105.0,0.0,1.0,0.0,0.0245238095238095,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.02,105.0,0.0,1.0,0.0,0.0395238095238095,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.05,105.0,0.0,1.0,0.0,0.08452380952380951,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.1,105.0,0.0,1.0,0.0,0.1595238095238095,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,remove_verified_positives,0.0,105.0,0.0,1.0,0.0,0.0095238095238095,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,remove_verified_positives,0.01,105.0,0.0,1.0,0.0,0.0125238095238095,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,remove_verified_positives,0.02,105.0,0.0,1.0,0.0,0.0155238095238095,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,remove_verified_positives,0.05,105.0,0.0,1.0,0.0,0.0245238095238095,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,remove_verified_positives,0.1,105.0,0.0,1.0,0.0,0.0395238095238095,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,add_fake_verified_positives,0.0,105.0,0.0,1.0,0.0,0.0095238095238095,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,add_fake_verified_positives,0.01,105.0,0.0,1.0,0.0,0.0295238095238095,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,add_fake_verified_positives,0.02,105.0,0.0,1.0,0.0,0.0495238095238095,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,add_fake_verified_positives,0.05,105.0,0.0,1.0,0.0,0.10952380952380951,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,0,150,add_fake_verified_positives,0.1,105.0,0.0,1.0,0.0,0.2095238095238095,1.0642654355923873,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,flip_true_to_false,0.0,150.0,0.0,3.0,0.0,0.02,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,flip_true_to_false,0.01,150.0,0.0,3.0,0.0,0.03,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,flip_true_to_false,0.02,150.0,0.0,3.0,0.0,0.04,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,flip_true_to_false,0.05,150.0,0.0,3.0,0.0,0.07,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,flip_true_to_false,0.1,150.0,0.0,3.0,0.0,0.12000000000000001,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,flip_false_to_true,0.0,150.0,0.0,3.0,0.0,0.02,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,flip_false_to_true,0.01,150.0,0.0,3.0,0.0,0.015,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,flip_false_to_true,0.02,150.0,0.0,3.0,0.0,0.01,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,flip_false_to_true,0.05,150.0,0.0,3.0,0.0,0.0,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,flip_false_to_true,0.1,150.0,0.0,3.0,0.0,0.0,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.0,150.0,0.0,3.0,0.0,0.02,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.01,150.0,0.0,3.0,0.0,0.035,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.02,150.0,0.0,3.0,0.0,0.05,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.05,150.0,0.0,3.0,0.0,0.09500000000000001,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.1,150.0,0.0,3.0,0.0,0.17,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,remove_verified_positives,0.0,150.0,0.0,3.0,0.0,0.02,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,remove_verified_positives,0.01,150.0,0.0,3.0,0.0,0.023,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,remove_verified_positives,0.02,150.0,0.0,3.0,0.0,0.026000000000000002,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,remove_verified_positives,0.05,150.0,0.0,3.0,0.0,0.035,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,remove_verified_positives,0.1,150.0,0.0,3.0,0.0,0.05,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,add_fake_verified_positives,0.0,150.0,0.0,3.0,0.0,0.02,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,add_fake_verified_positives,0.01,150.0,0.0,3.0,0.0,0.04,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,add_fake_verified_positives,0.02,150.0,0.0,3.0,0.0,0.06,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,add_fake_verified_positives,0.05,150.0,0.0,3.0,0.0,0.12000000000000001,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,1,150,add_fake_verified_positives,0.1,150.0,0.0,3.0,0.0,0.22,1.46913017622778,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,flip_true_to_false,0.0,150.0,0.0,1.0,0.0,0.0066666666666666,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,flip_true_to_false,0.01,150.0,0.0,1.0,0.0,0.0166666666666666,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,flip_true_to_false,0.02,150.0,0.0,1.0,0.0,0.026666666666666602,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,flip_true_to_false,0.05,150.0,0.0,1.0,0.0,0.0566666666666666,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,flip_true_to_false,0.1,150.0,0.0,1.0,0.0,0.1066666666666666,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,flip_false_to_true,0.0,150.0,0.0,1.0,0.0,0.0066666666666666,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,flip_false_to_true,0.01,150.0,0.0,1.0,0.0,0.0016666666666666002,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,flip_false_to_true,0.02,150.0,0.0,1.0,0.0,0.0,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,flip_false_to_true,0.05,150.0,0.0,1.0,0.0,0.0,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,flip_false_to_true,0.1,150.0,0.0,1.0,0.0,0.0,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.0,150.0,0.0,1.0,0.0,0.0066666666666666,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.01,150.0,0.0,1.0,0.0,0.021666666666666598,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.02,150.0,0.0,1.0,0.0,0.0366666666666666,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.05,150.0,0.0,1.0,0.0,0.08166666666666661,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.1,150.0,0.0,1.0,0.0,0.15666666666666662,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,remove_verified_positives,0.0,150.0,0.0,1.0,0.0,0.0066666666666666,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,remove_verified_positives,0.01,150.0,0.0,1.0,0.0,0.009666666666666601,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,remove_verified_positives,0.02,150.0,0.0,1.0,0.0,0.0126666666666666,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,remove_verified_positives,0.05,150.0,0.0,1.0,0.0,0.021666666666666598,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,remove_verified_positives,0.1,150.0,0.0,1.0,0.0,0.0366666666666666,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,add_fake_verified_positives,0.0,150.0,0.0,1.0,0.0,0.0066666666666666,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,add_fake_verified_positives,0.01,150.0,0.0,1.0,0.0,0.026666666666666602,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,add_fake_verified_positives,0.02,150.0,0.0,1.0,0.0,0.0466666666666666,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,add_fake_verified_positives,0.05,150.0,0.0,1.0,0.0,0.1066666666666666,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+OVT-B,GroundingDINO + tracker,0.1,2,150,add_fake_verified_positives,0.1,150.0,0.0,1.0,0.0,0.2066666666666666,2.083233802276235,,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,flip_true_to_false,0.0,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,flip_true_to_false,0.01,0.0,0.0,0.0,0.0,0.01,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,flip_true_to_false,0.02,0.0,0.0,0.0,0.0,0.02,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,flip_true_to_false,0.05,0.0,0.0,0.0,0.0,0.05,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,flip_true_to_false,0.1,0.0,0.0,0.0,0.0,0.1,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,flip_false_to_true,0.0,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,flip_false_to_true,0.01,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,flip_false_to_true,0.02,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,flip_false_to_true,0.05,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,flip_false_to_true,0.1,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.0,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.01,0.0,0.0,0.0,0.0,0.015,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.02,0.0,0.0,0.0,0.0,0.03,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.05,0.0,0.0,0.0,0.0,0.07500000000000001,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.1,0.0,0.0,0.0,0.0,0.15000000000000002,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,remove_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,remove_verified_positives,0.01,0.0,0.0,0.0,0.0,0.003,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,remove_verified_positives,0.02,0.0,0.0,0.0,0.0,0.006,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,remove_verified_positives,0.05,0.0,0.0,0.0,0.0,0.015,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,remove_verified_positives,0.1,0.0,0.0,0.0,0.0,0.03,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,add_fake_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,add_fake_verified_positives,0.01,0.0,0.0,0.0,0.0,0.02,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,add_fake_verified_positives,0.02,0.0,0.0,0.0,0.0,0.04,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,add_fake_verified_positives,0.05,0.0,0.0,0.0,0.0,0.1,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,0,150,add_fake_verified_positives,0.1,0.0,0.0,0.0,0.0,0.2,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,flip_true_to_false,0.0,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,flip_true_to_false,0.01,0.0,0.0,0.0,0.0,0.01,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,flip_true_to_false,0.02,0.0,0.0,0.0,0.0,0.02,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,flip_true_to_false,0.05,0.0,0.0,0.0,0.0,0.05,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,flip_true_to_false,0.1,0.0,0.0,0.0,0.0,0.1,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,flip_false_to_true,0.0,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,flip_false_to_true,0.01,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,flip_false_to_true,0.02,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,flip_false_to_true,0.05,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,flip_false_to_true,0.1,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.0,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.01,0.0,0.0,0.0,0.0,0.015,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.02,0.0,0.0,0.0,0.0,0.03,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.05,0.0,0.0,0.0,0.0,0.07500000000000001,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.1,0.0,0.0,0.0,0.0,0.15000000000000002,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,remove_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,remove_verified_positives,0.01,0.0,0.0,0.0,0.0,0.003,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,remove_verified_positives,0.02,0.0,0.0,0.0,0.0,0.006,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,remove_verified_positives,0.05,0.0,0.0,0.0,0.0,0.015,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,remove_verified_positives,0.1,0.0,0.0,0.0,0.0,0.03,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,add_fake_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,add_fake_verified_positives,0.01,0.0,0.0,0.0,0.0,0.02,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,add_fake_verified_positives,0.02,0.0,0.0,0.0,0.0,0.04,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,add_fake_verified_positives,0.05,0.0,0.0,0.0,0.0,0.1,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,1,150,add_fake_verified_positives,0.1,0.0,0.0,0.0,0.0,0.2,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,flip_true_to_false,0.0,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,flip_true_to_false,0.01,0.0,0.0,0.0,0.0,0.01,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,flip_true_to_false,0.02,0.0,0.0,0.0,0.0,0.02,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,flip_true_to_false,0.05,0.0,0.0,0.0,0.0,0.05,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,flip_true_to_false,0.1,0.0,0.0,0.0,0.0,0.1,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,flip_false_to_true,0.0,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,flip_false_to_true,0.01,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,flip_false_to_true,0.02,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,flip_false_to_true,0.05,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,flip_false_to_true,0.1,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.0,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.01,0.0,0.0,0.0,0.0,0.015,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.02,0.0,0.0,0.0,0.0,0.03,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.05,0.0,0.0,0.0,0.0,0.07500000000000001,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.1,0.0,0.0,0.0,0.0,0.15000000000000002,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,remove_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,remove_verified_positives,0.01,0.0,0.0,0.0,0.0,0.003,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,remove_verified_positives,0.02,0.0,0.0,0.0,0.0,0.006,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,remove_verified_positives,0.05,0.0,0.0,0.0,0.0,0.015,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,remove_verified_positives,0.1,0.0,0.0,0.0,0.0,0.03,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,add_fake_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,add_fake_verified_positives,0.01,0.0,0.0,0.0,0.0,0.02,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,add_fake_verified_positives,0.02,0.0,0.0,0.0,0.0,0.04,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,add_fake_verified_positives,0.05,0.0,0.0,0.0,0.0,0.1,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+TAO,GroundingDINO + tracker,0.1,2,150,add_fake_verified_positives,0.1,0.0,0.0,0.0,0.0,0.2,,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,flip_true_to_false,0.0,150.0,0.0,6.0,0.0,0.04,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,flip_true_to_false,0.01,150.0,0.0,6.0,0.0,0.05,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,flip_true_to_false,0.02,150.0,0.0,6.0,0.0,0.06,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,flip_true_to_false,0.05,150.0,0.0,6.0,0.0,0.09,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,flip_true_to_false,0.1,150.0,0.0,6.0,0.0,0.14,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,flip_false_to_true,0.0,150.0,0.0,6.0,0.0,0.04,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,flip_false_to_true,0.01,150.0,0.0,6.0,0.0,0.035,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,flip_false_to_true,0.02,150.0,0.0,6.0,0.0,0.03,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,flip_false_to_true,0.05,150.0,0.0,6.0,0.0,0.015,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,flip_false_to_true,0.1,150.0,0.0,6.0,0.0,0.0,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.0,150.0,0.0,6.0,0.0,0.04,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.01,150.0,0.0,6.0,0.0,0.055,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.02,150.0,0.0,6.0,0.0,0.07,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.05,150.0,0.0,6.0,0.0,0.11500000000000002,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.1,150.0,0.0,6.0,0.0,0.19000000000000003,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,remove_verified_positives,0.0,150.0,0.0,6.0,0.0,0.04,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,remove_verified_positives,0.01,150.0,0.0,6.0,0.0,0.043000000000000003,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,remove_verified_positives,0.02,150.0,0.0,6.0,0.0,0.046,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,remove_verified_positives,0.05,150.0,0.0,6.0,0.0,0.055,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,remove_verified_positives,0.1,150.0,0.0,6.0,0.0,0.07,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,add_fake_verified_positives,0.0,150.0,0.0,6.0,0.0,0.04,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,add_fake_verified_positives,0.01,150.0,0.0,6.0,0.0,0.06,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,add_fake_verified_positives,0.02,150.0,0.0,6.0,0.0,0.08,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,add_fake_verified_positives,0.05,150.0,0.0,6.0,0.0,0.14,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,0,150,add_fake_verified_positives,0.1,150.0,0.0,6.0,0.0,0.24000000000000002,1.6279686673249272,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,flip_true_to_false,0.0,150.0,0.0,6.0,0.0,0.04,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,flip_true_to_false,0.01,150.0,0.0,6.0,0.0,0.05,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,flip_true_to_false,0.02,150.0,0.0,6.0,0.0,0.06,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,flip_true_to_false,0.05,150.0,0.0,6.0,0.0,0.09,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,flip_true_to_false,0.1,150.0,0.0,6.0,0.0,0.14,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,flip_false_to_true,0.0,150.0,0.0,6.0,0.0,0.04,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,flip_false_to_true,0.01,150.0,0.0,6.0,0.0,0.035,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,flip_false_to_true,0.02,150.0,0.0,6.0,0.0,0.03,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,flip_false_to_true,0.05,150.0,0.0,6.0,0.0,0.015,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,flip_false_to_true,0.1,150.0,0.0,6.0,0.0,0.0,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.0,150.0,0.0,6.0,0.0,0.04,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.01,150.0,0.0,6.0,0.0,0.055,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.02,150.0,0.0,6.0,0.0,0.07,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.05,150.0,0.0,6.0,0.0,0.11500000000000002,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.1,150.0,0.0,6.0,0.0,0.19000000000000003,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,remove_verified_positives,0.0,150.0,0.0,6.0,0.0,0.04,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,remove_verified_positives,0.01,150.0,0.0,6.0,0.0,0.043000000000000003,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,remove_verified_positives,0.02,150.0,0.0,6.0,0.0,0.046,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,remove_verified_positives,0.05,150.0,0.0,6.0,0.0,0.055,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,remove_verified_positives,0.1,150.0,0.0,6.0,0.0,0.07,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,add_fake_verified_positives,0.0,150.0,0.0,6.0,0.0,0.04,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,add_fake_verified_positives,0.01,150.0,0.0,6.0,0.0,0.06,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,add_fake_verified_positives,0.02,150.0,0.0,6.0,0.0,0.08,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,add_fake_verified_positives,0.05,150.0,0.0,6.0,0.0,0.14,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,1,150,add_fake_verified_positives,0.1,150.0,0.0,6.0,0.0,0.24000000000000002,1.389834456929123,,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,flip_true_to_false,0.0,0.0,0.0,0.0,0.0,0.0,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,flip_true_to_false,0.01,0.0,0.0,0.0,0.0,0.01,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,flip_true_to_false,0.02,0.0,0.0,0.0,0.0,0.02,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,flip_true_to_false,0.05,0.0,0.0,0.0,0.0,0.05,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,flip_true_to_false,0.1,0.0,0.0,0.0,0.0,0.1,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,flip_false_to_true,0.0,0.0,0.0,0.0,0.0,0.0,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,flip_false_to_true,0.01,0.0,0.0,0.0,0.0,0.0,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,flip_false_to_true,0.02,0.0,0.0,0.0,0.0,0.0,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,flip_false_to_true,0.05,0.0,0.0,0.0,0.0,0.0,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,flip_false_to_true,0.1,0.0,0.0,0.0,0.0,0.0,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.0,0.0,0.0,0.0,0.0,0.0,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.01,0.0,0.0,0.0,0.0,0.015,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.02,0.0,0.0,0.0,0.0,0.03,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.05,0.0,0.0,0.0,0.0,0.07500000000000001,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.1,0.0,0.0,0.0,0.0,0.15000000000000002,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,remove_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,remove_verified_positives,0.01,0.0,0.0,0.0,0.0,0.003,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,remove_verified_positives,0.02,0.0,0.0,0.0,0.0,0.006,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,remove_verified_positives,0.05,0.0,0.0,0.0,0.0,0.015,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,remove_verified_positives,0.1,0.0,0.0,0.0,0.0,0.03,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,add_fake_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,add_fake_verified_positives,0.01,0.0,0.0,0.0,0.0,0.02,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,add_fake_verified_positives,0.02,0.0,0.0,0.0,0.0,0.04,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,add_fake_verified_positives,0.05,0.0,0.0,0.0,0.0,0.1,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,GroundingDINO,0.1,2,150,add_fake_verified_positives,0.1,0.0,0.0,0.0,0.0,0.2,0.7922557480050123,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,flip_true_to_false,0.0,0.0,0.0,0.0,0.0,0.0,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,flip_true_to_false,0.01,0.0,0.0,0.0,0.0,0.01,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,flip_true_to_false,0.02,0.0,0.0,0.0,0.0,0.02,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,flip_true_to_false,0.05,0.0,0.0,0.0,0.0,0.05,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,flip_true_to_false,0.1,0.0,0.0,0.0,0.0,0.1,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,flip_false_to_true,0.0,0.0,0.0,0.0,0.0,0.0,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,flip_false_to_true,0.01,0.0,0.0,0.0,0.0,0.0,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,flip_false_to_true,0.02,0.0,0.0,0.0,0.0,0.0,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,flip_false_to_true,0.05,0.0,0.0,0.0,0.0,0.0,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,flip_false_to_true,0.1,0.0,0.0,0.0,0.0,0.0,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.0,0.0,0.0,0.0,0.0,0.0,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.01,0.0,0.0,0.0,0.0,0.015,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.02,0.0,0.0,0.0,0.0,0.03,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.05,0.0,0.0,0.0,0.0,0.07500000000000001,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,mark_uncertain_as_verified_positive_negative_control,0.1,0.0,0.0,0.0,0.0,0.15000000000000002,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,remove_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,remove_verified_positives,0.01,0.0,0.0,0.0,0.0,0.003,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,remove_verified_positives,0.02,0.0,0.0,0.0,0.0,0.006,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,remove_verified_positives,0.05,0.0,0.0,0.0,0.0,0.015,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,remove_verified_positives,0.1,0.0,0.0,0.0,0.0,0.03,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,add_fake_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,add_fake_verified_positives,0.01,0.0,0.0,0.0,0.0,0.02,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,add_fake_verified_positives,0.02,0.0,0.0,0.0,0.0,0.04,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,add_fake_verified_positives,0.05,0.0,0.0,0.0,0.0,0.1,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,0,150,add_fake_verified_positives,0.1,0.0,0.0,0.0,0.0,0.2,0.0831533391600178,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,flip_true_to_false,0.0,0.0,0.0,0.0,0.0,0.0,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,flip_true_to_false,0.01,0.0,0.0,0.0,0.0,0.01,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,flip_true_to_false,0.02,0.0,0.0,0.0,0.0,0.02,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,flip_true_to_false,0.05,0.0,0.0,0.0,0.0,0.05,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,flip_true_to_false,0.1,0.0,0.0,0.0,0.0,0.1,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,flip_false_to_true,0.0,0.0,0.0,0.0,0.0,0.0,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,flip_false_to_true,0.01,0.0,0.0,0.0,0.0,0.0,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,flip_false_to_true,0.02,0.0,0.0,0.0,0.0,0.0,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,flip_false_to_true,0.05,0.0,0.0,0.0,0.0,0.0,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,flip_false_to_true,0.1,0.0,0.0,0.0,0.0,0.0,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.0,0.0,0.0,0.0,0.0,0.0,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.01,0.0,0.0,0.0,0.0,0.015,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.02,0.0,0.0,0.0,0.0,0.03,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.05,0.0,0.0,0.0,0.0,0.07500000000000001,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,mark_uncertain_as_verified_positive_negative_control,0.1,0.0,0.0,0.0,0.0,0.15000000000000002,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,remove_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,remove_verified_positives,0.01,0.0,0.0,0.0,0.0,0.003,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,remove_verified_positives,0.02,0.0,0.0,0.0,0.0,0.006,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,remove_verified_positives,0.05,0.0,0.0,0.0,0.0,0.015,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,remove_verified_positives,0.1,0.0,0.0,0.0,0.0,0.03,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,add_fake_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,add_fake_verified_positives,0.01,0.0,0.0,0.0,0.0,0.02,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,add_fake_verified_positives,0.02,0.0,0.0,0.0,0.0,0.04,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,add_fake_verified_positives,0.05,0.0,0.0,0.0,0.0,0.1,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,1,150,add_fake_verified_positives,0.1,0.0,0.0,0.0,0.0,0.2,0.0766515245019775,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,flip_true_to_false,0.0,0.0,0.0,0.0,0.0,0.0,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,flip_true_to_false,0.01,0.0,0.0,0.0,0.0,0.01,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,flip_true_to_false,0.02,0.0,0.0,0.0,0.0,0.02,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,flip_true_to_false,0.05,0.0,0.0,0.0,0.0,0.05,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,flip_true_to_false,0.1,0.0,0.0,0.0,0.0,0.1,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,flip_false_to_true,0.0,0.0,0.0,0.0,0.0,0.0,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,flip_false_to_true,0.01,0.0,0.0,0.0,0.0,0.0,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,flip_false_to_true,0.02,0.0,0.0,0.0,0.0,0.0,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,flip_false_to_true,0.05,0.0,0.0,0.0,0.0,0.0,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,flip_false_to_true,0.1,0.0,0.0,0.0,0.0,0.0,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.0,0.0,0.0,0.0,0.0,0.0,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.01,0.0,0.0,0.0,0.0,0.015,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.02,0.0,0.0,0.0,0.0,0.03,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.05,0.0,0.0,0.0,0.0,0.07500000000000001,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,mark_uncertain_as_verified_positive_negative_control,0.1,0.0,0.0,0.0,0.0,0.15000000000000002,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,remove_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,remove_verified_positives,0.01,0.0,0.0,0.0,0.0,0.003,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,remove_verified_positives,0.02,0.0,0.0,0.0,0.0,0.006,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,remove_verified_positives,0.05,0.0,0.0,0.0,0.0,0.015,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,remove_verified_positives,0.1,0.0,0.0,0.0,0.0,0.03,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,add_fake_verified_positives,0.0,0.0,0.0,0.0,0.0,0.0,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,add_fake_verified_positives,0.01,0.0,0.0,0.0,0.0,0.02,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,add_fake_verified_positives,0.02,0.0,0.0,0.0,0.0,0.04,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,add_fake_verified_positives,0.05,0.0,0.0,0.0,0.0,0.1,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table
+BURST,OWLv2,0.1,2,150,add_fake_verified_positives,0.1,0.0,0.0,0.0,0.0,0.2,0.0600543449927483,no_k_satisfies_uniform_self_consistency,derived_audit_noise_sensitivity_from_main_table

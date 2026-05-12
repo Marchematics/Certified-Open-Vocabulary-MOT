@@ -1,0 +1,15 @@
+{
+  "table": "table_stress_null_inflation.csv",
+  "repo_commit": "584a45817d030a769ca29e113eaf5275e85ebb36",
+  "command": "python -m parc_track.cli phase15 full-experiments",
+  "runtime_sec": 0.543155,
+  "source_files": [
+    {
+      "path": "outputs/milestones/reliability_fortress/table_null_inflation_empirical.csv",
+      "sha256": "2e8458272e5381bebcce378f7bf982768e150f9b1a858d9eab65aadf75505e14"
+    }
+  ],
+  "output_sha256": "ab4de01d38d54341645c0c4892382013880c36f400f9e80b77edaf91c02da2e7",
+  "paper_facing_table": true,
+  "notes": ""
+}

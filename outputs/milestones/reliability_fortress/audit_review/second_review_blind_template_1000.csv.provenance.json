@@ -1,0 +1,15 @@
+{
+  "table": "second_review_blind_template_1000.csv",
+  "repo_commit": "584a45817d030a769ca29e113eaf5275e85ebb36",
+  "command": "python -m parc_track.cli phase15 full-experiments",
+  "runtime_sec": 1.002579,
+  "source_files": [
+    {
+      "path": "outputs/milestones/reliability_fortress/audit_labels_2000_human_reviewed.csv",
+      "sha256": "f4d7d8e09fdf49ed7ea7c940f53c3a7d55decc85b21f5e07bed0a3e7502b48e3"
+    }
+  ],
+  "output_sha256": "32fa087e5a0ad2feda60088ddaf7e8b45262ea219636800b776e6662a28c0d2b",
+  "paper_facing_table": true,
+  "notes": "Blind template contains no gold labels."
+}

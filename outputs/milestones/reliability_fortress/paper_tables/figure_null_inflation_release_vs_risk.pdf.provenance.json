@@ -1,0 +1,15 @@
+{
+  "figure": "figure_null_inflation_release_vs_risk.pdf",
+  "repo_commit": "584a45817d030a769ca29e113eaf5275e85ebb36",
+  "command": "python -m parc_track.cli phase15 full-experiments",
+  "runtime_sec": 0.678955,
+  "source_files": [
+    {
+      "path": "outputs/milestones/reliability_fortress/paper_tables/table_stress_null_inflation.csv",
+      "sha256": "ab4de01d38d54341645c0c4892382013880c36f400f9e80b77edaf91c02da2e7"
+    }
+  ],
+  "output_sha256": "e9fdd393c0b35715fadd3f4ea3fb296ad1e2f75b9dd46735f9f2860d0a876de5",
+  "paper_facing_figure": true,
+  "notes": ""
+}

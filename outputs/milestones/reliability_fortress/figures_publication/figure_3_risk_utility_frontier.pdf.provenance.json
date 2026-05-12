@@ -1,0 +1,16 @@
+{
+  "table": "figure_3_risk_utility_frontier.pdf",
+  "repo_commit": "584a45817d030a769ca29e113eaf5275e85ebb36",
+  "command": "python -m parc_track.cli phase16 generality-closeout",
+  "runtime_sec": 2.06636,
+  "environment": "python",
+  "random_seed": "not_applicable",
+  "sources": [
+    {
+      "path": "outputs/milestones/reliability_fortress/paper_tables/table_baseline_comparison.csv",
+      "sha256": "76e21fab80a6dbc009fd5974e69317f90895f7694d320b47626ecd996da2548e"
+    }
+  ],
+  "output_sha256": "a3954dc2bf62f24edc62de716c3d94588b465c24adbec2d95e5447ca631c351c",
+  "notes": ""
+}

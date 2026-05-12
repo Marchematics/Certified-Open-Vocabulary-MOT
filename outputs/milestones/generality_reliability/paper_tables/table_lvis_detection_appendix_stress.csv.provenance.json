@@ -1,0 +1,16 @@
+{
+  "table": "table_lvis_detection_appendix_stress.csv",
+  "repo_commit": "584a45817d030a769ca29e113eaf5275e85ebb36",
+  "command": "python -m parc_track.cli phase16 generality-closeout",
+  "runtime_sec": 1.314887,
+  "environment": "python",
+  "random_seed": "not_applicable",
+  "sources": [
+    {
+      "path": "outputs/milestones/generality_reliability/table_lvis_detection_certification.csv",
+      "sha256": "6c35776670fe6cc856e10e45c72a129e5942af33279dc1eb022780ec8a5bfa53"
+    }
+  ],
+  "output_sha256": "46c307f11309dec7ca1ed225d33b556043ce930eef9022fb212c99db2d658b23",
+  "notes": "LVIS rows that are diagnostic/stress evidence rather than main positive claims."
+}

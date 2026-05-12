@@ -1,0 +1,16 @@
+{
+  "table": "figure_4_safe_refusal_diagnostics.pdf",
+  "repo_commit": "584a45817d030a769ca29e113eaf5275e85ebb36",
+  "command": "python -m parc_track.cli phase16 generality-closeout",
+  "runtime_sec": 2.393235,
+  "environment": "python",
+  "random_seed": "not_applicable",
+  "sources": [
+    {
+      "path": "outputs/milestones/reliability_fortress/paper_tables/table_safe_refusal_diagnostics.csv",
+      "sha256": "db3911ca706a2d688e2e6d2bbab658b1dd4c7eb175f869ffef92d585f0730707"
+    }
+  ],
+  "output_sha256": "dbb53470cf889153fffad7b8c2056e6688c6111227881d4590094ed8722325fa",
+  "notes": ""
+}

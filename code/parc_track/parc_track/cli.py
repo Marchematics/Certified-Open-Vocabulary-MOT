@@ -74,6 +74,8 @@ from .phase11 import (
 )
 from .phase13 import run_phase13_release_story
 from .phase14 import run_phase14_closeout
+from .phase15 import run_phase15_full_experiments
+from .phase16 import run_phase16_generality_closeout
 from .reports import build_phase1b_report
 from .smoke import run_smoke
 from .sweeps import run_sweep
@@ -405,6 +407,14 @@ def build_parser() -> argparse.ArgumentParser:
     phase14_subparsers = phase14.add_subparsers(dest="phase14_command", required=True)
     phase14_closeout = phase14_subparsers.add_parser("closeout", help="Freeze cleaned paper-facing closeout tables.")
     phase14_closeout.add_argument("--output-dir", default=None, help="Output directory under ..")
+    phase15 = subparsers.add_parser("phase15", help="Run Phase 3-5 full reliability experiments.")
+    phase15_subparsers = phase15.add_subparsers(dest="phase15_command", required=True)
+    phase15_full = phase15_subparsers.add_parser("full-experiments", help="Run baseline, stress, and second-review closeout.")
+    phase15_full.add_argument("--output-dir", default=None, help="Output directory under ..")
+    phase16 = subparsers.add_parser("phase16", help="Run generality and reproducibility closeout.")
+    phase16_subparsers = phase16.add_subparsers(dest="phase16_command", required=True)
+    phase16_closeout = phase16_subparsers.add_parser("generality-closeout", help="Build LVIS/mask generality tables and publication figures.")
+    phase16_closeout.add_argument("--output-dir", default=None, help="Output directory under ..")
     return parser
 
 
@@ -694,6 +704,18 @@ def main(argv: list[str] | None = None) -> None:
             summary = run_phase14_closeout(args.output_dir)
         else:
             parser.error(f"unknown phase14 command: {args.phase14_command}")
+        print(json.dumps(summary, indent=2, ensure_ascii=False))
+    elif args.command == "phase15":
+        if args.phase15_command == "full-experiments":
+            summary = run_phase15_full_experiments(args.output_dir)
+        else:
+            parser.error(f"unknown phase15 command: {args.phase15_command}")
+        print(json.dumps(summary, indent=2, ensure_ascii=False))
+    elif args.command == "phase16":
+        if args.phase16_command == "generality-closeout":
+            summary = run_phase16_generality_closeout(args.output_dir)
+        else:
+            parser.error(f"unknown phase16 command: {args.phase16_command}")
         print(json.dumps(summary, indent=2, ensure_ascii=False))
     else:
         parser.error(f"unknown command: {args.command}")

@@ -1,0 +1,15 @@
+{
+  "figure": "figure_shift_refusal_behavior.pdf",
+  "repo_commit": "584a45817d030a769ca29e113eaf5275e85ebb36",
+  "command": "python -m parc_track.cli phase15 full-experiments",
+  "runtime_sec": 0.801496,
+  "source_files": [
+    {
+      "path": "outputs/milestones/reliability_fortress/paper_tables/table_stress_nonexchangeability.csv",
+      "sha256": "6293f6c3b9c2d801b2f8b60110ccbf67d5a8400a06f046a10ee23610c77c61ec"
+    }
+  ],
+  "output_sha256": "eac08ff0476a5be392f9b018e77e72cb519c3433df5b9a745e93518c05d551e0",
+  "paper_facing_figure": true,
+  "notes": ""
+}

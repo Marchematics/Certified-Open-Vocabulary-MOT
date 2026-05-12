@@ -1,19 +1,31 @@
 {
   "table": "table_ablation_components.csv",
-  "repo_commit": "819c00dd16d4cf8b14c7668cbdf483a7563ae76d",
-  "command": "python -m parc_track.cli phase14 closeout",
-  "runtime_sec": 0.085893,
+  "repo_commit": "584a45817d030a769ca29e113eaf5275e85ebb36",
+  "command": "python -m parc_track.cli phase15 full-experiments",
+  "runtime_sec": 0.470128,
   "source_files": [
+    {
+      "path": "outputs/milestones/legacy_core_results/core_results/table_baseline_expanded.csv",
+      "sha256": "94f642abbae9043634ca3079277e35c7c1ac6dd88d6e6e6c2fcea379b4e6c432"
+    },
+    {
+      "path": "outputs/milestones/legacy_core_results/tao_full_clean/table_baseline_expanded.csv",
+      "sha256": "136d23f835063c82ff04653c019fa374eb73f5d44ecf0ed18db7a5e0d9cef03c"
+    },
+    {
+      "path": "outputs/milestones/legacy_core_results/burst/table_baseline_expanded.csv",
+      "sha256": "1d43c11ce7cb6873e54481a1e5420b83f2d013ca63ce9e9b980d2c8856132762"
+    },
+    {
+      "path": "outputs/milestones/legacy_core_results/burst_owlv2_stress/table_baseline_expanded.csv",
+      "sha256": "b2a3483cc294bec03d9bd5fb4847756fd57be3a01708932ecda424629dcdb826"
+    },
     {
       "path": "outputs/milestones/lvvis_certification/table_baseline_expanded.csv",
       "sha256": "bb8760a2d41141039874ea04fd78b06a36007fc751b6efb012c347a44b18295a"
     }
   ],
-  "output_sha256": "750c9ec56c44334faa8ba6e426e340db17ce3ba02eee446e5fb30211543c63ce",
-  "config_sha256": "",
-  "candidate_universe_sha256": "",
-  "candidate_nodes_sha256": "",
-  "audit_labels_sha256": "f4d7d8e09fdf49ed7ea7c940f53c3a7d55decc85b21f5e07bed0a3e7502b48e3",
+  "output_sha256": "21b8e9fb343c3f4e8da1b47aebfb7d923c872236ff9159c07dc04ad439ac632f",
   "paper_facing_table": true,
-  "notes": "Derived sanitized paper-facing table. Raw provenance tables are preserved separately."
+  "notes": "Phase-3 component ablation table. Exact rows use frozen matrices; derived rows are explicitly marked."
 }

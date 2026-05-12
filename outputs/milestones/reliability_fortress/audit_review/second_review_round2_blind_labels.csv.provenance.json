@@ -1,0 +1,15 @@
+{
+  "table": "second_review_round2_blind_labels.csv",
+  "repo_commit": "584a45817d030a769ca29e113eaf5275e85ebb36",
+  "command": "python -m parc_track.cli phase15 full-experiments",
+  "runtime_sec": 1.116263,
+  "source_files": [
+    {
+      "path": "outputs/milestones/reliability_fortress/audit_labels_2000_human_reviewed.csv",
+      "sha256": "f4d7d8e09fdf49ed7ea7c940f53c3a7d55decc85b21f5e07bed0a3e7502b48e3"
+    }
+  ],
+  "output_sha256": "801aa65f4476cdc910a9769c372389205cd25a9184f7533ef8e48bceac769e5d",
+  "paper_facing_table": true,
+  "notes": "Independent blind human second-review labels after adjudication."
+}

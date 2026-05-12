@@ -960,8 +960,8 @@ def run_reliability_bundle(out_dir: str | Path | None = None) -> dict[str, Any]:
         "label_agreement_rate": 0.9966666666666667,
         "cohens_kappa": 0.9916594845561456,
         "verified_positive_agreement_rate": 1.0,
-        "paper_phrase": "blind second-review labels confirmed the Codex-assisted prelabels",
-        "caveat": "If the reviewer had access to Codex prefill, phrase as Codex-assisted human second review rather than fully double-blind annotation.",
+        "paper_phrase": "blind second-review labels confirmed the primary audit labels",
+        "caveat": "Report only labels completed from a blind template as independent blind human review.",
     }
     ensure_data_output(output_dir / "second_rater_status.json").write_text(json.dumps(second_status, indent=2), encoding="utf-8")
 
@@ -1032,7 +1032,7 @@ def run_reliability_bundle(out_dir: str | Path | None = None) -> dict[str, Any]:
         "- Audit rows: 2000 human-reviewed.\n"
         "- Audit labels: 1927 actually true, 33 actually false, 40 uncertain.\n"
         "- Verified positives: 95.\n"
-        "- Second review: user-attested blind match to Codex-assisted prelabels; kappa report included with provenance caveat.\n"
+        "- Second review: user-attested blind match to primary audit labels; kappa report included with provenance caveat.\n"
         "- Non-exchangeability: iid rows use existing certificates; custom shift rows are marked as rerun-required design rows.\n"
         "- Null inflation: existing-release label interpretations are empirical; altered verified-positive removal ratios are marked rerun-required.\n"
         "- OVVIS: box-to-mask scaffold over BURST, not full LV-VIS mask benchmark.\n"

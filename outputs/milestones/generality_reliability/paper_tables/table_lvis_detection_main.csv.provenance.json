@@ -1,0 +1,16 @@
+{
+  "table": "table_lvis_detection_main.csv",
+  "repo_commit": "584a45817d030a769ca29e113eaf5275e85ebb36",
+  "command": "python -m parc_track.cli phase16 generality-closeout",
+  "runtime_sec": 1.105903,
+  "environment": "python",
+  "random_seed": "not_applicable",
+  "sources": [
+    {
+      "path": "outputs/milestones/generality_reliability/table_lvis_detection_certification.csv",
+      "sha256": "6c35776670fe6cc856e10e45c72a129e5942af33279dc1eb022780ec8a5bfa53"
+    }
+  ],
+  "output_sha256": "42f2b5fe0d37f08d647baf330736288070ebc4337aa2c07c48f9ca7da563a525",
+  "notes": "Paper-facing LVIS detection table with explicit risk metric names and placement."
+}

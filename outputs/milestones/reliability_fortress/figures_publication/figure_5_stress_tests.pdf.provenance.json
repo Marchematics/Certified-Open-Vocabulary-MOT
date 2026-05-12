@@ -1,0 +1,24 @@
+{
+  "table": "figure_5_stress_tests.pdf",
+  "repo_commit": "584a45817d030a769ca29e113eaf5275e85ebb36",
+  "command": "python -m parc_track.cli phase16 generality-closeout",
+  "runtime_sec": 2.842453,
+  "environment": "python",
+  "random_seed": "not_applicable",
+  "sources": [
+    {
+      "path": "outputs/milestones/reliability_fortress/paper_tables/table_stress_null_inflation.csv",
+      "sha256": "ab4de01d38d54341645c0c4892382013880c36f400f9e80b77edaf91c02da2e7"
+    },
+    {
+      "path": "outputs/milestones/reliability_fortress/paper_tables/table_stress_audit_noise.csv",
+      "sha256": "4887cb5bdd317150c8c2dfea62d0847d4265d52c734704fad0194170d0a8dc9a"
+    },
+    {
+      "path": "outputs/milestones/reliability_fortress/paper_tables/table_stress_nonexchangeability.csv",
+      "sha256": "6293f6c3b9c2d801b2f8b60110ccbf67d5a8400a06f046a10ee23610c77c61ec"
+    }
+  ],
+  "output_sha256": "8ac4cfad7aa262408ce144c7aa996767db031a067db1de2c137db722989e4974",
+  "notes": ""
+}

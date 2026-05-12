@@ -1,0 +1,15 @@
+{
+  "figure": "figure_baseline_risk_utility.pdf",
+  "repo_commit": "584a45817d030a769ca29e113eaf5275e85ebb36",
+  "command": "python -m parc_track.cli phase15 full-experiments",
+  "runtime_sec": 0.413234,
+  "source_files": [
+    {
+      "path": "outputs/milestones/reliability_fortress/paper_tables/table_baseline_comparison.csv",
+      "sha256": "76e21fab80a6dbc009fd5974e69317f90895f7694d320b47626ecd996da2548e"
+    }
+  ],
+  "output_sha256": "0090f21d0bafbad9206c8ad13b8dd03acc1cb4c7da9cacb69bc6f38114f75892",
+  "paper_facing_figure": true,
+  "notes": ""
+}

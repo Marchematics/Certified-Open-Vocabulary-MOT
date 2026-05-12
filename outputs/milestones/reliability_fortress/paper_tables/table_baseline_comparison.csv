@@ -1,25 +1,118 @@
-dataset,method,certified_risk_level_alpha,M,seed,raw_topM_released,parc_released,released,UTR,empirical_audited_FTR,conservative_label_uncertainty_FTR,mass_ratio,release_feasible,empty_reason,safe_refusal_reason,runtime_sec,paper_table_scope
-LVVIS,unmatched_as_false_block_calibration,0.1,150,0,,,150.0,0.02,,0.02,2.298373876248844,True,,,,baseline_comparison
-LVVIS,null_superset_without_audit,0.1,150,0,,,150.0,0.02,,0.02,24.74771639560636,True,,,,baseline_comparison
-LVVIS,PARC_full,0.1,150,0,,150.0,150.0,0.02,,0.02,24.74771639560636,True,,,,baseline_comparison
-LVVIS,score_threshold,0.1,150,0,150,,150.0,0.02,,0.02,,,,,0.0001403119822498,baseline_comparison
-LVVIS,tracklet_p_BH,0.1,150,0,,,150.0,0.02,,0.02,,,,,0.0001431060081813,baseline_comparison
-LVVIS,tracklet_e_BH,0.1,150,0,,,150.0,0.02,,0.02,,,,,0.0001406609953846,baseline_comparison
-LVVIS,post_filter_e_BH,0.1,150,0,,,150.0,0.02,,0.02,,,,,0.0001374490093439,baseline_comparison
-LVVIS,topM_no_risk,0.1,150,0,150,,150.0,0.02,,0.02,,,,,0.0001438740000594,baseline_comparison
-LVVIS,unmatched_as_false_block_calibration,0.1,150,1,,,0.0,0.0,,,-2.324810954158881,True,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,baseline_comparison
-LVVIS,null_superset_without_audit,0.1,150,1,,,150.0,0.0066666666666666,,0.0066666666666666,8.145651070951104,True,,,,baseline_comparison
-LVVIS,PARC_full,0.1,150,1,,150.0,150.0,0.0066666666666666,,0.0066666666666666,8.145651070951104,True,,,,baseline_comparison
-LVVIS,score_threshold,0.1,150,1,150,,150.0,0.0066666666666666,,0.0066666666666666,,,,,0.0001387060037814,baseline_comparison
-LVVIS,tracklet_p_BH,0.1,150,1,,,150.0,0.0066666666666666,,0.0066666666666666,,,,,0.0001398239983245,baseline_comparison
-LVVIS,tracklet_e_BH,0.1,150,1,,,150.0,0.0066666666666666,,0.0066666666666666,,,,,0.0001588199811521,baseline_comparison
-LVVIS,post_filter_e_BH,0.1,150,1,,,150.0,0.0066666666666666,,0.0066666666666666,,,,,0.0001431760028935,baseline_comparison
-LVVIS,topM_no_risk,0.1,150,1,150,,150.0,0.0066666666666666,,0.0066666666666666,,,,,0.0001387050142511,baseline_comparison
-LVVIS,unmatched_as_false_block_calibration,0.1,150,2,,,0.0,0.0,,,-2.923042084812618,True,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,,baseline_comparison
-LVVIS,null_superset_without_audit,0.1,150,2,,,150.0,0.0066666666666666,,0.0066666666666666,12.165705055628656,True,,,,baseline_comparison
-LVVIS,PARC_full,0.1,150,2,,150.0,150.0,0.0066666666666666,,0.0066666666666666,12.165705055628656,True,,,,baseline_comparison
-LVVIS,score_threshold,0.1,150,2,150,,150.0,0.0066666666666666,,0.0066666666666666,,,,,0.000140101998113,baseline_comparison
-LVVIS,tracklet_p_BH,0.1,150,2,,,150.0,0.0066666666666666,,0.0066666666666666,,,,,0.0001616840017959,baseline_comparison
-LVVIS,tracklet_e_BH,0.1,150,2,,,150.0,0.0066666666666666,,0.0066666666666666,,,,,0.0001416390005033,baseline_comparison
-LVVIS,post_filter_e_BH,0.1,150,2,,,150.0,0.0066666666666666,,0.0066666666666666,,,,,0.0001410800032317,baseline_comparison
-LVVIS,topM_no_risk,0.1,150,2,150,,150.0,0.0066666666666666,,0.0066666666666666,,,,,0.0001499509962741,baseline_comparison
+dataset,generator,baseline,certified_risk_level_alpha,M,seed,released,UTR,empirical_audited_FTR,conservative_FTR,mass_ratio,release_feasible,max_e,runtime,empty_reason,experiment_basis,notes
+OVT-B,GroundingDINO,Full PARC,0.1,150,0,126.0,0.0793650793650793,0.0,0.0079365079365079,6.993223214042295,True,21.14416661026871,,,actual_frozen_baseline_matrix,
+OVT-B,GroundingDINO,Per-generator calibrated score threshold,0.1,150,0,150.0,0.0666666666666666,0.0,0.9266666666666666,,,,0.0002340200589969,,actual_frozen_baseline_matrix,
+OVT-B,GroundingDINO,Fixed score threshold,0.1,150,0,150.0,0.0666666666666666,0.0,0.9266666666666666,,,,0.0002340200589969,,score_threshold_reference_from_frozen_matrix,Frozen score-threshold baseline is used as fixed-threshold reference; no cross-generator score comparability is assumed.
+OVT-B,GroundingDINO,Split conformal p-value threshold,0.1,150,0,150.0,0.0666666666666666,0.0,0.9266666666666666,,,,0.0001301340525969,,actual_frozen_baseline_matrix,
+OVT-B,GroundingDINO,e-BH style selection,0.1,150,0,126.0,0.0793650793650793,0.0,0.9285714285714286,,,,0.0003634939203038,,actual_frozen_baseline_matrix,
+OVT-B,GroundingDINO,Post-filter e-value threshold,0.1,150,0,126.0,0.0793650793650793,0.0,0.9285714285714286,,,,0.0003566610394045,,actual_frozen_baseline_matrix,
+OVT-B,GroundingDINO,Raw top-M,0.1,150,0,150.0,0.0666666666666666,0.0,0.9266666666666666,,,,0.000130611937493,,actual_frozen_baseline_matrix,
+OVT-B,GroundingDINO,Full PARC,0.1,150,1,0.0,0.0,,,-4.604769779873226,True,20.408264599127435,,no_k_satisfies_uniform_self_consistency,actual_frozen_baseline_matrix,
+OVT-B,GroundingDINO,Per-generator calibrated score threshold,0.1,150,1,150.0,0.06,0.0,0.9466666666666668,,,,0.0001344491029158,,actual_frozen_baseline_matrix,
+OVT-B,GroundingDINO,Fixed score threshold,0.1,150,1,150.0,0.06,0.0,0.9466666666666668,,,,0.0001344491029158,,score_threshold_reference_from_frozen_matrix,Frozen score-threshold baseline is used as fixed-threshold reference; no cross-generator score comparability is assumed.
+OVT-B,GroundingDINO,Split conformal p-value threshold,0.1,150,1,150.0,0.06,0.0,0.9466666666666668,,,,0.0001328410580754,,actual_frozen_baseline_matrix,
+OVT-B,GroundingDINO,e-BH style selection,0.1,150,1,0.0,0.0,,,,,,0.0002621799940243,,actual_frozen_baseline_matrix,
+OVT-B,GroundingDINO,Post-filter e-value threshold,0.1,150,1,0.0,0.0,,,,,,0.0002364231040701,,actual_frozen_baseline_matrix,
+OVT-B,GroundingDINO,Raw top-M,0.1,150,1,150.0,0.06,0.0,0.9466666666666668,,,,0.00011252600234,,actual_frozen_baseline_matrix,
+OVT-B,GroundingDINO,Full PARC,0.1,150,2,0.0,0.0,,,-5.856038016393794,True,20.72417910987153,,no_k_satisfies_uniform_self_consistency,actual_frozen_baseline_matrix,
+OVT-B,GroundingDINO,Per-generator calibrated score threshold,0.1,150,2,150.0,0.0066666666666666,,1.0,,,,0.000129974912852,,actual_frozen_baseline_matrix,
+OVT-B,GroundingDINO,Fixed score threshold,0.1,150,2,150.0,0.0066666666666666,,1.0,,,,0.000129974912852,,score_threshold_reference_from_frozen_matrix,Frozen score-threshold baseline is used as fixed-threshold reference; no cross-generator score comparability is assumed.
+OVT-B,GroundingDINO,Split conformal p-value threshold,0.1,150,2,150.0,0.0066666666666666,,1.0,,,,0.0001318460563197,,actual_frozen_baseline_matrix,
+OVT-B,GroundingDINO,e-BH style selection,0.1,150,2,0.0,0.0,,,,,,0.0002713149879127,,actual_frozen_baseline_matrix,
+OVT-B,GroundingDINO,Post-filter e-value threshold,0.1,150,2,0.0,0.0,,,,,,0.0002373369643464,,actual_frozen_baseline_matrix,
+OVT-B,GroundingDINO,Raw top-M,0.1,150,2,150.0,0.0066666666666666,,1.0,,,,0.0001077560009434,,actual_frozen_baseline_matrix,
+TAO,GroundingDINO,Full PARC,0.1,150,0,0.0,0.0,,,-2.505399926155592,True,33.97091768583136,,no_k_satisfies_uniform_self_consistency,actual_frozen_baseline_matrix,
+TAO,GroundingDINO,Per-generator calibrated score threshold,0.1,150,0,150.0,0.0333333333333333,0.2,0.9733333333333334,,,,0.0001581395044922,,actual_frozen_baseline_matrix,
+TAO,GroundingDINO,Fixed score threshold,0.1,150,0,150.0,0.0333333333333333,0.2,0.9733333333333334,,,,0.0001581395044922,,score_threshold_reference_from_frozen_matrix,Frozen score-threshold baseline is used as fixed-threshold reference; no cross-generator score comparability is assumed.
+TAO,GroundingDINO,Split conformal p-value threshold,0.1,150,0,150.0,0.0333333333333333,0.2,0.9733333333333334,,,,0.0001583714038133,,actual_frozen_baseline_matrix,
+TAO,GroundingDINO,e-BH style selection,0.1,150,0,0.0,0.0,,,,,,0.000343469902873,,actual_frozen_baseline_matrix,
+TAO,GroundingDINO,Post-filter e-value threshold,0.1,150,0,0.0,0.0,,,,,,0.0003168499097228,,actual_frozen_baseline_matrix,
+TAO,GroundingDINO,Raw top-M,0.1,150,0,150.0,0.0333333333333333,0.2,0.9733333333333334,,,,0.0001436406746506,,actual_frozen_baseline_matrix,
+TAO,GroundingDINO,Full PARC,0.1,150,1,0.0,0.0,,,-3.1773459716682098,True,34.068163221773965,,no_k_satisfies_uniform_self_consistency,actual_frozen_baseline_matrix,
+TAO,GroundingDINO,Per-generator calibrated score threshold,0.1,150,1,150.0,0.0333333333333333,0.0,0.96,,,,0.0001581199467182,,actual_frozen_baseline_matrix,
+TAO,GroundingDINO,Fixed score threshold,0.1,150,1,150.0,0.0333333333333333,0.0,0.96,,,,0.0001581199467182,,score_threshold_reference_from_frozen_matrix,Frozen score-threshold baseline is used as fixed-threshold reference; no cross-generator score comparability is assumed.
+TAO,GroundingDINO,Split conformal p-value threshold,0.1,150,1,150.0,0.0333333333333333,0.0,0.96,,,,0.0001597199589014,,actual_frozen_baseline_matrix,
+TAO,GroundingDINO,e-BH style selection,0.1,150,1,0.0,0.0,,,,,,0.0003449497744441,,actual_frozen_baseline_matrix,
+TAO,GroundingDINO,Post-filter e-value threshold,0.1,150,1,0.0,0.0,,,,,,0.0003212410956621,,actual_frozen_baseline_matrix,
+TAO,GroundingDINO,Raw top-M,0.1,150,1,150.0,0.0333333333333333,0.0,0.96,,,,0.0001436900347471,,actual_frozen_baseline_matrix,
+TAO,GroundingDINO,Full PARC,0.1,150,2,0.0,0.0,,,-4.479698100294375,True,33.776299976401,,no_k_satisfies_uniform_self_consistency,actual_frozen_baseline_matrix,
+TAO,GroundingDINO,Per-generator calibrated score threshold,0.1,150,2,150.0,0.0133333333333333,0.0,0.9666666666666668,,,,0.0001583192497491,,actual_frozen_baseline_matrix,
+TAO,GroundingDINO,Fixed score threshold,0.1,150,2,150.0,0.0133333333333333,0.0,0.9666666666666668,,,,0.0001583192497491,,score_threshold_reference_from_frozen_matrix,Frozen score-threshold baseline is used as fixed-threshold reference; no cross-generator score comparability is assumed.
+TAO,GroundingDINO,Split conformal p-value threshold,0.1,150,2,150.0,0.0133333333333333,0.0,0.9666666666666668,,,,0.0001578098163008,,actual_frozen_baseline_matrix,
+TAO,GroundingDINO,e-BH style selection,0.1,150,2,0.0,0.0,,,,,,0.000347301363945,,actual_frozen_baseline_matrix,
+TAO,GroundingDINO,Post-filter e-value threshold,0.1,150,2,0.0,0.0,,,,,,0.0003150999546051,,actual_frozen_baseline_matrix,
+TAO,GroundingDINO,Raw top-M,0.1,150,2,150.0,0.0133333333333333,0.0,0.9666666666666668,,,,0.0001430697739124,,actual_frozen_baseline_matrix,
+BURST,GroundingDINO,Full PARC,0.1,150,0,150.0,0.04,,0.04,9.611765316197866,True,24.917887765177458,,,actual_frozen_baseline_matrix,
+BURST,GroundingDINO,Per-generator calibrated score threshold,0.1,150,0,150.0,0.04,,0.04,,,,0.0001461040228605,,actual_frozen_baseline_matrix,
+BURST,GroundingDINO,Fixed score threshold,0.1,150,0,150.0,0.04,,0.04,,,,0.0001461040228605,,score_threshold_reference_from_frozen_matrix,Frozen score-threshold baseline is used as fixed-threshold reference; no cross-generator score comparability is assumed.
+BURST,GroundingDINO,Split conformal p-value threshold,0.1,150,0,150.0,0.04,,0.04,,,,0.0001428679097443,,actual_frozen_baseline_matrix,
+BURST,GroundingDINO,e-BH style selection,0.1,150,0,150.0,0.04,,0.04,,,,0.0001391109544783,,actual_frozen_baseline_matrix,
+BURST,GroundingDINO,Post-filter e-value threshold,0.1,150,0,150.0,0.04,,0.04,,,,0.0001436590682715,,actual_frozen_baseline_matrix,
+BURST,GroundingDINO,Raw top-M,0.1,150,0,150.0,0.04,,0.04,,,,0.0001350229140371,,actual_frozen_baseline_matrix,
+BURST,GroundingDINO,Full PARC,0.1,150,1,150.0,0.04,,0.04,3.898344569291231,True,13.89834456929123,,,actual_frozen_baseline_matrix,
+BURST,GroundingDINO,Per-generator calibrated score threshold,0.1,150,1,150.0,0.04,,0.04,,,,0.0001418958418071,,actual_frozen_baseline_matrix,
+BURST,GroundingDINO,Fixed score threshold,0.1,150,1,150.0,0.04,,0.04,,,,0.0001418958418071,,score_threshold_reference_from_frozen_matrix,Frozen score-threshold baseline is used as fixed-threshold reference; no cross-generator score comparability is assumed.
+BURST,GroundingDINO,Split conformal p-value threshold,0.1,150,1,150.0,0.04,,0.04,,,,0.000152887078002,,actual_frozen_baseline_matrix,
+BURST,GroundingDINO,e-BH style selection,0.1,150,1,150.0,0.04,,0.04,,,,0.0001377090811729,,actual_frozen_baseline_matrix,
+BURST,GroundingDINO,Post-filter e-value threshold,0.1,150,1,150.0,0.04,,0.04,,,,0.0001372578553855,,actual_frozen_baseline_matrix,
+BURST,GroundingDINO,Raw top-M,0.1,150,1,150.0,0.04,,0.04,,,,0.0001350629609078,,actual_frozen_baseline_matrix,
+BURST,GroundingDINO,Full PARC,0.1,150,2,0.0,0.0,,,-2.0774425199498765,True,25.172852016760327,,no_k_satisfies_uniform_self_consistency,actual_frozen_baseline_matrix,
+BURST,GroundingDINO,Per-generator calibrated score threshold,0.1,150,2,150.0,0.0466666666666666,,0.0466666666666666,,,,0.0001342119649052,,actual_frozen_baseline_matrix,
+BURST,GroundingDINO,Fixed score threshold,0.1,150,2,150.0,0.0466666666666666,,0.0466666666666666,,,,0.0001342119649052,,score_threshold_reference_from_frozen_matrix,Frozen score-threshold baseline is used as fixed-threshold reference; no cross-generator score comparability is assumed.
+BURST,GroundingDINO,Split conformal p-value threshold,0.1,150,2,150.0,0.0466666666666666,,0.0466666666666666,,,,0.0001402329653501,,actual_frozen_baseline_matrix,
+BURST,GroundingDINO,e-BH style selection,0.1,150,2,150.0,0.0466666666666666,,0.0466666666666666,,,,0.0001382189802825,,actual_frozen_baseline_matrix,
+BURST,GroundingDINO,Post-filter e-value threshold,0.1,150,2,0.0,0.0,,,,,,0.0003071760293096,,actual_frozen_baseline_matrix,
+BURST,GroundingDINO,Raw top-M,0.1,150,2,150.0,0.0466666666666666,,0.0466666666666666,,,,0.0001557630021125,,actual_frozen_baseline_matrix,
+BURST,OWLv2,Full PARC,0.1,150,0,0.0,0.0,,,-9.168466608399822,True,29.349444448474973,,no_k_satisfies_uniform_self_consistency,actual_frozen_baseline_matrix,
+BURST,OWLv2,Per-generator calibrated score threshold,0.1,150,0,150.0,0.96,,0.96,,,,0.0001859192270785,,actual_frozen_baseline_matrix,
+BURST,OWLv2,Fixed score threshold,0.1,150,0,150.0,0.96,,0.96,,,,0.0001859192270785,,score_threshold_reference_from_frozen_matrix,Frozen score-threshold baseline is used as fixed-threshold reference; no cross-generator score comparability is assumed.
+BURST,OWLv2,Split conformal p-value threshold,0.1,150,0,150.0,0.96,,0.96,,,,0.0001464949455112,,actual_frozen_baseline_matrix,
+BURST,OWLv2,e-BH style selection,0.1,150,0,0.0,0.0,,,,,,0.0003075681161135,,actual_frozen_baseline_matrix,
+BURST,OWLv2,Post-filter e-value threshold,0.1,150,0,0.0,0.0,,,,,,0.0002777720801532,,actual_frozen_baseline_matrix,
+BURST,OWLv2,Raw top-M,0.1,150,0,150.0,0.96,,0.96,,,,0.0001285111065953,,actual_frozen_baseline_matrix,
+BURST,OWLv2,Full PARC,0.1,150,1,0.0,0.0,,,-9.233484754980225,True,29.29970226451609,,no_k_satisfies_uniform_self_consistency,actual_frozen_baseline_matrix,
+BURST,OWLv2,Per-generator calibrated score threshold,0.1,150,1,150.0,0.98,,0.98,,,,0.0001591679174453,,actual_frozen_baseline_matrix,
+BURST,OWLv2,Fixed score threshold,0.1,150,1,150.0,0.98,,0.98,,,,0.0001591679174453,,score_threshold_reference_from_frozen_matrix,Frozen score-threshold baseline is used as fixed-threshold reference; no cross-generator score comparability is assumed.
+BURST,OWLv2,Split conformal p-value threshold,0.1,150,1,150.0,0.98,,0.98,,,,0.0001403430942445,,actual_frozen_baseline_matrix,
+BURST,OWLv2,e-BH style selection,0.1,150,1,0.0,0.0,,,,,,0.0002945729065686,,actual_frozen_baseline_matrix,
+BURST,OWLv2,Post-filter e-value threshold,0.1,150,1,0.0,0.0,,,,,,0.0002850049640983,,actual_frozen_baseline_matrix,
+BURST,OWLv2,Raw top-M,0.1,150,1,150.0,0.98,,0.98,,,,0.0001386401709169,,actual_frozen_baseline_matrix,
+BURST,OWLv2,Full PARC,0.1,150,2,0.0,0.0,,,-9.399456550072516,True,6.518818912046924,,no_k_satisfies_uniform_self_consistency,actual_frozen_baseline_matrix,
+BURST,OWLv2,Per-generator calibrated score threshold,0.1,150,2,150.0,0.96,,0.96,,,,0.0001506530679762,,actual_frozen_baseline_matrix,
+BURST,OWLv2,Fixed score threshold,0.1,150,2,150.0,0.96,,0.96,,,,0.0001506530679762,,score_threshold_reference_from_frozen_matrix,Frozen score-threshold baseline is used as fixed-threshold reference; no cross-generator score comparability is assumed.
+BURST,OWLv2,Split conformal p-value threshold,0.1,150,2,150.0,0.96,,0.96,,,,0.0001407950185239,,actual_frozen_baseline_matrix,
+BURST,OWLv2,e-BH style selection,0.1,150,2,0.0,0.0,,,,,,0.0002948439214378,,actual_frozen_baseline_matrix,
+BURST,OWLv2,Post-filter e-value threshold,0.1,150,2,0.0,0.0,,,,,,0.0002706879749894,,actual_frozen_baseline_matrix,
+BURST,OWLv2,Raw top-M,0.1,150,2,150.0,0.96,,0.96,,,,0.0001273890957236,,actual_frozen_baseline_matrix,
+LVVIS,GroundingDINO,Full PARC,0.1,150,0,150.0,0.02,,0.02,24.74771639560636,True,34.74771639560635,,,actual_frozen_baseline_matrix,
+LVVIS,GroundingDINO,Per-generator calibrated score threshold,0.1,150,0,150.0,0.02,,0.02,,,,0.0001403119822498,,actual_frozen_baseline_matrix,
+LVVIS,GroundingDINO,Fixed score threshold,0.1,150,0,150.0,0.02,,0.02,,,,0.0001403119822498,,score_threshold_reference_from_frozen_matrix,Frozen score-threshold baseline is used as fixed-threshold reference; no cross-generator score comparability is assumed.
+LVVIS,GroundingDINO,Split conformal p-value threshold,0.1,150,0,150.0,0.02,,0.02,,,,0.0001431060081813,,actual_frozen_baseline_matrix,
+LVVIS,GroundingDINO,e-BH style selection,0.1,150,0,150.0,0.02,,0.02,,,,0.0001406609953846,,actual_frozen_baseline_matrix,
+LVVIS,GroundingDINO,Post-filter e-value threshold,0.1,150,0,150.0,0.02,,0.02,,,,0.0001374490093439,,actual_frozen_baseline_matrix,
+LVVIS,GroundingDINO,Raw top-M,0.1,150,0,150.0,0.02,,0.02,,,,0.0001438740000594,,actual_frozen_baseline_matrix,
+LVVIS,GroundingDINO,Full PARC,0.1,150,1,150.0,0.0066666666666666,,0.0066666666666666,8.145651070951104,True,34.26252854155881,,,actual_frozen_baseline_matrix,
+LVVIS,GroundingDINO,Per-generator calibrated score threshold,0.1,150,1,150.0,0.0066666666666666,,0.0066666666666666,,,,0.0001387060037814,,actual_frozen_baseline_matrix,
+LVVIS,GroundingDINO,Fixed score threshold,0.1,150,1,150.0,0.0066666666666666,,0.0066666666666666,,,,0.0001387060037814,,score_threshold_reference_from_frozen_matrix,Frozen score-threshold baseline is used as fixed-threshold reference; no cross-generator score comparability is assumed.
+LVVIS,GroundingDINO,Split conformal p-value threshold,0.1,150,1,150.0,0.0066666666666666,,0.0066666666666666,,,,0.0001398239983245,,actual_frozen_baseline_matrix,
+LVVIS,GroundingDINO,e-BH style selection,0.1,150,1,150.0,0.0066666666666666,,0.0066666666666666,,,,0.0001588199811521,,actual_frozen_baseline_matrix,
+LVVIS,GroundingDINO,Post-filter e-value threshold,0.1,150,1,150.0,0.0066666666666666,,0.0066666666666666,,,,0.0001431760028935,,actual_frozen_baseline_matrix,
+LVVIS,GroundingDINO,Raw top-M,0.1,150,1,150.0,0.0066666666666666,,0.0066666666666666,,,,0.0001387050142511,,actual_frozen_baseline_matrix,
+LVVIS,GroundingDINO,Full PARC,0.1,150,2,150.0,0.0066666666666666,,0.0066666666666666,12.165705055628656,True,34.55376475712119,,,actual_frozen_baseline_matrix,
+LVVIS,GroundingDINO,Per-generator calibrated score threshold,0.1,150,2,150.0,0.0066666666666666,,0.0066666666666666,,,,0.000140101998113,,actual_frozen_baseline_matrix,
+LVVIS,GroundingDINO,Fixed score threshold,0.1,150,2,150.0,0.0066666666666666,,0.0066666666666666,,,,0.000140101998113,,score_threshold_reference_from_frozen_matrix,Frozen score-threshold baseline is used as fixed-threshold reference; no cross-generator score comparability is assumed.
+LVVIS,GroundingDINO,Split conformal p-value threshold,0.1,150,2,150.0,0.0066666666666666,,0.0066666666666666,,,,0.0001616840017959,,actual_frozen_baseline_matrix,
+LVVIS,GroundingDINO,e-BH style selection,0.1,150,2,150.0,0.0066666666666666,,0.0066666666666666,,,,0.0001416390005033,,actual_frozen_baseline_matrix,
+LVVIS,GroundingDINO,Post-filter e-value threshold,0.1,150,2,150.0,0.0066666666666666,,0.0066666666666666,,,,0.0001410800032317,,actual_frozen_baseline_matrix,
+LVVIS,GroundingDINO,Raw top-M,0.1,150,2,150.0,0.0066666666666666,,0.0066666666666666,,,,0.0001499509962741,,actual_frozen_baseline_matrix,
+OVT-B,GroundingDINO + tracker,Oracle true upper bound,0.1,150,0,105.0,,0.0,0.0,,True,,,,oracle_from_audited_release_counts,
+OVT-B,GroundingDINO + tracker,Oracle true upper bound,0.1,150,1,150.0,,0.0,0.0,,True,,,,oracle_from_audited_release_counts,
+OVT-B,GroundingDINO + tracker,Oracle true upper bound,0.1,150,2,150.0,,0.0,0.0,,True,,,,oracle_from_audited_release_counts,
+TAO,GroundingDINO + tracker,Oracle true upper bound,0.1,150,0,0.0,,0.0,0.0,,True,,,,oracle_from_audited_release_counts,
+TAO,GroundingDINO + tracker,Oracle true upper bound,0.1,150,1,0.0,,0.0,0.0,,True,,,,oracle_from_audited_release_counts,
+TAO,GroundingDINO + tracker,Oracle true upper bound,0.1,150,2,0.0,,0.0,0.0,,True,,,,oracle_from_audited_release_counts,
+BURST,GroundingDINO,Oracle true upper bound,0.1,150,0,150.0,,0.0,0.0,,True,,,,oracle_from_audited_release_counts,
+BURST,GroundingDINO,Oracle true upper bound,0.1,150,1,150.0,,0.0,0.0,,True,,,,oracle_from_audited_release_counts,
+BURST,GroundingDINO,Oracle true upper bound,0.1,150,2,0.0,,0.0,0.0,,True,,,,oracle_from_audited_release_counts,
+BURST,OWLv2,Oracle true upper bound,0.1,150,0,0.0,,0.0,0.0,,True,,,,oracle_from_audited_release_counts,
+BURST,OWLv2,Oracle true upper bound,0.1,150,1,0.0,,0.0,0.0,,True,,,,oracle_from_audited_release_counts,
+BURST,OWLv2,Oracle true upper bound,0.1,150,2,0.0,,0.0,0.0,,True,,,,oracle_from_audited_release_counts,

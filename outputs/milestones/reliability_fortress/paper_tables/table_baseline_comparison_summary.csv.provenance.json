@@ -1,0 +1,15 @@
+{
+  "table": "table_baseline_comparison_summary.csv",
+  "repo_commit": "584a45817d030a769ca29e113eaf5275e85ebb36",
+  "command": "python -m parc_track.cli phase15 full-experiments",
+  "runtime_sec": 0.430544,
+  "source_files": [
+    {
+      "path": "outputs/milestones/reliability_fortress/paper_tables/table_baseline_comparison.csv",
+      "sha256": "76e21fab80a6dbc009fd5974e69317f90895f7694d320b47626ecd996da2548e"
+    }
+  ],
+  "output_sha256": "5e5b162d639f0058ee9df8c000defcb2284f679db98298d2207dfbc78e7b1036",
+  "paper_facing_table": true,
+  "notes": ""
+}

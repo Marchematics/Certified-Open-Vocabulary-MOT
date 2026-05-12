@@ -1,0 +1,6 @@
+numpy==2.4.4
+pandas==3.0.2
+matplotlib==3.10.9
+PyYAML==6.0.3
+Pillow==12.2.0
+pytest==9.0.3

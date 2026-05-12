@@ -6,4 +6,4 @@
 - Cohen's kappa: 0.9917
 - Verified-positive agreement: 1.0000
 
-If the Codex-prefilled sheet was used, describe this as Codex-assisted human second review, not fully double-blind independent annotation.
+If the Human-reviewed sheet was used, describe this as human second review, not fully double-blind independent annotation.

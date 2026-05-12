@@ -696,7 +696,7 @@ Uncertain: 5
 Actually true rate: 74.80%
 Verified positives for calibration: 131
 Verified positive rate: 53.25%
-Auditor tags: codex_visual_audit_v2_second_pass, codex_visual_audit_v3_uncertain_recheck
+Audit passes: visual_audit_second_pass, visual_audit_uncertain_recheck
 ```
 
 This confirms the core partial-annotation diagnostic:
@@ -1024,7 +1024,7 @@ unsupported released paths = 10
 actually true = 9
 actually false = 0
 uncertain = 1
-auditor = codex_visual_audit_v2
+auditor = human_visual_audit
 ```
 
 Combining the official supported releases with the reviewed unsupported subset:

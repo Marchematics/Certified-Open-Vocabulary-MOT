@@ -1,0 +1,9 @@
+baseline,rows,datasets,released_mean,conservative_FTR_mean
+Fixed score threshold,15,BURST;LVVIS;OVT-B;TAO,150.0,0.5888888888888888
+Full PARC,15,BURST;LVVIS;OVT-B;TAO,58.4,0.020211640211640184
+Oracle true upper bound,12,BURST;OVT-B;TAO,58.75,0.0
+Per-generator calibrated score threshold,15,BURST;LVVIS;OVT-B;TAO,150.0,0.5888888888888888
+Post-filter e-value threshold,15,BURST;LVVIS;OVT-B;TAO,58.4,0.17365079365079364
+Raw top-M,15,BURST;LVVIS;OVT-B;TAO,150.0,0.5888888888888888
+Split conformal p-value threshold,15,BURST;LVVIS;OVT-B;TAO,150.0,0.5888888888888888
+e-BH style selection,15,BURST;LVVIS;OVT-B;TAO,68.4,0.15551020408163266

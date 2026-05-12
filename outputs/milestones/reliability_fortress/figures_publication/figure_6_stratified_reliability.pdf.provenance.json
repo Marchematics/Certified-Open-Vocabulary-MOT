@@ -1,0 +1,16 @@
+{
+  "table": "figure_6_stratified_reliability.pdf",
+  "repo_commit": "584a45817d030a769ca29e113eaf5275e85ebb36",
+  "command": "python -m parc_track.cli phase16 generality-closeout",
+  "runtime_sec": 3.27282,
+  "environment": "python",
+  "random_seed": "not_applicable",
+  "sources": [
+    {
+      "path": "outputs/milestones/generality_reliability/figure_stratified_reliability.csv",
+      "sha256": "5f3f68c62d54cb3813b613ab3b69e99f15cbd1ada613243352e44f8de4b708fe"
+    }
+  ],
+  "output_sha256": "4ff1c6fac41c17b1c7eb2f64c71a688c90d3fbe3a062a45ebf400b5de561d48a",
+  "notes": ""
+}

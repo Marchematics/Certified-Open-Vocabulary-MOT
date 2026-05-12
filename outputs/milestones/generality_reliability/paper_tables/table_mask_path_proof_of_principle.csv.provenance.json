@@ -1,0 +1,24 @@
+{
+  "table": "table_mask_path_proof_of_principle.csv",
+  "repo_commit": "584a45817d030a769ca29e113eaf5275e85ebb36",
+  "command": "python -m parc_track.cli phase16 generality-closeout",
+  "runtime_sec": 1.396917,
+  "environment": "python",
+  "random_seed": "not_applicable",
+  "sources": [
+    {
+      "path": "outputs/milestones/generality_reliability/table_ovvis_mask_certification.csv",
+      "sha256": "5f605d1ac2648a39607a56798f0a4bf93bf3e85a1f3204c41deca93c110da2ac"
+    },
+    {
+      "path": "outputs/milestones/lvvis_mask_certification/table_lvvis_mask_certification.csv",
+      "sha256": "7538e30c1ba7172279d58dd1054b15ed9aac431fda00f63b846727499f2bc353"
+    },
+    {
+      "path": "outputs/milestones/ovis_certification/table_ovis_certification_summary.csv",
+      "sha256": "1af243b56ddf561d72bb6e35c9472af77b860eb4c66d51d8740489b04cb09228"
+    }
+  ],
+  "output_sha256": "ec6df9efea6f704ed9562f1400de73745f0e9a7562cf4bba05f3565ce5feddc5",
+  "notes": "Mask-path evidence is proof-of-principle unless full official mask benchmark provenance is available."
+}

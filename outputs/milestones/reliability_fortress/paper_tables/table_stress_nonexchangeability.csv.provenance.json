@@ -1,0 +1,19 @@
+{
+  "table": "table_stress_nonexchangeability.csv",
+  "repo_commit": "584a45817d030a769ca29e113eaf5275e85ebb36",
+  "command": "python -m parc_track.cli phase15 full-experiments",
+  "runtime_sec": 0.697366,
+  "source_files": [
+    {
+      "path": "outputs/milestones/reliability_fortress/table_nonexchangeability_severe_actual_results.csv",
+      "sha256": "b2b1de7a99dcfec1a29e78f2c9b46b466c1f62db636e61fccb82027e7b8d80ef"
+    },
+    {
+      "path": "outputs/milestones/reliability_fortress/paper_tables/table_main_raw_vs_parc.csv",
+      "sha256": "22923008cf445a6b25e5324198290cfa6761d9ec9cde5be2ad99d894d3c8924e"
+    }
+  ],
+  "output_sha256": "6293f6c3b9c2d801b2f8b60110ccbf67d5a8400a06f046a10ee23610c77c61ec",
+  "paper_facing_table": true,
+  "notes": ""
+}

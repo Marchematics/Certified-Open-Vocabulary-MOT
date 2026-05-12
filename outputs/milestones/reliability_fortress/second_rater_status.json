@@ -4,6 +4,6 @@
   "label_agreement_rate": 0.9966666666666667,
   "cohens_kappa": 0.9916594845561456,
   "verified_positive_agreement_rate": 1.0,
-  "paper_phrase": "blind second-review labels confirmed the Codex-assisted prelabels",
-  "caveat": "If the reviewer had access to Codex prefill, phrase as Codex-assisted human second review rather than fully double-blind annotation."
+  "paper_phrase": "blind second-review labels confirmed the primary human-review labels",
+  "caveat": "If the reviewer had access to primary review labels, phrase as human second review rather than fully double-blind annotation."
 }

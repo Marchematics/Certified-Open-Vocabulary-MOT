@@ -1,0 +1,19 @@
+{
+  "table": "second_review_1000_human_confirmed_labels.csv",
+  "repo_commit": "584a45817d030a769ca29e113eaf5275e85ebb36",
+  "command": "python -m parc_track.cli phase15 full-experiments",
+  "runtime_sec": 1.152926,
+  "source_files": [
+    {
+      "path": "outputs/milestones/reliability_fortress/audit_review/second_review_round1_blind_labels.csv",
+      "sha256": "33c2f2ee4bc7ca1dfe1da780f69f3a21a7fc37f9d98fdcb2808e5079a633ad1c"
+    },
+    {
+      "path": "outputs/milestones/reliability_fortress/audit_review/second_review_round2_blind_labels.csv",
+      "sha256": "801aa65f4476cdc910a9769c372389205cd25a9184f7533ef8e48bceac769e5d"
+    }
+  ],
+  "output_sha256": "1caaca7a310b93d58b7750e7c84bd5b6230da1047fc20f66d04424dfada6da38",
+  "paper_facing_table": true,
+  "notes": "Final human-confirmed second-review labels."
+}
