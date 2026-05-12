@@ -1,0 +1,8 @@
+method,candidate_budget_M,released,official_supported,unsupported,utr,unsupported_actually_true,unsupported_actually_false,unsupported_uncertain,unsupported_unlabeled,audited_ftr_supported_plus_labeled,conservative_ftr_uncertain_and_unlabeled_false,self_consistency_margin,selected_e_min,tau_k,empty_diagnostic
+PARC full,75,75,71,4,0.0533333333333333,4,0,0,0,0.0,0.0,11.144166610268709,21.14416661026871,10.0,
+PARC full,100,100,92,8,0.08,8,0,0,0,0.0,0.0,11.144166610268709,21.14416661026871,10.0,
+PARC full,125,125,115,10,0.08,9,0,1,0,0.0,0.008,1.9113996182240156,11.911399618224015,10.0,
+PARC full,150,126,116,10,0.0793650793650793,9,0,1,0,0.0,0.007936507936507936,0.006637713462112,11.911399618224015,11.904761904761903,
+PARC full,175,106,98,8,0.0754716981132075,8,0,0,0,0.0,0.0,4.634732648004562,21.14416661026871,16.509433962264147,
+PARC full,200,106,98,8,0.0754716981132075,8,0,0,0,0.0,0.0,2.2762420819668243,21.14416661026871,18.867924528301884,
+PARC full,250,0,0,0,0.0,0,0,0,0,,0.0,,,,insufficient_high_e_mass_for_uniform_scs

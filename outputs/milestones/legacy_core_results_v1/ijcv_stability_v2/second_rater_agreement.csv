@@ -1,0 +1,2 @@
+status,source,n_sample,n_second_rater_labeled,label_agreement,cohen_kappa_label,verified_positive_agreement,cohen_kappa_verified_positive,n_disagreements,disagreements,note
+requires_independent_second_rater,<PARC_ROOT>/outputs/phase4_second_rater/second_rater_labels_template.csv,100,0,,,,,0,<PARC_ROOT>/outputs/phase4_second_rater/second_rater_disagreements.csv,Second-rater agreement is only an independent audit statistic when second_rater_label is filled by a separate annotator.

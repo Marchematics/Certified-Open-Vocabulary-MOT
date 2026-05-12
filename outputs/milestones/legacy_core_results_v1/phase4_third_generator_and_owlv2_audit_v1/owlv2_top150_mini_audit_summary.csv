@@ -1,0 +1,4 @@
+dataset,samples,actually_true,actually_true_rate,actually_false,actually_false_rate,uncertain,uncertain_rate,verified_positive_for_calibration,verified_positive_rate
+OVT-B,50,49,0.98,0,0.0,1,0.02,49,0.98
+TAO,50,47,0.94,0,0.0,3,0.06,47,0.94
+ALL,100,96,0.96,0,0.0,4,0.04,96,0.96

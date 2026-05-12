@@ -1,0 +1,2 @@
+created_utc,status,n_total,n_second_label_filled,n_second_verified_filled,label_percent_agreement,label_cohen_kappa,verified_percent_agreement,verified_cohen_kappa
+2026-05-09T18:25:11.175069+00:00,requires_independent_cross_validation_labels,60,0,0,,,,

@@ -1,0 +1,55 @@
+dataset:
+  name: BURST
+  root: <PARC_ROOT>/data/BURST
+  ann_file: <PARC_ROOT>/outputs/phase7_third_dataset/burst_val_box_annotations.json
+  format_hint: burst_box
+
+splits:
+  tune_ratio: 0.10
+  cal_ratio: 0.50
+  test_ratio: 0.40
+  seed: 0
+
+risk:
+  alpha1: 0.10
+
+release_grid:
+  times_sec: [2.0]
+  weights: uniform
+
+calibration:
+  empty_block_policy: coverage_conditional
+  use_verified_positive_for_calibration: true
+
+e_calibrator:
+  type: power
+  gamma_selection: effective_finite_resolution_tuned
+  gamma_candidates: [0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.50]
+
+selector:
+  type: uniform_scs_greedy
+  candidate_budget_sweep: [150]
+
+matrix:
+  alpha1: [0.10, 0.20]
+  seeds: [0, 1, 2]
+  candidate_budget_M: [150]
+
+tune_selection:
+  internal_cal_ratio: 0.50
+  fallback_M: 150
+  out: <PARC_ROOT>/outputs/phase7_burst/tuned_m_selection.csv
+
+input:
+  candidate_universe: <PARC_ROOT>/outputs/phase7_burst/candidate_universe.csv
+  audit_labels: <PARC_ROOT>/outputs/phase7_burst/audit_labels.csv
+
+output:
+  output_dir: <PARC_ROOT>/outputs/phase7_burst
+  candidate_nodes: <PARC_ROOT>/outputs/phase7_burst/candidate_nodes.csv
+
+release_audit:
+  method: parc_track_gamma_tuned_uniform_scs
+  alpha1: [0.10, 0.20]
+  seeds: [0, 1, 2]
+  candidate_budget_M: 150

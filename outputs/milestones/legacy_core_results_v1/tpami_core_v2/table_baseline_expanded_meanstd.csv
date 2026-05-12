@@ -1,0 +1,9 @@
+method,released,utr,conservative_ftr,margin,nonempty_rate
+confidence_threshold,150 ± 0,0.04444 ± 0.03289,0.9578 ± 0.03791,,1.000
+greedy_score_no_risk,150 ± 0,0.04444 ± 0.03289,0.9578 ± 0.03791,,1.000
+null_superset_no_audit,42 ± 72.75,0.02646 ± 0.04582,0.007937 ± 0,0.3799 ± 0,0.333
+parc_track_gamma_tuned_uniform_scs,42 ± 72.75,0.02646 ± 0.04582,0.007937 ± 0,0.006638 ± 0,0.333
+post_filter_e_bh,42 ± 72.75,0.02646 ± 0.04582,0.9286 ± 0,0.006638 ± 0,0.333
+tracklet_e_bh,42 ± 72.75,0.02646 ± 0.04582,0.9286 ± 0,0.1472 ± 0,0.333
+tracklet_p_bh,150 ± 0,0.04444 ± 0.03289,0.9578 ± 0.03791,,1.000
+unmatched_as_false_block,0 ± 0,0 ± 0,,,0.000

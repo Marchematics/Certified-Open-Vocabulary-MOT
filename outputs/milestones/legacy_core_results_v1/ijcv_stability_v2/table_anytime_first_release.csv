@@ -1,0 +1,13 @@
+dataset,generator,video_scope,alpha1,seed,candidate_budget_M,first_nonempty_checkpoint,first_nonempty_released,ever_nonempty,num_scope_videos,min_scope_video_end,max_scope_video_end
+OVT-B,GroundingDINO,all_test,0.1,0,150,40.0,100,True,787,,
+OVT-B,GroundingDINO,long50_test,0.1,0,150,,0,False,50,107.0,1049.0
+OVT-B,GroundingDINO,all_test,0.1,1,150,20.0,82,True,787,,
+OVT-B,GroundingDINO,long50_test,0.1,1,150,,0,False,50,114.0,901.0
+OVT-B,GroundingDINO,all_test,0.1,2,150,20.0,91,True,787,,
+OVT-B,GroundingDINO,long50_test,0.1,2,150,,0,False,50,89.0,5491.0
+OVT-B,GroundingDINO,all_test,0.2,0,150,20.0,85,True,787,,
+OVT-B,GroundingDINO,long50_test,0.2,0,150,,0,False,50,107.0,1049.0
+OVT-B,GroundingDINO,all_test,0.2,1,150,20.0,83,True,787,,
+OVT-B,GroundingDINO,long50_test,0.2,1,150,,0,False,50,114.0,901.0
+OVT-B,GroundingDINO,all_test,0.2,2,150,20.0,91,True,787,,
+OVT-B,GroundingDINO,long50_test,0.2,2,150,,0,False,50,89.0,5491.0

@@ -1,0 +1,20 @@
+generators:
+  - dataset: OVT-B
+    generator: GroundingDINO
+    matrix_csv: <PARC_ROOT>/outputs/phase3_ovtb_full/ovtb_alpha_seed_m_matrix.csv
+  - dataset: OVT-B
+    generator: OWLv2
+    matrix_csv: <PARC_ROOT>/outputs/phase3_ovtb_owlv2/ovtb_alpha_seed_m_matrix.csv
+  - dataset: TAO
+    generator: GroundingDINO
+    matrix_csv: <PARC_ROOT>/outputs/phase3_tao_full/tao_alpha_seed_m_matrix.csv
+  - dataset: TAO
+    generator: OWLv2
+    matrix_csv: <PARC_ROOT>/outputs/phase3_tao_owlv2/tao_alpha_seed_m_matrix.csv
+
+reporting:
+  fixed_M: 150
+  method: parc_track_gamma_tuned_uniform_scs
+
+output:
+  output_dir: <PARC_ROOT>/outputs/milestones/ijcv_cross_generator_v1

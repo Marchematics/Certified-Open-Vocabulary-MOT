@@ -1,0 +1,248 @@
+{
+  "milestone": "phase2h_first_real_nonempty",
+  "files": [
+    {
+      "name": "config.yaml",
+      "source": "<PARC_ROOT>/configs/phase2_real_cert_1000_small.yaml",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/config.yaml",
+      "copied": true,
+      "sha256": "131adaa711ede79b4c5ef0a4ad11db0979c71c463f3c898ad47ed87fc12e39af",
+      "bytes": 1720
+    },
+    {
+      "name": "real_cert_summary.csv",
+      "source": "<PARC_ROOT>/outputs/phase2_1000/real_cert_1000_small_summary.csv",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/real_cert_summary.csv",
+      "copied": true,
+      "sha256": "3844eb94a449931bd407f7c8a8f3c87de8d1cd23cce21ab8c869a6258977bf1f",
+      "bytes": 9276
+    },
+    {
+      "name": "real_cert_summary.json",
+      "source": "<PARC_ROOT>/outputs/phase2_1000/real_cert_1000_small_summary.json",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/real_cert_summary.json",
+      "copied": true,
+      "sha256": "e2b3f524b32b0463ad5d018aee074f67a3d6b72509cb68d49ef120f42bda3c7c",
+      "bytes": 924
+    },
+    {
+      "name": "released_tracks.csv",
+      "source": "<PARC_ROOT>/outputs/phase2_1000/release_audit_parc_track_gamma_tuned_uniform_scs_M150.csv",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/released_tracks.csv",
+      "copied": true,
+      "sha256": "ad2af2cc9a90e567656cd0e6ff6228aef49c3696517d8e1124592d5cb5121f3a",
+      "bytes": 69005
+    },
+    {
+      "name": "released_tracks_manifest.json",
+      "source": "<PARC_ROOT>/outputs/phase2_1000/release_audit_parc_track_gamma_tuned_uniform_scs_M150_manifest.json",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/released_tracks_manifest.json",
+      "copied": true,
+      "sha256": "3f86915b53118b976402454f11f607d9d5ff2bd4eb0bf44379cd065e84579c53",
+      "bytes": 921
+    },
+    {
+      "name": "unsupported_released_audit.csv",
+      "source": "<PARC_ROOT>/outputs/phase2_1000/release_audit_parc_track_gamma_tuned_uniform_scs_M150_unsupported.csv",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/unsupported_released_audit.csv",
+      "copied": true,
+      "sha256": "b2a91f7abb9b8e2bed35aef10198551fabfe68f7f4555adcee7ced0c3053fca9",
+      "bytes": 5818
+    },
+    {
+      "name": "unsupported_released_labels.csv",
+      "source": "<PARC_ROOT>/outputs/phase2_1000/release_audit_parc_track_gamma_tuned_uniform_scs_M150_unsupported_labels.csv",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/unsupported_released_labels.csv",
+      "copied": true,
+      "sha256": "21c52cd21ff8920a9365da498494361d2e6c45d6632bf2019fb1b50a1be1a3ba",
+      "bytes": 1125
+    },
+    {
+      "name": "unsupported_released_summary.csv",
+      "source": "<PARC_ROOT>/outputs/phase2_1000/release_audit_parc_track_gamma_tuned_uniform_scs_M150_unsupported_summary.csv",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/unsupported_released_summary.csv",
+      "copied": true,
+      "sha256": "6000f46b3086348b9ab6f1d9bb544b3355b8650d0881e2eeb090997a601ac74c",
+      "bytes": 184
+    },
+    {
+      "name": "release_audit_metrics_M150.csv",
+      "source": "<PARC_ROOT>/outputs/phase2_1000/release_audit_metrics_M150.csv",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/release_audit_metrics_M150.csv",
+      "copied": true,
+      "sha256": "1e7f4fbcae319642791fc8ce6c76a65fe92c0bb9f1ebbc8da03026d71d607cce",
+      "bytes": 373
+    },
+    {
+      "name": "release_audit_metrics_M150.json",
+      "source": "<PARC_ROOT>/outputs/phase2_1000/release_audit_metrics_M150.json",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/release_audit_metrics_M150.json",
+      "copied": true,
+      "sha256": "4f440a14d24ae6637e459054a928f7e441248e4ef5818dea5624f629554aafe3",
+      "bytes": 449
+    },
+    {
+      "name": "candidate_universe.csv",
+      "source": "<PARC_ROOT>/outputs/phase2_1000/candidate_universe.csv",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/candidate_universe.csv",
+      "copied": true,
+      "sha256": "fe0ba41f0620b421f31096b392e810a93946cf2163ca2b97cd9a7e5ce696c7ee",
+      "bytes": 2163525
+    },
+    {
+      "name": "candidate_evalues.csv",
+      "source": "<PARC_ROOT>/outputs/phase2_1000/candidate_evalues_1000_small.csv",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/candidate_evalues.csv",
+      "copied": true,
+      "sha256": "2127b143053903c9fd9e0db724c049e49625055a28d91afd9ab2873613b2bd6a",
+      "bytes": 3691842
+    },
+    {
+      "name": "cell_effective_n.csv",
+      "source": "<PARC_ROOT>/outputs/phase2_1000/cell_effective_n_1000_small.csv",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/cell_effective_n.csv",
+      "copied": true,
+      "sha256": "a507459ab2af9693d0f69cea696f1d3d0daf2c074c7bedc4cdaf8e6549e691c5",
+      "bytes": 1055
+    },
+    {
+      "name": "per_video_candidate_coverage.csv",
+      "source": "<PARC_ROOT>/outputs/phase2_1000/per_video_candidate_coverage_1000_small.csv",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/per_video_candidate_coverage.csv",
+      "copied": true,
+      "sha256": "869e6e1e9ab931aceda5cae891ca982a83e8f7f7981b5e3f853021b29eee2230",
+      "bytes": 25090
+    },
+    {
+      "name": "coverage_projection_check.csv",
+      "source": "<PARC_ROOT>/outputs/phase2_1000/coverage_projection_check_1000_single.csv",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/coverage_projection_check.csv",
+      "copied": true,
+      "sha256": "f08ef724688c07ab5b5852ac967485d11cb2f7a06aa73c29fe75e04779a6830f",
+      "bytes": 1216
+    },
+    {
+      "name": "audit_summary_after_uncertain_recheck.csv",
+      "source": "<PARC_ROOT>/outputs/phase2/audit_summary.csv",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/audit_summary_after_uncertain_recheck.csv",
+      "copied": true,
+      "sha256": "4230382eca46fa5b3982cbefedcf726f60c9a31657b8ca363764b44b4345d85c",
+      "bytes": 220
+    },
+    {
+      "name": "audit_labels_after_uncertain_recheck.csv",
+      "source": "<PARC_ROOT>/outputs/phase2/audit_labels.csv",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/audit_labels_after_uncertain_recheck.csv",
+      "copied": true,
+      "sha256": "f7a6bb9c43ef62362f28ecd8d3a591b4e6f464409bb2b467c2525ca9341b8d2e",
+      "bytes": 33432
+    },
+    {
+      "name": "audit_labels_before_uncertain_recheck.csv",
+      "source": "<PARC_ROOT>/outputs/phase2/audit_labels.before_uncertain_recheck.csv",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/audit_labels_before_uncertain_recheck.csv",
+      "copied": true,
+      "sha256": "9a09b906c022c2073b2016cd34be44e190b47d809c94b28350c3668925e9fc7f",
+      "bytes": 30743
+    },
+    {
+      "name": "table_real_first_nonempty.csv",
+      "source": "generated",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/table_real_first_nonempty.csv",
+      "copied": true,
+      "sha256": "c2bc544b147e5368d0e1b1c4d0b2f9802a502aac6e92fe68a17cbba1aa0ffaf5",
+      "bytes": 734
+    },
+    {
+      "name": "pytest_log.txt",
+      "source": "recorded after latest run",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/pytest_log.txt",
+      "copied": true,
+      "sha256": "2c48df3a104c1ed1437020d56c740f67efc68616cf648457823802f75d6a9f96",
+      "bytes": 64
+    },
+    {
+      "name": "table_m_sweep_parc_full_with_audit.csv",
+      "source": "<PARC_ROOT>/outputs/phase2_1000/table_m_sweep_parc_full_with_audit.csv",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/table_m_sweep_parc_full_with_audit.csv",
+      "copied": true,
+      "sha256": "5c66d14368efea4abc33838867e5dba595c404c575413fcb6b3fe279748f8127",
+      "bytes": 1033
+    },
+    {
+      "name": "table_baseline_three_methods_with_audit.csv",
+      "source": "<PARC_ROOT>/outputs/phase2_1000/table_baseline_three_methods_with_audit.csv",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/table_baseline_three_methods_with_audit.csv",
+      "copied": true,
+      "sha256": "db9146a6ea535e7fe1f6992689679d563a0d9cb1700c7c7f5574169863400efe",
+      "bytes": 3037
+    },
+    {
+      "name": "table_baseline_three_methods_M150.csv",
+      "source": "<PARC_ROOT>/outputs/phase2_1000/table_baseline_three_methods_M150.csv",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/table_baseline_three_methods_M150.csv",
+      "copied": true,
+      "sha256": "4bd58ff4601bc5d25da7098a37f366d0add76ce283cb1e310496d5050ec07950",
+      "bytes": 772
+    },
+    {
+      "name": "table_seed_stability_M150.csv",
+      "source": "<PARC_ROOT>/outputs/phase2_1000/seed_stability/table_seed_stability_M150.csv",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/table_seed_stability_M150.csv",
+      "copied": true,
+      "sha256": "87a644ced41d76cd0668ae1c7484602b67d5ddf8dd833db92301c760df67b13b",
+      "bytes": 683
+    },
+    {
+      "name": "fig_audit_result.png",
+      "source": "<PARC_ROOT>/outputs/figures/fig_audit_result.png",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/fig_audit_result.png",
+      "copied": true,
+      "sha256": "16133ade1d25a90cf866ec84c41dca55e2dee153d22cb40a68ed6bee8eef72b4",
+      "bytes": 46347
+    },
+    {
+      "name": "fig_gamma_heatmap.png",
+      "source": "<PARC_ROOT>/outputs/figures/fig_gamma_heatmap.png",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/fig_gamma_heatmap.png",
+      "copied": true,
+      "sha256": "d27035054c3b49069d6c1645483bd423e931d84e5862e88a3d7d345c9e213748",
+      "bytes": 82032
+    },
+    {
+      "name": "fig_coverage_projection.png",
+      "source": "<PARC_ROOT>/outputs/figures/fig_coverage_projection.png",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/fig_coverage_projection.png",
+      "copied": true,
+      "sha256": "d3645e41aa9570463437e37880ea71e9f76d8c682b09741bb37e0c4d6e305316",
+      "bytes": 70538
+    },
+    {
+      "name": "fig_m_sweep.png",
+      "source": "<PARC_ROOT>/outputs/figures/fig_m_sweep.png",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/fig_m_sweep.png",
+      "copied": true,
+      "sha256": "fde25b43f0bf070f436f5d1d2132ee07d5debea8bb9353ebdec8b70cfa833b0f",
+      "bytes": 117907
+    },
+    {
+      "name": "fig_seed_stability.png",
+      "source": "<PARC_ROOT>/outputs/figures/fig_seed_stability.png",
+      "path": "<PARC_ROOT>/outputs/milestones/phase2h_first_real_nonempty/fig_seed_stability.png",
+      "copied": true,
+      "sha256": "d0e38ad44bcbf28a5a776603a01ac3986a18f0aee8cc79392f8f4667e901e4ee",
+      "bytes": 39065
+    }
+  ],
+  "dataset": "OVT-B",
+  "requested_videos": 1000,
+  "processed_videos_with_paths": 996,
+  "method": "PARC full",
+  "alpha1": 0.1,
+  "M": 150,
+  "released": 126,
+  "UTR": 0.0793650793650793,
+  "audited_FTR": 0.0,
+  "conservative_FTR": 0.0079365079365079,
+  "self_consistency_margin": 0.006637713462112
+}

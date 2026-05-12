@@ -1,0 +1,17 @@
+method,alpha1,candidate_budget_M,released_mean,released_std,utr_mean,conservative_ftr_mean,margin_mean,nonempty_rate
+confidence_threshold,0.1,150,150.0,0.0,0.9666666666666667,0.9666666666666667,,1.0
+confidence_threshold,0.2,150,150.0,0.0,0.9666666666666667,0.9666666666666667,,1.0
+greedy_score_no_risk,0.1,150,150.0,0.0,0.9666666666666667,0.9666666666666667,,1.0
+greedy_score_no_risk,0.2,150,150.0,0.0,0.9666666666666667,0.9666666666666667,,1.0
+null_superset_no_audit,0.1,150,0.0,0.0,0.0,,,0.0
+null_superset_no_audit,0.2,150,0.0,0.0,0.0,,,0.0
+parc_track_gamma_tuned_uniform_scs,0.1,150,0.0,0.0,0.0,,,0.0
+parc_track_gamma_tuned_uniform_scs,0.2,150,0.0,0.0,0.0,,,0.0
+post_filter_e_bh,0.1,150,0.0,0.0,0.0,,,0.0
+post_filter_e_bh,0.2,150,0.0,0.0,0.0,,,0.0
+tracklet_e_bh,0.1,150,0.0,0.0,0.0,,,0.0
+tracklet_e_bh,0.2,150,150.0,0.0,0.9666666666666667,0.9666666666666667,0.5213532580019183,1.0
+tracklet_p_bh,0.1,150,150.0,0.0,0.9666666666666667,0.9666666666666667,,1.0
+tracklet_p_bh,0.2,150,150.0,0.0,0.9666666666666667,0.9666666666666667,,1.0
+unmatched_as_false_block,0.1,150,0.0,0.0,0.0,,,0.0
+unmatched_as_false_block,0.2,150,0.0,0.0,0.0,,,0.0

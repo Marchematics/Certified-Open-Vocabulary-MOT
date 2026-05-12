@@ -1,0 +1,52 @@
+{
+  "status": "completed",
+  "output_dir": "<PARC_ROOT>/outputs/milestones/ijcv_stability_v2",
+  "package": "<PARC_ROOT>/outputs/packages/ijcv_stability_v2.tar.gz",
+  "package_sha256": "a5547cd66b114218e53a71d4a7c8d17665685f52f3ab4e5497cfc47166016075",
+  "anytime": {
+    "status": "completed",
+    "table": "<PARC_ROOT>/outputs/phase7_anytime/table_anytime_release.csv",
+    "first_release": "<PARC_ROOT>/outputs/phase7_anytime/table_anytime_first_release.csv",
+    "figure_csv": "<PARC_ROOT>/outputs/phase7_anytime/figure_anytime_release_curve.csv",
+    "rows": 72,
+    "note": "Anytime demo uses final e-values on checkpoint-visible completed path slices; it is a timing diagnostic, not a per-frame re-scoring benchmark."
+  },
+  "third_dataset": {
+    "dataset_name": "BURST",
+    "dataset_root": "<PARC_ROOT>/data/BURST",
+    "ann_file": "<PARC_ROOT>/data/BURST/val/all_classes.json",
+    "status": "tracking_layout_ok",
+    "reason": "",
+    "annotation_format": "burst_sequence_rle_converted_to_coco_video_boxes",
+    "annotation_mode": "partial_or_unknown",
+    "has_video_frames": true,
+    "has_tracking_annotations": true,
+    "has_track_ids": true,
+    "has_category_labels": true,
+    "has_frame_indices": true,
+    "has_video_ids": true,
+    "third_dataset_role": "adapter_ready_box_scaffold",
+    "converted_ann_file": "<PARC_ROOT>/outputs/phase7_third_dataset/burst_val_box_annotations.json",
+    "num_videos": 988,
+    "num_frames": 36375,
+    "num_boxes": 114825,
+    "num_categories": 482,
+    "existing_frame_paths": 36375,
+    "missing_frame_paths": 0,
+    "errors": []
+  },
+  "second_rater": {
+    "status": "requires_independent_second_rater",
+    "source": "<PARC_ROOT>/outputs/phase4_second_rater/second_rater_labels_template.csv",
+    "n_sample": 100,
+    "n_second_rater_labeled": 0,
+    "label_agreement": null,
+    "cohen_kappa_label": null,
+    "verified_positive_agreement": null,
+    "cohen_kappa_verified_positive": null,
+    "n_disagreements": 0,
+    "disagreements": "<PARC_ROOT>/outputs/phase4_second_rater/second_rater_disagreements.csv",
+    "note": "Second-rater agreement is only an independent audit statistic when second_rater_label is filled by a separate annotator."
+  },
+  "copied_files": 18
+}

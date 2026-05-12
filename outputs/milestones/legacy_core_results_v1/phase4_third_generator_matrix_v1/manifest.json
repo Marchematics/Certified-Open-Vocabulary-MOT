@@ -1,0 +1,72 @@
+{
+  "created_at": "2026-05-09 15:58:53 CST",
+  "status": "completed",
+  "files": [
+    {
+      "source": "<PARC_ROOT>/outputs/phase4_third_generator_cross_summary/table_three_generator_fixed_M150.csv",
+      "path": "<PARC_ROOT>/outputs/milestones/phase4_third_generator_matrix_v1/table_three_generator_fixed_M150.csv",
+      "sha256": "358ee393ed1ee220c96f5ab1831df11a94024c8afa7c0ce882b27b0315758c75",
+      "bytes": 1760
+    },
+    {
+      "source": "<PARC_ROOT>/outputs/phase4_owlv2_top_audit/owlv2_top150_mini_audit_summary.csv",
+      "path": "<PARC_ROOT>/outputs/milestones/phase4_third_generator_matrix_v1/owlv2_top150_mini_audit_summary.csv",
+      "sha256": "8bd029b22f200693e5d44c1cbb87868b1c5d6b47e769d1c44bb8024614ec8904",
+      "bytes": 277
+    },
+    {
+      "source": "<PARC_ROOT>/configs/phase4_ovtb_owlvit_v1_audit.yaml",
+      "path": "<PARC_ROOT>/outputs/milestones/phase4_third_generator_matrix_v1/phase4_ovtb_owlvit_v1_audit.yaml",
+      "sha256": "7ddb482f744d4c488555f33c49ddb8b1c0e5410f60e43bad068e532b974e7bcf",
+      "bytes": 2106
+    },
+    {
+      "source": "<PARC_ROOT>/configs/phase4_tao_owlvit_v1_audit.yaml",
+      "path": "<PARC_ROOT>/outputs/milestones/phase4_third_generator_matrix_v1/phase4_tao_owlvit_v1_audit.yaml",
+      "sha256": "687dc7ef33838a25c5c8a0b81fd5bf8a6b37333f74c62ed1ae76169689f45820",
+      "bytes": 2084
+    },
+    {
+      "source": "<PARC_ROOT>/configs/phase4_ovtb_owlvit_v1_matrix.yaml",
+      "path": "<PARC_ROOT>/outputs/milestones/phase4_third_generator_matrix_v1/phase4_ovtb_owlvit_v1_matrix.yaml",
+      "sha256": "1b8a24f306583442c7cbf23351eef1fa649fed251148b8fbe3328d233294745e",
+      "bytes": 1101
+    },
+    {
+      "source": "<PARC_ROOT>/configs/phase4_tao_owlvit_v1_matrix.yaml",
+      "path": "<PARC_ROOT>/outputs/milestones/phase4_third_generator_matrix_v1/phase4_tao_owlvit_v1_matrix.yaml",
+      "sha256": "f1919bd7f61c8c7ca79055f075d14c4521ce7c0087e9fe60674da91d21bd6e42",
+      "bytes": 1089
+    },
+    {
+      "source": "<PARC_ROOT>/outputs/phase4_ovtb_owlvit_v1/ovtb_alpha_seed_m_matrix.csv",
+      "path": "<PARC_ROOT>/outputs/milestones/phase4_third_generator_matrix_v1/ovtb_alpha_seed_m_matrix.csv",
+      "sha256": "bf9d1aaeaa2a58bbafa9c73fc0cfb838a6dfb1e13ab5dd3a0e3b1feb26e80ff3",
+      "bytes": 15869
+    },
+    {
+      "source": "<PARC_ROOT>/outputs/phase4_tao_owlvit_v1/tao_alpha_seed_m_matrix.csv",
+      "path": "<PARC_ROOT>/outputs/milestones/phase4_third_generator_matrix_v1/tao_alpha_seed_m_matrix.csv",
+      "sha256": "4a703e46d01616ae57fb86f1097ad763f89e4b21a744badbe53e9b6385e94130",
+      "bytes": 16332
+    },
+    {
+      "source": "<PARC_ROOT>/outputs/phase4_ovtb_owlvit_v1/audit_manifest.json",
+      "path": "<PARC_ROOT>/outputs/milestones/phase4_third_generator_matrix_v1/audit_manifest.json",
+      "sha256": "9407b2d11878b24653c5ef237443cd18ec10f9c1c7603a5530b3258fd50a6ad9",
+      "bytes": 4101
+    },
+    {
+      "source": "<PARC_ROOT>/outputs/phase4_tao_owlvit_v1/audit_manifest.json",
+      "path": "<PARC_ROOT>/outputs/milestones/phase4_third_generator_matrix_v1/phase4_tao_owlvit_v1__audit_manifest.json",
+      "sha256": "5e45a01e16af7ee5ba07e8b9ee13554641dbaf590e402c45de002b1e73b861e6",
+      "bytes": 4175
+    },
+    {
+      "source": "generated",
+      "path": "<PARC_ROOT>/outputs/milestones/phase4_third_generator_matrix_v1/README.md",
+      "sha256": "42e54d9471e2f271f6592973ccd07926f98075a8381c521d87e53fe4140d0576",
+      "bytes": 504
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "status": "completed",
+  "manifest": {
+    "status": "exported",
+    "dataset": "TAO",
+    "generator": "GroundingDINO",
+    "alpha": 0.2,
+    "seed": 2,
+    "candidate_budget_M": 150,
+    "benchmark": "PARC_TAO_GroundingDINO_a0p2_s2_m150",
+    "split": "train",
+    "gt_folder": "<PARC_ROOT>/outputs/phase5_trackeval/work/PARC_TAO_GroundingDINO_a0p2_s2_m150/gt/mot_challenge",
+    "trackers_folder": "<PARC_ROOT>/outputs/phase5_trackeval/work/PARC_TAO_GroundingDINO_a0p2_s2_m150/trackers/mot_challenge",
+    "seqmap_file": "<PARC_ROOT>/outputs/phase5_trackeval/work/PARC_TAO_GroundingDINO_a0p2_s2_m150/gt/mot_challenge/seqmaps/PARC_TAO_GroundingDINO_a0p2_s2_m150-train.txt",
+    "work_root": "<PARC_ROOT>/outputs/phase5_trackeval/work/PARC_TAO_GroundingDINO_a0p2_s2_m150",
+    "output_folder": "<PARC_ROOT>/outputs/phase5_trackeval/work/PARC_TAO_GroundingDINO_a0p2_s2_m150/results",
+    "trackers_to_eval": [
+      "PARC_a0p2_s2_m150",
+      "confidence_top_m_a0p2_s2_m150"
+    ],
+    "num_sequences": 567,
+    "gt_rows": 42962,
+    "tracker_rows": {
+      "PARC": 449,
+      "confidence_top_m": 460
+    },
+    "selected_counts": {
+      "PARC": 142,
+      "confidence_top_m": 150
+    },
+    "selected_categories": [
+      4,
+      78,
+      81,
+      95,
+      235,
+      336,
+      352,
+      382,
+      415,
+      429,
+      502,
+      531,
+      567,
+      579,
+      611,
+      642,
+      711,
+      714,
+      736,
+      805,
+      875,
+      961,
+      980,
+      1016,
+      1057,
+      1078,
+      1144,
+      1152,
+      1155,
+      1184,
+      1229
+    ],
+    "class_agnostic_motchallenge_note": "GT and tracker classes are exported as pedestrian/class=1 with DO_PREPROC=False.",
+    "tao_supported_subset_note": "For TAO, GT is restricted to categories present in the exported predictions."
+  },
+  "messages": {
+    "MotChallenge2DBox": {
+      "PARC_a0p2_s2_m150": "Success",
+      "confidence_top_m_a0p2_s2_m150": "Success"
+    }
+  },
+  "runtime_sec": 130.2561014201492,
+  "summary_csv": "<PARC_ROOT>/outputs/phase5_trackeval/trackeval_summary_PARC_TAO_GroundingDINO_a0p2_s2_m150.csv"
+}

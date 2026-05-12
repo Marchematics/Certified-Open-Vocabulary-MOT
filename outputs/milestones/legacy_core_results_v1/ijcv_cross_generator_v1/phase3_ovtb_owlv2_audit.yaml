@@ -1,0 +1,63 @@
+dataset:
+  name: OVT-B
+  root: <PARC_ROOT>/data/OVT-B
+  ann_file: <PARC_ROOT>/data/OVT-B/ovtb_ann.json
+  format_hint: tao_or_coco_video
+  frame_subdir: OVT-B
+
+proposal:
+  backend: owlv2_hf
+  backbone: owlv2_hf
+  max_videos: 1973
+  frames_per_video: 8
+  classes_per_video: 3
+  max_paths_per_video: 200
+  candidate_budget_M: 5000
+  min_path_length: 2
+  link_iou_threshold: 0.15
+  max_frame_gap: 1000
+  max_detections_per_frame: 30
+  cache_dir: <PARC_ROOT>/outputs/phase3_ovtb_owlv2/cache
+  progress_every: 25
+
+owlv2:
+  model: google/owlv2-base-patch16-ensemble
+  device: cuda:0
+  cache_dir: <PARC_ROOT>/cache/huggingface
+  local_files_only: false
+  threshold: 0.10
+  text_template: "a photo of a {query}"
+
+matching:
+  iou_threshold: 0.5
+  temporal_overlap_threshold: 0.3
+  unmatched_only: true
+
+sampling:
+  strategy: stratified_by_mondrian_cell
+  total_samples: 500
+  top_b_per_cell: 15
+  min_score_percentile: 80
+
+mondrian:
+  use_novelty: true
+  use_query_cluster: true
+  use_occlusion: true
+  use_domain: false
+  fallback_min_videos: 100
+
+audit_export:
+  make_montages: false
+  frames_per_path: 8
+  output_viewer: <PARC_ROOT>/outputs/phase3_ovtb_owlv2/audit_viewer
+  montage_dir: <PARC_ROOT>/outputs/phase3_ovtb_owlv2/audit_viewer/montages
+  clip_dir: <PARC_ROOT>/outputs/phase3_ovtb_owlv2/audit_viewer/clips
+
+output:
+  candidates: <PARC_ROOT>/outputs/phase3_ovtb_owlv2/audit_candidates.csv
+  labels: <PARC_ROOT>/outputs/phase3_ovtb_owlv2/audit_labels.csv
+  manifest: <PARC_ROOT>/outputs/phase3_ovtb_owlv2/audit_manifest.json
+  summary: <PARC_ROOT>/outputs/phase3_ovtb_owlv2/audit_summary.csv
+  candidate_universe: <PARC_ROOT>/outputs/phase3_ovtb_owlv2/candidate_universe.csv
+  candidate_scores: <PARC_ROOT>/outputs/phase3_ovtb_owlv2/candidate_scores.csv
+  candidate_nodes: <PARC_ROOT>/outputs/phase3_ovtb_owlv2/candidate_nodes.csv

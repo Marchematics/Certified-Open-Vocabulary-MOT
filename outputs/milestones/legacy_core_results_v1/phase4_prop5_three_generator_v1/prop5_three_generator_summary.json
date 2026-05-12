@@ -1,0 +1,8 @@
+{
+  "status": "completed",
+  "table": "<PARC_ROOT>/outputs/phase4_prop5_three_generator/table_prop5_three_generator.csv",
+  "seed_table": "<PARC_ROOT>/outputs/phase4_prop5_three_generator/prop5_three_generator_by_seed.csv",
+  "rows": 12,
+  "seed_rows": 36,
+  "overall_seed_accuracy": 1.0
+}

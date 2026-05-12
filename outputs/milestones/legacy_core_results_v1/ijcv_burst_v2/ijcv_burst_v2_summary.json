@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "output_dir": "<PARC_ROOT>/outputs/milestones/ijcv_burst_v2",
+  "package": "<PARC_ROOT>/outputs/packages/ijcv_burst_v2.tar.gz",
+  "package_sha256": "fbd5bcc3521ea1b5ae7e23681d3ba5c7341bd889a825e63b7944331a4bb7ea6e",
+  "copied_files": 30,
+  "empty_diagnostics": {
+    "status": "completed",
+    "path": "<PARC_ROOT>/outputs/milestones/ijcv_burst_v2/table_burst_empty_diagnostics.csv",
+    "rows": 6
+  },
+  "certification_summary": {
+    "status": "completed",
+    "path": "<PARC_ROOT>/outputs/milestones/ijcv_burst_v2/table_burst_certification_summary.csv",
+    "rows": 16
+  }
+}

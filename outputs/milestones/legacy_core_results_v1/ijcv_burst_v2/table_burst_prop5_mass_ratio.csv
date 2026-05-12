@@ -1,0 +1,7 @@
+dataset,generator,method,alpha1,seed,candidate_budget_M,released,best_mass_ratio,predicted_nonempty,observed_nonempty,prediction_correct,best_margin,best_margin_k,best_margin_tau,empty_diagnostic
+BURST,GroundingDINO,parc_track_gamma_tuned_uniform_scs,0.1,0,150,150,1.6279686673249272,True,True,True,9.611765316197866,98.0,15.306122448979592,
+BURST,GroundingDINO,parc_track_gamma_tuned_uniform_scs,0.1,1,150,150,1.389834456929123,True,True,True,3.898344569291231,150.0,10.0,
+BURST,GroundingDINO,parc_track_gamma_tuned_uniform_scs,0.1,2,150,0,0.7922557480050123,False,False,True,-2.0774425199498765,150.0,10.0,insufficient_high_e_mass_for_uniform_scs
+BURST,GroundingDINO,parc_track_gamma_tuned_uniform_scs,0.2,0,150,150,3.2559373346498544,True,True,True,17.26482654068766,98.0,7.653061224489796,
+BURST,GroundingDINO,parc_track_gamma_tuned_uniform_scs,0.2,1,150,150,2.779668913858246,True,True,True,8.89834456929123,150.0,5.0,
+BURST,GroundingDINO,parc_track_gamma_tuned_uniform_scs,0.2,2,150,150,1.5845114960100246,True,True,True,2.9225574800501235,150.0,5.0,

@@ -1,0 +1,7 @@
+dataset,generator,alpha1,seed,candidate_budget_M,best_mass_ratio,best_mass_ratio_k,best_mass_ratio_e_at_k,best_mass_ratio_tau_at_k,predicted_nonempty,observed_nonempty,released,prediction_correct,empty_reason
+BURST,OWLv2,0.1,0,150,0.08315333916001781,150,0.8315333916001781,10.0,False,False,0,True,no_k_satisfies_uniform_self_consistency
+BURST,OWLv2,0.1,1,150,0.07731753631009172,148,0.7836236788184971,10.135135135135135,False,False,0,True,no_k_satisfies_uniform_self_consistency
+BURST,OWLv2,0.1,2,150,0.06064323099975767,149,0.6105023255009162,10.06711409395973,False,False,0,True,no_k_satisfies_uniform_self_consistency
+BURST,OWLv2,0.2,0,150,0.16630667832003562,150,0.8315333916001781,5.0,False,False,0,True,no_k_satisfies_uniform_self_consistency
+BURST,OWLv2,0.2,1,150,0.15463507262018344,148,0.7836236788184971,5.0675675675675675,False,False,0,True,no_k_satisfies_uniform_self_consistency
+BURST,OWLv2,0.2,2,150,0.12128646199951534,149,0.6105023255009162,5.033557046979865,False,False,0,True,no_k_satisfies_uniform_self_consistency

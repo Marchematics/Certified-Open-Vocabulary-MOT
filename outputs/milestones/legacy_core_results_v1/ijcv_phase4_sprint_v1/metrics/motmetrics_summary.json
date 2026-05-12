@@ -1,0 +1,6 @@
+{
+  "status": "completed",
+  "table": "<PARC_ROOT>/outputs/phase4_metrics/table_motmetrics.csv",
+  "rows": 24,
+  "hota_status": "requires_trackeval"
+}
