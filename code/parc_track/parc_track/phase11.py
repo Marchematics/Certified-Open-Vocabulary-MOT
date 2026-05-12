@@ -90,6 +90,7 @@ def _sanitize_public_text_files(root: Path) -> None:
     replacements = {
         str(DATA_ROOT): "${PARC_TRACK_ROOT}",
         "/home/" + "waas" + "/paper_experiments": "${PARC_TRACK_ROOT}",
+        "/" + "root" + "/parc_data": "${PARC_RAW_DATA_ROOT}",
         "/" + "root": "${HOME}",
     }
     for path in root.rglob("*"):
@@ -515,7 +516,10 @@ def _augment_path_attributes(universe: pd.DataFrame, nodes: pd.DataFrame) -> pd.
         frame["motion_speed"] = _make_quantile_bin(frame["motion_extent"], ["slow", "medium", "fast"])
     else:
         frame["motion_speed"] = "attribute_unavailable"
-    frame["occlusion"] = "attribute_unavailable"
+    if "occ_bin" in frame and frame["occ_bin"].astype(str).str.lower().ne("unknown").any():
+        frame["occlusion"] = frame["occ_bin"].fillna("unknown").astype(str)
+    else:
+        frame["occlusion"] = "attribute_unavailable"
     if "query" in frame:
         counts = frame["query"].map(frame["query"].value_counts())
     elif "category_id" in frame:
@@ -526,76 +530,416 @@ def _augment_path_attributes(universe: pd.DataFrame, nodes: pd.DataFrame) -> pd.
     return frame
 
 
-def _stratum_rows(frame: pd.DataFrame, labels: pd.DataFrame, dataset: str, dimension: str, column: str) -> list[dict[str, Any]]:
+def _lvis_category_frequency_map() -> dict[int, str]:
+    candidates = [
+        DATA_ROOT / "data/LVIS/annotations/lvis_v1_val.json",
+        DATA_ROOT / "data/LVIS/lvis_v1_val.json",
+        Path("/root/parc_data/LVIS/annotations/lvis_v1_val.json"),
+        Path("/root/parc_data/LVIS/lvis_pseudo_tracking_ann.json"),
+    ]
+    mapping = {"f": "frequent", "c": "common", "r": "rare"}
+    for path in candidates:
+        payload = _read_json(path)
+        categories = payload.get("categories", [])
+        if categories:
+            return {
+                int(cat["id"]): mapping.get(str(cat.get("frequency", "")).lower(), "unknown")
+                for cat in categories
+                if "id" in cat
+            }
+    return {}
+
+
+def _augment_lvis_detection_attributes(universe: pd.DataFrame, nodes: pd.DataFrame) -> pd.DataFrame:
+    frame = universe.copy()
+    if frame.empty:
+        return frame
+    frame["path_id"] = frame["path_id"].astype(str)
+    if not nodes.empty and {"path_id", "bbox_w", "bbox_h"}.issubset(nodes.columns):
+        node = nodes.copy()
+        node["path_id"] = node["path_id"].astype(str)
+        node["area"] = pd.to_numeric(node["bbox_w"], errors="coerce") * pd.to_numeric(node["bbox_h"], errors="coerce")
+        area = node.groupby("path_id")["area"].mean()
+        frame["object_area_pixels"] = frame["path_id"].map(area)
+        frame["object_area"] = np.select(
+            [
+                pd.to_numeric(frame["object_area_pixels"], errors="coerce") < 32 * 32,
+                pd.to_numeric(frame["object_area_pixels"], errors="coerce") > 96 * 96,
+            ],
+            ["small", "large"],
+            default="medium",
+        )
+        frame.loc[pd.to_numeric(frame["object_area_pixels"], errors="coerce").isna(), "object_area"] = "unknown"
+    else:
+        frame["object_area"] = "attribute_unavailable"
+    freq_map = _lvis_category_frequency_map()
+    if freq_map and "category_id" in frame:
+        frame["category_frequency"] = pd.to_numeric(frame["category_id"], errors="coerce").map(freq_map).fillna("unknown")
+        frame["category_frequency_source"] = "LVIS_official_frequency"
+    elif "category_id" in frame:
+        counts = frame["category_id"].map(frame["category_id"].value_counts())
+        frame["category_frequency"] = _make_quantile_bin(counts, ["tail", "mid", "head"])
+        frame["category_frequency_source"] = "candidate_count_quantile"
+    else:
+        frame["category_frequency"] = "attribute_unavailable"
+        frame["category_frequency_source"] = "attribute_unavailable"
+    return frame
+
+
+def _load_lvis_tables() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    universe_paths = [
+        PHASE11_DIR / "lvis_detection/candidate_universe.csv",
+        MILESTONE_DIR / "candidate_universe.csv",
+    ]
+    node_paths = [
+        PHASE11_DIR / "lvis_detection/candidate_nodes.csv",
+        MILESTONE_DIR / "candidate_nodes.csv",
+    ]
+    label_paths = [
+        PHASE11_DIR / "lvis_detection/audit_labels_lvis.csv",
+        MILESTONE_DIR / "audit_labels_lvis.csv",
+    ]
+    universe = next((_read_csv(path) for path in universe_paths if path.exists()), pd.DataFrame())
+    nodes = next((_read_csv(path) for path in node_paths if path.exists()), pd.DataFrame())
+    labels = next((_read_csv(path) for path in label_paths if path.exists()), pd.DataFrame())
+    if not labels.empty and "audit_label" in labels and "label" not in labels:
+        labels = labels.rename(columns={"audit_label": "label"})
+    return universe, nodes, labels
+
+
+def _matrix_path(dataset: str, detector: str | None = None) -> Path | None:
+    if dataset == "OVT-B":
+        return DATA_ROOT / "outputs/phase3_ovtb/ovtb_alpha_seed_m_matrix.csv"
+    if dataset == "TAO":
+        return DATA_ROOT / "outputs/phase3_tao_full/tao_alpha_seed_m_matrix.csv"
+    if dataset == "LVIS" and detector:
+        detector_dir = {"GroundingDINO": "groundingdino", "OWLv2": "owlv2"}.get(detector, str(detector).lower())
+        return PHASE11_DIR / f"lvis_detection/{detector_dir}/matrix/lvis_alpha_seed_m_matrix.csv"
+    return None
+
+
+def _parc_release_scenarios(frame: pd.DataFrame, dataset: str, detector: str | None = None) -> list[dict[str, Any]]:
+    matrix_path = _matrix_path(dataset, detector)
+    matrix = _read_csv(matrix_path) if matrix_path else pd.DataFrame()
+    if not matrix.empty:
+        method_col = matrix.get("method", pd.Series("", index=matrix.index)).astype(str)
+        method_mask = method_col.eq("parc_track_gamma_tuned_uniform_scs")
+        budget_col = "candidate_budget_M" if "candidate_budget_M" in matrix else "M"
+        budget_mask = pd.to_numeric(matrix.get(budget_col, pd.Series(150, index=matrix.index)), errors="coerce").fillna(150).eq(150)
+        sub = matrix[method_mask & budget_mask].copy()
+        if "alpha1" in sub:
+            sub = sub[sub["alpha1"].isin(ALPHAS)]
+        scenarios = []
+        for _, row in sub.iterrows():
+            scenarios.append(
+                {
+                    "alpha1": float(row.get("alpha1", np.nan)),
+                    "seed": int(row.get("seed", -1)) if pd.notna(row.get("seed", np.nan)) else "",
+                    "released": int(_safe_num(row, "released", default=0.0)),
+                    "M_requested": int(_safe_num(row, budget_col, default=150.0)),
+                    "source_matrix": str(matrix_path) if matrix_path else "",
+                }
+            )
+        if scenarios:
+            return scenarios
+    if "is_released" in frame:
+        released = int(pd.to_numeric(frame["is_released"], errors="coerce").fillna(0).astype(bool).sum())
+        return [
+            {
+                "alpha1": "",
+                "seed": "",
+                "released": released,
+                "M_requested": 150,
+                "source_matrix": "candidate_universe_is_released_column",
+            }
+        ]
+    return [
+        {
+            "alpha1": alpha,
+            "seed": seed,
+            "released": 0,
+            "M_requested": 150,
+            "source_matrix": "missing_certification_matrix",
+        }
+        for alpha in ALPHAS
+        for seed in SEEDS
+    ]
+
+
+def _sort_for_release_scope(frame: pd.DataFrame) -> pd.DataFrame:
+    ordered = frame.copy()
+    ordered["_score_sort"] = pd.to_numeric(ordered.get("score", pd.Series(np.nan, index=ordered.index)), errors="coerce")
+    ordered["_rank_sort"] = pd.to_numeric(ordered.get("candidate_rank", pd.Series(np.nan, index=ordered.index)), errors="coerce")
+    fallback_rank = pd.Series(np.arange(len(ordered)) + 1, index=ordered.index)
+    ordered["_rank_sort"] = ordered["_rank_sort"].fillna(fallback_rank)
+    return ordered.sort_values(["_rank_sort", "_score_sort"], ascending=[True, False])
+
+
+def _assign_release_proxy(frame: pd.DataFrame, scenario: dict[str, Any]) -> pd.DataFrame:
+    out = frame.copy()
+    out["_parc_topM_proxy"] = False
+    out["_parc_released_proxy"] = False
+    eval_mask = pd.Series(True, index=out.index)
+    if "split" in out and out["split"].astype(str).eq("test").any():
+        eval_mask = out["split"].astype(str).eq("test")
+    ordered = _sort_for_release_scope(out[eval_mask])
+    m_eff = min(int(scenario.get("M_requested", 150) or 150), len(ordered))
+    released = min(int(scenario.get("released", 0) or 0), m_eff)
+    top_idx = ordered.head(m_eff).index
+    rel_idx = ordered.head(released).index
+    out.loc[top_idx, "_parc_topM_proxy"] = True
+    out.loc[rel_idx, "_parc_released_proxy"] = True
+    out["_parc_refused_proxy"] = out["_parc_topM_proxy"] & ~out["_parc_released_proxy"]
+    out["_release_assignment"] = "rank_proxy_from_certified_release_count"
+    return out
+
+
+def _normalize_label_table(labels: pd.DataFrame, dataset: str, detector: str | None = None) -> pd.DataFrame:
+    if labels.empty:
+        return pd.DataFrame(columns=["dataset", "detector", "path_id", "label"])
+    out = labels.copy()
+    if "audit_label" in out and "label" not in out:
+        out = out.rename(columns={"audit_label": "label"})
+    if "dataset" in out:
+        out = out[out["dataset"].astype(str).eq(dataset)]
+    if detector and "detector" in out:
+        out = out[out["detector"].astype(str).eq(detector)]
+    if "path_id" not in out or "label" not in out:
+        return pd.DataFrame(columns=["dataset", "detector", "path_id", "label"])
+    out["path_id"] = out["path_id"].astype(str)
+    return out
+
+
+def _stratum_rows(
+    frame: pd.DataFrame,
+    labels: pd.DataFrame,
+    dataset: str,
+    dimension: str,
+    column: str,
+    *,
+    task: str = "tracking",
+    detector: str = "",
+    alpha1: Any = "",
+    seed: Any = "",
+    release_assignment: str = "",
+) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     if frame.empty or column not in frame:
         return [
             {
                 "dataset": dataset,
+                "task": task,
+                "detector": detector,
+                "alpha1": alpha1,
+                "seed": seed,
                 "stratification_dimension": dimension,
                 "stratum": "attribute_unavailable",
                 "candidate_count": 0,
+                "official_support_rate": "",
                 "official_unmatched_rate": "",
                 "human_valid_rate": "",
                 "PARC_certified_release_rate": "",
+                "PARC_refusal_rate": "",
                 "audited_count": 0,
                 "attribute_available": False,
+                "release_assignment": release_assignment,
                 "result_status": "requires_candidate_attribute_table",
             }
         ]
-    label_key = labels.copy()
-    if not label_key.empty:
-        label_key["path_id"] = label_key["path_id"].astype(str)
-        label_key = label_key[label_key["dataset"].astype(str).eq(dataset)]
+    label_key = _normalize_label_table(labels, dataset, detector or None)
     for stratum, group in frame.groupby(column, dropna=False):
         stratum_name = str(stratum) if str(stratum) != "nan" else "unknown"
         merged = group.merge(label_key[["path_id", "label"]] if not label_key.empty else pd.DataFrame(columns=["path_id", "label"]), on="path_id", how="left")
         audited = merged[merged["label"].isin(VALID_LABELS)]
         official_unmatched = pd.to_numeric(group.get("is_unmatched", pd.Series(False, index=group.index)), errors="coerce").fillna(0).astype(bool)
-        released_col = group.get("is_released", pd.Series(np.nan, index=group.index))
+        official_supported = pd.to_numeric(group.get("is_matched_to_gt", ~official_unmatched), errors="coerce").fillna(0).astype(bool)
+        release_col = group.get("_parc_released_proxy", group.get("is_released", pd.Series(False, index=group.index)))
+        topm_col = group.get("_parc_topM_proxy", pd.Series(True, index=group.index) if "is_released" in group else pd.Series(False, index=group.index))
+        refusal_col = group.get("_parc_refused_proxy", pd.Series(False, index=group.index))
+        released_count = int(pd.to_numeric(release_col, errors="coerce").fillna(0).astype(bool).sum())
+        scope_count = int(pd.to_numeric(topm_col, errors="coerce").fillna(0).astype(bool).sum())
+        refusal_count = int(pd.to_numeric(refusal_col, errors="coerce").fillna(0).astype(bool).sum())
         rows.append(
             {
                 "dataset": dataset,
+                "task": task,
+                "detector": detector,
+                "alpha1": alpha1,
+                "seed": seed,
                 "stratification_dimension": dimension,
                 "stratum": stratum_name,
                 "candidate_count": int(len(group)),
+                "official_supported_count": int(official_supported.sum()),
+                "official_support_rate": _rate(float(official_supported.sum()), float(len(group))),
                 "official_unmatched_rate": _rate(float(official_unmatched.sum()), float(len(group))),
+                "human_valid_count": int(audited["label"].eq("actually_true").sum()) if not audited.empty else 0,
                 "human_valid_rate": _rate(float(audited["label"].eq("actually_true").sum()), float(len(audited))) if not audited.empty else "",
-                "PARC_certified_release_rate": _rate(float(pd.to_numeric(released_col, errors="coerce").fillna(0).astype(bool).sum()), float(len(group))) if "is_released" in group else "",
+                "certification_scope_count": scope_count,
+                "released_proxy_count": released_count,
+                "refused_proxy_count": refusal_count,
+                "PARC_certified_release_rate": _rate(float(released_count), float(len(group))),
+                "PARC_release_rate_within_scope": _rate(float(released_count), float(scope_count)) if scope_count else "",
+                "PARC_refusal_rate": _rate(float(refusal_count), float(scope_count)) if scope_count else "",
                 "audited_count": int(len(audited)),
                 "attribute_available": not stratum_name.startswith("attribute_unavailable"),
+                "release_assignment": release_assignment,
                 "result_status": "computed" if not stratum_name.startswith("attribute_unavailable") else "attribute_unavailable",
             }
         )
     return rows
 
 
+def _figure_support_vs_human_valid(table: pd.DataFrame) -> pd.DataFrame:
+    if table.empty:
+        return pd.DataFrame()
+    base = table[pd.to_numeric(table.get("attribute_available", pd.Series(False, index=table.index)), errors="coerce").fillna(0).astype(bool)]
+    base = base.drop_duplicates(["dataset", "task", "detector", "stratification_dimension", "stratum"]).copy()
+    rows: list[dict[str, Any]] = []
+    for _, row in base.iterrows():
+        for metric, value_col in (
+            ("official_support_rate", "official_support_rate"),
+            ("human_valid_rate", "human_valid_rate"),
+        ):
+            value = row.get(value_col, "")
+            if value == "" or pd.isna(value):
+                continue
+            out = {
+                "dataset": row.get("dataset", ""),
+                "task": row.get("task", ""),
+                "detector": row.get("detector", ""),
+                "stratification_dimension": row.get("stratification_dimension", ""),
+                "stratum": row.get("stratum", ""),
+                "metric": metric,
+                "value": float(value),
+                "audited_count": row.get("audited_count", 0),
+                "candidate_count": row.get("candidate_count", 0),
+            }
+            rows.append(out)
+    fig = pd.DataFrame(rows)
+    if not fig.empty:
+        pivot = base.copy()
+        pivot["human_minus_official_gap"] = pd.to_numeric(pivot["human_valid_rate"], errors="coerce") - pd.to_numeric(
+            pivot["official_support_rate"], errors="coerce"
+        )
+        gap = pivot[
+            [
+                "dataset",
+                "task",
+                "detector",
+                "stratification_dimension",
+                "stratum",
+                "human_minus_official_gap",
+            ]
+        ]
+        fig = fig.merge(gap, on=["dataset", "task", "detector", "stratification_dimension", "stratum"], how="left")
+        fig["highlight_annotation_gap"] = pd.to_numeric(fig["human_minus_official_gap"], errors="coerce").fillna(0) >= 0.20
+    return fig
+
+
+def _figure_release_refusal(table: pd.DataFrame) -> pd.DataFrame:
+    rows: list[dict[str, Any]] = []
+    for _, row in table.iterrows():
+        for state, count_col, rate_col in (
+            ("released", "released_proxy_count", "PARC_release_rate_within_scope"),
+            ("refused", "refused_proxy_count", "PARC_refusal_rate"),
+        ):
+            rows.append(
+                {
+                    "dataset": row.get("dataset", ""),
+                    "task": row.get("task", ""),
+                    "detector": row.get("detector", ""),
+                    "alpha1": row.get("alpha1", ""),
+                    "seed": row.get("seed", ""),
+                    "stratification_dimension": row.get("stratification_dimension", ""),
+                    "stratum": row.get("stratum", ""),
+                    "certification_state": state,
+                    "count": row.get(count_col, 0),
+                    "rate_within_scope": row.get(rate_col, ""),
+                    "certification_scope_count": row.get("certification_scope_count", 0),
+                }
+            )
+    return pd.DataFrame(rows)
+
+
 def run_phase11_stratified_reliability(out_dir: str | Path | None = None) -> dict[str, Any]:
     output_dir = ensure_data_output(out_dir or PHASE11_DIR / "stratified_reliability")
     labels = _read_csv(V2_DIR / "audit_labels_2000_human_reviewed_v1.csv")
-    rows: list[dict[str, Any]] = []
+    tracking_rows: list[dict[str, Any]] = []
     for dataset, paths in _candidate_sources().items():
         universe = _read_csv(paths["universe"])
         nodes = _read_csv(paths["nodes"])
         if universe.empty:
             for dimension in ("object_size", "occlusion", "motion_speed", "track_length", "category_frequency"):
-                rows.extend(_stratum_rows(pd.DataFrame(), labels, dataset, dimension, dimension))
+                tracking_rows.extend(_stratum_rows(pd.DataFrame(), labels, dataset, dimension, dimension))
             continue
         if "dataset" not in universe:
             universe["dataset"] = dataset
         universe["path_id"] = universe["path_id"].astype(str)
         frame = _augment_path_attributes(universe, nodes)
-        rows.extend(_stratum_rows(frame, labels, dataset, "object_size", "object_size"))
-        rows.extend(_stratum_rows(frame, labels, dataset, "occlusion", "occlusion"))
-        rows.extend(_stratum_rows(frame, labels, dataset, "motion_speed", "motion_speed"))
-        rows.extend(_stratum_rows(frame, labels, dataset, "track_length", "track_length_bin"))
-        rows.extend(_stratum_rows(frame, labels, dataset, "category_frequency", "category_frequency"))
-    table = pd.DataFrame(rows)
+        for scenario in _parc_release_scenarios(frame, dataset):
+            scoped = _assign_release_proxy(frame, scenario)
+            common = {
+                "task": "tracking",
+                "alpha1": scenario["alpha1"],
+                "seed": scenario["seed"],
+                "release_assignment": scoped["_release_assignment"].iloc[0] if not scoped.empty else "",
+            }
+            tracking_rows.extend(_stratum_rows(scoped, labels, dataset, "object_size", "object_size", **common))
+            tracking_rows.extend(_stratum_rows(scoped, labels, dataset, "occlusion_level", "occlusion", **common))
+            tracking_rows.extend(_stratum_rows(scoped, labels, dataset, "motion_speed", "motion_speed", **common))
+            tracking_rows.extend(_stratum_rows(scoped, labels, dataset, "track_length", "track_length_bin", **common))
+            tracking_rows.extend(_stratum_rows(scoped, labels, dataset, "category_frequency", "category_frequency", **common))
+    tracking_table = pd.DataFrame(tracking_rows)
+
+    lvis_rows: list[dict[str, Any]] = []
+    lvis_universe, lvis_nodes, lvis_labels = _load_lvis_tables()
+    if not lvis_universe.empty:
+        if "dataset" not in lvis_universe:
+            lvis_universe["dataset"] = "LVIS"
+        lvis_universe["path_id"] = lvis_universe["path_id"].astype(str)
+        for detector, det_frame in lvis_universe.groupby("detector", dropna=False) if "detector" in lvis_universe else [("", lvis_universe)]:
+            detector_name = str(detector)
+            det_nodes = lvis_nodes[lvis_nodes.get("detector", pd.Series("", index=lvis_nodes.index)).astype(str).eq(detector_name)] if "detector" in lvis_nodes else lvis_nodes
+            frame = _augment_lvis_detection_attributes(det_frame, det_nodes)
+            for scenario in _parc_release_scenarios(frame, "LVIS", detector_name):
+                scoped = _assign_release_proxy(frame, scenario)
+                common = {
+                    "task": "single_frame_detection",
+                    "detector": detector_name,
+                    "alpha1": scenario["alpha1"],
+                    "seed": scenario["seed"],
+                    "release_assignment": scoped["_release_assignment"].iloc[0] if not scoped.empty else "",
+                }
+                lvis_rows.extend(_stratum_rows(scoped, lvis_labels, "LVIS", "object_area", "object_area", **common))
+                lvis_rows.extend(
+                    _stratum_rows(scoped, lvis_labels, "LVIS", "category_frequency", "category_frequency", **common)
+                )
+    lvis_table = pd.DataFrame(lvis_rows)
+    table = pd.concat([tracking_table, lvis_table], ignore_index=True)
     out_table = ensure_data_output(output_dir / "table_stratified_reliability.csv")
-    fig_csv = ensure_data_output(output_dir / "figure_stratified_reliability.csv")
+    tracking_out = ensure_data_output(output_dir / "table_tracking_stratified_reliability.csv")
+    lvis_out = ensure_data_output(output_dir / "table_lvis_detection_stratified_reliability.csv")
+    support_fig = ensure_data_output(output_dir / "figure_support_vs_human_valid.csv")
+    release_fig = ensure_data_output(output_dir / "figure_release_refusal_distribution.csv")
+    legacy_fig_csv = ensure_data_output(output_dir / "figure_stratified_reliability.csv")
     table.to_csv(out_table, index=False)
-    table[table["attribute_available"].astype(bool)].to_csv(fig_csv, index=False)
-    return {"status": "completed", "table": str(out_table), "figure_csv": str(fig_csv), "rows": int(len(table))}
+    tracking_table.to_csv(tracking_out, index=False)
+    lvis_table.to_csv(lvis_out, index=False)
+    support = _figure_support_vs_human_valid(table)
+    release = _figure_release_refusal(table)
+    support.to_csv(support_fig, index=False)
+    release.to_csv(release_fig, index=False)
+    table[table["attribute_available"].astype(bool)].to_csv(legacy_fig_csv, index=False)
+    return {
+        "status": "completed",
+        "table": str(out_table),
+        "tracking_table": str(tracking_out),
+        "lvis_detection_table": str(lvis_out),
+        "figure_csv": str(legacy_fig_csv),
+        "support_vs_human_valid_figure_csv": str(support_fig),
+        "release_refusal_figure_csv": str(release_fig),
+        "rows": int(len(table)),
+    }
 
 
 def _copy_phase11_artifacts(files: list[Path], milestone: Path) -> list[str]:
@@ -648,7 +992,11 @@ def run_phase11_freeze_nmi(out_dir: str | Path | None = None, lvis_root: str | P
         PHASE11_DIR / "lvis_detection/lvis_detection_report.json",
         Path(ovvis["table"]),
         Path(strat["table"]),
+        Path(strat["tracking_table"]),
+        Path(strat["lvis_detection_table"]),
         Path(strat["figure_csv"]),
+        Path(strat["support_vs_human_valid_figure_csv"]),
+        Path(strat["release_refusal_figure_csv"]),
         V2_DIR / "table_blackbox_generator_certification.csv",
         V2_DIR / "table_prop5_three_generator.csv",
         V2_DIR / "second_rater_kappa_report.md",

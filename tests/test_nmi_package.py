@@ -132,10 +132,18 @@ def test_stratified_reliability_contains_visual_difficulty_dimensions(tmp_path: 
     summary = run_phase11_stratified_reliability()
 
     table = pd.read_csv(summary["table"])
-    assert {"object_size", "occlusion", "motion_speed", "track_length", "category_frequency"}.issubset(
+    assert {"object_size", "occlusion_level", "motion_speed", "track_length", "category_frequency"}.issubset(
         set(table["stratification_dimension"])
     )
-    assert {"official_unmatched_rate", "human_valid_rate", "PARC_certified_release_rate"}.issubset(table.columns)
+    assert {
+        "official_support_rate",
+        "official_unmatched_rate",
+        "human_valid_rate",
+        "PARC_certified_release_rate",
+        "PARC_refusal_rate",
+    }.issubset(table.columns)
+    assert Path(summary["support_vs_human_valid_figure_csv"]).exists()
+    assert Path(summary["release_refusal_figure_csv"]).exists()
 
 
 def test_ovvis_mask_conflict_thresholds(tmp_path: Path, monkeypatch) -> None:

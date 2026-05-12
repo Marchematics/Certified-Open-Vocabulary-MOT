@@ -53,8 +53,12 @@ This milestone extends PARC-Track from certified open-vocabulary MOT toward audi
   "stratified_reliability": {
     "status": "completed",
     "table": "${PARC_TRACK_ROOT}/outputs/phase11_nmi/stratified_reliability/table_stratified_reliability.csv",
+    "tracking_table": "${PARC_TRACK_ROOT}/outputs/phase11_nmi/stratified_reliability/table_tracking_stratified_reliability.csv",
+    "lvis_detection_table": "${PARC_TRACK_ROOT}/outputs/phase11_nmi/stratified_reliability/table_lvis_detection_stratified_reliability.csv",
     "figure_csv": "${PARC_TRACK_ROOT}/outputs/phase11_nmi/stratified_reliability/figure_stratified_reliability.csv",
-    "rows": 26
+    "support_vs_human_valid_figure_csv": "${PARC_TRACK_ROOT}/outputs/phase11_nmi/stratified_reliability/figure_support_vs_human_valid.csv",
+    "release_refusal_figure_csv": "${PARC_TRACK_ROOT}/outputs/phase11_nmi/stratified_reliability/figure_release_refusal_distribution.csv",
+    "rows": 228
   },
   "copied_files": [
     "table_audit_cross_dataset_consistency.csv",
@@ -69,7 +73,11 @@ This milestone extends PARC-Track from certified open-vocabulary MOT toward audi
     "lvis_detection_report.json",
     "table_ovvis_mask_certification.csv",
     "table_stratified_reliability.csv",
+    "table_tracking_stratified_reliability.csv",
+    "table_lvis_detection_stratified_reliability.csv",
     "figure_stratified_reliability.csv",
+    "figure_support_vs_human_valid.csv",
+    "figure_release_refusal_distribution.csv",
     "table_blackbox_generator_certification.csv",
     "table_prop5_three_generator.csv",
     "second_rater_kappa_report.md"
