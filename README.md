@@ -18,6 +18,8 @@ parc-track/
 ├── configs/                          # Frozen experiment configs, sanitized paths
 ├── outputs/
 │   ├── milestones/reliability_fortress/
+│   ├── milestones/generality_reliability/
+│   ├── milestones/release_story/
 │   └── benchmarks/parc_certification_benchmark/
 ├── tests/                            # pytest suite and tiny fixtures
 ├── scripts/                          # public-safe helper scripts
@@ -59,6 +61,8 @@ For full benchmark reproduction, see `REPRODUCIBILITY.md`.
 ## Main Frozen Artifacts
 
 - Final reliability milestone: `outputs/milestones/reliability_fortress/`
+- Generality and stratified reliability milestone: `outputs/milestones/generality_reliability/`
+- Release/refusal story milestone: `outputs/milestones/release_story/`
 - Community benchmark: `outputs/benchmarks/parc_certification_benchmark/`
 - File integrity manifest: `MANIFEST_SHA256.txt`
 

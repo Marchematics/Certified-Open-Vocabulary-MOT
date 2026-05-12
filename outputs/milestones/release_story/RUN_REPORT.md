@@ -1,4 +1,4 @@
-# NMI Release Story
+# Release Story
 
 This milestone reframes PARC-Track as auditable release-time certification for open-vocabulary visual AI under incomplete annotations. It is intentionally compact: it does not add more MOT grids, and it does not claim SOTA tracking, detection, or segmentation performance.
 
@@ -19,31 +19,31 @@ This milestone reframes PARC-Track as auditable release-time certification for o
 ```json
 {
   "status": "completed",
-  "milestone": "outputs/milestones/nmi_release_story",
+  "milestone": "outputs/milestones/release_story",
   "nontracking_positive": {
     "status": "completed",
-    "table": "${PARC_TRACK_ROOT}/outputs/phase13_nmi_release_story/table_nmi_nontracking_positive.csv",
+    "table": "${PARC_TRACK_ROOT}/outputs/phase13_release_story/table_release_story_nontracking_positive.csv",
     "rows": 12
   },
   "release_policy_value": {
     "status": "completed",
-    "table": "${PARC_TRACK_ROOT}/outputs/phase13_nmi_release_story/table_release_policy_value.csv",
-    "figure_csv": "${PARC_TRACK_ROOT}/outputs/phase13_nmi_release_story/figure_release_policy_decision_curve.csv",
+    "table": "${PARC_TRACK_ROOT}/outputs/phase13_release_story/table_release_policy_value.csv",
+    "figure_csv": "${PARC_TRACK_ROOT}/outputs/phase13_release_story/figure_release_policy_decision_curve.csv",
     "rows": 56
   },
   "teaser_manifest": {
     "status": "completed",
-    "manifest": "${PARC_TRACK_ROOT}/outputs/phase13_nmi_release_story/figure_nmi_teaser_manifest.csv",
+    "manifest": "${PARC_TRACK_ROOT}/outputs/phase13_release_story/figure_release_story_teaser_manifest.csv",
     "rows": 48
   },
   "copied_files": [
-    "table_nmi_nontracking_positive.csv",
+    "table_release_story_nontracking_positive.csv",
     "table_release_policy_value.csv",
     "figure_release_policy_decision_curve.csv",
-    "figure_nmi_teaser_manifest.csv"
+    "figure_release_story_teaser_manifest.csv"
   ],
   "raw_data_included": false,
   "model_weights_included": false,
-  "package": "outputs/packages/nmi_release_story.tar.gz"
+  "package": "outputs/packages/release_story.tar.gz"
 }
 ```

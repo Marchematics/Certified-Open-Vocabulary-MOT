@@ -19,9 +19,9 @@ GENERALITY_DIR = DATA_ROOT / "outputs/milestones/generality_reliability"
 LVVIS_DIR = DATA_ROOT / "outputs/milestones/lvvis_certification"
 LVVIS_MASK_DIR = DATA_ROOT / "outputs/milestones/lvvis_mask_certification"
 LEGACY_DIR = DATA_ROOT / "outputs/milestones/legacy_core_results"
-PHASE13_DIR = DATA_ROOT / "outputs/phase13_nmi_release_story"
-MILESTONE_DIR = DATA_ROOT / "outputs/milestones/nmi_release_story"
-PACKAGE_PATH = DATA_ROOT / "outputs/packages/nmi_release_story.tar.gz"
+PHASE13_DIR = DATA_ROOT / "outputs/phase13_release_story"
+MILESTONE_DIR = DATA_ROOT / "outputs/milestones/release_story"
+PACKAGE_PATH = DATA_ROOT / "outputs/packages/release_story.tar.gz"
 
 
 def _read_csv(path: str | Path) -> pd.DataFrame:
@@ -229,7 +229,7 @@ def build_nontracking_positive_table(out_dir: str | Path | None = None) -> dict[
             )
 
     table = pd.DataFrame(rows)
-    out_csv = ensure_data_output(output_dir / "table_nmi_nontracking_positive.csv")
+    out_csv = ensure_data_output(output_dir / "table_release_story_nontracking_positive.csv")
     table.to_csv(out_csv, index=False)
     return {"status": "completed" if not table.empty else "missing_nontracking_sources", "table": str(out_csv), "rows": int(len(table))}
 
@@ -449,7 +449,7 @@ def build_teaser_manifest(out_dir: str | Path | None = None) -> dict[str, Any]:
         add_rows(cert, "PARC_certified_release", "certified_release", "candidate selected by self-consistent certified release", 8)
 
     table = pd.DataFrame(rows)
-    out_csv = ensure_data_output(output_dir / "figure_nmi_teaser_manifest.csv")
+    out_csv = ensure_data_output(output_dir / "figure_release_story_teaser_manifest.csv")
     table.to_csv(out_csv, index=False)
     return {"status": "completed" if not table.empty else "missing_teaser_sources", "manifest": str(out_csv), "rows": int(len(table))}
 
@@ -473,7 +473,7 @@ def _write_no_raw_report(milestone: Path) -> Path:
 def _write_run_report(milestone: Path, summary: dict[str, Any]) -> Path:
     report = ensure_data_output(milestone / "RUN_REPORT.md")
     report.write_text(
-        "# NMI Release Story\n\n"
+        "# Release Story\n\n"
         "This milestone reframes PARC-Track as auditable release-time certification for open-vocabulary "
         "visual AI under incomplete annotations. It is intentionally compact: it does not add more MOT "
         "grids, and it does not claim SOTA tracking, detection, or segmentation performance.\n\n"
@@ -492,7 +492,7 @@ def _write_run_report(milestone: Path, summary: dict[str, Any]) -> Path:
     return report
 
 
-def run_phase13_nmi_release_story(out_dir: str | Path | None = None) -> dict[str, Any]:
+def run_phase13_release_story(out_dir: str | Path | None = None) -> dict[str, Any]:
     phase_dir = ensure_data_output(PHASE13_DIR)
     nontracking = build_nontracking_positive_table(phase_dir)
     policy = build_release_policy_value_table(phase_dir)
@@ -508,16 +508,16 @@ def run_phase13_nmi_release_story(out_dir: str | Path | None = None) -> dict[str
 
     summary = {
         "status": "completed",
-        "milestone": "outputs/milestones/nmi_release_story",
+        "milestone": "outputs/milestones/release_story",
         "nontracking_positive": nontracking,
         "release_policy_value": policy,
         "teaser_manifest": teaser,
         "copied_files": copied,
         "raw_data_included": False,
         "model_weights_included": False,
-        "package": "outputs/packages/nmi_release_story.tar.gz",
+        "package": "outputs/packages/release_story.tar.gz",
     }
-    write_json(milestone / "nmi_release_story_summary.json", summary)
+    write_json(milestone / "release_story_summary.json", summary)
     _write_run_report(milestone, summary)
     _write_no_raw_report(milestone)
     _sanitize_public_text_files(milestone)
@@ -529,9 +529,9 @@ def run_phase13_nmi_release_story(out_dir: str | Path | None = None) -> dict[str
     with tarfile.open(package, "w:gz") as tar:
         for path in sorted(milestone.rglob("*")):
             if path.is_file():
-                tar.add(path, arcname=Path("nmi_release_story") / path.relative_to(milestone))
+                tar.add(path, arcname=Path("release_story") / path.relative_to(milestone))
     summary["package_sha256"] = _sha256(package)
-    write_json(milestone / "nmi_release_story_summary.json", summary)
+    write_json(milestone / "release_story_summary.json", summary)
     _sanitize_public_text_files(milestone)
     _write_manifest(milestone)
     return summary

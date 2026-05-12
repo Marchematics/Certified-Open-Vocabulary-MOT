@@ -1,0 +1,19 @@
+component,dataset,certified_risk_level_alpha,M,seed,released,empirical_audited_FTR,conservative_label_uncertainty_FTR,mass_ratio,release_feasible,max_observed_e,runtime_sec,empty_reason,paper_table_scope
+unmatched-as-false negative-control baseline,LVVIS,0.1,150,0,150.0,,0.02,2.298373876248844,True,12.298373876248844,,,component_ablation
+w/o verified-positive removal,LVVIS,0.1,150,0,150.0,,0.02,24.74771639560636,True,34.74771639560635,,,component_ablation
+Full PARC,LVVIS,0.1,150,0,150.0,,0.02,24.74771639560636,True,34.74771639560635,,,component_ablation
+score threshold baseline,LVVIS,0.1,150,0,150.0,,0.02,,,,0.0001403119822498,,component_ablation
+"w/o SCS, post-filter only",LVVIS,0.1,150,0,150.0,,0.02,,,,0.0001374490093439,,component_ablation
+no-risk top-M baseline,LVVIS,0.1,150,0,150.0,,0.02,,,,0.0001438740000594,,component_ablation
+unmatched-as-false negative-control baseline,LVVIS,0.1,150,1,0.0,,,-2.324810954158881,True,12.196310917650468,,no_k_satisfies_uniform_self_consistency,component_ablation
+w/o verified-positive removal,LVVIS,0.1,150,1,150.0,,0.0066666666666666,8.145651070951104,True,34.26252854155881,,,component_ablation
+Full PARC,LVVIS,0.1,150,1,150.0,,0.0066666666666666,8.145651070951104,True,34.26252854155881,,,component_ablation
+score threshold baseline,LVVIS,0.1,150,1,150.0,,0.0066666666666666,,,,0.0001387060037814,,component_ablation
+"w/o SCS, post-filter only",LVVIS,0.1,150,1,150.0,,0.0066666666666666,,,,0.0001431760028935,,component_ablation
+no-risk top-M baseline,LVVIS,0.1,150,1,150.0,,0.0066666666666666,,,,0.0001387050142511,,component_ablation
+unmatched-as-false negative-control baseline,LVVIS,0.1,150,2,0.0,,,-2.923042084812618,True,12.257650672131264,,no_k_satisfies_uniform_self_consistency,component_ablation
+w/o verified-positive removal,LVVIS,0.1,150,2,150.0,,0.0066666666666666,12.165705055628656,True,34.55376475712119,,,component_ablation
+Full PARC,LVVIS,0.1,150,2,150.0,,0.0066666666666666,12.165705055628656,True,34.55376475712119,,,component_ablation
+score threshold baseline,LVVIS,0.1,150,2,150.0,,0.0066666666666666,,,,0.000140101998113,,component_ablation
+"w/o SCS, post-filter only",LVVIS,0.1,150,2,150.0,,0.0066666666666666,,,,0.0001410800032317,,component_ablation
+no-risk top-M baseline,LVVIS,0.1,150,2,150.0,,0.0066666666666666,,,,0.0001499509962741,,component_ablation

@@ -1,0 +1,19 @@
+{
+  "table": "table_ablation_components.csv",
+  "repo_commit": "163578611053d73705a2d321a971d3485b84ba32",
+  "command": "python -m parc_track.cli phase14 closeout",
+  "runtime_sec": 0.060781,
+  "source_files": [
+    {
+      "path": "outputs/milestones/lvvis_certification/table_baseline_expanded.csv",
+      "sha256": "bb8760a2d41141039874ea04fd78b06a36007fc751b6efb012c347a44b18295a"
+    }
+  ],
+  "output_sha256": "750c9ec56c44334faa8ba6e426e340db17ce3ba02eee446e5fb30211543c63ce",
+  "config_sha256": "",
+  "candidate_universe_sha256": "",
+  "candidate_nodes_sha256": "",
+  "audit_labels_sha256": "f4d7d8e09fdf49ed7ea7c940f53c3a7d55decc85b21f5e07bed0a3e7502b48e3",
+  "paper_facing_table": true,
+  "notes": "Derived sanitized paper-facing table. Raw provenance tables are preserved separately."
+}

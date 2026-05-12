@@ -10,6 +10,12 @@ pip install numpy scipy pandas opencv-python pyyaml tqdm pytest motmetrics pycoc
 pytest -q tests
 ```
 
+Equivalent Makefile entry:
+
+```bash
+make test PYTHON=python
+```
+
 ## 2. Verify Tiny Fixture
 
 ```bash
@@ -30,6 +36,19 @@ Check file integrity with:
 
 ```bash
 sha256sum -c MANIFEST_SHA256.txt
+```
+
+Public-bundle safety checks:
+
+```bash
+make validate-public-bundle PYTHON=python
+make verify-manifest
+```
+
+Regenerate the current paper-facing release/refusal tables:
+
+```bash
+make reproduce-main-tables PYTHON=python
 ```
 
 ## 4. Re-run with External Datasets

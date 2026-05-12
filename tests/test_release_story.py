@@ -6,7 +6,7 @@ from pathlib import Path
 import pandas as pd
 
 from parc_track import phase13
-from parc_track.phase13 import run_phase13_nmi_release_story
+from parc_track.phase13 import run_phase13_release_story
 
 
 def _patch_roots(tmp_path: Path, monkeypatch) -> None:
@@ -17,9 +17,9 @@ def _patch_roots(tmp_path: Path, monkeypatch) -> None:
     monkeypatch.setattr(phase13, "LVVIS_DIR", tmp_path / "outputs/milestones/lvvis_certification")
     monkeypatch.setattr(phase13, "LVVIS_MASK_DIR", tmp_path / "outputs/milestones/lvvis_mask_certification")
     monkeypatch.setattr(phase13, "LEGACY_DIR", tmp_path / "outputs/milestones/legacy_core_results")
-    monkeypatch.setattr(phase13, "PHASE13_DIR", tmp_path / "outputs/phase13_nmi_release_story")
-    monkeypatch.setattr(phase13, "MILESTONE_DIR", tmp_path / "outputs/milestones/nmi_release_story")
-    monkeypatch.setattr(phase13, "PACKAGE_PATH", tmp_path / "outputs/packages/nmi_release_story.tar.gz")
+    monkeypatch.setattr(phase13, "PHASE13_DIR", tmp_path / "outputs/phase13_release_story")
+    monkeypatch.setattr(phase13, "MILESTONE_DIR", tmp_path / "outputs/milestones/release_story")
+    monkeypatch.setattr(phase13, "PACKAGE_PATH", tmp_path / "outputs/packages/release_story.tar.gz")
 
 
 def _write_sources(root: Path) -> None:
@@ -84,18 +84,18 @@ def _write_sources(root: Path) -> None:
     ).to_csv(legacy / "phase4_third_generator_and_owlv2_audit/owlv2_top150_mini_audit_labels_with_montages.csv", index=False)
 
 
-def test_nmi_release_story_freezes_public_safe_tables(tmp_path: Path, monkeypatch) -> None:
+def test_release_story_freezes_public_safe_tables(tmp_path: Path, monkeypatch) -> None:
     _patch_roots(tmp_path, monkeypatch)
     _write_sources(tmp_path)
 
-    summary = run_phase13_nmi_release_story()
+    summary = run_phase13_release_story()
 
-    milestone = tmp_path / "outputs/milestones/nmi_release_story"
+    milestone = tmp_path / "outputs/milestones/release_story"
     assert summary["status"] == "completed"
-    assert (milestone / "table_nmi_nontracking_positive.csv").exists()
+    assert (milestone / "table_release_story_nontracking_positive.csv").exists()
     assert (milestone / "table_release_policy_value.csv").exists()
-    assert (milestone / "figure_nmi_teaser_manifest.csv").exists()
-    nontracking = pd.read_csv(milestone / "table_nmi_nontracking_positive.csv")
+    assert (milestone / "figure_release_story_teaser_manifest.csv").exists()
+    nontracking = pd.read_csv(milestone / "table_release_story_nontracking_positive.csv")
     assert {"single_frame_open_vocabulary_detection", "mask_path_certification"}.issubset(set(nontracking["task"]))
     policy = pd.read_csv(milestone / "table_release_policy_value.csv")
     assert policy["policy"].astype(str).str.contains("topM|threshold", regex=True).any()
@@ -103,10 +103,10 @@ def test_nmi_release_story_freezes_public_safe_tables(tmp_path: Path, monkeypatc
     refusals = policy[policy["release_decision"].astype(str).eq("refusal")]
     assert not refusals.empty
     assert refusals["mass_ratio_mean"].notna().any() or refusals["empty_reason_examples"].astype(str).str.len().gt(0).any()
-    teaser = pd.read_csv(milestone / "figure_nmi_teaser_manifest.csv")
+    teaser = pd.read_csv(milestone / "figure_release_story_teaser_manifest.csv")
     assert teaser["visual_asset_ref"].fillna("").astype(str).str.startswith("/").sum() == 0
     assert "missing_visual_asset" in set(teaser["visual_asset_status"])
-    with tarfile.open(tmp_path / "outputs/packages/nmi_release_story.tar.gz", "r:gz") as tar:
+    with tarfile.open(tmp_path / "outputs/packages/release_story.tar.gz", "r:gz") as tar:
         names = tar.getnames()
     assert not any(name.endswith((".mp4", ".png", ".jpg", ".jpeg", ".pth", ".pt", ".safetensors")) for name in names)
     report_text = (milestone / "RUN_REPORT.md").read_text(encoding="utf-8").lower()

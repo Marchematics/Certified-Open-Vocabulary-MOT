@@ -1,0 +1,23 @@
+{
+  "table": "table_stress_actual_reruns.csv",
+  "repo_commit": "163578611053d73705a2d321a971d3485b84ba32",
+  "command": "python -m parc_track.cli phase14 closeout",
+  "runtime_sec": 0.074619,
+  "source_files": [
+    {
+      "path": "outputs/milestones/reliability_fortress/table_nonexchangeability_severe_actual_results.csv",
+      "sha256": "b2b1de7a99dcfec1a29e78f2c9b46b466c1f62db636e61fccb82027e7b8d80ef"
+    },
+    {
+      "path": "outputs/milestones/reliability_fortress/table_null_inflation_verified_removal_actual_results.csv",
+      "sha256": "00c4f1d6a84fc0139129c6072cf32a21e871cadc9bec9c103c889c9c55983ec3"
+    }
+  ],
+  "output_sha256": "0ad22985c76767e958a1dbb563ed18b678e4d1e89f2eac659f4376ba5b19d147",
+  "config_sha256": "",
+  "candidate_universe_sha256": "",
+  "candidate_nodes_sha256": "",
+  "audit_labels_sha256": "f4d7d8e09fdf49ed7ea7c940f53c3a7d55decc85b21f5e07bed0a3e7502b48e3",
+  "paper_facing_table": true,
+  "notes": "Derived sanitized paper-facing table. Raw provenance tables are preserved separately."
+}
