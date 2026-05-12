@@ -1,0 +1,21 @@
+{
+  "status": "completed_full_universe_scaffold",
+  "dataset": "LVVIS",
+  "candidate_universe": "outputs/phase12_lvvis/candidate_universe.csv",
+  "candidate_universe_rows": 12462,
+  "processed_videos": 1769,
+  "test_candidates": 4902,
+  "calibration_candidates": 6230,
+  "cell_effective_n": {
+    "cell_effective_n_csv": "${PARC_TRACK_ROOT}/outputs/phase12_lvvis/cell_effective_n_alpha0p2_seed2.csv",
+    "rows": 1,
+    "dataset_status": "tracking_layout_ok"
+  },
+  "per_video_candidate_coverage": {
+    "per_video_candidate_coverage_csv": "${PARC_TRACK_ROOT}/outputs/phase12_lvvis/per_video_candidate_coverage_alpha0p2_seed2.csv",
+    "rows": 1769
+  },
+  "real_cert_summary_csv": "${PARC_TRACK_ROOT}/outputs/phase12_lvvis/real_cert_alpha0p2_seed2.csv",
+  "candidate_evalues_csv": "${PARC_TRACK_ROOT}/outputs/phase12_lvvis/candidate_evalues_alpha0p2_seed2.csv",
+  "rows": 3
+}

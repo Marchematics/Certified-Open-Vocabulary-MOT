@@ -1,0 +1,106 @@
+{
+  "status": "completed",
+  "config": "${PARC_TRACK_ROOT}/github/Certified-Open-Vocabulary-MOT/configs/phase12_lvvis_matrix.yaml",
+  "method": "parc_track_gamma_tuned_uniform_scs",
+  "candidate_budget_M": 150,
+  "alphas": [
+    0.1,
+    0.2
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "unsupported_only": true,
+  "release_audit_csv": "${PARC_TRACK_ROOT}/outputs/phase12_lvvis/lvvis_released_unsupported_audit_candidates.csv",
+  "label_template_csv": "${PARC_TRACK_ROOT}/outputs/phase12_lvvis/lvvis_released_unsupported_audit_labels.csv",
+  "rows": 10,
+  "needs_audit_rows": 10,
+  "runs": [
+    {
+      "alpha1": 0.1,
+      "seed": 0,
+      "status": "completed",
+      "method": "parc_track_gamma_tuned_uniform_scs",
+      "candidate_budget_M": 150,
+      "released_total": 150,
+      "exported_rows": 3,
+      "needs_audit_rows": 3,
+      "unsupported_only": true,
+      "tau_k": 10.0,
+      "self_consistency_margin": 24.747716395606354,
+      "candidate_evalues": "${PARC_TRACK_ROOT}/outputs/phase12_lvvis/candidate_evalues_alpha0p1_seed0.csv"
+    },
+    {
+      "alpha1": 0.1,
+      "seed": 1,
+      "status": "completed",
+      "method": "parc_track_gamma_tuned_uniform_scs",
+      "candidate_budget_M": 150,
+      "released_total": 150,
+      "exported_rows": 1,
+      "needs_audit_rows": 1,
+      "unsupported_only": true,
+      "tau_k": 10.0,
+      "self_consistency_margin": 3.5638142074248833,
+      "candidate_evalues": "${PARC_TRACK_ROOT}/outputs/phase12_lvvis/candidate_evalues_alpha0p1_seed1.csv"
+    },
+    {
+      "alpha1": 0.1,
+      "seed": 2,
+      "status": "completed",
+      "method": "parc_track_gamma_tuned_uniform_scs",
+      "candidate_budget_M": 150,
+      "released_total": 150,
+      "exported_rows": 1,
+      "needs_audit_rows": 1,
+      "unsupported_only": true,
+      "tau_k": 10.0,
+      "self_consistency_margin": 3.6754203382642086,
+      "candidate_evalues": "${PARC_TRACK_ROOT}/outputs/phase12_lvvis/candidate_evalues_alpha0p1_seed2.csv"
+    },
+    {
+      "alpha1": 0.2,
+      "seed": 0,
+      "status": "completed",
+      "method": "parc_track_gamma_tuned_uniform_scs",
+      "candidate_budget_M": 150,
+      "released_total": 150,
+      "exported_rows": 3,
+      "needs_audit_rows": 3,
+      "unsupported_only": true,
+      "tau_k": 5.0,
+      "self_consistency_margin": 29.747716395606354,
+      "candidate_evalues": "${PARC_TRACK_ROOT}/outputs/phase12_lvvis/candidate_evalues_alpha0p2_seed0.csv"
+    },
+    {
+      "alpha1": 0.2,
+      "seed": 1,
+      "status": "completed",
+      "method": "parc_track_gamma_tuned_uniform_scs",
+      "candidate_budget_M": 150,
+      "released_total": 150,
+      "exported_rows": 1,
+      "needs_audit_rows": 1,
+      "unsupported_only": true,
+      "tau_k": 5.0,
+      "self_consistency_margin": 8.563814207424883,
+      "candidate_evalues": "${PARC_TRACK_ROOT}/outputs/phase12_lvvis/candidate_evalues_alpha0p2_seed1.csv"
+    },
+    {
+      "alpha1": 0.2,
+      "seed": 2,
+      "status": "completed",
+      "method": "parc_track_gamma_tuned_uniform_scs",
+      "candidate_budget_M": 150,
+      "released_total": 150,
+      "exported_rows": 1,
+      "needs_audit_rows": 1,
+      "unsupported_only": true,
+      "tau_k": 5.0,
+      "self_consistency_margin": 8.675420338264209,
+      "candidate_evalues": "${PARC_TRACK_ROOT}/outputs/phase12_lvvis/candidate_evalues_alpha0p2_seed2.csv"
+    }
+  ]
+}

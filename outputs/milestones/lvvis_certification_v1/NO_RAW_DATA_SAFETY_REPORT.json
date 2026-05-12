@@ -1,0 +1,18 @@
+{
+  "status": "public_safe_derived_bundle",
+  "excluded": [
+    "raw frames",
+    "raw annotations",
+    "model weights",
+    "HF cache",
+    "GPU cache",
+    "detector cache"
+  ],
+  "path_sanitization": {
+    "project_root_placeholder": "${PARC_TRACK_ROOT}",
+    "public_dataset_root_placeholder": "${PUBLIC_DATASETS_ROOT}",
+    "home_placeholder": "${HOME}"
+  },
+  "contains_full_raw_annotation_json": false,
+  "contains_raw_image_files": false
+}

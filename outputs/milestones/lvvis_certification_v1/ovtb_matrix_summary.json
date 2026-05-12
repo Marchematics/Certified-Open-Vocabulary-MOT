@@ -1,0 +1,19 @@
+{
+  "status": "completed",
+  "matrix_csv": "${PARC_TRACK_ROOT}/outputs/phase12_lvvis/lvvis_alpha_seed_m_matrix.csv",
+  "baseline_csv": "${PARC_TRACK_ROOT}/outputs/phase12_lvvis/table_baseline_expanded.csv",
+  "alpha_sweep_csv": "${PARC_TRACK_ROOT}/outputs/phase12_lvvis/table_alpha_sweep.csv",
+  "rows": 48,
+  "alphas": [
+    0.1,
+    0.2
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "candidate_budget_M": [
+    150
+  ]
+}
