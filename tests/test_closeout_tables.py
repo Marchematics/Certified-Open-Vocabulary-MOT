@@ -18,13 +18,32 @@ def _patch_roots(tmp_path: Path, monkeypatch) -> None:
     monkeypatch.setattr(phase14, "PAPER_TABLE_DIR", tmp_path / "outputs/milestones/reliability_fortress/paper_tables")
     monkeypatch.setattr(phase14, "QUALITATIVE_GALLERY", tmp_path / "docs/qualitative_release_gallery.md")
     monkeypatch.setattr(phase14, "FIGURES_DIR", tmp_path / "figures")
+    monkeypatch.setattr(
+        phase14,
+        "BURST_MATRIX",
+        tmp_path / "outputs/milestones/legacy_core_results/burst/burst_alpha_seed_m_matrix.csv",
+    )
+    monkeypatch.setattr(
+        phase14,
+        "BURST_OWLV2_MATRIX",
+        tmp_path / "outputs/milestones/legacy_core_results/burst_owlv2_stress/burst_alpha_seed_m_matrix.csv",
+    )
+    monkeypatch.setattr(
+        phase14,
+        "CROSS_DATASET_CERT",
+        tmp_path / "outputs/milestones/legacy_core_results/cross_dataset/table_cross_dataset_certification.csv",
+    )
 
 
 def _write_sources(root: Path) -> None:
     reliability = root / "outputs/milestones/reliability_fortress"
     lvvis = root / "outputs/milestones/lvvis_certification"
+    legacy = root / "outputs/milestones/legacy_core_results"
     reliability.mkdir(parents=True, exist_ok=True)
     lvvis.mkdir(parents=True, exist_ok=True)
+    (legacy / "cross_dataset").mkdir(parents=True, exist_ok=True)
+    (legacy / "burst").mkdir(parents=True, exist_ok=True)
+    (legacy / "burst_owlv2_stress").mkdir(parents=True, exist_ok=True)
     pd.DataFrame(
         [
             {
@@ -120,6 +139,49 @@ def _write_sources(root: Path) -> None:
         [
             {
                 "dataset": "OVT-B",
+                "method": "parc_track_gamma_tuned_uniform_scs",
+                "alpha1": 0.1,
+                "seed": 0,
+                "candidate_budget_M": 150,
+                "released": 105,
+                "utr": 0.02,
+                "audited_ftr_supported_plus_labeled": 0.0,
+                "conservative_ftr_uncertain_and_unlabeled_false": 0.01,
+                "self_consistency_margin": 0.9,
+                "tau_k": 14.2,
+                "selected_e_min": 15.1,
+                "selected_e_mean": 22.3,
+                "selected_e_max": 38.5,
+                "max_observed_e": 38.5,
+                "empty_reason": "",
+            }
+        ]
+    ).to_csv(legacy / "cross_dataset/table_cross_dataset_certification.csv", index=False)
+    burst_rows = [
+        {
+            "method": "parc_track_gamma_tuned_uniform_scs",
+            "alpha1": 0.1,
+            "seed": 0,
+            "candidate_budget_M": 150,
+            "released": 150,
+            "utr": 0.04,
+            "audited_ftr_on_labeled_released": 0.0,
+            "conservative_ftr_uncertain_and_unlabeled_false": 0.04,
+            "best_margin": 9.6,
+            "best_margin_tau": 15.3,
+            "release_feasible": True,
+            "max_observed_e": 24.9,
+            "mean_observed_e": 21.1,
+            "empty_reason": "",
+        }
+    ]
+    pd.DataFrame(burst_rows).to_csv(legacy / "burst/burst_alpha_seed_m_matrix.csv", index=False)
+    burst_rows[0] = dict(burst_rows[0], released=0, utr=0.0, conservative_ftr_uncertain_and_unlabeled_false=0.0, best_margin=-9.1, empty_reason="no_k_satisfies_uniform_self_consistency")
+    pd.DataFrame(burst_rows).to_csv(legacy / "burst_owlv2_stress/burst_alpha_seed_m_matrix.csv", index=False)
+    pd.DataFrame(
+        [
+            {
+                "dataset": "OVT-B",
                 "scenario": "severe_sparse_annotation_shift",
                 "alpha1": 0.1,
                 "seed": 0,
@@ -184,6 +246,8 @@ def test_closeout_tables_are_clean_and_have_refusal_diagnostics(tmp_path: Path, 
 
     main = pd.read_csv(out_dir / "table_main_raw_vs_parc.csv")
     assert "OVTR" not in set(main["generator"])
+    assert "GroundingDINO + tracker" in set(main["generator"])
+    assert ((main["dataset"] == "BURST") & (main["generator"] == "OWLv2")).any()
     required_schema = {
         "dataset",
         "generator",
@@ -218,6 +282,10 @@ def test_closeout_tables_are_clean_and_have_refusal_diagnostics(tmp_path: Path, 
         "runtime_sec",
     }
     assert required_schema.issubset(main.columns)
+    coverage = pd.read_csv(out_dir / "table_main_protocol_coverage.csv")
+    assert {"included_main_table", "appendix_only_official_prediction_metadata_incomplete"}.issubset(
+        set(coverage["main_protocol_status"])
+    )
     summary = pd.read_csv(out_dir / "table_main_raw_vs_parc_summary.csv")
     assert {"nonempty_seeds", "safe_refusal_rate"}.issubset(summary.columns)
     refusal = pd.read_csv(out_dir / "table_safe_refusal_diagnostics.csv")

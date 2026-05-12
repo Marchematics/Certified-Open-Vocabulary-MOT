@@ -19,6 +19,8 @@ RELEASE_STORY_DIR = DATA_ROOT / "outputs/milestones/release_story"
 LVVIS_DIR = DATA_ROOT / "outputs/milestones/lvvis_certification"
 PAPER_TABLE_DIR = RELIABILITY_DIR / "paper_tables"
 BURST_MATRIX = DATA_ROOT / "outputs/milestones/legacy_core_results/burst/burst_alpha_seed_m_matrix.csv"
+BURST_OWLV2_MATRIX = DATA_ROOT / "outputs/milestones/legacy_core_results/burst_owlv2_stress/burst_alpha_seed_m_matrix.csv"
+CROSS_DATASET_CERT = DATA_ROOT / "outputs/milestones/legacy_core_results/cross_dataset/table_cross_dataset_certification.csv"
 QUALITATIVE_GALLERY = DATA_ROOT / "docs/qualitative_release_gallery.md"
 FIGURES_DIR = DATA_ROOT / "figures"
 
@@ -101,6 +103,27 @@ def _safe_reason(row: pd.Series) -> str:
     return "no_self_consistent_release"
 
 
+def _boolish(value: Any, fallback: bool = False) -> bool:
+    text = _text(value).strip().lower()
+    if text in {"true", "1", "yes", "y"}:
+        return True
+    if text in {"false", "0", "no", "n"}:
+        return False
+    return fallback
+
+
+def _mass_ratio_from_row(row: pd.Series) -> float | str:
+    for key in ("mass_ratio", "best_mass_ratio"):
+        value = _num(row.get(key), default=float("nan"))
+        if not pd.isna(value):
+            return value
+    margin = _num(row.get("best_margin", row.get("self_consistency_margin")), default=float("nan"))
+    tau = _num(row.get("best_margin_tau", row.get("tau_k")), default=float("nan"))
+    if not pd.isna(margin) and not pd.isna(tau) and tau > 0:
+        return (margin + tau) / tau
+    return ""
+
+
 def _clean_missing(value: Any) -> Any:
     text = _text(value).strip().lower()
     if text in {"nan", "none", "<na>"}:
@@ -149,8 +172,61 @@ def _validate_clean_tables(paths: list[Path]) -> None:
         raise RuntimeError("paper-facing table cleanliness check failed:\n" + "\n".join(failures))
 
 
-def _append_burst_rows(rows: list[dict[str, Any]]) -> list[Path]:
-    source = BURST_MATRIX
+def _main_protocol_row(row: pd.Series, dataset: str, generator: str) -> dict[str, Any]:
+    released = _num(row.get("released", 0))
+    alpha = _num(row.get("alpha1", row.get("alpha", 0.10)), default=0.10)
+    m = int(_num(row.get("candidate_budget_M", row.get("M", 150)), default=150))
+    mass = _mass_ratio_from_row(row)
+    empty_reason = _text(row.get("empty_reason", ""))
+    audited_ftr = row.get(
+        "audited_ftr_on_labeled_released",
+        row.get("audited_ftr_supported_plus_labeled", row.get("audited_FTR", "")),
+    )
+    conservative_ftr = row.get(
+        "conservative_ftr_uncertain_and_unlabeled_false",
+        row.get("conservative_FTR", row.get("conservative_ftr", "")),
+    )
+    release_feasible = _boolish(row.get("release_feasible", ""), fallback=bool(released > 0 or _num(mass, default=0.0) >= 1.0))
+    out = {
+        "dataset": dataset,
+        "generator": generator,
+        "alpha": alpha,
+        "certified_risk_level_alpha": alpha,
+        "M": m,
+        "seed": int(float(row.get("seed"))),
+        "raw_topM_released": m,
+        "raw_topM_audited_false_rate": "",
+        "raw_topM_unsupported_rate": "",
+        "raw_topM_policy": "score_ranked_topM_reference_count_only",
+        "parc_released": released,
+        "parc_UTR": row.get("utr", row.get("UTR", "")),
+        "parc_audited_FTR": audited_ftr,
+        "parc_conservative_FTR": conservative_ftr,
+        "empirical_audited_FTR": audited_ftr,
+        "conservative_label_uncertainty_FTR": conservative_ftr,
+        "mass_ratio": mass,
+        "best_mass_ratio": mass,
+        "self_consistency_margin": row.get("self_consistency_margin", ""),
+        "required_emax": row.get("required_emax", ""),
+        "max_observed_e": row.get("max_observed_e", row.get("emax_effective", "")),
+        "mean_observed_e": row.get("mean_observed_e", ""),
+        "selected_e_min": row.get("selected_e_min", ""),
+        "selected_e_mean": row.get("selected_e_mean", ""),
+        "selected_e_max": row.get("selected_e_max", ""),
+        "release_feasible": release_feasible,
+        "empty_reason": empty_reason,
+        "safe_refusal_reason": "",
+        "HOTA_or_proxy": row.get("HOTA", ""),
+        "IDF1_or_proxy": row.get("IDF1", ""),
+        "MOTA_or_proxy": row.get("MOTA", ""),
+        "runtime_sec": row.get("runtime_sec", ""),
+        "paper_table_scope": "main_protocol",
+    }
+    out["safe_refusal_reason"] = _safe_reason(pd.Series(out))
+    return out
+
+
+def _append_matrix_rows(rows: list[dict[str, Any]], source: Path, dataset: str, generator: str) -> list[Path]:
     frame = _read_csv(source)
     if frame.empty:
         return []
@@ -160,46 +236,23 @@ def _append_burst_rows(rows: list[dict[str, Any]]) -> list[Path]:
     data = data[data.get("seed", "").map(_is_seed_row)]
     data = data[pd.to_numeric(data.get("candidate_budget_M", pd.Series(dtype=float)), errors="coerce").eq(150)]
     for _, row in data.iterrows():
-        released = _num(row.get("released", 0))
-        mass = row.get("best_margin", row.get("mass_ratio", row.get("self_consistency_margin", "")))
-        empty_reason = _text(row.get("empty_reason", ""))
-        rows.append(
-                {
-                    "dataset": "BURST",
-                    "generator": "GroundingDINO",
-                    "alpha": 0.10,
-                    "certified_risk_level_alpha": 0.10,
-                    "M": 150,
-                    "seed": int(float(row.get("seed"))),
-                    "raw_topM_released": 150,
-                    "raw_topM_audited_false_rate": "",
-                    "raw_topM_unsupported_rate": "",
-                    "raw_topM_policy": "score_ranked_topM_reference_count_only",
-                    "parc_released": released,
-                    "parc_UTR": row.get("utr", ""),
-                    "parc_audited_FTR": row.get("audited_ftr_on_labeled_released", ""),
-                    "parc_conservative_FTR": row.get("conservative_ftr_uncertain_and_unlabeled_false", ""),
-                    "empirical_audited_FTR": row.get("audited_ftr_on_labeled_released", ""),
-                    "conservative_label_uncertainty_FTR": row.get("conservative_ftr_uncertain_and_unlabeled_false", ""),
-                    "mass_ratio": mass,
-                    "best_mass_ratio": mass,
-                    "self_consistency_margin": row.get("self_consistency_margin", ""),
-                    "required_emax": row.get("required_emax", ""),
-                    "max_observed_e": row.get("max_observed_e", ""),
-                    "mean_observed_e": row.get("mean_observed_e", ""),
-                    "selected_e_min": row.get("selected_e_min", ""),
-                    "selected_e_mean": row.get("selected_e_mean", ""),
-                    "selected_e_max": row.get("selected_e_max", ""),
-                    "release_feasible": bool(released > 0 or _num(mass, default=0.0) >= 1.0),
-                    "empty_reason": empty_reason,
-                    "safe_refusal_reason": _safe_reason(row),
-                    "HOTA_or_proxy": row.get("HOTA", ""),
-                    "IDF1_or_proxy": row.get("IDF1", ""),
-                    "MOTA_or_proxy": row.get("MOTA", ""),
-                    "runtime_sec": row.get("runtime_sec", ""),
-                    "paper_table_scope": "main_protocol",
-                }
-            )
+        rows.append(_main_protocol_row(row, dataset=dataset, generator=generator))
+    return [source]
+
+
+def _append_cross_dataset_tracker_rows(rows: list[dict[str, Any]]) -> list[Path]:
+    source = CROSS_DATASET_CERT
+    frame = _read_csv(source)
+    if frame.empty:
+        return []
+    data = frame.copy()
+    data = data[data.get("method", "").astype(str).eq("parc_track_gamma_tuned_uniform_scs")]
+    data = data[pd.to_numeric(data.get("alpha1", pd.Series(dtype=float)), errors="coerce").eq(0.10)]
+    data = data[data.get("seed", "").map(_is_seed_row)]
+    data = data[pd.to_numeric(data.get("candidate_budget_M", pd.Series(dtype=float)), errors="coerce").eq(150)]
+    data = data[data.get("dataset", "").astype(str).isin(["OVT-B", "TAO"])]
+    for _, row in data.iterrows():
+        rows.append(_main_protocol_row(row, dataset=_text(row.get("dataset")), generator="GroundingDINO + tracker"))
     return [source]
 
 
@@ -256,7 +309,10 @@ def _build_main_raw_vs_parc(out_dir: Path, started: float) -> Path:
                     "paper_table_scope": "main_protocol",
                 }
             )
-    source_paths = [source] + _append_burst_rows(rows)
+    source_paths = [source]
+    source_paths += _append_cross_dataset_tracker_rows(rows)
+    source_paths += _append_matrix_rows(rows, BURST_MATRIX, dataset="BURST", generator="GroundingDINO")
+    source_paths += _append_matrix_rows(rows, BURST_OWLV2_MATRIX, dataset="BURST", generator="OWLv2")
     out = _write_csv(
         pd.DataFrame(rows),
         out_dir / "table_main_raw_vs_parc.csv",
@@ -265,6 +321,75 @@ def _build_main_raw_vs_parc(out_dir: Path, started: float) -> Path:
         started,
     )
     return out
+
+
+def _build_main_protocol_coverage(out_dir: Path, main_path: Path, started: float) -> Path:
+    main = _read_csv(main_path)
+    included: dict[tuple[str, str], int] = {}
+    if not main.empty:
+        for (dataset, generator), group in main.groupby(["dataset", "generator"], dropna=False):
+            included[(_text(dataset), _text(generator))] = int(group["seed"].nunique())
+
+    expected_main = [
+        ("OVT-B", "GroundingDINO detector-only", "frozen black-box matrix"),
+        ("TAO", "GroundingDINO detector-only", "frozen black-box matrix"),
+        ("OVT-B", "GroundingDINO + tracker", "frozen cross-dataset certification matrix"),
+        ("TAO", "GroundingDINO + tracker", "frozen cross-dataset certification matrix"),
+        ("BURST", "GroundingDINO", "frozen BURST certification matrix"),
+        ("OVT-B", "OWLv2", "frozen black-box matrix"),
+        ("TAO", "OWLv2", "frozen black-box matrix"),
+        ("BURST", "OWLv2", "frozen BURST stress matrix"),
+        ("OVT-B", "OWL-ViT v1", "frozen black-box matrix"),
+        ("TAO", "OWL-ViT v1", "frozen black-box matrix"),
+    ]
+    appendix_only = [
+        ("OVT-B", "OVTrack official predictions"),
+        ("TAO", "OVTrack official predictions"),
+        ("OVT-B", "OVTR official predictions"),
+        ("TAO", "OVTR official predictions"),
+        ("OVT-B", "OVT-B baseline official predictions"),
+        ("TAO", "OVT-B baseline official predictions"),
+    ]
+
+    rows: list[dict[str, Any]] = []
+    for dataset, generator, source_basis in expected_main:
+        seeds = included.get((dataset, generator), 0)
+        rows.append(
+            {
+                "dataset": dataset,
+                "generator": generator,
+                "certified_risk_level_alpha": 0.10,
+                "M": 150,
+                "expected_seeds": "0;1;2",
+                "seeds_present": seeds,
+                "main_protocol_status": "included_main_table" if seeds else "external_candidate_universe_needed",
+                "source_basis": source_basis,
+                "paper_table_scope": "main_protocol_coverage",
+                "notes": "Main table uses frozen derived matrices; raw candidate regeneration requires original datasets and detector outputs.",
+            }
+        )
+    for dataset, generator in appendix_only:
+        rows.append(
+            {
+                "dataset": dataset,
+                "generator": generator,
+                "certified_risk_level_alpha": 0.10,
+                "M": 150,
+                "expected_seeds": "0;1;2",
+                "seeds_present": included.get((dataset, generator), 0),
+                "main_protocol_status": "appendix_only_official_prediction_metadata_incomplete",
+                "source_basis": "published tracker adapter/provenance records",
+                "paper_table_scope": "appendix_provenance_only",
+                "notes": "Excluded from core main table until official prediction hashes and conversion hashes are complete.",
+            }
+        )
+    return _write_csv(
+        pd.DataFrame(rows),
+        out_dir / "table_main_protocol_coverage.csv",
+        [main_path],
+        "python -m parc_track.cli phase14 closeout",
+        started,
+    )
 
 
 def _build_safe_refusal(out_dir: Path, main_path: Path, started: float) -> Path:
@@ -762,6 +887,7 @@ def run_phase14_closeout(out_dir: str | Path | None = None) -> dict[str, Any]:
     output_dir = ensure_data_output(out_dir or PAPER_TABLE_DIR)
     output_dir.mkdir(parents=True, exist_ok=True)
     main = _build_main_raw_vs_parc(output_dir, started)
+    coverage = _build_main_protocol_coverage(output_dir, main, started)
     refusal = _build_safe_refusal(output_dir, main, started)
     baseline, ablation = _build_baseline_and_ablation(output_dir, started)
     summary = _build_main_summary(output_dir, main, started)
@@ -771,6 +897,7 @@ def run_phase14_closeout(out_dir: str | Path | None = None) -> dict[str, Any]:
     gallery_outputs = _build_qualitative_gallery(started)
     outputs = [
         main,
+        coverage,
         summary,
         refusal,
         baseline,

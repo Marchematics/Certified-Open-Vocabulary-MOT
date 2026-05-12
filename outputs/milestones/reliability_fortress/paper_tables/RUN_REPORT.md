@@ -12,6 +12,7 @@ This directory contains sanitized paper-facing tables derived from frozen proven
 ## Tables
 
 - `table_main_raw_vs_parc.csv`
+- `table_main_protocol_coverage.csv`
 - `table_main_raw_vs_parc_summary.csv`
 - `table_safe_refusal_diagnostics.csv`
 - `table_baseline_comparison.csv`

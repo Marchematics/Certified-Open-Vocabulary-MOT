@@ -1,13 +1,18 @@
 {
-  "repo_commit": "unknown",
+  "repo_commit": "20152155345bebe2fb8aa04cfbc5aa290f6ac2c6",
   "command": "python -m parc_track.cli phase14 closeout",
-  "runtime_sec": 0.106743,
-  "source_files": [],
+  "runtime_sec": 0.224921,
+  "source_files": [
+    {
+      "path": "outputs/milestones/release_story/figure_release_story_teaser_manifest.csv",
+      "sha256": "61438a3c59aebb5ae12cc0a3da80c070fd879cbb23a11595497965c668e0ba8d"
+    }
+  ],
   "outputs": [
-    "/home/waas/paper_experiments/github/Certified-Open-Vocabulary-MOT/figures/released_examples/manifest.csv",
-    "/home/waas/paper_experiments/github/Certified-Open-Vocabulary-MOT/figures/refusal_examples/manifest.csv",
-    "/home/waas/paper_experiments/github/Certified-Open-Vocabulary-MOT/figures/borderline_examples/manifest.csv",
-    "/home/waas/paper_experiments/github/Certified-Open-Vocabulary-MOT/docs/qualitative_release_gallery.md"
+    "figures/released_examples/manifest.csv",
+    "figures/refusal_examples/manifest.csv",
+    "figures/borderline_examples/manifest.csv",
+    "docs/qualitative_release_gallery.md"
   ],
   "raw_data_included": false,
   "paper_facing_gallery": true

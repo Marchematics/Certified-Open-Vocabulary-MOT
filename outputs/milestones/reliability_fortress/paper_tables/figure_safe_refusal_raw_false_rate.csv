@@ -14,4 +14,10 @@ TAO,OWL-ViT v1,2,0.1,150,,,0.0,no_k_satisfies_uniform_self_consistency,0.0020608
 TAO,GroundingDINO detector-only,0,0.1,150,,,0.0,no_k_satisfies_uniform_self_consistency,0.0226472784572209,no_k_satisfies_uniform_self_consistency
 TAO,GroundingDINO detector-only,1,0.1,150,,,0.0,no_k_satisfies_uniform_self_consistency,0.0227121088145159,no_k_satisfies_uniform_self_consistency
 TAO,GroundingDINO detector-only,2,0.1,150,,,0.0,no_k_satisfies_uniform_self_consistency,0.0225175333176006,no_k_satisfies_uniform_self_consistency
-BURST,GroundingDINO,2,0.1,150,,,0.0,no_k_satisfies_uniform_self_consistency,-2.0774425199498765,no_k_satisfies_uniform_self_consistency
+TAO,GroundingDINO + tracker,0,0.1,150,,,0.0,no_k_satisfies_uniform_self_consistency,,no_k_satisfies_uniform_self_consistency
+TAO,GroundingDINO + tracker,1,0.1,150,,,0.0,no_k_satisfies_uniform_self_consistency,,no_k_satisfies_uniform_self_consistency
+TAO,GroundingDINO + tracker,2,0.1,150,,,0.0,no_k_satisfies_uniform_self_consistency,,no_k_satisfies_uniform_self_consistency
+BURST,GroundingDINO,2,0.1,150,,,0.0,no_k_satisfies_uniform_self_consistency,0.7922557480050123,no_k_satisfies_uniform_self_consistency
+BURST,OWLv2,0,0.1,150,,,0.0,no_k_satisfies_uniform_self_consistency,0.0831533391600178,no_k_satisfies_uniform_self_consistency
+BURST,OWLv2,1,0.1,150,,,0.0,no_k_satisfies_uniform_self_consistency,0.0766515245019775,no_k_satisfies_uniform_self_consistency
+BURST,OWLv2,2,0.1,150,,,0.0,no_k_satisfies_uniform_self_consistency,0.0600543449927483,no_k_satisfies_uniform_self_consistency

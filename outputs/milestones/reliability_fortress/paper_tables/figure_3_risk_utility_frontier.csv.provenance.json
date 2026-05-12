@@ -1,19 +1,19 @@
 {
   "table": "figure_3_risk_utility_frontier.csv",
-  "repo_commit": "065ad5e309c734045f7e4b0c4a332a3857c6bd5c",
+  "repo_commit": "20152155345bebe2fb8aa04cfbc5aa290f6ac2c6",
   "command": "python -m parc_track.cli phase14 closeout",
-  "runtime_sec": 0.106793,
+  "runtime_sec": 0.136819,
   "source_files": [
     {
       "path": "outputs/milestones/reliability_fortress/paper_tables/table_main_raw_vs_parc.csv",
-      "sha256": "885c1343e19d42bcdbd2ad41af51bbd50f3583640ac6bbe9d715afe8f0fb1729"
+      "sha256": "8ba8743ef0b9fedf825b336c5e4b52f513e15cdcd667725d5677342c821771f3"
     },
     {
       "path": "outputs/milestones/reliability_fortress/paper_tables/table_baseline_comparison.csv",
       "sha256": "2e8008f38a38618a5c9fc65a22ff5761eccda45275e8e2bc3f76569707d29778"
     }
   ],
-  "output_sha256": "ce82e720954fe5b981a955b1c4f5992b4ed2f4e52aae19c78c9c4b17243f7455",
+  "output_sha256": "47638d05cdf4fe6f655c4a7d84ff5e0a690fc9f0fa13773c18c5a38c418b2e4a",
   "config_sha256": "",
   "candidate_universe_sha256": "",
   "candidate_nodes_sha256": "",

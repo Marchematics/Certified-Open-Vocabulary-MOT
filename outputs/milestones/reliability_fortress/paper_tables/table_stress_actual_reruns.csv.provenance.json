@@ -1,8 +1,8 @@
 {
   "table": "table_stress_actual_reruns.csv",
-  "repo_commit": "065ad5e309c734045f7e4b0c4a332a3857c6bd5c",
+  "repo_commit": "20152155345bebe2fb8aa04cfbc5aa290f6ac2c6",
   "command": "python -m parc_track.cli phase14 closeout",
-  "runtime_sec": 0.145213,
+  "runtime_sec": 0.18159,
   "source_files": [
     {
       "path": "outputs/milestones/reliability_fortress/table_nonexchangeability_severe_actual_results.csv",
