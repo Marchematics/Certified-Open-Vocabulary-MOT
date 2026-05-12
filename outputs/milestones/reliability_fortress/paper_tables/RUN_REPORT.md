@@ -12,8 +12,15 @@ This directory contains sanitized paper-facing tables derived from frozen proven
 ## Tables
 
 - `table_main_raw_vs_parc.csv`
+- `table_main_raw_vs_parc_summary.csv`
 - `table_safe_refusal_diagnostics.csv`
 - `table_baseline_comparison.csv`
 - `table_ablation_components.csv`
+- `figure_risk_utility_frontier.csv`
+- `figure_safe_refusal_mass_ratio.csv`
+- `figure_safe_refusal_reason_counts.csv`
 - `table_stress_actual_reruns.csv`
 - `table_stress_appendix_projection_only.csv`
+
+Figure-ready CSVs are included in the same directory and are also covered by provenance sidecars.
+

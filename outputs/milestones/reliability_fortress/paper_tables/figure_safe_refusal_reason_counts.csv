@@ -1,0 +1,7 @@
+dataset,generator,safe_refusal_reason,refusal_seed_count,figure_role
+BURST,GroundingDINO,no_k_satisfies_uniform_self_consistency,1,safe_refusal_reason_counts
+OVT-B,OWL-ViT v1,no_k_satisfies_uniform_self_consistency,3,safe_refusal_reason_counts
+OVT-B,OWLv2,no_k_satisfies_uniform_self_consistency,3,safe_refusal_reason_counts
+TAO,GroundingDINO detector-only,no_k_satisfies_uniform_self_consistency,3,safe_refusal_reason_counts
+TAO,OWL-ViT v1,no_k_satisfies_uniform_self_consistency,3,safe_refusal_reason_counts
+TAO,OWLv2,no_k_satisfies_uniform_self_consistency,3,safe_refusal_reason_counts

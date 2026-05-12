@@ -246,6 +246,190 @@ def _build_safe_refusal(out_dir: Path, main_path: Path, started: float) -> Path:
     return out
 
 
+def _mean(series: pd.Series) -> float | str:
+    vals = pd.to_numeric(series, errors="coerce").dropna()
+    return float(vals.mean()) if not vals.empty else ""
+
+
+def _std(series: pd.Series) -> float | str:
+    vals = pd.to_numeric(series, errors="coerce").dropna()
+    return float(vals.std(ddof=0)) if len(vals) > 1 else 0.0 if len(vals) == 1 else ""
+
+
+def _build_main_summary(out_dir: Path, main_path: Path, started: float) -> Path:
+    main = _read_csv(main_path)
+    rows: list[dict[str, Any]] = []
+    if not main.empty:
+        for (dataset, generator), group in main.groupby(["dataset", "generator"], dropna=False):
+            released = pd.to_numeric(group["parc_released"], errors="coerce").fillna(0)
+            refusal = released.eq(0)
+            rows.append(
+                {
+                    "dataset": dataset,
+                    "generator": generator,
+                    "certified_risk_level_alpha": 0.10,
+                    "M": 150,
+                    "seeds": int(group["seed"].nunique()),
+                    "nonempty_seeds": int(released.gt(0).sum()),
+                    "safe_refusal_seeds": int(refusal.sum()),
+                    "parc_released_mean": _mean(group["parc_released"]),
+                    "parc_released_std": _std(group["parc_released"]),
+                    "parc_released_min": float(released.min()) if not released.empty else "",
+                    "parc_released_max": float(released.max()) if not released.empty else "",
+                    "raw_topM_released_mean": _mean(group["raw_topM_released"]),
+                    "parc_UTR_mean": _mean(group["parc_UTR"]),
+                    "conservative_label_uncertainty_FTR_mean": _mean(group["conservative_label_uncertainty_FTR"]),
+                    "mass_ratio_mean": _mean(group["mass_ratio"]),
+                    "mass_ratio_min": float(pd.to_numeric(group["mass_ratio"], errors="coerce").min())
+                    if pd.to_numeric(group["mass_ratio"], errors="coerce").notna().any()
+                    else "",
+                    "safe_refusal_rate": float(refusal.mean()) if len(refusal) else "",
+                    "dominant_safe_refusal_reason": ";".join(
+                        sorted(set(group["safe_refusal_reason"].fillna("").astype(str).loc[lambda s: s.ne("")]))
+                    ),
+                    "paper_table_scope": "main_protocol_summary",
+                }
+            )
+    return _write_csv(
+        pd.DataFrame(rows),
+        out_dir / "table_main_raw_vs_parc_summary.csv",
+        [main_path],
+        "python -m parc_track.cli phase14 closeout",
+        started,
+    )
+
+
+def _build_risk_utility_frontier(out_dir: Path, main_path: Path, baseline_path: Path, started: float) -> Path:
+    rows: list[dict[str, Any]] = []
+    main = _read_csv(main_path)
+    if not main.empty:
+        for _, row in main.iterrows():
+            rows.append(
+                {
+                    "dataset": row.get("dataset", ""),
+                    "source": row.get("generator", ""),
+                    "policy": "PARC_certified_release_or_refusal",
+                    "certified_risk_level_alpha": row.get("certified_risk_level_alpha", ""),
+                    "seed": row.get("seed", ""),
+                    "M": row.get("M", 150),
+                    "released": row.get("parc_released", ""),
+                    "release_rate_vs_M": _num(row.get("parc_released", 0)) / max(_num(row.get("M", 150), 150), 1),
+                    "UTR": row.get("parc_UTR", ""),
+                    "empirical_audited_FTR": row.get("empirical_audited_FTR", ""),
+                    "conservative_label_uncertainty_FTR": row.get("conservative_label_uncertainty_FTR", ""),
+                    "mass_ratio": row.get("mass_ratio", ""),
+                    "has_alpha_control": True,
+                    "release_decision": "refusal" if _num(row.get("parc_released", 0)) == 0 else "release",
+                    "safe_refusal_reason": row.get("safe_refusal_reason", ""),
+                    "figure_role": "main_parc_curve",
+                }
+            )
+            rows.append(
+                {
+                    "dataset": row.get("dataset", ""),
+                    "source": row.get("generator", ""),
+                    "policy": "raw_topM_count_reference_no_certificate",
+                    "certified_risk_level_alpha": "",
+                    "seed": row.get("seed", ""),
+                    "M": row.get("M", 150),
+                    "released": row.get("raw_topM_released", ""),
+                    "release_rate_vs_M": _num(row.get("raw_topM_released", 0)) / max(_num(row.get("M", 150), 150), 1),
+                    "UTR": "",
+                    "empirical_audited_FTR": "",
+                    "conservative_label_uncertainty_FTR": "",
+                    "mass_ratio": "",
+                    "has_alpha_control": False,
+                    "release_decision": "release",
+                    "safe_refusal_reason": "",
+                    "figure_role": "topM_reference_count_only",
+                }
+            )
+    baseline = _read_csv(baseline_path)
+    if not baseline.empty:
+        for _, row in baseline.iterrows():
+            rows.append(
+                {
+                    "dataset": row.get("dataset", ""),
+                    "source": "GroundingDINO",
+                    "policy": row.get("method", ""),
+                    "certified_risk_level_alpha": row.get("certified_risk_level_alpha", ""),
+                    "seed": row.get("seed", ""),
+                    "M": row.get("M", 150),
+                    "released": row.get("released", row.get("parc_released", "")),
+                    "release_rate_vs_M": _num(row.get("released", row.get("parc_released", 0))) / max(_num(row.get("M", 150), 150), 1),
+                    "UTR": row.get("UTR", ""),
+                    "empirical_audited_FTR": row.get("empirical_audited_FTR", ""),
+                    "conservative_label_uncertainty_FTR": row.get("conservative_label_uncertainty_FTR", ""),
+                    "mass_ratio": row.get("mass_ratio", ""),
+                    "has_alpha_control": str(row.get("method", "")).startswith("PARC"),
+                    "release_decision": "refusal" if _num(row.get("released", 0)) == 0 else "release",
+                    "safe_refusal_reason": row.get("safe_refusal_reason", ""),
+                    "figure_role": "baseline_comparison",
+                }
+            )
+    return _write_csv(
+        pd.DataFrame(rows),
+        out_dir / "figure_risk_utility_frontier.csv",
+        [main_path, baseline_path],
+        "python -m parc_track.cli phase14 closeout",
+        started,
+    )
+
+
+def _build_safe_refusal_figures(out_dir: Path, refusal_path: Path, started: float) -> tuple[Path, Path]:
+    refusal = _read_csv(refusal_path)
+    mass_rows: list[dict[str, Any]] = []
+    reason_rows: list[dict[str, Any]] = []
+    if not refusal.empty:
+        for _, row in refusal.iterrows():
+            mass = row.get("mass_ratio", "")
+            mass_rows.append(
+                {
+                    "dataset": row.get("dataset", ""),
+                    "generator": row.get("generator", ""),
+                    "seed": row.get("seed", ""),
+                    "certified_risk_level_alpha": row.get("certified_risk_level_alpha", ""),
+                    "M": row.get("M", 150),
+                    "mass_ratio": mass,
+                    "mass_ratio_threshold": 1.0,
+                    "unconstrained_feasible": _num(mass, default=0.0) >= 1.0,
+                    "safe_refusal_reason": row.get("safe_refusal_reason", ""),
+                    "empty_reason": row.get("empty_reason", ""),
+                    "figure_role": "safe_refusal_mass_ratio",
+                }
+            )
+        grouped = (
+            refusal.groupby(["dataset", "generator", "safe_refusal_reason"], dropna=False)
+            .size()
+            .reset_index(name="refusal_seed_count")
+        )
+        for _, row in grouped.iterrows():
+            reason_rows.append(
+                {
+                    "dataset": row.get("dataset", ""),
+                    "generator": row.get("generator", ""),
+                    "safe_refusal_reason": row.get("safe_refusal_reason", ""),
+                    "refusal_seed_count": row.get("refusal_seed_count", ""),
+                    "figure_role": "safe_refusal_reason_counts",
+                }
+            )
+    mass_path = _write_csv(
+        pd.DataFrame(mass_rows),
+        out_dir / "figure_safe_refusal_mass_ratio.csv",
+        [refusal_path],
+        "python -m parc_track.cli phase14 closeout",
+        started,
+    )
+    reason_path = _write_csv(
+        pd.DataFrame(reason_rows),
+        out_dir / "figure_safe_refusal_reason_counts.csv",
+        [refusal_path],
+        "python -m parc_track.cli phase14 closeout",
+        started,
+    )
+    return mass_path, reason_path
+
+
 def _build_baseline_and_ablation(out_dir: Path, started: float) -> tuple[Path, Path]:
     source = LVVIS_DIR / "table_baseline_expanded.csv"
     frame = _read_csv(source)
@@ -407,6 +591,7 @@ def _write_run_report(out_dir: Path, outputs: list[Path]) -> Path:
         "- Seeds: 0, 1, 2.\n\n"
         "## Tables\n\n"
         + "\n".join(f"- `{path.name}`" for path in outputs)
+        + "\n\nFigure-ready CSVs are included in the same directory and are also covered by provenance sidecars.\n"
         + "\n",
         encoding="utf-8",
     )
@@ -430,8 +615,11 @@ def run_phase14_closeout(out_dir: str | Path | None = None) -> dict[str, Any]:
     main = _build_main_raw_vs_parc(output_dir, started)
     refusal = _build_safe_refusal(output_dir, main, started)
     baseline, ablation = _build_baseline_and_ablation(output_dir, started)
+    summary = _build_main_summary(output_dir, main, started)
+    frontier = _build_risk_utility_frontier(output_dir, main, baseline, started)
+    safe_mass, safe_reasons = _build_safe_refusal_figures(output_dir, refusal, started)
     stress, projection = _build_stress_tables(output_dir, started)
-    outputs = [main, refusal, baseline, ablation, stress, projection]
+    outputs = [main, summary, refusal, baseline, ablation, frontier, safe_mass, safe_reasons, stress, projection]
     _validate_clean_tables(outputs)
     report = _write_run_report(output_dir, outputs)
     manifest = _write_manifest(output_dir)

@@ -1,0 +1,67 @@
+dataset,source,policy,certified_risk_level_alpha,seed,M,released,release_rate_vs_M,UTR,empirical_audited_FTR,conservative_label_uncertainty_FTR,mass_ratio,has_alpha_control,release_decision,safe_refusal_reason,figure_role
+OVT-B,OWLv2,PARC_certified_release_or_refusal,0.1,0,150,0.0,0.0,0.0,,0.0,0.0347132838396408,True,refusal,no_k_satisfies_uniform_self_consistency,main_parc_curve
+OVT-B,OWLv2,raw_topM_count_reference_no_certificate,,0,150,150.0,1.0,,,,,False,release,,topM_reference_count_only
+OVT-B,OWLv2,PARC_certified_release_or_refusal,0.1,1,150,0.0,0.0,0.0,,0.0,0.0192456733223414,True,refusal,no_k_satisfies_uniform_self_consistency,main_parc_curve
+OVT-B,OWLv2,raw_topM_count_reference_no_certificate,,1,150,150.0,1.0,,,,,False,release,,topM_reference_count_only
+OVT-B,OWLv2,PARC_certified_release_or_refusal,0.1,2,150,0.0,0.0,0.0,,0.0,0.0348655406041717,True,refusal,no_k_satisfies_uniform_self_consistency,main_parc_curve
+OVT-B,OWLv2,raw_topM_count_reference_no_certificate,,2,150,150.0,1.0,,,,,False,release,,topM_reference_count_only
+TAO,OWLv2,PARC_certified_release_or_refusal,0.1,0,150,0.0,0.0,0.0,,0.0,0.0251878412257681,True,refusal,no_k_satisfies_uniform_self_consistency,main_parc_curve
+TAO,OWLv2,raw_topM_count_reference_no_certificate,,0,150,150.0,1.0,,,,,False,release,,topM_reference_count_only
+TAO,OWLv2,PARC_certified_release_or_refusal,0.1,1,150,0.0,0.0,0.0,,0.0,0.0251559290221353,True,refusal,no_k_satisfies_uniform_self_consistency,main_parc_curve
+TAO,OWLv2,raw_topM_count_reference_no_certificate,,1,150,150.0,1.0,,,,,False,release,,topM_reference_count_only
+TAO,OWLv2,PARC_certified_release_or_refusal,0.1,2,150,0.0,0.0,0.0,,0.0,0.0251240107974674,True,refusal,no_k_satisfies_uniform_self_consistency,main_parc_curve
+TAO,OWLv2,raw_topM_count_reference_no_certificate,,2,150,150.0,1.0,,,,,False,release,,topM_reference_count_only
+OVT-B,OWL-ViT v1,PARC_certified_release_or_refusal,0.1,0,150,0.0,0.0,0.0,,0.0,0.0026593762559245,True,refusal,no_k_satisfies_uniform_self_consistency,main_parc_curve
+OVT-B,OWL-ViT v1,raw_topM_count_reference_no_certificate,,0,150,150.0,1.0,,,,,False,release,,topM_reference_count_only
+OVT-B,OWL-ViT v1,PARC_certified_release_or_refusal,0.1,1,150,0.0,0.0,0.0,,0.0,0.0025620321005338,True,refusal,no_k_satisfies_uniform_self_consistency,main_parc_curve
+OVT-B,OWL-ViT v1,raw_topM_count_reference_no_certificate,,1,150,150.0,1.0,,,,,False,release,,topM_reference_count_only
+OVT-B,OWL-ViT v1,PARC_certified_release_or_refusal,0.1,2,150,0.0,0.0,0.0,,0.0,0.0015772990392313,True,refusal,no_k_satisfies_uniform_self_consistency,main_parc_curve
+OVT-B,OWL-ViT v1,raw_topM_count_reference_no_certificate,,2,150,150.0,1.0,,,,,False,release,,topM_reference_count_only
+TAO,OWL-ViT v1,PARC_certified_release_or_refusal,0.1,0,150,0.0,0.0,0.0,,0.0,0.0020608227618976,True,refusal,no_k_satisfies_uniform_self_consistency,main_parc_curve
+TAO,OWL-ViT v1,raw_topM_count_reference_no_certificate,,0,150,150.0,1.0,,,,,False,release,,topM_reference_count_only
+TAO,OWL-ViT v1,PARC_certified_release_or_refusal,0.1,1,150,0.0,0.0,0.0,,0.0,0.0022139982858059,True,refusal,no_k_satisfies_uniform_self_consistency,main_parc_curve
+TAO,OWL-ViT v1,raw_topM_count_reference_no_certificate,,1,150,150.0,1.0,,,,,False,release,,topM_reference_count_only
+TAO,OWL-ViT v1,PARC_certified_release_or_refusal,0.1,2,150,0.0,0.0,0.0,,0.0,0.0020608227618976,True,refusal,no_k_satisfies_uniform_self_consistency,main_parc_curve
+TAO,OWL-ViT v1,raw_topM_count_reference_no_certificate,,2,150,150.0,1.0,,,,,False,release,,topM_reference_count_only
+OVT-B,GroundingDINO detector-only,PARC_certified_release_or_refusal,0.1,0,150,105.0,0.7,0.019047619047619,,0.0095238095238095,1.0642654355923875,True,release,,main_parc_curve
+OVT-B,GroundingDINO detector-only,raw_topM_count_reference_no_certificate,,0,150,150.0,1.0,,,,,False,release,,topM_reference_count_only
+OVT-B,GroundingDINO detector-only,PARC_certified_release_or_refusal,0.1,1,150,150.0,1.0,0.0266666666666666,,0.02,1.46913017622778,True,release,,main_parc_curve
+OVT-B,GroundingDINO detector-only,raw_topM_count_reference_no_certificate,,1,150,150.0,1.0,,,,,False,release,,topM_reference_count_only
+OVT-B,GroundingDINO detector-only,PARC_certified_release_or_refusal,0.1,2,150,150.0,1.0,0.02,,0.0066666666666666,2.0832338022762347,True,release,,main_parc_curve
+OVT-B,GroundingDINO detector-only,raw_topM_count_reference_no_certificate,,2,150,150.0,1.0,,,,,False,release,,topM_reference_count_only
+TAO,GroundingDINO detector-only,PARC_certified_release_or_refusal,0.1,0,150,0.0,0.0,0.0,,0.0,0.0226472784572209,True,refusal,no_k_satisfies_uniform_self_consistency,main_parc_curve
+TAO,GroundingDINO detector-only,raw_topM_count_reference_no_certificate,,0,150,150.0,1.0,,,,,False,release,,topM_reference_count_only
+TAO,GroundingDINO detector-only,PARC_certified_release_or_refusal,0.1,1,150,0.0,0.0,0.0,,0.0,0.0227121088145159,True,refusal,no_k_satisfies_uniform_self_consistency,main_parc_curve
+TAO,GroundingDINO detector-only,raw_topM_count_reference_no_certificate,,1,150,150.0,1.0,,,,,False,release,,topM_reference_count_only
+TAO,GroundingDINO detector-only,PARC_certified_release_or_refusal,0.1,2,150,0.0,0.0,0.0,,0.0,0.0225175333176006,True,refusal,no_k_satisfies_uniform_self_consistency,main_parc_curve
+TAO,GroundingDINO detector-only,raw_topM_count_reference_no_certificate,,2,150,150.0,1.0,,,,,False,release,,topM_reference_count_only
+BURST,GroundingDINO,PARC_certified_release_or_refusal,0.1,0,150,150.0,1.0,0.04,,0.04,9.611765316197866,True,release,,main_parc_curve
+BURST,GroundingDINO,raw_topM_count_reference_no_certificate,,0,150,150.0,1.0,,,,,False,release,,topM_reference_count_only
+BURST,GroundingDINO,PARC_certified_release_or_refusal,0.1,1,150,150.0,1.0,0.04,,0.04,3.898344569291231,True,release,,main_parc_curve
+BURST,GroundingDINO,raw_topM_count_reference_no_certificate,,1,150,150.0,1.0,,,,,False,release,,topM_reference_count_only
+BURST,GroundingDINO,PARC_certified_release_or_refusal,0.1,2,150,0.0,0.0,0.0,,,-2.0774425199498765,True,refusal,no_k_satisfies_uniform_self_consistency,main_parc_curve
+BURST,GroundingDINO,raw_topM_count_reference_no_certificate,,2,150,150.0,1.0,,,,,False,release,,topM_reference_count_only
+LVVIS,GroundingDINO,unmatched_as_false_block_calibration,0.1,0,150,150.0,1.0,0.02,,0.02,2.298373876248844,False,release,,baseline_comparison
+LVVIS,GroundingDINO,null_superset_without_audit,0.1,0,150,150.0,1.0,0.02,,0.02,24.74771639560636,False,release,,baseline_comparison
+LVVIS,GroundingDINO,PARC_full,0.1,0,150,150.0,1.0,0.02,,0.02,24.74771639560636,True,release,,baseline_comparison
+LVVIS,GroundingDINO,score_threshold,0.1,0,150,150.0,1.0,0.02,,0.02,,False,release,,baseline_comparison
+LVVIS,GroundingDINO,tracklet_p_BH,0.1,0,150,150.0,1.0,0.02,,0.02,,False,release,,baseline_comparison
+LVVIS,GroundingDINO,tracklet_e_BH,0.1,0,150,150.0,1.0,0.02,,0.02,,False,release,,baseline_comparison
+LVVIS,GroundingDINO,post_filter_e_BH,0.1,0,150,150.0,1.0,0.02,,0.02,,False,release,,baseline_comparison
+LVVIS,GroundingDINO,topM_no_risk,0.1,0,150,150.0,1.0,0.02,,0.02,,False,release,,baseline_comparison
+LVVIS,GroundingDINO,unmatched_as_false_block_calibration,0.1,1,150,0.0,0.0,0.0,,,-2.324810954158881,False,refusal,no_k_satisfies_uniform_self_consistency,baseline_comparison
+LVVIS,GroundingDINO,null_superset_without_audit,0.1,1,150,150.0,1.0,0.0066666666666666,,0.0066666666666666,8.145651070951104,False,release,,baseline_comparison
+LVVIS,GroundingDINO,PARC_full,0.1,1,150,150.0,1.0,0.0066666666666666,,0.0066666666666666,8.145651070951104,True,release,,baseline_comparison
+LVVIS,GroundingDINO,score_threshold,0.1,1,150,150.0,1.0,0.0066666666666666,,0.0066666666666666,,False,release,,baseline_comparison
+LVVIS,GroundingDINO,tracklet_p_BH,0.1,1,150,150.0,1.0,0.0066666666666666,,0.0066666666666666,,False,release,,baseline_comparison
+LVVIS,GroundingDINO,tracklet_e_BH,0.1,1,150,150.0,1.0,0.0066666666666666,,0.0066666666666666,,False,release,,baseline_comparison
+LVVIS,GroundingDINO,post_filter_e_BH,0.1,1,150,150.0,1.0,0.0066666666666666,,0.0066666666666666,,False,release,,baseline_comparison
+LVVIS,GroundingDINO,topM_no_risk,0.1,1,150,150.0,1.0,0.0066666666666666,,0.0066666666666666,,False,release,,baseline_comparison
+LVVIS,GroundingDINO,unmatched_as_false_block_calibration,0.1,2,150,0.0,0.0,0.0,,,-2.923042084812618,False,refusal,no_k_satisfies_uniform_self_consistency,baseline_comparison
+LVVIS,GroundingDINO,null_superset_without_audit,0.1,2,150,150.0,1.0,0.0066666666666666,,0.0066666666666666,12.165705055628656,False,release,,baseline_comparison
+LVVIS,GroundingDINO,PARC_full,0.1,2,150,150.0,1.0,0.0066666666666666,,0.0066666666666666,12.165705055628656,True,release,,baseline_comparison
+LVVIS,GroundingDINO,score_threshold,0.1,2,150,150.0,1.0,0.0066666666666666,,0.0066666666666666,,False,release,,baseline_comparison
+LVVIS,GroundingDINO,tracklet_p_BH,0.1,2,150,150.0,1.0,0.0066666666666666,,0.0066666666666666,,False,release,,baseline_comparison
+LVVIS,GroundingDINO,tracklet_e_BH,0.1,2,150,150.0,1.0,0.0066666666666666,,0.0066666666666666,,False,release,,baseline_comparison
+LVVIS,GroundingDINO,post_filter_e_BH,0.1,2,150,150.0,1.0,0.0066666666666666,,0.0066666666666666,,False,release,,baseline_comparison
+LVVIS,GroundingDINO,topM_no_risk,0.1,2,150,150.0,1.0,0.0066666666666666,,0.0066666666666666,,False,release,,baseline_comparison

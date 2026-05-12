@@ -1,8 +1,8 @@
 {
   "table": "table_ablation_components.csv",
-  "repo_commit": "163578611053d73705a2d321a971d3485b84ba32",
+  "repo_commit": "5e51e9ccb075643e13a686ee7c384bafc11df837",
   "command": "python -m parc_track.cli phase14 closeout",
-  "runtime_sec": 0.060781,
+  "runtime_sec": 0.06582,
   "source_files": [
     {
       "path": "outputs/milestones/lvvis_certification/table_baseline_expanded.csv",

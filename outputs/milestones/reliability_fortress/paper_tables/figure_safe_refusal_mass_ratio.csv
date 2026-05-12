@@ -1,0 +1,17 @@
+dataset,generator,seed,certified_risk_level_alpha,M,mass_ratio,mass_ratio_threshold,unconstrained_feasible,safe_refusal_reason,empty_reason,figure_role
+OVT-B,OWLv2,0,0.1,150,0.0347132838396408,1.0,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,safe_refusal_mass_ratio
+OVT-B,OWLv2,1,0.1,150,0.0192456733223414,1.0,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,safe_refusal_mass_ratio
+OVT-B,OWLv2,2,0.1,150,0.0348655406041717,1.0,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,safe_refusal_mass_ratio
+TAO,OWLv2,0,0.1,150,0.0251878412257681,1.0,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,safe_refusal_mass_ratio
+TAO,OWLv2,1,0.1,150,0.0251559290221353,1.0,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,safe_refusal_mass_ratio
+TAO,OWLv2,2,0.1,150,0.0251240107974674,1.0,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,safe_refusal_mass_ratio
+OVT-B,OWL-ViT v1,0,0.1,150,0.0026593762559245,1.0,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,safe_refusal_mass_ratio
+OVT-B,OWL-ViT v1,1,0.1,150,0.0025620321005338,1.0,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,safe_refusal_mass_ratio
+OVT-B,OWL-ViT v1,2,0.1,150,0.0015772990392313,1.0,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,safe_refusal_mass_ratio
+TAO,OWL-ViT v1,0,0.1,150,0.0020608227618976,1.0,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,safe_refusal_mass_ratio
+TAO,OWL-ViT v1,1,0.1,150,0.0022139982858059,1.0,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,safe_refusal_mass_ratio
+TAO,OWL-ViT v1,2,0.1,150,0.0020608227618976,1.0,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,safe_refusal_mass_ratio
+TAO,GroundingDINO detector-only,0,0.1,150,0.0226472784572209,1.0,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,safe_refusal_mass_ratio
+TAO,GroundingDINO detector-only,1,0.1,150,0.0227121088145159,1.0,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,safe_refusal_mass_ratio
+TAO,GroundingDINO detector-only,2,0.1,150,0.0225175333176006,1.0,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,safe_refusal_mass_ratio
+BURST,GroundingDINO,2,0.1,150,-2.0774425199498765,1.0,False,no_k_satisfies_uniform_self_consistency,no_k_satisfies_uniform_self_consistency,safe_refusal_mass_ratio

@@ -182,6 +182,8 @@ def test_closeout_tables_are_clean_and_have_refusal_diagnostics(tmp_path: Path, 
 
     main = pd.read_csv(out_dir / "table_main_raw_vs_parc.csv")
     assert "OVTR" not in set(main["generator"])
+    summary = pd.read_csv(out_dir / "table_main_raw_vs_parc_summary.csv")
+    assert {"nonempty_seeds", "safe_refusal_rate"}.issubset(summary.columns)
     refusal = pd.read_csv(out_dir / "table_safe_refusal_diagnostics.csv")
     assert not refusal.empty
     assert refusal["safe_refusal_reason"].fillna("").astype(str).str.len().gt(0).all()
@@ -189,6 +191,12 @@ def test_closeout_tables_are_clean_and_have_refusal_diagnostics(tmp_path: Path, 
         refusal["mass_ratio"].notna()
         | refusal["empty_reason"].fillna("").astype(str).str.len().gt(0)
     ).all()
+    frontier = pd.read_csv(out_dir / "figure_risk_utility_frontier.csv")
+    assert {"PARC_certified_release_or_refusal", "raw_topM_count_reference_no_certificate"}.issubset(
+        set(frontier["policy"])
+    )
+    safe_mass = pd.read_csv(out_dir / "figure_safe_refusal_mass_ratio.csv")
+    assert {"mass_ratio", "mass_ratio_threshold", "unconstrained_feasible"}.issubset(safe_mass.columns)
     provenance = json.loads((out_dir / "table_main_raw_vs_parc.csv.provenance.json").read_text())
     assert provenance["paper_facing_table"] is True
     assert provenance["source_files"]

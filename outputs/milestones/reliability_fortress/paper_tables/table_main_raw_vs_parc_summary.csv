@@ -1,0 +1,8 @@
+dataset,generator,certified_risk_level_alpha,M,seeds,nonempty_seeds,safe_refusal_seeds,parc_released_mean,parc_released_std,parc_released_min,parc_released_max,raw_topM_released_mean,parc_UTR_mean,conservative_label_uncertainty_FTR_mean,mass_ratio_mean,mass_ratio_min,safe_refusal_rate,dominant_safe_refusal_reason,paper_table_scope
+BURST,GroundingDINO,0.1,150,3,2,1,100.0,70.71067811865476,0.0,150.0,150.0,0.02666666666666667,0.04,3.8108891218464067,-2.0774425199498765,0.3333333333333333,no_k_satisfies_uniform_self_consistency,main_protocol_summary
+OVT-B,GroundingDINO detector-only,0.1,150,3,3,0,135.0,21.213203435596427,105.0,150.0,150.0,0.021904761904761868,0.012063492063492033,1.5388764713654675,1.0642654355923875,0.0,,main_protocol_summary
+OVT-B,OWL-ViT v1,0.1,150,3,0,3,0.0,0.0,0.0,0.0,150.0,0.0,0.0,0.0022662357985632,0.0015772990392313,1.0,no_k_satisfies_uniform_self_consistency,main_protocol_summary
+OVT-B,OWLv2,0.1,150,3,0,3,0.0,0.0,0.0,0.0,150.0,0.0,0.0,0.0296081659220513,0.0192456733223414,1.0,no_k_satisfies_uniform_self_consistency,main_protocol_summary
+TAO,GroundingDINO detector-only,0.1,150,3,0,3,0.0,0.0,0.0,0.0,150.0,0.0,0.0,0.022625640196445803,0.0225175333176006,1.0,no_k_satisfies_uniform_self_consistency,main_protocol_summary
+TAO,OWL-ViT v1,0.1,150,3,0,3,0.0,0.0,0.0,0.0,150.0,0.0,0.0,0.002111881269867033,0.0020608227618976,1.0,no_k_satisfies_uniform_self_consistency,main_protocol_summary
+TAO,OWLv2,0.1,150,3,0,3,0.0,0.0,0.0,0.0,150.0,0.0,0.0,0.025155927015123602,0.0251240107974674,1.0,no_k_satisfies_uniform_self_consistency,main_protocol_summary
