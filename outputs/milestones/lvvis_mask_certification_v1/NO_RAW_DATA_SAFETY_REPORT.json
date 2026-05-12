@@ -1,0 +1,19 @@
+{
+  "status": "public_safe_derived_mask_bundle",
+  "excluded": [
+    "raw frames",
+    "raw annotations",
+    "model weights",
+    "HF cache",
+    "GPU cache",
+    "detector cache"
+  ],
+  "contains_sam_rle_masks_for_candidate_nodes": true,
+  "contains_raw_image_files": false,
+  "contains_official_raw_annotation_json": false,
+  "path_placeholders": [
+    "${PARC_TRACK_ROOT}",
+    "${PUBLIC_DATASETS_ROOT}",
+    "${HOME}"
+  ]
+}

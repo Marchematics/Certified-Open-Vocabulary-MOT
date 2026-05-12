@@ -1,0 +1,10 @@
+{
+  "source_annotation": "${PARC_TRACK_ROOT}/data/OVT-B/ovtb_ann.json",
+  "output_annotation": "${PARC_TRACK_ROOT}/outputs/phase12_lvvis/lvvis_ovtb_ann.json",
+  "video_prefix": "LVVIS/",
+  "videos": 1777,
+  "images": 39865,
+  "tracks": 11020,
+  "annotations": 232378,
+  "categories": 1018
+}

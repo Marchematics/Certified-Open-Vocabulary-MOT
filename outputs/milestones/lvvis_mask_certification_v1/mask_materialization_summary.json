@@ -1,0 +1,36 @@
+{
+  "status": "completed",
+  "mask_source": "sam_vit_b_box_prompt",
+  "checkpoint": "${PUBLIC_DATASETS_ROOT}/ComfyUI/models/sams/sam_vit_b_01ec64.pth",
+  "num_shards": 4,
+  "candidate_node_rows": 53828,
+  "mask_node_rows": 53828,
+  "unique_paths": 12462,
+  "unique_images": 14083,
+  "missing_node_rows": 0,
+  "num_failures": 0,
+  "shards": [
+    {
+      "shard_index": 0,
+      "output_mask_rows": 13476,
+      "num_failures": 0
+    },
+    {
+      "shard_index": 1,
+      "output_mask_rows": 13419,
+      "num_failures": 0
+    },
+    {
+      "shard_index": 2,
+      "output_mask_rows": 13454,
+      "num_failures": 0
+    },
+    {
+      "shard_index": 3,
+      "output_mask_rows": 13479,
+      "num_failures": 0
+    }
+  ],
+  "mask_nodes_csv": "${PARC_TRACK_ROOT}/outputs/phase12_lvvis_mask/mask_nodes_sam_vit_b.csv",
+  "sha256": "84f7c180b3c07b0e19dd66ebb821f3271155fbd9627fbe0201e3bbc8c602acb4"
+}
