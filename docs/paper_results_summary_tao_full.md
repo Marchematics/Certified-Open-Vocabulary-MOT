@@ -1,19 +1,15 @@
-# PARC-Track Paper Results Summary
+# TAO Result Summary
 
-This summary freezes the current release-core evidence bundle. GroundingDINO proposals are treated as a scaffold generator, not a final OVMOT backbone claim.
+This historical TAO summary is superseded by the final release index in
+`docs/paper_results_summary.md`.
 
-## Frozen Files
-- `audit_summary.csv`
-- `table_baseline_expanded.csv`
-- `table_alpha_sweep.csv`
-- `table_main_fixed_m.csv`
-- `table_main_tuned_m.csv`
-- `table_best_m_diagnostic.csv`
-- `table_seed_empty_diagnostics.csv`
-- `table_alpha_sweep_meanstd.csv`
-- `table_baseline_expanded_meanstd.csv`
+The TAO evidence now lives in:
 
-## Next Required Evidence
-- OVT-B alpha/M/seed matrix.
-- TAO/OV-TAO transfer audit/certification.
-- CLEAR-MOT IDSW real evaluator table.
+- `outputs/milestones/reliability_fortress/`
+- `outputs/milestones/legacy_core_results/tao_full_clean/`
+- `outputs/milestones/legacy_core_results/cross_dataset/`
+- `outputs/milestones/legacy_core_results/trackeval/`
+
+The current release includes TAO audit/certification results, baseline
+comparisons, alpha/M diagnostics, metric-scope exports where applicable,
+Prop. 5 mass-ratio diagnostics, and published-tracker/refusal analysis.

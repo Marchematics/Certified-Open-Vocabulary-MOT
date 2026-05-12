@@ -1,4 +1,4 @@
-# LVVIS Certification Coverage Experiment v1
+# LVVIS Certification Coverage Experiment
 
 ## Purpose
 This milestone tests whether moving from the 20-video OVIS subset to the full LVVIS split inside the OVT-B unified annotation increases calibration coverage enough for PARC-Track certification.

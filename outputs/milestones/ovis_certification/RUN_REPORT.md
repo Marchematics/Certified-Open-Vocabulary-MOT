@@ -1,4 +1,4 @@
-# OVIS Certification v1
+# OVIS Certification
 
 This milestone evaluates the OVIS subset contained in the local OVT-B-format annotation as an OVIS-in-OVT-B bbox certification scaffold. It is **not** a full official O-VIS mask benchmark.
 

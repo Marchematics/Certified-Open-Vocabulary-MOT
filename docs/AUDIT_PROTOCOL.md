@@ -1,4 +1,4 @@
-# PARC-Track Audit Protocol v2
+# PARC-Track Audit Protocol
 
 - Labels: `actually_true`, `actually_false`, `uncertain` only.
 - `verified_positive_for_calibration=yes` only when the path is a high-precision one-sided positive.

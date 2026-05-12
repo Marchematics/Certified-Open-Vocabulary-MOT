@@ -1,4 +1,4 @@
-# LVVIS SAM Mask-Path Certification v1
+# LVVIS SAM Mask-Path Certification
 
 ## Purpose
 This milestone upgrades the LVVIS box-path coverage experiment into a SAM-derived mask-path benchmark. The local LVVIS/OVT-B unified annotation contains boxes but no official segmentation masks, so masks are generated from each candidate box with SAM box prompts and evaluated through mask-IoU conflicts. This is a full candidate-node mask materialization over the LVVIS scaffold, not a claim of official LVVIS ground-truth mask evaluation.
