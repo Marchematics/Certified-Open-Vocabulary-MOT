@@ -1,0 +1,10 @@
+{
+  "source_annotation": "${PARC_TRACK_ROOT}/data/OVT-B/ovtb_ann.json",
+  "output_annotation": "${PARC_TRACK_ROOT}/outputs/phase12_ovis/ovis_ovtb_ann.json",
+  "video_prefix": "OVIS/",
+  "videos": 20,
+  "images": 2284,
+  "tracks": 142,
+  "annotations": 14379,
+  "categories": 5
+}

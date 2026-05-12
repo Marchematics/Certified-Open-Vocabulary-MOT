@@ -1,0 +1,17 @@
+method,alpha1,candidate_budget_M,released_mean,released_std,utr_mean,conservative_ftr_mean,margin_mean,nonempty_rate
+confidence_threshold,0.1,150,69.33333333333333,16.77299416721217,0.051666666666666666,0.051666666666666666,,1.0
+confidence_threshold,0.2,150,72.0,17.349351572897472,0.05434844792274512,0.05434844792274512,,1.0
+greedy_score_no_risk,0.1,150,101.66666666666667,12.897028081435401,0.12502932207365705,0.12502932207365705,,1.0
+greedy_score_no_risk,0.2,150,101.66666666666667,12.897028081435401,0.12502932207365705,0.12502932207365705,,1.0
+null_superset_no_audit,0.1,150,0.0,0.0,0.0,,,0.0
+null_superset_no_audit,0.2,150,0.0,0.0,0.0,,,0.0
+parc_track_gamma_tuned_uniform_scs,0.1,150,0.0,0.0,0.0,,,0.0
+parc_track_gamma_tuned_uniform_scs,0.2,150,0.0,0.0,0.0,,,0.0
+post_filter_e_bh,0.1,150,0.0,0.0,0.0,,,0.0
+post_filter_e_bh,0.2,150,0.0,0.0,0.0,,,0.0
+tracklet_e_bh,0.1,150,0.0,0.0,0.0,,,0.0
+tracklet_e_bh,0.2,150,0.0,0.0,0.0,,,0.0
+tracklet_p_bh,0.1,150,0.0,0.0,0.0,,,0.0
+tracklet_p_bh,0.2,150,23.333333333333332,40.414518843273804,0.014285714285714285,0.04285714285714286,,0.3333333333333333
+unmatched_as_false_block,0.1,150,0.0,0.0,0.0,,,0.0
+unmatched_as_false_block,0.2,150,0.0,0.0,0.0,,,0.0

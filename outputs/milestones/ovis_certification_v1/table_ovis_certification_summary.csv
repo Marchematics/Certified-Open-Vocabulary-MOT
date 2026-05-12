@@ -1,0 +1,7 @@
+alpha1,seed,candidate_budget_M,released,official_supported,unsupported,utr,max_observed_e,emax_effective,required_emax,release_feasible,best_margin,empty_reason,empty_diagnostic,n_cal_total,n_covered,n_rank_denominator
+0.1,0,150,0,0,0,0.0,1.323368445069401,1.323368445069401,10.0,False,-15.969618141146734,no_k_satisfies_uniform_self_consistency,resolution_below_required_emax,10.0,6.0,6.0
+0.1,1,150,0,0,0,0.0,1.323368445069401,1.323368445069401,10.0,False,-14.79222410660984,no_k_satisfies_uniform_self_consistency,resolution_below_required_emax,10.0,6.0,6.0
+0.1,2,150,0,0,0,0.0,1.4153009211281145,1.4153009211281145,10.0,False,-12.450136135795631,no_k_satisfies_uniform_self_consistency,resolution_below_required_emax,10.0,7.0,7.0
+0.2,0,150,0,0,0,0.0,1.323368445069401,1.323368445069401,5.0,False,-7.727859899388492,no_k_satisfies_uniform_self_consistency,resolution_below_required_emax,10.0,6.0,6.0
+0.2,1,150,0,0,0,0.0,1.323368445069401,1.323368445069401,5.0,False,-7.139162882120045,no_k_satisfies_uniform_self_consistency,resolution_below_required_emax,10.0,6.0,6.0
+0.2,2,150,0,0,0,0.0,1.4153009211281145,1.4153009211281145,5.0,False,-5.984618894416322,no_k_satisfies_uniform_self_consistency,resolution_below_required_emax,10.0,7.0,7.0
