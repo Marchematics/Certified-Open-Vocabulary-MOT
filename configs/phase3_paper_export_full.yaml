@@ -15,5 +15,5 @@ reporting:
   tuned_m_selection: ./outputs/phase3_ovtb_full/tuned_m_selection.csv
 
 output:
-  output_dir: ./outputs/milestones/ijcv_full_ovtb_v1
+  output_dir: ./outputs/milestones/full_ovtb
   docs_summary: ./docs/paper_results_summary_full_ovtb.md

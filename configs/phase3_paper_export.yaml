@@ -17,5 +17,5 @@ reporting:
   # tuned_m_selection: ./outputs/phase3_ovtb/tuned_m_selection.csv
 
 output:
-  output_dir: ./outputs/milestones/tpami_core_v1
+  output_dir: ./outputs/milestones/core_results
   docs_summary: ./docs/paper_results_summary.md

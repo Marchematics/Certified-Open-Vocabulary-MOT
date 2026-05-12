@@ -22,4 +22,4 @@ TAO `alpha=0.10` PARC best-M diagnostic now has all released unsupported paths c
     2                 150       142 0.007042                                        0.000000                 0.016582
 ```
 
-Bundle: `./outputs/milestones/ijcv_cross_dataset_v6`
+Bundle: `./outputs/milestones/cross_dataset`

@@ -489,7 +489,7 @@ def export_matrix_release_audit_candidates(
 
 def run_cross_generator_report(config_path: str | Path) -> dict[str, Any]:
     cfg = load_yaml(config_path)
-    output_dir = ensure_data_output(cfg.get("output", {}).get("output_dir", DATA_ROOT / "outputs/milestones/ijcv_cross_generator_v1"))
+    output_dir = ensure_data_output(cfg.get("output", {}).get("output_dir", DATA_ROOT / "outputs/milestones/cross_generator"))
     generators = cfg.get("generators", [])
     fixed_m = int(cfg.get("reporting", {}).get("fixed_M", 150))
     method = str(cfg.get("reporting", {}).get("method", "parc_track_gamma_tuned_uniform_scs"))
@@ -1011,9 +1011,9 @@ def _derive_matrix_tables(matrix_path: Path, output_dir: Path, cfg: dict[str, An
     return derived
 
 
-def run_tpami_report(config_path: str | Path) -> dict[str, Any]:
+def run_release_core_report(config_path: str | Path) -> dict[str, Any]:
     cfg = load_yaml(config_path)
-    output_dir = ensure_data_output(cfg.get("output", {}).get("output_dir", DATA_ROOT / "outputs/milestones/tpami_core_v1"))
+    output_dir = ensure_data_output(cfg.get("output", {}).get("output_dir", DATA_ROOT / "outputs/milestones/core_results"))
     docs_out = ensure_data_output(cfg.get("output", {}).get("docs_summary", DATA_ROOT / "docs/paper_results_summary.md"))
     source_paths = [Path(path) for path in cfg.get("sources", [])]
     copied: list[str] = []
@@ -1064,7 +1064,7 @@ def run_tpami_report(config_path: str | Path) -> dict[str, Any]:
     lines = [
         "# PARC-Track Paper Results Summary",
         "",
-        "This summary freezes the current TPAMI-core evidence bundle. GroundingDINO proposals are treated as a scaffold generator, not a final OVMOT backbone claim.",
+        "This summary freezes the current release-core evidence bundle. GroundingDINO proposals are treated as a scaffold generator, not a final OVMOT backbone claim.",
         "",
         "## Frozen Files",
     ]

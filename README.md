@@ -2,7 +2,7 @@
 
 PARC-Track is a post-hoc certification layer for open-vocabulary multi-object tracking (OVMOT) proposal generators. It takes candidate tracklets from an external detector/tracker, calibrates against a null-superset under partial annotations, and releases only a self-consistent certified subset.
 
-This repository is the public-safe reproducibility package for the  reliability-fortress version of the project. It contains the certification code, frozen configs, audit benchmark CSVs, result tables, tiny fixtures, and documentation needed to reproduce the certification flow without redistributing raw benchmark videos, raw annotations, model weights, or local caches.
+This repository is the public-safe reproducibility package for the final reliability-fortress release of the project. It contains the certification code, frozen configs, audit benchmark CSVs, result tables, tiny fixtures, and documentation needed to reproduce the certification flow without redistributing raw benchmark videos, raw annotations, model weights, or local caches.
 
 ## Repository Layout
 
@@ -17,8 +17,8 @@ parc-track/
 ├── code/parc_track/                  # Python package and CLI
 ├── configs/                          # Frozen experiment configs, sanitized paths
 ├── outputs/
-│   ├── milestones/tpami_reliability_fortress_v2/
-│   └── benchmarks/parc_certification_benchmark_v1/
+│   ├── milestones/reliability_fortress/
+│   └── benchmarks/parc_certification_benchmark/
 ├── tests/                            # pytest suite and tiny fixtures
 ├── scripts/                          # public-safe helper scripts
 ├── tools/                            # notes for external metric/export tooling
@@ -28,7 +28,7 @@ parc-track/
 ## What Is Included
 
 - PARC-Track certification code: null-superset block calibration, coverage-conditional empty-block handling, e-value generation, finite-resolution diagnostics, SCS-Greedy release, report builders, TrackEval export helpers, and adapter utilities.
-- Audit benchmark: `outputs/benchmarks/parc_certification_benchmark_v1/audit/` and the full frozen milestone under `outputs/milestones/tpami_reliability_fortress_v2/`.
+- Audit benchmark: `outputs/benchmarks/parc_certification_benchmark/audit/` and the full frozen milestone under `outputs/milestones/reliability_fortress/`.
 - Result tables for OVT-B, TAO, BURST, black-box generators, published-tracker adapters, non-exchangeability stress tests, null-inflation sensitivity, OVVIS mask-path scaffold, Mondrian/per-class/runtime/anytime diagnostics, and Prop. 5 high-evidence mass diagnostics.
 - Tiny fixture for validating the full schema-to-certification path without downloading external datasets.
 
@@ -58,8 +58,8 @@ For full benchmark reproduction, see `REPRODUCIBILITY.md`.
 
 ## Main Frozen Artifacts
 
-- Final reliability milestone: `outputs/milestones/tpami_reliability_fortress_v2/`
-- Community benchmark: `outputs/benchmarks/parc_certification_benchmark_v1/`
+- Final reliability milestone: `outputs/milestones/reliability_fortress/`
+- Community benchmark: `outputs/benchmarks/parc_certification_benchmark/`
 - File integrity manifest: `MANIFEST_SHA256.txt`
 
 ## Citation

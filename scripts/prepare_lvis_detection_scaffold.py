@@ -209,9 +209,9 @@ def main() -> None:
     repo_root = Path(os.environ.get("PARC_REPO_ROOT", "."))
     parser.add_argument("--lvis-ann", default=str(raw_root / "LVIS/annotations/lvis_v1_val.json"))
     parser.add_argument("--coco-val-root", default=str(raw_root / "COCO"))
-    parser.add_argument("--out-ann", default=str(track_root / "outputs/phase11_nmi/lvis_detection/lvis_pseudo_tracking_ann.json"))
+    parser.add_argument("--out-ann", default=str(track_root / "outputs/phase11_release/lvis_detection/lvis_pseudo_tracking_ann.json"))
     parser.add_argument("--config-dir", default=str(repo_root / "configs"))
-    parser.add_argument("--output-root", default=str(track_root / "outputs/phase11_nmi/lvis_detection"))
+    parser.add_argument("--output-root", default=str(track_root / "outputs/phase11_release/lvis_detection"))
     parser.add_argument("--shards", type=int, default=4)
     args = parser.parse_args()
 

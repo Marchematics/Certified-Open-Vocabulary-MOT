@@ -17,4 +17,4 @@ reporting:
   method: parc_track_gamma_tuned_uniform_scs
 
 output:
-  output_dir: ./outputs/milestones/ijcv_cross_generator_v1
+  output_dir: ./outputs/milestones/cross_generator

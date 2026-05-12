@@ -89,7 +89,7 @@ def _base_matrix_config(dataset: str, output_dir: Path, labels_path: Path, *, sp
 
 
 def _read_final_audit_labels() -> pd.DataFrame:
-    path = DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_2000_human_reviewed_v1.csv"
+    path = DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_2000_human_reviewed.csv"
     labels = pd.read_csv(path)
     for column in ("dataset", "video_id", "path_id", "label", "verified_positive_for_calibration"):
         if column not in labels:

@@ -20,7 +20,7 @@ from .phase3 import (
     run_cross_generator_report,
     run_idsw_eval,
     run_ovtb_matrix,
-    run_tpami_report,
+    run_release_core_report,
     run_tuned_m_selection,
 )
 from .phase4 import (
@@ -56,8 +56,8 @@ from .phase9 import (
     run_certification_api_package,
     run_ovvis_mask_scaffold,
     run_reliability_stress_suite,
-    run_tpami_reliability_bundle,
-    run_tpami_reliability_bundle_v2,
+    run_reliability_bundle_draft,
+    run_reliability_bundle,
 )
 from .phase10 import (
     run_phase10_nonexchangeability_reruns,
@@ -66,7 +66,7 @@ from .phase10 import (
 )
 from .phase11 import (
     run_phase11_audit_consistency,
-    run_phase11_freeze_nmi,
+    run_phase11_freeze_release,
     run_phase11_lvis_detection,
     run_phase11_ovvis_extension,
     run_phase11_prepare_lvis,
@@ -229,8 +229,10 @@ def build_parser() -> argparse.ArgumentParser:
         default=None,
         help="Output root under .; defaults to outputs/.",
     )
-    tpami = report_subparsers.add_parser("tpami-core", help="Freeze TPAMI-core tables, LaTeX exports, and summary docs.")
-    tpami.add_argument("--config", required=True, help="Path to Phase-3 paper export YAML config.")
+    release_core = report_subparsers.add_parser(
+        "release-core", help="Freeze release-core tables, LaTeX exports, and summary docs."
+    )
+    release_core.add_argument("--config", required=True, help="Path to Phase-3 paper export YAML config.")
 
     phase4 = subparsers.add_parser("phase4", help="Run IJCV sprint experiments and diagnostics.")
     phase4_subparsers = phase4.add_subparsers(dest="phase4_command", required=True)
@@ -348,7 +350,7 @@ def build_parser() -> argparse.ArgumentParser:
     pub_report = pub_subparsers.add_parser("report", help="Aggregate completed published tracker matrices.")
     pub_report.add_argument("--output-dir", default=None, help="Output root under ..")
 
-    phase9 = subparsers.add_parser("phase9", help="Run TPAMI-scale reliability fortress artifacts.")
+    phase9 = subparsers.add_parser("phase9", help="Run journal-scale reliability fortress artifacts.")
     phase9_subparsers = phase9.add_subparsers(dest="phase9_command", required=True)
     phase9_audit = phase9_subparsers.add_parser("audit-benchmark", help="Build 2000-row audit benchmark scaffold.")
     phase9_audit.add_argument("--output-dir", default=None, help="Output directory under ..")
@@ -361,11 +363,13 @@ def build_parser() -> argparse.ArgumentParser:
     phase9_ovvis.add_argument("--limit", type=int, default=500, help="Maximum mask paths in scaffold.")
     phase9_api = phase9_subparsers.add_parser("certification-api", help="Build public PARC API fixture and docs.")
     phase9_api.add_argument("--output-dir", default=None, help="Output directory under ..")
-    phase9_bundle = phase9_subparsers.add_parser("reliability-bundle", help="Freeze TPAMI reliability fortress bundle.")
+    phase9_bundle_draft = phase9_subparsers.add_parser(
+        "reliability-bundle-draft", help="Freeze the older draft reliability fortress bundle."
+    )
+    phase9_bundle_draft.add_argument("--output-dir", default=None, help="Milestone output directory under ..")
+    phase9_bundle = phase9_subparsers.add_parser("reliability-bundle", help="Freeze the release reliability fortress bundle.")
     phase9_bundle.add_argument("--output-dir", default=None, help="Milestone output directory under ..")
-    phase9_bundle_v2 = phase9_subparsers.add_parser("reliability-bundle-v2", help="Freeze TPAMI reliability fortress v2 bundle.")
-    phase9_bundle_v2.add_argument("--output-dir", default=None, help="Milestone output directory under ..")
-    phase10 = subparsers.add_parser("phase10", help="Run actual reruns for TPAMI reliability fortress.")
+    phase10 = subparsers.add_parser("phase10", help="Run actual reruns for reliability fortress.")
     phase10_subparsers = phase10.add_subparsers(dest="phase10_command", required=True)
     phase10_nonex = phase10_subparsers.add_parser("nonexchangeability", help="Run severe custom-split non-exchangeability reruns.")
     phase10_nonex.add_argument("--output-dir", default=None, help="Output directory under ..")
@@ -374,7 +378,7 @@ def build_parser() -> argparse.ArgumentParser:
     phase10_suite = phase10_subparsers.add_parser("suite", help="Run both Phase-10 actual rerun suites.")
     phase10_suite.add_argument("--output-dir", default=None, help="Output directory under ..")
 
-    phase11 = subparsers.add_parser("phase11", help="Run NMI generality and reliability artifacts.")
+    phase11 = subparsers.add_parser("phase11", help="Run generality generality and reliability artifacts.")
     phase11_subparsers = phase11.add_subparsers(dest="phase11_command", required=True)
     phase11_audit = phase11_subparsers.add_parser("audit-consistency", help="Build Audit2000 cross-dataset consistency tables.")
     phase11_audit.add_argument("--output-dir", default=None, help="Output directory under ..")
@@ -388,7 +392,7 @@ def build_parser() -> argparse.ArgumentParser:
     phase11_ovvis.add_argument("--output-dir", default=None, help="Output directory under ..")
     phase11_strat = phase11_subparsers.add_parser("stratified-reliability", help="Build stratified reliability tables.")
     phase11_strat.add_argument("--output-dir", default=None, help="Output directory under ..")
-    phase11_freeze = phase11_subparsers.add_parser("freeze-nmi", help="Freeze NMI generality/reliability milestone.")
+    phase11_freeze = phase11_subparsers.add_parser("freeze-release", help="Freeze generality generality/reliability milestone.")
     phase11_freeze.add_argument("--output-dir", default=None, help="Milestone output directory under ..")
     phase11_freeze.add_argument("--lvis-root", default=None, help="Optional LVIS root override.")
     return parser
@@ -494,8 +498,8 @@ def main(argv: list[str] | None = None) -> None:
         if args.report_name == "phase1b":
             summary = build_phase1b_report(Path(args.config), output_root=args.output_root)
             print(json.dumps(summary, indent=2, ensure_ascii=False))
-        elif args.report_name == "tpami-core":
-            summary = run_tpami_report(Path(args.config))
+        elif args.report_name == "release-core":
+            summary = run_release_core_report(Path(args.config))
             print(json.dumps(summary, indent=2, ensure_ascii=False))
         else:
             parser.error(f"unknown report: {args.report_name}")
@@ -636,10 +640,10 @@ def main(argv: list[str] | None = None) -> None:
             summary = run_ovvis_mask_scaffold(args.output_dir, limit=args.limit)
         elif args.phase9_command == "certification-api":
             summary = run_certification_api_package(args.output_dir)
+        elif args.phase9_command == "reliability-bundle-draft":
+            summary = run_reliability_bundle_draft(args.output_dir)
         elif args.phase9_command == "reliability-bundle":
-            summary = run_tpami_reliability_bundle(args.output_dir)
-        elif args.phase9_command == "reliability-bundle-v2":
-            summary = run_tpami_reliability_bundle_v2(args.output_dir)
+            summary = run_reliability_bundle(args.output_dir)
         else:
             parser.error(f"unknown phase9 command: {args.phase9_command}")
         print(json.dumps(summary, indent=2, ensure_ascii=False))
@@ -664,8 +668,8 @@ def main(argv: list[str] | None = None) -> None:
             summary = run_phase11_ovvis_extension(args.output_dir)
         elif args.phase11_command == "stratified-reliability":
             summary = run_phase11_stratified_reliability(args.output_dir)
-        elif args.phase11_command == "freeze-nmi":
-            summary = run_phase11_freeze_nmi(out_dir=args.output_dir, lvis_root=args.lvis_root)
+        elif args.phase11_command == "freeze-release":
+            summary = run_phase11_freeze_release(out_dir=args.output_dir, lvis_root=args.lvis_root)
         else:
             parser.error(f"unknown phase11 command: {args.phase11_command}")
         print(json.dumps(summary, indent=2, ensure_ascii=False))

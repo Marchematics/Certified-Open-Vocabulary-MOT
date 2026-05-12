@@ -23,7 +23,7 @@ Expected outputs include candidate schema files, an audit-label fixture, and API
 The final public milestone is:
 
 ```text
-outputs/milestones/tpami_reliability_fortress_v2/
+outputs/milestones/reliability_fortress/
 ```
 
 Check file integrity with:
@@ -44,7 +44,7 @@ Then place or symlink external datasets and candidate universes according to the
 
 ```bash
 python -m parc_track.cli phase3 matrix --config configs_local/phase3_ovtb_full_matrix.yaml
-python -m parc_track.cli phase9 freeze-tpami-v2 --output-dir outputs/milestones/tpami_reliability_fortress_v2_rerun
+python -m parc_track.cli phase9 reliability-bundle --output-dir outputs/milestones/reliability_fortress_rerun
 ```
 
 ## 5. External Proposal Generators

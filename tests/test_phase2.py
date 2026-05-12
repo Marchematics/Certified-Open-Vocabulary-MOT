@@ -38,7 +38,7 @@ from parc_track.phase3 import (
     export_matrix_release_audit_candidates,
     run_idsw_eval,
     run_ovtb_matrix,
-    run_tpami_report,
+    run_release_core_report,
     run_tuned_m_selection,
 )
 
@@ -1191,8 +1191,8 @@ def test_run_idsw_eval_writes_required_rows() -> None:
     assert {"actual_idsw_per_min", "badlink_ub", "misscont_ub", "gap_sensor", "certified_ub", "tightness_median"}.issubset(table.columns)
 
 
-def test_tpami_report_copies_sources_and_writes_latex() -> None:
-    root = _test_root("tpami_report")
+def test_release_core_report_copies_sources_and_writes_latex() -> None:
+    root = _test_root("release_core_report")
     source = root / "table.csv"
     pd.DataFrame([{"method": "PARC full", "released": 1}]).to_csv(source, index=False)
     matrix = root / "matrix.csv"
@@ -1234,7 +1234,7 @@ def test_tpami_report_copies_sources_and_writes_latex() -> None:
             },
         },
     )
-    result = run_tpami_report(cfg_path)
+    result = run_release_core_report(cfg_path)
     assert result["status"] == "completed"
     assert (root / "milestone" / "table.csv").exists()
     assert (root / "milestone" / "latex" / "table.tex").exists()

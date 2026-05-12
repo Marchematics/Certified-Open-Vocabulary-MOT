@@ -19,7 +19,7 @@ proposal:
   video_stride: 4
   video_offset: 0
   progress_every: 250
-  cache_dir: ${PARC_TRACK_ROOT}/outputs/phase11_nmi/lvis_detection/groundingdino/shard_0/cache
+  cache_dir: ${PARC_TRACK_ROOT}/outputs/phase11_release/lvis_detection/groundingdino/shard_0/cache
 matching:
   iou_threshold: 0.5
   temporal_overlap_threshold: 0.5
@@ -38,17 +38,17 @@ mondrian:
 audit_export:
   make_montages: false
   frames_per_path: 1
-  output_viewer: ${PARC_TRACK_ROOT}/outputs/phase11_nmi/lvis_detection/groundingdino/shard_0/audit_viewer
-  montage_dir: ${PARC_TRACK_ROOT}/outputs/phase11_nmi/lvis_detection/groundingdino/shard_0/audit_viewer/montages
-  clip_dir: ${PARC_TRACK_ROOT}/outputs/phase11_nmi/lvis_detection/groundingdino/shard_0/audit_viewer/clips
+  output_viewer: ${PARC_TRACK_ROOT}/outputs/phase11_release/lvis_detection/groundingdino/shard_0/audit_viewer
+  montage_dir: ${PARC_TRACK_ROOT}/outputs/phase11_release/lvis_detection/groundingdino/shard_0/audit_viewer/montages
+  clip_dir: ${PARC_TRACK_ROOT}/outputs/phase11_release/lvis_detection/groundingdino/shard_0/audit_viewer/clips
 output:
-  candidates: ${PARC_TRACK_ROOT}/outputs/phase11_nmi/lvis_detection/groundingdino/shard_0/audit_candidates.csv
-  labels: ${PARC_TRACK_ROOT}/outputs/phase11_nmi/lvis_detection/groundingdino/shard_0/audit_labels.csv
-  manifest: ${PARC_TRACK_ROOT}/outputs/phase11_nmi/lvis_detection/groundingdino/shard_0/audit_manifest.json
-  summary: ${PARC_TRACK_ROOT}/outputs/phase11_nmi/lvis_detection/groundingdino/shard_0/audit_summary.csv
-  candidate_universe: ${PARC_TRACK_ROOT}/outputs/phase11_nmi/lvis_detection/groundingdino/shard_0/candidate_universe.csv
-  candidate_scores: ${PARC_TRACK_ROOT}/outputs/phase11_nmi/lvis_detection/groundingdino/shard_0/candidate_scores.csv
-  candidate_nodes: ${PARC_TRACK_ROOT}/outputs/phase11_nmi/lvis_detection/groundingdino/shard_0/candidate_nodes.csv
+  candidates: ${PARC_TRACK_ROOT}/outputs/phase11_release/lvis_detection/groundingdino/shard_0/audit_candidates.csv
+  labels: ${PARC_TRACK_ROOT}/outputs/phase11_release/lvis_detection/groundingdino/shard_0/audit_labels.csv
+  manifest: ${PARC_TRACK_ROOT}/outputs/phase11_release/lvis_detection/groundingdino/shard_0/audit_manifest.json
+  summary: ${PARC_TRACK_ROOT}/outputs/phase11_release/lvis_detection/groundingdino/shard_0/audit_summary.csv
+  candidate_universe: ${PARC_TRACK_ROOT}/outputs/phase11_release/lvis_detection/groundingdino/shard_0/candidate_universe.csv
+  candidate_scores: ${PARC_TRACK_ROOT}/outputs/phase11_release/lvis_detection/groundingdino/shard_0/candidate_scores.csv
+  candidate_nodes: ${PARC_TRACK_ROOT}/outputs/phase11_release/lvis_detection/groundingdino/shard_0/candidate_nodes.csv
 groundingdino:
   config: ${GROUNDINGDINO_MODEL_ROOT}/GroundingDINO_SwinT_OGC.cfg.py
   weights: ${GROUNDINGDINO_MODEL_ROOT}/groundingdino_swint_ogc.pth

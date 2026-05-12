@@ -1116,7 +1116,7 @@ def run_second_rater_agreement(out_dir: str | Path | None = None) -> dict[str, A
 
 def run_statistical_confidence_tables(out_dir: str | Path | None = None) -> dict[str, Any]:
     output_dir = ensure_data_output(out_dir or DATA_ROOT / "outputs/phase4_statistical_confidence")
-    source = DATA_ROOT / "outputs/milestones/ijcv_cross_dataset_v6/table_cross_dataset_certification.csv"
+    source = DATA_ROOT / "outputs/milestones/cross_dataset/table_cross_dataset_certification.csv"
     frame = _read_csv(source)
     if frame.empty:
         result = {"status": "missing_main_certification_table", "source": str(source)}
@@ -1205,7 +1205,7 @@ def run_statistical_confidence_tables(out_dir: str | Path | None = None) -> dict
 
 
 def run_ijcv_stability_bundle(out_dir: str | Path | None = None) -> dict[str, Any]:
-    output_dir = ensure_data_output(out_dir or DATA_ROOT / "outputs/milestones/ijcv_stability_v1")
+    output_dir = ensure_data_output(out_dir or DATA_ROOT / "outputs/milestones/stability")
     stats_dir = ensure_data_output(output_dir / "statistical_confidence")
     second_dir = ensure_data_output(output_dir / "second_rater")
 
@@ -1263,7 +1263,7 @@ def run_ijcv_stability_bundle(out_dir: str | Path | None = None) -> dict[str, An
         encoding="utf-8",
     )
     manifest = {
-        "status": "ijcv_stability_v1",
+        "status": "stability",
         "contains_raw_data": False,
         "contains_model_weights": False,
         "contains_hf_cache": False,
@@ -1287,7 +1287,7 @@ def run_ijcv_stability_bundle(out_dir: str | Path | None = None) -> dict[str, An
     copied.extend([manifest_sha, output_dir / "manifest.json", report])
 
     packages = ensure_data_output(DATA_ROOT / "outputs/packages")
-    package_path = packages / "ijcv_stability_v1.tar.gz"
+    package_path = packages / "stability.tar.gz"
     with tarfile.open(package_path, "w:gz") as tar:
         tar.add(output_dir, arcname=output_dir.name)
     package_sha = _sha256(package_path)

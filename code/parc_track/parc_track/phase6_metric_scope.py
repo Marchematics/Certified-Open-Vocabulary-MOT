@@ -156,7 +156,7 @@ def _summarize_grouped(frame: pd.DataFrame, group_cols: list[str], out_path: Pat
 
 def _package_output(output_dir: Path) -> tuple[Path, str]:
     packages = ensure_data_output(DATA_ROOT / "outputs/packages")
-    tar_path = packages / "ijcv_metric_scope_v1.tar.gz"
+    tar_path = packages / "metric_scope.tar.gz"
     if tar_path.exists():
         tar_path.unlink()
     with tarfile.open(tar_path, "w:gz") as tar:

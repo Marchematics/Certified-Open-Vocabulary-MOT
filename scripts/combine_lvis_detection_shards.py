@@ -125,7 +125,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Combine 4-GPU LVIS detector shards and write matrix configs.")
     track_root = Path(os.environ.get("PARC_TRACK_ROOT", "."))
     repo_root = Path(os.environ.get("PARC_REPO_ROOT", "."))
-    parser.add_argument("--root", default=str(track_root / "outputs/phase11_nmi/lvis_detection"))
+    parser.add_argument("--root", default=str(track_root / "outputs/phase11_release/lvis_detection"))
     parser.add_argument("--config-dir", default=str(repo_root / "configs"))
     parser.add_argument("--shards", type=int, default=4)
     args = parser.parse_args()

@@ -1,6 +1,6 @@
 # PARC-Track Paper Results Summary
 
-This summary freezes the current TPAMI-core evidence bundle. GroundingDINO proposals are treated as a scaffold generator, not a final OVMOT backbone claim.
+This summary freezes the current release-core evidence bundle. GroundingDINO proposals are treated as a scaffold generator, not a final OVMOT backbone claim.
 
 ## Frozen Files
 - `table_real_first_nonempty.csv`

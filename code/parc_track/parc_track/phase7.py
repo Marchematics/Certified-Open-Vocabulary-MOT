@@ -414,7 +414,7 @@ def inspect_third_dataset(
 
 
 def run_stability_v2(out_dir: str | Path | None = None) -> dict[str, Any]:
-    output_dir = ensure_data_output(out_dir or DATA_ROOT / "outputs/milestones/ijcv_stability_v2")
+    output_dir = ensure_data_output(out_dir or DATA_ROOT / "outputs/milestones/stability")
     anytime = run_anytime_demo(DATA_ROOT / "outputs/phase7_anytime")
     burst_ann = DATA_ROOT / "data/BURST/val/all_classes.json"
     third = inspect_third_dataset(
@@ -427,14 +427,14 @@ def run_stability_v2(out_dir: str | Path | None = None) -> dict[str, Any]:
 
     copied: list[Path] = []
     sources = [
-        DATA_ROOT / "outputs/milestones/ijcv_stability_v1/manifest.json",
-        DATA_ROOT / "outputs/milestones/ijcv_stability_v1/RUN_REPORT.md",
-        DATA_ROOT / "outputs/milestones/ijcv_stability_v1/table_main_bootstrap_ci.csv",
-        DATA_ROOT / "outputs/milestones/ijcv_stability_v1/table_worst_case_cons_ftr.csv",
-        DATA_ROOT / "outputs/milestones/ijcv_stability_v1/table_mondrian_ablation_summary.csv",
-        DATA_ROOT / "outputs/milestones/ijcv_stability_v1/table_per_class_breakdown.csv",
-        DATA_ROOT / "outputs/milestones/ijcv_stability_v1/table_prop5_three_generator.csv",
-        DATA_ROOT / "outputs/milestones/ijcv_stability_v1/table_hota_scope_meanstd.csv",
+        DATA_ROOT / "outputs/milestones/stability/manifest.json",
+        DATA_ROOT / "outputs/milestones/stability/RUN_REPORT.md",
+        DATA_ROOT / "outputs/milestones/stability/table_main_bootstrap_ci.csv",
+        DATA_ROOT / "outputs/milestones/stability/table_worst_case_cons_ftr.csv",
+        DATA_ROOT / "outputs/milestones/stability/table_mondrian_ablation_summary.csv",
+        DATA_ROOT / "outputs/milestones/stability/table_per_class_breakdown.csv",
+        DATA_ROOT / "outputs/milestones/stability/table_prop5_three_generator.csv",
+        DATA_ROOT / "outputs/milestones/stability/table_hota_scope_meanstd.csv",
         DATA_ROOT / "outputs/phase7_anytime/table_anytime_release.csv",
         DATA_ROOT / "outputs/phase7_anytime/table_anytime_first_release.csv",
         DATA_ROOT / "outputs/phase7_anytime/figure_anytime_release_curve.csv",
@@ -458,7 +458,7 @@ def run_stability_v2(out_dir: str | Path | None = None) -> dict[str, Any]:
         encoding="utf-8",
     )
     manifest = {
-        "status": "ijcv_stability_v2",
+        "status": "stability",
         "contains_raw_data": False,
         "contains_model_weights": False,
         "contains_hf_cache": False,
@@ -483,7 +483,7 @@ def run_stability_v2(out_dir: str | Path | None = None) -> dict[str, Any]:
     copied.extend([manifest_sha, output_dir / "manifest.json", report])
 
     packages = ensure_data_output(DATA_ROOT / "outputs/packages")
-    package_path = packages / "ijcv_stability_v2.tar.gz"
+    package_path = packages / "stability.tar.gz"
     with tarfile.open(package_path, "w:gz") as tar:
         tar.add(output_dir, arcname=output_dir.name)
     package_sha = _sha256(package_path)
@@ -501,7 +501,7 @@ def run_stability_v2(out_dir: str | Path | None = None) -> dict[str, Any]:
         "second_rater": second,
         "copied_files": len(copied),
     }
-    write_json(output_dir / "ijcv_stability_v2_summary.json", summary)
+    write_json(output_dir / "stability_summary.json", summary)
     return summary
 
 
@@ -612,7 +612,7 @@ def run_burst_milestone(
 ) -> dict[str, Any]:
     source = Path(source_dir) if source_dir else DATA_ROOT / "outputs/phase7_burst"
     third = Path(third_dataset_dir) if third_dataset_dir else DATA_ROOT / "outputs/phase7_third_dataset"
-    milestone = ensure_data_output(output_dir or DATA_ROOT / "outputs/milestones/ijcv_burst_v1")
+    milestone = ensure_data_output(output_dir or DATA_ROOT / "outputs/milestones/burst")
     matrix_csv = source / "burst_alpha_seed_m_matrix.csv"
     if not matrix_csv.exists():
         legacy = source / "ovtb_alpha_seed_m_matrix.csv"

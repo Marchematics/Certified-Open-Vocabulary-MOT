@@ -1,0 +1,162 @@
+{
+  "status": "reliability_fortress_draft",
+  "contains_raw_data": false,
+  "contains_raw_annotations": false,
+  "contains_model_weights": false,
+  "contains_hf_cache": false,
+  "audit": {
+    "status": "completed_with_pending_labels",
+    "target_rows": 2000,
+    "rows": 2000,
+    "existing_gold_rows": 165,
+    "pending_rows": 1835,
+    "second_rater_template_rows": 165,
+    "candidates": "<PARC_ROOT>/outputs/phase9_audit_benchmark/audit_benchmark_candidates.csv",
+    "audit_labels_gold": "<PARC_ROOT>/outputs/phase9_audit_benchmark/audit_labels_gold.csv",
+    "pending_labels": "<PARC_ROOT>/outputs/phase9_audit_benchmark/audit_expansion_pending_labels.csv",
+    "second_rater_blind_template": "<PARC_ROOT>/outputs/phase9_audit_benchmark/second_rater_300_blind_template.csv",
+    "second_rater_reference_do_not_share": "<PARC_ROOT>/outputs/phase9_audit_benchmark/second_rater_300_reference_do_not_share.csv",
+    "taxonomy": "<PARC_ROOT>/outputs/phase9_audit_benchmark/audit_error_taxonomy.csv",
+    "protocol": "<PARC_ROOT>/outputs/phase9_audit_benchmark/audit_protocol.md",
+    "summary": "<PARC_ROOT>/outputs/phase9_audit_benchmark/audit_benchmark_summary.csv"
+  },
+  "stress": {
+    "status": "completed_scaffold_with_projection_tables",
+    "nonexchangeability_design": "<PARC_ROOT>/outputs/phase9_reliability_stress/table_nonexchangeability_stress_design.csv",
+    "null_inflation_projection": "<PARC_ROOT>/outputs/phase9_reliability_stress/table_null_inflation_sensitivity_projection.csv",
+    "copied_existing_tables": [
+      "<PARC_ROOT>/outputs/phase9_reliability_stress/table_cross_dataset_certification_meanstd.csv",
+      "<PARC_ROOT>/outputs/phase9_reliability_stress/table_burst_certification_summary.csv",
+      "<PARC_ROOT>/outputs/phase9_reliability_stress/table_mondrian_ablation_summary.csv",
+      "<PARC_ROOT>/outputs/phase9_reliability_stress/table_burst_prop5_mass_ratio.csv"
+    ],
+    "note": "Non-IID severe-shift rows are design rows until custom-split certification is rerun; projection rows are not certificate evidence."
+  },
+  "ovvis_scaffold": {
+    "status": "completed_box_to_mask_scaffold",
+    "mask_path_universe": "<PARC_ROOT>/outputs/phase9_ovvis_scaffold/mask_path_universe.csv",
+    "mask_path_nodes": "<PARC_ROOT>/outputs/phase9_ovvis_scaffold/mask_path_nodes.csv",
+    "rows": 500,
+    "node_rows": 1533,
+    "report": "<PARC_ROOT>/outputs/phase9_ovvis_scaffold/OVVIS_SCAFFOLD_REPORT.md"
+  },
+  "certification_api": {
+    "status": "completed",
+    "api_doc": "<PARC_ROOT>/outputs/phase9_certification_api/PARC_CERTIFICATION_API.md",
+    "tiny_fixture": "<PARC_ROOT>/outputs/phase9_certification_api/tiny_fixture",
+    "contains_raw_data": false,
+    "contains_model_weights": false
+  },
+  "files": [
+    {
+      "file": "audit_benchmark_summary.csv",
+      "sha256": "35537d21cfbfe05155df278e0921a47101e95b460c67f9f8b2db8e17d544dcaf",
+      "bytes": 170
+    },
+    {
+      "file": "audit_benchmark_candidates.csv",
+      "sha256": "69d55b7207ebf8d456b5193a7b0c24dcbe3364daeb8369abeb9489d00895f0e0",
+      "bytes": 415416
+    },
+    {
+      "file": "audit_labels_gold.csv",
+      "sha256": "ed4a747f89bd6295f6c145208860e2c9e57fb41ce184a5d4198bff3a08bbbe5b",
+      "bytes": 135524
+    },
+    {
+      "file": "audit_expansion_pending_labels.csv",
+      "sha256": "49937241b252a4bc3727023d53533770911ca504aaf330f6f70206aab165a701",
+      "bytes": 95683
+    },
+    {
+      "file": "audit_error_taxonomy.csv",
+      "sha256": "3beed589d5b5f6ea88db2ee83ca218fc86b517e5dd067ebe71265f911774cc97",
+      "bytes": 101
+    },
+    {
+      "file": "audit_protocol.md",
+      "sha256": "d34c302f074fbef22374608a61c07eb092f1c1d062d8d61fe016de0399125772",
+      "bytes": 521
+    },
+    {
+      "file": "second_rater_300_blind_template.csv",
+      "sha256": "ae80a0a0b2ff70519a0f388e54782c30588217c353a5f555e22e577a1a877c6c",
+      "bytes": 46505
+    },
+    {
+      "file": "table_nonexchangeability_stress_design.csv",
+      "sha256": "812e1e5b0aad35b9ef2e7b8ec8a06408de975af2b02cec83d477e1c82d3d1919",
+      "bytes": 2141
+    },
+    {
+      "file": "table_null_inflation_sensitivity_projection.csv",
+      "sha256": "21f9d6dccfbbbcdf1c0a6f11e99af7a67d42f894e22d08978fa609d6a17395c9",
+      "bytes": 5097
+    },
+    {
+      "file": "mask_path_universe.csv",
+      "sha256": "28bea2a6ac3e0ee233521fe6fea25c9c1951eebb3bfd5850b7e38716c709f8cb",
+      "bytes": 157537
+    },
+    {
+      "file": "mask_path_nodes.csv",
+      "sha256": "6c28cea1f2a92e9623196f68fa5d0ee0e155c119e6d922747228e335957b5d40",
+      "bytes": 465682
+    },
+    {
+      "file": "OVVIS_SCAFFOLD_REPORT.md",
+      "sha256": "3f8af8fe26c6cc0f694f679dc5b00344423e95a2054045bba57ff75ceee28dff",
+      "bytes": 292
+    },
+    {
+      "file": "PARC_CERTIFICATION_API.md",
+      "sha256": "9a8704977cf0225a09e0cc4eac8d031c7c08c005750a00e34c5522dcf1bf84d3",
+      "bytes": 481
+    },
+    {
+      "file": "table_mondrian_ablation_summary.csv",
+      "sha256": "ff94f151f8aaeec84d18fadd6a19571e0638cba8c86d793cb7c46f8e30ecee15",
+      "bytes": 2034
+    },
+    {
+      "file": "table_per_class_head_mid_tail_summary.csv",
+      "sha256": "4702ce09f77a85ad7b47988baf9dff54c2239ba66f86541c0079876ac77613b3",
+      "bytes": 388
+    },
+    {
+      "file": "table_anytime_release.csv",
+      "sha256": "6488bd2d952be7d870ddf2f8f6cf073e3e3ca3422275274dbb9a28865d3daa96",
+      "bytes": 10843
+    },
+    {
+      "file": "table_published_tracker_certification.csv",
+      "sha256": "027c28c796c2602816a470d3a2a5a813c0889478081fbc23cad4c517f89d4672",
+      "bytes": 25586
+    },
+    {
+      "file": "table_published_tracker_meanstd.csv",
+      "sha256": "496e4f897bf3442ef94551be24098292e2c1df4cbd055d91eaee52bc54bc2d7e",
+      "bytes": 2131
+    },
+    {
+      "file": "ovtr_ovtb_published_tracker_alpha_seed_matrix.csv",
+      "sha256": "2a9626180f2800fefc85cc9afbf4914e0bb7b28a4986ddab0c29de68bf705d3d",
+      "bytes": 5770
+    },
+    {
+      "file": "tiny_fixture_candidate_universe.csv",
+      "sha256": "2043fdf34bd123645f36caef1f7850622b1c386b38ca2e926104159f2bfc6482",
+      "bytes": 507
+    },
+    {
+      "file": "tiny_fixture_candidate_nodes.csv",
+      "sha256": "6ca6992f98f4cf08133954ea1bd84fa98466165977da4bf537851b6ed8fa6df7",
+      "bytes": 146
+    },
+    {
+      "file": "tiny_fixture_audit_labels.csv",
+      "sha256": "1343a53d8a83d6a4f61898cc59c049a9cd053ce3f376cbc8e33b5ffb17ca1821",
+      "bytes": 105
+    }
+  ]
+}

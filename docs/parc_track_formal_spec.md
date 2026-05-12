@@ -1152,9 +1152,9 @@ outputs/figures/fig_seed_stability.png
 
 The corresponding PDF versions are saved in the same directory. The milestone directory also contains PNG copies for the current frozen result.
 
-## 26. Phase-3 TPAMI Dual-Track Matrix
+## 26. Phase-3 journal Dual-Track Matrix
 
-We extend the OVT-B proof-of-concept into a TPAMI-oriented matrix while preserving the frozen first-real-nonempty milestone.
+We extend the OVT-B proof-of-concept into a journal-oriented matrix while preserving the frozen first-real-nonempty milestone.
 
 The Phase-3 OVT-B matrix uses the same 1000-video candidate universe and sweeps:
 
@@ -1203,7 +1203,7 @@ seed 1: M = 75,  released = 39,  UTR = 0.0256, conservative FTR = 0.0000, margin
 seed 2: no non-empty release in the current M grid; high-evidence mass remains insufficient.
 ```
 
-Thus the result now exceeds the earlier fixed-\(M\) seed check: two out of three seeds become non-empty at \(\alpha_1=0.10\) when the same \(M\)-grid is evaluated. It is still not yet a full TPAMI-scale benchmark result; the next step is either full OVT-B coverage or stronger proposal coverage for seed 2.
+Thus the result now exceeds the earlier fixed-\(M\) seed check: two out of three seeds become non-empty at \(\alpha_1=0.10\) when the same \(M\)-grid is evaluated. It is still not yet a full journal-scale benchmark result; the next step is either full OVT-B coverage or stronger proposal coverage for seed 2.
 
 ## 27. CLEAR-MOT IDSW Evaluator Status
 
@@ -1243,12 +1243,12 @@ outputs/phase3_idsw/idsw_eval_summary.json
 
 This is the remaining blocker before IDSW can be claimed as a fully validated real-data result.
 
-## 28. TPAMI-Core Result Bundle
+## 28. journal-Core Result Bundle
 
 The paper-facing bundle is frozen at:
 
 ```text
-outputs/milestones/tpami_core_v1/
+outputs/milestones/core_results/
 ```
 
 It contains current CSV tables, SHA256 hashes, and LaTeX table exports. A compact paper result summary is written to:
@@ -1260,7 +1260,7 @@ docs/paper_results_summary.md
 This bundle supports a dual-track writing strategy:
 
 1. conference-style core: OVT-B audit, synthetic finite-resolution validation, OVT-B non-empty certification, expanded baselines;
-2. TPAMI extension: full OVT-B / TAO transfer, stronger seed stability, detector robustness, and real CLEAR-MOT IDSW validation.
+2. journal extension: full OVT-B / TAO transfer, stronger seed stability, detector robustness, and real CLEAR-MOT IDSW validation.
 
 ## Implementation Note for First Smoke
 

@@ -4,10 +4,10 @@ This repository provides derived, public-safe PARC-Track artifacts: audit labels
 
 ## Included Data
 
-- `outputs/benchmarks/parc_certification_benchmark_v1/audit/audit_labels_2000_human_reviewed_v1.csv`: human-reviewed audit labels for 2,000 candidate paths.
-- `outputs/benchmarks/parc_certification_benchmark_v1/audit/audit_error_taxonomy.csv`: false-tracklet taxonomy.
-- `outputs/benchmarks/parc_certification_benchmark_v1/results/`: paper-facing certification and stress-test result tables.
-- `outputs/benchmarks/parc_certification_benchmark_v1/tiny_fixture/`: synthetic tiny fixture for validating code paths.
+- `outputs/benchmarks/parc_certification_benchmark/audit/audit_labels_2000_human_reviewed.csv`: human-reviewed audit labels for 2,000 candidate paths.
+- `outputs/benchmarks/parc_certification_benchmark/audit/audit_error_taxonomy.csv`: false-tracklet taxonomy.
+- `outputs/benchmarks/parc_certification_benchmark/results/`: paper-facing certification and stress-test result tables.
+- `outputs/benchmarks/parc_certification_benchmark/tiny_fixture/`: synthetic tiny fixture for validating code paths.
 
 ## Excluded Data
 

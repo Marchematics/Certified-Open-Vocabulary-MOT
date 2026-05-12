@@ -15,10 +15,10 @@ from .adapters.datasets import ensure_data_output, write_json
 
 
 DATA_ROOT = Path(os.environ.get("PARC_TRACK_ROOT", ".")).resolve()
-V2_DIR = DATA_ROOT / "outputs/milestones/tpami_reliability_fortress_v2"
-PHASE11_DIR = DATA_ROOT / "outputs/phase11_nmi"
-MILESTONE_DIR = DATA_ROOT / "outputs/milestones/nmi_generality_reliability_v1"
-PACKAGE_PATH = DATA_ROOT / "outputs/packages/nmi_generality_reliability_v1.tar.gz"
+V2_DIR = DATA_ROOT / "outputs/milestones/reliability_fortress"
+PHASE11_DIR = DATA_ROOT / "outputs/phase11_release"
+MILESTONE_DIR = DATA_ROOT / "outputs/milestones/generality_reliability"
+PACKAGE_PATH = DATA_ROOT / "outputs/packages/generality_reliability.tar.gz"
 VALID_LABELS = {"actually_true", "actually_false", "uncertain"}
 DETECTORS = ("GroundingDINO", "OWLv2")
 ALPHAS = (0.10, 0.20)
@@ -157,7 +157,7 @@ def _count_mask_conflicts(nodes: pd.DataFrame, path_ids: set[str], threshold: fl
 
 def run_phase11_audit_consistency(out_dir: str | Path | None = None) -> dict[str, Any]:
     output_dir = ensure_data_output(out_dir or PHASE11_DIR / "audit_consistency")
-    labels = _read_csv(V2_DIR / "audit_labels_2000_human_reviewed_v1.csv")
+    labels = _read_csv(V2_DIR / "audit_labels_2000_human_reviewed.csv")
     rows: list[dict[str, Any]] = []
     for dataset, group in labels.groupby("dataset") if not labels.empty else []:
         total = int(len(group))
@@ -195,7 +195,7 @@ def run_phase11_audit_consistency(out_dir: str | Path | None = None) -> dict[str
         "human-valid across all three tracking datasets. This supports treating official-unmatched "
         "predictions as unknown rather than as reliable negatives.\n\n"
         f"- Shared human-valid interval across available datasets: `{interval}`.\n"
-        "- Source: `outputs/milestones/tpami_reliability_fortress_v2/audit_labels_2000_human_reviewed_v1.csv`.\n\n"
+        "- Source: `outputs/milestones/reliability_fortress/audit_labels_2000_human_reviewed.csv`.\n\n"
         "See `table_audit_cross_dataset_consistency.csv` for dataset-level counts and rates.\n",
         encoding="utf-8",
     )
@@ -863,7 +863,7 @@ def _figure_release_refusal(table: pd.DataFrame) -> pd.DataFrame:
 
 def run_phase11_stratified_reliability(out_dir: str | Path | None = None) -> dict[str, Any]:
     output_dir = ensure_data_output(out_dir or PHASE11_DIR / "stratified_reliability")
-    labels = _read_csv(V2_DIR / "audit_labels_2000_human_reviewed_v1.csv")
+    labels = _read_csv(V2_DIR / "audit_labels_2000_human_reviewed.csv")
     tracking_rows: list[dict[str, Any]] = []
     for dataset, paths in _candidate_sources().items():
         universe = _read_csv(paths["universe"])
@@ -951,10 +951,10 @@ def _copy_phase11_artifacts(files: list[Path], milestone: Path) -> list[str]:
     return copied
 
 
-def _write_nmi_report(milestone: Path, summary: dict[str, Any]) -> Path:
+def _write_release_report(milestone: Path, summary: dict[str, Any]) -> Path:
     report = ensure_data_output(milestone / "RUN_REPORT.md")
     report.write_text(
-        "# NMI Generality & Reliability Package v1\n\n"
+        "# Generality & Reliability Package\n\n"
         "This milestone extends PARC-Track from certified open-vocabulary MOT toward auditable "
         "release-time certification for open-vocabulary visual AI under incomplete annotations.\n\n"
         "## Evidence Blocks\n\n"
@@ -972,7 +972,7 @@ def _write_nmi_report(milestone: Path, summary: dict[str, Any]) -> Path:
     return report
 
 
-def run_phase11_freeze_nmi(out_dir: str | Path | None = None, lvis_root: str | Path | None = None) -> dict[str, Any]:
+def run_phase11_freeze_release(out_dir: str | Path | None = None, lvis_root: str | Path | None = None) -> dict[str, Any]:
     milestone = ensure_data_output(out_dir or MILESTONE_DIR)
     milestone.mkdir(parents=True, exist_ok=True)
     audit = run_phase11_audit_consistency(PHASE11_DIR / "audit_consistency")
@@ -1004,7 +1004,7 @@ def run_phase11_freeze_nmi(out_dir: str | Path | None = None, lvis_root: str | P
     copied = _copy_phase11_artifacts(source_files, milestone)
     summary = {
         "status": "completed",
-        "milestone": "outputs/milestones/nmi_generality_reliability_v1",
+        "milestone": "outputs/milestones/generality_reliability",
         "audit_consistency": audit,
         "lvis_detection": lvis,
         "ovvis_mask": ovvis,
@@ -1012,10 +1012,10 @@ def run_phase11_freeze_nmi(out_dir: str | Path | None = None, lvis_root: str | P
         "copied_files": copied,
         "raw_data_included": False,
         "model_weights_included": False,
-        "package": "outputs/packages/nmi_generality_reliability_v1.tar.gz",
+        "package": "outputs/packages/generality_reliability.tar.gz",
     }
-    write_json(milestone / "nmi_generality_reliability_v1_summary.json", summary)
-    _write_nmi_report(milestone, summary)
+    write_json(milestone / "generality_reliability_summary.json", summary)
+    _write_release_report(milestone, summary)
     _sanitize_public_text_files(milestone)
     _write_manifest(milestone)
     package = ensure_data_output(PACKAGE_PATH)
@@ -1025,6 +1025,6 @@ def run_phase11_freeze_nmi(out_dir: str | Path | None = None, lvis_root: str | P
     with tarfile.open(package, "w:gz") as tar:
         for path in sorted(milestone.rglob("*")):
             if path.is_file():
-                tar.add(path, arcname=Path("nmi_generality_reliability_v1") / path.relative_to(milestone))
+                tar.add(path, arcname=Path("generality_reliability") / path.relative_to(milestone))
     summary["package_sha256"] = _sha256(package)
     return summary

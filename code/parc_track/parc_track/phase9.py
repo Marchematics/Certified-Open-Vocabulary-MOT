@@ -71,8 +71,8 @@ def _load_label_pool() -> pd.DataFrame:
         DATA_ROOT / "outputs/phase7_burst/combined_audit_labels.csv",
         DATA_ROOT / "outputs/phase7_burst_owlv2/combined_audit_labels.csv",
         DATA_ROOT / "outputs/phase4_owlv2_top_audit/owlv2_top150_mini_audit_labels.csv",
-        DATA_ROOT / "outputs/phase4_ovtb_owlvit_v1/combined_audit_labels.csv",
-        DATA_ROOT / "outputs/phase4_tao_owlvit_v1/combined_audit_labels.csv",
+        DATA_ROOT / "outputs/phase4_ovtb_owlvit/combined_audit_labels.csv",
+        DATA_ROOT / "outputs/phase4_tao_owlvit/combined_audit_labels.csv",
     ]
     frames: list[pd.DataFrame] = []
     for source in sources:
@@ -152,7 +152,7 @@ def run_audit_benchmark_industrialization(
     total: int = 2000,
     second_rater_total: int = 300,
 ) -> dict[str, Any]:
-    """Build the TPAMI-scale audit benchmark scaffold without fabricating labels."""
+    """Build the journal-scale audit benchmark scaffold without fabricating labels."""
     output_dir = ensure_data_output(out_dir or DATA_ROOT / "outputs/phase9_audit_benchmark")
     labels = _load_label_pool()
     labels = _key_frame(labels) if not labels.empty else labels
@@ -300,7 +300,7 @@ def run_audit_benchmark_industrialization(
     blind_csv = ensure_data_output(output_dir / "second_rater_300_blind_template.csv")
     blind.to_csv(blind_csv, index=False)
 
-    protocol = ensure_data_output(output_dir / "audit_protocol_v2.md")
+    protocol = ensure_data_output(output_dir / "audit_protocol.md")
     protocol.write_text(
         "# PARC-Track Audit Protocol v2\n\n"
         "- Labels: `actually_true`, `actually_false`, `uncertain` only.\n"
@@ -352,9 +352,9 @@ def run_audit_benchmark_industrialization(
 def run_reliability_stress_suite(out_dir: str | Path | None = None) -> dict[str, Any]:
     output_dir = ensure_data_output(out_dir or DATA_ROOT / "outputs/phase9_reliability_stress")
     sources = [
-        DATA_ROOT / "outputs/milestones/ijcv_cross_dataset_v6/table_cross_dataset_certification_meanstd.csv",
-        DATA_ROOT / "outputs/milestones/ijcv_burst_v2/table_burst_certification_summary.csv",
-        DATA_ROOT / "outputs/milestones/ijcv_stability_v2/table_mondrian_ablation_summary.csv",
+        DATA_ROOT / "outputs/milestones/cross_dataset/table_cross_dataset_certification_meanstd.csv",
+        DATA_ROOT / "outputs/milestones/burst/table_burst_certification_summary.csv",
+        DATA_ROOT / "outputs/milestones/stability/table_mondrian_ablation_summary.csv",
         DATA_ROOT / "outputs/phase7_burst/table_burst_prop5_mass_ratio.csv",
     ]
     copied = []
@@ -395,7 +395,7 @@ def run_reliability_stress_suite(out_dir: str | Path | None = None) -> dict[str,
     pd.DataFrame(stress_rows).to_csv(stress_csv, index=False)
 
     inflation_rows = []
-    base = _read_csv(DATA_ROOT / "outputs/milestones/ijcv_cross_dataset_v6/table_cross_dataset_certification_meanstd.csv")
+    base = _read_csv(DATA_ROOT / "outputs/milestones/cross_dataset/table_cross_dataset_certification_meanstd.csv")
     if not base.empty:
         for _, row in base.iterrows():
             for inflation in (0.0, 0.25, 0.50, 0.75, 1.0):
@@ -825,10 +825,10 @@ def _build_ovvis_mask_certification(output_dir: Path) -> Path:
 def _build_blackbox_generator_table(output_dir: Path) -> Path:
     rows: list[dict[str, Any]] = []
     source_specs = [
-        ("GroundingDINO", DATA_ROOT / "outputs/milestones/ijcv_cross_dataset_v6/table_cross_dataset_certification_meanstd.csv", "meanstd"),
+        ("GroundingDINO", DATA_ROOT / "outputs/milestones/cross_dataset/table_cross_dataset_certification_meanstd.csv", "meanstd"),
         ("OWLv2", DATA_ROOT / "outputs/diagnostics/owlv2_smallM_matrix_combined.csv", "matrix"),
-        ("OWL-ViT v1", DATA_ROOT / "outputs/milestones/phase4_third_generator_matrix_v1/ovtb_alpha_seed_m_matrix.csv", "matrix"),
-        ("OWL-ViT v1", DATA_ROOT / "outputs/milestones/phase4_third_generator_matrix_v1/tao_alpha_seed_m_matrix.csv", "matrix"),
+        ("OWL-ViT v1", DATA_ROOT / "outputs/milestones/phase4_third_generator_matrix/ovtb_alpha_seed_m_matrix.csv", "matrix"),
+        ("OWL-ViT v1", DATA_ROOT / "outputs/milestones/phase4_third_generator_matrix/tao_alpha_seed_m_matrix.csv", "matrix"),
         ("GroundingDINO detector-only", DATA_ROOT / "outputs/phase4_score_ablation/ovt-b_detector_only/ovtb_alpha_seed_m_matrix.csv", "matrix"),
         ("GroundingDINO detector-only", DATA_ROOT / "outputs/phase4_score_ablation/tao_detector_only/tao_alpha_seed_m_matrix.csv", "matrix"),
     ]
@@ -893,14 +893,14 @@ def _build_blackbox_generator_table(output_dir: Path) -> Path:
 
 
 def _write_public_benchmark_package(output_dir: Path, copied: list[Path]) -> dict[str, Any]:
-    bench = ensure_data_output(DATA_ROOT / "outputs/milestones/parc_certification_benchmark_v1")
+    bench = ensure_data_output(DATA_ROOT / "outputs/milestones/parc_certification_benchmark")
     public_sources = [
-        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_2000_human_reviewed_v1.csv",
-        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_2000_human_reviewed_v1_summary.csv",
-        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_2000_human_reviewed_v1_verified_summary.csv",
-        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_2000_human_reviewed_v1_remaining_40_uncertain.csv",
+        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_2000_human_reviewed.csv",
+        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_2000_human_reviewed_summary.csv",
+        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_2000_human_reviewed_verified_summary.csv",
+        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_2000_human_reviewed_remaining_40_uncertain.csv",
         DATA_ROOT / "outputs/phase9_audit_benchmark/audit_error_taxonomy.csv",
-        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_protocol_v2.md",
+        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_protocol.md",
         DATA_ROOT / "outputs/phase9_certification_api/PARC_CERTIFICATION_API.md",
         DATA_ROOT / "outputs/phase9_certification_api/tiny_fixture/candidate_universe.csv",
         DATA_ROOT / "outputs/phase9_certification_api/tiny_fixture/candidate_nodes.csv",
@@ -937,15 +937,15 @@ def _write_public_benchmark_package(output_dir: Path, copied: list[Path]) -> dic
         "".join(f"{_sha256(path)}  {path.name}\n" for path in sorted(bench_files) if path.exists() and path.is_file()),
         encoding="utf-8",
     )
-    package = ensure_data_output(DATA_ROOT / "outputs/packages/parc_certification_benchmark_v1.tar.gz")
+    package = ensure_data_output(DATA_ROOT / "outputs/packages/parc_certification_benchmark.tar.gz")
     with tarfile.open(package, "w:gz") as tar:
         tar.add(bench, arcname=bench.name)
     package_sha = _sha256(package)
     return {"benchmark_dir": str(bench), "package": str(package), "package_sha256": package_sha}
 
 
-def run_tpami_reliability_bundle_v2(out_dir: str | Path | None = None) -> dict[str, Any]:
-    output_dir = ensure_data_output(out_dir or DATA_ROOT / "outputs/milestones/tpami_reliability_fortress_v2")
+def run_reliability_bundle(out_dir: str | Path | None = None) -> dict[str, Any]:
+    output_dir = ensure_data_output(out_dir or DATA_ROOT / "outputs/milestones/reliability_fortress")
     # Ensure core auxiliary artifacts exist.
     run_certification_api_package(DATA_ROOT / "outputs/phase9_certification_api")
     ovvis_manifest = run_ovvis_mask_scaffold(DATA_ROOT / "outputs/phase9_ovvis_scaffold")
@@ -966,23 +966,23 @@ def run_tpami_reliability_bundle_v2(out_dir: str | Path | None = None) -> dict[s
     ensure_data_output(output_dir / "second_rater_status.json").write_text(json.dumps(second_status, indent=2), encoding="utf-8")
 
     sources = [
-        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_2000_human_reviewed_v1.csv",
-        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_2000_human_reviewed_v1_full_provenance.csv",
-        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_2000_human_reviewed_v1_remaining_40_uncertain.csv",
-        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_2000_human_reviewed_v1_summary.csv",
-        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_2000_human_reviewed_v1_verified_summary.csv",
-        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_2000_human_reviewed_v1_notes.md",
+        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_2000_human_reviewed.csv",
+        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_2000_human_reviewed_full_provenance.csv",
+        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_2000_human_reviewed_remaining_40_uncertain.csv",
+        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_2000_human_reviewed_summary.csv",
+        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_2000_human_reviewed_verified_summary.csv",
+        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_2000_human_reviewed_notes.md",
         DATA_ROOT / "outputs/phase9_audit_benchmark/audit_error_taxonomy.csv",
-        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_protocol_v2.md",
+        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_protocol.md",
         DATA_ROOT / "outputs/phase9_second_rater_closure/second_rater_300_blind_template.csv",
         DATA_ROOT / "outputs/phase9_second_rater_closure/second_rater_300_human_confirmed_labels.csv",
         DATA_ROOT / "outputs/phase9_second_rater_closure/second_rater_agreement_summary.csv",
         DATA_ROOT / "outputs/phase9_second_rater_closure/second_rater_disagreement_cases.csv",
         DATA_ROOT / "outputs/phase9_second_rater_closure/second_rater_kappa_report.md",
         DATA_ROOT / "outputs/phase9_second_rater_closure/SECOND_RATER_BLIND_MATCH_ATTESTATION.md",
-        DATA_ROOT / "outputs/milestones/ijcv_stability_v2/table_mondrian_ablation_summary.csv",
-        DATA_ROOT / "outputs/milestones/ijcv_stability_v2/table_per_class_head_mid_tail_summary.csv",
-        DATA_ROOT / "outputs/milestones/ijcv_stability_v2/table_per_class_breakdown.csv",
+        DATA_ROOT / "outputs/milestones/stability/table_mondrian_ablation_summary.csv",
+        DATA_ROOT / "outputs/milestones/stability/table_per_class_head_mid_tail_summary.csv",
+        DATA_ROOT / "outputs/milestones/stability/table_per_class_breakdown.csv",
         DATA_ROOT / "outputs/phase4_runtime/table_runtime_report.csv",
         DATA_ROOT / "outputs/phase7_anytime/table_anytime_release.csv",
         DATA_ROOT / "outputs/phase7_anytime/table_anytime_first_release.csv",
@@ -1027,7 +1027,7 @@ def run_tpami_reliability_bundle_v2(out_dir: str | Path | None = None) -> dict[s
     manifest_sha.write_text("".join(f"{row['sha256']}  {row['file']}\n" for row in manifest_rows), encoding="utf-8")
     report = ensure_data_output(output_dir / "RUN_REPORT.md")
     report.write_text(
-        "# TPAMI Reliability Fortress v2\n\n"
+        "# Reliability Fortress\n\n"
         "Reliability-focused bundle with human-reviewed 2000-row audit and explicit assumption-boundary diagnostics.\n\n"
         "- Audit rows: 2000 human-reviewed.\n"
         "- Audit labels: 1927 actually true, 33 actually false, 40 uncertain.\n"
@@ -1040,7 +1040,7 @@ def run_tpami_reliability_bundle_v2(out_dir: str | Path | None = None) -> dict[s
         encoding="utf-8",
     )
     manifest = {
-        "status": "tpami_reliability_fortress_v2",
+        "status": "reliability_fortress",
         "contains_raw_data": False,
         "contains_raw_annotations": False,
         "contains_model_weights": False,
@@ -1053,7 +1053,7 @@ def run_tpami_reliability_bundle_v2(out_dir: str | Path | None = None) -> dict[s
     }
     write_json(output_dir / "manifest.json", manifest)
     bench = _write_public_benchmark_package(output_dir, copied)
-    package = ensure_data_output(DATA_ROOT / "outputs/packages/tpami_reliability_fortress_v2.tar.gz")
+    package = ensure_data_output(DATA_ROOT / "outputs/packages/reliability_fortress.tar.gz")
     with tarfile.open(package, "w:gz") as tar:
         tar.add(output_dir, arcname=output_dir.name)
     package_sha = _sha256(package)
@@ -1067,11 +1067,11 @@ def run_tpami_reliability_bundle_v2(out_dir: str | Path | None = None) -> dict[s
         "manifest": str(output_dir / "manifest.json"),
         "run_report": str(report),
     }
-    write_json(output_dir / "tpami_reliability_fortress_v2_summary.json", summary)
+    write_json(output_dir / "reliability_fortress_summary.json", summary)
     return summary
 
-def run_tpami_reliability_bundle(out_dir: str | Path | None = None) -> dict[str, Any]:
-    output_dir = ensure_data_output(out_dir or DATA_ROOT / "outputs/milestones/tpami_reliability_fortress_v1")
+def run_reliability_bundle_draft(out_dir: str | Path | None = None) -> dict[str, Any]:
+    output_dir = ensure_data_output(out_dir or DATA_ROOT / "outputs/milestones/reliability_fortress_draft")
     audit = run_audit_benchmark_industrialization(DATA_ROOT / "outputs/phase9_audit_benchmark")
     stress = run_reliability_stress_suite(DATA_ROOT / "outputs/phase9_reliability_stress")
     ovvis = run_ovvis_mask_scaffold(DATA_ROOT / "outputs/phase9_ovvis_scaffold")
@@ -1082,7 +1082,7 @@ def run_tpami_reliability_bundle(out_dir: str | Path | None = None) -> dict[str,
         DATA_ROOT / "outputs/phase9_audit_benchmark/audit_labels_gold.csv",
         DATA_ROOT / "outputs/phase9_audit_benchmark/audit_expansion_pending_labels.csv",
         DATA_ROOT / "outputs/phase9_audit_benchmark/audit_error_taxonomy.csv",
-        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_protocol_v2.md",
+        DATA_ROOT / "outputs/phase9_audit_benchmark/audit_protocol.md",
         DATA_ROOT / "outputs/phase9_audit_benchmark/second_rater_300_blind_template.csv",
         DATA_ROOT / "outputs/phase9_reliability_stress/table_nonexchangeability_stress_design.csv",
         DATA_ROOT / "outputs/phase9_reliability_stress/table_null_inflation_sensitivity_projection.csv",
@@ -1090,8 +1090,8 @@ def run_tpami_reliability_bundle(out_dir: str | Path | None = None) -> dict[str,
         DATA_ROOT / "outputs/phase9_ovvis_scaffold/mask_path_nodes.csv",
         DATA_ROOT / "outputs/phase9_ovvis_scaffold/OVVIS_SCAFFOLD_REPORT.md",
         DATA_ROOT / "outputs/phase9_certification_api/PARC_CERTIFICATION_API.md",
-        DATA_ROOT / "outputs/milestones/ijcv_stability_v2/table_mondrian_ablation_summary.csv",
-        DATA_ROOT / "outputs/milestones/ijcv_stability_v2/table_per_class_head_mid_tail_summary.csv",
+        DATA_ROOT / "outputs/milestones/stability/table_mondrian_ablation_summary.csv",
+        DATA_ROOT / "outputs/milestones/stability/table_per_class_head_mid_tail_summary.csv",
         DATA_ROOT / "outputs/phase7_anytime/table_anytime_release.csv",
         DATA_ROOT / "outputs/phase8_published_trackers/table_published_tracker_certification.csv",
         DATA_ROOT / "outputs/phase8_published_trackers/table_published_tracker_meanstd.csv",
@@ -1131,7 +1131,7 @@ def run_tpami_reliability_bundle(out_dir: str | Path | None = None) -> dict[str,
         encoding="utf-8",
     )
     manifest = {
-        "status": "tpami_reliability_fortress_v1",
+        "status": "reliability_fortress_draft",
         "contains_raw_data": False,
         "contains_raw_annotations": False,
         "contains_model_weights": False,
@@ -1145,7 +1145,7 @@ def run_tpami_reliability_bundle(out_dir: str | Path | None = None) -> dict[str,
     write_json(output_dir / "manifest.json", manifest)
     report = ensure_data_output(output_dir / "RUN_REPORT.md")
     report.write_text(
-        "# TPAMI Reliability Fortress v1\n\n"
+        "# Reliability Fortress Draft\n\n"
         "This bundle emphasizes certification reliability rather than SOTA tracking comparison.\n\n"
         f"- Audit benchmark rows: {audit.get('rows')} ({audit.get('existing_gold_rows')} existing labels, {audit.get('pending_rows')} pending).\n"
         f"- Second-rater blind template rows: {audit.get('second_rater_template_rows')}.\n"
@@ -1154,7 +1154,7 @@ def run_tpami_reliability_bundle(out_dir: str | Path | None = None) -> dict[str,
         "- OVVIS scaffold is box-to-mask interface validation, not a full mask benchmark.\n",
         encoding="utf-8",
     )
-    package = ensure_data_output(DATA_ROOT / "outputs/packages/tpami_reliability_fortress_v1.tar.gz")
+    package = ensure_data_output(DATA_ROOT / "outputs/packages/reliability_fortress_draft.tar.gz")
     with tarfile.open(package, "w:gz") as tar:
         tar.add(output_dir, arcname=output_dir.name)
     package_sha = _sha256(package)
@@ -1167,5 +1167,5 @@ def run_tpami_reliability_bundle(out_dir: str | Path | None = None) -> dict[str,
         "manifest": str(output_dir / "manifest.json"),
         "run_report": str(report),
     }
-    write_json(output_dir / "tpami_reliability_fortress_summary.json", summary)
+    write_json(output_dir / "reliability_fortress_summary.json", summary)
     return summary

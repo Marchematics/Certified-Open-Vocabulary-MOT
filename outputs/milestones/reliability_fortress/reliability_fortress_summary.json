@@ -1,0 +1,13 @@
+{
+  "status": "completed",
+  "output_dir": "${PARC_TRACK_ROOT}/outputs/milestones/reliability_fortress",
+  "package": "${PARC_TRACK_ROOT}/outputs/packages/reliability_fortress.tar.gz",
+  "package_sha256": "35f9763fbc6a13667c998993a2abb4c43cdf2c0a20a1ea0d973eeaf0ebd75695",
+  "public_benchmark_package": {
+    "benchmark_dir": "${PARC_TRACK_ROOT}/outputs/milestones/parc_certification_benchmark",
+    "package": "${PARC_TRACK_ROOT}/outputs/packages/parc_certification_benchmark.tar.gz",
+    "package_sha256": "e0c1f00862f4bd1bdcfe2bfae394fd178a90b0cf773b7e377360297ab32d752c"
+  },
+  "manifest": "${PARC_TRACK_ROOT}/outputs/milestones/reliability_fortress/manifest.json",
+  "run_report": "${PARC_TRACK_ROOT}/outputs/milestones/reliability_fortress/RUN_REPORT.md"
+}

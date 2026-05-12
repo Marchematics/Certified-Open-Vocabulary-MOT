@@ -1,0 +1,29 @@
+{
+  "status": "extra_cpu_completed",
+  "root": "<PARC_ROOT>/outputs/milestones/extra_cpu",
+  "tests": "45 passed, 1 warning",
+  "commands": [
+    "python -m parc_track.cli trackeval grid --dataset OVT-B --output-dir outputs/phase5_trackeval",
+    "python -m parc_track.cli trackeval grid --dataset TAO --output-dir outputs/phase5_trackeval",
+    "python -m parc_track.cli phase4 confidence-calibration --output-dir outputs/phase5_confidence_calibration",
+    "python -m parc_track.cli phase4 mondrian-ablation --output-dir outputs/phase5_mondrian_ablation",
+    "pytest -q <PARC_ROOT>/tests"
+  ],
+  "row_counts": {
+    "trackeval/table_trackeval_cross_dataset_meanstd.csv": 8,
+    "trackeval/table_trackeval_tao_meanstd.csv": 4,
+    "trackeval/table_trackeval_ovtb.csv": 12,
+    "trackeval/table_trackeval_cross_dataset.csv": 24,
+    "trackeval/table_trackeval_tao.csv": 12,
+    "trackeval/table_trackeval_ovtb_meanstd.csv": 4,
+    "tables/table_confidence_calibration_baselines_meanstd.csv": 16,
+    "tables/table_confidence_calibration_baselines.csv": 48,
+    "tables/table_mondrian_ablation.csv": 48,
+    "tables/table_mondrian_ablation_summary.csv": 16
+  },
+  "caveats": [
+    "Confidence calibration baselines have no finite-sample certificate.",
+    "TAO TrackEval is supported-subset only.",
+    "Mondrian ablation is cell-aware diagnostic and intentionally avoids silent global fallback."
+  ]
+}

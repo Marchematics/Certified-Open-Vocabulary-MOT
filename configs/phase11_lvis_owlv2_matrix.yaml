@@ -42,11 +42,11 @@ matrix:
   candidate_budget_M:
   - 150
 input:
-  candidate_universe: ${PARC_TRACK_ROOT}/outputs/phase11_nmi/lvis_detection/owlv2/candidate_universe.csv
-  audit_labels: ${PARC_TRACK_ROOT}/outputs/phase11_nmi/lvis_detection/owlv2/audit_labels.csv
+  candidate_universe: ${PARC_TRACK_ROOT}/outputs/phase11_release/lvis_detection/owlv2/candidate_universe.csv
+  audit_labels: ${PARC_TRACK_ROOT}/outputs/phase11_release/lvis_detection/owlv2/audit_labels.csv
 output:
-  output_dir: ${PARC_TRACK_ROOT}/outputs/phase11_nmi/lvis_detection/owlv2/matrix
-  candidate_nodes: ${PARC_TRACK_ROOT}/outputs/phase11_nmi/lvis_detection/owlv2/candidate_nodes.csv
+  output_dir: ${PARC_TRACK_ROOT}/outputs/phase11_release/lvis_detection/owlv2/matrix
+  candidate_nodes: ${PARC_TRACK_ROOT}/outputs/phase11_release/lvis_detection/owlv2/candidate_nodes.csv
 reporting:
   generator: OWLv2
   scope: lvis_detection_length1

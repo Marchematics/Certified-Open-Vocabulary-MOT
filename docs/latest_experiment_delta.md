@@ -4,7 +4,7 @@ This repository snapshot is synchronized with the local post-Phase-4 writing bun
 
 - Package: `./outputs/packages/parc_track_post_phase4_delta_for_writing_20260510_013544.tar.gz`
 - SHA256: `04ead85d895d274404c006ef8adad9473058a594c04700e7d7cee7dfcb14391f`
-- Anchor package: `outputs/packages/phase4_third_generator_delta_from_ijcv_extra_cpu_v1_20260509_160838.tar.gz`
+- Anchor package: `outputs/packages/phase4_third_generator_delta_from_extra_cpu_20260509_160838.tar.gz`
 
 The bundle includes derived CSV/JSON/figures/tables and milestone summaries created after the anchor.
 It intentionally excludes raw datasets, raw annotations, model weights, HF/GroundingDINO caches,
@@ -12,9 +12,9 @@ viewer montages/clips, sharded intermediate duplicate candidates, and compiled e
 
 Key late-stage milestones included in this Git snapshot:
 
-- `outputs/milestones/ijcv_stability_v1`
-- `outputs/milestones/ijcv_stability_v2`
-- `outputs/milestones/ijcv_burst_v2`
+- `outputs/milestones/stability`
+- `outputs/milestones/stability`
+- `outputs/milestones/burst`
 - `outputs/milestones/ijcv_burst_owlv2_stress_v1`
 
 BURST summary:
