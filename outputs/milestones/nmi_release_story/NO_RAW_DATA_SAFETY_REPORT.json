@@ -1,0 +1,5 @@
+{
+  "raw_videos_images_weights_included": false,
+  "forbidden_file_hits": [],
+  "policy": "package contains public-safe CSV/JSON/MD/TXT artifacts only; raw datasets, image crops, videos, weights, and caches are excluded"
+}

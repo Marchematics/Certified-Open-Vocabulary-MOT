@@ -72,6 +72,7 @@ from .phase11 import (
     run_phase11_prepare_lvis,
     run_phase11_stratified_reliability,
 )
+from .phase13 import run_phase13_nmi_release_story
 from .reports import build_phase1b_report
 from .smoke import run_smoke
 from .sweeps import run_sweep
@@ -395,6 +396,10 @@ def build_parser() -> argparse.ArgumentParser:
     phase11_freeze = phase11_subparsers.add_parser("freeze-release", help="Freeze generality generality/reliability milestone.")
     phase11_freeze.add_argument("--output-dir", default=None, help="Milestone output directory under ..")
     phase11_freeze.add_argument("--lvis-root", default=None, help="Optional LVIS root override.")
+    phase13 = subparsers.add_parser("phase13", help="Build NMI-facing release story artifacts.")
+    phase13_subparsers = phase13.add_subparsers(dest="phase13_command", required=True)
+    phase13_story = phase13_subparsers.add_parser("nmi-release-story", help="Freeze NMI release-story milestone.")
+    phase13_story.add_argument("--output-dir", default=None, help="Milestone output directory under ..")
     return parser
 
 
@@ -672,6 +677,12 @@ def main(argv: list[str] | None = None) -> None:
             summary = run_phase11_freeze_release(out_dir=args.output_dir, lvis_root=args.lvis_root)
         else:
             parser.error(f"unknown phase11 command: {args.phase11_command}")
+        print(json.dumps(summary, indent=2, ensure_ascii=False))
+    elif args.command == "phase13":
+        if args.phase13_command == "nmi-release-story":
+            summary = run_phase13_nmi_release_story(args.output_dir)
+        else:
+            parser.error(f"unknown phase13 command: {args.phase13_command}")
         print(json.dumps(summary, indent=2, ensure_ascii=False))
     else:
         parser.error(f"unknown command: {args.command}")

@@ -1,0 +1,57 @@
+dataset,task,source,policy,alpha1,released_mean,UTR_mean,conservative_FTR_mean,mass_ratio_mean,has_alpha_control,release_decision
+LVVIS,open_vocabulary_visual_release,GroundingDINO,score_threshold,0.1,150.0,0.011111111111111066,0.011111111111111066,,False,release
+LVVIS,open_vocabulary_visual_release,GroundingDINO,score_threshold,0.2,150.0,0.011111111111111066,0.011111111111111066,,False,release
+LVVIS,open_vocabulary_visual_release,GroundingDINO,topM_no_risk,0.1,150.0,0.011111111111111066,0.011111111111111066,,False,release
+LVVIS,open_vocabulary_visual_release,GroundingDINO,topM_no_risk,0.2,150.0,0.011111111111111066,0.011111111111111066,,False,release
+LVVIS,open_vocabulary_visual_release,GroundingDINO,PARC_no_audit_variant,0.1,150.0,0.011111111111111066,0.011111111111111066,,True,release
+LVVIS,open_vocabulary_visual_release,GroundingDINO,PARC_no_audit_variant,0.2,150.0,0.011111111111111066,0.011111111111111066,,True,release
+LVVIS,open_vocabulary_visual_release,GroundingDINO,PARC_certified_release,0.1,150.0,0.011111111111111066,0.011111111111111066,,True,release
+LVVIS,open_vocabulary_visual_release,GroundingDINO,PARC_certified_release,0.2,150.0,0.011111111111111066,0.011111111111111066,,True,release
+LVVIS,open_vocabulary_visual_release,GroundingDINO,post_filter_e_bh,0.1,150.0,0.011111111111111066,0.011111111111111066,,False,release
+LVVIS,open_vocabulary_visual_release,GroundingDINO,post_filter_e_bh,0.2,150.0,0.011111111111111066,0.011111111111111066,,False,release
+LVVIS,open_vocabulary_visual_release,GroundingDINO,tracklet_e_bh,0.1,150.0,0.011111111111111066,0.011111111111111066,,False,release
+LVVIS,open_vocabulary_visual_release,GroundingDINO,tracklet_e_bh,0.2,150.0,0.011111111111111066,0.011111111111111066,,False,release
+LVVIS,open_vocabulary_visual_release,GroundingDINO,tracklet_p_bh,0.1,150.0,0.011111111111111066,0.011111111111111066,,False,release
+LVVIS,open_vocabulary_visual_release,GroundingDINO,tracklet_p_bh,0.2,150.0,0.011111111111111066,0.011111111111111066,,False,release
+LVVIS,open_vocabulary_visual_release,GroundingDINO,wrong_negative_certified_baseline,0.1,50.0,0.006666666666666667,0.02,,True,release
+LVVIS,open_vocabulary_visual_release,GroundingDINO,wrong_negative_certified_baseline,0.2,150.0,0.011111111111111066,0.011111111111111066,,True,release
+ovtb,published_tracker_output,ovtb_baseline,PARC_certified_wrapper,0.1,0.0,0.0,,0.22559195006063493,True,refusal
+ovtb,published_tracker_output,ovtb_baseline,PARC_certified_wrapper,0.2,0.0,0.0,,0.45118390012126985,True,refusal
+ovtb,published_tracker_output,ovtb_baseline,raw_tracker_topM,0.1,150.0,0.3933333333333333,0.3933333333333333,,False,release
+ovtb,published_tracker_output,ovtb_baseline,raw_tracker_topM,0.2,150.0,0.3933333333333333,0.3933333333333333,,False,release
+tao,published_tracker_output,ovtb_baseline,PARC_certified_wrapper,0.1,0.0,0.0,,0.0885361399308547,True,refusal
+tao,published_tracker_output,ovtb_baseline,PARC_certified_wrapper,0.2,0.0,0.0,,0.17707227986170948,True,refusal
+tao,published_tracker_output,ovtb_baseline,raw_tracker_topM,0.1,150.0,1.0,1.0,,False,release
+tao,published_tracker_output,ovtb_baseline,raw_tracker_topM,0.2,150.0,1.0,1.0,,False,release
+ovtb,published_tracker_output,ovtr,PARC_certified_wrapper,0.1,0.0,0.0,,0.329716383121129,True,refusal
+ovtb,published_tracker_output,ovtr,PARC_certified_wrapper,0.2,0.0,0.0,,0.659432766242258,True,refusal
+ovtb,published_tracker_output,ovtr,raw_tracker_topM,0.1,150.0,1.0,1.0,,False,release
+ovtb,published_tracker_output,ovtr,raw_tracker_topM,0.2,150.0,1.0,1.0,,False,release
+tao,published_tracker_output,ovtr,PARC_certified_wrapper,0.1,0.0,0.0,,0.3063312599447548,True,refusal
+tao,published_tracker_output,ovtr,PARC_certified_wrapper,0.2,0.0,0.0,,0.6126625198895096,True,refusal
+tao,published_tracker_output,ovtr,raw_tracker_topM,0.1,150.0,1.0,1.0,,False,release
+tao,published_tracker_output,ovtr,raw_tracker_topM,0.2,150.0,1.0,1.0,,False,release
+OVT-B,blackbox_generator_output,GroundingDINO,PARC_certified_release_or_refusal,0.1,163.66666666666663,0.02323379766844485,0.0124132664822498,,True,release
+OVT-B,blackbox_generator_output,GroundingDINO,PARC_certified_release_or_refusal,0.2,150.0,0.0199999999999999,0.011111111111111,,True,release
+TAO,blackbox_generator_output,GroundingDINO,PARC_certified_release_or_refusal,0.1,49.5,0.0033848797250859,0.0,,True,release
+TAO,blackbox_generator_output,GroundingDINO,PARC_certified_release_or_refusal,0.2,147.33333333333334,0.0245696400625977,0.0177777777777777,,True,release
+OVT-B,blackbox_generator_output,GroundingDINO detector-only,PARC_certified_release_or_refusal,0.1,135.0,0.021904761904761868,0.012063492063492033,1.5388764713654675,True,release
+OVT-B,blackbox_generator_output,GroundingDINO detector-only,PARC_certified_release_or_refusal,0.2,150.0,0.019999999999999966,0.011111111111111066,3.025894904236384,True,release
+TAO,blackbox_generator_output,GroundingDINO detector-only,PARC_certified_release_or_refusal,0.1,0.0,0.0,0.0,0.022625640196445803,True,refusal
+TAO,blackbox_generator_output,GroundingDINO detector-only,PARC_certified_release_or_refusal,0.2,147.33333333333334,0.024569640062597764,0.017777777777777733,1.1198408255334134,True,release
+OVT-B,blackbox_generator_output,OWL-ViT v1,PARC_certified_release_or_refusal,0.1,0.0,0.0,0.0,0.0022662357985632,True,refusal
+OVT-B,blackbox_generator_output,OWL-ViT v1,PARC_certified_release_or_refusal,0.2,0.0,0.0,0.0,0.004532471597126434,True,refusal
+TAO,blackbox_generator_output,OWL-ViT v1,PARC_certified_release_or_refusal,0.1,0.0,0.0,0.0,0.002111881269867033,True,refusal
+TAO,blackbox_generator_output,OWL-ViT v1,PARC_certified_release_or_refusal,0.2,0.0,0.0,0.0,0.0042237625397341,True,refusal
+OVT-B,blackbox_generator_output,OWLv2,PARC_certified_release_or_refusal,0.1,0.0,0.0,0.0,0.0296081659220513,True,refusal
+OVT-B,blackbox_generator_output,OWLv2,PARC_certified_release_or_refusal,0.2,0.0,0.0,0.0,0.059216331844102695,True,refusal
+TAO,blackbox_generator_output,OWLv2,PARC_certified_release_or_refusal,0.1,0.0,0.0,0.0,0.025155927015123602,True,refusal
+TAO,blackbox_generator_output,OWLv2,PARC_certified_release_or_refusal,0.2,0.0,0.0,0.0,0.05031185403024724,True,refusal
+ovtb,blackbox_generator_output,ovtb_baseline,PARC_certified_release_or_refusal,0.1,0.0,0.0,0.0,0.22559195006063493,True,refusal
+ovtb,blackbox_generator_output,ovtb_baseline,PARC_certified_release_or_refusal,0.2,0.0,0.0,0.0,0.45118390012126985,True,refusal
+tao,blackbox_generator_output,ovtb_baseline,PARC_certified_release_or_refusal,0.1,0.0,0.0,0.0,0.0885361399308547,True,refusal
+tao,blackbox_generator_output,ovtb_baseline,PARC_certified_release_or_refusal,0.2,0.0,0.0,0.0,0.17707227986170948,True,refusal
+ovtb,blackbox_generator_output,ovtr,PARC_certified_release_or_refusal,0.1,0.0,0.0,0.0,0.329716383121129,True,refusal
+ovtb,blackbox_generator_output,ovtr,PARC_certified_release_or_refusal,0.2,0.0,0.0,0.0,0.659432766242258,True,refusal
+tao,blackbox_generator_output,ovtr,PARC_certified_release_or_refusal,0.1,0.0,0.0,0.0,0.3063312599447548,True,refusal
+tao,blackbox_generator_output,ovtr,PARC_certified_release_or_refusal,0.2,0.0,0.0,0.0,0.6126625198895096,True,refusal
