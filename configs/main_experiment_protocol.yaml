@@ -1,0 +1,82 @@
+protocol_name: parc_release_time_certification_main_protocol
+paper_scope: main_results
+
+datasets:
+  main:
+    - OVT-B
+    - TAO
+    - BURST
+
+candidate_budget:
+  main_M: 150
+  sensitivity_M: [50, 100, 150, 300]
+
+risk_levels:
+  main_alpha: 0.10
+  sensitivity_alpha: [0.05, 0.10, 0.20]
+  field_name: certified_risk_level_alpha
+
+seeds:
+  main: [0, 1, 2]
+  sensitivity: [0, 1, 2, 3, 4]
+
+proposal_sources:
+  main_or_completed:
+    - GroundingDINO detector-only
+    - GroundingDINO + tracker
+    - OWLv2
+    - OWL-ViT v1
+  provenance_gated_appendix:
+    - OVTrack official predictions
+    - OVTR official predictions
+    - OVT-B baseline official predictions
+
+paper_tables:
+  main:
+    - outputs/milestones/reliability_fortress/paper_tables/table_main_raw_vs_parc.csv
+    - outputs/milestones/reliability_fortress/paper_tables/table_main_raw_vs_parc_summary.csv
+    - outputs/milestones/reliability_fortress/paper_tables/table_safe_refusal_diagnostics.csv
+  figures:
+    - outputs/milestones/reliability_fortress/paper_tables/figure_3_risk_utility_frontier.csv
+    - outputs/milestones/reliability_fortress/paper_tables/figure_safe_refusal_mass_ratio.csv
+    - outputs/milestones/reliability_fortress/paper_tables/figure_safe_refusal_raw_false_rate.csv
+
+schema:
+  required_columns:
+    - dataset
+    - generator
+    - alpha
+    - certified_risk_level_alpha
+    - M
+    - seed
+    - raw_topM_released
+    - raw_topM_audited_false_rate
+    - raw_topM_unsupported_rate
+    - parc_released
+    - parc_UTR
+    - parc_audited_FTR
+    - parc_conservative_FTR
+    - empirical_audited_FTR
+    - conservative_label_uncertainty_FTR
+    - mass_ratio
+    - best_mass_ratio
+    - self_consistency_margin
+    - required_emax
+    - max_observed_e
+    - mean_observed_e
+    - selected_e_min
+    - selected_e_mean
+    - selected_e_max
+    - release_feasible
+    - empty_reason
+    - safe_refusal_reason
+    - HOTA_or_proxy
+    - IDF1_or_proxy
+    - MOTA_or_proxy
+    - runtime_sec
+
+notes:
+  - Main paper reports fixed M=150 and alpha=0.10.
+  - Sensitivity grids are appendix-only.
+  - Published tracker rows require official prediction provenance before promotion to main tables.
+  - Missing raw top-M audit fields remain blank rather than inferred.

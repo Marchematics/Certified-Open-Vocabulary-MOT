@@ -1,0 +1,14 @@
+{
+  "repo_commit": "unknown",
+  "command": "python -m parc_track.cli phase14 closeout",
+  "runtime_sec": 0.106743,
+  "source_files": [],
+  "outputs": [
+    "/home/waas/paper_experiments/github/Certified-Open-Vocabulary-MOT/figures/released_examples/manifest.csv",
+    "/home/waas/paper_experiments/github/Certified-Open-Vocabulary-MOT/figures/refusal_examples/manifest.csv",
+    "/home/waas/paper_experiments/github/Certified-Open-Vocabulary-MOT/figures/borderline_examples/manifest.csv",
+    "/home/waas/paper_experiments/github/Certified-Open-Vocabulary-MOT/docs/qualitative_release_gallery.md"
+  ],
+  "raw_data_included": false,
+  "paper_facing_gallery": true
+}

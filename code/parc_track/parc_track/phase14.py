@@ -19,6 +19,8 @@ RELEASE_STORY_DIR = DATA_ROOT / "outputs/milestones/release_story"
 LVVIS_DIR = DATA_ROOT / "outputs/milestones/lvvis_certification"
 PAPER_TABLE_DIR = RELIABILITY_DIR / "paper_tables"
 BURST_MATRIX = DATA_ROOT / "outputs/milestones/legacy_core_results/burst/burst_alpha_seed_m_matrix.csv"
+QUALITATIVE_GALLERY = DATA_ROOT / "docs/qualitative_release_gallery.md"
+FIGURES_DIR = DATA_ROOT / "figures"
 
 DIRTY_TOKENS = (
     "/tmp/",
@@ -53,7 +55,12 @@ def _sha256(path: str | Path) -> str:
 
 def _git_commit() -> str:
     try:
-        return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=DATA_ROOT, text=True).strip()
+        return subprocess.check_output(
+            ["git", "rev-parse", "HEAD"],
+            cwd=DATA_ROOT,
+            stderr=subprocess.DEVNULL,
+            text=True,
+        ).strip()
     except Exception:
         return "unknown"
 
@@ -92,6 +99,13 @@ def _safe_reason(row: pd.Series) -> str:
     if not pd.isna(mass) and mass < 1:
         return "insufficient_high_evidence_mass"
     return "no_self_consistent_release"
+
+
+def _clean_missing(value: Any) -> Any:
+    text = _text(value).strip().lower()
+    if text in {"nan", "none", "<na>"}:
+        return ""
+    return value
 
 
 def _is_seed_row(seed: Any) -> bool:
@@ -150,29 +164,42 @@ def _append_burst_rows(rows: list[dict[str, Any]]) -> list[Path]:
         mass = row.get("best_margin", row.get("mass_ratio", row.get("self_consistency_margin", "")))
         empty_reason = _text(row.get("empty_reason", ""))
         rows.append(
-            {
-                "dataset": "BURST",
-                "generator": "GroundingDINO",
-                "certified_risk_level_alpha": 0.10,
-                "M": 150,
-                "seed": int(float(row.get("seed"))),
-                "raw_topM_released": 150,
-                "raw_topM_policy": "score_ranked_topM_reference_count_only",
-                "parc_released": released,
-                "parc_UTR": row.get("utr", ""),
-                "empirical_audited_FTR": row.get("audited_ftr_on_labeled_released", ""),
-                "conservative_label_uncertainty_FTR": row.get("conservative_ftr_uncertain_and_unlabeled_false", ""),
-                "mass_ratio": mass,
-                "best_mass_ratio": mass,
-                "self_consistency_margin": row.get("self_consistency_margin", ""),
-                "max_observed_e": row.get("max_observed_e", ""),
-                "mean_observed_e": row.get("mean_observed_e", ""),
-                "release_feasible": bool(released > 0 or _num(mass, default=0.0) >= 1.0),
-                "empty_reason": empty_reason,
-                "safe_refusal_reason": _safe_reason(row),
-                "paper_table_scope": "main_protocol",
-            }
-        )
+                {
+                    "dataset": "BURST",
+                    "generator": "GroundingDINO",
+                    "alpha": 0.10,
+                    "certified_risk_level_alpha": 0.10,
+                    "M": 150,
+                    "seed": int(float(row.get("seed"))),
+                    "raw_topM_released": 150,
+                    "raw_topM_audited_false_rate": "",
+                    "raw_topM_unsupported_rate": "",
+                    "raw_topM_policy": "score_ranked_topM_reference_count_only",
+                    "parc_released": released,
+                    "parc_UTR": row.get("utr", ""),
+                    "parc_audited_FTR": row.get("audited_ftr_on_labeled_released", ""),
+                    "parc_conservative_FTR": row.get("conservative_ftr_uncertain_and_unlabeled_false", ""),
+                    "empirical_audited_FTR": row.get("audited_ftr_on_labeled_released", ""),
+                    "conservative_label_uncertainty_FTR": row.get("conservative_ftr_uncertain_and_unlabeled_false", ""),
+                    "mass_ratio": mass,
+                    "best_mass_ratio": mass,
+                    "self_consistency_margin": row.get("self_consistency_margin", ""),
+                    "required_emax": row.get("required_emax", ""),
+                    "max_observed_e": row.get("max_observed_e", ""),
+                    "mean_observed_e": row.get("mean_observed_e", ""),
+                    "selected_e_min": row.get("selected_e_min", ""),
+                    "selected_e_mean": row.get("selected_e_mean", ""),
+                    "selected_e_max": row.get("selected_e_max", ""),
+                    "release_feasible": bool(released > 0 or _num(mass, default=0.0) >= 1.0),
+                    "empty_reason": empty_reason,
+                    "safe_refusal_reason": _safe_reason(row),
+                    "HOTA_or_proxy": row.get("HOTA", ""),
+                    "IDF1_or_proxy": row.get("IDF1", ""),
+                    "MOTA_or_proxy": row.get("MOTA", ""),
+                    "runtime_sec": row.get("runtime_sec", ""),
+                    "paper_table_scope": "main_protocol",
+                }
+            )
     return [source]
 
 
@@ -196,23 +223,36 @@ def _build_main_raw_vs_parc(out_dir: Path, started: float) -> Path:
                 {
                     "dataset": row.get("dataset", ""),
                     "generator": row.get("generator", ""),
+                    "alpha": 0.10,
                     "certified_risk_level_alpha": 0.10,
                     "M": 150,
                     "seed": int(float(row.get("seed"))),
                     "raw_topM_released": 150,
+                    "raw_topM_audited_false_rate": "",
+                    "raw_topM_unsupported_rate": "",
                     "raw_topM_policy": "score_ranked_topM_reference_count_only",
                     "parc_released": released,
                     "parc_UTR": row.get("UTR", ""),
+                    "parc_audited_FTR": row.get("audited_FTR", row.get("audited_ftr_on_labeled_released", "")),
+                    "parc_conservative_FTR": row.get("conservative_FTR", ""),
                     "empirical_audited_FTR": "",
                     "conservative_label_uncertainty_FTR": row.get("conservative_FTR", ""),
                     "mass_ratio": mass,
                     "best_mass_ratio": mass,
                     "self_consistency_margin": "",
+                    "required_emax": row.get("required_emax", ""),
                     "max_observed_e": "",
                     "mean_observed_e": "",
+                    "selected_e_min": row.get("selected_e_min", ""),
+                    "selected_e_mean": row.get("selected_e_mean", ""),
+                    "selected_e_max": row.get("selected_e_max", ""),
                     "release_feasible": bool(released > 0 or _num(mass, default=0.0) >= 1.0),
                     "empty_reason": empty_reason,
                     "safe_refusal_reason": _safe_reason(row),
+                    "HOTA_or_proxy": row.get("HOTA", ""),
+                    "IDF1_or_proxy": row.get("IDF1", ""),
+                    "MOTA_or_proxy": row.get("MOTA", ""),
+                    "runtime_sec": row.get("runtime_sec", ""),
                     "paper_table_scope": "main_protocol",
                 }
             )
@@ -236,6 +276,10 @@ def _build_safe_refusal(out_dir: Path, main_path: Path, started: float) -> Path:
         if not table.empty:
             table["safe_refusal_reason"] = table.apply(_safe_reason, axis=1)
             table["diagnostic_available"] = table["mass_ratio"].notna() | table["empty_reason"].fillna("").astype(str).ne("")
+            table["raw_topM_false_rate"] = table.get("raw_topM_audited_false_rate", "")
+            table["raw_topM_unsupported_rate"] = table.get("raw_topM_unsupported_rate", "")
+            table["diagnostic_reason"] = table["safe_refusal_reason"]
+            table["human_audit_false_examples"] = ""
     out = _write_csv(
         table,
         out_dir / "table_safe_refusal_diagnostics.csv",
@@ -367,13 +411,22 @@ def _build_risk_utility_frontier(out_dir: Path, main_path: Path, baseline_path: 
                     "figure_role": "baseline_comparison",
                 }
             )
-    return _write_csv(
-        pd.DataFrame(rows),
+    table = pd.DataFrame(rows)
+    primary = _write_csv(
+        table,
         out_dir / "figure_risk_utility_frontier.csv",
         [main_path, baseline_path],
         "python -m parc_track.cli phase14 closeout",
         started,
     )
+    _write_csv(
+        table,
+        out_dir / "figure_3_risk_utility_frontier.csv",
+        [main_path, baseline_path],
+        "python -m parc_track.cli phase14 closeout",
+        started,
+    )
+    return primary
 
 
 def _build_safe_refusal_figures(out_dir: Path, refusal_path: Path, started: float) -> tuple[Path, Path]:
@@ -427,7 +480,34 @@ def _build_safe_refusal_figures(out_dir: Path, refusal_path: Path, started: floa
         "python -m parc_track.cli phase14 closeout",
         started,
     )
-    return mass_path, reason_path
+    raw_false_path = _write_csv(
+        refusal[
+            [
+                col
+                for col in (
+                    "dataset",
+                    "generator",
+                    "seed",
+                    "certified_risk_level_alpha",
+                    "M",
+                    "raw_topM_false_rate",
+                    "raw_topM_unsupported_rate",
+                    "parc_released",
+                    "safe_refusal_reason",
+                    "mass_ratio",
+                    "empty_reason",
+                )
+                if col in refusal.columns
+            ]
+        ]
+        if not refusal.empty
+        else pd.DataFrame(),
+        out_dir / "figure_safe_refusal_raw_false_rate.csv",
+        [refusal_path],
+        "python -m parc_track.cli phase14 closeout",
+        started,
+    )
+    return mass_path, reason_path, raw_false_path
 
 
 def _build_baseline_and_ablation(out_dir: Path, started: float) -> tuple[Path, Path]:
@@ -576,6 +656,75 @@ def _build_stress_tables(out_dir: Path, started: float) -> tuple[Path, Path]:
     return stress_path, projection_path
 
 
+def _select_gallery_rows(teaser: pd.DataFrame, case_types: set[str], limit: int = 8) -> pd.DataFrame:
+    if teaser.empty or "case_type" not in teaser:
+        return pd.DataFrame()
+    data = teaser[teaser["case_type"].astype(str).isin(case_types)].copy()
+    if data.empty:
+        return data
+    if "score" in data:
+        data["_score"] = pd.to_numeric(data["score"], errors="coerce")
+        data = data.sort_values("_score", ascending=False)
+    return data.head(limit).drop(columns=[col for col in ("_score",) if col in data], errors="ignore")
+
+
+def _write_gallery_manifest(path: Path, frame: pd.DataFrame) -> Path:
+    out = ensure_data_output(path)
+    frame.to_csv(out, index=False)
+    return out
+
+
+def _build_qualitative_gallery(started: float) -> list[Path]:
+    teaser_path = RELEASE_STORY_DIR / "figure_release_story_teaser_manifest.csv"
+    teaser = _read_csv(teaser_path)
+    gallery_specs = {
+        "released_examples": {"PARC_certified_release", "official_matched_positive", "real_official_unmatched"},
+        "refusal_examples": {"high_score_topM_parc_refusal_candidate", "actually_false"},
+        "borderline_examples": {"uncertain"},
+    }
+    outputs: list[Path] = []
+    for name, case_types in gallery_specs.items():
+        frame = _select_gallery_rows(teaser, case_types, limit=12)
+        frame = frame.copy()
+        if not frame.empty:
+            frame["gallery"] = name
+            frame["asset_policy"] = "public_manifest_reference_only_no_raw_image_packaging"
+        out = _write_gallery_manifest(FIGURES_DIR / name / "manifest.csv", frame)
+        outputs.append(out)
+
+    doc = ensure_data_output(QUALITATIVE_GALLERY)
+    doc.write_text(
+        "# Qualitative Release Gallery\n\n"
+        "This gallery is a public-safe manifest for paper figure selection. It does not package raw "
+        "videos, raw frames, or montage images. Each row points to an existing public-safe reference "
+        "when available, otherwise it records `missing_visual_asset`.\n\n"
+        "## Gallery Groups\n\n"
+        "- `figures/released_examples/manifest.csv`: certified releases and official matched references.\n"
+        "- `figures/refusal_examples/manifest.csv`: high-score candidates and false examples used to explain safe refusal.\n"
+        "- `figures/borderline_examples/manifest.csv`: uncertain cases counted conservatively.\n\n"
+        "## Paper Use\n\n"
+        "Use these manifests to select examples for the final figure layout. Do not commit raw images or "
+        "dataset frames to the public repository.\n",
+        encoding="utf-8",
+    )
+    outputs.append(doc)
+    # A lightweight provenance sidecar keeps this gallery in the same traceable style as tables.
+    write_json(
+        doc.with_suffix(".provenance.json"),
+        {
+            "repo_commit": _git_commit(),
+            "command": "python -m parc_track.cli phase14 closeout",
+            "runtime_sec": round(time.time() - started, 6),
+            "source_files": [{"path": _rel(teaser_path), "sha256": _sha256(teaser_path)}] if teaser_path.exists() else [],
+            "outputs": [_rel(path) for path in outputs],
+            "raw_data_included": False,
+            "paper_facing_gallery": True,
+        },
+    )
+    outputs.append(doc.with_suffix(".provenance.json"))
+    return outputs
+
+
 def _write_run_report(out_dir: Path, outputs: list[Path]) -> Path:
     report = ensure_data_output(out_dir / "RUN_REPORT.md")
     report.write_text(
@@ -617,9 +766,24 @@ def run_phase14_closeout(out_dir: str | Path | None = None) -> dict[str, Any]:
     baseline, ablation = _build_baseline_and_ablation(output_dir, started)
     summary = _build_main_summary(output_dir, main, started)
     frontier = _build_risk_utility_frontier(output_dir, main, baseline, started)
-    safe_mass, safe_reasons = _build_safe_refusal_figures(output_dir, refusal, started)
+    safe_mass, safe_reasons, safe_raw_false = _build_safe_refusal_figures(output_dir, refusal, started)
     stress, projection = _build_stress_tables(output_dir, started)
-    outputs = [main, summary, refusal, baseline, ablation, frontier, safe_mass, safe_reasons, stress, projection]
+    gallery_outputs = _build_qualitative_gallery(started)
+    outputs = [
+        main,
+        summary,
+        refusal,
+        baseline,
+        ablation,
+        frontier,
+        output_dir / "figure_3_risk_utility_frontier.csv",
+        safe_mass,
+        safe_reasons,
+        safe_raw_false,
+        stress,
+        projection,
+        *gallery_outputs,
+    ]
     _validate_clean_tables(outputs)
     report = _write_run_report(output_dir, outputs)
     manifest = _write_manifest(output_dir)

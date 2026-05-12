@@ -16,6 +16,8 @@ def _patch_roots(tmp_path: Path, monkeypatch) -> None:
     monkeypatch.setattr(phase14, "RELEASE_STORY_DIR", tmp_path / "outputs/milestones/release_story")
     monkeypatch.setattr(phase14, "LVVIS_DIR", tmp_path / "outputs/milestones/lvvis_certification")
     monkeypatch.setattr(phase14, "PAPER_TABLE_DIR", tmp_path / "outputs/milestones/reliability_fortress/paper_tables")
+    monkeypatch.setattr(phase14, "QUALITATIVE_GALLERY", tmp_path / "docs/qualitative_release_gallery.md")
+    monkeypatch.setattr(phase14, "FIGURES_DIR", tmp_path / "figures")
 
 
 def _write_sources(root: Path) -> None:
@@ -182,6 +184,40 @@ def test_closeout_tables_are_clean_and_have_refusal_diagnostics(tmp_path: Path, 
 
     main = pd.read_csv(out_dir / "table_main_raw_vs_parc.csv")
     assert "OVTR" not in set(main["generator"])
+    required_schema = {
+        "dataset",
+        "generator",
+        "alpha",
+        "certified_risk_level_alpha",
+        "M",
+        "seed",
+        "raw_topM_released",
+        "raw_topM_audited_false_rate",
+        "raw_topM_unsupported_rate",
+        "parc_released",
+        "parc_UTR",
+        "parc_audited_FTR",
+        "parc_conservative_FTR",
+        "empirical_audited_FTR",
+        "conservative_label_uncertainty_FTR",
+        "mass_ratio",
+        "best_mass_ratio",
+        "self_consistency_margin",
+        "required_emax",
+        "max_observed_e",
+        "mean_observed_e",
+        "selected_e_min",
+        "selected_e_mean",
+        "selected_e_max",
+        "release_feasible",
+        "empty_reason",
+        "safe_refusal_reason",
+        "HOTA_or_proxy",
+        "IDF1_or_proxy",
+        "MOTA_or_proxy",
+        "runtime_sec",
+    }
+    assert required_schema.issubset(main.columns)
     summary = pd.read_csv(out_dir / "table_main_raw_vs_parc_summary.csv")
     assert {"nonempty_seeds", "safe_refusal_rate"}.issubset(summary.columns)
     refusal = pd.read_csv(out_dir / "table_safe_refusal_diagnostics.csv")
@@ -195,8 +231,13 @@ def test_closeout_tables_are_clean_and_have_refusal_diagnostics(tmp_path: Path, 
     assert {"PARC_certified_release_or_refusal", "raw_topM_count_reference_no_certificate"}.issubset(
         set(frontier["policy"])
     )
+    assert (out_dir / "figure_3_risk_utility_frontier.csv").exists()
     safe_mass = pd.read_csv(out_dir / "figure_safe_refusal_mass_ratio.csv")
     assert {"mass_ratio", "mass_ratio_threshold", "unconstrained_feasible"}.issubset(safe_mass.columns)
+    assert (out_dir / "figure_safe_refusal_raw_false_rate.csv").exists()
+    assert (tmp_path / "docs/qualitative_release_gallery.md").exists()
+    for folder in ("released_examples", "refusal_examples", "borderline_examples"):
+        assert (tmp_path / "figures" / folder / "manifest.csv").exists()
     provenance = json.loads((out_dir / "table_main_raw_vs_parc.csv.provenance.json").read_text())
     assert provenance["paper_facing_table"] is True
     assert provenance["source_files"]

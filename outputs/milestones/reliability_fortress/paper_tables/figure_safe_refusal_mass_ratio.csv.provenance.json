@@ -1,12 +1,12 @@
 {
   "table": "figure_safe_refusal_mass_ratio.csv",
-  "repo_commit": "5e51e9ccb075643e13a686ee7c384bafc11df837",
+  "repo_commit": "065ad5e309c734045f7e4b0c4a332a3857c6bd5c",
   "command": "python -m parc_track.cli phase14 closeout",
-  "runtime_sec": 0.108253,
+  "runtime_sec": 0.118935,
   "source_files": [
     {
       "path": "outputs/milestones/reliability_fortress/paper_tables/table_safe_refusal_diagnostics.csv",
-      "sha256": "65aed1546e011e4f71c4adeb432bb90da0bd83d5dc2c15bd9a727c5e700b2e95"
+      "sha256": "6dc637b50de04b198284d8dc0c6452fb29862eb034179ae9476fe7da2ef0449f"
     }
   ],
   "output_sha256": "708becacbfe91cca5d3849a3bc6013b06158dbaf66b70b18557111d0d9e54caa",

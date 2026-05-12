@@ -1,8 +1,8 @@
 {
   "table": "table_baseline_comparison.csv",
-  "repo_commit": "5e51e9ccb075643e13a686ee7c384bafc11df837",
+  "repo_commit": "065ad5e309c734045f7e4b0c4a332a3857c6bd5c",
   "command": "python -m parc_track.cli phase14 closeout",
-  "runtime_sec": 0.056616,
+  "runtime_sec": 0.052538,
   "source_files": [
     {
       "path": "outputs/milestones/lvvis_certification/table_baseline_expanded.csv",
