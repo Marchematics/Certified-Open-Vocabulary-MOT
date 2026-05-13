@@ -1,0 +1,18 @@
+{
+  "file": "KAPPA_PLANNING_README.md",
+  "repo_commit": "df6bfbacf4e328a29b7043927a94207163b82bc6",
+  "sources": [
+    {
+      "path": "outputs/milestones/reliability_fortress/audit_labels_2000_human_reviewed.csv",
+      "sha256": "755547067df9a857cb9e31256719ae08e70f0494e51ac685a8c184b8b658c4e8"
+    },
+    {
+      "path": "outputs/milestones/reliability_fortress/audit_review/boundary_challenge/audit_boundary_challenge_500_selection_manifest.csv",
+      "sha256": "39773642308f195dd004dafc0ccd1b17132d62d83eabddd2b6bda0d3c3a51960"
+    }
+  ],
+  "output_sha256": "d20e41585f31898f08f1cbfbde8dd877dd61f27d8d8838da207e137b65923ae7",
+  "created_unix": 1778666969.125,
+  "paper_use": "planning_only_not_audit_evidence",
+  "notes": "No per-row synthetic labels are generated; do not tune labels to target kappa."
+}
