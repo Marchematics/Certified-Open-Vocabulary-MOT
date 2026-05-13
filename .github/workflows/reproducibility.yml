@@ -15,7 +15,21 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.lock.txt
       - name: Run tests
-        run: PYTHONPATH=code/parc_track python -m pytest -q tests
+        env:
+          MPLBACKEND: Agg
+          PYTHONHASHSEED: "0"
+        run: |
+          set +e
+          PYTHONPATH=code/parc_track python -m pytest -q tests > pytest-output.txt 2>&1
+          status=$?
+          cat pytest-output.txt
+          {
+            echo "### Pytest output"
+            echo '```text'
+            tail -n 240 pytest-output.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"
       - name: Run tiny certification fixture
         run: PYTHONPATH=code/parc_track python -m parc_track.cli phase9 certification-api --output-dir outputs/tmp_cert_api
       - name: Validate public bundles
