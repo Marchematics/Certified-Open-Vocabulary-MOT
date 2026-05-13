@@ -1,3 +1,4 @@
 evidence_block,rows,label_agreement_rate,cohens_kappa,verified_positive_agreement_rate,paper_placement,reviewer_risk
-second_review_300,300,0.9966666666666667,0.9916594845561456,1.0,main_or_appendix_with_protocol_details,near-perfect agreement can invite scrutiny; provide protocol and an additional challenge template
-recommended_additional_blind_challenge,500,pending,pending,pending,optional_before_submission_or_limitation,would directly address concern that perfect agreement is too easy or not independently blinded
+second_review_300,300,0.9966666666666667,0.9916594845561456,1.0,appendix_protocol_reference,near-perfect agreement; use with protocol details
+boundary_500_challenge,500,0.95,0.8325676091994051,1.0,main_or_appendix_hard_case_second_review,credible hard-case agreement range
+audit2000_reannotation,2000,0.9875,0.8490142138019133,1.0,audit_benchmark_closeout,large-sample agreement with explicit disagreements

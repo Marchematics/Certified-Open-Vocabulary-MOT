@@ -1,0 +1,8 @@
+{
+  "file": "audit_review/audit2000_reannotation/audit2000_human_reannotation_labels.csv",
+  "source_template": "audit_review/audit2000_reannotation/audit2000_blind_reannotation_template.csv",
+  "status": "human_confirmed_labels",
+  "rows": 2000,
+  "sha256": "953473e45ea6c24cbd1a485fd982fed6dea3449d05357819563fb33b6f2af9c9",
+  "bytes": 449753
+}

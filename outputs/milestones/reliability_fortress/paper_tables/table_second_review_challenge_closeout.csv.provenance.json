@@ -1,24 +1,6 @@
 {
-  "table": "table_second_review_challenge_closeout.csv",
-  "repo_commit": "5f84a3ed10ded1dbe6600fd8848deb2a5277a703",
-  "command": "python -m parc_track.cli phase17 reviewer-closeout",
-  "runtime_sec": 0.581048,
-  "environment": "python",
-  "random_seed": "fixed_per_row",
-  "sources": [
-    {
-      "path": "outputs/milestones/reliability_fortress/audit_review/second_review_challenge_template_500.csv",
-      "sha256": "9195f52102b917a4b0063c50bf9beddca5066bb875014a523fcf1018efa71485"
-    },
-    {
-      "path": "outputs/milestones/reliability_fortress/audit_review/second_review_challenge_500_human_confirmed_labels.csv",
-      "sha256": "df126933d6fb4c77b918e4c2fe4fcdc4c1a54a66d19ee53025c58ab838aa858a"
-    },
-    {
-      "path": "outputs/milestones/reliability_fortress/audit_labels_2000_human_reviewed.csv",
-      "sha256": "755547067df9a857cb9e31256719ae08e70f0494e51ac685a8c184b8b658c4e8"
-    }
-  ],
-  "output_sha256": "9f88f541bc064f7d060440027cc3a1a91ef1f92e3e42569282467021c7cfa321",
-  "notes": "Final closeout of the stricter 500-row challenge after human-confirmed labels."
+  "file": "paper_tables/table_second_review_challenge_closeout.csv",
+  "status": "refreshed_after_human_review_closeout",
+  "sha256": "27cfcf5edc7a1f07b1f31b73598946c321a17c6d4a5fc075f236511764f9b2db",
+  "bytes": 426
 }

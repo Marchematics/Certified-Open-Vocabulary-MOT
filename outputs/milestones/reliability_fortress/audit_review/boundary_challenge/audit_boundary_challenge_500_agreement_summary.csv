@@ -1,0 +1,2 @@
+review_block,rows,label_agreement_rate,cohens_kappa,disagreements,primary_label_counts,second_reviewer_label_counts,verified_positive_agreement_rate,review_status
+boundary_500_challenge,500,0.95,0.8325676091994051,25,"{""actually_false"": 33, ""actually_true"": 427, ""uncertain"": 40}","{""actually_false"": 33, ""actually_true"": 402, ""uncertain"": 65}",1.0,human_confirmed

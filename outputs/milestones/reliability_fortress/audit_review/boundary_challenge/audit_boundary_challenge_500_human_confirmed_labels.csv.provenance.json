@@ -1,0 +1,8 @@
+{
+  "file": "audit_review/boundary_challenge/audit_boundary_challenge_500_human_confirmed_labels.csv",
+  "source_template": "audit_review/boundary_challenge/audit_boundary_challenge_500_blind_template.csv",
+  "status": "human_confirmed_labels",
+  "rows": 500,
+  "sha256": "bc89495c81c44b0745e87e9a3a2e561f138737cd02967f40ea1899c2d62b3de9",
+  "bytes": 101608
+}

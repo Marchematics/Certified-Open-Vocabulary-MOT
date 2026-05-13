@@ -1,9 +1,6 @@
 {
-  "file": "audit2000_blind_reannotation_summary.csv",
-  "repo_commit": "1c639bc05cdca5dad703a92495f84b54a7a65132",
-  "source": "outputs/milestones/reliability_fortress/audit_labels_2000_human_reviewed.csv",
-  "source_sha256": "755547067df9a857cb9e31256719ae08e70f0494e51ac685a8c184b8b658c4e8",
-  "output_sha256": "86b28a4317d4c996058b91050d283357c3452f65d6d26906942e14c02e2199a0",
-  "created_unix": 1778664169.047,
-  "notes": "Full Audit2000 blind reannotation template. Contains no primary labels or reasons."
+  "file": "audit_review/audit2000_reannotation/audit2000_blind_reannotation_summary.csv",
+  "status": "refreshed_after_human_review_closeout",
+  "sha256": "c95237e26510c2f6125e10e2c543d9893e4bd9a48692a9b27ecb71e536fba43f",
+  "bytes": 233
 }
