@@ -1,8 +1,8 @@
 {
   "table": "table_actual_ftr_validation.csv",
-  "repo_commit": "5c5fa0e26eaa3a2dfba9ba7d079cb2138eae9fc3",
+  "repo_commit": "5f84a3ed10ded1dbe6600fd8848deb2a5277a703",
   "command": "python -m parc_track.cli phase17 reviewer-closeout",
-  "runtime_sec": 0.067636,
+  "runtime_sec": 0.061265,
   "environment": "python",
   "random_seed": "fixed_per_row",
   "sources": [

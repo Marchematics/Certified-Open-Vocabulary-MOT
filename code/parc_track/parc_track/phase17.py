@@ -432,6 +432,7 @@ def _build_second_review_and_dense_tasks(started: float) -> list[Path]:
     second_source = DATA_ROOT / "outputs/benchmarks/parc_certification_benchmark/audit/second_rater_agreement_summary.csv"
     audit_source = RELIABILITY_DIR / "audit_labels_2000_human_reviewed.csv"
     challenge_confirmed_source = AUDIT_REVIEW_DIR / "second_review_1000_human_confirmed_labels.csv"
+    challenge_final_source = AUDIT_REVIEW_DIR / "second_review_challenge_500_human_confirmed_labels.csv"
     second = _read_csv(second_source)
     audit = _read_csv(audit_source)
     rows = []
@@ -645,6 +646,78 @@ def _build_second_review_and_dense_tasks(started: float) -> list[Path]:
                 notes="Closeout of the stricter 500-row challenge using overlap with existing independent second-review labels.",
             )
             outputs.append(challenge_closeout_path)
+    final_challenge = _read_csv(challenge_final_source)
+    if challenge_path is not None and not final_challenge.empty and {"challenge_sample_id", "human_second_label"}.issubset(final_challenge.columns):
+        completed = final_challenge.copy()
+        if "primary_label" not in completed.columns or "primary_verified_positive_for_calibration" not in completed.columns:
+            gold_keyed = audit.copy()
+            for frame in (completed, gold_keyed):
+                for col in ["dataset", "video_id", "path_id"]:
+                    if col in frame.columns:
+                        frame[col] = frame[col].astype(str)
+            gold_keep = ["dataset", "video_id", "path_id", "label", "verified_positive_for_calibration"]
+            gold_keep = [col for col in gold_keep if col in gold_keyed.columns]
+            completed = completed.merge(gold_keyed[gold_keep], on=["dataset", "video_id", "path_id"], how="left")
+            completed["primary_label"] = completed.get("label", "")
+            completed["primary_verified_positive_for_calibration"] = completed.get("verified_positive_for_calibration", "")
+        completed["label_match"] = completed["primary_label"].astype(str).eq(completed["human_second_label"].astype(str))
+        completed["verified_positive_match"] = completed["primary_verified_positive_for_calibration"].astype(str).str.lower().eq(
+            completed["human_second_verified_positive_for_calibration"].astype(str).str.lower()
+        )
+        remaining_rows = max(0, int(challenge_status["rows"]) - int(len(completed)))
+        challenge_status.update(
+            {
+                "completed_rows": int(len(completed)),
+                "remaining_rows": remaining_rows,
+                "label_agreement_rate": float(completed["label_match"].mean()) if len(completed) else "",
+                "cohens_kappa": float(_cohens_kappa(completed["primary_label"], completed["human_second_label"])) if len(completed) else "",
+                "verified_positive_agreement_rate": float(completed["verified_positive_match"].mean()) if len(completed) else "",
+                "status": "completed_human_confirmed" if remaining_rows == 0 else "partial_human_confirmed_requires_remaining_blind_review",
+            }
+        )
+        remaining_cols = [
+            "challenge_sample_id",
+            "dataset",
+            "video_id",
+            "path_id",
+            "pending_montage_path",
+            "second_reviewer_label",
+            "second_reviewer_verified_positive_for_calibration",
+            "second_reviewer_reason",
+            "second_reviewer_confidence",
+            "review_status",
+        ]
+        challenge_remaining_path = _write_csv(
+            pd.DataFrame(columns=remaining_cols),
+            AUDIT_REVIEW_DIR / "second_review_challenge_500_remaining_blind_template.csv",
+            [challenge_path, challenge_final_source],
+            started,
+            notes="No remaining rows after final human-confirmed 500-row challenge labels.",
+        )
+        outputs.append(challenge_remaining_path)
+        closeout = pd.DataFrame(
+            [
+                {
+                    "challenge_block": "second_review_challenge_500",
+                    "rows_total": int(challenge_status["rows"]),
+                    "rows_completed_from_existing_independent_review": challenge_status["completed_rows"],
+                    "rows_remaining_for_full_500_closeout": challenge_status["remaining_rows"],
+                    "label_agreement_rate_on_completed_subset": challenge_status["label_agreement_rate"],
+                    "cohens_kappa_on_completed_subset": challenge_status["cohens_kappa"],
+                    "verified_positive_agreement_rate_on_completed_subset": challenge_status["verified_positive_agreement_rate"],
+                    "status": challenge_status["status"],
+                    "paper_use": "report_full_500_challenge",
+                }
+            ]
+        )
+        challenge_closeout_path = _write_csv(
+            closeout,
+            PAPER_DIR / "table_second_review_challenge_closeout.csv",
+            [challenge_path, challenge_final_source, audit_source],
+            started,
+            notes="Final closeout of the stricter 500-row challenge after human-confirmed labels.",
+        )
+        outputs.append(challenge_closeout_path)
     updated_status_rows = [
         {
             "review_block": "completed_second_review",
@@ -659,9 +732,13 @@ def _build_second_review_and_dense_tasks(started: float) -> list[Path]:
             "rows": challenge_status["rows"],
             "status": challenge_status["status"],
             "cohens_kappa": challenge_status["cohens_kappa"],
-            "paper_use": "report_completed_subset_only" if challenge_status["completed_rows"] else "available_reproducibility_artifact_or_future_work",
+            "paper_use": (
+                "report_full_500_challenge"
+                if challenge_status["remaining_rows"] == 0
+                else ("report_completed_subset_only" if challenge_status["completed_rows"] else "available_reproducibility_artifact_or_future_work")
+            ),
             "notes": (
-                f"{challenge_status['completed_rows']} rows are covered by existing independent second-review labels; "
+                f"{challenge_status['completed_rows']} rows are covered by final human-confirmed challenge labels; "
                 f"{challenge_status['remaining_rows']} rows remain for a complete 500-row closeout."
             ),
         },

@@ -1,8 +1,8 @@
 {
   "table": "table_second_review_status.csv",
-  "repo_commit": "5c5fa0e26eaa3a2dfba9ba7d079cb2138eae9fc3",
+  "repo_commit": "5f84a3ed10ded1dbe6600fd8848deb2a5277a703",
   "command": "python -m parc_track.cli phase17 reviewer-closeout",
-  "runtime_sec": 0.593964,
+  "runtime_sec": 0.589831,
   "environment": "python",
   "random_seed": "fixed_per_row",
   "sources": [
@@ -20,13 +20,13 @@
     },
     {
       "path": "outputs/milestones/reliability_fortress/audit_review/second_review_challenge_500_remaining_blind_template.csv",
-      "sha256": "a74104c4c9425aba04aa677826878e4f570646a5594fca19ca8c259db41d48cc"
+      "sha256": "e958de91b6eb5b6e2c83af7568af65784ec0fbd26c60433ef9c3db8f4d656ef0"
     },
     {
       "path": "outputs/milestones/reliability_fortress/paper_tables/table_second_review_challenge_closeout.csv",
-      "sha256": "21ed8699c2c4963b218265006e444c296e1f4efe2983e9f8c1cdd00aa3ee2f9d"
+      "sha256": "9f88f541bc064f7d060440027cc3a1a91ef1f92e3e42569282467021c7cfa321"
     }
   ],
-  "output_sha256": "6aac33fdbd92f9819bbbe20ef4ab198af320f480cdbd5a215015c8fd099c4a98",
+  "output_sha256": "60cdcb418f01fa0fbd6ad5caf0d3e7620a25395fafbd637bc1cb3f869c2dbf53",
   "notes": "Paper-facing status table separating completed second-review evidence from the 500-row challenge closeout status."
 }
