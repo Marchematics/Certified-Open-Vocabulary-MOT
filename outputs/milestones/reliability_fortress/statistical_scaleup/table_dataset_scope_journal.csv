@@ -1,0 +1,6 @@
+dataset,task,domain_role,current_status,journal_target_status,next_action
+OVT-B,open_vocabulary_multi_object_tracking,main_tracking_benchmark,completed_main_results,included,extend from 3 to 30 seeds for final statistical evidence
+TAO,open_vocabulary_multi_object_tracking,main_tracking_benchmark_and_stress_regime,completed_main_or_refusal_results,included,extend from 3 to 30 seeds and keep refusal framing explicit
+BURST,tracking_any_object_scaffold,third_visual_tracking_dataset,completed_main_or_refusal_results,included,extend from 3 to 30 seeds if used in main statistical table
+LVIS,single_frame_open_vocabulary_detection,non_tracking_cross_task_instantiation,completed_generality_positive_with_audit_pending_for_human_FTR,included_as_cross_task_evidence,keep as main-text cross-task instantiation; do not claim human-audited LVIS FTR until LVIS audit is complete
+scientific_domain_dataset,release_time_certification_case_study,scientific_domain_anchor,missing,required_for_strong_broad_journal_fit,run a small biodiversity/camera-trap or other scientific-domain release/refusal case study with public-safe artifacts

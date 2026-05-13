@@ -1,0 +1,19 @@
+{
+  "status": "completed",
+  "output_dir": "outputs/milestones/reliability_fortress/statistical_scaleup",
+  "seed_groups": 64,
+  "groups_meeting_30_seed_target": 0,
+  "groups_needing_30_seed_rerun": 64,
+  "bootstrap_ci_rows": 142,
+  "scientific_domain_dataset_status": "missing",
+  "artifacts": [
+    "outputs/milestones/reliability_fortress/statistical_scaleup/table_statistical_scaleup_protocol.csv",
+    "outputs/milestones/reliability_fortress/statistical_scaleup/table_seed_coverage.csv",
+    "outputs/milestones/reliability_fortress/statistical_scaleup/table_main_bootstrap_ci.csv",
+    "outputs/milestones/reliability_fortress/statistical_scaleup/table_dataset_scope_journal.csv",
+    "outputs/milestones/reliability_fortress/statistical_scaleup/table_baseline_family_mapping.csv",
+    "outputs/milestones/reliability_fortress/statistical_scaleup/STATISTICAL_SCALEUP_README.md"
+  ],
+  "repo_commit": "326870ba9a2256575a344812d1333631004015cf",
+  "runtime_sec": 0.215436
+}

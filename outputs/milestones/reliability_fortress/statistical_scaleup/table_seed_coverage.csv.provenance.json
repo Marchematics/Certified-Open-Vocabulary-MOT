@@ -1,0 +1,28 @@
+{
+  "table": "table_seed_coverage.csv",
+  "repo_commit": "326870ba9a2256575a344812d1333631004015cf",
+  "command": "python -m parc_track.cli phase18 statistical-scaleup",
+  "runtime_sec": 0.070939,
+  "environment": "python",
+  "random_seed": "bootstrap_seed_20260513_where_applicable",
+  "source_files": [
+    {
+      "path": "outputs/milestones/reliability_fortress/paper_tables/table_main_raw_vs_parc.csv",
+      "sha256": "22923008cf445a6b25e5324198290cfa6761d9ec9cde5be2ad99d894d3c8924e"
+    },
+    {
+      "path": "outputs/milestones/reliability_fortress/paper_tables/table_baseline_comparison.csv",
+      "sha256": "76e21fab80a6dbc009fd5974e69317f90895f7694d320b47626ecd996da2548e"
+    },
+    {
+      "path": "outputs/milestones/generality_reliability/paper_tables/table_lvis_detection_main.csv",
+      "sha256": "42f2b5fe0d37f08d647baf330736288070ebc4337aa2c07c48f9ca7da563a525"
+    },
+    {
+      "path": "outputs/milestones/generality_reliability/paper_tables/table_lvis_raw_detector_vs_parc.csv",
+      "sha256": "52b1880f2d7ab96e5cc497605d1a5fdca47f7c65bf3c18229d9ccb273e5b18c1"
+    }
+  ],
+  "output_sha256": "97f7e8a83d9d271a0044455a3b28666e2371369ad1c6e313316e54550f3c5a95",
+  "notes": "Seed coverage against 30+ seed journal target; missing rows are explicit."
+}

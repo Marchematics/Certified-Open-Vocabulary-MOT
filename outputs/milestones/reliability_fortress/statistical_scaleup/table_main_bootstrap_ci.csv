@@ -1,0 +1,143 @@
+dataset,generator,policy,certified_risk_level_alpha,M,metric,seed_count,mean,ci_low_95,ci_high_95,ci_status,statistical_reporting_note
+BURST,GroundingDINO,Fixed score threshold,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,GroundingDINO,Fixed score threshold,0.1,150,conservative_label_uncertainty_FTR,3,0.042222222222222196,0.04,0.0466666666666666,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,GroundingDINO,Full PARC,0.1,150,released,3,100.0,0.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,GroundingDINO,Full PARC,0.1,150,conservative_label_uncertainty_FTR,3,0.04,0.04,0.04,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,GroundingDINO,Full PARC,0.1,150,mass_ratio,3,3.8108891218464067,-2.0774425199498765,9.611765316197866,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,GroundingDINO,Oracle true upper bound,0.1,150,released,3,100.0,0.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,GroundingDINO,Oracle true upper bound,0.1,150,empirical_audited_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,GroundingDINO,Oracle true upper bound,0.1,150,conservative_label_uncertainty_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,GroundingDINO,PARC certified release,0.1,150,released,3,100.0,0.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,GroundingDINO,PARC certified release,0.1,150,conservative_label_uncertainty_FTR,3,0.04,0.04,0.04,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,GroundingDINO,PARC certified release,0.1,150,mass_ratio,3,1.2700196240863544,0.7922557480050122,1.6279686673249272,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,GroundingDINO,Per-generator calibrated score threshold,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,GroundingDINO,Per-generator calibrated score threshold,0.1,150,conservative_label_uncertainty_FTR,3,0.042222222222222196,0.04,0.0466666666666666,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,GroundingDINO,Post-filter e-value threshold,0.1,150,released,3,100.0,0.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,GroundingDINO,Post-filter e-value threshold,0.1,150,conservative_label_uncertainty_FTR,3,0.04,0.04,0.04,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,GroundingDINO,Raw top-M,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,GroundingDINO,Raw top-M,0.1,150,conservative_label_uncertainty_FTR,3,0.042222222222222196,0.04,0.0466666666666666,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,GroundingDINO,Raw top-M/no risk,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,GroundingDINO,Split conformal p-value threshold,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,GroundingDINO,Split conformal p-value threshold,0.1,150,conservative_label_uncertainty_FTR,3,0.042222222222222196,0.04,0.0466666666666666,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,GroundingDINO,e-BH style selection,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,GroundingDINO,e-BH style selection,0.1,150,conservative_label_uncertainty_FTR,3,0.042222222222222196,0.04,0.0466666666666666,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,OWLv2,Fixed score threshold,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,OWLv2,Fixed score threshold,0.1,150,conservative_label_uncertainty_FTR,3,0.9666666666666667,0.96,0.98,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,OWLv2,Full PARC,0.1,150,released,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,OWLv2,Full PARC,0.1,150,mass_ratio,3,-9.267135971150855,-9.399456550072516,-9.168466608399822,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,OWLv2,Oracle true upper bound,0.1,150,released,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,OWLv2,Oracle true upper bound,0.1,150,empirical_audited_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,OWLv2,Oracle true upper bound,0.1,150,conservative_label_uncertainty_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,OWLv2,PARC certified release,0.1,150,released,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,OWLv2,PARC certified release,0.1,150,mass_ratio,3,0.07328640288491454,0.0600543449927483,0.0831533391600178,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,OWLv2,Per-generator calibrated score threshold,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,OWLv2,Per-generator calibrated score threshold,0.1,150,conservative_label_uncertainty_FTR,3,0.9666666666666667,0.96,0.98,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,OWLv2,Post-filter e-value threshold,0.1,150,released,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,OWLv2,Raw top-M,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,OWLv2,Raw top-M,0.1,150,conservative_label_uncertainty_FTR,3,0.9666666666666667,0.96,0.98,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,OWLv2,Raw top-M/no risk,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,OWLv2,Split conformal p-value threshold,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,OWLv2,Split conformal p-value threshold,0.1,150,conservative_label_uncertainty_FTR,3,0.9666666666666667,0.96,0.98,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+BURST,OWLv2,e-BH style selection,0.1,150,released,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVIS,GroundingDINO,PARC certified release,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVIS,GroundingDINO,PARC certified release,0.1,150,conservative_label_uncertainty_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVIS,GroundingDINO,PARC certified release,0.1,150,mass_ratio,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVIS,GroundingDINO,PARC certified release,0.2,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVIS,GroundingDINO,PARC certified release,0.2,150,conservative_label_uncertainty_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVIS,GroundingDINO,PARC certified release,0.2,150,mass_ratio,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVIS,OWLv2,PARC certified release,0.1,150,released,3,1.6666666666666667,0.0,3.3333333333333335,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVIS,OWLv2,PARC certified release,0.1,150,conservative_label_uncertainty_FTR,3,0.19999999999999998,0.0,0.39999999999999997,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVIS,OWLv2,PARC certified release,0.1,150,mass_ratio,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVIS,OWLv2,PARC certified release,0.2,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVIS,OWLv2,PARC certified release,0.2,150,conservative_label_uncertainty_FTR,3,0.5777777777777777,0.5644444444444444,0.5911111111111111,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVIS,OWLv2,PARC certified release,0.2,150,mass_ratio,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVVIS,GroundingDINO,Fixed score threshold,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVVIS,GroundingDINO,Fixed score threshold,0.1,150,conservative_label_uncertainty_FTR,3,0.011111111111111066,0.006666666666666601,0.02,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVVIS,GroundingDINO,Full PARC,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVVIS,GroundingDINO,Full PARC,0.1,150,conservative_label_uncertainty_FTR,3,0.011111111111111066,0.006666666666666601,0.02,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVVIS,GroundingDINO,Full PARC,0.1,150,mass_ratio,3,15.019690840728707,8.145651070951104,24.74771639560636,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVVIS,GroundingDINO,Per-generator calibrated score threshold,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVVIS,GroundingDINO,Per-generator calibrated score threshold,0.1,150,conservative_label_uncertainty_FTR,3,0.011111111111111066,0.006666666666666601,0.02,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVVIS,GroundingDINO,Post-filter e-value threshold,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVVIS,GroundingDINO,Post-filter e-value threshold,0.1,150,conservative_label_uncertainty_FTR,3,0.011111111111111066,0.006666666666666601,0.02,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVVIS,GroundingDINO,Raw top-M,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVVIS,GroundingDINO,Raw top-M,0.1,150,conservative_label_uncertainty_FTR,3,0.011111111111111066,0.006666666666666601,0.02,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVVIS,GroundingDINO,Split conformal p-value threshold,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVVIS,GroundingDINO,Split conformal p-value threshold,0.1,150,conservative_label_uncertainty_FTR,3,0.011111111111111066,0.006666666666666601,0.02,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVVIS,GroundingDINO,e-BH style selection,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+LVVIS,GroundingDINO,e-BH style selection,0.1,150,conservative_label_uncertainty_FTR,3,0.011111111111111066,0.006666666666666601,0.02,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO,Fixed score threshold,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO,Fixed score threshold,0.1,150,empirical_audited_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO,Fixed score threshold,0.1,150,conservative_label_uncertainty_FTR,3,0.9577777777777778,0.9266666666666666,1.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO,Full PARC,0.1,150,released,3,42.0,0.0,126.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO,Full PARC,0.1,150,empirical_audited_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO,Full PARC,0.1,150,conservative_label_uncertainty_FTR,3,0.0079365079365079,0.0079365079365079,0.0079365079365079,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO,Full PARC,0.1,150,mass_ratio,3,-1.1558615274082413,-5.856038016393794,6.993223214042295,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO,Per-generator calibrated score threshold,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO,Per-generator calibrated score threshold,0.1,150,empirical_audited_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO,Per-generator calibrated score threshold,0.1,150,conservative_label_uncertainty_FTR,3,0.9577777777777778,0.9266666666666666,1.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO,Post-filter e-value threshold,0.1,150,released,3,42.0,0.0,126.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO,Post-filter e-value threshold,0.1,150,empirical_audited_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO,Post-filter e-value threshold,0.1,150,conservative_label_uncertainty_FTR,3,0.9285714285714286,0.9285714285714286,0.9285714285714286,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO,Raw top-M,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO,Raw top-M,0.1,150,empirical_audited_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO,Raw top-M,0.1,150,conservative_label_uncertainty_FTR,3,0.9577777777777778,0.9266666666666666,1.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO,Split conformal p-value threshold,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO,Split conformal p-value threshold,0.1,150,empirical_audited_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO,Split conformal p-value threshold,0.1,150,conservative_label_uncertainty_FTR,3,0.9577777777777778,0.9266666666666666,1.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO,e-BH style selection,0.1,150,released,3,42.0,0.0,126.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO,e-BH style selection,0.1,150,empirical_audited_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO,e-BH style selection,0.1,150,conservative_label_uncertainty_FTR,3,0.9285714285714286,0.9285714285714286,0.9285714285714286,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO + tracker,Oracle true upper bound,0.1,150,released,3,135.0,105.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO + tracker,Oracle true upper bound,0.1,150,empirical_audited_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO + tracker,Oracle true upper bound,0.1,150,conservative_label_uncertainty_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO + tracker,PARC certified release,0.1,150,released,3,135.0,105.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO + tracker,PARC certified release,0.1,150,empirical_audited_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO + tracker,PARC certified release,0.1,150,conservative_label_uncertainty_FTR,3,0.012063492063492033,0.006666666666666601,0.02,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO + tracker,PARC certified release,0.1,150,mass_ratio,3,1.5388764713654677,1.0642654355923873,2.083233802276235,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO + tracker,Raw top-M/no risk,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO detector-only,PARC certified release,0.1,150,released,3,135.0,105.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO detector-only,PARC certified release,0.1,150,conservative_label_uncertainty_FTR,3,0.012063492063492033,0.006666666666666601,0.02,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO detector-only,PARC certified release,0.1,150,mass_ratio,3,1.5388764713654675,1.0642654355923875,2.0832338022762347,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,GroundingDINO detector-only,Raw top-M/no risk,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,OWL-ViT v1,PARC certified release,0.1,150,released,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,OWL-ViT v1,PARC certified release,0.1,150,conservative_label_uncertainty_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,OWL-ViT v1,PARC certified release,0.1,150,mass_ratio,3,0.0022662357985632,0.0015772990392313002,0.0026593762559245,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,OWL-ViT v1,Raw top-M/no risk,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,OWLv2,PARC certified release,0.1,150,released,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,OWLv2,PARC certified release,0.1,150,conservative_label_uncertainty_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,OWLv2,PARC certified release,0.1,150,mass_ratio,3,0.0296081659220513,0.0192456733223414,0.0348655406041717,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+OVT-B,OWLv2,Raw top-M/no risk,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO,Fixed score threshold,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO,Fixed score threshold,0.1,150,empirical_audited_FTR,3,0.06666666666666667,0.0,0.20000000000000004,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO,Fixed score threshold,0.1,150,conservative_label_uncertainty_FTR,3,0.9666666666666668,0.96,0.9733333333333333,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO,Full PARC,0.1,150,released,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO,Full PARC,0.1,150,mass_ratio,3,-3.3874813327060593,-4.479698100294375,-2.505399926155592,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO,Per-generator calibrated score threshold,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO,Per-generator calibrated score threshold,0.1,150,empirical_audited_FTR,3,0.06666666666666667,0.0,0.20000000000000004,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO,Per-generator calibrated score threshold,0.1,150,conservative_label_uncertainty_FTR,3,0.9666666666666668,0.96,0.9733333333333333,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO,Post-filter e-value threshold,0.1,150,released,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO,Raw top-M,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO,Raw top-M,0.1,150,empirical_audited_FTR,3,0.06666666666666667,0.0,0.20000000000000004,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO,Raw top-M,0.1,150,conservative_label_uncertainty_FTR,3,0.9666666666666668,0.96,0.9733333333333333,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO,Split conformal p-value threshold,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO,Split conformal p-value threshold,0.1,150,empirical_audited_FTR,3,0.06666666666666667,0.0,0.20000000000000004,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO,Split conformal p-value threshold,0.1,150,conservative_label_uncertainty_FTR,3,0.9666666666666668,0.96,0.9733333333333333,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO,e-BH style selection,0.1,150,released,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO + tracker,Oracle true upper bound,0.1,150,released,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO + tracker,Oracle true upper bound,0.1,150,empirical_audited_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO + tracker,Oracle true upper bound,0.1,150,conservative_label_uncertainty_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO + tracker,PARC certified release,0.1,150,released,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO + tracker,Raw top-M/no risk,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO detector-only,PARC certified release,0.1,150,released,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO detector-only,PARC certified release,0.1,150,conservative_label_uncertainty_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO detector-only,PARC certified release,0.1,150,mass_ratio,3,0.022625640196445803,0.0225175333176006,0.022712108814515897,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,GroundingDINO detector-only,Raw top-M/no risk,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,OWL-ViT v1,PARC certified release,0.1,150,released,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,OWL-ViT v1,PARC certified release,0.1,150,conservative_label_uncertainty_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,OWL-ViT v1,PARC certified release,0.1,150,mass_ratio,3,0.002111881269867033,0.0020608227618976,0.0022139982858059,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,OWL-ViT v1,Raw top-M/no risk,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,OWLv2,PARC certified release,0.1,150,released,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,OWLv2,PARC certified release,0.1,150,conservative_label_uncertainty_FTR,3,0.0,0.0,0.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,OWLv2,PARC certified release,0.1,150,mass_ratio,3,0.025155927015123602,0.0251240107974674,0.0251878412257681,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun
+TAO,OWLv2,Raw top-M/no risk,0.1,150,released,3,150.0,150.0,150.0,current_completed_ci_not_30seed_final,bootstrap over completed seeds; refresh after 30-seed rerun

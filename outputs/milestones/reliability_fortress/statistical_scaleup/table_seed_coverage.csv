@@ -1,0 +1,65 @@
+dataset,generator,policy,certified_risk_level_alpha,M,completed_seed_count,target_seed_count,missing_seed_count,completed_seeds,target_seeds,status
+BURST,GroundingDINO,Fixed score threshold,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+BURST,GroundingDINO,Full PARC,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+BURST,GroundingDINO,Oracle true upper bound,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+BURST,GroundingDINO,PARC certified release,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+BURST,GroundingDINO,Per-generator calibrated score threshold,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+BURST,GroundingDINO,Post-filter e-value threshold,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+BURST,GroundingDINO,Raw top-M,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+BURST,GroundingDINO,Raw top-M/no risk,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+BURST,GroundingDINO,Split conformal p-value threshold,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+BURST,GroundingDINO,e-BH style selection,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+BURST,OWLv2,Fixed score threshold,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+BURST,OWLv2,Full PARC,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+BURST,OWLv2,Oracle true upper bound,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+BURST,OWLv2,PARC certified release,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+BURST,OWLv2,Per-generator calibrated score threshold,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+BURST,OWLv2,Post-filter e-value threshold,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+BURST,OWLv2,Raw top-M,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+BURST,OWLv2,Raw top-M/no risk,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+BURST,OWLv2,Split conformal p-value threshold,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+BURST,OWLv2,e-BH style selection,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+LVIS,GroundingDINO,PARC certified release,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+LVIS,GroundingDINO,PARC certified release,0.2,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+LVIS,OWLv2,PARC certified release,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+LVIS,OWLv2,PARC certified release,0.2,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+LVVIS,GroundingDINO,Fixed score threshold,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+LVVIS,GroundingDINO,Full PARC,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+LVVIS,GroundingDINO,Per-generator calibrated score threshold,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+LVVIS,GroundingDINO,Post-filter e-value threshold,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+LVVIS,GroundingDINO,Raw top-M,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+LVVIS,GroundingDINO,Split conformal p-value threshold,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+LVVIS,GroundingDINO,e-BH style selection,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+OVT-B,GroundingDINO,Fixed score threshold,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+OVT-B,GroundingDINO,Full PARC,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+OVT-B,GroundingDINO,Per-generator calibrated score threshold,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+OVT-B,GroundingDINO,Post-filter e-value threshold,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+OVT-B,GroundingDINO,Raw top-M,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+OVT-B,GroundingDINO,Split conformal p-value threshold,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+OVT-B,GroundingDINO,e-BH style selection,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+OVT-B,GroundingDINO + tracker,Oracle true upper bound,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+OVT-B,GroundingDINO + tracker,PARC certified release,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+OVT-B,GroundingDINO + tracker,Raw top-M/no risk,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+OVT-B,GroundingDINO detector-only,PARC certified release,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+OVT-B,GroundingDINO detector-only,Raw top-M/no risk,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+OVT-B,OWL-ViT v1,PARC certified release,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+OVT-B,OWL-ViT v1,Raw top-M/no risk,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+OVT-B,OWLv2,PARC certified release,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+OVT-B,OWLv2,Raw top-M/no risk,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+TAO,GroundingDINO,Fixed score threshold,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+TAO,GroundingDINO,Full PARC,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+TAO,GroundingDINO,Per-generator calibrated score threshold,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+TAO,GroundingDINO,Post-filter e-value threshold,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+TAO,GroundingDINO,Raw top-M,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+TAO,GroundingDINO,Split conformal p-value threshold,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+TAO,GroundingDINO,e-BH style selection,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+TAO,GroundingDINO + tracker,Oracle true upper bound,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+TAO,GroundingDINO + tracker,PARC certified release,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+TAO,GroundingDINO + tracker,Raw top-M/no risk,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+TAO,GroundingDINO detector-only,PARC certified release,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+TAO,GroundingDINO detector-only,Raw top-M/no risk,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+TAO,OWL-ViT v1,PARC certified release,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+TAO,OWL-ViT v1,Raw top-M/no risk,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+TAO,OWLv2,PARC certified release,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+TAO,OWLv2,Raw top-M/no risk,0.1,150,3,30,27,0 1 2,0-29,needs_30_seed_rerun
+scientific_domain_dataset,to_be_selected,PARC certified release,0.1,150,0,30,30,,0-29,missing_dataset_or_generator_for_journal_target

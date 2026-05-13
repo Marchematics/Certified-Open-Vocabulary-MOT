@@ -1,0 +1,11 @@
+{
+  "table": "STATISTICAL_SCALEUP_README.md",
+  "repo_commit": "326870ba9a2256575a344812d1333631004015cf",
+  "command": "python -m parc_track.cli phase18 statistical-scaleup",
+  "runtime_sec": 0.212047,
+  "environment": "python",
+  "random_seed": "bootstrap_seed_20260513_where_applicable",
+  "source_files": [],
+  "output_sha256": "77d668ab20d2164b36a59f9eb8334007dbbabb37e0fbb9bef0429077c0764a1e",
+  "notes": "Statistical scale-up protocol README."
+}

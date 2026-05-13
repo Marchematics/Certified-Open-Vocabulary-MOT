@@ -1,0 +1,46 @@
+protocol_name: journal_scaleup_statistical_evidence
+status: target_protocol_not_all_cells_completed
+
+main_protocol:
+  datasets:
+    - OVT-B
+    - TAO
+    - BURST
+    - LVIS
+    - scientific_domain_dataset
+  main_M: 150
+  sensitivity_M: [50, 100, 150, 300]
+  main_alpha: 0.10
+  sensitivity_alpha: [0.05, 0.10, 0.20]
+  target_seeds: 30
+  seed_ids: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+
+proposal_sources:
+  completed_or_frozen:
+    - GroundingDINO detector-only
+    - GroundingDINO + tracker
+    - OWLv2
+    - OWL-ViT v1
+    - OVT-B baseline / published-tracker adapter rows with provenance gating
+    - OVTR / published-tracker adapter rows with provenance gating
+  pending_or_appendix:
+    - OVTrack official predictions if official provenance is completed
+    - scientific-domain generator for the fifth dataset
+
+baseline_families:
+  main:
+    - raw_topM_no_risk
+    - fixed_score_threshold
+    - per_generator_calibrated_score_threshold
+    - split_conformal_p_value_threshold
+    - post_filter_e_value_threshold
+    - e_BH_style_selection
+    - oracle_true_upper_bound
+  mapped_reference_families:
+    - conformal_risk_control_crc_bates_angelopoulos_family
+    - vovk_wang_e_value_and_e_BH_family
+
+statistical_reporting:
+  required: bootstrap_95_percent_confidence_intervals
+  current_behavior: mark groups with fewer than 30 seeds as preliminary
+  generated_by: python -m parc_track.cli phase18 statistical-scaleup
