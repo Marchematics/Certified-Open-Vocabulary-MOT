@@ -1,8 +1,8 @@
 {
   "table": "table_tao_sensitivity_framing.csv",
-  "repo_commit": "c5843c06932a9b90fd1e084bac3d8dfcd15dea16",
+  "repo_commit": "5c5fa0e26eaa3a2dfba9ba7d079cb2138eae9fc3",
   "command": "python -m parc_track.cli phase17 reviewer-closeout",
-  "runtime_sec": 0.432388,
+  "runtime_sec": 0.439271,
   "environment": "python",
   "random_seed": "fixed_per_row",
   "sources": [

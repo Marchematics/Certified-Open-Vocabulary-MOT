@@ -1,15 +1,11 @@
 {
-  "table": "table_second_review_status.csv",
+  "table": "table_second_review_challenge_closeout.csv",
   "repo_commit": "5c5fa0e26eaa3a2dfba9ba7d079cb2138eae9fc3",
   "command": "python -m parc_track.cli phase17 reviewer-closeout",
-  "runtime_sec": 0.593964,
+  "runtime_sec": 0.586091,
   "environment": "python",
   "random_seed": "fixed_per_row",
   "sources": [
-    {
-      "path": "outputs/milestones/reliability_fortress/paper_tables/table_second_review_credibility_positioning.csv",
-      "sha256": "bf33a0534731f419819d06c1a7bd625d7ce346092eb0b2457f60ce9bfb7f1c2e"
-    },
     {
       "path": "outputs/milestones/reliability_fortress/audit_review/second_review_challenge_template_500.csv",
       "sha256": "9195f52102b917a4b0063c50bf9beddca5066bb875014a523fcf1018efa71485"
@@ -23,10 +19,14 @@
       "sha256": "a74104c4c9425aba04aa677826878e4f570646a5594fca19ca8c259db41d48cc"
     },
     {
-      "path": "outputs/milestones/reliability_fortress/paper_tables/table_second_review_challenge_closeout.csv",
-      "sha256": "21ed8699c2c4963b218265006e444c296e1f4efe2983e9f8c1cdd00aa3ee2f9d"
+      "path": "outputs/milestones/reliability_fortress/audit_review/second_review_1000_human_confirmed_labels.csv",
+      "sha256": "1caaca7a310b93d58b7750e7c84bd5b6230da1047fc20f66d04424dfada6da38"
+    },
+    {
+      "path": "outputs/milestones/reliability_fortress/audit_labels_2000_human_reviewed.csv",
+      "sha256": "755547067df9a857cb9e31256719ae08e70f0494e51ac685a8c184b8b658c4e8"
     }
   ],
-  "output_sha256": "6aac33fdbd92f9819bbbe20ef4ab198af320f480cdbd5a215015c8fd099c4a98",
-  "notes": "Paper-facing status table separating completed second-review evidence from the 500-row challenge closeout status."
+  "output_sha256": "21ed8699c2c4963b218265006e444c296e1f4efe2983e9f8c1cdd00aa3ee2f9d",
+  "notes": "Closeout of the stricter 500-row challenge using overlap with existing independent second-review labels."
 }

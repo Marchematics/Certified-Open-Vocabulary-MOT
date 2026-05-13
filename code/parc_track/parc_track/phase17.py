@@ -431,6 +431,7 @@ def _build_second_review_and_dense_tasks(started: float) -> list[Path]:
     outputs: list[Path] = []
     second_source = DATA_ROOT / "outputs/benchmarks/parc_certification_benchmark/audit/second_rater_agreement_summary.csv"
     audit_source = RELIABILITY_DIR / "audit_labels_2000_human_reviewed.csv"
+    challenge_confirmed_source = AUDIT_REVIEW_DIR / "second_review_1000_human_confirmed_labels.csv"
     second = _read_csv(second_source)
     audit = _read_csv(audit_source)
     rows = []
@@ -466,6 +467,19 @@ def _build_second_review_and_dense_tasks(started: float) -> list[Path]:
         notes="Positions the completed 300-row second review and the optional stricter challenge sample.",
     )
     outputs.append(out)
+    challenge_path: Path | None = None
+    challenge_completed_path: Path | None = None
+    challenge_remaining_path: Path | None = None
+    challenge_closeout_path: Path | None = None
+    challenge_status = {
+        "rows": 500,
+        "completed_rows": 0,
+        "remaining_rows": 500,
+        "label_agreement_rate": "",
+        "cohens_kappa": "",
+        "verified_positive_agreement_rate": "",
+        "status": "template_only_not_completed",
+    }
     status_rows = [
         {
             "review_block": "completed_second_review",
@@ -513,23 +527,163 @@ def _build_second_review_and_dense_tasks(started: float) -> list[Path]:
         challenge["second_reviewer_reason"] = ""
         challenge["second_reviewer_confidence"] = ""
         challenge["review_status"] = "requires_independent_blind_review"
-        outputs.append(
-            _write_csv(
-                challenge,
-                AUDIT_REVIEW_DIR / "second_review_challenge_template_500.csv",
-                [audit_source],
-                started,
-                notes="Blind challenge template with labels withheld; generated to address near-perfect agreement scrutiny.",
-            )
+        challenge_path = _write_csv(
+            challenge,
+            AUDIT_REVIEW_DIR / "second_review_challenge_template_500.csv",
+            [audit_source],
+            started,
+            notes="Blind challenge template with labels withheld; generated to address near-perfect agreement scrutiny.",
         )
+        outputs.append(challenge_path)
+        confirmed = _read_csv(challenge_confirmed_source)
+        if not confirmed.empty and {"dataset", "video_id", "path_id", "human_second_label"}.issubset(confirmed.columns):
+            key_cols = ["dataset", "video_id", "path_id"]
+            challenge_keyed = challenge.copy()
+            confirmed_keyed = confirmed.copy()
+            gold_keyed = audit.copy()
+            for frame in (challenge_keyed, confirmed_keyed, gold_keyed):
+                for col in key_cols:
+                    if col in frame.columns:
+                        frame[col] = frame[col].astype(str)
+            keep_confirmed = key_cols + [
+                "human_second_label",
+                "human_second_verified_positive_for_calibration",
+                "human_second_reason",
+                "human_second_confidence",
+                "human_second_review_status",
+            ]
+            keep_confirmed = [col for col in keep_confirmed if col in confirmed_keyed.columns]
+            merged = challenge_keyed.merge(confirmed_keyed[keep_confirmed], on=key_cols, how="left")
+            gold_keep = key_cols + ["label", "verified_positive_for_calibration", "reason", "confidence"]
+            gold_keep = [col for col in gold_keep if col in gold_keyed.columns]
+            merged = merged.merge(gold_keyed[gold_keep], on=key_cols, how="left", suffixes=("", "_primary"))
+            completed = merged[merged["human_second_label"].notna()].copy()
+            remaining = merged[merged["human_second_label"].isna()].copy()
+            if not completed.empty:
+                completed["primary_label"] = completed.get("label", "")
+                completed["primary_verified_positive_for_calibration"] = completed.get("verified_positive_for_calibration", "")
+                completed["label_match"] = completed["primary_label"].astype(str).eq(completed["human_second_label"].astype(str))
+                completed["verified_positive_match"] = completed["primary_verified_positive_for_calibration"].astype(str).str.lower().eq(
+                    completed["human_second_verified_positive_for_calibration"].astype(str).str.lower()
+                )
+                ordered_cols = [
+                    "challenge_sample_id",
+                    "dataset",
+                    "video_id",
+                    "path_id",
+                    "primary_label",
+                    "human_second_label",
+                    "label_match",
+                    "primary_verified_positive_for_calibration",
+                    "human_second_verified_positive_for_calibration",
+                    "verified_positive_match",
+                    "human_second_reason",
+                    "human_second_confidence",
+                    "human_second_review_status",
+                ]
+                ordered_cols = [col for col in ordered_cols if col in completed.columns]
+                challenge_completed_path = _write_csv(
+                    completed[ordered_cols],
+                    AUDIT_REVIEW_DIR / "second_review_challenge_500_overlap_confirmed_labels.csv",
+                    [challenge_path, challenge_confirmed_source, audit_source],
+                    started,
+                    notes="Subset of the 500-row challenge covered by existing independent human second-review labels.",
+                )
+                outputs.append(challenge_completed_path)
+                challenge_status.update(
+                    {
+                        "completed_rows": int(len(completed)),
+                        "remaining_rows": int(len(remaining)),
+                        "label_agreement_rate": float(completed["label_match"].mean()),
+                        "cohens_kappa": float(_cohens_kappa(completed["primary_label"], completed["human_second_label"])),
+                        "verified_positive_agreement_rate": float(completed["verified_positive_match"].mean()),
+                        "status": "partial_overlap_closeout_requires_remaining_blind_review" if len(remaining) else "completed_by_existing_independent_review_overlap",
+                    }
+                )
+            remaining_cols = [
+                "challenge_sample_id",
+                "dataset",
+                "video_id",
+                "path_id",
+                "pending_montage_path",
+                "second_reviewer_label",
+                "second_reviewer_verified_positive_for_calibration",
+                "second_reviewer_reason",
+                "second_reviewer_confidence",
+                "review_status",
+            ]
+            remaining_cols = [col for col in remaining_cols if col in remaining.columns]
+            challenge_remaining_path = _write_csv(
+                remaining[remaining_cols],
+                AUDIT_REVIEW_DIR / "second_review_challenge_500_remaining_blind_template.csv",
+                [challenge_path, challenge_confirmed_source],
+                started,
+                notes="Rows from the 500-row challenge not covered by existing second-review labels; still require independent blind review.",
+            )
+            outputs.append(challenge_remaining_path)
+            closeout = pd.DataFrame(
+                [
+                    {
+                        "challenge_block": "second_review_challenge_500",
+                        "rows_total": int(len(challenge)),
+                        "rows_completed_from_existing_independent_review": challenge_status["completed_rows"],
+                        "rows_remaining_for_full_500_closeout": challenge_status["remaining_rows"],
+                        "label_agreement_rate_on_completed_subset": challenge_status["label_agreement_rate"],
+                        "cohens_kappa_on_completed_subset": challenge_status["cohens_kappa"],
+                        "verified_positive_agreement_rate_on_completed_subset": challenge_status["verified_positive_agreement_rate"],
+                        "status": challenge_status["status"],
+                        "paper_use": "report_completed_subset_only; do_not_claim_full_500_until_remaining_rows_are_filled",
+                    }
+                ]
+            )
+            sources = [source for source in [challenge_path, challenge_completed_path, challenge_remaining_path, challenge_confirmed_source, audit_source] if source is not None]
+            challenge_closeout_path = _write_csv(
+                closeout,
+                PAPER_DIR / "table_second_review_challenge_closeout.csv",
+                sources,
+                started,
+                notes="Closeout of the stricter 500-row challenge using overlap with existing independent second-review labels.",
+            )
+            outputs.append(challenge_closeout_path)
+    updated_status_rows = [
+        {
+            "review_block": "completed_second_review",
+            "rows": rows[0].get("rows", 300) if rows else 300,
+            "status": "completed_human_confirmed",
+            "cohens_kappa": rows[0].get("cohens_kappa", "") if rows else "",
+            "paper_use": "report_with_protocol_details",
+            "notes": "This completed second-review block is the main kappa/agreement evidence.",
+        },
+        {
+            "review_block": "stricter_blind_challenge",
+            "rows": challenge_status["rows"],
+            "status": challenge_status["status"],
+            "cohens_kappa": challenge_status["cohens_kappa"],
+            "paper_use": "report_completed_subset_only" if challenge_status["completed_rows"] else "available_reproducibility_artifact_or_future_work",
+            "notes": (
+                f"{challenge_status['completed_rows']} rows are covered by existing independent second-review labels; "
+                f"{challenge_status['remaining_rows']} rows remain for a complete 500-row closeout."
+            ),
+        },
+    ]
+    status_sources = [source for source in [out, challenge_path, challenge_completed_path, challenge_remaining_path, challenge_closeout_path] if source is not None]
+    outputs.append(
+        _write_csv(
+            pd.DataFrame(updated_status_rows),
+            PAPER_DIR / "table_second_review_status.csv",
+            status_sources,
+            started,
+            notes="Paper-facing status table separating completed second-review evidence from the 500-row challenge closeout status.",
+        )
+    )
     note = REVIEW_DIR / "SECOND_REVIEW_CREDIBILITY_NOTE.md"
     ensure_data_output(note)
     note.write_text(
         "# Second-Review Credibility Note\n\n"
         "The current release includes a 300-row human second-review table with very high agreement. "
         "Because near-perfect agreement can itself attract statistical scrutiny, the paper-facing package separates the completed agreement result from an optional stricter 500-row blind challenge template. "
-        "The 500-row challenge is not completed in the current artifact; it is a label-withheld template. "
-        "Report the completed second-review result with full protocol details and list the additional challenge as an available reproducibility artifact or future external-review extension rather than overstating it as a new independent study.\n",
+        f"In the current artifact, {challenge_status['completed_rows']} of the 500 challenge rows are covered by existing independent second-review labels and {challenge_status['remaining_rows']} rows remain unfilled. "
+        "Report the completed subset only; do not describe the full 500-row challenge as complete until the remaining rows receive independent blind labels.\n",
         encoding="utf-8",
     )
     outputs.append(note)
@@ -540,6 +694,21 @@ def _binomial_zero_error_upper(n: int, alpha: float = 0.05) -> float:
     if n <= 0:
         return 1.0
     return 1.0 - alpha ** (1.0 / n)
+
+
+def _cohens_kappa(a: pd.Series, b: pd.Series) -> float:
+    frame = pd.DataFrame({"a": a.astype(str), "b": b.astype(str)}).dropna()
+    if frame.empty:
+        return float("nan")
+    labels = sorted(set(frame["a"]).union(set(frame["b"])))
+    observed = float((frame["a"] == frame["b"]).mean())
+    expected = 0.0
+    n = len(frame)
+    for label in labels:
+        expected += (float((frame["a"] == label).sum()) / n) * (float((frame["b"] == label).sum()) / n)
+    if math.isclose(1.0, expected):
+        return 1.0 if math.isclose(observed, 1.0) else float("nan")
+    return (observed - expected) / (1.0 - expected)
 
 
 def _build_theory_and_positioning(started: float) -> list[Path]:

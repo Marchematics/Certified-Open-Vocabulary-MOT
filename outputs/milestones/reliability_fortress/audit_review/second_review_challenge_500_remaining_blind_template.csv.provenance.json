@@ -1,0 +1,20 @@
+{
+  "table": "second_review_challenge_500_remaining_blind_template.csv",
+  "repo_commit": "5c5fa0e26eaa3a2dfba9ba7d079cb2138eae9fc3",
+  "command": "python -m parc_track.cli phase17 reviewer-closeout",
+  "runtime_sec": 0.580872,
+  "environment": "python",
+  "random_seed": "fixed_per_row",
+  "sources": [
+    {
+      "path": "outputs/milestones/reliability_fortress/audit_review/second_review_challenge_template_500.csv",
+      "sha256": "9195f52102b917a4b0063c50bf9beddca5066bb875014a523fcf1018efa71485"
+    },
+    {
+      "path": "outputs/milestones/reliability_fortress/audit_review/second_review_1000_human_confirmed_labels.csv",
+      "sha256": "1caaca7a310b93d58b7750e7c84bd5b6230da1047fc20f66d04424dfada6da38"
+    }
+  ],
+  "output_sha256": "a74104c4c9425aba04aa677826878e4f570646a5594fca19ca8c259db41d48cc",
+  "notes": "Rows from the 500-row challenge not covered by existing second-review labels; still require independent blind review."
+}

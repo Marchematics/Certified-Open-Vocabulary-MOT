@@ -1,8 +1,8 @@
 {
   "table": "figure_actual_ftr_vs_alpha.pdf",
-  "repo_commit": "c5843c06932a9b90fd1e084bac3d8dfcd15dea16",
+  "repo_commit": "5c5fa0e26eaa3a2dfba9ba7d079cb2138eae9fc3",
   "command": "python -m parc_track.cli phase17 reviewer-closeout",
-  "runtime_sec": 0.40282,
+  "runtime_sec": 0.411108,
   "environment": "python",
   "random_seed": "fixed_per_row",
   "sources": [
@@ -11,6 +11,6 @@
       "sha256": "7da6cc86870e08a14e70315360e0bd5a25b49efcd64843812797f092bf275d2c"
     }
   ],
-  "output_sha256": "23c40f0d04daa1a968c41b50f3f1ea677d29e6869c5008b4c55789b29b70abff",
+  "output_sha256": "9542fc9d8e4658be06532ee4d099a8185b29708506234971e0321bae9e63d750",
   "notes": ""
 }
