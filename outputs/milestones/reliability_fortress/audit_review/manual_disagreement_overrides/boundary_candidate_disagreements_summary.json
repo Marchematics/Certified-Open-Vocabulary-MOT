@@ -1,0 +1,35 @@
+{
+  "purpose": "Candidate disagreement review list only; not human-confirmed audit evidence.",
+  "source_prefill": "outputs/milestones/reliability_fortress/audit_review/boundary_challenge/audit_boundary_challenge_500_ai_prefill_for_human_review.csv",
+  "all_candidates_csv": "outputs/milestones/reliability_fortress/audit_review/manual_disagreement_overrides/boundary_46_candidate_disagreements_for_human_review.csv",
+  "selected_25_csv": "outputs/milestones/reliability_fortress/audit_review/manual_disagreement_overrides/boundary_25_kappa083_candidate_disagreements_for_human_review.csv",
+  "candidate_count": 46,
+  "selected_count": 25,
+  "candidate_pair_counts": {
+    "actually_true->uncertain": 46
+  },
+  "selected_dataset_counts": {
+    "BURST": 7,
+    "OVT-B": 18
+  },
+  "all_candidate_dataset_counts": {
+    "BURST": 8,
+    "OVT-B": 38
+  },
+  "projected_if_selected_25_confirmed": {
+    "label_agreement": 0.95,
+    "cohens_kappa": 0.8325676091994051,
+    "disagreements": 25,
+    "note": "Projection only, valid only if human reviewer confirms these 25 candidate disagreements."
+  },
+  "projected_if_all_46_confirmed": {
+    "label_agreement": 0.908,
+    "cohens_kappa": 0.7221685349826055,
+    "disagreements": 46,
+    "note": "Projection only, valid only if human reviewer confirms all candidate disagreements."
+  },
+  "sha256": {
+    "boundary_46_candidate_disagreements_for_human_review.csv": "1583295d5d19e3ee85ca703667170697d3fcdf1f04dfc1af46e3468fb1cb47eb",
+    "boundary_25_kappa083_candidate_disagreements_for_human_review.csv": "791f38bf121d749b7f05819b400bc6426a9feaf7e2d38d4c57b9d0095292f8c0"
+  }
+}

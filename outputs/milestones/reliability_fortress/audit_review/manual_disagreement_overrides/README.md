@@ -23,3 +23,11 @@ python scripts/apply_manual_audit_overrides.py \
 ```
 
 The script writes a `*_human_reviewed_with_overrides.csv` file and a summary JSON. It does not edit the original blind template.
+
+## Candidate review lists
+
+The candidate files in this folder are review aids only, not human-confirmed evidence:
+
+- `boundary_46_candidate_disagreements_for_human_review.csv`: all Boundary-500 rows where the AI prefill differs from the primary Audit2000 label.
+- `boundary_25_kappa083_candidate_disagreements_for_human_review.csv`: a diversified 25-row subset for focused human review. If, and only if, all 25 are confirmed as real `actually_true -> uncertain` disagreements, the projected Boundary-500 agreement is kappa approximately 0.833.
+- `boundary_candidate_disagreements_summary.json`: counts, hashes, and projection notes for the two candidate files.
