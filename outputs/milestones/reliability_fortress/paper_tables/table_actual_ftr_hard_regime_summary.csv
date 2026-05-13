@@ -2,6 +2,3 @@ validation_block,certified_risk_level_alpha,trials,mean_released,mean_actual_FTR
 adversarial_score_overlap_known_ground_truth,0.05,100,146.97,0.018005967417747844,0.053691275167785234,0.010000000000000009
 adversarial_score_overlap_known_ground_truth,0.1,100,138.27,0.04647630550149918,0.09701492537313433,0.0
 adversarial_score_overlap_known_ground_truth,0.2,100,148.21,0.11135627331178893,0.17687074829931973,0.0
-controlled_simulation_known_ground_truth,0.05,100,134.04,0.0,0.0,0.0
-controlled_simulation_known_ground_truth,0.1,100,138.05,0.0,0.0,0.0
-controlled_simulation_known_ground_truth,0.2,100,137.84,0.00021776516321991675,0.007633587786259542,0.0

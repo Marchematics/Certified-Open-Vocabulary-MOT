@@ -1,8 +1,8 @@
 {
   "table": "table_actual_ftr_validation.csv",
-  "repo_commit": "a9bd656b6b61f97ce83a47857a10a2fc6472ed42",
+  "repo_commit": "c5843c06932a9b90fd1e084bac3d8dfcd15dea16",
   "command": "python -m parc_track.cli phase17 reviewer-closeout",
-  "runtime_sec": 0.038581,
+  "runtime_sec": 0.063497,
   "environment": "python",
   "random_seed": "fixed_per_row",
   "sources": [
@@ -19,6 +19,6 @@
       "sha256": "22923008cf445a6b25e5324198290cfa6761d9ec9cde5be2ad99d894d3c8924e"
     }
   ],
-  "output_sha256": "8ef0900b78d912658ab739f8ee7ee6b35df706705dfdd323cccbf8b816f07f42",
+  "output_sha256": "b85379565c61623b9a8b043949de69a5a12718edccd2bef9a980313a823f399f",
   "notes": "Actual-FTR validation split into controlled known-ground-truth simulation and real release-set audit anchors."
 }

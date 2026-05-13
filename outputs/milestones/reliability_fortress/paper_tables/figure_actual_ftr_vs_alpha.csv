@@ -1,4 +1,7 @@
-alpha,mean_actual_FTR,max_actual_FTR,violation_rate,mean_released
-0.05,0.0,0.0,0.0,134.04
-0.1,0.0,0.0,0.0,138.05
-0.2,0.00021776516321991675,0.007633587786259542,0.0,137.84
+validation_block,alpha,mean_actual_FTR,max_actual_FTR,violation_rate,mean_released
+adversarial_score_overlap_known_ground_truth,0.05,0.018005967417747844,0.053691275167785234,0.010000000000000009,146.97
+adversarial_score_overlap_known_ground_truth,0.1,0.04647630550149918,0.09701492537313433,0.0,138.27
+adversarial_score_overlap_known_ground_truth,0.2,0.11135627331178893,0.17687074829931973,0.0,148.21
+controlled_simulation_known_ground_truth,0.05,0.0,0.0,0.0,134.04
+controlled_simulation_known_ground_truth,0.1,0.0,0.0,0.0,138.05
+controlled_simulation_known_ground_truth,0.2,0.00021776516321991675,0.007633587786259542,0.0,137.84

@@ -6,10 +6,12 @@ This closeout addresses the highest-risk review questions before manuscript poli
 
 - `outputs/milestones/reliability_fortress/paper_tables/table_actual_ftr_validation.csv`
 - `outputs/milestones/reliability_fortress/paper_tables/table_actual_ftr_validation_summary.csv`
+- `outputs/milestones/reliability_fortress/paper_tables/table_actual_ftr_hard_regime_summary.csv`
 - `outputs/milestones/reliability_fortress/paper_tables/figure_actual_ftr_vs_alpha.pdf`
 - `outputs/milestones/reliability_fortress/paper_tables/table_tao_sensitivity_framing.csv`
 - `outputs/milestones/reliability_fortress/reviewer_closeout/TAO_FRAMING_NOTE.md`
 - `outputs/milestones/reliability_fortress/paper_tables/table_second_review_credibility_positioning.csv`
+- `outputs/milestones/reliability_fortress/paper_tables/table_second_review_status.csv`
 - `outputs/milestones/reliability_fortress/audit_review/second_review_challenge_template_500.csv`
 - `outputs/milestones/reliability_fortress/reviewer_closeout/SECOND_REVIEW_CREDIBILITY_NOTE.md`
 - `outputs/milestones/reliability_fortress/reviewer_closeout/VERIFIED_POSITIVE_PRECISION_ROBUSTNESS.md`
@@ -19,7 +21,7 @@ This closeout addresses the highest-risk review questions before manuscript poli
 
 ## Interpretation
 
-- Actual-FTR evidence is split into a known-ground-truth controlled simulation and a real release-set audit anchor. The latter is not a dense-video ground-truth benchmark.
-- The near-perfect second-review result is retained with protocol details and supplemented by a stricter blind challenge template for external review if desired.
+- Actual-FTR evidence is split into known-ground-truth controlled simulations, a harder score-overlap simulation, and real release-set audit anchors. The real anchors directly measure released-set FTR for certified cells; dense candidate-universe error rate is a separate stricter diagnostic.
+- The completed second-review result is retained with protocol details. The 500-row stricter blind challenge is template-only in this artifact and must not be reported as completed unless independently filled.
 - TAO should be framed as both a stress/refusal case at alpha=0.10 and a positive sensitivity result at alpha=0.20.
 - Theorem, robustness, and related-work notes are draft text for manuscript integration.

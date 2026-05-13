@@ -114,12 +114,17 @@ def test_phase17_reviewer_closeout_outputs(tmp_path: Path, monkeypatch) -> None:
     assert "table_tao_sensitivity_framing.csv" in artifacts
     assert "THEOREM1_MAIN_TEXT.md" in artifacts
     actual = pd.read_csv(tmp_path / "outputs/milestones/reliability_fortress/paper_tables/table_actual_ftr_validation.csv")
-    assert {"controlled_simulation_known_ground_truth", "real_data_release_set_audit_anchor"}.issubset(
+    assert {"controlled_simulation_known_ground_truth", "adversarial_score_overlap_known_ground_truth", "real_data_release_set_audit_anchor"}.issubset(
         set(actual["validation_block"])
     )
     sim = actual[actual["validation_block"].eq("controlled_simulation_known_ground_truth")]
     assert sim.groupby("certified_risk_level_alpha")["seed"].nunique().min() == 100
     assert (sim["actual_FTR"] <= sim["certified_risk_level_alpha"] + 1e-12).all()
+    hard_summary = pd.read_csv(
+        tmp_path / "outputs/milestones/reliability_fortress/paper_tables/table_actual_ftr_hard_regime_summary.csv"
+    )
+    assert hard_summary["mean_actual_FTR"].max() > 0.05
+    assert (hard_summary["mean_actual_FTR"] <= hard_summary["certified_risk_level_alpha"]).all()
     tao = pd.read_csv(tmp_path / "outputs/milestones/reliability_fortress/paper_tables/table_tao_sensitivity_framing.csv")
     positive = tao[(tao["certified_risk_level_alpha"].eq(0.2)) & (tao["M"].eq(150))]
     assert not positive.empty
@@ -127,3 +132,6 @@ def test_phase17_reviewer_closeout_outputs(tmp_path: Path, monkeypatch) -> None:
     challenge = pd.read_csv(tmp_path / "outputs/milestones/reliability_fortress/audit_review/second_review_challenge_template_500.csv")
     leaked = {"label", "verified_positive_for_calibration", "review_label_v2"}.intersection(challenge.columns)
     assert not leaked
+    review_status = pd.read_csv(tmp_path / "outputs/milestones/reliability_fortress/paper_tables/table_second_review_status.csv")
+    challenge_status = review_status[review_status["review_block"].eq("stricter_blind_challenge")]
+    assert challenge_status["status"].iloc[0] == "template_only_not_completed"

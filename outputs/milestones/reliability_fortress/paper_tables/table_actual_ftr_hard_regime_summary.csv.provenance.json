@@ -1,8 +1,8 @@
 {
-  "table": "table_actual_ftr_validation_summary.csv",
+  "table": "table_actual_ftr_hard_regime_summary.csv",
   "repo_commit": "c5843c06932a9b90fd1e084bac3d8dfcd15dea16",
   "command": "python -m parc_track.cli phase17 reviewer-closeout",
-  "runtime_sec": 0.080553,
+  "runtime_sec": 0.087876,
   "environment": "python",
   "random_seed": "fixed_per_row",
   "sources": [
@@ -11,6 +11,6 @@
       "sha256": "b85379565c61623b9a8b043949de69a5a12718edccd2bef9a980313a823f399f"
     }
   ],
-  "output_sha256": "ca310fbe0e9f858d42fb69213fd26645b2a0dda80e5b5a2f818d16f6ff105a0f",
-  "notes": "Known-ground-truth actual-FTR summary over 100 seeds per alpha, including an adversarial score-overlap stress regime."
+  "output_sha256": "e98827a9a2a5ca90ea6c0daf6f86d4952e30081f82b34109f5f2da756f314eed",
+  "notes": "Adversarial score-overlap hard-regime simulation summary; mean actual FTR is intentionally closer to alpha."
 }

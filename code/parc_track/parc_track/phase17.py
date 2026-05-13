@@ -188,6 +188,49 @@ def _build_actual_ftr_validation(started: float) -> list[Path]:
                     "notes": "Controlled simulation with known H0; not a replacement for dense real-video annotation.",
                 }
             )
+    hard_params = {
+        # Alpha-specific stress regimes intentionally shrink the score gap between null
+        # and non-null paths. This table validates the expectation-level envelope in
+        # a harder regime; individual trials may exceed alpha because Theorem 1 is not
+        # a high-probability per-split guarantee.
+        0.05: {"p_false": 0.04, "null_mean": 3.00, "null_sigma": 0.35, "alt_mean": 3.75, "alt_sigma": 0.20},
+        0.10: {"p_false": 0.10, "null_mean": 2.30, "null_sigma": 0.45, "alt_mean": 3.00, "alt_sigma": 0.30},
+        0.20: {"p_false": 0.12, "null_mean": 2.20, "null_sigma": 0.45, "alt_mean": 3.00, "alt_sigma": 0.30},
+    }
+    for alpha, params in hard_params.items():
+        for seed in range(n_trials):
+            rng = np.random.default_rng(20260601 + seed + int(alpha * 1000))
+            is_false = rng.random(m) < params["p_false"]
+            null_e = rng.lognormal(mean=params["null_mean"], sigma=params["null_sigma"], size=m)
+            alt_e = rng.lognormal(mean=params["alt_mean"], sigma=params["alt_sigma"], size=m)
+            e_values = np.where(is_false, null_e, alt_e)
+            released_idx = _uniform_scs_release(e_values, alpha=alpha, m=m)
+            released = int(len(released_idx))
+            false_released = int(is_false[released_idx].sum()) if released else 0
+            actual_ftr = false_released / released if released else 0.0
+            rows.append(
+                {
+                    "validation_block": "adversarial_score_overlap_known_ground_truth",
+                    "dataset": "synthetic_oracle_paths",
+                    "generator": "score_overlap_stress_model",
+                    "certified_risk_level_alpha": alpha,
+                    "seed": seed,
+                    "M": m,
+                    "released": released,
+                    "false_released": false_released,
+                    "actual_FTR": actual_ftr,
+                    "actual_FTR_lower": actual_ftr,
+                    "actual_FTR_upper": actual_ftr,
+                    "actual_FTR_le_alpha": actual_ftr <= alpha + 1e-12,
+                    "ground_truth_source": "simulated_complete_true_null_labels",
+                    "paper_use": "hard_regime_empirical_validity_stress",
+                    "notes": (
+                        "Adversarial score-overlap simulation with known H0; false-path evidence is deliberately "
+                        "moved close to non-null evidence. This tests the expectation-level envelope in a harder "
+                        "regime, not a per-split high-probability guarantee."
+                    ),
+                }
+            )
 
     # Real-data anchor: released unsupported paths with human audit, plus official matches treated as true.
     real_sources = [
@@ -218,8 +261,12 @@ def _build_actual_ftr_validation(started: float) -> list[Path]:
                 "actual_FTR_upper": actual_upper,
                 "actual_FTR_le_alpha": actual_upper <= _num(r.get("alpha1"), 0.1) + 1e-12,
                 "ground_truth_source": "official_matches_plus_full_audit_of_released_unsupported_paths",
-                "paper_use": "real_data_anchor_not_dense_video_ground_truth",
-                "notes": "All unsupported released paths in this milestone were audited; official supported matches are treated as true. This is a release-set anchor, not a dense-video actual-FTR benchmark.",
+                "paper_use": "direct_release_set_actual_ftr_anchor",
+                "notes": (
+                    "All unsupported released paths in this milestone were audited; official supported matches are treated as true. "
+                    "This directly measures released-set FTR, the theorem-level quantity, for this certified cell. "
+                    "Dense candidate-universe error rate is a separate stricter diagnostic that PARC does not claim to control."
+                ),
             }
         )
     sweep = _read_csv(real_sources[1])
@@ -247,8 +294,11 @@ def _build_actual_ftr_validation(started: float) -> list[Path]:
                     "actual_FTR_upper": actual_upper,
                     "actual_FTR_le_alpha": actual_upper <= 0.10 + 1e-12,
                     "ground_truth_source": "official_matches_plus_full_audit_of_released_unsupported_paths",
-                    "paper_use": "real_data_anchor_not_dense_video_ground_truth",
-                    "notes": "Release-set actual-FTR interval from audited unsupported releases; still not a dense-video annotation study.",
+                    "paper_use": "direct_release_set_actual_ftr_anchor",
+                    "notes": (
+                        "Release-set actual-FTR interval from audited unsupported releases. This is a direct cell-level "
+                        "measurement of the theorem-level released-set FTR, not a dense candidate-universe error-rate study."
+                    ),
                 }
             )
     table = pd.DataFrame(rows)
@@ -261,9 +311,12 @@ def _build_actual_ftr_validation(started: float) -> list[Path]:
     )
     outputs.append(out)
 
-    sim = table[table["validation_block"] == "controlled_simulation_known_ground_truth"].copy()
+    sim = table[table["validation_block"].isin([
+        "controlled_simulation_known_ground_truth",
+        "adversarial_score_overlap_known_ground_truth",
+    ])].copy()
     summary = (
-        sim.groupby("certified_risk_level_alpha", dropna=False)
+        sim.groupby(["validation_block", "certified_risk_level_alpha"], dropna=False)
         .agg(
             trials=("actual_FTR", "size"),
             mean_released=("released", "mean"),
@@ -279,21 +332,38 @@ def _build_actual_ftr_validation(started: float) -> list[Path]:
             PAPER_DIR / "table_actual_ftr_validation_summary.csv",
             [out],
             started,
-            notes="Controlled-simulation actual-FTR summary over 100 seeds per alpha.",
+            notes="Known-ground-truth actual-FTR summary over 100 seeds per alpha, including an adversarial score-overlap stress regime.",
+        )
+    )
+    hard_summary = summary[summary["validation_block"].eq("adversarial_score_overlap_known_ground_truth")].copy()
+    outputs.append(
+        _write_csv(
+            hard_summary,
+            PAPER_DIR / "table_actual_ftr_hard_regime_summary.csv",
+            [out],
+            started,
+            notes="Adversarial score-overlap hard-regime simulation summary; mean actual FTR is intentionally closer to alpha.",
         )
     )
     fig_csv = summary.rename(columns={"certified_risk_level_alpha": "alpha"})[
-        ["alpha", "mean_actual_FTR", "max_actual_FTR", "violation_rate", "mean_released"]
+        ["validation_block", "alpha", "mean_actual_FTR", "max_actual_FTR", "violation_rate", "mean_released"]
     ]
     fig_path = _write_csv(fig_csv, PAPER_DIR / "figure_actual_ftr_vs_alpha.csv", [out], started)
     _set_style()
     fig, ax = plt.subplots(figsize=(4.6, 3.0))
-    ax.plot(fig_csv["alpha"], fig_csv["mean_actual_FTR"], marker="o", color=PALETTE["blue"], label="Mean actual FTR")
-    ax.plot(fig_csv["alpha"], fig_csv["alpha"], linestyle="--", color=PALETTE["gray"], label="Target alpha")
-    ax.scatter(fig_csv["alpha"], fig_csv["max_actual_FTR"], marker="x", color=PALETTE["orange"], label="Max over seeds")
+    styles = {
+        "controlled_simulation_known_ground_truth": (PALETTE["blue"], "Easy separation"),
+        "adversarial_score_overlap_known_ground_truth": (PALETTE["orange"], "Score-overlap stress"),
+    }
+    for block, group in fig_csv.groupby("validation_block"):
+        color, label = styles.get(block, (PALETTE["gray"], block))
+        group = group.sort_values("alpha")
+        ax.plot(group["alpha"], group["mean_actual_FTR"], marker="o", color=color, label=label)
+    alphas = sorted(fig_csv["alpha"].unique())
+    ax.plot(alphas, alphas, linestyle="--", color=PALETTE["gray"], label="Target alpha")
     ax.set_xlabel("Certified risk target alpha")
-    ax.set_ylabel("Actual FTR")
-    ax.set_title("Known-ground-truth actual-FTR sanity check")
+    ax.set_ylabel("Mean actual FTR")
+    ax.set_title("Known-ground-truth actual-FTR checks")
     ax.legend(frameon=False)
     outputs.append(_save_figure(fig, PAPER_DIR / "figure_actual_ftr_vs_alpha.pdf", [fig_path], started))
     return outputs
@@ -396,6 +466,33 @@ def _build_second_review_and_dense_tasks(started: float) -> list[Path]:
         notes="Positions the completed 300-row second review and the optional stricter challenge sample.",
     )
     outputs.append(out)
+    status_rows = [
+        {
+            "review_block": "completed_second_review",
+            "rows": rows[0].get("rows", 300) if rows else 300,
+            "status": "completed_human_confirmed",
+            "cohens_kappa": rows[0].get("cohens_kappa", "") if rows else "",
+            "paper_use": "report_with_protocol_details",
+            "notes": "This completed second-review block is the only block used for kappa/agreement reporting.",
+        },
+        {
+            "review_block": "stricter_blind_challenge",
+            "rows": 500,
+            "status": "template_only_not_completed",
+            "cohens_kappa": "",
+            "paper_use": "available_reproducibility_artifact_or_future_work",
+            "notes": "The 500-row challenge is a label-withheld template. Do not report it as a completed study unless an independent reviewer fills it.",
+        },
+    ]
+    outputs.append(
+        _write_csv(
+            pd.DataFrame(status_rows),
+            PAPER_DIR / "table_second_review_status.csv",
+            [out],
+            started,
+            notes="Paper-facing status table separating completed second-review evidence from the uncompleted 500-row challenge template.",
+        )
+    )
     if not audit.empty:
         pool = audit.copy()
         pool["score_bin"] = pool.get("score_bin", "unknown")
@@ -431,7 +528,8 @@ def _build_second_review_and_dense_tasks(started: float) -> list[Path]:
         "# Second-Review Credibility Note\n\n"
         "The current release includes a 300-row human second-review table with very high agreement. "
         "Because near-perfect agreement can itself attract statistical scrutiny, the paper-facing package separates the completed agreement result from an optional stricter 500-row blind challenge template. "
-        "If the stricter challenge is not completed before submission, report the 300-row result with full protocol details and list the additional challenge as an available reproducibility artifact rather than overstating it as a new independent study.\n",
+        "The 500-row challenge is not completed in the current artifact; it is a label-withheld template. "
+        "Report the completed second-review result with full protocol details and list the additional challenge as an available reproducibility artifact or future external-review extension rather than overstating it as a new independent study.\n",
         encoding="utf-8",
     )
     outputs.append(note)
@@ -519,8 +617,8 @@ def _write_report(paths: list[Path], started: float) -> Path:
         "## Completed artifacts\n\n"
         + "\n".join(f"- `{_rel(path)}`" for path in paths)
         + "\n\n## Interpretation\n\n"
-        "- Actual-FTR evidence is split into a known-ground-truth controlled simulation and a real release-set audit anchor. The latter is not a dense-video ground-truth benchmark.\n"
-        "- The near-perfect second-review result is retained with protocol details and supplemented by a stricter blind challenge template for external review if desired.\n"
+        "- Actual-FTR evidence is split into known-ground-truth controlled simulations, a harder score-overlap simulation, and real release-set audit anchors. The real anchors directly measure released-set FTR for certified cells; dense candidate-universe error rate is a separate stricter diagnostic.\n"
+        "- The completed second-review result is retained with protocol details. The 500-row stricter blind challenge is template-only in this artifact and must not be reported as completed unless independently filled.\n"
         "- TAO should be framed as both a stress/refusal case at alpha=0.10 and a positive sensitivity result at alpha=0.20.\n"
         "- Theorem, robustness, and related-work notes are draft text for manuscript integration.\n",
         encoding="utf-8",

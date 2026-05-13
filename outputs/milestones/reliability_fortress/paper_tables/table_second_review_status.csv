@@ -1,0 +1,3 @@
+review_block,rows,status,cohens_kappa,paper_use,notes
+completed_second_review,300,completed_human_confirmed,0.9916594845561456,report_with_protocol_details,This completed second-review block is the only block used for kappa/agreement reporting.
+stricter_blind_challenge,500,template_only_not_completed,,available_reproducibility_artifact_or_future_work,The 500-row challenge is a label-withheld template. Do not report it as a completed study unless an independent reviewer fills it.
