@@ -1,0 +1,7 @@
+metric,value
+rows,2000
+ovtb_rows,700
+tao_rows,700
+burst_rows,600
+status,requires_independent_blind_review
+interpretation,full Audit2000 reannotation template; report observed kappa without targeting a desired interval

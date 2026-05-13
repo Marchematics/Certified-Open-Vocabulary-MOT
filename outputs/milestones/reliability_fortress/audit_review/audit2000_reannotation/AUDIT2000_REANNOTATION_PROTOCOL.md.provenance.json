@@ -1,0 +1,9 @@
+{
+  "file": "AUDIT2000_REANNOTATION_PROTOCOL.md",
+  "repo_commit": "1c639bc05cdca5dad703a92495f84b54a7a65132",
+  "source": "outputs/milestones/reliability_fortress/audit_labels_2000_human_reviewed.csv",
+  "source_sha256": "755547067df9a857cb9e31256719ae08e70f0494e51ac685a8c184b8b658c4e8",
+  "output_sha256": "4ea8b69a17ccc2509fd2f9d6119936558cf9ded473af40063b2ec055ee92df04",
+  "created_unix": 1778664169.048,
+  "notes": "Full Audit2000 blind reannotation template. Contains no primary labels or reasons."
+}
