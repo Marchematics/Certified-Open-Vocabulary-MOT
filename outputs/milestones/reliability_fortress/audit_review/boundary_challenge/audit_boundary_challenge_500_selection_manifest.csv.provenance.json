@@ -1,0 +1,9 @@
+{
+  "file": "audit_boundary_challenge_500_selection_manifest.csv",
+  "repo_commit": "d3524dd00cb3c699e5deaa6dd22a2f96d0a5ec3b",
+  "source": "outputs/milestones/reliability_fortress/audit_labels_2000_human_reviewed.csv",
+  "source_sha256": "755547067df9a857cb9e31256719ae08e70f0494e51ac685a8c184b8b658c4e8",
+  "output_sha256": "39773642308f195dd004dafc0ccd1b17132d62d83eabddd2b6bda0d3c3a51960",
+  "created_unix": 1778662723.623,
+  "notes": "Boundary challenge generation; blind template contains no primary labels."
+}

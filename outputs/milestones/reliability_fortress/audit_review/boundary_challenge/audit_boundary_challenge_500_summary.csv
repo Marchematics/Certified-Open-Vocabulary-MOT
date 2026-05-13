@@ -1,0 +1,9 @@
+metric,value
+rows,500
+datasets,"BURST,OVT-B,TAO"
+minority_rows_in_sampling_frame,73
+ovtb_rows,187
+tao_rows,157
+burst_rows,156
+status,blind_template_requires_independent_review
+interpretation,"designed to measure hard-case ambiguity; report actual kappa, do not target a desired value"
