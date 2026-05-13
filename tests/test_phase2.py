@@ -131,12 +131,18 @@ def test_bdd_current_package_root_remains_not_mot_tracking_layout() -> None:
 
 def test_groundingdino_backend_locates_local_config_and_weights() -> None:
     root = _test_root("gd")
+    gd_root = root / "grounding-dino"
+    gd_root.mkdir(parents=True, exist_ok=True)
+    local_config = gd_root / "GroundingDINO_SwinT_OGC.cfg.py"
+    local_weights = gd_root / "groundingdino_swint_ogc.pth"
+    local_config.write_text("# fixture config\n", encoding="utf-8")
+    local_weights.write_bytes(b"fixture weights")
     cfg_path = _write_yaml(
         root / "phase2_audit_fixture.yaml",
         {
             "groundingdino": {
-                "config": "/datasets/ComfyUI/models/grounding-dino/GroundingDINO_SwinT_OGC.cfg.py",
-                "weights": "/datasets/ComfyUI/models/grounding-dino/groundingdino_swint_ogc.pth",
+                "config": str(local_config),
+                "weights": str(local_weights),
             }
         },
     )
