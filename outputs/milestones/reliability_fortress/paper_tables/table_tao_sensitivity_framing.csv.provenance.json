@@ -1,0 +1,16 @@
+{
+  "table": "table_tao_sensitivity_framing.csv",
+  "repo_commit": "b619136c1e352446288540b618a7d3e8adb96286",
+  "command": "python -m parc_track.cli phase17 reviewer-closeout",
+  "runtime_sec": 0.274601,
+  "environment": "python",
+  "random_seed": "fixed_per_row",
+  "sources": [
+    {
+      "path": "outputs/milestones/legacy_core_results/tao_full_clean/table_baseline_expanded.csv",
+      "sha256": "136d23f835063c82ff04653c019fa374eb73f5d44ecf0ed18db7a5e0d9cef03c"
+    }
+  ],
+  "output_sha256": "be2a6683cc76cc9bd847e2d87711fb4aa506afbf7fa4f9c66eb66631370c32bf",
+  "notes": "TAO sensitivity used to decide whether TAO is a main positive benchmark or a stress-test/refusal benchmark."
+}

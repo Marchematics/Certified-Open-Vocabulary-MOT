@@ -1,0 +1,16 @@
+{
+  "table": "second_review_challenge_template_500.csv",
+  "repo_commit": "b619136c1e352446288540b618a7d3e8adb96286",
+  "command": "python -m parc_track.cli phase17 reviewer-closeout",
+  "runtime_sec": 0.309709,
+  "environment": "python",
+  "random_seed": "fixed_per_row",
+  "sources": [
+    {
+      "path": "outputs/milestones/reliability_fortress/audit_labels_2000_human_reviewed.csv",
+      "sha256": "755547067df9a857cb9e31256719ae08e70f0494e51ac685a8c184b8b658c4e8"
+    }
+  ],
+  "output_sha256": "9195f52102b917a4b0063c50bf9beddca5066bb875014a523fcf1018efa71485",
+  "notes": "Blind challenge template with labels withheld; generated to address near-perfect agreement scrutiny."
+}

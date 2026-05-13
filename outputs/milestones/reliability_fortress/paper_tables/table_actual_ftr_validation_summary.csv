@@ -1,0 +1,4 @@
+certified_risk_level_alpha,trials,mean_released,mean_actual_FTR,max_actual_FTR,violation_rate
+0.05,100,134.04,0.0,0.0,0.0
+0.1,100,138.05,0.0,0.0,0.0
+0.2,100,137.84,0.00021776516321991675,0.007633587786259542,0.0

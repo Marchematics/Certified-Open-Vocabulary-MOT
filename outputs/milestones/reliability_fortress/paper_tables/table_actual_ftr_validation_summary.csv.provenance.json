@@ -1,0 +1,16 @@
+{
+  "table": "table_actual_ftr_validation_summary.csv",
+  "repo_commit": "b619136c1e352446288540b618a7d3e8adb96286",
+  "command": "python -m parc_track.cli phase17 reviewer-closeout",
+  "runtime_sec": 0.049648,
+  "environment": "python",
+  "random_seed": "fixed_per_row",
+  "sources": [
+    {
+      "path": "outputs/milestones/reliability_fortress/paper_tables/table_actual_ftr_validation.csv",
+      "sha256": "8ef0900b78d912658ab739f8ee7ee6b35df706705dfdd323cccbf8b816f07f42"
+    }
+  ],
+  "output_sha256": "211e31245ae2c1f9a2f55f0be27287d1aa9e31717bdcd76bfe032f516927c088",
+  "notes": "Controlled-simulation actual-FTR summary over 100 seeds per alpha."
+}

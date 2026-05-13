@@ -1,0 +1,16 @@
+{
+  "table": "table_second_review_credibility_positioning.csv",
+  "repo_commit": "b619136c1e352446288540b618a7d3e8adb96286",
+  "command": "python -m parc_track.cli phase17 reviewer-closeout",
+  "runtime_sec": 0.296268,
+  "environment": "python",
+  "random_seed": "fixed_per_row",
+  "sources": [
+    {
+      "path": "outputs/benchmarks/parc_certification_benchmark/audit/second_rater_agreement_summary.csv",
+      "sha256": "e1f8344a0efe22509c04ae9a7a6f946a73625943c797d497c40a67659a7eb77f"
+    }
+  ],
+  "output_sha256": "bf33a0534731f419819d06c1a7bd625d7ce346092eb0b2457f60ce9bfb7f1c2e",
+  "notes": "Positions the completed 300-row second review and the optional stricter challenge sample."
+}

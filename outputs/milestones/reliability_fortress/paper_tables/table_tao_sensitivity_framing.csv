@@ -1,0 +1,22 @@
+dataset,generator,certified_risk_level_alpha,M,seeds,nonempty_seeds,mean_released,max_released,mean_conservative_label_uncertainty_FTR,mean_mass_margin,positive_cell,recommended_framing
+TAO,GroundingDINO + tracker,0.05,75,3,0,0.0,0.0,,-5.249227571993409,False,stress_or_sensitivity
+TAO,GroundingDINO + tracker,0.05,100,3,0,0.0,0.0,,-8.686994950063912,False,stress_or_sensitivity
+TAO,GroundingDINO + tracker,0.05,125,3,0,0.0,0.0,,-12.147058713482934,False,stress_or_sensitivity
+TAO,GroundingDINO + tracker,0.05,150,3,0,0.0,0.0,,-14.359051325423252,False,stress_or_sensitivity
+TAO,GroundingDINO + tracker,0.05,175,3,0,0.0,0.0,,-15.209637734610125,False,stress_or_sensitivity
+TAO,GroundingDINO + tracker,0.05,200,3,0,0.0,0.0,,-15.425871418725697,False,stress_or_sensitivity
+TAO,GroundingDINO + tracker,0.05,250,3,0,0.0,0.0,,-16.516960368156465,False,stress_or_sensitivity
+TAO,GroundingDINO + tracker,0.1,75,3,3,75.0,75.0,0.0,13.54351369814399,True,stress_or_sensitivity
+TAO,GroundingDINO + tracker,0.1,100,3,3,99.0,100.0,0.0,6.745198165969057,True,stress_or_sensitivity
+TAO,GroundingDINO + tracker,0.1,125,3,1,31.333333333333332,94.0,0.0,0.7125407893569763,True,stress_or_sensitivity
+TAO,GroundingDINO + tracker,0.1,150,3,0,0.0,0.0,,-3.3874813327060593,False,stress_or_sensitivity
+TAO,GroundingDINO + tracker,0.1,175,3,0,0.0,0.0,,-5.095931921392407,False,stress_or_sensitivity
+TAO,GroundingDINO + tracker,0.1,200,3,0,0.0,0.0,,-5.425871418725696,False,stress_or_sensitivity
+TAO,GroundingDINO + tracker,0.1,250,3,0,0.0,0.0,,-6.4785614789891754,False,stress_or_sensitivity
+TAO,GroundingDINO + tracker,0.2,75,3,3,75.0,75.0,0.0,23.74098699640638,True,stress_or_sensitivity
+TAO,GroundingDINO + tracker,0.2,100,3,3,100.0,100.0,0.0033333333333333335,20.34182923031892,True,stress_or_sensitivity
+TAO,GroundingDINO + tracker,0.2,125,3,3,125.0,125.0,0.008,16.942671464231452,True,stress_or_sensitivity
+TAO,GroundingDINO + tracker,0.2,150,3,3,147.33333333333334,150.0,0.017777777777777733,13.54351369814399,True,main_positive_at_relaxed_risk
+TAO,GroundingDINO + tracker,0.2,175,3,3,155.33333333333334,175.0,0.017507841459937234,10.144355932056522,True,stress_or_sensitivity
+TAO,GroundingDINO + tracker,0.2,200,3,3,135.33333333333334,200.0,0.011666666666666667,6.745198165969057,True,stress_or_sensitivity
+TAO,GroundingDINO + tracker,0.2,250,3,1,31.333333333333332,94.0,0.0,0.7125407893569763,True,stress_or_sensitivity
