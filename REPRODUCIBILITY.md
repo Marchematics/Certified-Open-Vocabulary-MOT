@@ -70,6 +70,17 @@ python -m parc_track.cli phase9 reliability-bundle --output-dir outputs/mileston
 
 PARC-Track expects candidate-path CSV/JSON tables, not raw model internals. Use official detector/tracker repositories for inference, then convert predictions into the schema in `docs/API.md`.
 
-## 6. Public Safety
+## 6. Parallel Certification Safety
+
+Candidate universes should be treated as immutable inputs. During the iWildCam
+parallel deployment we identified that an earlier certification path normalized
+split/audit state and wrote it back to the input `candidate_universe.csv`, which
+is unsafe when multiple risk levels or budgets share the same file in parallel.
+The current code writes that normalized state to a per-run
+`normalized_candidate_universe.csv` sidecar and leaves the input file unchanged.
+The regression test `test_real_certify_does_not_write_back_to_input_candidate_universe`
+checks this behavior.
+
+## 7. Public Safety
 
 Do not commit raw videos, raw annotations, weights, cache directories, or private credentials. The included `scripts/validate_public_bundle.py` checks common leakage patterns.

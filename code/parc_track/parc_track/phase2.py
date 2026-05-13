@@ -1292,8 +1292,16 @@ def _output_paths_from_cfg(cfg: dict[str, Any]) -> dict[str, Path]:
     )
     sibling_scores = candidate_universe.with_name("candidate_scores.csv")
     sibling_nodes = candidate_universe.with_name("candidate_nodes.csv")
+    summary = Path(output.get("summary", "./outputs/phase2/real_certify_summary.json"))
+    normalized_candidate_universe = Path(
+        output.get(
+            "normalized_candidate_universe",
+            summary.with_name(f"{summary.stem}_normalized_candidate_universe.csv"),
+        )
+    )
     return {
         "candidate_universe": candidate_universe,
+        "normalized_candidate_universe": normalized_candidate_universe,
         "candidate_scores": Path(output.get("candidate_scores", sibling_scores)),
         "candidate_nodes": Path(output.get("candidate_nodes", sibling_nodes)),
         "candidate_evalues": Path(output.get("candidate_evalues", "./outputs/phase2/candidate_evalues.csv")),
@@ -1326,7 +1334,7 @@ def _output_paths_from_cfg(cfg: dict[str, Any]) -> dict[str, Path]:
         "real_cert_summary": Path(
             output.get("real_cert_summary", "./outputs/phase2/real_cert_summary.csv")
         ),
-        "summary": Path(output.get("summary", "./outputs/phase2/real_certify_summary.json")),
+        "summary": summary,
     }
 
 
@@ -2064,9 +2072,19 @@ def run_real_certify(config_path: str | Path, out_path: str | Path | None = None
     for column in CANDIDATE_UNIVERSE_COLUMNS:
         if column not in universe_for_csv:
             universe_for_csv[column] = ""
-    universe_for_csv[CANDIDATE_UNIVERSE_COLUMNS].to_csv(ensure_data_output(universe_path), index=False)
+    # Do not write normalized split/audit state back into the input candidate
+    # universe. Earlier versions did so in place, which was harmless for
+    # sequential runs but unsafe for parallel certification jobs sharing the
+    # same candidate-universe file. Persist the normalized state as a per-run
+    # output instead and point downstream diagnostics at that copy.
+    normalized_universe_path = ensure_data_output(paths["normalized_candidate_universe"])
+    universe_for_csv[CANDIDATE_UNIVERSE_COLUMNS].to_csv(normalized_universe_path, index=False)
+    runtime_cfg = json.loads(json.dumps(cfg))
+    runtime_cfg.setdefault("input", {})["candidate_universe"] = str(normalized_universe_path)
+    runtime_cfg_path = ensure_data_output(paths["summary"].with_suffix(".runtime_config.json"))
+    write_json(runtime_cfg_path, runtime_cfg)
 
-    cell_summary = compute_cell_effective_n(config_path, paths["cell_effective_n"])
+    cell_summary = compute_cell_effective_n(runtime_cfg_path, paths["cell_effective_n"])
     cells = pd.read_csv(paths["cell_effective_n"]) if paths["cell_effective_n"].exists() else pd.DataFrame()
     cell = cells.iloc[0].to_dict() if not cells.empty else {}
     n_rank = int(cell.get("n_rank_denominator") or 0)
@@ -2213,6 +2231,8 @@ def run_real_certify(config_path: str | Path, out_path: str | Path | None = None
         "status": "completed_full_universe_scaffold",
         "dataset": cfg.get("dataset", {}).get("name", "unknown"),
         "candidate_universe": str(universe_path),
+        "normalized_candidate_universe": str(normalized_universe_path),
+        "runtime_config": str(runtime_cfg_path),
         "candidate_universe_rows": int(len(universe)),
         "processed_videos": int(universe["video_id"].nunique()),
         "test_candidates": int(len(test)),

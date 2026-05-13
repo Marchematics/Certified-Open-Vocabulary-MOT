@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 from pathlib import Path
 from uuid import uuid4
@@ -342,6 +343,62 @@ def test_real_certify_removes_verified_positive_and_preserves_uncertain() -> Non
     assert int(parc["null_superset_size"]) <= int(no_audit["null_superset_size"])
     if int(parc["audited_released"]):
         assert float(parc["utr"]) >= 0.0
+
+
+def test_real_certify_does_not_write_back_to_input_candidate_universe() -> None:
+    root = _test_root("real_cert_no_writeback")
+    ann_path = _write_tiny_tracking_dataset(root, "ovtb_ann.json", videos=8)
+    universe = root / "candidate_universe.csv"
+    rows = []
+    for idx, video_id in enumerate(range(1, 9)):
+        rows.append(
+            {
+                "dataset": "OVT-B",
+                "video_id": video_id,
+                "path_id": f"p{idx}",
+                "query": "object",
+                "category_id": 3,
+                "score": 1.0 - idx * 0.05,
+                "candidate_rank": idx + 1,
+                "is_unmatched": True,
+                "is_matched_to_gt": False,
+                "cell_id": "global",
+                "verified_positive_for_calibration": "no",
+            }
+        )
+    _write_candidate_universe(universe, rows)
+    before_hash = hashlib.sha256(universe.read_bytes()).hexdigest()
+    normalized = root / "normalized_candidate_universe.csv"
+    cfg_path = _write_yaml(
+        root / "phase2_real_cert_fixture.yaml",
+        {
+            "dataset": {
+                "name": "OVT-B",
+                "root": str(root),
+                "ann_file": str(ann_path),
+                "format_hint": "tao_or_coco_video",
+            },
+            "splits": {"tune_ratio": 0.0, "cal_ratio": 0.5, "seed": 0},
+            "risk": {"alpha1": 0.10},
+            "release_grid": {"times_sec": [1.0, 2.0]},
+            "selector": {"candidate_budget_sweep": [4]},
+            "input": {"candidate_universe": str(universe), "audit_labels": str(root / "missing_labels.csv")},
+            "output": {
+                "summary": str(root / "real_certify_summary.json"),
+                "normalized_candidate_universe": str(normalized),
+                "real_cert_summary": str(root / "real_cert_summary.csv"),
+                "candidate_evalues": str(root / "candidate_evalues.csv"),
+                "cell_effective_n": str(root / "cell_effective_n.csv"),
+            },
+        },
+    )
+    summary = run_real_certify(cfg_path)
+    assert summary["status"] == "completed_full_universe_scaffold"
+    assert hashlib.sha256(universe.read_bytes()).hexdigest() == before_hash
+    assert normalized.exists()
+    normalized_frame = pd.read_csv(normalized)
+    assert "split" in normalized_frame.columns
+    assert set(normalized_frame["split"]).issubset({"cal", "test", "tune"})
 
 
 def test_cell_effective_n_reports_coverage_conditional_fields() -> None:
