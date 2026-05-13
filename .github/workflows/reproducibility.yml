@@ -14,11 +14,21 @@ jobs:
           python-version: "3.11"
       - name: Install dependencies
         run: pip install -r requirements.lock.txt
-      - name: Run core tests
+      - name: Run unit smoke tests
         env:
           MPLBACKEND: Agg
           PYTHONHASHSEED: "0"
-        run: PYTHONPATH=code/parc_track python -m pytest -q tests/test_parc_track.py tests/test_phase2.py tests/test_ovtrack_adapter.py
+        run: PYTHONPATH=code/parc_track python -m pytest -q tests/test_parc_track.py
+      - name: Run phase2 tests
+        env:
+          MPLBACKEND: Agg
+          PYTHONHASHSEED: "0"
+        run: PYTHONPATH=code/parc_track python -m pytest -q tests/test_phase2.py
+      - name: Run adapter tests
+        env:
+          MPLBACKEND: Agg
+          PYTHONHASHSEED: "0"
+        run: PYTHONPATH=code/parc_track python -m pytest -q tests/test_ovtrack_adapter.py
       - name: Run reliability tests
         env:
           MPLBACKEND: Agg
