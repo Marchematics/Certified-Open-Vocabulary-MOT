@@ -12,6 +12,7 @@ dependencies = [
   "numpy",
   "pandas",
   "PyYAML",
+  "Jinja2",
   "tqdm",
 ]
 
