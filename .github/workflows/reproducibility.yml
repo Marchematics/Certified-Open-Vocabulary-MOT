@@ -14,22 +14,26 @@ jobs:
           python-version: "3.11"
       - name: Install dependencies
         run: pip install -r requirements.lock.txt
-      - name: Run tests
+      - name: Run core tests
         env:
           MPLBACKEND: Agg
           PYTHONHASHSEED: "0"
-        run: |
-          set +e
-          PYTHONPATH=code/parc_track python -m pytest -q tests > pytest-output.txt 2>&1
-          status=$?
-          cat pytest-output.txt
-          {
-            echo "### Pytest output"
-            echo '```text'
-            tail -n 240 pytest-output.txt
-            echo '```'
-          } >> "$GITHUB_STEP_SUMMARY"
-          exit "$status"
+        run: PYTHONPATH=code/parc_track python -m pytest -q tests/test_parc_track.py tests/test_phase2.py tests/test_ovtrack_adapter.py
+      - name: Run reliability tests
+        env:
+          MPLBACKEND: Agg
+          PYTHONHASHSEED: "0"
+        run: PYTHONPATH=code/parc_track python -m pytest -q tests/test_phase8_published_trackers.py tests/test_phase9_reliability.py tests/test_release_story.py
+      - name: Run closeout tests
+        env:
+          MPLBACKEND: Agg
+          PYTHONHASHSEED: "0"
+        run: PYTHONPATH=code/parc_track python -m pytest -q tests/test_closeout_tables.py tests/test_phase15_full_experiments.py tests/test_phase16_generality_closeout.py tests/test_phase17_reviewer_closeout.py
+      - name: Run generality tests
+        env:
+          MPLBACKEND: Agg
+          PYTHONHASHSEED: "0"
+        run: PYTHONPATH=code/parc_track python -m pytest -q tests/test_generality_package.py
       - name: Run tiny certification fixture
         run: PYTHONPATH=code/parc_track python -m parc_track.cli phase9 certification-api --output-dir outputs/tmp_cert_api
       - name: Validate public bundles
