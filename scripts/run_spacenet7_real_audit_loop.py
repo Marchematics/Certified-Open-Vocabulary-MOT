@@ -5,6 +5,7 @@ import argparse
 import hashlib
 import json
 import math
+import os
 import random
 from pathlib import Path
 
@@ -35,6 +36,12 @@ USECOLS = [
     "area_ratio",
     "base_geometry_score",
 ]
+
+DEFAULT_CANDIDATE_UNIVERSE = (
+    "${SPACENET7_LINK_UNIVERSE}/candidate_universe.csv"
+    if "SPACENET7_LINK_UNIVERSE" not in os.environ
+    else str(Path(os.environ["SPACENET7_LINK_UNIVERSE"]) / "candidate_universe.csv")
+)
 
 
 def sha256_file(path: Path) -> str:
@@ -270,8 +277,35 @@ def run_parc_with_observed(df: pd.DataFrame, observed_ranks: set[int], alphas: l
                         "self_consistency_margin": margin if released else "",
                         "empty_reason": empty_reason(released, diag, max_observed_e),
                     }
-                )
+    )
     return pd.DataFrame(rows), selected_by_setting
+
+
+def choose_release_audit_setting(
+    seed_results: pd.DataFrame, primary_alpha: float, primary_M: int
+) -> tuple[float, int, str]:
+    primary = seed_results[(seed_results["alpha"] == primary_alpha) & (seed_results["M"] == primary_M)]
+    if not primary.empty and int((primary["released"] > 0).sum()) > 0:
+        return primary_alpha, primary_M, "primary"
+
+    grouped = (
+        seed_results.groupby(["alpha", "M"], as_index=False)
+        .agg(nonempty=("released", lambda s: int((s > 0).sum())), mean_release=("released", "mean"))
+    )
+    grouped = grouped[(grouped["alpha"] == primary_alpha) & (grouped["nonempty"] >= 15)].copy()
+    if grouped.empty:
+        grouped = (
+            seed_results.groupby(["alpha", "M"], as_index=False)
+            .agg(nonempty=("released", lambda s: int((s > 0).sum())), mean_release=("released", "mean"))
+            .query("nonempty > 0")
+            .copy()
+        )
+    if grouped.empty:
+        return primary_alpha, primary_M, "none_available"
+
+    grouped = grouped.sort_values(["mean_release", "nonempty", "M"], ascending=[False, False, False])
+    row = grouped.iloc[0]
+    return float(row["alpha"]), int(row["M"]), "diagnostic_predefined_budget_after_primary_refusal"
 
 
 def write_review_files(out_dir: Path, name: str, frame: pd.DataFrame) -> tuple[Path, Path]:
@@ -284,7 +318,7 @@ def write_review_files(out_dir: Path, name: str, frame: pd.DataFrame) -> tuple[P
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--candidate-universe", default="/home/waas/paper_experiments/outputs/spacenet7_building_links/universe_geometry_w35_aoi18/candidate_universe.csv")
+    parser.add_argument("--candidate-universe", default=DEFAULT_CANDIDATE_UNIVERSE)
     parser.add_argument("--out-dir", default="outputs/spacenet7_real_audit")
     parser.add_argument("--calibration-n", type=int, default=800)
     parser.add_argument("--release-audit-n", type=int, default=200)
@@ -321,10 +355,13 @@ def main() -> None:
     seed_results, selected = run_parc_with_observed(df, observed_ranks, alphas, budgets, seeds)
     seed_results.to_csv(out_dir / "table_spacenet7_real_audit_seed_results.csv", index=False)
 
-    primary_key_prefix = (args.primary_alpha, args.primary_M)
+    release_alpha, release_M, release_setting_status = choose_release_audit_setting(
+        seed_results, args.primary_alpha, args.primary_M
+    )
+    release_key_prefix = (release_alpha, release_M)
     union_indices: list[int] = []
     for seed in seeds:
-        union_indices.extend(selected.get((*primary_key_prefix, seed), np.asarray([], dtype=int)).tolist())
+        union_indices.extend(selected.get((*release_key_prefix, seed), np.asarray([], dtype=int)).tolist())
     unique_indices = sorted(set(union_indices), key=lambda idx: int(df.iloc[idx]["candidate_rank"]))
     release_frame = df.iloc[unique_indices[: args.release_audit_n]].copy().reset_index(drop=True)
     release_frame.insert(0, "audit_id", [make_audit_id("REL", i + 1) for i in range(len(release_frame))])
@@ -358,6 +395,9 @@ def main() -> None:
         "calibration_initial_verified_positive_rows": int(len(observed_ranks)),
         "calibration_block_coverage": int(calibration["video_id"].nunique()),
         "release_audit_rows": int(len(release_frame)),
+        "release_audit_setting_status": release_setting_status,
+        "release_audit_alpha": release_alpha,
+        "release_audit_M": release_M,
         "raw_topk_audit_rows": int(len(raw_frame)),
         "primary_alpha": args.primary_alpha,
         "primary_M": args.primary_M,
@@ -387,6 +427,11 @@ def main() -> None:
         f"- Mean release: {summary['primary_mean_release']:.3f}\n"
         f"- Official-GT FTR mean: {summary['primary_official_GT_FTR_mean']:.6f}\n"
         f"- Raw top-M official-GT FTR mean: {summary['primary_raw_topM_official_GT_FTR_mean']:.6f}\n\n"
+        "## Release-audit target\n\n"
+        f"- Setting status: {release_setting_status}\n"
+        f"- Release-audit alpha: {release_alpha}\n"
+        f"- Release-audit M: {release_M}\n"
+        f"- Release-audit rows: {len(release_frame)}\n\n"
         "Human confirmation is required before these labels can be reported as real audit evidence.\n",
         encoding="utf-8",
     )

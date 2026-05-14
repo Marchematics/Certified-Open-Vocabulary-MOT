@@ -128,3 +128,11 @@ materials rather than paper-facing real-audit evidence. After confirmation, the
 calibration audit can be described as actual partial verification entering
 PARC, and the release audit can be described as separate blind evaluation of
 released-set FTR.
+
+## Transparent Diagnostic Amendment
+
+If the primary operating point (`alpha=0.20`, `M=100`) produces an empty
+release under the reviewed calibration positives, the audit package may also
+export a release-audit set from a non-empty budget in the same pre-defined
+grid. Such rows must be reported as diagnostic release-audit material after
+primary refusal, not as primary operating-point success evidence.
