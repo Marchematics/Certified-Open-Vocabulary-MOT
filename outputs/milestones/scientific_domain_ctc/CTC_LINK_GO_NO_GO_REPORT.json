@@ -1,0 +1,38 @@
+{
+  "status": "completed_go_no_go_passed",
+  "scope": "CTC training-set link-level certification pilot",
+  "candidate_source": "GT/TRA cell masks as nodes with deterministic noisy geometric linker scores (w=0.90)",
+  "unit": "adjacent-frame cell link",
+  "datasets": [
+    "DIC-C2DH-HeLa",
+    "Fluo-N2DH-GOWT1",
+    "Fluo-N2DL-HeLa",
+    "PhC-C2DH-U373"
+  ],
+  "video_blocks": 156,
+  "candidate_links": 208230,
+  "gt_supported_candidate_links": 41756,
+  "unsupported_candidate_links": 166474,
+  "main_positive_result": {
+    "alpha": 0.2,
+    "M100_nonempty_seeds": "20/20",
+    "M100_actual_FTR_mean": 0.0,
+    "M300_nonempty_seeds": "20/20",
+    "M300_actual_FTR_mean": 0.0001666666666666,
+    "M500_nonempty_seeds": "18/20",
+    "M500_released_mean": 415.85,
+    "M500_actual_FTR_mean": 0.0011032165155525,
+    "M500_actual_FTR_max": 0.0073170731707317
+  },
+  "safe_refusal_result": {
+    "alpha_0p10": "all refused because e-value resolution below required threshold",
+    "alpha_0p20_M5000": "all refused for insufficient high-evidence mass",
+    "raw_topM_M5000_actual_FTR": 0.3605999999999999
+  },
+  "tables": {
+    "certification": "outputs/ctc_link_certification/certification_noisy_w90_win5/table_ctc_link_certification.csv",
+    "frontier_summary": "outputs/ctc_link_certification/certification_noisy_w90_win5/table_ctc_link_frontier_summary.csv",
+    "raw_topm": "outputs/ctc_link_certification/certification_noisy_w90_win5/table_ctc_link_raw_topm.csv",
+    "figure_ready_risk_utility": "outputs/ctc_link_certification/certification_noisy_w90_win5/figure_ctc_link_risk_utility.csv"
+  }
+}

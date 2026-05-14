@@ -1,0 +1,33 @@
+{
+  "status": "completed",
+  "scope": "CTC link-level scientific-domain main result",
+  "raw_data": "Cell Tracking Challenge training archives are not redistributed; download from the official CTC site.",
+  "candidate_universe_external_path": "outputs/ctc_link_certification/universe_gt_tra_noisy_w90_win5/candidate_universe.csv",
+  "candidate_universe_public_policy": "not packaged; derived from CTC GT masks and therefore treated as non-redistributed benchmark-derived artifact",
+  "scripts": [
+    "scripts/prepare_ctc_link_universe.py",
+    "scripts/run_ctc_link_parc_certification.py",
+    "scripts/run_ctc_partial_verification_sweep.py"
+  ],
+  "ctc_datasets": [
+    "DIC-C2DH-HeLa",
+    "Fluo-N2DH-GOWT1",
+    "Fluo-N2DL-HeLa",
+    "PhC-C2DH-U373"
+  ],
+  "unit": "adjacent-frame cell link",
+  "candidate_source": "GT/TRA cell masks as nodes with deterministic noisy geometric linker scores (w=0.90)",
+  "block_window_frames": 5,
+  "seeds": "0..19",
+  "M_grid": [
+    100,
+    300,
+    500,
+    2000,
+    5000
+  ],
+  "alpha_grid": [
+    0.1,
+    0.2
+  ]
+}

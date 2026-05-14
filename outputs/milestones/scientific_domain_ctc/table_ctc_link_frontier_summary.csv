@@ -1,0 +1,11 @@
+certified_risk_level_alpha,candidate_budget_M,seeds,nonempty_seeds,released_mean,released_std,actual_FTR_mean,actual_FTR_max,raw_topM_actual_FTR,mean_best_mass_ratio,mean_max_observed_e,dominant_empty_reason
+0.1,100,20,0,0.0,0.0,0.0,0.0,0.0,1.0,6.651292527987276,resolution_below_required_emax
+0.1,300,20,0,0.0,0.0,0.0,0.0,0.0,1.0,6.651292527987276,resolution_below_required_emax
+0.1,500,20,0,0.0,0.0,0.0,0.0,0.0,1.0,6.651292527987276,resolution_below_required_emax
+0.1,2000,20,0,0.0,0.0,0.0,0.0,0.009000000000000001,1.0,6.651292527987276,resolution_below_required_emax
+0.1,5000,20,0,0.0,0.0,0.0,0.0,0.3605999999999999,1.0,6.651292527987276,resolution_below_required_emax
+0.2,100,20,20,100.0,0.0,0.0,0.0,0.0,1.0,6.651292527987276,
+0.2,300,20,20,300.0,0.0,0.000166666666666665,0.0033333333333333,0.0,1.0,6.651292527987276,
+0.2,500,20,18,415.85,144.64690629253016,0.00110321651555253,0.0073170731707317,0.0,1.0,6.651292527987276,insufficient_high_e_mass_for_uniform_scs
+0.2,2000,20,0,0.0,0.0,0.0,0.0,0.009000000000000001,1.0,6.651292527987276,insufficient_high_e_mass_for_uniform_scs
+0.2,5000,20,0,0.0,0.0,0.0,0.0,0.3605999999999999,1.0,6.651292527987276,insufficient_high_e_mass_for_uniform_scs

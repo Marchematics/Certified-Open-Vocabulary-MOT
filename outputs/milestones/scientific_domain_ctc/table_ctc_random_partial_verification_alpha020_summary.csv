@@ -1,0 +1,16 @@
+rho,M,nonempty,released_mean,actual_FTR_mean,actual_FTR_max,partial_UTR_mean,raw_FTR,reason
+0.05,100,0,0.0,0.0,0.0,0.0,0.0,insufficient_high_e_mass_for_uniform_scs
+0.05,300,0,0.0,0.0,0.0,0.0,0.000166666666666665,insufficient_high_e_mass_for_uniform_scs
+0.05,500,0,0.0,0.0,0.0,0.0,0.0055000000000000005,insufficient_high_e_mass_for_uniform_scs
+0.1,100,0,0.0,0.0,0.0,0.0,0.0,insufficient_high_e_mass_for_uniform_scs
+0.1,300,0,0.0,0.0,0.0,0.0,0.000166666666666665,insufficient_high_e_mass_for_uniform_scs
+0.1,500,0,0.0,0.0,0.0,0.0,0.0055000000000000005,insufficient_high_e_mass_for_uniform_scs
+0.25,100,0,0.0,0.0,0.0,0.0,0.0,insufficient_high_e_mass_for_uniform_scs
+0.25,300,0,0.0,0.0,0.0,0.0,0.000166666666666665,insufficient_high_e_mass_for_uniform_scs
+0.25,500,0,0.0,0.0,0.0,0.0,0.0055000000000000005,insufficient_high_e_mass_for_uniform_scs
+0.5,100,0,0.0,0.0,0.0,0.0,0.0,insufficient_high_e_mass_for_uniform_scs
+0.5,300,0,0.0,0.0,0.0,0.0,0.000166666666666665,insufficient_high_e_mass_for_uniform_scs
+0.5,500,0,0.0,0.0,0.0,0.0,0.0055000000000000005,insufficient_high_e_mass_for_uniform_scs
+1.0,100,20,100.0,0.0,0.0,0.0,0.0,
+1.0,300,20,300.0,0.000166666666666665,0.0033333333333333,0.000166666666666665,0.000166666666666665,
+1.0,500,18,415.85,0.00110321651555253,0.0073170731707317,0.00110321651555253,0.0055000000000000005,insufficient_high_e_mass_for_uniform_scs
