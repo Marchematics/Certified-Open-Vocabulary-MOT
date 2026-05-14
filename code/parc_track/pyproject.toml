@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "parc-track"
 version = "0.1.0"
-description = "PARC-Track smoke framework for certified open-vocabulary MOT under partial annotations."
+description = "PARC release-time certification framework for partial verification settings."
 requires-python = ">=3.10"
 dependencies = [
   "matplotlib",
