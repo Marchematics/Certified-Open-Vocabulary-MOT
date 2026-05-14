@@ -169,6 +169,11 @@ def review_label(frame: pd.DataFrame) -> pd.DataFrame:
         "source and target have different official SpaceNet building identifiers; requires human visual confirmation",
     )
     out["review_status"] = "requires_human_confirmation"
+    out["human_label"] = ""
+    out["human_verified_positive_for_calibration"] = ""
+    out["human_reason"] = ""
+    out["human_confidence"] = ""
+    out["human_review_status"] = ""
     return out
 
 
