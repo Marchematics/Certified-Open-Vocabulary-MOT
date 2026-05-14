@@ -31,6 +31,7 @@ The core public milestones are:
 ```text
 outputs/milestones/reliability_fortress/
 outputs/milestones/scientific_domain_ctc/
+outputs/milestones/scientific_domain_ctc_learned/
 outputs/milestones/scientific_domain_spacenet7/
 outputs/milestones/generality_reliability/
 outputs/milestones/release_story/

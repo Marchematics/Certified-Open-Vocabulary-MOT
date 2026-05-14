@@ -1,0 +1,57 @@
+from pathlib import Path
+
+import pandas as pd
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_ctc_learned_public_tables_exist_and_are_scoped() -> None:
+    milestone = ROOT / "outputs/milestones/scientific_domain_ctc_learned"
+    main = pd.read_csv(milestone / "table_ctc_learned_hybrid_main.csv")
+    strict = pd.read_csv(milestone / "table_ctc_learned_strict_alpha010_smallK.csv")
+    model = pd.read_csv(milestone / "table_ctc_learned_model_report.csv")
+
+    assert {"rho", "alpha", "M", "nonempty_seeds", "actual_FTR_mean", "block_variant"}.issubset(main.columns)
+    assert (strict["alpha"] == 0.10).all()
+    assert (strict["nonempty_seeds"] >= 18).any()
+    assert bool(model["uses_appearance_signal"].iloc[0])
+    assert bool(model["forbidden_leakage_columns_not_used"].iloc[0])
+
+
+def test_closeout_diagnostics_cover_release_and_refusal_cases() -> None:
+    diagnostics = ROOT / "outputs/milestones/release_story/paper_diagnostics"
+    panel = pd.read_csv(diagnostics / "table_assumption_diagnostic_panel.csv")
+    seed_ci = pd.read_csv(diagnostics / "table_seed_variability_and_ci.csv")
+    prevented = pd.read_csv(diagnostics / "table_prevented_false_releases.csv")
+
+    panel_text = " ".join(
+        " ".join(map(str, row)) for row in panel.astype(object).to_numpy()
+    )
+    assert "CTC learned-hybrid" in panel_text
+    assert "SpaceNet7 real audit" in panel_text
+    assert "certified_refusal" in panel_text or "human_audit_certified_refusal" in panel_text
+    assert {"actual_FTR_bootstrap95_low", "actual_FTR_bootstrap95_high"}.issubset(seed_ci.columns)
+    assert (prevented["approx_raw_false_links_per_seed"].astype(float) > 0).all()
+
+
+def test_closeout_tables_are_public_safe() -> None:
+    roots = [
+        ROOT / "outputs/milestones/scientific_domain_ctc_learned",
+        ROOT / "outputs/milestones/release_story/paper_diagnostics",
+    ]
+    forbidden = [
+        "/" + "home" + "/",
+        "/" + "tmp" + "/",
+        "co" + "dex",
+        "pre" + "fill",
+        "tpa" + "mi_",
+        "n" + "mi_",
+        "_v" + "1",
+        "_v" + "2",
+    ]
+    for root in roots:
+        for path in root.rglob("*"):
+            if path.is_file() and path.suffix.lower() in {".csv", ".json", ".md", ".txt"}:
+                text = path.read_text(encoding="utf-8")
+                assert not any(token in text for token in forbidden), path

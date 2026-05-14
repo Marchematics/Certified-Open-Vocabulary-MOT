@@ -19,8 +19,14 @@ This repository uses neutral public artifact names. Older internal experiment la
 - `outputs/milestones/scientific_domain_ctc/`  
   Biomedical cell-link certification milestone on Cell Tracking Challenge data. This is a scientific-domain positive anchor for link-level release certification under partial verification.
 
+- `outputs/milestones/scientific_domain_ctc_learned/`  
+  Learned-hybrid CTC companion milestone. A sequence-disjoint, appearance-assisted link scorer is trained on CTC sequence 01, frozen, and certified on held-out sequence 02; only compact tables and model/provenance summaries are included.
+
 - `outputs/milestones/scientific_domain_spacenet7/`  
   Earth-observation building-link certification milestone on SpaceNet 7. This contains the geometry-linker positive result and randomized-linker safe-refusal stress result; raw SpaceNet labels, imagery, and large candidate universes are excluded.
+
+- `outputs/milestones/release_story/paper_diagnostics/`  
+  Paper-facing diagnostic tables for assumptions, seed variability/interval summaries, verification budgets, and prevented false releases.
 
 ## Paper-Facing Tables
 

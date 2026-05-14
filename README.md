@@ -2,7 +2,7 @@
 
 PARC is a post-prediction certification layer for scientific and open-world AI systems operating under partial verification. Given a frozen candidate universe from an external detector, tracker, or linker, PARC calibrates against a null superset and either releases a self-consistent certified subset or refuses unsafe release requests with explicit diagnostics.
 
-This repository is the public-safe reproducibility package for the final release of the project. It includes the original open-vocabulary MOT instantiation, scientific-domain link certification on Cell Tracking Challenge and SpaceNet 7, open-world vision generality artifacts, audit benchmark CSVs, frozen configs, result tables, tiny fixtures, and documentation needed to reproduce the certification flow without redistributing raw benchmark videos, raw annotations, model weights, or local caches.
+This repository is the public-safe reproducibility package for the final release of the project. It includes the original open-vocabulary MOT instantiation, scientific-domain link certification on Cell Tracking Challenge and SpaceNet 7, a learned-hybrid CTC proposal-source companion, open-world vision generality artifacts, audit benchmark CSVs, frozen configs, result tables, tiny fixtures, and documentation needed to reproduce the certification flow without redistributing raw benchmark videos, raw annotations, model weights, or local caches.
 
 ## Repository Layout
 
@@ -21,6 +21,7 @@ parc-track/
 │   ├── milestones/generality_reliability/
 │   ├── milestones/release_story/
 │   ├── milestones/scientific_domain_ctc/
+│   ├── milestones/scientific_domain_ctc_learned/
 │   ├── milestones/scientific_domain_spacenet7/
 │   └── benchmarks/parc_certification_benchmark/
 ├── tests/                            # pytest suite and tiny fixtures
@@ -33,7 +34,7 @@ parc-track/
 
 - PARC certification code: null-superset block calibration, coverage-conditional empty-block handling, e-value generation, finite-resolution diagnostics, SCS-Greedy release, report builders, TrackEval export helpers, and adapter utilities.
 - Audit benchmark: `outputs/benchmarks/parc_certification_benchmark/audit/` and the full frozen milestone under `outputs/milestones/reliability_fortress/`.
-- Scientific-domain milestones for CTC cell-link certification and SpaceNet 7 building-link certification.
+- Scientific-domain milestones for CTC cell-link certification, learned-hybrid CTC link certification, and SpaceNet 7 building-link certification.
 - Result tables for OVT-B, TAO, BURST, black-box generators, published-tracker adapters, non-exchangeability stress tests, null-inflation sensitivity, LVIS/LVVIS/OVVIS generality checks, Mondrian/per-class/runtime/anytime diagnostics, and Prop. 5 high-evidence mass diagnostics.
 - Tiny fixture for validating the full schema-to-certification path without downloading external datasets.
 
@@ -67,6 +68,7 @@ For full benchmark reproduction, see `REPRODUCIBILITY.md`.
 - Generality and stratified reliability milestone: `outputs/milestones/generality_reliability/`
 - Release/refusal story milestone: `outputs/milestones/release_story/`
 - Biomedical scientific-domain milestone: `outputs/milestones/scientific_domain_ctc/`
+- Learned-hybrid CTC milestone: `outputs/milestones/scientific_domain_ctc_learned/`
 - Earth-observation scientific-domain milestone: `outputs/milestones/scientific_domain_spacenet7/`
 - Community benchmark: `outputs/benchmarks/parc_certification_benchmark/`
 - File integrity manifest: `MANIFEST_SHA256.txt`

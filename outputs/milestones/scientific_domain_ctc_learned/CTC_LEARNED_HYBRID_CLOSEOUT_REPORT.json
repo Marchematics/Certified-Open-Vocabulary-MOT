@@ -1,0 +1,23 @@
+{
+  "status": "completed",
+  "purpose": "Release-certification closeout: learned CTC source plus paper-facing diagnostics",
+  "learned_ctc": {
+    "main": "table_ctc_learned_hybrid_main.csv",
+    "strict_alpha010": "table_ctc_learned_strict_alpha010_smallK.csv",
+    "learned_vs_geometry": "table_ctc_learned_vs_geometry.csv",
+    "model_report": "table_ctc_learned_model_report.csv"
+  },
+  "diagnostics": {
+    "assumption_panel": "outputs/milestones/release_story/paper_diagnostics/table_assumption_diagnostic_panel.csv",
+    "seed_variability_ci": "outputs/milestones/release_story/paper_diagnostics/table_seed_variability_and_ci.csv",
+    "verification_budget": "outputs/milestones/scientific_domain_ctc_learned/table_verification_budget_by_domain.csv",
+    "prevented_false_releases": "outputs/milestones/release_story/paper_diagnostics/table_prevented_false_releases.csv"
+  },
+  "input_hashes": {
+    "learned_sweep_w1": "b59e7aae75fe1a83398104f9df3af624a6a96a363254d5b20b5c1233c9bc550f",
+    "learned_sweep_w5": "6aa01ecf67c227d1bdb646826e08636eb3e1089eac6fe69b1a0ad4faba1203f1",
+    "learned_sweep_largeM": "f2f4d6a364ccff4085651e2d8e0c53647283c4abd795b53b667c81149179a4b8",
+    "learned_model_report": "5a6669e4819bf1c80363924961388c6edbba185d95986ab41e9c1b39da74e274"
+  },
+  "claim_scope": "learned-hybrid CTC is a sequence-disjoint AI-assisted proposal source; SpaceNet human K50 is diagnostic not primary K100."
+}

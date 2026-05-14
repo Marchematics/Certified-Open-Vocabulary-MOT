@@ -1,0 +1,2 @@
+source,train_sequences,eval_sequences,eval_frame_window,rows_train,rows_eval,train_positive_rate,eval_positive_rate,train_auc,eval_auc,train_average_precision,eval_average_precision,feature_count,uses_appearance_signal,forbidden_leakage_columns_not_used,public_note
+ctc_learned_hybrid_appearance_sequence_disjoint,1,2,1,62000,146230,0.20080645161290323,0.20041031252137045,0.999782600837254,0.9996057345597479,0.9991010799024458,0.9986629977936219,27,True,True,Trained on sequence 01 and frozen before PARC certification on held-out sequence 02.

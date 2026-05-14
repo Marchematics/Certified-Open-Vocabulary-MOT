@@ -285,7 +285,18 @@ def main() -> None:
     sweep = pd.DataFrame(rows)
     sweep_path = out_dir / "table_ctc_partial_verification_sweep.csv"
     sweep.to_csv(sweep_path, index=False)
-    per_dataset = pd.DataFrame(per_dataset_rows)
+    per_dataset_columns = [
+        "rho",
+        "observed_positive_strategy",
+        "alpha",
+        "seed",
+        "M",
+        "ctc_dataset",
+        "released",
+        "actual_FTR",
+        "partial_UTR_seen_by_PARC",
+    ]
+    per_dataset = pd.DataFrame(per_dataset_rows, columns=per_dataset_columns)
     per_dataset_path = out_dir / "table_ctc_partial_verification_per_dataset_raw.csv"
     per_dataset.to_csv(per_dataset_path, index=False)
 
