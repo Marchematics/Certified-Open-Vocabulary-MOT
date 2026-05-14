@@ -1,0 +1,2 @@
+n_audited,n_true_same_building,n_false_link,n_uncertain,audited_FTR_uncertain_as_false,audited_FTR_uncertain_excluded,bootstrap_CI_low_uncertain_as_false,bootstrap_CI_high_uncertain_as_false,K,alpha,label_source,num_unique_released_candidates,official_GT_FTR,raw_topK_official_FTR_from_seed_table,non_empty_seeds,total_seeds,mean_release_across_seeds,setting_status,paper_status
+147,147,0,0,0.0,0.0,0.0,0.0,50,0.2,initial_official_proxy_requires_human_confirmation,147,0.0,0.0,18,20,43.95,diagnostic_predefined_budget_after_primary_refusal,requires_human_confirmation

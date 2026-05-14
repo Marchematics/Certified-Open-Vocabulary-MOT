@@ -1,0 +1,10 @@
+{
+  "status": "summary_tables_written",
+  "tables": [
+    "table_spacenet7_real_audit_calibration_summary.csv",
+    "table_spacenet7_real_audit_primary_refusal_diagnostics.csv",
+    "table_spacenet7_real_audit_k50_release_audit.csv",
+    "table_spacenet7_real_audit_raw_topK_audit.csv"
+  ],
+  "paper_status": "requires_human_confirmation_until_human_fields_are_completed"
+}

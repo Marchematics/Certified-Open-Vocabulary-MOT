@@ -28,3 +28,12 @@ Status: review-ready audit materials generated. The initial labels are not paper
 - Release-audit rows: 147
 
 Human confirmation is required before these labels can be reported as real audit evidence.
+
+## Summary Tables
+
+- Calibration audit summary: `table_spacenet7_real_audit_calibration_summary.csv`
+- Primary K=100 refusal diagnostics: `table_spacenet7_real_audit_primary_refusal_diagnostics.csv`
+- K=50 diagnostic release audit: `table_spacenet7_real_audit_k50_release_audit.csv`
+- Raw top-K/high-score audit: `table_spacenet7_real_audit_raw_topK_audit.csv`
+
+All summary tables remain marked `requires_human_confirmation` until the `human_*` fields are completed.
