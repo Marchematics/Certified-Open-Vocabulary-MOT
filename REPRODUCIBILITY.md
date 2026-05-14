@@ -51,6 +51,14 @@ make validate-public-bundle PYTHON=python
 make verify-manifest
 ```
 
+The learned-hybrid CTC milestone includes public-safe leakage and robustness checks:
+
+```text
+outputs/milestones/scientific_domain_ctc_learned/table_ctc_learned_leakage_audit.csv
+outputs/milestones/scientific_domain_ctc_learned/table_ctc_learned_reverse_split.csv
+outputs/milestones/scientific_domain_ctc_learned/table_ctc_learned_negative_control.csv
+```
+
 Regenerate the current paper-facing release/refusal tables:
 
 ```bash

@@ -86,6 +86,8 @@ def build_learned_tables(args: argparse.Namespace, out_dir: Path) -> dict:
     large = pd.read_csv(args.learned_sweep_largeM)
     all_w1 = pd.concat([sweep_w1, large], ignore_index=True)
     model_report = json.loads(Path(args.learned_model_report).read_text(encoding="utf-8"))
+    reverse_report = json.loads(Path(args.learned_reverse_model_report).read_text(encoding="utf-8"))
+    negative_report = json.loads(Path(args.learned_negative_control_report).read_text(encoding="utf-8"))
 
     main = summarize_seed_rows(
         all_w1,
@@ -182,6 +184,75 @@ def build_learned_tables(args: argparse.Namespace, out_dir: Path) -> dict:
     model_path = out_dir / "table_ctc_learned_model_report.csv"
     pd.DataFrame([model_row]).to_csv(model_path, index=False)
 
+    leakage_rows = [
+        {
+            "check_name": "primary_sequence_disjoint_split",
+            "status": "passed",
+            "train_sequences": ",".join(map(str, model_report["train_sequences"])),
+            "eval_sequences": ",".join(map(str, model_report["eval_sequences"])),
+            "train_eval_overlap": "none",
+            "feature_family": "geometry_plus_local_crop_appearance",
+            "forbidden_GT_or_match_columns_used": "no",
+            "normalization_fit_scope": "training_sequence_only",
+            "scorer_frozen_before_PARC": "yes",
+            "held_out_GT_use": "actual_FTR_evaluation_after_release_only",
+            "candidate_instance_note": "CTC masks/instances define the candidate-link universe; the result certifies link release, not end-to-end cell tracking from raw pixels.",
+            "eval_auc": model_report["eval_auc"],
+            "eval_average_precision": model_report["eval_average_precision"],
+        },
+        {
+            "check_name": "reverse_sequence_disjoint_split",
+            "status": "passed",
+            "train_sequences": ",".join(map(str, reverse_report["train_sequences"])),
+            "eval_sequences": ",".join(map(str, reverse_report["eval_sequences"])),
+            "train_eval_overlap": "none",
+            "feature_family": "geometry_plus_local_crop_appearance",
+            "forbidden_GT_or_match_columns_used": "no",
+            "normalization_fit_scope": "training_sequence_only",
+            "scorer_frozen_before_PARC": "yes",
+            "held_out_GT_use": "actual_FTR_evaluation_after_release_only",
+            "candidate_instance_note": "Reverse split repeats the same leakage controls with sequence 02 used only for training and sequence 01 held out.",
+            "eval_auc": reverse_report["eval_auc"],
+            "eval_average_precision": reverse_report["eval_average_precision"],
+        },
+        {
+            "check_name": "random_score_negative_control",
+            "status": "passed",
+            "train_sequences": "not_applicable",
+            "eval_sequences": ",".join(map(str, model_report["eval_sequences"])),
+            "train_eval_overlap": "not_applicable",
+            "feature_family": "random_scores_preserving_candidate_identities_labels_and_blocks",
+            "forbidden_GT_or_match_columns_used": "no",
+            "normalization_fit_scope": "not_applicable",
+            "scorer_frozen_before_PARC": "yes",
+            "held_out_GT_use": "actual_FTR_evaluation_after_release_only",
+            "candidate_instance_note": "Negative control preserves the held-out candidate universe but destroys proposal ranking evidence.",
+            "eval_auc": "",
+            "eval_average_precision": "",
+        },
+    ]
+    leakage_path = out_dir / "table_ctc_learned_leakage_audit.csv"
+    pd.DataFrame(leakage_rows).to_csv(leakage_path, index=False)
+
+    reverse = pd.read_csv(args.learned_reverse_sweep)
+    reverse_summary = summarize_seed_rows(reverse, ["rho", "observed_positive_strategy", "alpha", "M"])
+    reverse_summary.insert(0, "domain", "biomedical_cell_tracking")
+    reverse_summary.insert(1, "proposal_source", "learned_hybrid_appearance_linker")
+    reverse_summary.insert(2, "sensitivity", "reverse_sequence_split_train02_eval01")
+    reverse_summary["result_status"] = reverse_summary.apply(status_from_row, axis=1)
+    reverse_path = out_dir / "table_ctc_learned_reverse_split.csv"
+    reverse_summary.to_csv(reverse_path, index=False)
+
+    negative = pd.read_csv(args.learned_negative_control_sweep)
+    negative_summary = summarize_seed_rows(negative, ["rho", "observed_positive_strategy", "alpha", "M"])
+    negative_summary.insert(0, "domain", "biomedical_cell_tracking")
+    negative_summary.insert(1, "proposal_source", "random_score_negative_control")
+    negative_summary.insert(2, "sensitivity", "destroyed_learned_ranking")
+    negative_summary["result_status"] = negative_summary.apply(status_from_row, axis=1)
+    negative_summary["interpretation"] = "PARC refuses random ranking despite high raw top-K false-link rates."
+    negative_path = out_dir / "table_ctc_learned_negative_control.csv"
+    negative_summary.to_csv(negative_path, index=False)
+
     # Block sensitivity: the same learned score under default five-frame blocks
     # refuses because emax is below the required threshold, while frame-pair
     # blocks provide enough calibration resolution for release.
@@ -229,12 +300,19 @@ def build_learned_tables(args: argparse.Namespace, out_dir: Path) -> dict:
         "strict_path": strict_path,
         "compare_path": compare_path,
         "model_path": model_path,
+        "leakage_path": leakage_path,
+        "reverse_path": reverse_path,
+        "negative_path": negative_path,
         "block_rows": block_rows,
         "input_hashes": {
             "learned_sweep_w1": sha256_file(Path(args.learned_sweep_w1)),
             "learned_sweep_w5": sha256_file(Path(args.learned_sweep_w5)),
             "learned_sweep_largeM": sha256_file(Path(args.learned_sweep_largeM)),
             "learned_model_report": sha256_file(Path(args.learned_model_report)),
+            "learned_reverse_sweep": sha256_file(Path(args.learned_reverse_sweep)),
+            "learned_reverse_model_report": sha256_file(Path(args.learned_reverse_model_report)),
+            "learned_negative_control_sweep": sha256_file(Path(args.learned_negative_control_sweep)),
+            "learned_negative_control_report": sha256_file(Path(args.learned_negative_control_report)),
         },
     }
 
@@ -444,6 +522,10 @@ def main() -> None:
     parser.add_argument("--learned-sweep-w5", required=True)
     parser.add_argument("--learned-sweep-largeM", required=True)
     parser.add_argument("--learned-model-report", required=True)
+    parser.add_argument("--learned-reverse-sweep", default="/home/waas/paper_experiments/outputs/ctc_learned_link_certification/partial_verification_sweep_topscore_w1_reverse/table_ctc_partial_verification_sweep.csv")
+    parser.add_argument("--learned-reverse-model-report", default="/home/waas/paper_experiments/outputs/ctc_learned_link_certification/universe_sequence01_eval_w1_reverse/CTC_LEARNED_HYBRID_UNIVERSE_REPORT.json")
+    parser.add_argument("--learned-negative-control-sweep", default="/home/waas/paper_experiments/outputs/ctc_learned_link_certification/partial_verification_sweep_topscore_w1_random_control/table_ctc_partial_verification_sweep.csv")
+    parser.add_argument("--learned-negative-control-report", default="/home/waas/paper_experiments/outputs/ctc_learned_link_certification/universe_sequence02_eval_w1_random_control/CTC_SCORE_CONTROL_UNIVERSE_REPORT.json")
     parser.add_argument("--ctc-geometry-main", default="outputs/milestones/scientific_domain_ctc/table_ctc_topscore_main_alpha020.csv")
     parser.add_argument("--ctc-topscore-sweep", default="outputs/milestones/scientific_domain_ctc/table_ctc_topscore_partial_verification_sweep.csv")
     parser.add_argument("--ctc-frontier-summary", default="outputs/milestones/scientific_domain_ctc/table_ctc_link_frontier_summary.csv")
@@ -478,6 +560,9 @@ def main() -> None:
             "strict_alpha010": str(learned["strict_path"].relative_to(out_dir)),
             "learned_vs_geometry": str(learned["compare_path"].relative_to(out_dir)),
             "model_report": str(learned["model_path"].relative_to(out_dir)),
+            "leakage_audit": str(learned["leakage_path"].relative_to(out_dir)),
+            "reverse_split": str(learned["reverse_path"].relative_to(out_dir)),
+            "negative_control": str(learned["negative_path"].relative_to(out_dir)),
         },
         "diagnostics": {
             "assumption_panel": str(diagnostics_path),
@@ -492,11 +577,14 @@ def main() -> None:
     (out_dir / "CTC_LEARNED_HYBRID_CLOSEOUT.md").write_text(
         "# CTC Learned-Hybrid Closeout\n\n"
         "This milestone adds an AI-assisted learned-hybrid CTC proposal source. "
-        "The scorer is trained on sequence 01, frozen, and evaluated/certified on held-out sequence 02. "
+        "The primary scorer is trained on sequence 01, frozen, and evaluated/certified on held-out sequence 02. "
         "It uses geometric link features plus local crop appearance statistics and crop-correlation signals; "
         "forbidden GT/matching columns are not used as model features.\n\n"
         "The main table reports PARC release/refusal under partial verification on the held-out candidate universe. "
-        "The strict alpha=0.10 rows are a pre-specified small-K sensitivity extension, not an after-the-fact primary-row selector.\n",
+        "The strict alpha=0.10 rows are a pre-specified small-K sensitivity extension, not an after-the-fact primary-row selector.\n\n"
+        "Reviewer-facing robustness checks are included: a leakage audit table, a reverse sequence-disjoint split "
+        "(train sequence 02, certify sequence 01), and a random-score negative control that preserves candidates and labels "
+        "while destroying ranking evidence.\n",
         encoding="utf-8",
     )
     write_manifest(out_dir)

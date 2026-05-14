@@ -68,7 +68,7 @@ For full benchmark reproduction, see `REPRODUCIBILITY.md`.
 - Generality and stratified reliability milestone: `outputs/milestones/generality_reliability/`
 - Release/refusal story milestone: `outputs/milestones/release_story/`
 - Biomedical scientific-domain milestone: `outputs/milestones/scientific_domain_ctc/`
-- Learned-hybrid CTC milestone: `outputs/milestones/scientific_domain_ctc_learned/`
+- Learned-hybrid CTC milestone: `outputs/milestones/scientific_domain_ctc_learned/` (strict `alpha=0.10` release, leakage audit, reverse split, and random-score negative control)
 - Earth-observation scientific-domain milestone: `outputs/milestones/scientific_domain_spacenet7/`
 - Community benchmark: `outputs/benchmarks/parc_certification_benchmark/`
 - File integrity manifest: `MANIFEST_SHA256.txt`

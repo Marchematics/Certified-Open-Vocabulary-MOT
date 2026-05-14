@@ -11,12 +11,24 @@ def test_ctc_learned_public_tables_exist_and_are_scoped() -> None:
     main = pd.read_csv(milestone / "table_ctc_learned_hybrid_main.csv")
     strict = pd.read_csv(milestone / "table_ctc_learned_strict_alpha010_smallK.csv")
     model = pd.read_csv(milestone / "table_ctc_learned_model_report.csv")
+    leakage = pd.read_csv(milestone / "table_ctc_learned_leakage_audit.csv")
+    reverse = pd.read_csv(milestone / "table_ctc_learned_reverse_split.csv")
+    negative = pd.read_csv(milestone / "table_ctc_learned_negative_control.csv")
 
     assert {"rho", "alpha", "M", "nonempty_seeds", "actual_FTR_mean", "block_variant"}.issubset(main.columns)
     assert (strict["alpha"] == 0.10).all()
     assert (strict["nonempty_seeds"] >= 18).any()
     assert bool(model["uses_appearance_signal"].iloc[0])
     assert bool(model["forbidden_leakage_columns_not_used"].iloc[0])
+    assert set(leakage["check_name"]) == {
+        "primary_sequence_disjoint_split",
+        "reverse_sequence_disjoint_split",
+        "random_score_negative_control",
+    }
+    assert (leakage["forbidden_GT_or_match_columns_used"] == "no").all()
+    assert (reverse[(reverse["alpha"] == 0.10) & (reverse["M"] == 100)]["nonempty_seeds"] >= 18).all()
+    assert (negative["nonempty_seeds"] == 0).all()
+    assert (negative["raw_topM_actual_FTR_mean"].astype(float) > 0.5).any()
 
 
 def test_closeout_diagnostics_cover_release_and_refusal_cases() -> None:

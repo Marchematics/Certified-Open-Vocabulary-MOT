@@ -5,7 +5,10 @@
     "main": "table_ctc_learned_hybrid_main.csv",
     "strict_alpha010": "table_ctc_learned_strict_alpha010_smallK.csv",
     "learned_vs_geometry": "table_ctc_learned_vs_geometry.csv",
-    "model_report": "table_ctc_learned_model_report.csv"
+    "model_report": "table_ctc_learned_model_report.csv",
+    "leakage_audit": "table_ctc_learned_leakage_audit.csv",
+    "reverse_split": "table_ctc_learned_reverse_split.csv",
+    "negative_control": "table_ctc_learned_negative_control.csv"
   },
   "diagnostics": {
     "assumption_panel": "outputs/milestones/release_story/paper_diagnostics/table_assumption_diagnostic_panel.csv",
@@ -17,7 +20,11 @@
     "learned_sweep_w1": "b59e7aae75fe1a83398104f9df3af624a6a96a363254d5b20b5c1233c9bc550f",
     "learned_sweep_w5": "6aa01ecf67c227d1bdb646826e08636eb3e1089eac6fe69b1a0ad4faba1203f1",
     "learned_sweep_largeM": "f2f4d6a364ccff4085651e2d8e0c53647283c4abd795b53b667c81149179a4b8",
-    "learned_model_report": "5a6669e4819bf1c80363924961388c6edbba185d95986ab41e9c1b39da74e274"
+    "learned_model_report": "5a6669e4819bf1c80363924961388c6edbba185d95986ab41e9c1b39da74e274",
+    "learned_reverse_sweep": "2aec9de8f1901c90817a6f5462ae68bb06c7adba05851f27f5100cc18b0977f5",
+    "learned_reverse_model_report": "40a5be9f0497ae22a1c26aacf8855788409d5d7409df7277accf5cde82481e05",
+    "learned_negative_control_sweep": "441420a10c6e2358b71ce07109aa46f0eca74e7e5db8e52b5a06dbc5525e1835",
+    "learned_negative_control_report": "f341ebf3ddb3ec26443a8705c772891e6d5892286bb723d2d4fa5f9096b56751"
   },
   "claim_scope": "learned-hybrid CTC is a sequence-disjoint AI-assisted proposal source; SpaceNet human K50 is diagnostic not primary K100."
 }
