@@ -1,0 +1,15 @@
+{
+  "milestone": "scientific_domain_spacenet7",
+  "created_by": "scripts/prepare_spacenet7_building_link_universe.py + scripts/run_spacenet7_building_link_sweep_fast.py",
+  "public_safe": true,
+  "raw_data_policy": "SpaceNet 7 raw labels/images and large derived candidate universes are excluded; only summary tables, sweep diagnostics, figures, and sanitized reports are included.",
+  "candidate_universe_local_only": [
+    "outputs/spacenet7_building_links/universe_geometry_w35_aoi18/candidate_universe.csv",
+    "outputs/spacenet7_building_links/universe_randomized_linker_aoi18_light/candidate_universe.csv"
+  ],
+  "main_tables": [
+    "table_spacenet7_go_no_go_summary.csv",
+    "table_spacenet7_geometry_main_alpha020.csv",
+    "table_spacenet7_randomized_main_alpha020.csv"
+  ]
+}

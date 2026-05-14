@@ -20,6 +20,8 @@ parc-track/
 │   ├── milestones/reliability_fortress/
 │   ├── milestones/generality_reliability/
 │   ├── milestones/release_story/
+│   ├── milestones/scientific_domain_ctc/
+│   ├── milestones/scientific_domain_spacenet7/
 │   └── benchmarks/parc_certification_benchmark/
 ├── tests/                            # pytest suite and tiny fixtures
 ├── scripts/                          # public-safe helper scripts
@@ -31,7 +33,7 @@ parc-track/
 
 - PARC-Track certification code: null-superset block calibration, coverage-conditional empty-block handling, e-value generation, finite-resolution diagnostics, SCS-Greedy release, report builders, TrackEval export helpers, and adapter utilities.
 - Audit benchmark: `outputs/benchmarks/parc_certification_benchmark/audit/` and the full frozen milestone under `outputs/milestones/reliability_fortress/`.
-- Result tables for OVT-B, TAO, BURST, black-box generators, published-tracker adapters, non-exchangeability stress tests, null-inflation sensitivity, OVVIS mask-path scaffold, Mondrian/per-class/runtime/anytime diagnostics, and Prop. 5 high-evidence mass diagnostics.
+- Result tables for OVT-B, TAO, BURST, black-box generators, published-tracker adapters, non-exchangeability stress tests, null-inflation sensitivity, OVVIS mask-path scaffold, CTC cell-link certification, SpaceNet 7 building-link certification, Mondrian/per-class/runtime/anytime diagnostics, and Prop. 5 high-evidence mass diagnostics.
 - Tiny fixture for validating the full schema-to-certification path without downloading external datasets.
 
 ## What Is Not Included
@@ -46,7 +48,7 @@ cd parc-track
 python -m venv .venv
 source .venv/bin/activate
 pip install -e code/parc_track
-pip install numpy scipy pandas opencv-python pyyaml tqdm pytest motmetrics pycocotools pillow matplotlib
+pip install numpy scipy pandas opencv-python pyyaml tqdm pytest motmetrics pycocotools pillow matplotlib shapely tifffile imagecodecs
 pytest -q tests
 ```
 
@@ -63,6 +65,8 @@ For full benchmark reproduction, see `REPRODUCIBILITY.md`.
 - Final reliability milestone: `outputs/milestones/reliability_fortress/`
 - Generality and stratified reliability milestone: `outputs/milestones/generality_reliability/`
 - Release/refusal story milestone: `outputs/milestones/release_story/`
+- Biomedical scientific-domain milestone: `outputs/milestones/scientific_domain_ctc/`
+- Earth-observation scientific-domain milestone: `outputs/milestones/scientific_domain_spacenet7/`
 - Community benchmark: `outputs/benchmarks/parc_certification_benchmark/`
 - File integrity manifest: `MANIFEST_SHA256.txt`
 

@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "source": "SpaceNet 7 labels_match GeoJSON from public S3; raw labels are not redistributed",
+  "aoi_count": 18,
+  "candidate_links": 6341788,
+  "gt_supported_links": 2050769,
+  "blocks": 138,
+  "topk_per_source": 3,
+  "frame_window": 3,
+  "geometry_linker_noisy_weight": 0.35,
+  "stress_variant": "randomized deterministic-hash linker for unsafe-refusal analysis",
+  "raw_data_packaged": false,
+  "large_candidate_universe_packaged": false
+}

@@ -16,6 +16,12 @@ This repository uses neutral public artifact names. Older internal experiment la
 - `outputs/milestones/release_story/`  
   Compact release/refusal story tables and qualitative-example manifest used to explain deployment value.
 
+- `outputs/milestones/scientific_domain_ctc/`  
+  Biomedical cell-link certification milestone on Cell Tracking Challenge data. This is a scientific-domain positive anchor for link-level release certification under partial verification.
+
+- `outputs/milestones/scientific_domain_spacenet7/`  
+  Earth-observation building-link certification milestone on SpaceNet 7. This contains the geometry-linker positive result and randomized-linker safe-refusal stress result; raw SpaceNet labels, imagery, and large candidate universes are excluded.
+
 ## Paper-Facing Tables
 
 The cleaned main tables live under:
