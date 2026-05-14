@@ -113,7 +113,9 @@ def main() -> None:
         "official_proxy_FTR": official_proxy_ftr,
         "human_gate_decision": "GO" if human_pass else "NO_GO_REQUIRES_HUMAN_VISUAL_CONFIRMATION",
         "metadata_proxy_gate_decision": "PROVISIONAL_GO" if metadata_pass else "NO_GO",
-        "paper_positioning": (
+        "paper_positioning": "K50 diagnostic can enter the paper as a human-confirmed low-volume diagnostic row."
+        if human_pass
+        else (
             "K50 can enter main text only after human_gate_decision is GO; "
             "current metadata proxy supports provisional go but not paper-facing human audit."
         ),
@@ -126,12 +128,20 @@ def main() -> None:
         f"Human labels complete: `{human_complete}`.\n\n"
         f"Human gate decision: **{summary['human_gate_decision']}**.\n\n"
         f"Metadata-proxy gate decision: **{summary['metadata_proxy_gate_decision']}**.\n\n"
-        "The diagnostic K=50 release set has 147 candidates. The metadata/official-proxy review has FTR 0.000, "
-        "but the `human_*` fields are not yet completed, so this row remains provisional and cannot be reported "
-        "as a paper-facing human-audited FTR.\n\n"
-        "To close the gate, fill `human_label`, `human_verified_positive_for_calibration`, `human_reason`, "
-        "`human_confidence`, and `human_review_status=human_confirmed` in "
-        "`release_audit_review_prefill.csv`, then rerun `python scripts/evaluate_spacenet7_human_audit_gate.py`.\n",
+        + (
+            "The diagnostic K=50 release set has 147 candidates. The human-confirmed FTR is 0.000, and "
+            "the uncertain-as-false FTR is 0.000. This row passes the pre-specified human-audit gate as a "
+            "diagnostic low-volume release result.\n"
+            if human_pass
+            else (
+                "The diagnostic K=50 release set has 147 candidates. The metadata/official-proxy review has FTR 0.000, "
+                "but the `human_*` fields are not yet completed, so this row remains provisional and cannot be reported "
+                "as a paper-facing human-audited FTR.\n\n"
+                "To close the gate, fill `human_label`, `human_verified_positive_for_calibration`, `human_reason`, "
+                "`human_confidence`, and `human_review_status=human_confirmed` in "
+                "`release_audit_review_prefill.csv`, then rerun `python scripts/evaluate_spacenet7_human_audit_gate.py`.\n"
+            )
+        ),
         encoding="utf-8",
     )
     print(json.dumps(summary, indent=2))

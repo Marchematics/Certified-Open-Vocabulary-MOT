@@ -4,7 +4,7 @@ This closeout completes the three immediate diagnostics requested after the real
 
 ## 1. K=50 Diagnostic Release Audit
 
-`table_spacenet7_real_audit_k50_completed_summary.csv` summarizes the 147 diagnostic release candidates. The current label source is metadata/official-proxy review and remains pending human visual confirmation.
+`table_spacenet7_real_audit_k50_completed_summary.csv` summarizes the 147 diagnostic release candidates. The current label source is human-confirmed visual review, so the diagnostic K=50 row passes the pre-specified human-audit gate.
 
 ## 2. Calibration Block Coverage and Reliability Status
 
@@ -18,5 +18,5 @@ This closeout completes the three immediate diagnostics requested after the real
 
 - K=100 primary SpaceNet real-audit positive deployment: **NO-GO**.
 - K=100 as certified-refusal operating check: **GO**.
-- K=50 diagnostic low-volume release: **PROVISIONAL GO**, pending human visual confirmation.
+- K=50 diagnostic low-volume release: **GO_human_confirmed_diagnostic_low_volume_release**.
 - Block-stratified audit expansion: only needed if human review invalidates K=50 or if a K=100 positive real-audit row is required.

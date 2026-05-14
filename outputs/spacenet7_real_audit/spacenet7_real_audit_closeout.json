@@ -10,7 +10,7 @@
   ],
   "go_no_go": {
     "K100_primary": "NO_GO_positive_deployment; GO_certified_refusal",
-    "K50_diagnostic": "PROVISIONAL_GO_pending_human_visual_review",
+    "K50_diagnostic": "GO_human_confirmed_diagnostic_low_volume_release",
     "block_expansion_needed": "only_if_human_visual_review_fails_or_K100_positive_is_required"
   }
 }

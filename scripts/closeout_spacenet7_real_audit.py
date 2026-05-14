@@ -45,11 +45,12 @@ def write_k50_completed_summary(release: pd.DataFrame, seed: pd.DataFrame) -> No
     boot = [float(false_or_uncertain[rng.integers(0, n, n)].mean()) for _ in range(5000)] if n else [0.0]
     lo, hi = np.percentile(boot, [2.5, 97.5])
     k50 = seed[(seed["alpha"] == 0.20) & (seed["M"] == 50)]
+    source = label_source(release)
     rows = [
         {
             "K": 50,
             "alpha": 0.20,
-            "label_source": label_source(release),
+            "label_source": source,
             "n_unique_released_candidates_reviewed": n,
             "n_true_same_building": int((labels == TRUE).sum()),
             "n_false_link": int((labels == FALSE).sum()),
@@ -64,9 +65,9 @@ def write_k50_completed_summary(release: pd.DataFrame, seed: pd.DataFrame) -> No
             "mean_mass_ratio": float(k50["best_mass_ratio"].mean()) if len(k50) else "",
             "min_mass_ratio": float(k50["best_mass_ratio"].min()) if len(k50) else "",
             "max_mass_ratio": float(k50["best_mass_ratio"].max()) if len(k50) else "",
-            "decision": "provisional_go_pending_human_visual_review"
-            if label_source(release) != "human_confirmed"
-            else "go_if_protocol_accepts_diagnostic_row",
+            "decision": "go_human_confirmed_diagnostic_row"
+            if source == "human_confirmed"
+            else "provisional_go_pending_human_visual_review",
             "paper_status": "diagnostic_not_primary",
         }
     ]
@@ -183,6 +184,12 @@ def main() -> None:
     write_block_coverage(cal, rel, raw)
     write_k100_failure(seed, cal)
 
+    rel_source = label_source(rel)
+    k50_status = (
+        "GO_human_confirmed_diagnostic_low_volume_release"
+        if rel_source == "human_confirmed"
+        else "PROVISIONAL_GO_pending_human_visual_review"
+    )
     report = {
         "status": "real_audit_closeout_tables_written",
         "outputs": [
@@ -195,7 +202,7 @@ def main() -> None:
         ],
         "go_no_go": {
             "K100_primary": "NO_GO_positive_deployment; GO_certified_refusal",
-            "K50_diagnostic": "PROVISIONAL_GO_pending_human_visual_review",
+            "K50_diagnostic": k50_status,
             "block_expansion_needed": "only_if_human_visual_review_fails_or_K100_positive_is_required",
         },
     }
@@ -206,8 +213,13 @@ def main() -> None:
         "This closeout completes the three immediate diagnostics requested after the real-audit loop.\n\n"
         "## 1. K=50 Diagnostic Release Audit\n\n"
         "`table_spacenet7_real_audit_k50_completed_summary.csv` summarizes the 147 diagnostic release candidates. "
-        "The current label source is metadata/official-proxy review and remains pending human visual confirmation.\n\n"
-        "## 2. Calibration Block Coverage and Reliability Status\n\n"
+        + (
+            "The current label source is human-confirmed visual review, so the diagnostic K=50 row passes the "
+            "pre-specified human-audit gate.\n\n"
+            if rel_source == "human_confirmed"
+            else "The current label source is metadata/official-proxy review and remains pending human visual confirmation.\n\n"
+        )
+        + "## 2. Calibration Block Coverage and Reliability Status\n\n"
         "`table_spacenet7_real_audit_block_coverage.csv` and `table_spacenet7_real_audit_block_coverage_summary.csv` "
         "report calibration coverage over AOI-time blocks. Second-review reliability is explicitly marked as requiring "
         "independent human review; metadata agreement is not reported as human kappa.\n\n"
@@ -218,7 +230,7 @@ def main() -> None:
         "## Go/No-Go\n\n"
         "- K=100 primary SpaceNet real-audit positive deployment: **NO-GO**.\n"
         "- K=100 as certified-refusal operating check: **GO**.\n"
-        "- K=50 diagnostic low-volume release: **PROVISIONAL GO**, pending human visual confirmation.\n"
+        f"- K=50 diagnostic low-volume release: **{k50_status}**.\n"
         "- Block-stratified audit expansion: only needed if human review invalidates K=50 or if a K=100 positive "
         "real-audit row is required.\n",
         encoding="utf-8",
