@@ -1,0 +1,7 @@
+gate,required,observed,pass_human_gate,pass_metadata_proxy_gate
+n_release_candidates_audited,n == 147,147,True,True
+human_FTR_le_alpha020,human FTR <= 0.20,,False,True
+uncertain_as_false_FTR_le_alpha020,uncertain-as-false FTR <= 0.20,,False,True
+preferred_low_FTR,preferably FTR <= 0.05 or <= 0.10,,False,True
+official_proxy_directional_consistency,official-proxy FTR and human FTR directionally consistent,,False,True
+conservative_disagreement_policy,uncertain/disagreement counted as false or unverified,implemented in gate: uncertain counted as false; no human disagreements available yet,False,True

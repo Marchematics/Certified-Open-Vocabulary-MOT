@@ -1,0 +1,14 @@
+{
+  "status": "human_gate_evaluated",
+  "human_labels_complete": false,
+  "n_release_candidates": 147,
+  "n_human_uncertain": "",
+  "human_FTR": "",
+  "human_uncertain_as_false_FTR": "",
+  "metadata_proxy_FTR": 0.0,
+  "metadata_proxy_uncertain_as_false_FTR": 0.0,
+  "official_proxy_FTR": 0.0,
+  "human_gate_decision": "NO_GO_REQUIRES_HUMAN_VISUAL_CONFIRMATION",
+  "metadata_proxy_gate_decision": "PROVISIONAL_GO",
+  "paper_positioning": "K50 can enter main text only after human_gate_decision is GO; current metadata proxy supports provisional go but not paper-facing human audit."
+}
