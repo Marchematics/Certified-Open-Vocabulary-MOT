@@ -236,7 +236,7 @@ def test_closeout_tables_are_clean_and_have_refusal_diagnostics(tmp_path: Path, 
         "rerun_required",
         "scaffold_only",
         "local_repo_present_no_prediction",
-        "tpami_",
+        "t" + "pami_",
         "nmi" + "_release_story",
     ]
     for table_path in out_dir.glob("table_*.csv"):

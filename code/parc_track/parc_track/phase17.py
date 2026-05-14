@@ -841,9 +841,9 @@ def _build_theory_and_positioning(started: float) -> list[Path]:
     )
     outputs.append(related)
 
-    reframing = REVIEW_DIR / "NMI_REFRAMING_NOTES.md"
+    reframing = REVIEW_DIR / "SCIENTIFIC_AI_REFRAMING_NOTES.md"
     reframing.write_text(
-        "# NMI Reframing Notes\n\n"
+        "# Scientific AI Reframing Notes\n\n"
         "**Abstract opening.** Open-world perception systems increasingly make release-time decisions from incomplete annotations: which detections, tracks, or mask paths should be trusted, sent to humans, or admitted into downstream datasets? PARC provides an auditable certification layer for these release decisions.\n\n"
         "**Intro framing.** Tracking is the main instantiation because it exposes path conflicts, temporal dependence, and partial labels, but the broader problem is release-time certification for open-vocabulary visual AI under incomplete supervision.\n\n"
         "**Deployment scenario.** A monitoring or dataset-curation system may prefer a certified subset plus explicit refusals over an uncalibrated top-M dump. PARC's value is the risk knob and the refusal diagnostic, not SOTA HOTA maximization.\n\n"

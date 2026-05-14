@@ -1,8 +1,8 @@
-# PARC-Track: Certified Open-Vocabulary MOT under Partial Annotations
+# PARC: Auditable Release-Time Certification under Partial Verification
 
-PARC-Track is a post-hoc certification layer for open-vocabulary multi-object tracking (OVMOT) proposal generators. It takes candidate tracklets from an external detector/tracker, calibrates against a null-superset under partial annotations, and releases only a self-consistent certified subset.
+PARC is a post-prediction certification layer for scientific and open-world AI systems operating under partial verification. Given a frozen candidate universe from an external detector, tracker, or linker, PARC calibrates against a null superset and either releases a self-consistent certified subset or refuses unsafe release requests with explicit diagnostics.
 
-This repository is the public-safe reproducibility package for the final reliability-fortress release of the project. It contains the certification code, frozen configs, audit benchmark CSVs, result tables, tiny fixtures, and documentation needed to reproduce the certification flow without redistributing raw benchmark videos, raw annotations, model weights, or local caches.
+This repository is the public-safe reproducibility package for the final release of the project. It includes the original open-vocabulary MOT instantiation, scientific-domain link certification on Cell Tracking Challenge and SpaceNet 7, open-world vision generality artifacts, audit benchmark CSVs, frozen configs, result tables, tiny fixtures, and documentation needed to reproduce the certification flow without redistributing raw benchmark videos, raw annotations, model weights, or local caches.
 
 ## Repository Layout
 
@@ -31,14 +31,15 @@ parc-track/
 
 ## What Is Included
 
-- PARC-Track certification code: null-superset block calibration, coverage-conditional empty-block handling, e-value generation, finite-resolution diagnostics, SCS-Greedy release, report builders, TrackEval export helpers, and adapter utilities.
+- PARC certification code: null-superset block calibration, coverage-conditional empty-block handling, e-value generation, finite-resolution diagnostics, SCS-Greedy release, report builders, TrackEval export helpers, and adapter utilities.
 - Audit benchmark: `outputs/benchmarks/parc_certification_benchmark/audit/` and the full frozen milestone under `outputs/milestones/reliability_fortress/`.
-- Result tables for OVT-B, TAO, BURST, black-box generators, published-tracker adapters, non-exchangeability stress tests, null-inflation sensitivity, OVVIS mask-path scaffold, CTC cell-link certification, SpaceNet 7 building-link certification, Mondrian/per-class/runtime/anytime diagnostics, and Prop. 5 high-evidence mass diagnostics.
+- Scientific-domain milestones for CTC cell-link certification and SpaceNet 7 building-link certification.
+- Result tables for OVT-B, TAO, BURST, black-box generators, published-tracker adapters, non-exchangeability stress tests, null-inflation sensitivity, LVIS/LVVIS/OVVIS generality checks, Mondrian/per-class/runtime/anytime diagnostics, and Prop. 5 high-evidence mass diagnostics.
 - Tiny fixture for validating the full schema-to-certification path without downloading external datasets.
 
 ## What Is Not Included
 
-This repository intentionally excludes raw videos, raw dataset annotations, model weights, third-party detector/tracker repositories, Hugging Face caches, GPU caches, frame caches, and montage images. Please obtain OVT-B, TAO, BURST, detector weights, and published tracker weights from their original maintainers under their respective licenses.
+This repository intentionally excludes raw videos, raw dataset annotations, raw satellite imagery, raw microscopy images, model weights, third-party detector/tracker repositories, Hugging Face caches, GPU caches, frame caches, and montage images. Please obtain OVT-B, TAO, BURST, CTC, SpaceNet 7, detector weights, and published tracker weights from their original maintainers under their respective licenses.
 
 ## Quick Start
 

@@ -1,4 +1,4 @@
-# NMI Reframing Notes
+# Scientific AI Reframing Notes
 
 **Abstract opening.** Open-world perception systems increasingly make release-time decisions from incomplete annotations: which detections, tracks, or mask paths should be trusted, sent to humans, or admitted into downstream datasets? PARC provides an auditable certification layer for these release decisions.
 

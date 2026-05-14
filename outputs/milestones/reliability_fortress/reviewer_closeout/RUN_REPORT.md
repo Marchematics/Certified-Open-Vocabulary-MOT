@@ -23,7 +23,7 @@ This closeout addresses the highest-risk review questions before manuscript poli
 - `outputs/milestones/reliability_fortress/reviewer_closeout/VERIFIED_POSITIVE_PRECISION_ROBUSTNESS.md`
 - `outputs/milestones/reliability_fortress/reviewer_closeout/THEOREM1_MAIN_TEXT.md`
 - `outputs/milestones/reliability_fortress/reviewer_closeout/RELATED_WORK_POSITIONING.md`
-- `outputs/milestones/reliability_fortress/reviewer_closeout/NMI_REFRAMING_NOTES.md`
+- `outputs/milestones/reliability_fortress/reviewer_closeout/SCIENTIFIC_AI_REFRAMING_NOTES.md`
 
 ## Interpretation
 

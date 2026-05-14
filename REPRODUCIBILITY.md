@@ -6,7 +6,7 @@
 python -m venv .venv
 source .venv/bin/activate
 pip install -e code/parc_track
-pip install numpy scipy pandas opencv-python pyyaml tqdm pytest motmetrics pycocotools pillow matplotlib
+pip install numpy scipy pandas opencv-python pyyaml tqdm pytest motmetrics pycocotools pillow matplotlib shapely tifffile imagecodecs
 pytest -q tests
 ```
 
@@ -26,10 +26,15 @@ Expected outputs include candidate schema files, an audit-label fixture, and API
 
 ## 3. Verify Frozen Tables
 
-The final public milestone is:
+The core public milestones are:
 
 ```text
 outputs/milestones/reliability_fortress/
+outputs/milestones/scientific_domain_ctc/
+outputs/milestones/scientific_domain_spacenet7/
+outputs/milestones/generality_reliability/
+outputs/milestones/release_story/
+outputs/benchmarks/parc_certification_benchmark/
 ```
 
 Check file integrity with:

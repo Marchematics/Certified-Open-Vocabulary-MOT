@@ -1,8 +1,8 @@
-# Certified Open-Vocabulary MOT under Partial Annotations
+# OVMOT Instantiation Formal Specification
 
 Method name: **PARC-Track** (Partial-Annotation Robust Certification for Open-Vocabulary Tracking)
 
-This document is the formal experiment and paper specification for the first PARC-Track implementation. It keeps the main line focused on **Certified Open-Vocabulary MOT under Partial Annotations** rather than generic conformal prediction for OVMOT.
+This document is the formal experiment and paper specification for the original open-vocabulary multi-object tracking instantiation of PARC. The public repository now frames PARC more broadly as auditable release-time certification under partial verification; this file is retained as the detailed OVMOT-specific specification and should not be read as the top-level scope of the full project.
 
 Core claim:
 

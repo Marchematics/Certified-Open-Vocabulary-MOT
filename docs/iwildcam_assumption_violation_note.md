@@ -1,10 +1,10 @@
 # iWildCam Assumption-Violation Note
 
-Status: preliminary assistant visual audit, pending human confirmation.
+Status: preliminary visual triage, pending human-confirmed audit for any paper-facing FTR claim.
 
 ## Core Finding
 
-The relaxed iWildCam frontier should not be framed as a positive human-audited PARC result unless human review overturns the current visual-audit direction. The assistant visual pass over 156 unique released frontier paths found:
+The relaxed iWildCam frontier should not be framed as a positive human-audited PARC result unless human review overturns the current visual-triage direction. A preliminary visual pass over 156 unique released frontier paths found:
 
 | set | n | true | false | uncertain | false-only FTR | conservative FTR |
 |---|---:|---:|---:|---:|---:|---:|
@@ -34,7 +34,7 @@ Do not hide this result as an appendix-only stress case if human review confirms
 
 > In a scientific-domain camera-trap transfer, a weak official-support proxy can violate the one-sided reliability assumption. PARC then produces an invalid certificate if the proxy is treated as verified support. This negative result clarifies that release-time certification requires auditing not only unsupported releases but also the support semantics used to construct one-sided positives.
 
-This can be valuable for NMI because it identifies a real boundary of conformal/e-value style release control under incomplete scientific annotations.
+This identifies a real boundary of conformal/e-value style release control under incomplete scientific annotations.
 
 ## Required Follow-Up
 
@@ -42,7 +42,7 @@ This can be valuable for NMI because it identifies a real boundary of conformal/
 2. Audit a stratified sample of iWildCam official-supported / verified-positive candidate boxes.
 3. If official-supported boxes have substantial wrong-species localization, mark iWildCam as an assumption-violation case rather than a positive certification benchmark.
 4. If official-supported precision is high but released FTR remains high, investigate SCS/e-value calibration, candidate freezing, and split exchangeability.
-5. Only report human-audited iWildCam FTR after human confirmation; until then use assistant-pass numbers only for triage and experiment planning.
+5. Only report human-audited iWildCam FTR after human confirmation; until then use preliminary triage numbers only for experiment planning.
 
 ## Coarse Animal-Present Follow-Up
 
@@ -67,6 +67,6 @@ Source report:
 
 ## Source Files
 
-- `outputs/iwildcam_release_certification/assistant_audit_released_frontier/assistant_audit_labels_iwildcam_released_frontier.csv`
-- `outputs/iwildcam_release_certification/assistant_audit_released_frontier/assistant_audit_summary_iwildcam_released_frontier.csv`
-- `outputs/iwildcam_release_certification/assistant_audit_released_frontier/ASSISTANT_AUDIT_REPORT.md`
+- `outputs/iwildcam_release_certification/visual_triage_released_frontier/triage_labels_iwildcam_released_frontier.csv`
+- `outputs/iwildcam_release_certification/visual_triage_released_frontier/triage_summary_iwildcam_released_frontier.csv`
+- `outputs/iwildcam_release_certification/visual_triage_released_frontier/VISUAL_TRIAGE_REPORT.md`

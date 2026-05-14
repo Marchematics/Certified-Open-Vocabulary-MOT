@@ -1,7 +1,7 @@
 PYTHON ?= python
 PYTHONPATH ?= code/parc_track
 
-.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures validate-public-bundle verify-manifest package-release package-release-story package-nmi-release
+.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures validate-public-bundle verify-manifest package-release package-release-story package-scientific-release
 
 test:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q tests
@@ -35,4 +35,4 @@ package-release:
 package-release-story:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m parc_track.cli phase13 release-story
 
-package-nmi-release: package-release
+package-scientific-release: package-release

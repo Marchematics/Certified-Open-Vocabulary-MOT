@@ -95,7 +95,7 @@ valuable because it shows two distinct failure modes:
 - power failure: verified positives are semantically valid but insufficiently
   high-evidence for certification.
 
-## Proposed NMI Results Structure
+## Proposed Scientific-AI Results Structure
 
 ### Result 1: Biomedical Cell-Link Certification
 
@@ -161,4 +161,3 @@ Evidence:
 - Label `rho=1` rows as oracle/full-verification diagnostics.
 - Avoid saying "independent evaluation source" for CTC or SpaceNet 7.
 - Keep all new experiments paused until the paper outline is stabilized.
-

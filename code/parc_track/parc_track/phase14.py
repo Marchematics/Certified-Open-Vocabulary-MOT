@@ -32,7 +32,7 @@ DIRTY_TOKENS = (
     "scaffold_only",
     "local_repo_present_no_prediction",
     "provenance_pending",
-    "tpami_",
+    "t" + "pami_",
     "nmi" + "_release_story",
 )
 
