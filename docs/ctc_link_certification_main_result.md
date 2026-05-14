@@ -13,11 +13,11 @@ The experiment uses 208,230 candidate links from four datasets:
 - `Fluo-N2DL-HeLa`
 - `PhC-C2DH-U373`
 
-Candidate nodes are CTC `GT/TRA` cell masks. Candidate links are ranked by a deterministic noisy geometric linker with noise weight `0.90`. Full CTC tracking truth is used only for final actual-FTR evaluation and for controlled partial-verification sweeps.
+Candidate nodes are CTC `GT/TRA` cell masks. Candidate links are ranked by a deterministic noisy geometric linker with noise weight `0.90`. CTC tracking truth is the single official GT source. The anti-circularity evidence comes from the controlled partial-verification sweeps: PARC sees only an observed-positive subset, while held-out GT labels are used for final actual-FTR measurement. Rows with `rho=1.0` are full-verification/oracle diagnostics, not independent-source validation.
 
 ## Main Numbers
 
-At `alpha=0.20`, PARC releases:
+Under the full-verification diagnostic (`rho=1.0`), at `alpha=0.20`, PARC releases:
 
 | M | non-empty seeds | mean release | mean actual FTR | max actual FTR | raw top-M actual FTR |
 |---:|---:|---:|---:|---:|---:|
@@ -64,6 +64,6 @@ The aggregate result is not supported by a single dataset. At `alpha=0.20, M=300
 
 ## Interpretation
 
-This result should be framed as cell-link release certification, not as a full CTC tracker benchmark. PARC separates prediction from release: given a ranked set of candidate links, it certifies which links can be safely released under one-sided verification and refuses unsafe release volumes.
+This result should be framed as cell-link release certification, not as a full CTC tracker benchmark. PARC separates prediction from release: given a ranked set of candidate links, it certifies which links can be safely released under one-sided verification and refuses unsafe release volumes. The main validity evidence should emphasize the `rho < 1` partial-verification rows; `rho=1.0` rows should be described as oracle/full-verification diagnostics.
 
 Use CTC as the scientific-domain positive anchor. Use iWildCam as a boundary diagnostic: species-level iWildCam violates one-sided reliability, while animal-present iWildCam lacks sufficient high-evidence mass.
