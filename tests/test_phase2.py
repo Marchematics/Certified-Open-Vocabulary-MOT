@@ -330,6 +330,7 @@ def test_real_certify_removes_verified_positive_and_preserves_uncertain() -> Non
                 "real_cert_summary": str(root / "real_cert_summary.csv"),
                 "candidate_evalues": str(root / "candidate_evalues.csv"),
                 "cell_effective_n": str(root / "cell_effective_n.csv"),
+                "per_video_candidate_coverage": str(root / "per_video_candidate_coverage.csv"),
             },
         },
     )
@@ -389,6 +390,7 @@ def test_real_certify_does_not_write_back_to_input_candidate_universe() -> None:
                 "real_cert_summary": str(root / "real_cert_summary.csv"),
                 "candidate_evalues": str(root / "candidate_evalues.csv"),
                 "cell_effective_n": str(root / "cell_effective_n.csv"),
+                "per_video_candidate_coverage": str(root / "per_video_candidate_coverage.csv"),
             },
         },
     )
@@ -585,7 +587,10 @@ def test_coverage_sweep_feasibility_matches_emax_threshold() -> None:
                 "empty_block_policy": ["conservative_infinity", "coverage_conditional"],
             },
             "input": {"candidate_universe": str(universe), "audit_labels": str(root / "missing_labels.csv")},
-            "output": {"coverage_sweep": str(root / "coverage_sweep.csv")},
+            "output": {
+                "coverage_sweep": str(root / "coverage_sweep.csv"),
+                "per_video_candidate_coverage": str(root / "per_video_candidate_coverage.csv"),
+            },
         },
     )
     run_real_coverage_sweep(cfg_path)
@@ -686,6 +691,7 @@ def test_coverage_sweep_writes_projection_vs_observed() -> None:
             "output": {
                 "coverage_sweep": str(root / "coverage_sweep.csv"),
                 "projection_vs_observed": str(root / "projection_vs_observed.csv"),
+                "per_video_candidate_coverage": str(root / "per_video_candidate_coverage.csv"),
             },
         },
     )
