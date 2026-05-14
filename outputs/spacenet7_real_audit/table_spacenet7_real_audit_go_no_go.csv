@@ -1,0 +1,5 @@
+decision_item,decision,evidence,non_empty_seeds,total_seeds,mean_release,metadata_FTR,official_GT_FTR,status
+primary_K100_alpha020_positive_deployment,NO_GO,0/20 non-empty seeds under real-audit metadata positives,0,20,0.0,,0.0,certified_refusal_operating_check_only
+diagnostic_K50_alpha020_low_volume_release,PROVISIONAL_GO_PENDING_HUMAN_VISUAL_REVIEW,147 metadata-reviewed diagnostic release candidates; no official-proxy false links,18,20,43.95,0.0,0.0,diagnostic_not_primary; paper-facing only after human visual confirmation
+raw_topK_high_score_baseline_claim,GO_AS_CLEAN_BASELINE_CONTEXT_NOT_IMPROVEMENT_CLAIM,raw high-score nonreleased audit is also very clean under official proxy,,,,0.005,0.005,"use for certification/refusal framing, not performance-improvement framing"
+spacenet_real_audit_for_abstract_primary_positive,NO_GO,primary row refused; K50 is diagnostic and not yet human-confirmed,,,,,,do not claim real-audit positive SpaceNet primary result in abstract
