@@ -17,7 +17,7 @@ This pilot instantiates PARC on Cell Tracking Challenge training data as adjacen
 
 ## Main Result
 
-At alpha=0.20, PARC releases non-empty certified link sets in all 20 seeds for M=100 and M=300, and in 18/20 seeds for M=500.
+At alpha=0.20, PARC releases non-empty certified link sets in all 20 seeds for M=100 and M=300, and in 18/20 seeds for M=500. In the partial-verification framing, the clean paper-facing row is `rho=0.10, alpha=0.20, M=100`: 20/20 non-empty seeds, 100 released links on average, and held-out/full-GT actual FTR 0.000. The alpha=0.10 partial-verification rows are certified refusals for the current linker.
 
 | alpha | M | non-empty seeds | mean released | mean actual FTR | max actual FTR | raw top-M actual FTR |
 |---:|---:|---:|---:|---:|---:|---:|

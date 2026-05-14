@@ -17,11 +17,22 @@ diagnostics, figures, and sanitized provenance.
 
 ## Main Finding
 
-At `alpha=0.20`, the geometry-linker source is a positive scientific-domain
-anchor under the partial-verification protocol. The same aggregate numbers are
-observed for the tested `rho` values because the high-score verified-positive
-subset already removes the relevant high-evidence positives from the null
-superset:
+SpaceNet 7 should be positioned as Earth-observation transfer evidence, not as
+the strict primary scientific-domain result. Under the pre-registered strict
+criterion of at least `18/20` non-empty seeds in a `rho < 1` row, the current
+SpaceNet geometry linker falls just short. The best relaxed-risk row is:
+
+```text
+rho=0.10, observed_positive_strategy=top_score, alpha=0.20, M=100
+```
+
+It produces `17/20` non-empty seeds, mean release `81.75`, and held-out/full-GT
+actual FTR `0.003`. This supports transfer of the PARC abstraction to
+Earth-observation building links, but it should be written as near-threshold
+secondary evidence rather than as a strict main positive anchor. The same
+aggregate numbers are observed for the tested `rho` values because the
+high-score verified-positive subset already removes the relevant
+high-evidence positives from the null superset:
 
 - `M=100`: 17/20 seeds non-empty, mean release 81.75, mean actual FTR 0.003.
 - `M=300`: 11/20 seeds non-empty, mean release 165.0, mean actual FTR 0.00233.
@@ -36,7 +47,9 @@ tested budgets.
 
 ## Paper Positioning
 
-Use SpaceNet 7 as the second positive scientific-domain application:
-biomedical microscopy in CTC and Earth-observation urban monitoring in
-SpaceNet. The randomized-linker variant should be framed as safe refusal under
+Use CTC as the primary scientific-domain positive result. Use SpaceNet 7 as a
+near-threshold Earth-observation transfer result: it demonstrates the same
+link-level abstraction and very low held-out FTR when it releases, but misses
+the strict `18/20` non-empty threshold by one seed at the strongest relaxed-risk
+setting. The randomized-linker variant should be framed as safe refusal under
 an intentionally degraded source, not as a failed SpaceNet application.

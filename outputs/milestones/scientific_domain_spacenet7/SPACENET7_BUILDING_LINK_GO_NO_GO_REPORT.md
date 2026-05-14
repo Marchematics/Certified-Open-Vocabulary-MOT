@@ -12,7 +12,7 @@ This milestone is an Earth-observation scientific-domain go/no-go pilot for PARC
 
 ## Go/No-Go Finding
 
-The geometry linker is a positive Earth-observation anchor at `alpha=0.20`: it produces non-empty certified releases for small-to-medium release requests with empirical actual FTR far below the target. The randomized-linker stress variant is a certified-refusal case: raw top-M false-link rates are about 66--68%, and PARC releases zero links across the tested budgets.
+The geometry linker is near-threshold Earth-observation transfer evidence at `alpha=0.20`: it produces non-empty certified releases for small-to-medium release requests with empirical actual FTR far below the target, but the strongest `rho<1` row reaches 17/20 non-empty seeds rather than the stricter 18/20 primary threshold. The randomized-linker stress variant is a certified-refusal case: raw top-M false-link rates are about 66--68%, and PARC releases zero links across the tested budgets.
 
 ### Geometry Linker, rho=1.0, alpha=0.20
 
@@ -34,4 +34,4 @@ The geometry linker is a positive Earth-observation anchor at `alpha=0.20`: it p
 
 ## Paper Positioning
 
-Use this result as a second positive scientific-domain application alongside CTC: biomedical cell-link release and Earth-observation building-link release. The randomized stress variant should be written as a safe-refusal control, not as a failed SpaceNet application.
+Use this result as near-threshold Earth-observation transfer evidence alongside the stronger CTC positive anchor. The randomized stress variant should be written as a safe-refusal control, not as a failed SpaceNet application.

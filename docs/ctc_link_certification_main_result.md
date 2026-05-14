@@ -17,7 +17,19 @@ Candidate nodes are CTC `GT/TRA` cell masks. Candidate links are ranked by a det
 
 ## Main Numbers
 
-Under the full-verification diagnostic (`rho=1.0`), at `alpha=0.20`, PARC releases:
+The strict `alpha=0.10` partial-verification rows are certified refusals for the
+current CTC linker because the finite-resolution/evidence ceiling is below the
+required threshold. The paper-facing positive CTC row is therefore the
+relaxed-risk partial-verification protocol:
+
+```text
+rho=0.10, observed_positive_strategy=top_score, alpha=0.20, M=100
+```
+
+In this row PARC is non-empty in `20/20` seeds, releases exactly `100` links on
+average, and has held-out/full-GT actual FTR `0.000`.
+
+The broader `alpha=0.20` diagnostic pattern is:
 
 | M | non-empty seeds | mean release | mean actual FTR | max actual FTR | raw top-M actual FTR |
 |---:|---:|---:|---:|---:|---:|
@@ -40,12 +52,18 @@ Two partial-verification policies are reported:
 1. `random`: observed positives are sampled uniformly from true links.
 2. `top_score`: observed positives are sampled from high-score true links, matching an audit-style high-evidence verification policy.
 
-At `alpha=0.20`, random sparse verification produces safe refusal for all `rho < 1.0`, because hidden high-score true links contaminate the null-superset block maxima. In contrast, high-score verification with only `rho=0.05` recovers the certified release pattern:
+At `alpha=0.20`, random sparse verification produces safe refusal for all
+`rho < 1.0`, because hidden high-score true links contaminate the null-superset
+block maxima. In contrast, high-score verification recovers certified releases
+even at small observed-positive fractions. The strongest paper-facing row uses
+`rho=0.10, M=100`; the larger-budget rows are useful diagnostics but should not
+be overclaimed as strict primary results.
 
 | strategy | rho | M | non-empty seeds | mean release | mean actual FTR | max actual FTR |
 |---|---:|---:|---:|---:|---:|---:|
 | random | 0.05 | 300 | 0/20 | 0.00 | 0.000000 | 0.000000 |
 | random | 0.50 | 300 | 0/20 | 0.00 | 0.000000 | 0.000000 |
+| top_score | 0.10 | 100 | 20/20 | 100.00 | 0.000000 | 0.000000 |
 | top_score | 0.05 | 300 | 20/20 | 300.00 | 0.000167 | 0.003333 |
 | top_score | 0.05 | 500 | 18/20 | 415.85 | 0.001103 | 0.007317 |
 
