@@ -1,0 +1,16 @@
+{
+  "status": "real_audit_closeout_tables_written",
+  "outputs": [
+    "table_spacenet7_real_audit_k50_completed_summary.csv",
+    "table_spacenet7_real_audit_block_coverage.csv",
+    "table_spacenet7_real_audit_block_coverage_summary.csv",
+    "table_spacenet7_real_audit_k100_evalue_failure_by_seed.csv",
+    "table_spacenet7_real_audit_k100_failure_summary.csv",
+    "table_spacenet7_real_audit_sparse_verified_blocks.csv"
+  ],
+  "go_no_go": {
+    "K100_primary": "NO_GO_positive_deployment; GO_certified_refusal",
+    "K50_diagnostic": "PROVISIONAL_GO_pending_human_visual_review",
+    "block_expansion_needed": "only_if_human_visual_review_fails_or_K100_positive_is_required"
+  }
+}
