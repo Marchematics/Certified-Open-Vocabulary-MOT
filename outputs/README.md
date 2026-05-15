@@ -9,6 +9,7 @@ This directory contains public-safe derived artifacts only.
 - `milestones/scientific_domain_ctc_learned/`: learned-hybrid, appearance-assisted CTC link proposal source certified on held-out sequences, with leakage, reverse-split, and negative-control checks.
 - `milestones/scientific_domain_spacenet7/`: Earth-observation building-link certification on public SpaceNet 7 labels.
 - `milestones/scientific_domain_spacenet7_prospective/`: prospective SpaceNet 7 audit-trial package and no-go closeout.
+- `milestones/scientific_domain_iwildcam_human_audit/`: prospective iWildCam animal-present human-audit package; currently pending human confirmation and not a paper-facing audited flagship result.
 - `benchmarks/parc_certification_benchmark/`: compact community benchmark package with audit labels, result tables, schemas, and a tiny fixture.
 
 Raw videos, raw annotations, model weights, detector caches, frame caches, and montage images are intentionally excluded.

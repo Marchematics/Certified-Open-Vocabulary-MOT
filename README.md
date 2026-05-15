@@ -23,6 +23,7 @@ parc-track/
 │   ├── milestones/scientific_domain_ctc/
 │   ├── milestones/scientific_domain_ctc_learned/
 │   ├── milestones/scientific_domain_spacenet7/
+│   ├── milestones/scientific_domain_iwildcam_human_audit/
 │   └── benchmarks/parc_certification_benchmark/
 ├── tests/                            # pytest suite and tiny fixtures
 ├── scripts/                          # public-safe helper scripts
@@ -34,7 +35,7 @@ parc-track/
 
 - PARC certification code: null-superset block calibration, coverage-conditional empty-block handling, e-value generation, finite-resolution diagnostics, SCS-Greedy release, report builders, TrackEval export helpers, and adapter utilities.
 - Audit benchmark: `outputs/benchmarks/parc_certification_benchmark/audit/` and the full frozen milestone under `outputs/milestones/reliability_fortress/`.
-- Scientific-domain milestones for CTC cell-link certification, learned-hybrid CTC link certification, and SpaceNet 7 building-link certification.
+- Scientific-domain milestones for CTC cell-link certification, learned-hybrid CTC link certification, SpaceNet 7 building-link certification, and a prospective iWildCam animal-present human-audit package.
 - Result tables for OVT-B, TAO, BURST, black-box generators, published-tracker adapters, non-exchangeability stress tests, null-inflation sensitivity, LVIS/LVVIS/OVVIS generality checks, Mondrian/per-class/runtime/anytime diagnostics, and Prop. 5 high-evidence mass diagnostics.
 - Tiny fixture for validating the full schema-to-certification path without downloading external datasets.
 
@@ -71,6 +72,7 @@ For full benchmark reproduction, see `REPRODUCIBILITY.md`.
 - Learned-hybrid CTC milestone: `outputs/milestones/scientific_domain_ctc_learned/` (strict `alpha=0.10` release, leakage audit, reverse split, and random-score negative control)
 - Earth-observation scientific-domain milestone: `outputs/milestones/scientific_domain_spacenet7/`
 - Prospective SpaceNet 7 audit trial: `outputs/milestones/scientific_domain_spacenet7_prospective/`
+- Prospective iWildCam animal-present audit trial: `outputs/milestones/scientific_domain_iwildcam_human_audit/` (pending human confirmation; proxy planning only)
 - Community benchmark: `outputs/benchmarks/parc_certification_benchmark/`
 - File integrity manifest: `MANIFEST_SHA256.txt`
 

@@ -1,0 +1,21 @@
+{
+  "status": "prepared",
+  "paper_status": "not_a_human_audited_flagship_until_human_fields_are_confirmed",
+  "go_no_go": "pending_human_audit",
+  "source_name": "GroundingDINO-SwinT animal-present fallback",
+  "preferred_source_status": "MegaDetector outputs not found locally; frozen GDINO animal-present source used as fallback",
+  "candidate_universe": "external_iwildcam_candidate_universe.csv",
+  "candidate_universe_sha256": "35fb1a94f37025f3df988e2d432d6554521dae116958dd73debcb3f9f38fdde0",
+  "candidate_rows": 17169,
+  "locations": 30,
+  "blocks": 150,
+  "calibration_audit_rows": 2000,
+  "release_audit_rows": 167,
+  "raw_topk_audit_rows": 300,
+  "selected_endpoint_for_release_audit_template": {
+    "alpha": 0.2,
+    "K": 50,
+    "endpoint_status": "operational_primary_k50"
+  },
+  "human_claim_rule": "Human FTR and flagship claims require filled human_* fields; proxy planning tables are not paper-facing human audit evidence."
+}

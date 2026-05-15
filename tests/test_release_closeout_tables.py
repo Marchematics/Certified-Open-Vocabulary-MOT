@@ -51,6 +51,7 @@ def test_closeout_tables_are_public_safe() -> None:
     roots = [
         ROOT / "outputs/milestones/scientific_domain_ctc_learned",
         ROOT / "outputs/milestones/scientific_domain_spacenet7_prospective",
+        ROOT / "outputs/milestones/scientific_domain_iwildcam_human_audit",
         ROOT / "outputs/milestones/release_story/paper_diagnostics",
     ]
     forbidden = [
@@ -80,3 +81,18 @@ def test_spacenet7_prospective_trial_is_not_promoted_posthoc() -> None:
     assert (proxy["paper_status"] == "proxy_planning_only_requires_human_confirmation").all()
     assert proxy["non_empty_seeds"].max() < 18
     assert "no-go as a second flagship positive result" in closeout
+
+
+def test_iwildcam_human_audit_trial_is_pending_human_confirmation() -> None:
+    root = ROOT / "outputs/milestones/scientific_domain_iwildcam_human_audit"
+    protocol = pd.read_csv(root / "table_iwildcam_human_audit_protocol_summary.csv")
+    proxy = pd.read_csv(root / "table_iwildcam_human_audit_proxy_primary_results.csv")
+    control = pd.read_csv(root / "table_iwildcam_random_score_control.csv")
+    closeout = (root / "IWILDCAM_ANIMAL_HUMAN_AUDIT_CLOSEOUT.md").read_text(encoding="utf-8")
+
+    assert protocol["paper_status"].iloc[0] == "not_a_human_audited_flagship_until_human_fields_are_confirmed"
+    assert protocol["release_audit_n_written"].iloc[0] > 0
+    assert (proxy["human_audit_status"] == "requires_human_confirmation").all()
+    assert proxy["non_empty_seeds"].max() >= 18
+    assert (control["non_empty_seeds"] == 0).all()
+    assert "must not be\nreported as human-audited FTR" in closeout
