@@ -1,0 +1,3 @@
+human_label,human_verified_positive_for_calibration,count
+animal,yes,1414
+not_animal,no,586

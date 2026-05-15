@@ -1,7 +1,7 @@
 {
-  "status": "prepared",
-  "paper_status": "not_a_human_audited_flagship_until_human_fields_are_confirmed",
-  "go_no_go": "pending_human_audit",
+  "status": "human_confirmed_closeout_completed",
+  "paper_status": "human_confirmed_operational_positive_not_strict_alpha010",
+  "go_no_go": "GO_operational_ecology_positive_not_strict_alpha010",
   "source_name": "GroundingDINO-SwinT animal-present fallback",
   "preferred_source_status": "MegaDetector outputs not found locally; frozen GDINO animal-present source used as fallback",
   "candidate_universe": "external_iwildcam_candidate_universe.csv",
@@ -17,5 +17,13 @@
     "K": 50,
     "endpoint_status": "operational_primary_k50"
   },
-  "human_claim_rule": "Human FTR and flagship claims require filled human_* fields; proxy planning tables are not paper-facing human audit evidence."
+  "human_claim_rule": "Human FTR and flagship claims require filled human_* fields; proxy planning tables are not paper-facing human audit evidence.",
+  "calibration_verified_positives": 1414,
+  "calibration_not_animal": 586,
+  "calibration_uncertain": 0,
+  "release_audit_unique_candidates": 167,
+  "release_human_FTR": 0.0,
+  "release_conservative_human_FTR": 0.0,
+  "strict_alpha010_status": "certified_refusal",
+  "operational_alpha020_K50_status": "human_confirmed_release"
 }

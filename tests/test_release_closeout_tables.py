@@ -83,16 +83,24 @@ def test_spacenet7_prospective_trial_is_not_promoted_posthoc() -> None:
     assert "no-go as a second flagship positive result" in closeout
 
 
-def test_iwildcam_human_audit_trial_is_pending_human_confirmation() -> None:
+def test_iwildcam_human_audit_trial_has_operational_positive_closeout() -> None:
     root = ROOT / "outputs/milestones/scientific_domain_iwildcam_human_audit"
     protocol = pd.read_csv(root / "table_iwildcam_human_audit_protocol_summary.csv")
-    proxy = pd.read_csv(root / "table_iwildcam_human_audit_proxy_primary_results.csv")
+    primary = pd.read_csv(root / "table_iwildcam_human_audit_primary_results.csv")
     control = pd.read_csv(root / "table_iwildcam_random_score_control.csv")
+    release = pd.read_csv(root / "table_iwildcam_release_audit_summary.csv")
+    go = pd.read_csv(root / "table_iwildcam_human_audit_go_no_go.csv")
     closeout = (root / "IWILDCAM_ANIMAL_HUMAN_AUDIT_CLOSEOUT.md").read_text(encoding="utf-8")
 
     assert protocol["paper_status"].iloc[0] == "not_a_human_audited_flagship_until_human_fields_are_confirmed"
     assert protocol["release_audit_n_written"].iloc[0] > 0
-    assert (proxy["human_audit_status"] == "requires_human_confirmation").all()
-    assert proxy["non_empty_seeds"].max() >= 18
+    row = primary[(primary["alpha"] == 0.20) & (primary["K"] == 50)].iloc[0]
+    assert row["human_audit_status"] == "human_confirmed_release_audit"
+    assert int(row["non_empty_seeds"]) == 20
+    assert float(row["human_FTR"]) == 0.0
+    assert float(row["conservative_human_FTR"]) == 0.0
+    assert bool(go["operational_alpha020_K50_pass"].iloc[0])
+    assert not bool(go["strict_alpha010_pass"].iloc[0])
+    assert float(release["human_FTR"].iloc[0]) == 0.0
     assert (control["non_empty_seeds"] == 0).all()
-    assert "must not be\nreported as human-audited FTR" in closeout
+    assert "GO_operational_ecology_positive_not_strict_alpha010" in closeout

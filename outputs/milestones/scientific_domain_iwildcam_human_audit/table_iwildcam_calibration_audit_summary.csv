@@ -1,0 +1,2 @@
+sample_set,n_audited,n_animal,n_not_animal,n_uncertain,n_verified_positive,all_review_status
+calibration_audit,2000,1414,586,0,1414,human_confirmed

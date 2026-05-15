@@ -29,7 +29,7 @@ This repository uses neutral public artifact names. Older internal experiment la
   Prospective SpaceNet 7 audit-trial package. This freezes the predeclared human-audit endpoint hierarchy and provides candidate-disjoint blind audit sheets plus proxy planning diagnostics. The closeout marks the trial as no-go for second-flagship promotion unless future human labels satisfy the predeclared gate.
 
 - `outputs/milestones/scientific_domain_iwildcam_human_audit/`
-  Prospective iWildCam animal-present audit-trial package. This freezes a camera-trap ecology trial with location-by-time blocks, blind calibration/release audit sheets, proxy-only planning diagnostics, and a random-score control. It is pending human audit and must not be treated as a human-audited flagship result until the `human_*` fields are confirmed.
+  Prospective iWildCam animal-present audit-trial package. This freezes a camera-trap ecology trial with location-by-time blocks, human-confirmed calibration/release audit sheets, proxy diagnostics, and a random-score control. The closeout supports an operational `alpha=0.20, K=50` ecology release with human FTR 0.0; strict `alpha=0.10` remains certified refusal.
 
 - `outputs/milestones/release_story/paper_diagnostics/`
   Paper-facing diagnostic tables for assumptions, seed variability/interval summaries, verification budgets, and prevented false releases.

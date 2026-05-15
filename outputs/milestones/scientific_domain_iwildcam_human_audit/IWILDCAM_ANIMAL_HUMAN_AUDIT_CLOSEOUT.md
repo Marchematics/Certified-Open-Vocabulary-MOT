@@ -1,28 +1,32 @@
-# iWildCam Animal-Present Prospective Human-Audit Closeout
+# iWildCam Animal-Present Human-Audit Closeout
 
-Status: prepared for prospective human audit.
+Status: human-confirmed operational ecology positive, not strict-alpha positive.
 
-Paper status: `not_a_human_audited_flagship_until_human_fields_are_confirmed`.
+Paper status: `human_confirmed_operational_positive_not_strict_alpha010`.
 
 This package freezes a candidate-disjoint ecology-domain trial for animal-present
-camera-trap detections. The preferred source is MegaDetector or another frozen
-domain-specific animal detector; current local execution used:
+camera-trap detections. The preferred source remains MegaDetector or another
+frozen domain-specific animal detector; current local execution used a frozen
+GroundingDINO-SwinT animal-present fallback because MegaDetector outputs were not
+available locally.
 
-`GroundingDINO-SwinT animal-present fallback`
-
-Source note: MegaDetector outputs not found locally; frozen GDINO animal-present source used as fallback
-
-Official labels are used only in proxy planning tables. They must not be
-reported as human-audited FTR. The blind calibration and release templates are
-the inputs for human review.
-
-Prepared assets:
+Human audit summary:
 
 - calibration audit rows: 2000
-- raw top-K audit rows: 300
-- release audit template rows: 167
-- block definition: camera location x 5 temporal chunks
-- blocks: 150
+- calibration verified positives: 1414
+- calibration not-animal rows: 586
+- calibration uncertain rows: 0
+- raw top-K audited rows: 300, human FTR: 0.000
+- release audited unique candidates: 167
+- release endpoint: alpha=0.20, K=50
+- release non-empty seeds: 20/20
+- mean release: 50.0
+- human FTR: 0.000
+- conservative human FTR: 0.000
 
-Go/no-go remains pending until human-confirmed calibration and release labels
-are supplied and rerun through the same predeclared endpoint hierarchy.
+Go/no-go: `GO_operational_ecology_positive_not_strict_alpha010`.
+
+Interpretation: human-confirmed animal-present audit supports an operational
+alpha=0.20 ecology release. Strict alpha=0.10 remains certified refusal under
+current evidence resolution. This should be written as an operational ecology
+positive, not as a strict alpha=0.10 flagship.

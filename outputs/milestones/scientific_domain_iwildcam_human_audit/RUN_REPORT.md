@@ -1,22 +1,32 @@
-# iWildCam Animal-Present Human-Audit Prospective Package
+# iWildCam Animal-Present Human-Audit Closeout
 
-This milestone freezes a prospective ecology-domain audit trial for animal-present camera-trap detections.
+Status: human-confirmed operational ecology positive, not strict-alpha positive.
 
-Status: `pending_human_audit`.
+Paper status: `human_confirmed_operational_positive_not_strict_alpha010`.
 
-The package is not a human-audited flagship result yet. Official iWildCam support is used only for proxy planning tables and release-audit target selection. Human FTR and flagship claims require filled `human_*` fields in the calibration and release audit sheets followed by a rerun of the fixed protocol.
+This package freezes a candidate-disjoint ecology-domain trial for animal-present
+camera-trap detections. The preferred source remains MegaDetector or another
+frozen domain-specific animal detector; current local execution used a frozen
+GroundingDINO-SwinT animal-present fallback because MegaDetector outputs were not
+available locally.
 
-Current local source: frozen GroundingDINO-SwinT animal-present candidates. MegaDetector or another domain-specific frozen animal detector remains the preferred source if outputs are made available through the same schema.
+Human audit summary:
 
-Proxy planning summary:
+- calibration audit rows: 2000
+- calibration verified positives: 1414
+- calibration not-animal rows: 586
+- calibration uncertain rows: 0
+- raw top-K audited rows: 300, human FTR: 0.000
+- release audited unique candidates: 167
+- release endpoint: alpha=0.20, K=50
+- release non-empty seeds: 20/20
+- mean release: 50.0
+- human FTR: 0.000
+- conservative human FTR: 0.000
 
-- blocks: 150 camera-location-by-temporal-chunk blocks
-- calibration audit template rows: 2000
-- release audit template rows: 167
-- raw top-K audit template rows: 300
-- proxy-only `alpha=0.20, K=25`: 20/20 non-empty, mean release 25.0, official-proxy FTR 0.0
-- proxy-only `alpha=0.20, K=50`: 20/20 non-empty, mean release 50.0, official-proxy FTR 0.0
-- proxy-only `alpha=0.10`: certified refusal at all planned K values under current resolution
-- random-score control: certified refusal at all planned settings
+Go/no-go: `GO_operational_ecology_positive_not_strict_alpha010`.
 
-Interpretation: promising audit target, not paper-facing human-audited evidence until human labels are confirmed.
+Interpretation: human-confirmed animal-present audit supports an operational
+alpha=0.20 ecology release. Strict alpha=0.10 remains certified refusal under
+current evidence resolution. This should be written as an operational ecology
+positive, not as a strict alpha=0.10 flagship.
