@@ -161,6 +161,8 @@ def test_materials_discovery_has_strict_flagship_and_controls() -> None:
 def test_p0_supplemental_baselines_runtime_and_iwildcam_review_status() -> None:
     diagnostics = ROOT / "outputs/milestones/release_story/paper_diagnostics"
     baseline = pd.read_csv(diagnostics / "table_pu_selective_conformal_minimal_baselines.csv")
+    baseline_benchmark = pd.read_csv(diagnostics / "table_pu_selective_conformal_benchmark.csv")
+    baseline_frontier = pd.read_csv(diagnostics / "figure_table2b_baseline_frontier.csv")
     runtime = pd.read_csv(diagnostics / "table_runtime_compute_overhead_scientific_domains.csv")
     closeout = (diagnostics / "P0_SUPPLEMENTAL_CLOSEOUT.md").read_text(encoding="utf-8")
     iwild_root = ROOT / "outputs/milestones/scientific_domain_iwildcam_human_audit"
@@ -180,6 +182,21 @@ def test_p0_supplemental_baselines_runtime_and_iwildcam_review_status() -> None:
     assert {"PU plug-in positive-vs-unlabeled classifier", "Oracle full-label conformal prefix"}.issubset(
         set(baseline["baseline"])
     )
+    assert {"nnPU classifier release", "Bao-style selective conformal adaptation"}.issubset(
+        set(baseline_benchmark["method"])
+    )
+    assert {"Materials discovery", "Biomedical cell tracking", "Ecological camera traps"}.issubset(
+        set(baseline_benchmark["domain"])
+    )
+    assert (baseline_benchmark["alpha"] == 0.10).all()
+    assert (baseline_benchmark["K"] == 100).all()
+    assert (
+        baseline_benchmark[
+            baseline_benchmark["method"].isin(["nnPU classifier release", "Bao-style selective conformal adaptation"])
+        ]["target_object_note"]
+        == "different_target_object_concrete_demonstration"
+    ).all()
+    assert "PARC certified release" in set(baseline_frontier["method"])
     assert {"Materials discovery", "Biomedical cell tracking", "Ecological camera traps"}.issubset(
         set(baseline["domain"])
     )

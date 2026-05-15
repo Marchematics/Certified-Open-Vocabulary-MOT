@@ -1,0 +1,39 @@
+{
+  "status": "completed",
+  "alpha": 0.1,
+  "K": 100,
+  "rho": 0.1,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "runtime_sec": 166.487410397036,
+  "outputs": {
+    "summary": "outputs/milestones/release_story/paper_diagnostics/table_pu_selective_conformal_benchmark.csv",
+    "seed_rows": "outputs/milestones/release_story/paper_diagnostics/table_pu_selective_conformal_benchmark_seed_rows.csv",
+    "frontier": "outputs/milestones/release_story/paper_diagnostics/figure_table2b_baseline_frontier.csv",
+    "closeout": "outputs/milestones/release_story/paper_diagnostics/PU_SELECTIVE_CONFORMAL_BENCHMARK_CLOSEOUT.md"
+  },
+  "references": {
+    "bao_selective_conformal": "Bao et al. 2024 selective conformal inference with false coverage-statement rate control",
+    "cap_arxiv": "arXiv:2403.07728"
+  }
+}

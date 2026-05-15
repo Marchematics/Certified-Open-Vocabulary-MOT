@@ -17,6 +17,23 @@ finite set-level release guarantee under one-sided verification.
 
 Table: `outputs/milestones/release_story/paper_diagnostics/table_pu_selective_conformal_minimal_baselines.csv`
 
+## PU / Selective-Conformal Benchmark
+
+Added a full alpha=0.10, K=100 supplement benchmark for CTC, materials
+discovery, and iWildCam.  It includes a PyTorch nnPU classifier and a Bao-style
+post-selection selective conformal adaptation, plus raw top-K, oracle-label
+diagnostics, and PARC reference points for the Table 2b frontier.
+
+Tables:
+
+- `outputs/milestones/release_story/paper_diagnostics/table_pu_selective_conformal_benchmark.csv`
+- `outputs/milestones/release_story/paper_diagnostics/table_pu_selective_conformal_benchmark_seed_rows.csv`
+- `outputs/milestones/release_story/paper_diagnostics/figure_table2b_baseline_frontier.csv`
+
+Paper wording: these baselines target a different object from PARC's compatible
+finite release set.  Use "different target object (concrete demonstration in
+Supplement X)" when describing the comparison.
+
 ## iWildCam Second-Review Package
 
 Prepared the blind second-review template for all release candidates, all

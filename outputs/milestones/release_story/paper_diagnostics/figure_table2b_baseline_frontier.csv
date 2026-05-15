@@ -1,0 +1,16 @@
+domain,dataset,method,alpha,K,mean_release,realized_FTR_mean,set_level_release_guarantee,target_object_note,proposal_source,seeds,coverage_diagnostic
+Biomedical cell tracking,CTC learned-hybrid held-out sequence,Bao-style selective conformal adaptation,0.1,100,93.6,0.0,no,different_target_object_concrete_demonstration,,,
+Biomedical cell tracking,CTC learned-hybrid held-out sequence,Bao-style selective conformal oracle-label diagnostic,0.1,100,93.6,0.0,oracle_not_deployable_under_partial_verification,different_target_object_concrete_demonstration,,,
+Biomedical cell tracking,CTC learned-hybrid held-out sequence,Raw top-K source ranking,0.1,100,100.0,0.0,no,same_target_empirical_baseline,,,
+Biomedical cell tracking,CTC learned-hybrid held-out sequence,nnPU classifier release,0.1,100,100.0,0.0,no,different_target_object_concrete_demonstration,,,
+Ecological camera traps,iWildCam animal-present audited set,Bao-style selective conformal adaptation,0.1,100,80.4,0.0,no,different_target_object_concrete_demonstration,,,
+Ecological camera traps,iWildCam animal-present audited set,Bao-style selective conformal oracle-label diagnostic,0.1,100,96.95,0.0,oracle_not_deployable_under_partial_verification,different_target_object_concrete_demonstration,,,
+Ecological camera traps,iWildCam animal-present audited set,Raw top-K source ranking,0.1,100,100.0,0.0,no,same_target_empirical_baseline,,,
+Ecological camera traps,iWildCam animal-present audited set,nnPU classifier release,0.1,100,95.0,0.0,no,different_target_object_concrete_demonstration,,,
+Materials discovery,Matbench Discovery WBM,Bao-style selective conformal adaptation,0.1,100,97.0,0.028665970933828083,no,different_target_object_concrete_demonstration,,,
+Materials discovery,Matbench Discovery WBM,Bao-style selective conformal oracle-label diagnostic,0.1,100,97.0,0.028665970933828083,oracle_not_deployable_under_partial_verification,different_target_object_concrete_demonstration,,,
+Materials discovery,Matbench Discovery WBM,Raw top-K source ranking,0.1,100,100.0,0.030000000000000006,no,same_target_empirical_baseline,,,
+Materials discovery,Matbench Discovery WBM,nnPU classifier release,0.1,100,100.0,0.030000000000000006,no,different_target_object_concrete_demonstration,,,
+Biomedical cell tracking,CTC learned-hybrid held-out sequence,PARC certified release,0.1,100,100.0,0.0,yes,same_target_release_FTR,learned-hybrid appearance linker,20.0,PARC block e-value release
+Materials discovery,Matbench Discovery WBM,PARC certified release,0.1,100,100.0,0.03,yes,same_target_release_FTR,CGCNN ensemble,20.0,PARC block e-value release
+Ecological camera traps,iWildCam animal-present audited set,PARC certified release,0.1,100,0.0,0.0,yes_refusal_at_strict_alpha010,same_target_release_FTR,GroundingDINO-SwinT animal-present fallback,20.0,resolution_below_required_emax
