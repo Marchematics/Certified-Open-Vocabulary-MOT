@@ -174,6 +174,8 @@ def test_p0_supplemental_baselines_runtime_and_iwildcam_review_status() -> None:
     second_corrected_preview = pd.read_csv(
         iwild_root / "table_iwildcam_second_review_corrected_draft_agreement_preview.csv"
     )
+    second_human = pd.read_csv(iwild_root / "second_review_human_confirmed_labels.csv")
+    second_agreement = pd.read_csv(iwild_root / "table_iwildcam_second_review_agreement_summary.csv")
 
     assert {"PU plug-in positive-vs-unlabeled classifier", "Oracle full-label conformal prefix"}.issubset(
         set(baseline["baseline"])
@@ -186,8 +188,9 @@ def test_p0_supplemental_baselines_runtime_and_iwildcam_review_status() -> None:
         set(runtime["domain"])
     )
     assert int(second_status["n_rows"].iloc[0]) == len(second_template)
-    assert second_status["status"].iloc[0] == "requires_independent_second_review"
-    assert second_status["kappa_status"].iloc[0] == "not_computed_until_second_reviewer_labels_exist"
+    assert second_status["status"].iloc[0] == "human_second_review_completed"
+    assert second_status["kappa_status"].iloc[0] == "computed_from_human_confirmed_second_review"
+    assert 0.75 <= float(second_status["cohen_kappa"].iloc[0]) <= 0.83
     assert "human_label" not in set(second_template.columns)
     assert len(second_draft) == len(second_template)
     assert (second_draft["second_reviewer_status"] == "requires_human_confirmation").all()
@@ -202,4 +205,10 @@ def test_p0_supplemental_baselines_runtime_and_iwildcam_review_status() -> None:
         second_corrected_preview[second_corrected_preview["scope"] == "all_rows"]["cohen_kappa_preview"].iloc[0]
     )
     assert 0.75 <= preview_kappa <= 0.83
+    assert len(second_human) == len(second_template)
+    assert (second_human["second_reviewer_status"] == "human_confirmed").all()
+    human_kappa = float(second_agreement[second_agreement["scope"] == "all_rows"]["cohen_kappa"].iloc[0])
+    assert 0.75 <= human_kappa <= 0.83
+    release_row = second_agreement[second_agreement["scope"] == "all_release_candidates"].iloc[0]
+    assert float(release_row["label_agreement"]) == 1.0
     assert "P0 Supplemental Closeout" in closeout
