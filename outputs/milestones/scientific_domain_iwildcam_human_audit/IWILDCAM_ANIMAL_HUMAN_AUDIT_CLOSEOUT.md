@@ -30,3 +30,9 @@ Interpretation: human-confirmed animal-present audit supports an operational
 alpha=0.20 ecology release. Strict alpha=0.10 remains certified refusal under
 current evidence resolution. This should be written as an operational ecology
 positive, not as a strict alpha=0.10 flagship.
+
+Second-review status: the blind second-review template contains 1123 rows. An
+initial draft has been prepared in
+`second_review_draft_for_human_confirmation.csv`, with all rows marked
+`requires_human_confirmation`. Reportable inter-reviewer agreement should be
+computed only after the draft is confirmed or edited by the reviewer.
