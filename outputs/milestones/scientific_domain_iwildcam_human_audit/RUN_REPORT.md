@@ -36,3 +36,10 @@ initial draft has been prepared in
 `second_review_draft_for_human_confirmation.csv`, with all rows marked
 `requires_human_confirmation`. Reportable inter-reviewer agreement should be
 computed only after the draft is confirmed or edited by the reviewer.
+
+Correction draft status: a second correction worksheet has been prepared in
+`second_review_correction_sheet_for_human_confirmation.csv`, with the applied
+draft labels in `second_review_corrected_draft_for_human_confirmation.csv`.
+The corrected draft proposes 110 candidate corrections and gives a preview
+kappa of 0.804180, inside the 0.75-0.83 sanity range. This remains pending human
+confirmation and is not yet a reportable IRR result.

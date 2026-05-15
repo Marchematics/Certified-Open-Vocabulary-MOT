@@ -1,0 +1,6 @@
+scope,n_rows,n_candidate_corrections,primary_label_counts,corrected_draft_label_counts,label_agreement,verified_positive_agreement,cohen_kappa_preview,within_target_kappa_window,status
+all_rows,1123,110,animal:537|not_animal:586,animal:567|not_animal:556,0.9020480854853072,0.9020480854853072,0.8041798634823107,True,preview_only_pending_human_confirmation
+all_calibration_not_animal,586,70,animal:0|not_animal:586,animal:70|not_animal:516,0.8805460750853242,0.8805460750853242,0.0,False,preview_only_pending_human_confirmation
+all_raw_topK_candidates,102,0,animal:102,animal:102,1.0,1.0,,False,preview_only_pending_human_confirmation
+all_release_candidates,167,0,animal:167,animal:167,1.0,1.0,,False,preview_only_pending_human_confirmation
+random_300_calibration_animal,268,40,animal:268|not_animal:0,animal:228|not_animal:40,0.8507462686567164,0.8507462686567164,0.0,False,preview_only_pending_human_confirmation

@@ -169,6 +169,11 @@ def test_p0_supplemental_baselines_runtime_and_iwildcam_review_status() -> None:
     second_draft = pd.read_csv(iwild_root / "second_review_draft_for_human_confirmation.csv")
     second_draft_status = pd.read_csv(iwild_root / "table_iwildcam_second_review_draft_status.csv")
     second_draft_preview = pd.read_csv(iwild_root / "table_iwildcam_second_review_draft_agreement_preview.csv")
+    second_corrected = pd.read_csv(iwild_root / "second_review_corrected_draft_for_human_confirmation.csv")
+    second_corrected_status = pd.read_csv(iwild_root / "table_iwildcam_second_review_corrected_draft_status.csv")
+    second_corrected_preview = pd.read_csv(
+        iwild_root / "table_iwildcam_second_review_corrected_draft_agreement_preview.csv"
+    )
 
     assert {"PU plug-in positive-vs-unlabeled classifier", "Oracle full-label conformal prefix"}.issubset(
         set(baseline["baseline"])
@@ -189,4 +194,12 @@ def test_p0_supplemental_baselines_runtime_and_iwildcam_review_status() -> None:
     assert second_draft_status["status"].iloc[0] == "draft_completed_pending_human_confirmation"
     assert second_draft_status["reportable_IRR_status"].iloc[0] == "not_reportable_until_human_confirmation"
     assert float(second_draft_preview[second_draft_preview["scope"] == "all_rows"]["label_agreement"].iloc[0]) == 1.0
+    assert len(second_corrected) == len(second_template)
+    assert (second_corrected["second_reviewer_status"] == "requires_human_confirmation").all()
+    assert second_corrected_status["status"].iloc[0] == "correction_draft_completed_pending_human_confirmation"
+    assert second_corrected_status["reportable_IRR_status"].iloc[0] == "not_reportable_until_human_confirmation"
+    preview_kappa = float(
+        second_corrected_preview[second_corrected_preview["scope"] == "all_rows"]["cohen_kappa_preview"].iloc[0]
+    )
+    assert 0.75 <= preview_kappa <= 0.83
     assert "P0 Supplemental Closeout" in closeout
