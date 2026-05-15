@@ -9,6 +9,7 @@ This milestone reframes PARC-Track as auditable release-time certification for o
 3. A qualitative teaser manifest for official matches, real official-unmatched objects, uncertain cases, false tracklets, high-score refusal candidates, and certified releases.
 4. Near-boundary practice-benefit rows where a non-random learned materials source has raw top-K FTR in the 23.5%-32.6% range while PARC releases a smaller lower-FTR subset.
 5. CTC audit-contamination sensitivity showing how release rate, release size, actual FTR, violation rate, and mass ratio change when the one-sided verified-positive assumption is deliberately violated.
+6. P0 supplemental checks: ALIGNN-FF modern materials-model sensitivity, minimal PU/selective-conformal baseline matrix, iWildCam second-review package status, and scientific-domain compute overhead table.
 
 ## Scope
 
@@ -44,7 +45,9 @@ This milestone reframes PARC-Track as auditable release-time certification for o
     "figure_release_policy_decision_curve.csv",
     "figure_release_story_teaser_manifest.csv",
     "paper_diagnostics/table_near_boundary_release_value.csv",
-    "paper_diagnostics/table_ctc_audit_contamination_sensitivity.csv"
+    "paper_diagnostics/table_ctc_audit_contamination_sensitivity.csv",
+    "paper_diagnostics/table_pu_selective_conformal_minimal_baselines.csv",
+    "paper_diagnostics/table_runtime_compute_overhead_scientific_domains.csv"
   ],
   "raw_data_included": false,
   "model_weights_included": false,

@@ -1,0 +1,2 @@
+proposal_source,model_family,prediction_file_public_url,prediction_file_sha256,prediction_column,score_definition,trained_for_this_PARC_experiment,uses_DFT_target_label_for_ranking,runtime_sec_for_grid
+alignn_ff_modern_learned_materials_model,ALIGNN-FF,https://raw.githubusercontent.com/janosh/matbench-discovery/main/models/alignn_ff/2023-07-11-alignn-ff-wbm-IS2RE.csv.gz,dc75be97f3bce3ce724680065abf11a19bdc6a3928fdd77ccb42d3f62a02e593,e_form_per_atom_alignn_ff,-(ALIGNN-FF predicted formation energy - WBM hull reference energy),False,False,4.297010132053401

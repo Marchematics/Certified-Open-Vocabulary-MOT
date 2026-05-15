@@ -124,6 +124,7 @@ def test_materials_discovery_has_strict_flagship_and_controls() -> None:
     root = ROOT / "outputs/milestones/scientific_domain_materials"
     universe = pd.read_csv(root / "table_materials_candidate_universe_summary.csv")
     primary = pd.read_csv(root / "table_materials_primary_results.csv")
+    modern = pd.read_csv(root / "table_materials_modern_model_sensitivity.csv")
     go = pd.read_csv(root / "table_materials_go_no_go.csv")
     leakage = pd.read_csv(root / "table_materials_leakage_audit.csv")
     random_control = pd.read_csv(root / "table_materials_random_score_control.csv")
@@ -150,5 +151,34 @@ def test_materials_discovery_has_strict_flagship_and_controls() -> None:
         ]["non_empty_seeds"]
         == 0
     ).all()
+    assert set(modern["proposal_source"]) == {"alignn_ff_modern_learned_materials_model"}
+    assert (modern["alpha"] == 0.10).all()
+    assert (modern[modern["K"].isin([50, 100, 300, 500])]["non_empty_seeds"] >= 18).all()
     assert {"composition_family_pair", "chemical_system", "wyckoff_family"}.issubset(set(block["block_definition"]))
     assert "GO_strict_alpha010_K100_materials_flagship" in closeout
+
+
+def test_p0_supplemental_baselines_runtime_and_iwildcam_review_status() -> None:
+    diagnostics = ROOT / "outputs/milestones/release_story/paper_diagnostics"
+    baseline = pd.read_csv(diagnostics / "table_pu_selective_conformal_minimal_baselines.csv")
+    runtime = pd.read_csv(diagnostics / "table_runtime_compute_overhead_scientific_domains.csv")
+    closeout = (diagnostics / "P0_SUPPLEMENTAL_CLOSEOUT.md").read_text(encoding="utf-8")
+    iwild_root = ROOT / "outputs/milestones/scientific_domain_iwildcam_human_audit"
+    second_status = pd.read_csv(iwild_root / "table_iwildcam_second_review_status.csv")
+    second_template = pd.read_csv(iwild_root / "second_review_blind_template.csv")
+
+    assert {"PU plug-in positive-vs-unlabeled classifier", "Oracle full-label conformal prefix"}.issubset(
+        set(baseline["baseline"])
+    )
+    assert {"Materials discovery", "Biomedical cell tracking", "Ecological camera traps"}.issubset(
+        set(baseline["domain"])
+    )
+    assert (baseline["set_level_guarantee"].astype(str) != "").all()
+    assert {"Materials discovery", "Biomedical cell tracking", "Ecological camera traps", "Earth observation"}.issubset(
+        set(runtime["domain"])
+    )
+    assert int(second_status["n_rows"].iloc[0]) == len(second_template)
+    assert second_status["status"].iloc[0] == "requires_independent_second_review"
+    assert second_status["kappa_status"].iloc[0] == "not_computed_until_second_reviewer_labels_exist"
+    assert "human_label" not in set(second_template.columns)
+    assert "P0 Supplemental Closeout" in closeout

@@ -1,0 +1,5 @@
+domain,candidate_universe_size,evaluated_K,num_blocks,calibration_and_evalue_time_sec,scs_greedy_time_sec,peak_memory_gb,hardware,source_table
+Materials discovery,215486,"100,300,5000",7372,4.297010132053401,included_in_grid_time,not_profiled_table_only,CPU table recomputation; no model inference,table_materials_modern_model_report.csv
+Biomedical cell tracking,146230,300,frame-pair blocks,precomputed in CTC learned closeout,subsecond table-level selection,not_profiled_table_only,CPU table recomputation; learned source precomputed,scientific_domain_ctc_learned tables
+Ecological camera traps,17169,50,150,precomputed in iWildCam human-audit closeout,subsecond table-level selection,not_profiled_table_only,CPU table recomputation; detector inference excluded,table_iwildcam_human_audit_protocol_summary.csv
+Earth observation,6341788,"100,5000,randomized",18,precomputed in SpaceNet closeout,subsecond table-level selection,not_profiled_table_only,CPU table recomputation; geospatial candidate generation excluded,table_spacenet7_adapter_report.csv

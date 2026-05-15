@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "outputs": {
+    "materials_modern": "outputs/milestones/scientific_domain_materials/table_materials_modern_model_sensitivity.csv",
+    "materials_modern_seed": "outputs/milestones/scientific_domain_materials/table_materials_modern_model_sensitivity_seed_rows.csv",
+    "materials_modern_report": "outputs/milestones/scientific_domain_materials/table_materials_modern_model_report.csv",
+    "baselines": "outputs/milestones/release_story/paper_diagnostics/table_pu_selective_conformal_minimal_baselines.csv",
+    "iwildcam_second_review_template": "outputs/milestones/scientific_domain_iwildcam_human_audit/second_review_blind_template.csv",
+    "iwildcam_second_review_status": "outputs/milestones/scientific_domain_iwildcam_human_audit/table_iwildcam_second_review_status.csv",
+    "runtime": "outputs/milestones/release_story/paper_diagnostics/table_runtime_compute_overhead_scientific_domains.csv",
+    "closeout": "outputs/milestones/release_story/paper_diagnostics/P0_SUPPLEMENTAL_CLOSEOUT.md"
+  },
+  "modern_prediction_sha256": "dc75be97f3bce3ce724680065abf11a19bdc6a3928fdd77ccb42d3f62a02e593"
+}
