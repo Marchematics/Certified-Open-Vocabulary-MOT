@@ -23,6 +23,7 @@ validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/reliability_fortress
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/release_story
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/scientific_domain_ctc_learned
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/scientific_domain_spacenet7_prospective
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/release_story/paper_diagnostics
 
 verify-manifest:
@@ -34,6 +35,7 @@ package-release:
 	tar -czf outputs/packages/release_story.tar.gz -C outputs/milestones release_story
 	tar -czf outputs/packages/generality_reliability.tar.gz -C outputs/milestones generality_reliability
 	tar -czf outputs/packages/scientific_domain_ctc_learned.tar.gz -C outputs/milestones scientific_domain_ctc_learned
+	tar -czf outputs/packages/scientific_domain_spacenet7_prospective.tar.gz -C outputs/milestones scientific_domain_spacenet7_prospective
 
 package-release-story:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m parc_track.cli phase13 release-story

@@ -50,6 +50,7 @@ def test_closeout_diagnostics_cover_release_and_refusal_cases() -> None:
 def test_closeout_tables_are_public_safe() -> None:
     roots = [
         ROOT / "outputs/milestones/scientific_domain_ctc_learned",
+        ROOT / "outputs/milestones/scientific_domain_spacenet7_prospective",
         ROOT / "outputs/milestones/release_story/paper_diagnostics",
     ]
     forbidden = [
@@ -67,3 +68,15 @@ def test_closeout_tables_are_public_safe() -> None:
             if path.is_file() and path.suffix.lower() in {".csv", ".json", ".md", ".txt"}:
                 text = path.read_text(encoding="utf-8")
                 assert not any(token in text for token in forbidden), path
+
+
+def test_spacenet7_prospective_trial_is_not_promoted_posthoc() -> None:
+    root = ROOT / "outputs/milestones/scientific_domain_spacenet7_prospective"
+    summary = pd.read_csv(root / "table_protocol_summary.csv")
+    proxy = pd.read_csv(root / "table_spacenet7_prospective_proxy_primary_results.csv")
+    closeout = (root / "SPACENET7_PROSPECTIVE_AUDIT_CLOSEOUT.md").read_text(encoding="utf-8")
+
+    assert summary["paper_status"].iloc[0] == "not_a_human_audited_flagship_until_human_fields_are_confirmed"
+    assert (proxy["paper_status"] == "proxy_planning_only_requires_human_confirmation").all()
+    assert proxy["non_empty_seeds"].max() < 18
+    assert "no-go as a second flagship positive result" in closeout

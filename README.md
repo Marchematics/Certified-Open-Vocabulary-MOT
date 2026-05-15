@@ -70,6 +70,7 @@ For full benchmark reproduction, see `REPRODUCIBILITY.md`.
 - Biomedical scientific-domain milestone: `outputs/milestones/scientific_domain_ctc/`
 - Learned-hybrid CTC milestone: `outputs/milestones/scientific_domain_ctc_learned/` (strict `alpha=0.10` release, leakage audit, reverse split, and random-score negative control)
 - Earth-observation scientific-domain milestone: `outputs/milestones/scientific_domain_spacenet7/`
+- Prospective SpaceNet 7 audit trial: `outputs/milestones/scientific_domain_spacenet7_prospective/`
 - Community benchmark: `outputs/benchmarks/parc_certification_benchmark/`
 - File integrity manifest: `MANIFEST_SHA256.txt`
 

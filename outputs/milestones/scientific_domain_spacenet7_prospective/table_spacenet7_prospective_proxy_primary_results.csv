@@ -1,0 +1,7 @@
+alpha,M,non_empty_seeds,mean_release,official_proxy_FTR,raw_topM_official_proxy_FTR,mean_mass_ratio,mean_max_observed_e,required_e,paper_status
+0.1,25,0,0.0,0.0,0.0,0.4200817486207792,6.8334812827126274,10.0,proxy_planning_only_requires_human_confirmation
+0.1,50,0,0.0,0.0,0.0,0.3779078118819394,6.8334812827126274,10.0,proxy_planning_only_requires_human_confirmation
+0.1,100,0,0.0,0.0,0.0025,0.36337395334555017,6.8334812827126274,10.0,proxy_planning_only_requires_human_confirmation
+0.2,25,8,9.55,0.0,0.0,0.8401634972415584,6.8334812827126274,5.0,proxy_planning_only_requires_human_confirmation
+0.2,50,6,15.0,0.0,0.0,0.7558156237638788,6.8334812827126274,5.0,proxy_planning_only_requires_human_confirmation
+0.2,100,6,30.0,0.0,0.0025,0.7267479066911003,6.8334812827126274,5.0,proxy_planning_only_requires_human_confirmation

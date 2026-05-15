@@ -1,0 +1,39 @@
+{
+  "status": "review_ready_requires_human_confirmation",
+  "protocol": "docs/spacenet7_prospective_audit_flagship_protocol.md",
+  "candidate_universe_sha256": "266ad5050424eb19b329b7a9988ce6a2164e776f0bdac33f14abfaa9953c6de3",
+  "learned_eval_candidate_universe_sha256": "8f4a7e481d2df4f6fc2b6db89da3c781ec84d6c41d1c757d143a1b01e76e2375",
+  "old_audit_candidate_exclusion_count": 850,
+  "train_aois": [
+    "L15-0331E-1257N_1327_3160_13",
+    "L15-0357E-1223N_1429_3296_13",
+    "L15-0358E-1220N_1433_3310_13",
+    "L15-0361E-1300N_1446_2989_13",
+    "L15-0368E-1245N_1474_3210_13",
+    "L15-0387E-1276N_1549_3087_13",
+    "L15-0434E-1218N_1736_3318_13",
+    "L15-0457E-1135N_1831_3648_13",
+    "L15-0487E-1246N_1950_3207_13",
+    "L15-0506E-1204N_2027_3374_13"
+  ],
+  "eval_aois": [
+    "L15-0544E-1228N_2176_3279_13",
+    "L15-0566E-1185N_2265_3451_13",
+    "L15-0571E-1075N_2287_3888_13",
+    "L15-0577E-1243N_2309_3217_13",
+    "L15-0586E-1127N_2345_3680_13",
+    "L15-0595E-1278N_2383_3079_13",
+    "L15-0614E-0946N_2459_4406_13",
+    "L15-0632E-0892N_2528_4620_13",
+    "L15-0683E-1006N_2732_4164_13",
+    "L15-0760E-0887N_3041_4643_13"
+  ],
+  "eval_rows": 5129604,
+  "calibration_audit_rows": 1500,
+  "release_audit_rows": 75,
+  "raw_topk_audit_rows": 250,
+  "release_audit_endpoint_alpha": 0.2,
+  "release_audit_endpoint_M": 25,
+  "release_audit_endpoint_status": "diagnostic_only_not_primary",
+  "paper_status": "not_a_human_audited_flagship_until_human_fields_are_confirmed"
+}
