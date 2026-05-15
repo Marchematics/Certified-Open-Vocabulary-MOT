@@ -1,0 +1,2 @@
+dataset,n_candidates,n_stable_DFT,stable_rate,n_composition_family_pair_blocks,n_chemical_system_blocks,n_wyckoff_family_blocks,stability_threshold_eV_per_atom
+WBM unique prototypes,215486,32942,0.15287304047594738,7372,74149,6678,0.0

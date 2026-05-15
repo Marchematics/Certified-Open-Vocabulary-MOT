@@ -1,0 +1,6 @@
+check_name,status,detail
+public_precomputed_predictions,passed,Only public WBM prediction CSVs are used; no model weights or raw structures are redistributed.
+target_label_not_used_for_ranking,passed,The stable_DFT label is used only for observed-positive masking and held-out actual-FTR evaluation.
+hull_reference_scope,declared,"Predicted energy above hull is computed from public predicted formation energy and the WBM hull reference, matching Matbench Discovery-style stability evaluation."
+primary_block_not_random,passed,The primary block is composition_family_pair; chemical_system and wyckoff_family are reported as sensitivity.
+random_score_control,passed_with_low_budget_diagnostic,"Random scores refuse at moderate/high K under the primary block, but low-K random ordering remains an unsafe diagnostic and is not promoted."

@@ -1,0 +1,60 @@
+{
+  "domain": "materials_discovery",
+  "dataset": "Matbench Discovery WBM unique prototypes",
+  "target": "DFT thermodynamic stability, e_above_hull <= 0 eV/atom",
+  "primary_source": "CGCNN ensemble public WBM IS2RE predictions",
+  "weak_source": "MEGNet public WBM IS2RE predictions",
+  "primary_score": "- predicted energy above hull, derived from public predicted formation energy and WBM hull reference",
+  "primary_block": "composition_family_pair",
+  "sensitivity_blocks": [
+    "chemical_system",
+    "wyckoff_family"
+  ],
+  "rhos": [
+    0.05,
+    0.1
+  ],
+  "alphas": [
+    0.05,
+    0.1,
+    0.2
+  ],
+  "budgets": [
+    50,
+    100,
+    300,
+    500,
+    1000,
+    5000
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "observed_positive_strategy": "top_score",
+  "paper_scope": "strict scientific-discovery candidate-release flagship if alpha=0.10,K>=100 passes the predeclared gate",
+  "wbm_summary_sha256": "ff19e59d74115de9762fbc868c9f35900ae099c18f23e9c89d10589af1418225",
+  "primary_predictions_sha256": "9fba78430e76e7443436d143d2af9ad1d7e54ef84e73443abe9058e41e4d7ebb",
+  "weak_predictions_sha256": "99d55d75f9f4f357253ba84ff685e8fe4fe75197a7b78ec177a2c8f1e0f1cfc1",
+  "wbm_summary_url": "https://raw.githubusercontent.com/janosh/matbench-discovery/main/data/wbm/2023-12-13-wbm-summary.csv.gz",
+  "primary_predictions_url": "https://raw.githubusercontent.com/janosh/matbench-discovery/main/models/cgcnn/2023-01-26-cgcnn-ens%3D10-wbm-IS2RE.csv.gz",
+  "weak_predictions_url": "https://raw.githubusercontent.com/janosh/matbench-discovery/main/models/megnet/2022-11-18-megnet-wbm-IS2RE.csv.gz"
+}

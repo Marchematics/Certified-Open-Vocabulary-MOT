@@ -52,6 +52,7 @@ def test_closeout_tables_are_public_safe() -> None:
         ROOT / "outputs/milestones/scientific_domain_ctc_learned",
         ROOT / "outputs/milestones/scientific_domain_spacenet7_prospective",
         ROOT / "outputs/milestones/scientific_domain_iwildcam_human_audit",
+        ROOT / "outputs/milestones/scientific_domain_materials",
         ROOT / "outputs/milestones/release_story/paper_diagnostics",
     ]
     forbidden = [
@@ -104,3 +105,37 @@ def test_iwildcam_human_audit_trial_has_operational_positive_closeout() -> None:
     assert float(release["human_FTR"].iloc[0]) == 0.0
     assert (control["non_empty_seeds"] == 0).all()
     assert "GO_operational_ecology_positive_not_strict_alpha010" in closeout
+
+
+def test_materials_discovery_has_strict_flagship_and_controls() -> None:
+    root = ROOT / "outputs/milestones/scientific_domain_materials"
+    universe = pd.read_csv(root / "table_materials_candidate_universe_summary.csv")
+    primary = pd.read_csv(root / "table_materials_primary_results.csv")
+    go = pd.read_csv(root / "table_materials_go_no_go.csv")
+    leakage = pd.read_csv(root / "table_materials_leakage_audit.csv")
+    random_control = pd.read_csv(root / "table_materials_random_score_control.csv")
+    block = pd.read_csv(root / "table_materials_block_sensitivity.csv")
+    closeout = (root / "MATERIALS_DISCOVERY_CLOSEOUT.md").read_text(encoding="utf-8")
+
+    assert int(universe["n_candidates"].iloc[0]) > 200_000
+    assert bool(go["strict_alpha010_K100_pass"].iloc[0])
+    flagship = primary[
+        (primary["proposal_source"] == "cgcnn_ensemble_learned_materials_model")
+        & (primary["block_definition"] == "composition_family_pair")
+        & (primary["rho"] == 0.10)
+        & (primary["alpha"] == 0.10)
+        & (primary["K"] == 100)
+    ].iloc[0]
+    assert int(flagship["non_empty_seeds"]) == 20
+    assert float(flagship["actual_FTR_mean"]) <= 0.10
+    assert "strict_alpha010_materials_flagship_pass" in set(primary["paper_status"])
+    assert "target_label_not_used_for_ranking" in set(leakage["check_name"])
+    assert (
+        random_control[
+            (random_control["alpha"] == 0.10)
+            & (random_control["K"].isin([300, 1000]))
+        ]["non_empty_seeds"]
+        == 0
+    ).all()
+    assert {"composition_family_pair", "chemical_system", "wyckoff_family"}.issubset(set(block["block_definition"]))
+    assert "GO_strict_alpha010_K100_materials_flagship" in closeout

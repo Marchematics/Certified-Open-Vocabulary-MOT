@@ -1,0 +1,9 @@
+{
+  "strict_alpha010_K100_pass": true,
+  "strict_alpha010_K300_pass": true,
+  "flagship_decision": "GO_strict_alpha010_K100_materials_flagship",
+  "primary_K100_actual_FTR_mean": 0.03,
+  "primary_K100_non_empty_seeds": 20,
+  "strong_K300_actual_FTR_mean": 0.09155623868979505,
+  "strong_K300_non_empty_seeds": 20
+}

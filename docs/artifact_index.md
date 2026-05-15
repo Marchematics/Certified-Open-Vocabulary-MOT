@@ -31,6 +31,9 @@ This repository uses neutral public artifact names. Older internal experiment la
 - `outputs/milestones/scientific_domain_iwildcam_human_audit/`
   Prospective iWildCam animal-present audit-trial package. This freezes a camera-trap ecology trial with location-by-time blocks, human-confirmed calibration/release audit sheets, proxy diagnostics, and a random-score control. The closeout supports an operational `alpha=0.20, K=50` ecology release with human FTR 0.0; strict `alpha=0.10` remains certified refusal.
 
+- `outputs/milestones/scientific_domain_materials/`
+  Materials-discovery candidate-release milestone on public Matbench Discovery / WBM tables. A CGCNN learned materials model proposes stable-crystal candidates, PARC observes only masked DFT-stable positives, and the milestone reports strict `alpha=0.10` release at `K=100` plus weak-model, random-score, high-volume, block-sensitivity, and leakage diagnostics.
+
 - `outputs/milestones/release_story/paper_diagnostics/`
   Paper-facing diagnostic tables for assumptions, seed variability/interval summaries, verification budgets, and prevented false releases.
 

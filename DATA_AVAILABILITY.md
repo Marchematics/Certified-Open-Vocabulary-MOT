@@ -10,10 +10,11 @@ This repository provides derived, public-safe PARC-Track artifacts: audit labels
 - `outputs/benchmarks/parc_certification_benchmark/tiny_fixture/`: synthetic tiny fixture for validating code paths.
 - `outputs/milestones/scientific_domain_ctc/`: public-safe CTC cell-link certification result tables, figures, and sanitized provenance.
 - `outputs/milestones/scientific_domain_spacenet7/`: public-safe SpaceNet 7 building-link certification result tables, figures, and sanitized provenance.
+- `outputs/milestones/scientific_domain_materials/`: public-safe Matbench Discovery / WBM materials-candidate release tables, source hashes, leakage checks, and controls.
 
 ## Excluded Data
 
-We do not redistribute raw OVT-B, TAO, BURST, LV-VIS/BURST frames, CTC microscopy images/annotations, SpaceNet imagery/GeoJSON labels, raw annotation JSON files, detector outputs containing raw frame crops, model weights, or caches. These assets must be obtained from the original dataset/model maintainers.
+We do not redistribute raw OVT-B, TAO, BURST, LV-VIS/BURST frames, CTC microscopy images/annotations, SpaceNet imagery/GeoJSON labels, raw WBM crystal structures, raw annotation JSON files, detector outputs containing raw frame crops, model weights, or caches. These assets must be obtained from the original dataset/model maintainers. The materials milestone uses public Matbench Discovery / WBM summary and prediction CSVs; the public package includes only derived result tables and SHA256 hashes.
 
 ## Reconstructing Full Experiments
 

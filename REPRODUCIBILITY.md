@@ -34,6 +34,7 @@ outputs/milestones/scientific_domain_ctc/
 outputs/milestones/scientific_domain_ctc_learned/
 outputs/milestones/scientific_domain_spacenet7/
 outputs/milestones/scientific_domain_spacenet7_prospective/
+outputs/milestones/scientific_domain_materials/
 outputs/milestones/generality_reliability/
 outputs/milestones/release_story/
 outputs/benchmarks/parc_certification_benchmark/
@@ -59,6 +60,18 @@ outputs/milestones/scientific_domain_ctc_learned/table_ctc_learned_leakage_audit
 outputs/milestones/scientific_domain_ctc_learned/table_ctc_learned_reverse_split.csv
 outputs/milestones/scientific_domain_ctc_learned/table_ctc_learned_negative_control.csv
 ```
+
+The materials-discovery milestone can be regenerated from the public WBM summary
+and public Matbench Discovery prediction CSVs once those files are available
+locally:
+
+```bash
+python scripts/run_materials_discovery_parc_flagship.py
+```
+
+The script writes only public-safe tables to
+`outputs/milestones/scientific_domain_materials/`; raw crystal structures and
+model weights are not needed.
 
 Regenerate the current paper-facing release/refusal tables:
 
