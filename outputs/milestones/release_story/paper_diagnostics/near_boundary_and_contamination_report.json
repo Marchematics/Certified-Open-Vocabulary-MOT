@@ -1,0 +1,16 @@
+{
+  "status": "completed",
+  "outputs": {
+    "near_boundary": "outputs/milestones/release_story/paper_diagnostics/table_near_boundary_release_value.csv",
+    "near_boundary_screening": "outputs/milestones/release_story/paper_diagnostics/table_near_boundary_domain_screening.csv",
+    "contamination": "outputs/milestones/release_story/paper_diagnostics/table_ctc_audit_contamination_sensitivity.csv",
+    "contamination_figure": "outputs/milestones/release_story/paper_diagnostics/figure_ctc_audit_contamination_sensitivity.csv",
+    "report": "outputs/milestones/release_story/paper_diagnostics/NEAR_BOUNDARY_AND_CONTAMINATION_CLOSEOUT.md"
+  },
+  "input_hashes": {
+    "wbm_summary_sha256": "ff19e59d74115de9762fbc868c9f35900ae099c18f23e9c89d10589af1418225",
+    "primary_predictions_sha256": "9fba78430e76e7443436d143d2af9ad1d7e54ef84e73443abe9058e41e4d7ebb",
+    "ctc_contamination_universe_sha256": "a744967dc2d9f41a4d8b883800a072d31ea8ca32b87eee965ab0123bd065a6ed"
+  },
+  "scope": "paper-facing derived diagnostics; raw datasets, raw images, structures, and model weights are not packaged"
+}

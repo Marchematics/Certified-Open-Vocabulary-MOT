@@ -7,6 +7,8 @@ This milestone reframes PARC-Track as auditable release-time certification for o
 1. Non-tracking positive evidence from LVIS/LVVIS detection and mask-path scaffolds.
 2. Release-policy value tables contrasting score/top-M style release with PARC release/refusal.
 3. A qualitative teaser manifest for official matches, real official-unmatched objects, uncertain cases, false tracklets, high-score refusal candidates, and certified releases.
+4. Near-boundary practice-benefit rows where a non-random learned materials source has raw top-K FTR in the 23.5%-32.6% range while PARC releases a smaller lower-FTR subset.
+5. CTC audit-contamination sensitivity showing how release rate, release size, actual FTR, violation rate, and mass ratio change when the one-sided verified-positive assumption is deliberately violated.
 
 ## Scope
 
@@ -40,7 +42,9 @@ This milestone reframes PARC-Track as auditable release-time certification for o
     "table_release_story_nontracking_positive.csv",
     "table_release_policy_value.csv",
     "figure_release_policy_decision_curve.csv",
-    "figure_release_story_teaser_manifest.csv"
+    "figure_release_story_teaser_manifest.csv",
+    "paper_diagnostics/table_near_boundary_release_value.csv",
+    "paper_diagnostics/table_ctc_audit_contamination_sensitivity.csv"
   ],
   "raw_data_included": false,
   "model_weights_included": false,

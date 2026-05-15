@@ -36,6 +36,8 @@ def test_closeout_diagnostics_cover_release_and_refusal_cases() -> None:
     panel = pd.read_csv(diagnostics / "table_assumption_diagnostic_panel.csv")
     seed_ci = pd.read_csv(diagnostics / "table_seed_variability_and_ci.csv")
     prevented = pd.read_csv(diagnostics / "table_prevented_false_releases.csv")
+    near_boundary = pd.read_csv(diagnostics / "table_near_boundary_release_value.csv")
+    contamination = pd.read_csv(diagnostics / "table_ctc_audit_contamination_sensitivity.csv")
 
     panel_text = " ".join(
         " ".join(map(str, row)) for row in panel.astype(object).to_numpy()
@@ -45,6 +47,17 @@ def test_closeout_diagnostics_cover_release_and_refusal_cases() -> None:
     assert "certified_refusal" in panel_text or "human_audit_certified_refusal" in panel_text
     assert {"actual_FTR_bootstrap95_low", "actual_FTR_bootstrap95_high"}.issubset(seed_ci.columns)
     assert (prevented["approx_raw_false_links_per_seed"].astype(float) > 0).all()
+    assert (near_boundary["near_boundary_status"] == "qualifies_nonrandom_near_boundary").all()
+    assert (near_boundary["raw_topK_FTR"].astype(float) >= 0.05).any()
+    assert (
+        near_boundary["PARC_FTR"].astype(float) < near_boundary["raw_topK_FTR"].astype(float)
+    ).all()
+    assert set(contamination["epsilon_false_verified_positive"].round(2)) == {0.0, 0.01, 0.03, 0.05, 0.10}
+    assert {"release_rate", "mean_release_size", "actual_FTR_mean", "violation_rate", "mass_ratio_mean"}.issubset(
+        contamination.columns
+    )
+    assert contamination.sort_values("epsilon_false_verified_positive")["actual_FTR_mean"].is_monotonic_increasing
+    assert contamination.sort_values("epsilon_false_verified_positive")["release_rate"].is_monotonic_increasing
 
 
 def test_closeout_tables_are_public_safe() -> None:
