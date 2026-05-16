@@ -1,8 +1,8 @@
 {
   "table": "table_candidate_new_domain_protocols.csv",
-  "repo_commit": "9c62d02d06abd61b9303b8522b5b7b5e7071084f",
+  "repo_commit": "f4e687243b8ded10191b323311639f57ec8d8fda",
   "command": "python -m parc_track.cli phase19 success-domain",
-  "runtime_sec": 0.131008,
+  "runtime_sec": 0.134553,
   "source_files": [],
   "output_sha256": "3b8923afaead87a0e1a8dcf4c7bab814b968393235658f368e83c6403122f876",
   "notes": "Future non-visual/non-material domains; protocol-only."

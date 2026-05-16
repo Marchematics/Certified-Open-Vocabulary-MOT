@@ -1,8 +1,8 @@
 {
   "table": "table_materials_stability_threshold_robustness.csv",
-  "repo_commit": "9c62d02d06abd61b9303b8522b5b7b5e7071084f",
+  "repo_commit": "f4e687243b8ded10191b323311639f57ec8d8fda",
   "command": "python -m parc_track.cli phase19 success-domain",
-  "runtime_sec": 0.116094,
+  "runtime_sec": 0.119293,
   "source_files": [
     {
       "path": "outputs/milestones/scientific_domain_materials/table_materials_stability_threshold_robustness.csv",

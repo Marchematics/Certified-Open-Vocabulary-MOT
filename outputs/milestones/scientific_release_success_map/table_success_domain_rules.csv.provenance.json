@@ -1,8 +1,8 @@
 {
   "table": "table_success_domain_rules.csv",
-  "repo_commit": "9c62d02d06abd61b9303b8522b5b7b5e7071084f",
+  "repo_commit": "f4e687243b8ded10191b323311639f57ec8d8fda",
   "command": "python -m parc_track.cli phase19 success-domain",
-  "runtime_sec": 1.796241,
+  "runtime_sec": 0.978802,
   "source_files": [],
   "output_sha256": "1d8534e663fda84d5b4290cde0379bca2aa8b10e2c0f8515e0f1831f7837541d",
   "notes": "Human-readable rules distilled from success-domain diagnostics."

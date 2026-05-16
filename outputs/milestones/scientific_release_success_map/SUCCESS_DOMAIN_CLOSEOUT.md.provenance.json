@@ -1,8 +1,8 @@
 {
   "table": "SUCCESS_DOMAIN_CLOSEOUT.md",
-  "repo_commit": "9c62d02d06abd61b9303b8522b5b7b5e7071084f",
+  "repo_commit": "f4e687243b8ded10191b323311639f57ec8d8fda",
   "command": "python -m parc_track.cli phase19 success-domain",
-  "runtime_sec": 1.951288,
+  "runtime_sec": 1.102578,
   "source_files": [
     {
       "path": "outputs/milestones/scientific_release_success_map/table_cross_domain_evidence_matrix.csv",
@@ -58,7 +58,7 @@
     },
     {
       "path": "outputs/milestones/scientific_domain_materials/materials_threshold_robustness_figure.pdf",
-      "sha256": "30390fac0d87e269603001ecd35025730e60ba51b013da838ccd06baeb5ac9b3"
+      "sha256": "7effa4c058e4e829bbede6cb353ee84e76772813ade0300e289de2e8951f20f1"
     },
     {
       "path": "outputs/milestones/scientific_domain_materials/materials_gamma_sensitivity_heatmap.csv",
@@ -66,7 +66,7 @@
     },
     {
       "path": "outputs/milestones/scientific_domain_materials/materials_gamma_sensitivity_heatmap.pdf",
-      "sha256": "83db156f19c208038b6a919acaca3d437035a0b89d0fcaa6332f27b25a107b90"
+      "sha256": "c9c38ec2af8bcd390c2ed0d8950667e7a9147b9f07aca950e7675943fdc1b186"
     },
     {
       "path": "outputs/milestones/scientific_domain_materials/materials_raw_vs_parc_ftr_panel.csv",
@@ -74,7 +74,7 @@
     },
     {
       "path": "outputs/milestones/scientific_domain_materials/materials_raw_vs_parc_ftr_panel.pdf",
-      "sha256": "607d8c461f46bf184ab714556373ae2641b410d0870c88d51d53710c8d11e484"
+      "sha256": "35471eb79fbbb2a5dd1c98db918c167444d1607929ad4c0b7f6fa7114b475fd7"
     },
     {
       "path": "outputs/milestones/scientific_release_success_map/table_refusal_diagnosis_ilp.csv",
@@ -86,7 +86,7 @@
     },
     {
       "path": "outputs/milestones/scientific_release_success_map/table_success_domain_predictor.csv",
-      "sha256": "85dde5e85708f19f805075e9a4a4ea6b7291537dff3efbfdb756f2619e83cbfb"
+      "sha256": "79d82ac96f77b42ff7a9d130cbd7238c821e6a448d2ad0f5bce2af69e48021f0"
     },
     {
       "path": "outputs/milestones/scientific_release_success_map/table_success_domain_rules.csv",
@@ -98,7 +98,7 @@
     },
     {
       "path": "outputs/milestones/scientific_release_success_map/figure_success_domain_map.pdf",
-      "sha256": "b6cccdab85c59d94999878cd404df7f5993f35fb7eee862acc8116b7d7fbbe09"
+      "sha256": "562750402f93a87a0fdf356bc6062b5f5d07cbedce91963b16231f586a1426bf"
     },
     {
       "path": "outputs/milestones/scientific_release_success_map/table_validity_assumptions_by_domain.csv",

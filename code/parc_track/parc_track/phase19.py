@@ -1119,28 +1119,39 @@ def _success_predictor_outputs(features: pd.DataFrame, started: float, out_dir: 
 
     predictor_rows: list[dict[str, Any]] = []
     if target.nunique() >= 2 and len(data) >= 4:
-        from sklearn.linear_model import LogisticRegression
-        from sklearn.tree import DecisionTreeClassifier
-
-        x = data[feature_cols].to_numpy(dtype=float)
-        clf = LogisticRegression(max_iter=1000, class_weight="balanced").fit(x, target)
-        for name, coef in zip(feature_cols, clf.coef_[0]):
+        success = data[target.eq(1)]
+        failure = data[target.eq(0)]
+        for name in feature_cols:
+            scale = float(data[name].std(ddof=0)) if len(data[name]) > 1 else 0.0
+            if not math.isfinite(scale) or scale == 0.0:
+                coef = 0.0
+            else:
+                coef = float((success[name].mean() - failure[name].mean()) / scale)
             predictor_rows.append(
                 {
-                    "model": "logistic_regression_balanced",
+                    "model": "standardized_mean_difference",
                     "term": name,
                     "coefficient": float(coef),
-                    "intercept": float(clf.intercept_[0]),
+                    "intercept": "",
                     "diagnostic_status": "completed_descriptive_model",
                 }
             )
-        tree = DecisionTreeClassifier(max_depth=2, min_samples_leaf=2, random_state=0).fit(x, target)
-        for name, importance in zip(feature_cols, tree.feature_importances_):
+
+        rule_scores = {
+            "phi_ge_1_and_max_ratio_ge_1": (
+                (data["phi"] >= 1.0) & (data["max_ratio"] >= 1.0)
+            ).astype(int),
+            "phi_ge_1": (data["phi"] >= 1.0).astype(int),
+            "max_ratio_ge_1": (data["max_ratio"] >= 1.0).astype(int),
+            "coverage_positive": (data["coverage_numeric"] > 0.0).astype(int),
+        }
+        for name, pred in rule_scores.items():
+            accuracy = float((pred.to_numpy() == target.to_numpy()).mean())
             predictor_rows.append(
                 {
-                    "model": "shallow_decision_tree",
+                    "model": "interpretable_rule_accuracy",
                     "term": name,
-                    "coefficient": float(importance),
+                    "coefficient": accuracy,
                     "intercept": "",
                     "diagnostic_status": "completed_descriptive_model",
                 }
@@ -1149,15 +1160,24 @@ def _success_predictor_outputs(features: pd.DataFrame, started: float, out_dir: 
         for domain in sorted(data["domain"].dropna().unique()):
             train = data["domain"].ne(domain)
             test = data["domain"].eq(domain)
-            if train.sum() < 4 or test.sum() == 0 or target[train].nunique() < 2:
+            if train.sum() < 2 or test.sum() == 0:
                 acc: float | str = "not_evaluable"
             else:
-                loo = LogisticRegression(max_iter=1000, class_weight="balanced").fit(data.loc[train, feature_cols], target[train])
-                pred = loo.predict(data.loc[test, feature_cols])
-                acc = float((pred == target[test].to_numpy()).mean())
+                train_success_rate = float(target[train].mean())
+                if target[train].nunique() < 2:
+                    pred = pd.Series(int(train_success_rate >= 0.5), index=data.loc[test].index)
+                else:
+                    phi_cut = float(data.loc[train & target.eq(1), "phi"].median())
+                    ratio_cut = float(data.loc[train & target.eq(1), "max_ratio"].median())
+                    if not math.isfinite(phi_cut):
+                        phi_cut = 1.0
+                    if not math.isfinite(ratio_cut):
+                        ratio_cut = 1.0
+                    pred = ((data.loc[test, "phi"] >= min(phi_cut, 1.0)) & (data.loc[test, "max_ratio"] >= min(ratio_cut, 1.0))).astype(int)
+                acc = float((pred.to_numpy() == target[test].to_numpy()).mean())
             predictor_rows.append(
                 {
-                    "model": "leave_domain_out_logistic",
+                    "model": "leave_domain_out_rule",
                     "term": domain,
                     "coefficient": acc,
                     "intercept": "",

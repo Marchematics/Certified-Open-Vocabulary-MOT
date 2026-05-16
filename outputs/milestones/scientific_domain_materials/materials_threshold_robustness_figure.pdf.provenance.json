@@ -1,14 +1,14 @@
 {
   "table": "materials_threshold_robustness_figure.pdf",
-  "repo_commit": "9c62d02d06abd61b9303b8522b5b7b5e7071084f",
+  "repo_commit": "f4e687243b8ded10191b323311639f57ec8d8fda",
   "command": "python -m parc_track.cli phase19 success-domain",
-  "runtime_sec": 0.584684,
+  "runtime_sec": 0.620554,
   "source_files": [
     {
       "path": "outputs/milestones/scientific_domain_materials/table_materials_stability_threshold_robustness.csv",
       "sha256": "f163684415034989baa8054f221f85089dcae39766de1c056a7be900cfe8b56c"
     }
   ],
-  "output_sha256": "30390fac0d87e269603001ecd35025730e60ba51b013da838ccd06baeb5ac9b3",
+  "output_sha256": "7effa4c058e4e829bbede6cb353ee84e76772813ade0300e289de2e8951f20f1",
   "notes": "Paper-ready PDF for materials threshold robustness."
 }
