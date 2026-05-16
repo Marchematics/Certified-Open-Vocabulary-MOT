@@ -1,0 +1,19 @@
+{
+  "candidate_nodes_sha256": "47d6aebd9aa58ea6202a3d8057fb31d1080c33c14d6f3ccd83f32a4c8fd3bd14",
+  "candidate_universe_sha256": "6f0b4cd93ae92529b28734118f02c9a0b333805445555fa21aa26c3c805ae843",
+  "note": "Screening labels are prefill suggestions only; final paper-facing human labels require independent human confirmation.",
+  "outputs": {
+    "blind_template": "ctc_strict_audit_blind_template.csv",
+    "prefill_for_human_review": "ctc_strict_audit_prefill_for_human_review.csv",
+    "private_key": "ctc_strict_audit_private_key.csv",
+    "summary": "table_ctc_strict_audit_prefill_summary.csv"
+  },
+  "rows_calibration": 1500,
+  "rows_raw_topK_reference": 300,
+  "rows_simulated_release": 1064,
+  "rows_total": 2564,
+  "screening_label_counts": {
+    "not_same_cell_link": 45,
+    "same_cell_link": 2519
+  }
+}
