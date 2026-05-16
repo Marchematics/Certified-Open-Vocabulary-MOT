@@ -3,6 +3,8 @@
 Each paper-facing claim is linked to a public artifact, a local verification
 command when available, and the intended limitation language.
 
+## Main Claim Map
+
 | Claim | Evidence path | Reproduction / check | Limitation |
 |---|---|---|---|
 | PARC releases strict `alpha=0.10` CTC learned-hybrid cell links. | `outputs/milestones/scientific_domain_ctc_learned/table_ctc_learned_strict_alpha010_smallK.csv` | `PYTHONPATH=code/parc_track python -m parc_track.cli phase19 success-domain` | Candidate instances are CTC link candidates; this is release certification, not an end-to-end cell tracker claim. |
@@ -15,6 +17,23 @@ command when available, and the intended limitation language.
 | PARC refuses unsafe high-volume or low-evidence requests. | `outputs/milestones/scientific_release_success_map/table_cross_domain_evidence_matrix.csv` | `PYTHONPATH=code/parc_track python -m parc_track.cli phase19 success-domain` | Refusal is a valid certified outcome; it is not a utility guarantee. |
 | Audit2000 and second-review evidence support the visual-audit benchmark. | `outputs/milestones/reliability_fortress/audit_review/` | `sha256sum -c outputs/milestones/reliability_fortress/MANIFEST_SHA256.txt` | The benchmark is public-safe and does not include raw videos or montage imagery. |
 | Community can run the schema-to-certification path without external datasets. | `outputs/benchmarks/parc_certification_benchmark/tiny_fixture/` | `PYTHONPATH=code/parc_track python -m parc_track.cli phase9 certification-api --output-dir outputs/tmp_cert_api` | Tiny fixture verifies code paths, not paper-scale statistical power. |
+
+## Reviewer Route
+
+Use this route when checking the repository from a clean clone:
+
+1. Run `pytest -q tests`.
+2. Verify the root manifest with `sha256sum -c MANIFEST_SHA256.txt`.
+3. Validate the key public bundles with `scripts/validate_public_bundle.py`.
+4. Inspect the claim-specific evidence paths in the table above.
+5. Check limitation language before treating a diagnostic row as a main claim.
+
+## Claim Status Vocabulary
+
+- **Strict:** predeclared risk target, typically `alpha=0.10`, with non-empty releases and realized FTR below the target.
+- **Operational:** useful release/refusal demonstration at a less stringent or deployment-oriented operating point.
+- **Diagnostic:** informative support or failure analysis that should not be promoted to a flagship claim.
+- **Refusal:** certified no-release outcome under the requested protocol.
 
 For the consolidated evidence matrix, use:
 
