@@ -12,6 +12,8 @@ sha256sum -c MANIFEST_SHA256.txt
 
 This verifies tracked public files against the root SHA256 manifest.
 
+The root manifest intentionally excludes `MANIFEST_SHA256.txt` itself to avoid a self-referential checksum.
+
 ## Milestone manifests
 
 Many frozen artifact directories include their own `MANIFEST_SHA256.txt`. Verify them from the repository root, for example:
