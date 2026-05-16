@@ -8,7 +8,7 @@
 ![Risk](https://img.shields.io/badge/risk-control-FTR%20certification-green)
 ![Benchmark](https://img.shields.io/badge/benchmark-PARC%20certification-blue)
 ![Audit](https://img.shields.io/badge/audit-human--confirmed-green)
-![Paper](https://img.shields.io/badge/paper-NMI%20target-orange)
+
 
 PARC is a post-prediction certification layer for scientific and open-world AI systems operating under partial verification. Given a frozen candidate universe from an external detector, tracker, or linker, PARC calibrates against a null superset and either releases a self-consistent certified subset or refuses unsafe release requests with explicit diagnostics.
 
