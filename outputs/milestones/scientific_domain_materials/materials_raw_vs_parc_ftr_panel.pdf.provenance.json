@@ -1,14 +1,14 @@
 {
-  "table": "table_near_boundary_practical_value.csv",
+  "table": "materials_raw_vs_parc_ftr_panel.pdf",
   "repo_commit": "9c62d02d06abd61b9303b8522b5b7b5e7071084f",
   "command": "python -m parc_track.cli phase19 success-domain",
-  "runtime_sec": 0.147852,
+  "runtime_sec": 0.876426,
   "source_files": [
     {
       "path": "outputs/milestones/release_story/paper_diagnostics/table_near_boundary_release_value.csv",
       "sha256": "be51a5d488c7953d5d26b8d6457521828509ceb24e806f27a13755e9eaaae489"
     }
   ],
-  "output_sha256": "340f207b408ddc123f80026c52bdb39172b7addf4d3de841ba27c1a541eafc9b",
-  "notes": "Near-boundary release value table with raw vs PARC FTR and baseline frontiers."
+  "output_sha256": "607d8c461f46bf184ab714556373ae2641b410d0870c88d51d53710c8d11e484",
+  "notes": "Paper-ready PDF for materials raw-vs-PARC FTR panel."
 }

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import os
 import subprocess
 import time
@@ -117,6 +118,20 @@ def _write_provenance(path: Path, sources: list[Path], started: float, notes: st
 def _write_csv(frame: pd.DataFrame, path: Path, sources: list[Path], started: float, notes: str = "") -> Path:
     out = ensure_data_output(path)
     frame.to_csv(out, index=False)
+    _write_provenance(out, sources, started, notes)
+    return out
+
+
+def _save_pdf(path: Path, sources: list[Path], started: float, draw: Any, notes: str = "") -> Path:
+    import matplotlib
+
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    out = ensure_data_output(path)
+    fig = draw(plt)
+    fig.savefig(out, bbox_inches="tight")
+    plt.close(fig)
     _write_provenance(out, sources, started, notes)
     return out
 
@@ -766,6 +781,566 @@ def _protocol_gap_tables() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     return strict_audit, materials_threshold, new_domain
 
 
+def _materials_paper_ready_outputs(started: float) -> list[Path]:
+    threshold = _read_csv(MATERIALS_THRESHOLD_PATH)
+    gamma = _read_csv(MATERIALS_GAMMA_PATH)
+    near = _read_csv(RELEASE_DIAG_DIR / "table_near_boundary_release_value.csv")
+    generated: list[Path] = []
+    sources = [MATERIALS_THRESHOLD_PATH, MATERIALS_GAMMA_PATH, RELEASE_DIAG_DIR / "table_near_boundary_release_value.csv"]
+
+    if not threshold.empty:
+        fig_rows = threshold.copy()
+        fig_rows["boundary_case_annotation"] = ""
+        mask = (
+            fig_rows["variant"].astype(str).eq("margin_excluded_25meV")
+            & fig_rows["proposal_source"].astype(str).str.contains("alignn", case=False, na=False)
+            & pd.to_numeric(fig_rows["K"], errors="coerce").eq(100)
+        )
+        fig_rows.loc[
+            mask,
+            "boundary_case_annotation",
+        ] = "ALIGNN margin-excluded 25meV K=100 reaches FTR≈0.111; report as boundary sensitivity, not strict pass."
+        fig_rows["figure_role"] = "materials_threshold_robustness"
+        threshold_fig = _write_csv(
+            fig_rows,
+            MATERIALS_DIR / "materials_threshold_robustness_figure.csv",
+            [MATERIALS_THRESHOLD_PATH],
+            started,
+            "Paper-ready source for materials threshold robustness figure, including boundary-case annotation.",
+        )
+        generated.append(threshold_fig)
+
+        def draw_threshold(plt: Any) -> Any:
+            data = fig_rows[
+                (pd.to_numeric(fig_rows["alpha"], errors="coerce").round(10) == 0.1)
+                & (pd.to_numeric(fig_rows["rho"], errors="coerce").round(10) == 0.1)
+                & (pd.to_numeric(fig_rows["K"], errors="coerce").isin([100, 300, 500]))
+            ].copy()
+            data["label"] = data["proposal_source"].astype(str).str.replace("_learned_materials_model", "", regex=False)
+            variants = list(data["variant"].drop_duplicates())
+            fig, axes = plt.subplots(1, max(1, len(variants)), figsize=(4.2 * max(1, len(variants)), 3.2), sharey=True)
+            if len(variants) == 1:
+                axes = [axes]
+            for ax, variant in zip(axes, variants):
+                sub = data[data["variant"].eq(variant)]
+                for source, group in sub.groupby("label"):
+                    group = group.sort_values("K")
+                    ax.plot(group["K"], group["actual_FTR_mean"], marker="o", label=source)
+                    ax.plot(group["K"], group["raw_topK_actual_FTR_mean"], linestyle="--", alpha=0.55)
+                ax.axhline(0.10, color="black", linewidth=0.9, linestyle=":", label="alpha=0.10")
+                ax.set_title(str(variant).replace("_", " "))
+                ax.set_xlabel("K")
+                ax.grid(True, alpha=0.25)
+            axes[0].set_ylabel("FTR")
+            handles, labels = axes[0].get_legend_handles_labels()
+            fig.legend(handles[:4], labels[:4], loc="upper center", ncol=2, frameon=False)
+            fig.suptitle("Materials threshold robustness")
+            return fig
+
+        generated.append(
+            _save_pdf(
+                MATERIALS_DIR / "materials_threshold_robustness_figure.pdf",
+                [MATERIALS_THRESHOLD_PATH],
+                started,
+                draw_threshold,
+                "Paper-ready PDF for materials threshold robustness.",
+            )
+        )
+
+    if not gamma.empty:
+        heat = gamma.copy()
+        heat["figure_role"] = "materials_gamma_sensitivity_heatmap"
+        heat["release_feasible"] = pd.to_numeric(heat["non_empty_seeds"], errors="coerce").fillna(0) > 0
+        gamma_fig = _write_csv(
+            heat,
+            MATERIALS_DIR / "materials_gamma_sensitivity_heatmap.csv",
+            [MATERIALS_GAMMA_PATH],
+            started,
+            "Paper-ready source for materials fixed-gamma sensitivity heatmap.",
+        )
+        generated.append(gamma_fig)
+
+        def draw_gamma(plt: Any) -> Any:
+            data = heat[
+                (pd.to_numeric(heat["alpha"], errors="coerce").round(10) == 0.1)
+                & (pd.to_numeric(heat["rho"], errors="coerce").round(10) == 0.1)
+            ].copy()
+            sources_in = list(data["proposal_source"].drop_duplicates())
+            fig, axes = plt.subplots(1, max(1, len(sources_in)), figsize=(4.3 * max(1, len(sources_in)), 3.6), sharey=True)
+            if len(sources_in) == 1:
+                axes = [axes]
+            for ax, source in zip(axes, sources_in):
+                sub = data[data["proposal_source"].eq(source)]
+                pivot = sub.pivot_table(index="K", columns="gamma", values="actual_FTR_mean", aggfunc="mean").sort_index()
+                im = ax.imshow(pivot.values, aspect="auto", cmap="viridis", vmin=0, vmax=max(0.2, float(pivot.max().max())))
+                ax.set_xticks(range(len(pivot.columns)))
+                ax.set_xticklabels([f"{c:.2g}" for c in pivot.columns], rotation=45, ha="right")
+                ax.set_yticks(range(len(pivot.index)))
+                ax.set_yticklabels([str(int(v)) for v in pivot.index])
+                ax.set_xlabel("gamma")
+                ax.set_title(str(source).split("_")[0])
+            axes[0].set_ylabel("K")
+            cbar = fig.colorbar(im, ax=axes, shrink=0.82)
+            cbar.set_label("Actual FTR")
+            fig.suptitle("Materials gamma sensitivity")
+            return fig
+
+        generated.append(
+            _save_pdf(
+                MATERIALS_DIR / "materials_gamma_sensitivity_heatmap.pdf",
+                [MATERIALS_GAMMA_PATH],
+                started,
+                draw_gamma,
+                "Paper-ready PDF heatmap for materials fixed-gamma sensitivity.",
+            )
+        )
+
+    if not near.empty:
+        panel = near.copy()
+        panel["raw_minus_parc_FTR"] = pd.to_numeric(panel["raw_topK_FTR"], errors="coerce") - pd.to_numeric(
+            panel["PARC_FTR"], errors="coerce"
+        )
+        panel["figure_role"] = "materials_raw_vs_parc_ftr_panel"
+        raw_panel = _write_csv(
+            panel,
+            MATERIALS_DIR / "materials_raw_vs_parc_ftr_panel.csv",
+            [RELEASE_DIAG_DIR / "table_near_boundary_release_value.csv"],
+            started,
+            "Paper-ready raw-vs-PARC FTR panel source for materials near-boundary rows.",
+        )
+        generated.append(raw_panel)
+
+        def draw_raw_vs_parc(plt: Any) -> Any:
+            data = panel.copy()
+            labels = [f"K={int(k)}\nα={a:g}" for k, a in zip(data["K"], data["alpha"])]
+            x = range(len(data))
+            fig, ax = plt.subplots(figsize=(6.0, 3.4))
+            width = 0.35
+            ax.bar([i - width / 2 for i in x], data["raw_topK_FTR"], width=width, label="Raw top-K")
+            ax.bar([i + width / 2 for i in x], data["PARC_FTR"], width=width, label="PARC")
+            ax.set_xticks(list(x))
+            ax.set_xticklabels(labels)
+            ax.set_ylabel("FTR")
+            ax.set_title("Materials raw top-K vs PARC")
+            ax.grid(axis="y", alpha=0.25)
+            ax.legend(frameon=False)
+            return fig
+
+        generated.append(
+            _save_pdf(
+                MATERIALS_DIR / "materials_raw_vs_parc_ftr_panel.pdf",
+                [RELEASE_DIAG_DIR / "table_near_boundary_release_value.csv"],
+                started,
+                draw_raw_vs_parc,
+                "Paper-ready PDF for materials raw-vs-PARC FTR panel.",
+            )
+        )
+
+    if generated:
+        _update_materials_closeout(generated, started)
+        _write_materials_manifest()
+    return generated
+
+
+def _update_materials_closeout(generated: list[Path], started: float) -> None:
+    closeout = MATERIALS_DIR / "MATERIALS_DISCOVERY_CLOSEOUT.md"
+    if not closeout.exists():
+        return
+    marker = "## Paper-ready robustness figures"
+    text = closeout.read_text(encoding="utf-8")
+    section = (
+        f"\n\n{marker}\n\n"
+        "Completed figure-source and PDF artifacts were added for the paper-facing materials analysis:\n\n"
+        "- `materials_threshold_robustness_figure.csv/pdf`: threshold and boundary-label robustness.\n"
+        "- `materials_gamma_sensitivity_heatmap.csv/pdf`: fixed-gamma sensitivity over K and gamma.\n"
+        "- `materials_raw_vs_parc_ftr_panel.csv/pdf`: raw top-K versus PARC FTR in near-boundary rows.\n"
+        "- Boundary note: ALIGNN `margin_excluded_25meV`, K=100 has FTR≈0.111 and is reported as boundary sensitivity rather than a strict pass.\n\n"
+        "These are completed diagnostics derived from existing robustness CSVs; no new labels or protocol-only claims are introduced.\n"
+    )
+    if marker in text:
+        text = text.split(f"\n\n{marker}", 1)[0] + section
+    else:
+        text = text.rstrip() + section
+    ensure_data_output(closeout).write_text(text, encoding="utf-8")
+    _write_provenance(closeout, generated, started, "materials closeout updated with paper-ready robustness figure list")
+
+
+def _write_materials_manifest() -> None:
+    manifest = ensure_data_output(MATERIALS_DIR / "MANIFEST_SHA256.txt")
+    files = sorted(path for path in MATERIALS_DIR.iterdir() if path.is_file() and path.name != "MANIFEST_SHA256.txt")
+    with manifest.open("w", encoding="utf-8") as handle:
+        for path in files:
+            handle.write(f"{_sha256(path)}  {path.name}\n")
+
+
+def _failure_mode(max_e: float, required: float, phi: float, greedy_release: float) -> str:
+    if max_e < required:
+        return "finite_resolution_cap"
+    if phi < 1.0:
+        return "pre_graph_mass_failure"
+    if greedy_release <= 0:
+        return "selector_or_graph_power_limitation_requires_candidate_graph"
+    return "release_not_refusal"
+
+
+def _refusal_diagnosis_table(evidence: pd.DataFrame, started: float, out_dir: Path) -> tuple[pd.DataFrame, list[Path]]:
+    rows: list[dict[str, Any]] = []
+
+    def add(row_id: str, row: pd.Series | dict[str, Any], source_path: Path, conflict_density: float | str = "") -> None:
+        get = row.get if hasattr(row, "get") else dict(row).get
+        max_e = _num(get("max_observed_e", get("max_observed_e_mean", get("mean_max_observed_e", get("max_observed_e")))))
+        required = _num(get("required_e"))
+        phi = _num(get("evidence_mass_phi", get("best_mass_ratio_mean", get("mean_best_mass_ratio", get("best_mass_ratio")))))
+        greedy_release = _num(get("PARC_release_size", get("mean_release", get("released_mean", 0.0))))
+        mode = _failure_mode(max_e, required, phi, greedy_release)
+        pre_graph_infeasible = max_e < required or phi < 1.0
+        if pre_graph_infeasible:
+            ilp_feasible: bool | str = False
+            ilp_note = "ILP cannot rescue a row that is infeasible before graph compatibility."
+        else:
+            ilp_feasible = "not_evaluated_no_candidate_graph"
+            ilp_note = "Aggregate tables show pre-graph feasibility; candidate conflict graph is required for a true ILP oracle."
+        rows.append(
+            {
+                "row_id": row_id,
+                "domain": get("domain", ""),
+                "dataset": get("dataset", ""),
+                "proposal_source": get("proposal_source", ""),
+                "alpha": _num(get("alpha")),
+                "K": int(_num(get("K", get("M", 0)))),
+                "release_status": get("release_status", get("result_status", get("paper_status", ""))),
+                "max_e": max_e,
+                "required_e": required,
+                "evidence_mass_phi": phi,
+                "conflict_density": conflict_density,
+                "greedy_result": "empty" if greedy_release <= 0 else "non_empty",
+                "greedy_release_size": greedy_release,
+                "ilp_feasible": ilp_feasible,
+                "failure_mode": mode,
+                "diagnostic_status": "completed_aggregate_oracle",
+                "source_table": _rel(source_path),
+                "interpretation": ilp_note,
+            }
+        )
+
+    ctc_neg = _read_csv(CTC_LEARNED_DIR / "table_ctc_learned_negative_control.csv")
+    row = _pick(ctc_neg, alpha=0.1, M=100)
+    if row is not None:
+        row = row.copy()
+        row["domain"] = "biomedical_cell_tracking"
+        row["dataset"] = "Cell Tracking Challenge"
+        add("ctc_random_score_alpha010_K100", row, CTC_LEARNED_DIR / "table_ctc_learned_negative_control.csv")
+
+    mat_high = _read_csv(MATERIALS_DIR / "table_materials_high_volume_refusal.csv")
+    row = _pick(mat_high, rho=0.1, alpha=0.1, K=5000)
+    if row is not None:
+        row = row.copy()
+        row["domain"] = "materials_discovery"
+        row["dataset"] = "Matbench Discovery WBM"
+        add("materials_K5000_alpha010", row, MATERIALS_DIR / "table_materials_high_volume_refusal.csv")
+
+    iwild = _read_csv(IWILDCAM_DIR / "table_iwildcam_human_audit_primary_results.csv")
+    row = _pick(iwild, alpha=0.1, K=50)
+    if row is not None:
+        row = row.copy()
+        row["domain"] = "ecological_camera_traps"
+        row["dataset"] = "iWildCam camera-trap subset"
+        row["proposal_source"] = row.get("source_name", "animal_present_detector")
+        add("iwildcam_strict_alpha010_K50", row, IWILDCAM_DIR / "table_iwildcam_human_audit_primary_results.csv")
+
+    spacenet = _read_csv(SPACENET_REAL_DIR / "table_spacenet7_real_audit_primary_refusal_diagnostics.csv")
+    if not spacenet.empty:
+        row = spacenet.iloc[0].copy()
+        row["domain"] = "earth_observation"
+        row["dataset"] = "SpaceNet 7"
+        row["proposal_source"] = "geometry_building_linker"
+        row["PARC_release_size"] = 0
+        add("spacenet7_real_audit_K100", row, SPACENET_REAL_DIR / "table_spacenet7_real_audit_primary_refusal_diagnostics.csv")
+
+    # Include any refusal rows already present in the cross-domain evidence matrix.
+    if not evidence.empty:
+        refusal_like = evidence[
+            evidence["release_status"].astype(str).str.contains("refusal", case=False, na=False)
+            & (pd.to_numeric(evidence["PARC_release_size"], errors="coerce").fillna(0) <= 0)
+        ]
+        for _, row in refusal_like.iterrows():
+            row_id = f"evidence_{row.get('domain')}_{row.get('K')}_{row.get('alpha')}".replace(" ", "_")
+            if row_id not in {r["row_id"] for r in rows}:
+                add(row_id, row, out_dir / "table_cross_domain_evidence_matrix.csv")
+
+    table = pd.DataFrame(rows)
+    if not table.empty:
+        table = table.drop_duplicates(
+            subset=["domain", "dataset", "proposal_source", "alpha", "K", "greedy_result", "failure_mode"],
+            keep="first",
+        ).reset_index(drop=True)
+    path = _write_csv(
+        table,
+        out_dir / "table_refusal_diagnosis_ilp.csv",
+        [
+            CTC_LEARNED_DIR / "table_ctc_learned_negative_control.csv",
+            MATERIALS_DIR / "table_materials_high_volume_refusal.csv",
+            IWILDCAM_DIR / "table_iwildcam_human_audit_primary_results.csv",
+            SPACENET_REAL_DIR / "table_spacenet7_real_audit_primary_refusal_diagnostics.csv",
+        ],
+        started,
+        "Aggregate SCS-Greedy refusal diagnosis. ILP feasibility is ruled out only for pre-graph infeasible rows; no candidate graph is fabricated.",
+    )
+    closeout = ensure_data_output(out_dir / "REFUSAL_DIAGNOSIS_ILP_CLOSEOUT.md")
+    n_mass = int(table["failure_mode"].astype(str).str.contains("mass|finite", case=False, regex=True).sum()) if not table.empty else 0
+    closeout.write_text(
+        "# Refusal Diagnosis and ILP Feasibility Closeout\n\n"
+        "This diagnostic covers completed refusal rows only. It does not fabricate candidate compatibility graphs. "
+        "Rows with `max_e < required_e` or `evidence_mass_phi < 1` are infeasible before graph compatibility, so a graph-level ILP cannot rescue them. "
+        "Rows that are pre-graph feasible but greedy-empty are marked as requiring a candidate graph for a true ILP oracle.\n\n"
+        f"- Diagnosed rows: {len(table)}\n"
+        f"- Pre-graph finite-resolution or mass failures: {n_mass}\n"
+        "- Selector-power limitation is reserved for rows where aggregate evidence is sufficient but SCS-Greedy is empty.\n",
+        encoding="utf-8",
+    )
+    _write_provenance(closeout, [path], started, "closeout for aggregate refusal and ILP feasibility diagnostics")
+    return table, [path, closeout]
+
+
+def _success_predictor_outputs(features: pd.DataFrame, started: float, out_dir: Path) -> list[Path]:
+    generated: list[Path] = []
+    if features.empty:
+        return generated
+    data = features.copy()
+    data["phi"] = pd.to_numeric(data["evidence_mass_phi"], errors="coerce").fillna(0.0)
+    data["coverage_numeric"] = pd.to_numeric(data["coverage"], errors="coerce")
+    data["coverage_numeric"] = data["coverage_numeric"].fillna(data["coverage_numeric"].median() if data["coverage_numeric"].notna().any() else 0.0)
+    data["raw_risk"] = pd.to_numeric(data["raw_topK_FTR"], errors="coerce").fillna(0.0)
+    data["max_ratio"] = pd.to_numeric(data["max_observed_e"], errors="coerce") / pd.to_numeric(data["required_e"], errors="coerce")
+    data["max_ratio"] = data["max_ratio"].replace([math.inf, -math.inf], float("nan")).fillna(0.0)
+    data["conflict_density"] = 0.0
+    target = data["release_success_binary"].astype(bool).astype(int)
+    feature_cols = ["phi", "coverage_numeric", "raw_risk", "max_ratio", "conflict_density"]
+
+    predictor_rows: list[dict[str, Any]] = []
+    if target.nunique() >= 2 and len(data) >= 4:
+        from sklearn.linear_model import LogisticRegression
+        from sklearn.tree import DecisionTreeClassifier
+
+        x = data[feature_cols].to_numpy(dtype=float)
+        clf = LogisticRegression(max_iter=1000, class_weight="balanced").fit(x, target)
+        for name, coef in zip(feature_cols, clf.coef_[0]):
+            predictor_rows.append(
+                {
+                    "model": "logistic_regression_balanced",
+                    "term": name,
+                    "coefficient": float(coef),
+                    "intercept": float(clf.intercept_[0]),
+                    "diagnostic_status": "completed_descriptive_model",
+                }
+            )
+        tree = DecisionTreeClassifier(max_depth=2, min_samples_leaf=2, random_state=0).fit(x, target)
+        for name, importance in zip(feature_cols, tree.feature_importances_):
+            predictor_rows.append(
+                {
+                    "model": "shallow_decision_tree",
+                    "term": name,
+                    "coefficient": float(importance),
+                    "intercept": "",
+                    "diagnostic_status": "completed_descriptive_model",
+                }
+            )
+
+        for domain in sorted(data["domain"].dropna().unique()):
+            train = data["domain"].ne(domain)
+            test = data["domain"].eq(domain)
+            if train.sum() < 4 or test.sum() == 0 or target[train].nunique() < 2:
+                acc: float | str = "not_evaluable"
+            else:
+                loo = LogisticRegression(max_iter=1000, class_weight="balanced").fit(data.loc[train, feature_cols], target[train])
+                pred = loo.predict(data.loc[test, feature_cols])
+                acc = float((pred == target[test].to_numpy()).mean())
+            predictor_rows.append(
+                {
+                    "model": "leave_domain_out_logistic",
+                    "term": domain,
+                    "coefficient": acc,
+                    "intercept": "",
+                    "diagnostic_status": "completed_leave_domain_out" if isinstance(acc, float) else "limited_by_small_sample",
+                }
+            )
+    else:
+        predictor_rows.append(
+            {
+                "model": "descriptive_model",
+                "term": "not_fit",
+                "coefficient": "",
+                "intercept": "",
+                "diagnostic_status": "insufficient_class_variation",
+            }
+        )
+
+    predictor = pd.DataFrame(predictor_rows)
+    generated.append(
+        _write_csv(
+            predictor,
+            out_dir / "table_success_domain_predictor.csv",
+            [out_dir / "table_success_domain_features.csv"],
+            started,
+            "Descriptive release/refusal predictor using measurable non-domain features.",
+        )
+    )
+    rules = pd.DataFrame(
+        [
+            {
+                "rule": "finite_resolution_gate",
+                "condition": "max_observed_e >= required_e",
+                "interpretation": "If false, no single candidate can cross the requested release threshold.",
+            },
+            {
+                "rule": "evidence_mass_gate",
+                "condition": "evidence_mass_phi >= 1",
+                "interpretation": "If false, refusal is a pre-graph mass failure rather than a selector artifact.",
+            },
+            {
+                "rule": "coverage_gate",
+                "condition": "coverage is non-empty and domain-respecting",
+                "interpretation": "Low coverage narrows claim scope or motivates block-balanced audit.",
+            },
+            {
+                "rule": "conflict_gate",
+                "condition": "candidate graph available and conflict density manageable",
+                "interpretation": "If aggregate evidence is sufficient but SCS is empty, run ILP as selector-power diagnostic.",
+            },
+        ]
+    )
+    generated.append(
+        _write_csv(
+            rules,
+            out_dir / "table_success_domain_rules.csv",
+            [],
+            started,
+            "Human-readable rules distilled from success-domain diagnostics.",
+        )
+    )
+
+    map_source = data[["domain", "proposal_source", "phi", "coverage_numeric", "raw_risk", "release_success_binary", "PARC_FTR"]].copy()
+    map_source["figure_role"] = "success_domain_map"
+    generated.append(
+        _write_csv(
+            map_source,
+            out_dir / "figure_success_domain_map.csv",
+            [out_dir / "table_success_domain_features.csv"],
+            started,
+            "Figure source for success-domain map.",
+        )
+    )
+
+    def draw_success_map(plt: Any) -> Any:
+        fig, ax = plt.subplots(figsize=(6.0, 4.2))
+        colors = map_source["release_success_binary"].map({True: "#2a9d8f", False: "#d62828"}).fillna("#666666")
+        sizes = 60 + 260 * map_source["raw_risk"].fillna(0)
+        ax.scatter(map_source["phi"], map_source["coverage_numeric"], s=sizes, c=colors, alpha=0.78, edgecolor="black", linewidth=0.4)
+        ax.axvline(1.0, linestyle=":", color="black", linewidth=1.0)
+        ax.set_xlabel("Evidence mass phi")
+        ax.set_ylabel("Coverage / coverage proxy")
+        ax.set_title("Success-domain map")
+        ax.grid(True, alpha=0.25)
+        return fig
+
+    generated.append(
+        _save_pdf(
+            out_dir / "figure_success_domain_map.pdf",
+            [out_dir / "figure_success_domain_map.csv"],
+            started,
+            draw_success_map,
+            "Paper-ready success-domain map PDF.",
+        )
+    )
+    return generated
+
+
+def _validity_assumptions_table(evidence: pd.DataFrame, started: float, out_dir: Path) -> Path:
+    rows = [
+        {
+            "domain": "biomedical_cell_tracking",
+            "unit": "adjacent-frame cell link",
+            "positive_support": "masked CTC GT positives plus human-confirmed strict release queue closeout",
+            "block_definition": "sequence / frame-window",
+            "n_blocks": "",
+            "coverage_policy": "coverage_conditional",
+            "coverage_rate": "",
+            "exchangeability_stress": "reverse split and random-score negative control",
+            "primary_failure_mode": "random-score source refused by finite-resolution/mass diagnostics",
+            "claim_scope": "strict alpha=0.10 learned-source release; not an end-to-end tracker claim",
+            "evidence_status": "completed_evidence",
+        },
+        {
+            "domain": "materials_discovery",
+            "unit": "stable crystal candidate",
+            "positive_support": "masked DFT-stable positives; full DFT labels held out for FTR",
+            "block_definition": "composition_family_pair",
+            "n_blocks": "",
+            "coverage_policy": "coverage_conditional",
+            "coverage_rate": "",
+            "exchangeability_stress": "threshold, gamma, block and model-source sensitivity",
+            "primary_failure_mode": "high-volume K=5000 refused by pre-graph mass failure",
+            "claim_scope": "retrospective WBM/Matbench release simulation; not new material discovery",
+            "evidence_status": "completed_evidence",
+        },
+        {
+            "domain": "ecological_camera_traps",
+            "unit": "animal-present detection box",
+            "positive_support": "real human-confirmed animal audit positives",
+            "block_definition": "camera location x temporal chunk",
+            "n_blocks": "",
+            "coverage_policy": "coverage_conditional",
+            "coverage_rate": "",
+            "exchangeability_stress": "strict alpha=0.10 refusal and random-score control",
+            "primary_failure_mode": "strict rows limited by finite-resolution cap max_e < required_e",
+            "claim_scope": "operational alpha=0.20 human-audited release; strict alpha=0.10 refused",
+            "evidence_status": "completed_evidence",
+        },
+        {
+            "domain": "earth_observation",
+            "unit": "same-building temporal link",
+            "positive_support": "real human audit workflow plus official-proxy diagnostics",
+            "block_definition": "AOI x time block",
+            "n_blocks": "",
+            "coverage_policy": "coverage_conditional",
+            "coverage_rate": "",
+            "exchangeability_stress": "K=100 real-audit refusal and K=50 diagnostic release",
+            "primary_failure_mode": "K=100 pre-graph mass failure despite max_e crossing required_e",
+            "claim_scope": "release/refusal workflow diagnostic; not primary positive flagship",
+            "evidence_status": "completed_diagnostic",
+        },
+        {
+            "domain": "open_vocabulary_vision",
+            "unit": "track/path/detection candidate",
+            "positive_support": "Audit2000 and visual audit benchmark",
+            "block_definition": "video / scene / task-specific block",
+            "n_blocks": "",
+            "coverage_policy": "public-safe benchmark-specific",
+            "coverage_rate": "",
+            "exchangeability_stress": "non-exchangeability and null-inflation stress tables",
+            "primary_failure_mode": "generator-dependent refusal or unsupported annotation regimes",
+            "claim_scope": "auxiliary breadth evidence for separate vision-facing artifact",
+            "evidence_status": "completed_diagnostic",
+        },
+    ]
+    table = pd.DataFrame(rows)
+    # Fill available coverage proxies from evidence rows.
+    if not evidence.empty:
+        for idx, row in table.iterrows():
+            subset = evidence[evidence["domain"].astype(str).eq(str(row["domain"]))]
+            numeric_cov = pd.to_numeric(subset.get("coverage", pd.Series(dtype=float)), errors="coerce")
+            if numeric_cov.notna().any():
+                table.loc[idx, "coverage_rate"] = round(float(numeric_cov.mean()), 6)
+            table.loc[idx, "n_blocks"] = ""
+    return _write_csv(
+        table,
+        out_dir / "table_validity_assumptions_by_domain.csv",
+        [out_dir / "table_cross_domain_evidence_matrix.csv"],
+        started,
+        "Paper-ready validity assumptions by domain. Rows are completed evidence or completed diagnostic; no protocol-only claims.",
+    )
+
+
 def _write_report(
     out_dir: Path,
     evidence: pd.DataFrame,
@@ -792,6 +1367,8 @@ def _write_report(
         + "\n\n## Guardrails\n\n"
         "- CTC and materials strict rows are controlled partial-verification results unless a real human/experimental audit is completed.\n"
         "- Materials threshold and fixed-gamma sensitivity rows are completed reruns when the corresponding tables are present in `scientific_domain_materials`.\n"
+        "- Materials paper-ready figure artifacts are completed diagnostics derived from existing robustness, gamma, and near-boundary CSVs.\n"
+        "- Refusal ILP rows use a conservative aggregate oracle: ILP infeasibility is asserted only for rows that fail before graph compatibility (`max_e < required_e` or `Phi < 1`).\n"
         "- iWildCam is the current real-human-audit operational release row; strict alpha=0.10 remains refusal unless additional audit coverage changes the evidence mass.\n"
         "- SpaceNet K=50 remains diagnostic, while K=100 real-audit primary request is a certified refusal.\n"
         "- Molecular/protein domains are protocol-only here and must not be cited as completed evidence.\n",
@@ -935,6 +1512,16 @@ def run_phase19_success_domain(output_dir: str | None = None) -> dict[str, Any]:
             )
         )
 
+    generated.extend(_materials_paper_ready_outputs(started))
+
+    refusal_table, refusal_outputs = _refusal_diagnosis_table(evidence, started, out_dir)
+    generated.extend(refusal_outputs)
+
+    generated.extend(_success_predictor_outputs(features, started, out_dir))
+
+    validity_path = _validity_assumptions_table(evidence, started, out_dir)
+    generated.append(validity_path)
+
     report = _write_report(out_dir, evidence, grouped, generated, started)
     generated.append(report)
 
@@ -953,6 +1540,7 @@ def run_phase19_success_domain(output_dir: str | None = None) -> dict[str, Any]:
         "n_evidence_rows": int(len(evidence)),
         "n_main_flagship_rows": int(evidence["paper_status"].astype(str).eq("main_flagship").sum()) if not evidence.empty else 0,
         "n_protocol_only_rows": protocol_only_count,
+        "n_refusal_diagnosis_rows": int(len(refusal_table)),
         "manifest": _rel(manifest_txt),
     }
     write_json(manifest_path, manifest)
@@ -960,5 +1548,6 @@ def run_phase19_success_domain(output_dir: str | None = None) -> dict[str, Any]:
     with ensure_data_output(manifest_txt).open("w", encoding="utf-8") as handle:
         for path in sorted(generated_with_summary):
             if path.exists():
-                handle.write(f"{_sha256(path)}  {path.name}\n")
+                manifest_ref = os.path.relpath(path, manifest_txt.parent)
+                handle.write(f"{_sha256(path)}  {manifest_ref}\n")
     return manifest

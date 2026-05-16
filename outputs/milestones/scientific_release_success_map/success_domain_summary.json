@@ -14,6 +14,19 @@
     "outputs/milestones/scientific_release_success_map/table_block_coverage_exchangeability_diagnostics.csv",
     "outputs/milestones/scientific_release_success_map/table_near_boundary_practical_value.csv",
     "outputs/milestones/scientific_release_success_map/table_audit_contamination_sensitivity.csv",
+    "outputs/milestones/scientific_domain_materials/materials_threshold_robustness_figure.csv",
+    "outputs/milestones/scientific_domain_materials/materials_threshold_robustness_figure.pdf",
+    "outputs/milestones/scientific_domain_materials/materials_gamma_sensitivity_heatmap.csv",
+    "outputs/milestones/scientific_domain_materials/materials_gamma_sensitivity_heatmap.pdf",
+    "outputs/milestones/scientific_domain_materials/materials_raw_vs_parc_ftr_panel.csv",
+    "outputs/milestones/scientific_domain_materials/materials_raw_vs_parc_ftr_panel.pdf",
+    "outputs/milestones/scientific_release_success_map/table_refusal_diagnosis_ilp.csv",
+    "outputs/milestones/scientific_release_success_map/REFUSAL_DIAGNOSIS_ILP_CLOSEOUT.md",
+    "outputs/milestones/scientific_release_success_map/table_success_domain_predictor.csv",
+    "outputs/milestones/scientific_release_success_map/table_success_domain_rules.csv",
+    "outputs/milestones/scientific_release_success_map/figure_success_domain_map.csv",
+    "outputs/milestones/scientific_release_success_map/figure_success_domain_map.pdf",
+    "outputs/milestones/scientific_release_success_map/table_validity_assumptions_by_domain.csv",
     "outputs/milestones/scientific_release_success_map/SUCCESS_DOMAIN_CLOSEOUT.md",
     "outputs/milestones/scientific_release_success_map/success_domain_summary.json",
     "outputs/milestones/scientific_release_success_map/MANIFEST_SHA256.txt"
@@ -21,5 +34,6 @@
   "n_evidence_rows": 26,
   "n_main_flagship_rows": 3,
   "n_protocol_only_rows": 3,
+  "n_refusal_diagnosis_rows": 4,
   "manifest": "outputs/milestones/scientific_release_success_map/MANIFEST_SHA256.txt"
 }

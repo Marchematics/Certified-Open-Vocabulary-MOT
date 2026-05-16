@@ -35,10 +35,10 @@ This repository uses neutral public artifact names. Older internal experiment la
   Prospective iWildCam animal-present audit-trial package. This freezes a camera-trap ecology trial with location-by-time blocks, human-confirmed calibration/release audit sheets, proxy diagnostics, and a random-score control. The closeout supports an operational `alpha=0.20, K=50` ecology release with human FTR 0.0; strict `alpha=0.10` remains certified refusal.
 
 - `outputs/milestones/scientific_domain_materials/`
-  Materials-discovery candidate-release milestone on public Matbench Discovery / WBM tables. A CGCNN learned materials model proposes stable-crystal candidates, PARC observes only masked DFT-stable positives, and the milestone reports strict `alpha=0.10` release at `K=100` plus weak-model, random-score, high-volume, block-sensitivity, and leakage diagnostics.
+  Materials-discovery candidate-release milestone on public Matbench Discovery / WBM tables. A CGCNN learned materials model proposes stable-crystal candidates, PARC observes only masked DFT-stable positives, and the milestone reports strict `alpha=0.10` release at `K=100` plus weak-model, random-score, high-volume, block-sensitivity, and leakage diagnostics. It now also includes paper-ready figure source/PDF artifacts: `materials_threshold_robustness_figure.*`, `materials_gamma_sensitivity_heatmap.*`, and `materials_raw_vs_parc_ftr_panel.*`.
 
 - `outputs/milestones/scientific_release_success_map/`
-  Cross-domain evidence matrix and domain-of-success diagnostics. This milestone consolidates completed CTC, materials, iWildCam, SpaceNet, near-boundary, and audit-contamination rows into a paper-facing success/refusal map, while marking strict real-audit extensions and new candidate domains as protocol-only when they have not been run.
+  Cross-domain evidence matrix and domain-of-success diagnostics. This milestone consolidates completed CTC, materials, iWildCam, SpaceNet, near-boundary, and audit-contamination rows into a paper-facing success/refusal map, while marking strict real-audit extensions and new candidate domains as protocol-only when they have not been run. It includes `table_refusal_diagnosis_ilp.csv`, `table_success_domain_predictor.csv`, `table_success_domain_rules.csv`, `figure_success_domain_map.*`, and `table_validity_assumptions_by_domain.csv`.
 
 - `outputs/milestones/release_story/paper_diagnostics/`
   Paper-facing diagnostic tables for assumptions, seed variability/interval summaries, verification budgets, and prevented false releases.

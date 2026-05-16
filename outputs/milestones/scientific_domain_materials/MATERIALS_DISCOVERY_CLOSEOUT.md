@@ -37,3 +37,14 @@ Additional robustness closeouts:
 Scope note: this is a retrospective Matbench Discovery release simulation using
 public DFT labels.  It is not a claim of new materials discovery, and raw
 structures/model weights are not redistributed.
+
+## Paper-ready robustness figures
+
+Completed figure-source and PDF artifacts were added for the paper-facing materials analysis:
+
+- `materials_threshold_robustness_figure.csv/pdf`: threshold and boundary-label robustness.
+- `materials_gamma_sensitivity_heatmap.csv/pdf`: fixed-gamma sensitivity over K and gamma.
+- `materials_raw_vs_parc_ftr_panel.csv/pdf`: raw top-K versus PARC FTR in near-boundary rows.
+- Boundary note: ALIGNN `margin_excluded_25meV`, K=100 has FTR≈0.111 and is reported as boundary sensitivity rather than a strict pass.
+
+These are completed diagnostics derived from existing robustness CSVs; no new labels or protocol-only claims are introduced.

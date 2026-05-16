@@ -1,0 +1,14 @@
+{
+  "table": "table_success_domain_predictor.csv",
+  "repo_commit": "9c62d02d06abd61b9303b8522b5b7b5e7071084f",
+  "command": "python -m parc_track.cli phase19 success-domain",
+  "runtime_sec": 1.779377,
+  "source_files": [
+    {
+      "path": "outputs/milestones/scientific_release_success_map/table_success_domain_features.csv",
+      "sha256": "ddb9349e1012b23f394e0d7ede26d6587247238c0e4853bde34284c77449ae2f"
+    }
+  ],
+  "output_sha256": "85dde5e85708f19f805075e9a4a4ea6b7291537dff3efbfdb756f2619e83cbfb",
+  "notes": "Descriptive release/refusal predictor using measurable non-domain features."
+}

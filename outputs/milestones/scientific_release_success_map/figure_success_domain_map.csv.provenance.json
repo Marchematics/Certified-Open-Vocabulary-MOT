@@ -1,0 +1,14 @@
+{
+  "table": "figure_success_domain_map.csv",
+  "repo_commit": "9c62d02d06abd61b9303b8522b5b7b5e7071084f",
+  "command": "python -m parc_track.cli phase19 success-domain",
+  "runtime_sec": 1.818079,
+  "source_files": [
+    {
+      "path": "outputs/milestones/scientific_release_success_map/table_success_domain_features.csv",
+      "sha256": "ddb9349e1012b23f394e0d7ede26d6587247238c0e4853bde34284c77449ae2f"
+    }
+  ],
+  "output_sha256": "341a27273ccb54536db25bde4d70931f7e057ea0e1de12e1a1cd4a1cc9a5871d",
+  "notes": "Figure source for success-domain map."
+}

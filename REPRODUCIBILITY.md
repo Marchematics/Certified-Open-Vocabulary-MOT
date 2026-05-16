@@ -87,6 +87,15 @@ The cross-domain success/refusal map can also be regenerated directly:
 python -m parc_track.cli phase19 success-domain
 ```
 
+This command also regenerates:
+
+- paper-ready materials robustness/gamma/raw-vs-PARC figure sources and PDFs;
+- `table_refusal_diagnosis_ilp.csv`, using only aggregate infeasibility checks unless a candidate graph is available;
+- `table_success_domain_predictor.csv` and `figure_success_domain_map.pdf`;
+- `table_validity_assumptions_by_domain.csv`.
+
+Rows marked protocol-only remain protocol-only and are not promoted to completed evidence.
+
 ## 4. Re-run with External Datasets
 
 The configs are sanitized and may contain `${PARC_TRACK_ROOT}` placeholders. Materialize a local runnable copy:

@@ -1,14 +1,14 @@
 {
-  "table": "table_materials_stability_threshold_robustness.csv",
+  "table": "materials_threshold_robustness_figure.csv",
   "repo_commit": "9c62d02d06abd61b9303b8522b5b7b5e7071084f",
   "command": "python -m parc_track.cli phase19 success-domain",
-  "runtime_sec": 0.116094,
+  "runtime_sec": 0.168593,
   "source_files": [
     {
       "path": "outputs/milestones/scientific_domain_materials/table_materials_stability_threshold_robustness.csv",
       "sha256": "f163684415034989baa8054f221f85089dcae39766de1c056a7be900cfe8b56c"
     }
   ],
-  "output_sha256": "80e58dce471e843199d5042b7ff9f30a27e3734c4e869f6ca685b0857b3edff8",
-  "notes": "Completed materials threshold and boundary-label robustness rerun."
+  "output_sha256": "75af69854fdc6095d618c2c52c37f6576b0ee78cb6687b48915384cce7c0457b",
+  "notes": "Paper-ready source for materials threshold robustness figure, including boundary-case annotation."
 }

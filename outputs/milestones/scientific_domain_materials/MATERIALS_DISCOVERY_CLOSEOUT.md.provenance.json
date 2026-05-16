@@ -1,0 +1,34 @@
+{
+  "table": "MATERIALS_DISCOVERY_CLOSEOUT.md",
+  "repo_commit": "9c62d02d06abd61b9303b8522b5b7b5e7071084f",
+  "command": "python -m parc_track.cli phase19 success-domain",
+  "runtime_sec": 0.883489,
+  "source_files": [
+    {
+      "path": "outputs/milestones/scientific_domain_materials/materials_threshold_robustness_figure.csv",
+      "sha256": "75af69854fdc6095d618c2c52c37f6576b0ee78cb6687b48915384cce7c0457b"
+    },
+    {
+      "path": "outputs/milestones/scientific_domain_materials/materials_threshold_robustness_figure.pdf",
+      "sha256": "30390fac0d87e269603001ecd35025730e60ba51b013da838ccd06baeb5ac9b3"
+    },
+    {
+      "path": "outputs/milestones/scientific_domain_materials/materials_gamma_sensitivity_heatmap.csv",
+      "sha256": "82bc95b0df537fb3c71a53a33e73390b728eadbbf3f16d355c107d9e67c15ce7"
+    },
+    {
+      "path": "outputs/milestones/scientific_domain_materials/materials_gamma_sensitivity_heatmap.pdf",
+      "sha256": "83db156f19c208038b6a919acaca3d437035a0b89d0fcaa6332f27b25a107b90"
+    },
+    {
+      "path": "outputs/milestones/scientific_domain_materials/materials_raw_vs_parc_ftr_panel.csv",
+      "sha256": "b9c12e81c8343ec2f40b0095690c390a0232eda20cbaf54404189617e1d1b35d"
+    },
+    {
+      "path": "outputs/milestones/scientific_domain_materials/materials_raw_vs_parc_ftr_panel.pdf",
+      "sha256": "607d8c461f46bf184ab714556373ae2641b410d0870c88d51d53710c8d11e484"
+    }
+  ],
+  "output_sha256": "39a7c5b629ed52d5f75634349034051d1845ab2326df78850a07a0543b52cb41",
+  "notes": "materials closeout updated with paper-ready robustness figure list"
+}

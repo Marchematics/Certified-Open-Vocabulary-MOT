@@ -1,8 +1,8 @@
 {
   "table": "SUCCESS_DOMAIN_CLOSEOUT.md",
-  "repo_commit": "55b8f0310092edc1a3cada0fd50a6af0baa76832",
+  "repo_commit": "9c62d02d06abd61b9303b8522b5b7b5e7071084f",
   "command": "python -m parc_track.cli phase19 success-domain",
-  "runtime_sec": 0.156501,
+  "runtime_sec": 1.951288,
   "source_files": [
     {
       "path": "outputs/milestones/scientific_release_success_map/table_cross_domain_evidence_matrix.csv",
@@ -51,8 +51,60 @@
     {
       "path": "outputs/milestones/scientific_release_success_map/table_audit_contamination_sensitivity.csv",
       "sha256": "ac5c27d1565050a6a7334a703b06814ea27c09a013935f6c5a6376827218e5b6"
+    },
+    {
+      "path": "outputs/milestones/scientific_domain_materials/materials_threshold_robustness_figure.csv",
+      "sha256": "75af69854fdc6095d618c2c52c37f6576b0ee78cb6687b48915384cce7c0457b"
+    },
+    {
+      "path": "outputs/milestones/scientific_domain_materials/materials_threshold_robustness_figure.pdf",
+      "sha256": "30390fac0d87e269603001ecd35025730e60ba51b013da838ccd06baeb5ac9b3"
+    },
+    {
+      "path": "outputs/milestones/scientific_domain_materials/materials_gamma_sensitivity_heatmap.csv",
+      "sha256": "82bc95b0df537fb3c71a53a33e73390b728eadbbf3f16d355c107d9e67c15ce7"
+    },
+    {
+      "path": "outputs/milestones/scientific_domain_materials/materials_gamma_sensitivity_heatmap.pdf",
+      "sha256": "83db156f19c208038b6a919acaca3d437035a0b89d0fcaa6332f27b25a107b90"
+    },
+    {
+      "path": "outputs/milestones/scientific_domain_materials/materials_raw_vs_parc_ftr_panel.csv",
+      "sha256": "b9c12e81c8343ec2f40b0095690c390a0232eda20cbaf54404189617e1d1b35d"
+    },
+    {
+      "path": "outputs/milestones/scientific_domain_materials/materials_raw_vs_parc_ftr_panel.pdf",
+      "sha256": "607d8c461f46bf184ab714556373ae2641b410d0870c88d51d53710c8d11e484"
+    },
+    {
+      "path": "outputs/milestones/scientific_release_success_map/table_refusal_diagnosis_ilp.csv",
+      "sha256": "fe57dc2967d5b3ebc5755c32d08c56a8429b2c861eb52dd396fb74b156432e7c"
+    },
+    {
+      "path": "outputs/milestones/scientific_release_success_map/REFUSAL_DIAGNOSIS_ILP_CLOSEOUT.md",
+      "sha256": "c5b9579567ec970886e0d0b9e4aea527e61714d776580c274ac81281321f103f"
+    },
+    {
+      "path": "outputs/milestones/scientific_release_success_map/table_success_domain_predictor.csv",
+      "sha256": "85dde5e85708f19f805075e9a4a4ea6b7291537dff3efbfdb756f2619e83cbfb"
+    },
+    {
+      "path": "outputs/milestones/scientific_release_success_map/table_success_domain_rules.csv",
+      "sha256": "1d8534e663fda84d5b4290cde0379bca2aa8b10e2c0f8515e0f1831f7837541d"
+    },
+    {
+      "path": "outputs/milestones/scientific_release_success_map/figure_success_domain_map.csv",
+      "sha256": "341a27273ccb54536db25bde4d70931f7e057ea0e1de12e1a1cd4a1cc9a5871d"
+    },
+    {
+      "path": "outputs/milestones/scientific_release_success_map/figure_success_domain_map.pdf",
+      "sha256": "b6cccdab85c59d94999878cd404df7f5993f35fb7eee862acc8116b7d7fbbe09"
+    },
+    {
+      "path": "outputs/milestones/scientific_release_success_map/table_validity_assumptions_by_domain.csv",
+      "sha256": "2a91a73473f577800011b4163fae33a5625cecc9b92cff1d2456bdf33029cce7"
     }
   ],
-  "output_sha256": "385d3ac05de3e42457b7e0657a53243af48fff34f969f2ab3544c4b6bd04fc42",
+  "output_sha256": "4c8a29ec32cc79ecea6bdcb1f3822ad062cf8273b6cccc39d98b46050cbbbcc7",
   "notes": "markdown closeout over generated success-domain tables"
 }

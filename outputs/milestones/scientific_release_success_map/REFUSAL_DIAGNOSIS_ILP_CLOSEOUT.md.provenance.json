@@ -1,0 +1,14 @@
+{
+  "table": "REFUSAL_DIAGNOSIS_ILP_CLOSEOUT.md",
+  "repo_commit": "9c62d02d06abd61b9303b8522b5b7b5e7071084f",
+  "command": "python -m parc_track.cli phase19 success-domain",
+  "runtime_sec": 0.91869,
+  "source_files": [
+    {
+      "path": "outputs/milestones/scientific_release_success_map/table_refusal_diagnosis_ilp.csv",
+      "sha256": "fe57dc2967d5b3ebc5755c32d08c56a8429b2c861eb52dd396fb74b156432e7c"
+    }
+  ],
+  "output_sha256": "c5b9579567ec970886e0d0b9e4aea527e61714d776580c274ac81281321f103f",
+  "notes": "closeout for aggregate refusal and ILP feasibility diagnostics"
+}

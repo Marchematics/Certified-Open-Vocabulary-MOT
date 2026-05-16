@@ -224,9 +224,22 @@ def test_phase19_success_domain_tables(tmp_path: Path, monkeypatch) -> None:
     assert "completed_rerun" in set(threshold_status["status"])
     assert (out / "table_materials_stability_threshold_robustness.csv").exists()
     assert (out / "table_materials_gamma_sensitivity.csv").exists()
+    assert (out / "table_refusal_diagnosis_ilp.csv").exists()
+    assert (out / "table_success_domain_predictor.csv").exists()
+    assert (out / "table_success_domain_rules.csv").exists()
+    assert (out / "figure_success_domain_map.pdf").exists()
+    assert (out / "table_validity_assumptions_by_domain.csv").exists()
 
     features = pd.read_csv(out / "table_success_domain_features.csv")
     assert {"phi_ge_1", "release_success_binary", "risk_success_binary"}.issubset(features.columns)
 
     checklist = pd.read_csv(out / "table_practitioner_success_checklist.csv")
     assert "sufficient_evidence_mass" in set(checklist["condition"])
+
+    refusal = pd.read_csv(out / "table_refusal_diagnosis_ilp.csv")
+    assert {"max_e", "required_e", "evidence_mass_phi", "ilp_feasible", "failure_mode"}.issubset(refusal.columns)
+    assert "pre_graph_mass_failure" in set(refusal["failure_mode"]) or "finite_resolution_cap" in set(refusal["failure_mode"])
+
+    materials = tmp_path / "outputs/milestones/scientific_domain_materials"
+    assert (materials / "materials_threshold_robustness_figure.csv").exists()
+    assert (materials / "materials_gamma_sensitivity_heatmap.csv").exists()

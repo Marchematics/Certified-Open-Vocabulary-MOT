@@ -1,0 +1,5 @@
+rule,condition,interpretation
+finite_resolution_gate,max_observed_e >= required_e,"If false, no single candidate can cross the requested release threshold."
+evidence_mass_gate,evidence_mass_phi >= 1,"If false, refusal is a pre-graph mass failure rather than a selector artifact."
+coverage_gate,coverage is non-empty and domain-respecting,Low coverage narrows claim scope or motivates block-balanced audit.
+conflict_gate,candidate graph available and conflict density manageable,"If aggregate evidence is sufficient but SCS is empty, run ILP as selector-power diagnostic."
