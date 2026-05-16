@@ -1,8 +1,8 @@
 {
   "table": "table_audit_contamination_sensitivity.csv",
-  "repo_commit": "bbe48e544ed48fb4fae519d42768d106f885f6b6",
+  "repo_commit": "55b8f0310092edc1a3cada0fd50a6af0baa76832",
   "command": "python -m parc_track.cli phase19 success-domain",
-  "runtime_sec": 0.146229,
+  "runtime_sec": 0.148102,
   "source_files": [
     {
       "path": "outputs/milestones/release_story/paper_diagnostics/table_ctc_audit_contamination_sensitivity.csv",

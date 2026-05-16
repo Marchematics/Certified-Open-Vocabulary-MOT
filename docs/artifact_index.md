@@ -22,6 +22,9 @@ This repository uses neutral public artifact names. Older internal experiment la
 - `outputs/milestones/scientific_domain_ctc_learned/`
   Learned-hybrid CTC companion milestone. A sequence-disjoint, appearance-assisted link scorer is trained on CTC sequence 01, frozen, and certified on held-out sequence 02; only compact tables and model/provenance summaries are included. The milestone also includes leakage checks, reverse split sensitivity, and a random-score negative control.
 
+- `outputs/milestones/ctc_strict_human_audit/`
+  Human-confirmed CTC strict audit closeout derived from the learned-hybrid CTC audit queue. It contains 2,564 reviewed adjacent-frame cell-link labels, including 1,500 calibration candidates, 1,064 simulated strict-release candidates, and 300 raw top-K reference candidates. The strict-release queue has human FTR 0.0 and conservative uncertain-as-false FTR 0.0. This milestone does not claim microscopy-expert adjudication unless a separate expert review is documented.
+
 - `outputs/milestones/scientific_domain_spacenet7/`
   Earth-observation building-link certification milestone on SpaceNet 7. This contains the geometry-linker positive result and randomized-linker safe-refusal stress result; raw SpaceNet labels, imagery, and large candidate universes are excluded.
 

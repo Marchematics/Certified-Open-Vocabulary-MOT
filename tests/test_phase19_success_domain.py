@@ -13,6 +13,7 @@ def _patch_roots(tmp_path: Path, monkeypatch) -> None:
     monkeypatch.setattr(phase19, "DATA_ROOT", tmp_path)
     monkeypatch.setattr(phase19, "SUCCESS_DIR", tmp_path / "outputs/milestones/scientific_release_success_map")
     monkeypatch.setattr(phase19, "CTC_LEARNED_DIR", tmp_path / "outputs/milestones/scientific_domain_ctc_learned")
+    monkeypatch.setattr(phase19, "CTC_HUMAN_AUDIT_DIR", tmp_path / "outputs/milestones/ctc_strict_human_audit")
     monkeypatch.setattr(phase19, "MATERIALS_DIR", tmp_path / "outputs/milestones/scientific_domain_materials")
     monkeypatch.setattr(
         phase19,

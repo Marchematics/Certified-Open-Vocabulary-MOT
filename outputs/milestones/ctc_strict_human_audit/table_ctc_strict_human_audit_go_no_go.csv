@@ -1,0 +1,2 @@
+gate,required_human_FTR_max,required_conservative_FTR_max,required_human_review_status,observed_rows,observed_human_FTR_false_only,observed_human_FTR_uncertain_as_false,uncertain_rows,decision,interpretation
+ctc_strict_release_human_audit,0.1,0.1,human_confirmed,1064,0.0,0.0,0,go,human-confirmed strict release queue satisfies the conservative alpha=0.10 publication gate

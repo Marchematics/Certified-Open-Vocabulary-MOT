@@ -1,0 +1,17 @@
+{
+  "expert_review_claimed": false,
+  "human_label_counts": {
+    "not_same_cell_link": 45,
+    "same_cell_link": 2519
+  },
+  "review_note": "User confirmed the reviewed labels can be published; no separate microscopy-expert claim is made in this closeout.",
+  "rows_calibration": 1500,
+  "rows_raw_topK_reference": 300,
+  "rows_simulated_strict_release": 1064,
+  "rows_total": 2564,
+  "simulated_release_human_FTR_false_only": 0.0,
+  "simulated_release_human_FTR_uncertain_as_false": 0.0,
+  "source_prefill_sha256": "7e0d8c3333435bc6e088d1d9b035d70c4521a53018ceae83fe46088fb56c24c9",
+  "source_private_key_sha256": "f2859287618bd45eefb0ed8e4766a7b9a1641e3b2c447a28fadec68f7c2af91d",
+  "status": "human_confirmed"
+}

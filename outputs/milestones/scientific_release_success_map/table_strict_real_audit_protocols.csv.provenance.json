@@ -1,9 +1,9 @@
 {
   "table": "table_strict_real_audit_protocols.csv",
-  "repo_commit": "bbe48e544ed48fb4fae519d42768d106f885f6b6",
+  "repo_commit": "55b8f0310092edc1a3cada0fd50a6af0baa76832",
   "command": "python -m parc_track.cli phase19 success-domain",
-  "runtime_sec": 0.091117,
+  "runtime_sec": 0.097534,
   "source_files": [],
-  "output_sha256": "ec3ad74b1fd04c8c8f5a0a0230c232b28e5af0e7459f820d6c9d9af1d0c98188",
+  "output_sha256": "6c1f03ec95f929b3c30d21cccd0cbabd1e6bfc0e7680c2d7edd9e320246faa03",
   "notes": "Protocol-only rows for strict alpha=0.10 real/human partial verification."
 }

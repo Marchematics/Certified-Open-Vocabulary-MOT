@@ -7,6 +7,7 @@ This directory contains public-safe derived artifacts only.
 - `milestones/release_story/`: compact release/refusal story tables and qualitative-example manifest.
 - `milestones/scientific_domain_ctc/`: biomedical cell-link certification on public Cell Tracking Challenge training data.
 - `milestones/scientific_domain_ctc_learned/`: learned-hybrid, appearance-assisted CTC link proposal source certified on held-out sequences, with leakage, reverse-split, and negative-control checks.
+- `milestones/ctc_strict_human_audit/`: human-confirmed CTC strict-audit closeout; the simulated strict-release queue has human FTR 0.0 and conservative uncertain-as-false FTR 0.0.
 - `milestones/scientific_domain_spacenet7/`: Earth-observation building-link certification on public SpaceNet 7 labels.
 - `milestones/scientific_domain_spacenet7_prospective/`: prospective SpaceNet 7 audit-trial package and no-go closeout.
 - `milestones/scientific_domain_iwildcam_human_audit/`: prospective iWildCam animal-present human-audit package; operational `alpha=0.20, K=50` human-confirmed ecology release with strict `alpha=0.10` refusal.

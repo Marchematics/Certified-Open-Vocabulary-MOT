@@ -1,0 +1,5 @@
+queue,rows,human_same_cell_link,human_not_same_cell_link,human_uncertain,human_verified_positive_for_calibration_yes,human_FTR_false_only,human_FTR_uncertain_as_false,datasets
+calibration,1500,1455,45,0,1455,0.03,0.03,"DIC-C2DH-HeLa,Fluo-N2DH-GOWT1,Fluo-N2DL-HeLa,PhC-C2DH-U373"
+simulated_strict_release,1064,1064,0,0,1064,0.0,0.0,"DIC-C2DH-HeLa,Fluo-N2DL-HeLa,PhC-C2DH-U373"
+raw_topK_reference,300,300,0,0,300,0.0,0.0,"DIC-C2DH-HeLa,Fluo-N2DL-HeLa,PhC-C2DH-U373"
+all_reviewed_rows,2564,2519,45,0,2519,0.017550702028081122,0.017550702028081122,"DIC-C2DH-HeLa,Fluo-N2DH-GOWT1,Fluo-N2DL-HeLa,PhC-C2DH-U373"

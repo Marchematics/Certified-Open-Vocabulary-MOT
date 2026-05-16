@@ -1,8 +1,8 @@
 {
   "table": "table_cross_domain_evidence_matrix.csv",
-  "repo_commit": "bbe48e544ed48fb4fae519d42768d106f885f6b6",
+  "repo_commit": "55b8f0310092edc1a3cada0fd50a6af0baa76832",
   "command": "python -m parc_track.cli phase19 success-domain",
-  "runtime_sec": 0.055468,
+  "runtime_sec": 0.058737,
   "source_files": [
     {
       "path": "outputs/milestones/scientific_domain_ctc_learned/table_ctc_learned_strict_alpha010_smallK.csv",
@@ -11,6 +11,14 @@
     {
       "path": "outputs/milestones/scientific_domain_ctc_learned/table_ctc_learned_negative_control.csv",
       "sha256": "5a0c6c35bb7c0586a322264bed7c888e1ec04dc931a9aba9dc50d2db2c72de2d"
+    },
+    {
+      "path": "outputs/milestones/ctc_strict_human_audit/table_ctc_strict_human_audit_summary.csv",
+      "sha256": "9b6e51ea64c090e9986ba62b12522f4cf5b314e7927dcbc60e679c7ad32ed437"
+    },
+    {
+      "path": "outputs/milestones/ctc_strict_human_audit/table_ctc_strict_human_audit_go_no_go.csv",
+      "sha256": "488e0d0cdbbac86b851845ebef03968e40695278cde8c35f7b2d7d2e530455c8"
     },
     {
       "path": "outputs/milestones/scientific_domain_materials/table_materials_primary_results.csv",
@@ -61,6 +69,6 @@
       "sha256": "be51a5d488c7953d5d26b8d6457521828509ceb24e806f27a13755e9eaaae489"
     }
   ],
-  "output_sha256": "372bcc6b0a889dfdea137f6baa450ef783b6b7c3da2c8e901d03bdd81c62a6ac",
+  "output_sha256": "ab51a394e6e605ecc4559eef8c01dfff4af4e037c90e8d2ef88c56a2c34e53f9",
   "notes": "Cross-domain evidence matrix assembled from completed source tables only."
 }

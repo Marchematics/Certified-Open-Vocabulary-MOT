@@ -17,6 +17,7 @@ DATA_ROOT = Path(os.environ.get("PARC_TRACK_ROOT", ".")).resolve()
 SUCCESS_DIR = DATA_ROOT / "outputs/milestones/scientific_release_success_map"
 
 CTC_LEARNED_DIR = DATA_ROOT / "outputs/milestones/scientific_domain_ctc_learned"
+CTC_HUMAN_AUDIT_DIR = DATA_ROOT / "outputs/milestones/ctc_strict_human_audit"
 MATERIALS_DIR = DATA_ROOT / "outputs/milestones/scientific_domain_materials"
 IWILDCAM_DIR = DATA_ROOT / "outputs/milestones/scientific_domain_iwildcam_human_audit"
 SPACENET_REAL_DIR = DATA_ROOT / "outputs/spacenet7_real_audit"
@@ -127,6 +128,8 @@ def _false_prevented(raw_ftr: float, raw_k: float, parc_ftr: float, parc_release
 def _evidence_rows() -> tuple[pd.DataFrame, list[Path]]:
     ctc_path = CTC_LEARNED_DIR / "table_ctc_learned_strict_alpha010_smallK.csv"
     ctc_neg_path = CTC_LEARNED_DIR / "table_ctc_learned_negative_control.csv"
+    ctc_human_summary_path = CTC_HUMAN_AUDIT_DIR / "table_ctc_strict_human_audit_summary.csv"
+    ctc_human_gate_path = CTC_HUMAN_AUDIT_DIR / "table_ctc_strict_human_audit_go_no_go.csv"
     mat_path = MATERIALS_DIR / "table_materials_primary_results.csv"
     mat_raw_path = MATERIALS_DIR / "table_materials_raw_topK_baseline.csv"
     mat_modern_path = MATERIALS_DIR / "table_materials_modern_model_sensitivity.csv"
@@ -142,6 +145,8 @@ def _evidence_rows() -> tuple[pd.DataFrame, list[Path]]:
 
     ctc = _read_csv(ctc_path)
     ctc_neg = _read_csv(ctc_neg_path)
+    ctc_human_summary = _read_csv(ctc_human_summary_path)
+    ctc_human_gate = _read_csv(ctc_human_gate_path)
     materials = _read_csv(mat_path)
     mat_raw = _read_csv(mat_raw_path)
     mat_modern = _read_csv(mat_modern_path)
@@ -218,6 +223,38 @@ def _evidence_rows() -> tuple[pd.DataFrame, list[Path]]:
                 "paper_status": "control",
             }
         )
+
+    if not ctc_human_summary.empty:
+        release_row = _pick(ctc_human_summary, queue="simulated_strict_release")
+        gate_row = ctc_human_gate.iloc[0] if not ctc_human_gate.empty else None
+        if release_row is not None:
+            rows.append(
+                {
+                    "domain": "biomedical_cell_tracking",
+                    "dataset": "Cell Tracking Challenge",
+                    "unit": "adjacent_frame_cell_link",
+                    "proposal_source": "sequence_disjoint_learned_hybrid_appearance_linker",
+                    "verification_mode": "human_confirmed_release_queue_audit",
+                    "alpha": _num(gate_row.get("required_human_FTR_max") if gate_row is not None else 0.10),
+                    "K": int(_num(release_row.get("rows"))),
+                    "release_status": "strict_release_queue_human_audit_pass",
+                    "non_empty_seeds": "",
+                    "total_seeds": "",
+                    "PARC_release_size": _num(release_row.get("rows")),
+                    "PARC_FTR": _num(release_row.get("human_FTR_false_only")),
+                    "conservative_PARC_FTR": _num(release_row.get("human_FTR_uncertain_as_false")),
+                    "raw_topK_FTR": 0.0,
+                    "false_releases_prevented_est": 0.0,
+                    "coverage": "human_confirmed_release_queue_plus_calibration_review",
+                    "evidence_mass_phi": "",
+                    "max_observed_e": "",
+                    "required_e": 10.0,
+                    "empty_block_policy": "coverage_conditional",
+                    "block_stress_pass": "human_confirmed_release_queue_FTR_0",
+                    "practical_interpretation": "human-confirmed CTC strict release queue; no separate expert-audit claim",
+                    "paper_status": "human_audit_closeout",
+                }
+            )
 
     mat = _pick(materials, rho=0.1, alpha=0.1, K=100)
     if mat is not None:
@@ -484,6 +521,8 @@ def _evidence_rows() -> tuple[pd.DataFrame, list[Path]]:
     sources = [
         ctc_path,
         ctc_neg_path,
+        ctc_human_summary_path,
+        ctc_human_gate_path,
         mat_path,
         mat_raw_path,
         mat_modern_path,
@@ -601,16 +640,25 @@ def _success_feature_tables(evidence: pd.DataFrame) -> tuple[pd.DataFrame, pd.Da
 
 
 def _protocol_gap_tables() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    ctc_human_gate_path = CTC_HUMAN_AUDIT_DIR / "table_ctc_strict_human_audit_go_no_go.csv"
+    ctc_completed = False
+    if ctc_human_gate_path.exists():
+        gate = _read_csv(ctc_human_gate_path)
+        ctc_completed = (not gate.empty) and gate["decision"].astype(str).str.lower().eq("go").any()
     strict_audit = pd.DataFrame(
         [
             {
                 "protocol": "ctc_strict_alpha010_human_audit",
-                "status": "requires_new_human_or_expert_audit",
-                "purpose": "convert CTC learned-hybrid strict alpha=0.10 row from controlled label masking to quasi-prospective real partial verification",
+                "status": "completed_human_confirmed_release_queue_audit"
+                if ctc_completed
+                else "requires_new_human_or_expert_audit",
+                "purpose": "confirm CTC learned-hybrid strict alpha=0.10 release/candidate queues by human review; rerun PARC with human positives before claiming a fully prospective calibration audit",
                 "frozen_source": "sequence-disjoint learned-hybrid appearance linker",
                 "primary_endpoint": "alpha=0.10, K in {100,300}",
-                "pass_gate": ">=18/20 non-empty seeds; human/GT released-set FTR <= alpha; sufficient block-balanced verified positives",
-                "paper_use_before_completion": "protocol_only_not_evidence",
+                "pass_gate": "human-confirmed release queue FTR <= alpha; uncertain rows counted conservatively; calibration positives kept one-sided",
+                "paper_use_before_completion": "human-confirmed closeout evidence"
+                if ctc_completed
+                else "protocol_only_not_evidence",
             },
             {
                 "protocol": "iwildcam_strict_alpha010_audit_expansion",

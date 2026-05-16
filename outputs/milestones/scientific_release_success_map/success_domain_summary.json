@@ -18,8 +18,8 @@
     "outputs/milestones/scientific_release_success_map/success_domain_summary.json",
     "outputs/milestones/scientific_release_success_map/MANIFEST_SHA256.txt"
   ],
-  "n_evidence_rows": 25,
+  "n_evidence_rows": 26,
   "n_main_flagship_rows": 3,
-  "n_protocol_only_rows": 4,
+  "n_protocol_only_rows": 3,
   "manifest": "outputs/milestones/scientific_release_success_map/MANIFEST_SHA256.txt"
 }

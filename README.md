@@ -22,6 +22,7 @@ parc-track/
 │   ├── milestones/release_story/
 │   ├── milestones/scientific_domain_ctc/
 │   ├── milestones/scientific_domain_ctc_learned/
+│   ├── milestones/ctc_strict_human_audit/
 │   ├── milestones/scientific_domain_spacenet7/
 │   ├── milestones/scientific_domain_iwildcam_human_audit/
 │   ├── milestones/scientific_domain_materials/
@@ -72,6 +73,7 @@ For full benchmark reproduction, see `REPRODUCIBILITY.md`.
 - Release/refusal story milestone: `outputs/milestones/release_story/`
 - Biomedical scientific-domain milestone: `outputs/milestones/scientific_domain_ctc/`
 - Learned-hybrid CTC milestone: `outputs/milestones/scientific_domain_ctc_learned/` (strict `alpha=0.10` release, leakage audit, reverse split, and random-score negative control)
+- CTC strict human-audit closeout: `outputs/milestones/ctc_strict_human_audit/` (2,564 human-confirmed link labels; strict release queue human FTR 0.0; no separate expert-audit claim)
 - Earth-observation scientific-domain milestone: `outputs/milestones/scientific_domain_spacenet7/`
 - Prospective SpaceNet 7 audit trial: `outputs/milestones/scientific_domain_spacenet7_prospective/`
 - Prospective iWildCam animal-present audit trial: `outputs/milestones/scientific_domain_iwildcam_human_audit/` (operational `alpha=0.20, K=50` human-confirmed ecology release; strict `alpha=0.10` refusal)

@@ -1,20 +1,20 @@
 {
   "table": "SUCCESS_DOMAIN_CLOSEOUT.md",
-  "repo_commit": "bbe48e544ed48fb4fae519d42768d106f885f6b6",
+  "repo_commit": "55b8f0310092edc1a3cada0fd50a6af0baa76832",
   "command": "python -m parc_track.cli phase19 success-domain",
-  "runtime_sec": 0.157087,
+  "runtime_sec": 0.156501,
   "source_files": [
     {
       "path": "outputs/milestones/scientific_release_success_map/table_cross_domain_evidence_matrix.csv",
-      "sha256": "372bcc6b0a889dfdea137f6baa450ef783b6b7c3da2c8e901d03bdd81c62a6ac"
+      "sha256": "ab51a394e6e605ecc4559eef8c01dfff4af4e037c90e8d2ef88c56a2c34e53f9"
     },
     {
       "path": "outputs/milestones/scientific_release_success_map/table_success_domain_features.csv",
-      "sha256": "f34b351adcf5204e20f5754dfeb94fb291c1df72a562e3bb73dbaf93813bc694"
+      "sha256": "ddb9349e1012b23f394e0d7ede26d6587247238c0e4853bde34284c77449ae2f"
     },
     {
       "path": "outputs/milestones/scientific_release_success_map/table_success_domain_summary_by_domain.csv",
-      "sha256": "57928b5b20af4ba87c113e644812bba29c82694f0397d999edbfdeceb045c332"
+      "sha256": "7b5f16ae99abed6e3c3cef58256e95ae3eb95eca2f1a652d7bb2ad9cba6a0e1d"
     },
     {
       "path": "outputs/milestones/scientific_release_success_map/table_practitioner_success_checklist.csv",
@@ -22,7 +22,7 @@
     },
     {
       "path": "outputs/milestones/scientific_release_success_map/table_strict_real_audit_protocols.csv",
-      "sha256": "ec3ad74b1fd04c8c8f5a0a0230c232b28e5af0e7459f820d6c9d9af1d0c98188"
+      "sha256": "6c1f03ec95f929b3c30d21cccd0cbabd1e6bfc0e7680c2d7edd9e320246faa03"
     },
     {
       "path": "outputs/milestones/scientific_release_success_map/table_materials_stability_threshold_robustness_plan.csv",
