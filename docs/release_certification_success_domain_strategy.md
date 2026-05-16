@@ -27,6 +27,8 @@ outputs/milestones/scientific_release_success_map/
    - ALIGNN-FF materials rows where raw top-K FTR is high and PARC releases a
      smaller lower-FTR subset.
    - High-volume materials request where PARC refuses an unsafe raw release.
+   - Materials stability-threshold and fixed-`gamma` sensitivity rows, now
+     backed by completed reruns rather than protocol placeholders.
 
 3. **Real-audit operational/boundary rows.**
    - iWildCam animal-present real human audit succeeds at `alpha=0.20`, while
@@ -36,7 +38,6 @@ outputs/milestones/scientific_release_success_map/
 
 4. **Protocol-only gaps.**
    - Strict `alpha=0.10` CTC human/expert audit.
-   - Materials stability-threshold robustness.
    - Molecular/protein candidate-release domains.
 
 Protocol-only rows must not be cited as completed evidence.
@@ -73,4 +74,3 @@ Avoid:
 Avoid:
 
 > Protocol-only molecular/protein rows demonstrate generality.
-

@@ -21,6 +21,9 @@ MATERIALS_DIR = DATA_ROOT / "outputs/milestones/scientific_domain_materials"
 IWILDCAM_DIR = DATA_ROOT / "outputs/milestones/scientific_domain_iwildcam_human_audit"
 SPACENET_REAL_DIR = DATA_ROOT / "outputs/spacenet7_real_audit"
 RELEASE_DIAG_DIR = DATA_ROOT / "outputs/milestones/release_story/paper_diagnostics"
+MATERIALS_THRESHOLD_PATH = MATERIALS_DIR / "table_materials_stability_threshold_robustness.csv"
+MATERIALS_THRESHOLD_VARIANTS_PATH = MATERIALS_DIR / "table_materials_stability_threshold_variant_report.csv"
+MATERIALS_GAMMA_PATH = MATERIALS_DIR / "table_materials_gamma_sensitivity.csv"
 
 
 def _read_csv(path: str | Path) -> pd.DataFrame:
@@ -128,6 +131,7 @@ def _evidence_rows() -> tuple[pd.DataFrame, list[Path]]:
     mat_raw_path = MATERIALS_DIR / "table_materials_raw_topK_baseline.csv"
     mat_modern_path = MATERIALS_DIR / "table_materials_modern_model_sensitivity.csv"
     mat_high_path = MATERIALS_DIR / "table_materials_high_volume_refusal.csv"
+    mat_threshold_path = MATERIALS_THRESHOLD_PATH
     iwild_path = IWILDCAM_DIR / "table_iwildcam_human_audit_primary_results.csv"
     iwild_rel_path = IWILDCAM_DIR / "table_iwildcam_release_audit_summary.csv"
     iwild_raw_path = IWILDCAM_DIR / "table_iwildcam_raw_topk_audit_summary.csv"
@@ -142,6 +146,7 @@ def _evidence_rows() -> tuple[pd.DataFrame, list[Path]]:
     mat_raw = _read_csv(mat_raw_path)
     mat_modern = _read_csv(mat_modern_path)
     mat_high = _read_csv(mat_high_path)
+    mat_threshold = _read_csv(mat_threshold_path)
     iwild = _read_csv(iwild_path)
     iwild_rel = _read_csv(iwild_rel_path)
     iwild_raw = _read_csv(iwild_raw_path)
@@ -309,6 +314,45 @@ def _evidence_rows() -> tuple[pd.DataFrame, list[Path]]:
             }
         )
 
+    if not mat_threshold.empty:
+        selected_threshold = mat_threshold[
+            (mat_threshold["alpha"].astype(float).round(10) == 0.1)
+            & (mat_threshold["rho"].astype(float).round(10) == 0.1)
+            & (mat_threshold["K"].astype(int).isin([100, 300]))
+            & (mat_threshold["variant"].isin(["tolerance_positive_25meV", "margin_excluded_25meV", "conservative_clear_stable_observed_25meV"]))
+        ].copy()
+        for _, row in selected_threshold.iterrows():
+            k = int(_num(row.get("K")))
+            raw = _num(row.get("raw_topK_actual_FTR_mean"))
+            ftr = _num(row.get("actual_FTR_mean"))
+            rel = _num(row.get("mean_release"))
+            rows.append(
+                {
+                    "domain": "materials_discovery",
+                    "dataset": "Matbench Discovery WBM",
+                    "unit": "crystal_stability_candidate",
+                    "proposal_source": row.get("proposal_source"),
+                    "verification_mode": "materials_boundary_threshold_rerun",
+                    "alpha": _num(row.get("alpha")),
+                    "K": k,
+                    "release_status": row.get("robustness_interpretation"),
+                    "non_empty_seeds": int(_num(row.get("non_empty_seeds"))),
+                    "total_seeds": int(_num(row.get("seeds"))),
+                    "PARC_release_size": rel,
+                    "PARC_FTR": ftr,
+                    "raw_topK_FTR": raw,
+                    "false_releases_prevented_est": _false_prevented(raw, k, ftr, rel),
+                    "coverage": _num(row.get("block_coverage_mean")),
+                    "evidence_mass_phi": _num(row.get("best_mass_ratio_mean")),
+                    "max_observed_e": _num(row.get("max_observed_e_mean")),
+                    "required_e": _num(row.get("required_e")),
+                    "empty_block_policy": "coverage_conditional",
+                    "block_stress_pass": row.get("variant"),
+                    "practical_interpretation": "materials stability-threshold and boundary-label robustness",
+                    "paper_status": "materials_threshold_robustness",
+                }
+            )
+
     iw = _pick(iwild, alpha=0.2, K=50)
     iw_rel = _pick(iwild_rel, endpoint_alpha=0.2, endpoint_K=50)
     iw_raw = iwild_raw.iloc[0] if not iwild_raw.empty else None
@@ -444,6 +488,7 @@ def _evidence_rows() -> tuple[pd.DataFrame, list[Path]]:
         mat_raw_path,
         mat_modern_path,
         mat_high_path,
+        mat_threshold_path,
         iwild_path,
         iwild_rel_path,
         iwild_raw_path,
@@ -579,38 +624,72 @@ def _protocol_gap_tables() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
         ]
     )
 
-    materials_threshold = pd.DataFrame(
-        [
-            {
-                "analysis": "exact_stable_primary",
-                "threshold_eV_per_atom": 0.0,
-                "status": "completed_in_existing_primary_tables",
-                "positive_rule": "e_above_hull <= 0",
-                "paper_use": "main strict materials evidence",
-            },
-            {
-                "analysis": "tolerance_positive_25meV",
-                "threshold_eV_per_atom": 0.025,
-                "status": "requires_rerun",
-                "positive_rule": "e_above_hull <= 25 meV/atom",
-                "paper_use": "robustness_sensitivity_after_rerun",
-            },
-            {
-                "analysis": "margin_excluded_25meV",
-                "threshold_eV_per_atom": 0.025,
-                "status": "requires_rerun",
-                "positive_rule": "exclude |e_above_hull| <= 25 meV/atom before FTR",
-                "paper_use": "boundary-label-uncertainty sensitivity after rerun",
-            },
-            {
-                "analysis": "conservative_strict_boundary_as_unverified",
-                "threshold_eV_per_atom": 0.0,
-                "status": "requires_rerun",
-                "positive_rule": "only clearly stable positives enter A=1; near-boundary labels remain unsupported",
-                "paper_use": "one-sided precision robustness after rerun",
-            },
-        ]
-    )
+    variant_report = _read_csv(MATERIALS_THRESHOLD_VARIANTS_PATH)
+    robustness = _read_csv(MATERIALS_THRESHOLD_PATH)
+    if not variant_report.empty and not robustness.empty:
+        rows = []
+        for _, variant in variant_report.iterrows():
+            subset = robustness[robustness["variant"].astype(str).eq(str(variant.get("variant")))]
+            for source, source_rows in subset.groupby("proposal_source", dropna=False):
+                strict_rows = source_rows[
+                    (pd.to_numeric(source_rows["alpha"], errors="coerce").round(10) == 0.1)
+                    & (pd.to_numeric(source_rows["K"], errors="coerce").isin([100, 300]))
+                ]
+                k100 = strict_rows[pd.to_numeric(strict_rows["K"], errors="coerce").eq(100)]
+                k300 = strict_rows[pd.to_numeric(strict_rows["K"], errors="coerce").eq(300)]
+                rows.append(
+                    {
+                        "analysis": variant.get("variant"),
+                        "proposal_source": source,
+                        "threshold_eV_per_atom": 0.025 if "25meV" in str(variant.get("variant")) else 0.0,
+                        "status": "completed_rerun",
+                        "positive_rule": variant.get("description"),
+                        "n_candidates": int(_num(variant.get("n_candidates"))),
+                        "n_observed_label_positive": int(_num(variant.get("n_observed_label_positive"))),
+                        "n_eval_label_positive": int(_num(variant.get("n_eval_label_positive"))),
+                        "strict_alpha010_K100_FTR": float(pd.to_numeric(k100["actual_FTR_mean"], errors="coerce").iloc[0])
+                        if not k100.empty
+                        else "",
+                        "strict_alpha010_K300_FTR": float(pd.to_numeric(k300["actual_FTR_mean"], errors="coerce").iloc[0])
+                        if not k300.empty
+                        else "",
+                        "paper_use": "completed materials boundary/threshold robustness evidence",
+                    }
+                )
+        materials_threshold = pd.DataFrame(rows)
+    else:
+        materials_threshold = pd.DataFrame(
+            [
+                {
+                    "analysis": "exact_stable_primary",
+                    "threshold_eV_per_atom": 0.0,
+                    "status": "completed_in_existing_primary_tables",
+                    "positive_rule": "e_above_hull <= 0",
+                    "paper_use": "main strict materials evidence",
+                },
+                {
+                    "analysis": "tolerance_positive_25meV",
+                    "threshold_eV_per_atom": 0.025,
+                    "status": "requires_rerun",
+                    "positive_rule": "e_above_hull <= 25 meV/atom",
+                    "paper_use": "robustness_sensitivity_after_rerun",
+                },
+                {
+                    "analysis": "margin_excluded_25meV",
+                    "threshold_eV_per_atom": 0.025,
+                    "status": "requires_rerun",
+                    "positive_rule": "exclude |e_above_hull| <= 25 meV/atom before FTR",
+                    "paper_use": "boundary-label-uncertainty sensitivity after rerun",
+                },
+                {
+                    "analysis": "conservative_strict_boundary_as_unverified",
+                    "threshold_eV_per_atom": 0.0,
+                    "status": "requires_rerun",
+                    "positive_rule": "only clearly stable positives enter A=1; near-boundary labels remain unsupported",
+                    "paper_use": "one-sided precision robustness after rerun",
+                },
+            ]
+        )
 
     new_domain = pd.DataFrame(
         [
@@ -664,6 +743,7 @@ def _write_report(
         + "\n".join(f"- `{_rel(path)}`" for path in generated)
         + "\n\n## Guardrails\n\n"
         "- CTC and materials strict rows are controlled partial-verification results unless a real human/experimental audit is completed.\n"
+        "- Materials threshold and fixed-gamma sensitivity rows are completed reruns when the corresponding tables are present in `scientific_domain_materials`.\n"
         "- iWildCam is the current real-human-audit operational release row; strict alpha=0.10 remains refusal unless additional audit coverage changes the evidence mass.\n"
         "- SpaceNet K=50 remains diagnostic, while K=100 real-audit primary request is a certified refusal.\n"
         "- Molecular/protein domains are protocol-only here and must not be cited as completed evidence.\n",
@@ -731,11 +811,33 @@ def run_phase19_success_domain(output_dir: str | None = None) -> dict[str, Any]:
         _write_csv(
             materials_threshold,
             out_dir / "table_materials_stability_threshold_robustness_plan.csv",
-            [],
+            [MATERIALS_THRESHOLD_PATH, MATERIALS_THRESHOLD_VARIANTS_PATH],
             started,
-            "Materials threshold robustness plan; rows marked requires_rerun are not completed evidence.",
+            "Materials threshold robustness status; completed rows are backed by actual rerun tables when available.",
         )
     )
+    threshold = _read_csv(MATERIALS_THRESHOLD_PATH)
+    if not threshold.empty:
+        generated.append(
+            _write_csv(
+                threshold,
+                out_dir / "table_materials_stability_threshold_robustness.csv",
+                [MATERIALS_THRESHOLD_PATH],
+                started,
+                "Completed materials threshold and boundary-label robustness rerun.",
+            )
+        )
+    gamma_sensitivity = _read_csv(MATERIALS_GAMMA_PATH)
+    if not gamma_sensitivity.empty:
+        generated.append(
+            _write_csv(
+                gamma_sensitivity,
+                out_dir / "table_materials_gamma_sensitivity.csv",
+                [MATERIALS_GAMMA_PATH],
+                started,
+                "Completed fixed-gamma sensitivity grid for materials release rows.",
+            )
+        )
     generated.append(
         _write_csv(
             new_domain,
@@ -791,13 +893,18 @@ def run_phase19_success_domain(output_dir: str | None = None) -> dict[str, Any]:
     manifest_path = out_dir / "success_domain_summary.json"
     manifest_txt = out_dir / "MANIFEST_SHA256.txt"
     generated_with_summary = generated + [manifest_path]
+    protocol_only_count = int(
+        strict_audit["status"].astype(str).str.contains("requires|optional|not_started|backup", case=False, regex=True).sum()
+        + materials_threshold["status"].astype(str).str.contains("requires|optional|not_started|backup", case=False, regex=True).sum()
+        + new_domain["current_status"].astype(str).str.contains("requires|optional|not_started|backup", case=False, regex=True).sum()
+    )
     manifest = {
         "status": "completed",
         "output_dir": _rel(out_dir),
         "generated_files": [_rel(path) for path in generated_with_summary] + [_rel(manifest_txt)],
         "n_evidence_rows": int(len(evidence)),
         "n_main_flagship_rows": int(evidence["paper_status"].astype(str).eq("main_flagship").sum()) if not evidence.empty else 0,
-        "n_protocol_only_rows": int(len(strict_audit) + len(materials_threshold) + len(new_domain)),
+        "n_protocol_only_rows": protocol_only_count,
         "manifest": _rel(manifest_txt),
     }
     write_json(manifest_path, manifest)

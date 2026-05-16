@@ -24,6 +24,16 @@ The stronger `K=300` endpoint is reported as sensitivity, not the flagship gate:
 0.0916.  Random-score and weak-model controls
 are included to show source quality and block design matter.
 
+Additional robustness closeouts:
+
+- `table_materials_stability_threshold_robustness.csv` reruns the materials
+  release under exact stability, 25 meV/atom tolerance-positive labels,
+  margin-excluded labels, and conservative clear-stable observed positives.
+- `table_materials_gamma_sensitivity.csv` reruns the primary materials rows
+  under a fixed gamma grid from 0.05 to 0.50. The fixed-gamma grid is a
+  sensitivity diagnostic, not a replacement for the preregistered
+  finite-resolution gamma rule.
+
 Scope note: this is a retrospective Matbench Discovery release simulation using
 public DFT labels.  It is not a claim of new materials discovery, and raw
 structures/model weights are not redistributed.

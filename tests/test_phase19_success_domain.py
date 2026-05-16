@@ -14,6 +14,21 @@ def _patch_roots(tmp_path: Path, monkeypatch) -> None:
     monkeypatch.setattr(phase19, "SUCCESS_DIR", tmp_path / "outputs/milestones/scientific_release_success_map")
     monkeypatch.setattr(phase19, "CTC_LEARNED_DIR", tmp_path / "outputs/milestones/scientific_domain_ctc_learned")
     monkeypatch.setattr(phase19, "MATERIALS_DIR", tmp_path / "outputs/milestones/scientific_domain_materials")
+    monkeypatch.setattr(
+        phase19,
+        "MATERIALS_THRESHOLD_PATH",
+        tmp_path / "outputs/milestones/scientific_domain_materials/table_materials_stability_threshold_robustness.csv",
+    )
+    monkeypatch.setattr(
+        phase19,
+        "MATERIALS_THRESHOLD_VARIANTS_PATH",
+        tmp_path / "outputs/milestones/scientific_domain_materials/table_materials_stability_threshold_variant_report.csv",
+    )
+    monkeypatch.setattr(
+        phase19,
+        "MATERIALS_GAMMA_PATH",
+        tmp_path / "outputs/milestones/scientific_domain_materials/table_materials_gamma_sensitivity.csv",
+    )
     monkeypatch.setattr(phase19, "IWILDCAM_DIR", tmp_path / "outputs/milestones/scientific_domain_iwildcam_human_audit")
     monkeypatch.setattr(phase19, "SPACENET_REAL_DIR", tmp_path / "outputs/spacenet7_real_audit")
     monkeypatch.setattr(phase19, "RELEASE_DIAG_DIR", tmp_path / "outputs/milestones/release_story/paper_diagnostics")
@@ -91,6 +106,60 @@ def _write_inputs(tmp_path: Path) -> None:
     pd.DataFrame(
         [
             {
+                "variant": "tolerance_positive_25meV",
+                "proposal_source": "cgcnn",
+                "block_definition": "composition_family_pair",
+                "rho": 0.1,
+                "alpha": 0.1,
+                "K": 100,
+                "seeds": 20,
+                "non_empty_seeds": 20,
+                "mean_release": 100,
+                "actual_FTR_mean": 0.02,
+                "raw_topK_actual_FTR_mean": 0.02,
+                "best_mass_ratio_mean": 2.0,
+                "max_observed_e_mean": 50,
+                "required_e": 10,
+                "block_coverage_mean": 0.9,
+                "robustness_interpretation": "strict_alpha010_pass",
+            }
+        ]
+    ).to_csv(mat / "table_materials_stability_threshold_robustness.csv", index=False)
+    pd.DataFrame(
+        [
+            {
+                "variant": "tolerance_positive_25meV",
+                "description": "Tolerance-positive target.",
+                "n_candidates": 10,
+                "observed_label_col": "stable_tolerance_25meV",
+                "eval_label_col": "stable_tolerance_25meV",
+                "n_observed_label_positive": 5,
+                "n_eval_label_positive": 5,
+            }
+        ]
+    ).to_csv(mat / "table_materials_stability_threshold_variant_report.csv", index=False)
+    pd.DataFrame(
+        [
+            {
+                "proposal_source": "cgcnn",
+                "block_definition": "composition_family_pair",
+                "rho": 0.1,
+                "alpha": 0.1,
+                "K": 100,
+                "gamma": 0.2,
+                "seeds": 20,
+                "non_empty_seeds": 20,
+                "mean_release": 100,
+                "actual_FTR_mean": 0.02,
+                "raw_topK_actual_FTR_mean": 0.02,
+                "best_mass_ratio_mean": 2.0,
+                "conclusion": "release_low_FTR",
+            }
+        ]
+    ).to_csv(mat / "table_materials_gamma_sensitivity.csv", index=False)
+    pd.DataFrame(
+        [
+            {
                 "alpha": 0.2,
                 "K": 50,
                 "non_empty_seeds": 20,
@@ -150,10 +219,13 @@ def test_phase19_success_domain_tables(tmp_path: Path, monkeypatch) -> None:
     assert {"domain", "PARC_FTR", "raw_topK_FTR", "false_releases_prevented_est"}.issubset(evidence.columns)
     assert "main_flagship" in set(evidence["paper_status"])
     assert "protocol_only_not_evidence" in set(pd.read_csv(out / "table_strict_real_audit_protocols.csv")["paper_use_before_completion"])
+    threshold_status = pd.read_csv(out / "table_materials_stability_threshold_robustness_plan.csv")
+    assert "completed_rerun" in set(threshold_status["status"])
+    assert (out / "table_materials_stability_threshold_robustness.csv").exists()
+    assert (out / "table_materials_gamma_sensitivity.csv").exists()
 
     features = pd.read_csv(out / "table_success_domain_features.csv")
     assert {"phi_ge_1", "release_success_binary", "risk_success_binary"}.issubset(features.columns)
 
     checklist = pd.read_csv(out / "table_practitioner_success_checklist.csv")
     assert "sufficient_evidence_mass" in set(checklist["condition"])
-

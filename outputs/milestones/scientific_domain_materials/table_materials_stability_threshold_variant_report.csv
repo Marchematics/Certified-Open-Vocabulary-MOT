@@ -1,0 +1,5 @@
+variant,description,n_candidates,observed_label_col,eval_label_col,n_observed_label_positive,n_eval_label_positive
+exact_stable_primary,Primary exact-stability target: E_hull <= 0.,215486,stable_exact,stable_exact,32942,32942
+tolerance_positive_25meV,Tolerance-positive target: E_hull <= 25 meV/atom.,215486,stable_tolerance_25meV,stable_tolerance_25meV,55346,55346
+margin_excluded_25meV,Remove candidates within +/-25 meV/atom of the stability boundary before calibration and evaluation.,179242,stable_exact,stable_exact,19102,19102
+conservative_clear_stable_observed_25meV,Only clearly stable E_hull <= -25 meV/atom candidates can be observed positives; exact stability remains the evaluation target.,215486,clear_stable_minus25meV,stable_exact,19103,32942

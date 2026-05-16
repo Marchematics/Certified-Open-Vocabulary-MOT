@@ -1,8 +1,8 @@
 {
   "table": "table_block_coverage_exchangeability_diagnostics.csv",
-  "repo_commit": "016ba131076cea3464248e1a72f5bf1649110389",
+  "repo_commit": "bbe48e544ed48fb4fae519d42768d106f885f6b6",
   "command": "python -m parc_track.cli phase19 success-domain",
-  "runtime_sec": 0.099708,
+  "runtime_sec": 0.130286,
   "source_files": [
     {
       "path": "outputs/milestones/release_story/paper_diagnostics/table_assumption_diagnostic_panel.csv",

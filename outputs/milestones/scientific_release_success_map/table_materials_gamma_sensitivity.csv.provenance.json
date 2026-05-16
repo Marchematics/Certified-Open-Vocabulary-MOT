@@ -1,0 +1,14 @@
+{
+  "table": "table_materials_gamma_sensitivity.csv",
+  "repo_commit": "bbe48e544ed48fb4fae519d42768d106f885f6b6",
+  "command": "python -m parc_track.cli phase19 success-domain",
+  "runtime_sec": 0.114785,
+  "source_files": [
+    {
+      "path": "outputs/milestones/scientific_domain_materials/table_materials_gamma_sensitivity.csv",
+      "sha256": "89b6d20de5c79508a4c2a6e47e7e9af3495d58425935b23d0a257e605e7c59f6"
+    }
+  ],
+  "output_sha256": "0fb391e6c6e7f81135a80f3d13c0ad0a244ebbdb0ca89b7a936578fdcd7d056d",
+  "notes": "Completed fixed-gamma sensitivity grid for materials release rows."
+}

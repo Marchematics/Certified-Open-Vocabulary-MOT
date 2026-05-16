@@ -1,9 +1,18 @@
 {
   "table": "table_materials_stability_threshold_robustness_plan.csv",
-  "repo_commit": "016ba131076cea3464248e1a72f5bf1649110389",
+  "repo_commit": "bbe48e544ed48fb4fae519d42768d106f885f6b6",
   "command": "python -m parc_track.cli phase19 success-domain",
-  "runtime_sec": 0.085082,
-  "source_files": [],
-  "output_sha256": "55304734be7699e757c1dcdd8b8977f97e59935268c299597f691fd364458eba",
-  "notes": "Materials threshold robustness plan; rows marked requires_rerun are not completed evidence."
+  "runtime_sec": 0.097336,
+  "source_files": [
+    {
+      "path": "outputs/milestones/scientific_domain_materials/table_materials_stability_threshold_robustness.csv",
+      "sha256": "f163684415034989baa8054f221f85089dcae39766de1c056a7be900cfe8b56c"
+    },
+    {
+      "path": "outputs/milestones/scientific_domain_materials/table_materials_stability_threshold_variant_report.csv",
+      "sha256": "ba5b4bfb67df233d9f9b025c387b51af131cf58b91e7ea5d1fcaaa7a232b53ed"
+    }
+  ],
+  "output_sha256": "8fd1e4049d02013cea1b420810dee7cea52734c3f006ae3eea5fe8a409ce5f46",
+  "notes": "Materials threshold robustness status; completed rows are backed by actual rerun tables when available."
 }

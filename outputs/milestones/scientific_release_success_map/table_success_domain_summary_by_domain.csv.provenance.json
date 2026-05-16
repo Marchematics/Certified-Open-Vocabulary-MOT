@@ -1,8 +1,8 @@
 {
   "table": "table_success_domain_summary_by_domain.csv",
-  "repo_commit": "016ba131076cea3464248e1a72f5bf1649110389",
+  "repo_commit": "bbe48e544ed48fb4fae519d42768d106f885f6b6",
   "command": "python -m parc_track.cli phase19 success-domain",
-  "runtime_sec": 0.060877,
+  "runtime_sec": 0.076777,
   "source_files": [
     {
       "path": "outputs/milestones/scientific_domain_ctc_learned/table_ctc_learned_strict_alpha010_smallK.csv",
@@ -27,6 +27,10 @@
     {
       "path": "outputs/milestones/scientific_domain_materials/table_materials_high_volume_refusal.csv",
       "sha256": "a672da98a71c683908134cc55aa8b545527ae6d10d93f874b3e6f53e2fab8b6f"
+    },
+    {
+      "path": "outputs/milestones/scientific_domain_materials/table_materials_stability_threshold_robustness.csv",
+      "sha256": "f163684415034989baa8054f221f85089dcae39766de1c056a7be900cfe8b56c"
     },
     {
       "path": "outputs/milestones/scientific_domain_iwildcam_human_audit/table_iwildcam_human_audit_primary_results.csv",
@@ -57,6 +61,6 @@
       "sha256": "be51a5d488c7953d5d26b8d6457521828509ceb24e806f27a13755e9eaaae489"
     }
   ],
-  "output_sha256": "4f406fec07e5cbbf67c45f3cf5071836788a39fb3c57a2fd8c2790a5a4770464",
+  "output_sha256": "57928b5b20af4ba87c113e644812bba29c82694f0397d999edbfdeceb045c332",
   "notes": "Domain-level aggregation for paper discussion."
 }
