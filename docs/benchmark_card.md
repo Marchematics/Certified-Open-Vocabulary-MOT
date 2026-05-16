@@ -12,6 +12,9 @@ for:
 - building new candidate-release experiments without redistributing raw
   datasets.
 
+It is not intended as a replacement for the original benchmark datasets or as a
+model-weight distribution package.
+
 ## Included Assets
 
 - Audit benchmark CSVs:
@@ -63,6 +66,27 @@ Common reported quantities:
 - unsupported-track rate / UTR for visual benchmarks;
 - evidence-mass and e-value diagnostics;
 - block coverage and empty/refusal reasons.
+
+## Recommended Evaluation Checklist
+
+When adding a new benchmark row, report:
+
+- the frozen proposal source;
+- the release unit;
+- the verification source;
+- the block definition;
+- `alpha`, `K`, and seed list;
+- raw top-K baseline risk;
+- PARC release size and FTR;
+- refusal reason when release is empty;
+- whether the row is strict, operational, diagnostic, or boundary evidence.
+
+## Public-Safe Use
+
+Users may share derived CSVs, schemas, manifests, and tiny fixtures from this
+repository. Users should not redistribute raw data obtained from OVT-B, TAO,
+BURST, LVIS/LVVIS, CTC, SpaceNet, iWildCam, WBM/Matbench, or other external
+providers unless those providers explicitly permit redistribution.
 
 ## Caveats
 
