@@ -1,0 +1,6 @@
+condition,diagnostic,success_signal,failure_action
+one_sided_positive_reliability,human/GT verified positives must be high precision; uncertain/disputed rows stay unverified,audit agreement acceptable and no false verified positives in checked subset,tighten positive rule or downgrade row to assumption-boundary diagnostic
+covered_exchangeable_blocks,covered block rate and leave-block-family-out sensitivity,release/refusal conclusion stable under domain-respecting block perturbations,report covered-regime claim only or add block-balanced audit
+sufficient_evidence_mass,evidence_mass_phi = alpha * k * E_(k) / K,phi >= 1 for at least one compatible release volume,"lower K, increase verified-positive audit budget, or certify refusal"
+finite_resolution,max_observed_e >= required_e,single-candidate evidence can cross the target threshold,increase calibration denominator or relax the operating point; do not claim release
+manageable_conflicts,compatibility graph density and SCS-vs-ILP diagnostic,SCS release close to feasible-compatible frontier,report graph-conflict power loss; use ILP only as diagnostic unless preregistered

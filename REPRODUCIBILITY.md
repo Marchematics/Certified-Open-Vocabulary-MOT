@@ -35,6 +35,7 @@ outputs/milestones/scientific_domain_ctc_learned/
 outputs/milestones/scientific_domain_spacenet7/
 outputs/milestones/scientific_domain_spacenet7_prospective/
 outputs/milestones/scientific_domain_materials/
+outputs/milestones/scientific_release_success_map/
 outputs/milestones/generality_reliability/
 outputs/milestones/release_story/
 outputs/benchmarks/parc_certification_benchmark/
@@ -77,6 +78,12 @@ Regenerate the current paper-facing release/refusal tables:
 
 ```bash
 make reproduce-main-tables PYTHON=python
+```
+
+The cross-domain success/refusal map can also be regenerated directly:
+
+```bash
+python -m parc_track.cli phase19 success-domain
 ```
 
 ## 4. Re-run with External Datasets

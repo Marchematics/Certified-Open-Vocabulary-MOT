@@ -1,0 +1,14 @@
+{
+  "table": "table_block_coverage_exchangeability_diagnostics.csv",
+  "repo_commit": "016ba131076cea3464248e1a72f5bf1649110389",
+  "command": "python -m parc_track.cli phase19 success-domain",
+  "runtime_sec": 0.099708,
+  "source_files": [
+    {
+      "path": "outputs/milestones/release_story/paper_diagnostics/table_assumption_diagnostic_panel.csv",
+      "sha256": "372142988c0c563ddc29acaf0c62b1bf7b2608f8b39ed3cf40f4fdf6533d2dfb"
+    }
+  ],
+  "output_sha256": "20d9ed7682630d272cc6e2f36c914d6e41fa05aa84585a960a01ac069c7f2007",
+  "notes": "Copied existing assumption-diagnostic panel into success-domain milestone."
+}

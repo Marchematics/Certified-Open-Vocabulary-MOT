@@ -1,0 +1,3 @@
+candidate_domain,candidate_unit,one_sided_positive,block_rule,primary_endpoint,current_status,minimal_artifact_needed,paper_use
+molecular_hit_release,molecule_target_candidate,experimentally confirmed active hit,Bemis-Murcko scaffold x target family or assay batch x scaffold family,"alpha=0.10, K in {50,100}",not_started,"candidate universe with frozen scores, assay labels for held-out evaluation, partial-positive mask protocol",future third-domain extension; not claimed in current results
+protein_variant_function_release,protein_variant,experimentally confirmed functional variant,protein family x mutation-neighborhood,"alpha=0.10, K in {50,100}",backup_not_started,"variant library labels, frozen score model, family-aware blocks",future extension only

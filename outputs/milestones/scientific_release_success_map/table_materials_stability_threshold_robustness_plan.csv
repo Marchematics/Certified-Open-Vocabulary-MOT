@@ -1,0 +1,5 @@
+analysis,threshold_eV_per_atom,status,positive_rule,paper_use
+exact_stable_primary,0.0,completed_in_existing_primary_tables,e_above_hull <= 0,main strict materials evidence
+tolerance_positive_25meV,0.025,requires_rerun,e_above_hull <= 25 meV/atom,robustness_sensitivity_after_rerun
+margin_excluded_25meV,0.025,requires_rerun,exclude |e_above_hull| <= 25 meV/atom before FTR,boundary-label-uncertainty sensitivity after rerun
+conservative_strict_boundary_as_unverified,0.0,requires_rerun,only clearly stable positives enter A=1; near-boundary labels remain unsupported,one-sided precision robustness after rerun

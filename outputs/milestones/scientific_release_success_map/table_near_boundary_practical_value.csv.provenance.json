@@ -1,0 +1,14 @@
+{
+  "table": "table_near_boundary_practical_value.csv",
+  "repo_commit": "016ba131076cea3464248e1a72f5bf1649110389",
+  "command": "python -m parc_track.cli phase19 success-domain",
+  "runtime_sec": 0.107849,
+  "source_files": [
+    {
+      "path": "outputs/milestones/release_story/paper_diagnostics/table_near_boundary_release_value.csv",
+      "sha256": "be51a5d488c7953d5d26b8d6457521828509ceb24e806f27a13755e9eaaae489"
+    }
+  ],
+  "output_sha256": "340f207b408ddc123f80026c52bdb39172b7addf4d3de841ba27c1a541eafc9b",
+  "notes": "Near-boundary release value table with raw vs PARC FTR and baseline frontiers."
+}

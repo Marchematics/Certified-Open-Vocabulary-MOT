@@ -34,6 +34,9 @@ This repository uses neutral public artifact names. Older internal experiment la
 - `outputs/milestones/scientific_domain_materials/`
   Materials-discovery candidate-release milestone on public Matbench Discovery / WBM tables. A CGCNN learned materials model proposes stable-crystal candidates, PARC observes only masked DFT-stable positives, and the milestone reports strict `alpha=0.10` release at `K=100` plus weak-model, random-score, high-volume, block-sensitivity, and leakage diagnostics.
 
+- `outputs/milestones/scientific_release_success_map/`
+  Cross-domain evidence matrix and domain-of-success diagnostics. This milestone consolidates completed CTC, materials, iWildCam, SpaceNet, near-boundary, and audit-contamination rows into a paper-facing success/refusal map, while marking strict real-audit extensions and new candidate domains as protocol-only when they have not been run.
+
 - `outputs/milestones/release_story/paper_diagnostics/`
   Paper-facing diagnostic tables for assumptions, seed variability/interval summaries, verification budgets, and prevented false releases.
 

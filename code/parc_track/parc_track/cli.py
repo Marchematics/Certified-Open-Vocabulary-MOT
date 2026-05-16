@@ -78,6 +78,7 @@ from .phase15 import run_phase15_full_experiments
 from .phase16 import run_phase16_generality_closeout
 from .phase17 import run_phase17_reviewer_closeout
 from .phase18 import run_phase18_statistical_scaleup
+from .phase19 import run_phase19_success_domain
 from .reports import build_phase1b_report
 from .smoke import run_smoke
 from .sweeps import run_sweep
@@ -425,6 +426,13 @@ def build_parser() -> argparse.ArgumentParser:
     phase18_subparsers = phase18.add_subparsers(dest="phase18_command", required=True)
     phase18_scaleup = phase18_subparsers.add_parser("statistical-scaleup", help="Build 30-seed/dataset/baseline/CI scale-up tables.")
     phase18_scaleup.add_argument("--output-dir", default=None, help="Output directory under ..")
+    phase19 = subparsers.add_parser("phase19", help="Build scientific release success-domain evidence map.")
+    phase19_subparsers = phase19.add_subparsers(dest="phase19_command", required=True)
+    phase19_success = phase19_subparsers.add_parser(
+        "success-domain",
+        help="Build domain-of-success evidence matrix and protocol gap tables.",
+    )
+    phase19_success.add_argument("--output-dir", default=None, help="Output directory under ..")
     return parser
 
 
@@ -738,6 +746,11 @@ def main(argv: list[str] | None = None) -> None:
             summary = run_phase18_statistical_scaleup(args.output_dir)
         else:
             parser.error(f"unknown phase18 command: {args.phase18_command}")
+    elif args.command == "phase19":
+        if args.phase19_command == "success-domain":
+            summary = run_phase19_success_domain(args.output_dir)
+        else:
+            parser.error(f"unknown phase19 command: {args.phase19_command}")
         print(json.dumps(summary, indent=2, ensure_ascii=False))
     else:
         parser.error(f"unknown command: {args.command}")

@@ -1,0 +1,23 @@
+{
+  "status": "completed",
+  "output_dir": "outputs/milestones/scientific_release_success_map",
+  "generated_files": [
+    "outputs/milestones/scientific_release_success_map/table_cross_domain_evidence_matrix.csv",
+    "outputs/milestones/scientific_release_success_map/table_success_domain_features.csv",
+    "outputs/milestones/scientific_release_success_map/table_success_domain_summary_by_domain.csv",
+    "outputs/milestones/scientific_release_success_map/table_practitioner_success_checklist.csv",
+    "outputs/milestones/scientific_release_success_map/table_strict_real_audit_protocols.csv",
+    "outputs/milestones/scientific_release_success_map/table_materials_stability_threshold_robustness_plan.csv",
+    "outputs/milestones/scientific_release_success_map/table_candidate_new_domain_protocols.csv",
+    "outputs/milestones/scientific_release_success_map/table_block_coverage_exchangeability_diagnostics.csv",
+    "outputs/milestones/scientific_release_success_map/table_near_boundary_practical_value.csv",
+    "outputs/milestones/scientific_release_success_map/table_audit_contamination_sensitivity.csv",
+    "outputs/milestones/scientific_release_success_map/SUCCESS_DOMAIN_CLOSEOUT.md",
+    "outputs/milestones/scientific_release_success_map/success_domain_summary.json",
+    "outputs/milestones/scientific_release_success_map/MANIFEST_SHA256.txt"
+  ],
+  "n_evidence_rows": 13,
+  "n_main_flagship_rows": 3,
+  "n_protocol_only_rows": 8,
+  "manifest": "outputs/milestones/scientific_release_success_map/MANIFEST_SHA256.txt"
+}

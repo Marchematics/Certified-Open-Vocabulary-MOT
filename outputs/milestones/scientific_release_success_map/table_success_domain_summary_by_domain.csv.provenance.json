@@ -1,0 +1,62 @@
+{
+  "table": "table_success_domain_summary_by_domain.csv",
+  "repo_commit": "016ba131076cea3464248e1a72f5bf1649110389",
+  "command": "python -m parc_track.cli phase19 success-domain",
+  "runtime_sec": 0.060877,
+  "source_files": [
+    {
+      "path": "outputs/milestones/scientific_domain_ctc_learned/table_ctc_learned_strict_alpha010_smallK.csv",
+      "sha256": "2489e6f760d419e3ffdf2af15a18077b92782a106e4bf2bf0dc1f53d7600abf3"
+    },
+    {
+      "path": "outputs/milestones/scientific_domain_ctc_learned/table_ctc_learned_negative_control.csv",
+      "sha256": "5a0c6c35bb7c0586a322264bed7c888e1ec04dc931a9aba9dc50d2db2c72de2d"
+    },
+    {
+      "path": "outputs/milestones/scientific_domain_materials/table_materials_primary_results.csv",
+      "sha256": "56f07f520262c640473c987de6690290a0ba7c4d3cb4cb661efd1f276491ac83"
+    },
+    {
+      "path": "outputs/milestones/scientific_domain_materials/table_materials_raw_topK_baseline.csv",
+      "sha256": "17db331245f5cf3a04865b84c0aa158aa5de19c0cd8889bc9d6878185308d5af"
+    },
+    {
+      "path": "outputs/milestones/scientific_domain_materials/table_materials_modern_model_sensitivity.csv",
+      "sha256": "84df29473c53bd8c6eff588460e6051564dd9bef5ff71cef1b7109ded15cbb11"
+    },
+    {
+      "path": "outputs/milestones/scientific_domain_materials/table_materials_high_volume_refusal.csv",
+      "sha256": "a672da98a71c683908134cc55aa8b545527ae6d10d93f874b3e6f53e2fab8b6f"
+    },
+    {
+      "path": "outputs/milestones/scientific_domain_iwildcam_human_audit/table_iwildcam_human_audit_primary_results.csv",
+      "sha256": "93e0d9fa5c968ce7d88354a1b1f21ce2302e64bedf642298987c1073d9f0e63d"
+    },
+    {
+      "path": "outputs/milestones/scientific_domain_iwildcam_human_audit/table_iwildcam_release_audit_summary.csv",
+      "sha256": "3a2a50a8cee1ec054f89f540f2f823288f3497ef977d610471d06168febb41d4"
+    },
+    {
+      "path": "outputs/milestones/scientific_domain_iwildcam_human_audit/table_iwildcam_raw_topk_audit_summary.csv",
+      "sha256": "b38009abed887ae44f3c3388a2b486a9e29f55c1d56c943f13082c97170e6bed"
+    },
+    {
+      "path": "outputs/milestones/scientific_domain_iwildcam_human_audit/table_iwildcam_second_review_agreement_summary.csv",
+      "sha256": "18c808989adac508e1b56d70b31f6b4d86ae4cc0de74d85ba5edcdd392bea55a"
+    },
+    {
+      "path": "outputs/spacenet7_real_audit/table_spacenet7_real_audit_k50_completed_summary.csv",
+      "sha256": "0b815e47afccde41bc17ba66d909bd6aa1b1b35e67afe2a4fc54f69d392aa03a"
+    },
+    {
+      "path": "outputs/spacenet7_real_audit/table_spacenet7_real_audit_primary_refusal_diagnostics.csv",
+      "sha256": "907b86a769e36d69a8f019660bb96f6d5acc7802bfc69d67122d6ee7bf0c69ab"
+    },
+    {
+      "path": "outputs/milestones/release_story/paper_diagnostics/table_near_boundary_release_value.csv",
+      "sha256": "be51a5d488c7953d5d26b8d6457521828509ceb24e806f27a13755e9eaaae489"
+    }
+  ],
+  "output_sha256": "4f406fec07e5cbbf67c45f3cf5071836788a39fb3c57a2fd8c2790a5a4770464",
+  "notes": "Domain-level aggregation for paper discussion."
+}

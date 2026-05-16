@@ -1,0 +1,50 @@
+{
+  "table": "SUCCESS_DOMAIN_CLOSEOUT.md",
+  "repo_commit": "016ba131076cea3464248e1a72f5bf1649110389",
+  "command": "python -m parc_track.cli phase19 success-domain",
+  "runtime_sec": 0.122559,
+  "source_files": [
+    {
+      "path": "outputs/milestones/scientific_release_success_map/table_cross_domain_evidence_matrix.csv",
+      "sha256": "eaaa435f13f12be176c5cc78c52f672cd177a13895c45d8a33c447f6ea52c63e"
+    },
+    {
+      "path": "outputs/milestones/scientific_release_success_map/table_success_domain_features.csv",
+      "sha256": "e6f9fdd03b952dfe53ec24b11669a4f46f8f180a112fcc43dd1baa0c5f4a75bf"
+    },
+    {
+      "path": "outputs/milestones/scientific_release_success_map/table_success_domain_summary_by_domain.csv",
+      "sha256": "4f406fec07e5cbbf67c45f3cf5071836788a39fb3c57a2fd8c2790a5a4770464"
+    },
+    {
+      "path": "outputs/milestones/scientific_release_success_map/table_practitioner_success_checklist.csv",
+      "sha256": "58831075424a16720fd346d143fe6b26b7876d3ba4d145ea02738acb1d9e8eda"
+    },
+    {
+      "path": "outputs/milestones/scientific_release_success_map/table_strict_real_audit_protocols.csv",
+      "sha256": "ec3ad74b1fd04c8c8f5a0a0230c232b28e5af0e7459f820d6c9d9af1d0c98188"
+    },
+    {
+      "path": "outputs/milestones/scientific_release_success_map/table_materials_stability_threshold_robustness_plan.csv",
+      "sha256": "55304734be7699e757c1dcdd8b8977f97e59935268c299597f691fd364458eba"
+    },
+    {
+      "path": "outputs/milestones/scientific_release_success_map/table_candidate_new_domain_protocols.csv",
+      "sha256": "3b8923afaead87a0e1a8dcf4c7bab814b968393235658f368e83c6403122f876"
+    },
+    {
+      "path": "outputs/milestones/scientific_release_success_map/table_block_coverage_exchangeability_diagnostics.csv",
+      "sha256": "20d9ed7682630d272cc6e2f36c914d6e41fa05aa84585a960a01ac069c7f2007"
+    },
+    {
+      "path": "outputs/milestones/scientific_release_success_map/table_near_boundary_practical_value.csv",
+      "sha256": "340f207b408ddc123f80026c52bdb39172b7addf4d3de841ba27c1a541eafc9b"
+    },
+    {
+      "path": "outputs/milestones/scientific_release_success_map/table_audit_contamination_sensitivity.csv",
+      "sha256": "ac5c27d1565050a6a7334a703b06814ea27c09a013935f6c5a6376827218e5b6"
+    }
+  ],
+  "output_sha256": "1664009d67677294f732c459adcb70aa35b8e2090033d142a001467640d26815",
+  "notes": "markdown closeout over generated success-domain tables"
+}

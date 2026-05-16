@@ -1,0 +1,9 @@
+{
+  "table": "table_materials_stability_threshold_robustness_plan.csv",
+  "repo_commit": "016ba131076cea3464248e1a72f5bf1649110389",
+  "command": "python -m parc_track.cli phase19 success-domain",
+  "runtime_sec": 0.085082,
+  "source_files": [],
+  "output_sha256": "55304734be7699e757c1dcdd8b8977f97e59935268c299597f691fd364458eba",
+  "notes": "Materials threshold robustness plan; rows marked requires_rerun are not completed evidence."
+}
