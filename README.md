@@ -1,5 +1,15 @@
 # PARC: Auditable Release-Time Certification under Partial Verification
 
+[![Tests](https://github.com/Marchematics/PARC-Certified-Open-Vocabulary-MOT/actions/workflows/tests.yml/badge.svg)](https://github.com/Marchematics/PARC-Certified-Open-Vocabulary-MOT/actions/workflows/tests.yml)
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![Package](https://img.shields.io/badge/package-public--safe-blue)
+![Manifest](https://img.shields.io/badge/manifest-SHA256%20verified-green)
+![Domains](https://img.shields.io/badge/domains-CTC%20%7C%20Materials%20%7C%20iWildCam%20%7C%20SpaceNet7-lightgrey)
+![Risk](https://img.shields.io/badge/risk-control-FTR%20certification-green)
+![Benchmark](https://img.shields.io/badge/benchmark-PARC%20certification-blue)
+![Audit](https://img.shields.io/badge/audit-human--confirmed-green)
+![Paper](https://img.shields.io/badge/paper-NMI%20target-orange)
+
 PARC is a post-prediction certification layer for scientific and open-world AI systems operating under partial verification. Given a frozen candidate universe from an external detector, tracker, or linker, PARC calibrates against a null superset and either releases a self-consistent certified subset or refuses unsafe release requests with explicit diagnostics.
 
 This repository is the public-safe reproducibility package for the final release of the project. It includes the original open-vocabulary MOT instantiation, scientific-domain link certification on Cell Tracking Challenge and SpaceNet 7, a learned-hybrid CTC proposal-source companion, a Matbench Discovery materials-candidate release milestone, open-world vision generality artifacts, audit benchmark CSVs, frozen configs, result tables, tiny fixtures, and documentation needed to reproduce the certification flow without redistributing raw benchmark videos, raw annotations, model weights, or local caches.
@@ -49,7 +59,7 @@ This repository intentionally excludes raw videos, raw dataset annotations, raw 
 ## Quick Start
 
 ```bash
-git clone https://github.com/Marchematics/Certified-Open-Vocabulary-MOT.git parc-track
+git clone https://github.com/Marchematics/PARC-Certified-Open-Vocabulary-MOT.git parc-track
 cd parc-track
 python -m venv .venv
 source .venv/bin/activate
@@ -65,6 +75,14 @@ python -m parc_track.cli phase9 certification-api --output-dir outputs/tmp_cert_
 ```
 
 For full benchmark reproduction, see `REPRODUCIBILITY.md`.
+
+## Reviewer Entry Points
+
+- `docs/reviewer_guide.md`: what can be checked without raw datasets, what requires external data, and where the strict/operational rows live.
+- `docs/claim_table.md`: claim-by-claim evidence map with paths, reproduction commands, and limitations.
+- `docs/audit_protocol.md`: human-audit label definitions, verified-positive rules, second-review policy, and disagreement handling.
+- `docs/benchmark_card.md`: PARC Certification Benchmark card for intended use, included fields, metrics, and caveats.
+- `docs/limitations.md`: scope boundaries, refusal interpretation, and public-safe packaging limits.
 
 ## Main Frozen Artifacts
 

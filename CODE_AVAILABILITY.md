@@ -12,3 +12,35 @@ Core modules include:
 - `cli.py`: command line entry point.
 
 Detector/tracker inference implementations are not vendored. Use each detector/tracker's official repository and convert outputs to the PARC schema described in `docs/API.md`.
+
+## Reproducibility Entry Points
+
+- Tiny fixture:
+
+  ```bash
+  PYTHONPATH=code/parc_track python -m parc_track.cli phase9 certification-api --output-dir outputs/tmp_cert_api
+  ```
+
+- Cross-domain success map:
+
+  ```bash
+  PYTHONPATH=code/parc_track python -m parc_track.cli phase19 success-domain
+  ```
+
+- Tests:
+
+  ```bash
+  PYTHONPATH=code/parc_track python -m pytest -q tests
+  ```
+
+## Public-Safe Scripts
+
+Scripts under `scripts/` build derived tables, closeout reports, bundle checks,
+and audit packages.  They intentionally operate on candidate-universe tables and
+public-safe derived artifacts rather than raw videos/images or model internals.
+
+## Continuous Integration
+
+The GitHub Actions workflow in `.github/workflows/tests.yml` installs the
+package, runs the test suite, validates selected public bundles, and verifies
+the root SHA256 manifest.

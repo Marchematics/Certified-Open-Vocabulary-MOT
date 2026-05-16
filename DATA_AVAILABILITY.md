@@ -2,6 +2,10 @@
 
 This repository provides derived, public-safe PARC-Track artifacts: audit labels, certification result tables, schemas, tiny fixtures, and frozen configuration files.
 
+The guiding rule is that the repository should let reviewers reproduce the
+certification flow and verify reported tables without redistributing data owned
+by the original benchmark maintainers.
+
 ## Included Data
 
 - `outputs/benchmarks/parc_certification_benchmark/audit/audit_labels_2000_human_reviewed.csv`: human-reviewed audit labels for 2,000 candidate paths.
@@ -9,8 +13,10 @@ This repository provides derived, public-safe PARC-Track artifacts: audit labels
 - `outputs/benchmarks/parc_certification_benchmark/results/`: paper-facing certification and stress-test result tables.
 - `outputs/benchmarks/parc_certification_benchmark/tiny_fixture/`: synthetic tiny fixture for validating code paths.
 - `outputs/milestones/scientific_domain_ctc/`: public-safe CTC cell-link certification result tables, figures, and sanitized provenance.
+- `outputs/milestones/ctc_strict_human_audit/`: human-confirmed CTC strict-audit labels and release-queue summary.
 - `outputs/milestones/scientific_domain_spacenet7/`: public-safe SpaceNet 7 building-link certification result tables, figures, and sanitized provenance.
 - `outputs/milestones/scientific_domain_materials/`: public-safe Matbench Discovery / WBM materials-candidate release tables, source hashes, leakage checks, and controls.
+- `outputs/milestones/scientific_release_success_map/`: consolidated cross-domain release/refusal evidence matrix.
 
 ## Excluded Data
 
@@ -24,3 +30,18 @@ We do not redistribute raw OVT-B, TAO, BURST, LV-VIS/BURST frames, CTC microscop
 4. Run the PARC certification CLI as documented in `REPRODUCIBILITY.md`.
 
 The published result tables are sufficient to reproduce the paper tables without raw videos.
+
+## Integrity Checks
+
+All public files are listed in `MANIFEST_SHA256.txt`.  Verify the package with:
+
+```bash
+sha256sum -c MANIFEST_SHA256.txt
+```
+
+Public-bundle safety can be checked with:
+
+```bash
+python scripts/validate_public_bundle.py outputs/milestones/reliability_fortress
+python scripts/validate_public_bundle.py outputs/milestones/scientific_release_success_map
+```

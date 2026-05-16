@@ -1,0 +1,31 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Install package
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e code/parc_track
+          pip install numpy scipy pandas opencv-python pyyaml tqdm pytest motmetrics pycocotools pillow matplotlib shapely tifffile imagecodecs
+      - name: Run tests
+        env:
+          MPLBACKEND: Agg
+          PYTHONHASHSEED: "0"
+        run: PYTHONPATH=code/parc_track python -m pytest -q tests
+      - name: Validate public bundles
+        run: |
+          python scripts/validate_public_bundle.py outputs/milestones/reliability_fortress
+          python scripts/validate_public_bundle.py outputs/milestones/release_story
+          python scripts/validate_public_bundle.py outputs/milestones/scientific_release_success_map
+      - name: Verify manifest
+        run: sha256sum -c MANIFEST_SHA256.txt

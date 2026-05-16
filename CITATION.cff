@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+title: "PARC: Auditable Release-Time Certification under Partial Verification"
+message: "If you use this repository, please cite the repository and commit hash."
+type: software
+authors:
+  - family-names: Gonzalez
+    given-names: Nick
+repository-code: "https://github.com/Marchematics/PARC-Certified-Open-Vocabulary-MOT"
+license: MIT
+date-released: "2026-05-16"
+keywords:
+  - risk control
+  - partial verification
+  - release certification
+  - scientific AI
+  - open-vocabulary perception
