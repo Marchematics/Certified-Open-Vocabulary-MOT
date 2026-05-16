@@ -5,7 +5,6 @@
 ![Package](https://img.shields.io/badge/package-public--safe-blue)
 ![Manifest](https://img.shields.io/badge/manifest-SHA256%20verified-green)
 ![Domains](https://img.shields.io/badge/domains-CTC%20%7C%20Materials%20%7C%20iWildCam%20%7C%20SpaceNet7-lightgrey)
-![Risk](https://img.shields.io/badge/risk-control-FTR%20certification-green)
 ![Benchmark](https://img.shields.io/badge/benchmark-PARC%20certification-blue)
 ![Audit](https://img.shields.io/badge/audit-human--confirmed-green)
 
