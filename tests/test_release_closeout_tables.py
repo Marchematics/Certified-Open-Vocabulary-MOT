@@ -70,6 +70,7 @@ def test_closeout_tables_are_public_safe() -> None:
         ROOT / "outputs/milestones/release_story/paper_diagnostics",
         ROOT / "outputs/milestones/no_human_scientific_consequence",
         ROOT / "outputs/milestones/materials_computational_followup_trial",
+        ROOT / "outputs/milestones/official_downstream_consequence",
     ]
     forbidden = [
         "/" + "home" + "/",
@@ -354,3 +355,48 @@ def test_materials_computational_followup_trial_is_scoped_and_decision_relevant(
     assert float(alignn_k5000["unstable_followups_prevented_mean"]) > 2000
     assert cards["scope_limitations"].str.contains("quasi-prospective replay").all()
     assert (root / "figure_materials_computational_trial_main.pdf").exists()
+
+
+def test_official_downstream_consequence_metrics_are_completed_and_scoped() -> None:
+    root = ROOT / "outputs/milestones/official_downstream_consequence"
+    ctc = pd.read_csv(root / "table_ctc_official_lineage_metric_summary.csv")
+    spacenet = pd.read_csv(root / "table_spacenet_map_metric_summary.csv")
+    headline = pd.read_csv(root / "table_official_downstream_consequence_summary.csv")
+    figure = pd.read_csv(root / "figure_official_downstream_consequence.csv")
+    protocol = json.loads((root / "OFFICIAL_DOWNSTREAM_CONSEQUENCE_PROTOCOL.json").read_text(encoding="utf-8"))
+    closeout = (root / "OFFICIAL_DOWNSTREAM_CONSEQUENCE_CLOSEOUT.md").read_text(encoding="utf-8")
+
+    assert (ctc["evidence_status"] == "completed_official_GT_downstream_consequence").all()
+    assert (spacenet["evidence_status"] == "completed_official_GT_downstream_consequence").all()
+    assert set(headline["domain"]) == {"CTC", "SpaceNet 7"}
+    assert {"a_ctc_lineage", "b_ctc_edit_burden", "c_spacenet_map", "d_spacenet_edit_burden"}.issubset(
+        set(figure["panel"])
+    )
+
+    ctc_noisy = ctc[
+        (ctc["proposal_source"] == "ctc_noisy_geometric_linker")
+        & (ctc["K"] == 5000)
+    ].iloc[0]
+    assert float(ctc_noisy["raw_false_lineage_edges_mean"]) > 1000
+    assert float(ctc_noisy["prevented_false_lineage_edges_mean"]) > 1000
+    assert float(ctc_noisy["prevented_aogm_edge_edit_burden_proxy_mean"]) > 1000
+    assert "not official challenge scores" in ctc_noisy["claim_scope"]
+
+    ctc_learned = ctc[
+        (ctc["proposal_source"] == "ctc_learned_hybrid")
+        & (ctc["K"] == 300)
+    ].iloc[0]
+    assert float(ctc_learned["raw_false_lineage_edges_mean"]) == 0.0
+    assert int(ctc_learned["non_empty_seeds"]) == 20
+
+    sn_random = spacenet[
+        (spacenet["proposal_source"] == "spacenet_identity_preserving_random_score_control")
+        & (spacenet["K"] == 5000)
+    ].iloc[0]
+    assert float(sn_random["raw_false_persistence_links_mean"]) > 1000
+    assert float(sn_random["prevented_false_persistence_links_mean"]) > 1000
+    assert float(sn_random["prevented_map_edit_burden_proxy_mean"]) > 1000
+    assert "not official CTC leaderboard scoring" in protocol["scope"]
+    assert "No new human labels" in closeout
+    assert "not official challenge leaderboard scores" in closeout
+    assert (root / "figure_official_downstream_consequence.pdf").exists()

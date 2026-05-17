@@ -46,6 +46,9 @@ This repository uses neutral public artifact names. Older internal experiment la
 - `outputs/milestones/materials_computational_followup_trial/`
   Quasi-prospective public-DFT materials computational follow-up replay. This milestone freezes model-ranked WBM candidate queues, composition-family block splits, one-sided pre-release DFT-positive verification, requested budgets, and PARC release/refusal rules before evaluating held-out follow-up labels. It includes `table_materials_computational_trial_summary.csv`, seed-level results, release cards, a protocol JSON, and `figure_materials_computational_trial_main.{csv,pdf}`. It explicitly does not claim new DFT, experimental synthesis, or true prospective discovery.
 
+- `outputs/milestones/official_downstream_consequence/`
+  Official-label downstream artifact metrics for CTC and SpaceNet 7. This milestone translates release/refusal decisions into the artifacts a downstream workflow would consume: CTC lineage graphs and SpaceNet building-persistence maps. It includes `table_ctc_official_lineage_metric_summary.csv`, `table_spacenet_map_metric_summary.csv`, `table_official_downstream_consequence_summary.csv`, and `figure_official_downstream_consequence.{csv,pdf}`. CTC TRA/AOGM-style values are edge-edit burden proxies and should not be described as official challenge leaderboard scores.
+
 - `outputs/milestones/release_story/paper_diagnostics/`
   Paper-facing diagnostic tables for assumptions, seed variability/interval summaries, verification budgets, and prevented false releases.
 

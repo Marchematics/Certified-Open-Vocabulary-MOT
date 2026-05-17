@@ -39,6 +39,7 @@ outputs/milestones/scientific_domain_materials/
 outputs/milestones/scientific_release_success_map/
 outputs/milestones/no_human_scientific_consequence/
 outputs/milestones/materials_computational_followup_trial/
+outputs/milestones/official_downstream_consequence/
 outputs/milestones/generality_reliability/
 outputs/milestones/release_story/
 outputs/benchmarks/parc_certification_benchmark/
@@ -161,6 +162,25 @@ outputs/milestones/materials_computational_followup_trial/
 This is a quasi-prospective public-label replay. It does not run new DFT,
 does not claim experimental synthesis, and should not be described as a true
 prospective materials-discovery deployment.
+
+Official-label downstream artifact metrics can be regenerated with:
+
+```bash
+python scripts/build_official_downstream_consequence.py
+```
+
+Outputs live under:
+
+```text
+outputs/milestones/official_downstream_consequence/
+```
+
+This package uses CTC official/held-out lineage identities and SpaceNet 7
+official building identities to quantify downstream artifacts: CTC
+lineage-edge false-link, conflict, component-corruption and TRA/AOGM-style
+edit-burden proxies; and SpaceNet building-persistence false-link, chain, and
+map-edit proxies. It introduces no new human labels. The CTC edit-burden
+values are not official challenge leaderboard scores.
 
 ## 4. Re-run with External Datasets
 

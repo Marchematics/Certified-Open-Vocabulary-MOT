@@ -1,0 +1,25 @@
+panel,group,metric,value,unit,display_label
+a_ctc_lineage,noisy geometric linker K=300,raw_false_lineage_edges,0.0,false lineage edges per seed,Raw false lineage edges
+a_ctc_lineage,noisy geometric linker K=300,prevented_false_lineage_edges,0.0,false lineage edges per seed,Prevented false lineage edges
+b_ctc_edit_burden,noisy geometric linker K=300,prevented_aogm_edge_edit_burden_proxy,0.0,edge-edit burden proxy per seed,Prevented edge-edit burden proxy
+a_ctc_lineage,noisy geometric linker K=5000,raw_false_lineage_edges,2907.5,false lineage edges per seed,Raw false lineage edges
+a_ctc_lineage,noisy geometric linker K=5000,prevented_false_lineage_edges,2907.5,false lineage edges per seed,Prevented false lineage edges
+b_ctc_edit_burden,noisy geometric linker K=5000,prevented_aogm_edge_edit_burden_proxy,5888.9,edge-edit burden proxy per seed,Prevented edge-edit burden proxy
+a_ctc_lineage,random score negative control K=300,raw_false_lineage_edges,237.0,false lineage edges per seed,Raw false lineage edges
+a_ctc_lineage,random score negative control K=300,prevented_false_lineage_edges,237.0,false lineage edges per seed,Prevented false lineage edges
+b_ctc_edit_burden,random score negative control K=300,prevented_aogm_edge_edit_burden_proxy,474.45,edge-edit burden proxy per seed,Prevented edge-edit burden proxy
+a_ctc_lineage,random score negative control K=5000,raw_false_lineage_edges,3997.05,false lineage edges per seed,Raw false lineage edges
+a_ctc_lineage,random score negative control K=5000,prevented_false_lineage_edges,3997.05,false lineage edges per seed,Prevented false lineage edges
+b_ctc_edit_burden,random score negative control K=5000,prevented_aogm_edge_edit_burden_proxy,7945.8,edge-edit burden proxy per seed,Prevented edge-edit burden proxy
+c_spacenet_map,geometry linker K=300,raw_false_persistence_links,1.0,false persistence links per seed,Raw false persistence links
+c_spacenet_map,geometry linker K=300,prevented_false_persistence_links,0.0,false persistence links per seed,Prevented false persistence links
+d_spacenet_edit_burden,geometry linker K=300,prevented_map_edit_burden_proxy,0.0,map-edit burden proxy per seed,Prevented map-edit burden proxy
+c_spacenet_map,geometry linker K=5000,raw_false_persistence_links,8.65,false persistence links per seed,Raw false persistence links
+c_spacenet_map,geometry linker K=5000,prevented_false_persistence_links,8.65,false persistence links per seed,Prevented false persistence links
+d_spacenet_edit_burden,geometry linker K=5000,prevented_map_edit_burden_proxy,17.3,map-edit burden proxy per seed,Prevented map-edit burden proxy
+c_spacenet_map,identity preserving random score control K=300,raw_false_persistence_links,202.6,false persistence links per seed,Raw false persistence links
+c_spacenet_map,identity preserving random score control K=300,prevented_false_persistence_links,202.6,false persistence links per seed,Prevented false persistence links
+d_spacenet_edit_burden,identity preserving random score control K=300,prevented_map_edit_burden_proxy,405.2,map-edit burden proxy per seed,Prevented map-edit burden proxy
+c_spacenet_map,identity preserving random score control K=5000,raw_false_persistence_links,3398.9,false persistence links per seed,Raw false persistence links
+c_spacenet_map,identity preserving random score control K=5000,prevented_false_persistence_links,3398.9,false persistence links per seed,Prevented false persistence links
+d_spacenet_edit_burden,identity preserving random score control K=5000,prevented_map_edit_burden_proxy,6796.15,map-edit burden proxy per seed,Prevented map-edit burden proxy

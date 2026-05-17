@@ -1,0 +1,13 @@
+{
+  "artifact": "table_ctc_official_lineage_metric_seed_rows.csv",
+  "command": "python scripts/build_official_downstream_consequence.py",
+  "input_sha256": {
+    "ctc_geometric_universe": "a744967dc2d9f41a4d8b883800a072d31ea8ca32b87eee965ab0123bd065a6ed",
+    "ctc_learned_universe": "6f0b4cd93ae92529b28734118f02c9a0b333805445555fa21aa26c3c805ae843",
+    "ctc_random_universe": "1301b841657777f2fb3bebf13baad4021cda2d9fa3ada5d977b5091d2de87729",
+    "spacenet_geometry_universe": "f6da56531c8c55bb89f83d30be590563847c6c080417b42483908ea42d78fafe"
+  },
+  "output_sha256": "8d23b182db0bba104dd1fb5460385ea0565715a16c3dd5f7a6a4c623d3557987",
+  "role": "ctc_seed_rows",
+  "runtime_sec": 73.192
+}

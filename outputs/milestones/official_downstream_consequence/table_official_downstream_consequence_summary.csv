@@ -1,0 +1,5 @@
+domain,downstream_artifact,source,raw_consequence,PARC_decision,consequence_prevented,headline_value,evidence_status
+CTC,cell lineage graph,noisy geometric K=5000,2907.5 false lineage edges per seed,certified refusal,5888.9 edge-edit burden proxy units per seed,2907.5,completed_official_GT_downstream_consequence
+CTC,cell lineage graph,random-score K=5000,3997.1 false lineage edges per seed,certified refusal,7945.8 edge-edit burden proxy units per seed,3997.05,completed_official_GT_downstream_consequence
+SpaceNet 7,building-persistence map,geometry K=5000,8.7 false persistence links per seed,certified low-power/refusal frontier,17.3 map-edit burden proxy units per seed,8.65,completed_official_GT_downstream_consequence
+SpaceNet 7,building-persistence map,identity-preserving random-score K=5000,3398.9 false persistence links per seed,certified refusal,6796.1 map-edit burden proxy units per seed,3398.9,completed_official_GT_downstream_consequence

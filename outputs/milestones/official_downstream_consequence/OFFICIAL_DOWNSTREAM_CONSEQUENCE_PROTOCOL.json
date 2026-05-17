@@ -1,0 +1,38 @@
+{
+  "budgets": [
+    100,
+    300,
+    500,
+    1000,
+    5000
+  ],
+  "ctc_alpha": 0.1,
+  "ctc_metric_note": "TRA/AOGM-style values are edge-edit burden proxies computed from official lineage identities",
+  "evidence_status": "completed_official_GT_downstream_consequence",
+  "rho": 0.1,
+  "scope": "no new human labels; official/held-out GT consequence metrics; not official CTC leaderboard scoring",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "spacenet_alpha": 0.2,
+  "spacenet_metric_note": "map metrics are same-building persistence artifact proxies computed from official building identities"
+}

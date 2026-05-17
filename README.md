@@ -38,6 +38,7 @@ parc-track/
 │   ├── milestones/scientific_release_success_map/
 │   ├── milestones/no_human_scientific_consequence/
 │   ├── milestones/materials_computational_followup_trial/
+│   ├── milestones/official_downstream_consequence/
 │   └── benchmarks/parc_certification_benchmark/
 ├── tests/                            # pytest suite and tiny fixtures
 ├── scripts/                          # public-safe helper scripts
@@ -101,6 +102,7 @@ For full benchmark reproduction, see `REPRODUCIBILITY.md`.
 - Scientific release success map: `outputs/milestones/scientific_release_success_map/` (cross-domain evidence matrix, success/refusal diagnostics, ILP/refusal diagnosis, verified-positive-removal load-bearing reruns, descriptive success-domain predictor, validity-assumption table, practical-value rows, and protocol-only flags for unfinished extensions)
 - No-human scientific consequence milestone: `outputs/milestones/no_human_scientific_consequence/` (materials computational follow-up queue, materials model-zoo release frontier, CTC lineage consequence, SpaceNet map-consequence diagnostics, paper-facing Figure 6 source, and impact-first cover-letter text using public/official labels only)
 - Materials computational follow-up trial: `outputs/milestones/materials_computational_followup_trial/` (quasi-prospective public-DFT replay with frozen queues/rules, release cards, and follow-up efficiency figures; no new DFT or synthesis claim)
+- Official downstream consequence milestone: `outputs/milestones/official_downstream_consequence/` (CTC official-GT lineage-edge edit-burden proxies and SpaceNet 7 official-identity building-persistence map metrics; no new human labels and no official challenge leaderboard-score claim)
 - Community benchmark: `outputs/benchmarks/parc_certification_benchmark/`
 - File integrity manifest: `MANIFEST_SHA256.txt`
 
