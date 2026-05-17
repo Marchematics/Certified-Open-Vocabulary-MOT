@@ -1,7 +1,7 @@
 PYTHON ?= python
 PYTHONPATH ?= code/parc_track
 
-.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark reproduce-block-heterogeneity-robustness reproduce-materials-prospective-validation validate-public-bundle verify-manifest package-release package-release-story package-scientific-release
+.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark reproduce-block-heterogeneity-robustness reproduce-materials-prospective-validation phase24-freeze-dft-followup validate-public-bundle verify-manifest package-release package-release-story package-scientific-release
 
 test:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q tests
@@ -22,6 +22,7 @@ reproduce-main-tables:
 	$(PYTHON) scripts/build_release_certification_benchmark_cards.py
 	$(PYTHON) scripts/build_block_heterogeneity_robustness.py
 	$(PYTHON) scripts/build_materials_prospective_validation_protocols.py
+	$(PYTHON) scripts/build_materials_prospective_dft_followup_protocol.py
 
 reproduce-main-figures:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m parc_track.cli phase16 generality-closeout
@@ -45,6 +46,9 @@ reproduce-block-heterogeneity-robustness:
 reproduce-materials-prospective-validation:
 	$(PYTHON) scripts/build_materials_prospective_validation_protocols.py
 
+phase24-freeze-dft-followup:
+	$(PYTHON) scripts/build_materials_prospective_dft_followup_protocol.py
+
 validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/reliability_fortress
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/release_story
@@ -59,6 +63,7 @@ validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/release_certification_benchmark
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/block_heterogeneity_robustness
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/materials_prospective_validation_protocols
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/materials_prospective_dft_followup
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/release_story/paper_diagnostics
 
 verify-manifest:
@@ -80,6 +85,7 @@ package-release:
 	tar -czf outputs/packages/release_certification_benchmark.tar.gz -C outputs/milestones release_certification_benchmark
 	tar -czf outputs/packages/block_heterogeneity_robustness.tar.gz -C outputs/milestones block_heterogeneity_robustness
 	tar -czf outputs/packages/materials_prospective_validation_protocols.tar.gz -C outputs/milestones materials_prospective_validation_protocols
+	tar -czf outputs/packages/materials_prospective_dft_followup.tar.gz -C outputs/milestones materials_prospective_dft_followup
 
 package-release-story:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m parc_track.cli phase13 release-story

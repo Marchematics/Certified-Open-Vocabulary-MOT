@@ -1,0 +1,4 @@
+arm,target_n,minimum_analyzable_n,selection_rule,status
+PARC-release,40,25,top_n_from_PARC_certified_release_by_frozen_utility,pending_nonempty_selection
+raw-only rejected tail,40,25,top_n_from_raw_topK_minus_PARC_release_by_frozen_utility,pending_nonempty_selection
+raw top-R matched,40,25,top_n_from_raw_prefix_of_size_equal_to_PARC_release_size_when_nonredundant,pending_nonempty_selection

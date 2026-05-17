@@ -58,6 +58,9 @@ This repository uses neutral public artifact names. Older internal experiment la
 - `outputs/milestones/materials_prospective_validation_protocols/`
   A1/A2 materials prospective-validation preregistration and feasibility package. It contains temporal-split and independent-DFT protocols, feasibility tables, release-card stubs, and go/no-go decisions. These artifacts are protocol/feasibility evidence only: they do not claim a completed prospective computational trial, new DFT labels, or an independent-DFT cross-validation result.
 
+- `outputs/milestones/materials_prospective_dft_followup/`
+  A3 prospective in-silico DFT follow-up protocol freeze. It contains `PROTOCOL.md`, `protocol.yaml`, `candidate_universe_frozen.csv`, `selection_frozen.csv`, `dft_job_manifest.csv`, public-label and novelty-crossmatch schemas, the DFT failure policy, and `MATERIALS_PROSPECTIVE_DFT_FOLLOWUP_CLOSEOUT.md`. In the current public package the unlabeled generated crystal pool is not supplied, so candidate selection and DFT job export are intentionally empty and must not be reported as a completed DFT follow-up result.
+
 - `outputs/milestones/release_story/paper_diagnostics/`
   Paper-facing diagnostic tables for assumptions, seed variability/interval summaries, verification budgets, and prevented false releases.
 

@@ -1,0 +1,1 @@
+dft_job_id,candidate_id,arm,dft_engine,input_set,functional,encut_ev,kpoint_policy,electronic_convergence_ev,force_convergence_ev_per_angstrom,spin_policy,relaxation_policy,static_calculation_policy,failure_policy,evidence_status

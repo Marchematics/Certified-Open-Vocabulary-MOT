@@ -42,6 +42,7 @@ parc-track/
 │   ├── milestones/release_certification_benchmark/
 │   ├── milestones/block_heterogeneity_robustness/
 │   ├── milestones/materials_prospective_validation_protocols/
+│   ├── milestones/materials_prospective_dft_followup/
 │   └── benchmarks/parc_certification_benchmark/
 ├── tests/                            # pytest suite and tiny fixtures
 ├── scripts/                          # public-safe helper scripts
@@ -57,6 +58,7 @@ parc-track/
 - Release-certification benchmark cards that package completed CTC, materials, iWildCam, SpaceNet, and downstream-artifact evidence into a reusable scientific AI governance protocol.
 - Block-heterogeneity robustness diagnostics for the current public artifact package: candidate-level size-stratified, size-matched, and downsampled block-max checks for materials, plus scoped aggregate/audit-sample diagnostics for CTC and SpaceNet where candidate-level universes are not included.
 - Preregistered A1/A2 materials prospective-validation protocols and feasibility cards. These are explicitly protocol/feasibility artifacts and are not promoted as completed positive evidence.
+- A3 prospective in-silico DFT follow-up protocol freeze. This package fixes the planned ALIGNN-FF `alpha=0.10, K=500` follow-up design, arm sizes, no-leakage rules, public-label exclusion schema, novelty-crossmatch schema, and DFT failure policy before any new DFT outcomes are known. It is blocked until an unlabeled generated crystal pool is supplied.
 - Result tables for OVT-B, TAO, BURST, black-box generators, published-tracker adapters, non-exchangeability stress tests, null-inflation sensitivity, LVIS/LVVIS/OVVIS generality checks, Mondrian/per-class/runtime/anytime diagnostics, and Prop. 5 high-evidence mass diagnostics.
 - Tiny fixture for validating the full schema-to-certification path without downloading external datasets.
 
@@ -112,6 +114,7 @@ For full benchmark reproduction, see `REPRODUCIBILITY.md`.
 - Release certification benchmark cards: `outputs/milestones/release_certification_benchmark/` (community-facing release cards, track registry, field schema, governance checklist, and benchmark map; only completed evidence/diagnostics are promoted, while protocol-only ideas remain schema/checklist items)
 - Block heterogeneity robustness: `outputs/milestones/block_heterogeneity_robustness/` (Phase25 size-stratified p-value diagnostics, candidate-level materials size-matched and downsampled block-max stress, scoped CTC/SpaceNet diagnostics, and an approximate e-value validity lemma)
 - Materials prospective validation protocols: `outputs/milestones/materials_prospective_validation_protocols/` (A1 temporal-split and A2 independent-DFT preregistration protocols plus feasibility/go-no-go cards; protocol-only, not completed evidence)
+- Materials prospective DFT follow-up protocol: `outputs/milestones/materials_prospective_dft_followup/` (A3 in-silico DFT follow-up protocol freeze, arm plan, failure policy, empty candidate/selection/job schemas, and input-gate closeout; no new DFT outcomes and no completed positive result)
 - Community benchmark: `outputs/benchmarks/parc_certification_benchmark/`
 - File integrity manifest: `MANIFEST_SHA256.txt`
 

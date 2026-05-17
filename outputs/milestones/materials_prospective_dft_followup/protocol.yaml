@@ -1,0 +1,67 @@
+protocol_id: A3_prospective_in_silico_DFT_followup
+protocol_freeze_date: 2026-05-18
+evidence_status: protocol_frozen_no_DFT_outcomes
+primary_model: ALIGNN-FF
+alpha: 0.1
+rho: 0.1
+requested_K: 500
+block_definition: composition-family
+arms:
+  PARC_release:
+    target_n: 40
+    minimum_analyzable_n: 25
+    selection_rule: top_n_from_PARC_certified_release_by_frozen_utility
+  raw_only_rejected_tail:
+    target_n: 40
+    minimum_analyzable_n: 25
+    selection_rule: top_n_from_raw_topK_minus_PARC_release_by_frozen_utility
+  raw_topR_matched:
+    target_n: 40
+    minimum_analyzable_n: 25
+    selection_rule: top_n_from_raw_prefix_of_size_equal_to_PARC_release_size_when_nonredundant
+candidate_pool:
+  status: not_supplied
+  input_sha256: ""
+  n_input_rows: 0
+  n_kept_rows_after_schema_filter: 0
+  requires_public_label_exclusion: true
+  requires_structure_crossmatch: true
+public_label_exclusion:
+  exclude_WBM_labeled_structures: true
+  exclude_Materials_Project_labeled_matches: true
+  exclude_OQMD_labeled_matches: true
+  exclude_Alexandria_labeled_matches: true
+  exclude_GNoME_labeled_matches: true
+structure_matcher:
+  ltol: 0.2
+  stol: 0.3
+  angle_tol: 5
+  primitive_cell: true
+  scale: true
+  attempt_supercell: true
+DFT:
+  engine: VASP-or-equivalent-MP-compatible-engine
+  input_set: MPRelaxSet-compatible
+  functional: PBE-GGA
+  encut_ev: 520
+  kpoint_policy: MPRelaxSet default or fixed equivalent recorded per job
+  electronic_convergence_ev: 1e-5
+  force_convergence_ev_per_angstrom: 0.02
+  spin_policy: same frozen magnetic-element rule for all arms
+  relaxation_policy: full cell plus ionic relaxation
+  static_calculation_policy: final static calculation after relaxation
+  compatibility_corrections: MaterialsProject2020Compatibility or fixed chosen correction scheme
+  failure_policy: one standard rerun; unresolved failures count as not-certified-stable in the conservative primary analysis
+stability_endpoint:
+  primary: DFT-stable if energy above hull <= 0 eV/atom under frozen reference hull
+  sensitivity_25meV: DFT-stable if energy above hull <= 25 meV/atom
+  margin_excluded: report secondary analysis excluding 0 < energy above hull <= 25 meV/atom
+  hull_unavailable_policy: count as not-certified-stable in conservative primary analysis and report separately
+success_interpretation:
+  strong_positive:
+    - PARC release instability rate <= alpha under exact-stable primary label
+    - PARC stable hit rate exceeds raw-only tail by at least 20 percentage points
+    - raw-only tail instability rate is at least 2x PARC-release instability rate
+    - PARC prevents at least 50 unstable follow-ups per K=500-equivalent queue
+  supportive: PARC stable hit rate exceeds raw-only tail but intervals overlap or exact-stable result is boundary-sensitive
+  boundary_or_negative: PARC-release instability rate exceeds alpha or is not better than raw-only tail

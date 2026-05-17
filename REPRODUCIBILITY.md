@@ -43,6 +43,7 @@ outputs/milestones/official_downstream_consequence/
 outputs/milestones/release_certification_benchmark/
 outputs/milestones/block_heterogeneity_robustness/
 outputs/milestones/materials_prospective_validation_protocols/
+outputs/milestones/materials_prospective_dft_followup/
 outputs/milestones/generality_reliability/
 outputs/milestones/release_story/
 outputs/benchmarks/parc_certification_benchmark/
@@ -238,6 +239,27 @@ These artifacts freeze temporal-split and independent-DFT validation protocols
 and record local feasibility. They are protocol/feasibility artifacts only:
 they do not report a completed prospective computational trial, new DFT labels,
 or an independent-DFT cross-validation result.
+
+The A3 prospective in-silico DFT follow-up protocol can be frozen with:
+
+```bash
+python scripts/build_materials_prospective_dft_followup_protocol.py
+```
+
+Outputs live under:
+
+```text
+outputs/milestones/materials_prospective_dft_followup/
+```
+
+This package freezes the ALIGNN-FF `alpha=0.10, K=500` DFT follow-up design,
+40/40/40 arm plan, public-label exclusion schema, novelty-crossmatch schema,
+selection/job schemas, and DFT failure policy before any new DFT outcomes are
+known. In the current public package no unlabeled generated crystal pool is
+supplied, so candidate selection and DFT job export remain empty by design. It
+must not be reported as completed new-DFT evidence until a public-safe
+unlabeled candidate pool, crossmatch report, frozen selection, and DFT outcomes
+are supplied.
 
 ## 4. Re-run with External Datasets
 

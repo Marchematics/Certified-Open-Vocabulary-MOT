@@ -1,0 +1,4 @@
+policy_item,rule
+non_convergence,one standard rerun; unresolved failures count as not-certified-stable in primary conservative analysis
+hull_unavailable,count as not-certified-stable in primary conservative analysis and report separately
+completed_only_secondary,report completed-only analysis only as secondary sensitivity

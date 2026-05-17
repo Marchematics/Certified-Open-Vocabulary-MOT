@@ -74,6 +74,7 @@ def test_closeout_tables_are_public_safe() -> None:
         ROOT / "outputs/milestones/release_certification_benchmark",
         ROOT / "outputs/milestones/block_heterogeneity_robustness",
         ROOT / "outputs/milestones/materials_prospective_validation_protocols",
+        ROOT / "outputs/milestones/materials_prospective_dft_followup",
     ]
     forbidden = [
         "/" + "home" + "/",
@@ -529,3 +530,39 @@ def test_materials_prospective_validation_protocols_are_not_promoted() -> None:
     assert status["A2_independent_DFT_source"] == "protocol_feasibility_not_completed_evidence"
     assert status["A3_new_DFT_followup"] == "not_started_optional"
     assert "no protocol-only positive row" in closeout
+
+
+def test_materials_prospective_dft_followup_is_protocol_freeze_not_result() -> None:
+    root = ROOT / "outputs/milestones/materials_prospective_dft_followup"
+    status = pd.read_csv(root / "table_dft_followup_freeze_status.csv")
+    arms = pd.read_csv(root / "table_dft_followup_arm_plan.csv")
+    candidates = pd.read_csv(root / "candidate_universe_frozen.csv")
+    selection = pd.read_csv(root / "selection_frozen.csv")
+    jobs = pd.read_csv(root / "dft_job_manifest.csv")
+    public_report = pd.read_csv(root / "PUBLIC_LABEL_EXCLUSION_REPORT.csv")
+    novelty = pd.read_csv(root / "NOVELTY_CROSSMATCH_REPORT.csv")
+    failure = pd.read_csv(root / "table_dft_failure_policy.csv")
+    protocol = (root / "PROTOCOL.md").read_text(encoding="utf-8")
+    closeout = (root / "MATERIALS_PROSPECTIVE_DFT_FOLLOWUP_CLOSEOUT.md").read_text(encoding="utf-8")
+
+    status_by_item = dict(zip(status["item"], status["status"]))
+    assert status_by_item["protocol"] == "frozen"
+    assert status_by_item["candidate_pool"] == "blocked_missing_unlabeled_candidate_pool"
+    assert status_by_item["selection_frozen"] == "not_started_no_candidates"
+    assert status_by_item["dft_job_manifest"] == "empty_until_selection_exists"
+    assert not status["completed_positive_result"].astype(bool).any()
+    assert status[status["item"].isin(["candidate_pool", "selection_frozen", "dft_job_manifest"])]["blocks_DFT_submission"].astype(bool).all()
+
+    assert {"PARC-release", "raw-only rejected tail", "raw top-R matched"} == set(arms["arm"])
+    assert (arms["target_n"] == 40).all()
+    assert (arms["minimum_analyzable_n"] == 25).all()
+    assert candidates.empty
+    assert selection.empty
+    assert jobs.empty
+    assert public_report.empty
+    assert novelty.empty
+    assert {"non_convergence", "hull_unavailable", "completed_only_secondary"} == set(failure["policy_item"])
+    assert "Candidate selection must be frozen before new DFT outcomes are computed" in protocol
+    assert "does not promote a protocol-only positive result" in closeout
+    assert (root / "dft_inputs/README.md").exists()
+    assert (root / "dft_outputs/README.md").exists()
