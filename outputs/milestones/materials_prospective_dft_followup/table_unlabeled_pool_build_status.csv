@@ -1,0 +1,2 @@
+stage,status,n_candidates,n_with_structure_ref,min_candidates,target_candidates,completed_positive_result,blocks_DFT_submission,reason
+unlabeled_candidate_pool,blocked_missing_external_unlabeled_pool,0,0,500,2000,False,True,supply an external public-label-free generated crystal pool; no candidates were fabricated

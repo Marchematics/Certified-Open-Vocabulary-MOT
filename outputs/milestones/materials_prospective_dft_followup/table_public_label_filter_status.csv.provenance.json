@@ -1,5 +1,5 @@
 {
-  "artifact": "PUBLIC_LABEL_EXCLUSION_REPORT.csv",
+  "artifact": "table_public_label_filter_status.csv",
   "command": "python scripts/filter_public_labeled_materials_candidates.py",
   "inputs": {
     "raw_pool_sha256": "06e0e894c09fc8d50fc860f76d0b408c67a8a902616cc10defe2c8abd9224e97",
@@ -7,5 +7,5 @@
     "public_label_index": null
   },
   "generated_at_utc": "2026-05-17T17:25:46+00:00",
-  "artifact_sha256": "8ad218c1c1208bbd815a3b3627b10170155fa5d16c71ba37882abe5767e21e73"
+  "artifact_sha256": "5624588f9406a9aec76b6f808d593f62541b917e25c1fef85591f62ed624b0fb"
 }

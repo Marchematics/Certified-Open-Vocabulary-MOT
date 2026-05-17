@@ -1,7 +1,7 @@
 PYTHON ?= python
 PYTHONPATH ?= code/parc_track
 
-.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark reproduce-block-heterogeneity-robustness reproduce-materials-prospective-validation phase24-freeze-dft-followup validate-public-bundle verify-manifest package-release package-release-story package-scientific-release
+.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark reproduce-block-heterogeneity-robustness reproduce-materials-prospective-validation phase24-freeze-dft-followup phase24-build-unlabeled-pool phase24-filter-public-labels phase24-score-unlabeled-pool phase24-select-dft-arms phase24-export-dft-jobs validate-public-bundle verify-manifest package-release package-release-story package-scientific-release
 
 test:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q tests
@@ -48,6 +48,21 @@ reproduce-materials-prospective-validation:
 
 phase24-freeze-dft-followup:
 	$(PYTHON) scripts/build_materials_prospective_dft_followup_protocol.py
+
+phase24-build-unlabeled-pool:
+	$(PYTHON) scripts/build_unlabeled_materials_candidate_pool.py
+
+phase24-filter-public-labels:
+	$(PYTHON) scripts/filter_public_labeled_materials_candidates.py
+
+phase24-score-unlabeled-pool:
+	$(PYTHON) scripts/score_unlabeled_pool_alignnff.py
+
+phase24-select-dft-arms:
+	$(PYTHON) scripts/select_prospective_dft_arms_from_pool.py
+
+phase24-export-dft-jobs:
+	$(PYTHON) scripts/export_prospective_dft_jobs.py
 
 validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/reliability_fortress

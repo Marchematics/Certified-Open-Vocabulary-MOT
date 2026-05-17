@@ -1,0 +1,2 @@
+stage,status,n_scored_candidates,n_score_present,completed_positive_result,blocks_DFT_submission,reason
+alignnff_scoring,blocked_missing_candidate_universe_or_scores,0,0,False,True,candidate universe and external frozen ALIGNN-FF scores are required

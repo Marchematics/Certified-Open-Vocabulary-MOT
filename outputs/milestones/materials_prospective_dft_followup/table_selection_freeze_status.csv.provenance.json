@@ -1,0 +1,11 @@
+{
+  "artifact": "table_selection_freeze_status.csv",
+  "command": "python scripts/select_prospective_dft_arms_from_pool.py",
+  "inputs": {
+    "scores_sha256": "8c315a9f74f4334b0fce055a75b902abc9bf188244562494c97321bf2578806b",
+    "scores_name": "candidate_scores_alignnff.csv",
+    "parc_release_file": null
+  },
+  "generated_at_utc": "2026-05-17T17:25:47+00:00",
+  "artifact_sha256": "8cc7dae3ce3e2145eb85cd0b8ab56e0a1804adba70a77bc9d8f3407f30cff8f9"
+}

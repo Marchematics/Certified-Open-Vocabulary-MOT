@@ -1,1 +1,1 @@
-Raw DFT outputs are not part of the public-safe package unless explicitly sanitized.
+Raw DFT outputs are excluded unless separately sanitized and released.

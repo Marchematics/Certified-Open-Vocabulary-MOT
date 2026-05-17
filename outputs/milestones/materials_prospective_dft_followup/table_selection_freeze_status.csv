@@ -1,0 +1,2 @@
+stage,status,n_selection_rows,n_primary_selected,n_reserve,completed_positive_result,blocks_DFT_submission,reason
+selection_freeze,blocked_empty_or_invalid_score_table,0,0,0,False,True,scored candidate table must be nonempty with candidate_id and frozen_model_score

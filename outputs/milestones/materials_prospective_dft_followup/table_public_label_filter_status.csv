@@ -1,0 +1,2 @@
+stage,status,n_candidates_after_filter,n_keep_for_followup,completed_positive_result,blocks_DFT_submission,reason
+public_label_exclusion,blocked_missing_public_label_index,0,0,False,True,public WBM/MP/OQMD/Alexandria/GNoME crossmatch index is required before DFT selection

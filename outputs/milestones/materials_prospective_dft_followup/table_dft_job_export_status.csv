@@ -1,0 +1,2 @@
+stage,status,n_jobs,n_arms,completed_positive_result,blocks_DFT_submission,reason
+dft_job_export,blocked_empty_primary_selection,0,0,False,True,DFT jobs are exported only for frozen primary arm candidates

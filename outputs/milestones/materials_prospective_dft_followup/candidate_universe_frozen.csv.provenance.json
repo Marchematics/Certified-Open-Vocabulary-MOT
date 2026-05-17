@@ -1,11 +1,11 @@
 {
   "artifact": "candidate_universe_frozen.csv",
-  "command": "python scripts/build_materials_prospective_dft_followup_protocol.py",
+  "command": "python scripts/filter_public_labeled_materials_candidates.py",
   "inputs": {
-    "candidate_pool_status": "not_supplied",
-    "candidate_pool_sha256": "",
-    "protocol_hash": "9f92e12b92eaa9beba00dc1680b7e248127f875f728a23c2ce046cbb393bdb3f"
+    "raw_pool_sha256": "06e0e894c09fc8d50fc860f76d0b408c67a8a902616cc10defe2c8abd9224e97",
+    "raw_pool_name": "raw_generated_candidate_pool.csv",
+    "public_label_index": null
   },
-  "generated_at_utc": "2026-05-17T16:56:07+00:00",
+  "generated_at_utc": "2026-05-17T17:25:46+00:00",
   "artifact_sha256": "6415bc20137fe432f98ea5a4e18a42cbef44da3413aad8df054eb44f209ffd12"
 }

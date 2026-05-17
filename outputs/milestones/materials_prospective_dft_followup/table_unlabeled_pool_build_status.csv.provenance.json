@@ -1,0 +1,10 @@
+{
+  "artifact": "table_unlabeled_pool_build_status.csv",
+  "command": "python scripts/build_unlabeled_materials_candidate_pool.py",
+  "inputs": {
+    "candidate_pool": null,
+    "primary_model": "ALIGNN-FF"
+  },
+  "generated_at_utc": "2026-05-17T17:25:46+00:00",
+  "artifact_sha256": "afbaa8efacc0eb7a8cffa824a7c4815fb31f0f0271917a1756b6a0882e5ce438"
+}

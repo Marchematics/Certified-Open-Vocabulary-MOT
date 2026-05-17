@@ -1,11 +1,10 @@
 {
   "artifact": "selection_frozen.csv",
-  "command": "python scripts/build_materials_prospective_dft_followup_protocol.py",
+  "command": "python scripts/export_prospective_dft_jobs.py",
   "inputs": {
-    "candidate_pool_status": "not_supplied",
-    "candidate_pool_sha256": "",
-    "protocol_hash": "9f92e12b92eaa9beba00dc1680b7e248127f875f728a23c2ce046cbb393bdb3f"
+    "selection_sha256": "a2f6e2ac4147355736f11276cd78bd2e23b2050a101f44d728946b1d1e5ff1d3",
+    "selection_name": "selection_frozen.csv"
   },
-  "generated_at_utc": "2026-05-17T16:56:07+00:00",
-  "artifact_sha256": "98ad04763c984773b8db634256fbc70f8200d67caabf8f65c7468d6c11548c6f"
+  "generated_at_utc": "2026-05-17T17:25:47+00:00",
+  "artifact_sha256": "a2f6e2ac4147355736f11276cd78bd2e23b2050a101f44d728946b1d1e5ff1d3"
 }

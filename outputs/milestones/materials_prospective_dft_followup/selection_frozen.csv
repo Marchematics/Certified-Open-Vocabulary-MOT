@@ -1,1 +1,1 @@
-candidate_id,arm,arm_rank,reserve_rank,selection_rule,selected_for_dft,dft_job_id,evidence_status
+candidate_id,arm,arm_rank,reserve_rank,selection_rule,selected_for_dft,dft_job_id,evidence_status,primary_or_reserve,source_rank,frozen_model_score,structure_ref,structure_sha256
