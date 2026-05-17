@@ -1,0 +1,15 @@
+{
+  "artifact": "NO_HUMAN_PAPER_INTEGRATION.md",
+  "command": "python scripts/build_no_human_paper_integration.py",
+  "evidence_status": "paper_facing_summary_from_completed_phase20_tables",
+  "input_hashes": {
+    "table_ctc_lineage_consequence.csv": "6f44ed465cb2a6ff8508f7fce98288903b2bcf21ef08a12fa9c3fe609014e335",
+    "table_materials_computational_followup.csv": "5e3a94ff7776d96585cec822beb3d240a5c9c290598dfc55b62e541e863f2817",
+    "table_materials_model_zoo_release_frontier.csv": "5e3a94ff7776d96585cec822beb3d240a5c9c290598dfc55b62e541e863f2817",
+    "table_spacenet_map_consequence.csv": "09b3793faaaa34a4e637669d553bd42daa709ac239c6832a237ac51d900310bb"
+  },
+  "output_sha256": "5e9f9bb421af311ac689908df82da4c90c0b4d5ded70b3e11a5a8f48b42a01f9",
+  "role": "paper_integration_text",
+  "scope": "paper-facing integration; no new labels; no new experimental rows",
+  "status": "completed"
+}

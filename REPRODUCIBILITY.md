@@ -122,6 +122,7 @@ and adds no new human review:
 
 ```bash
 python scripts/build_no_human_scientific_consequence.py
+python scripts/build_no_human_paper_integration.py
 ```
 
 The outputs live under:
@@ -133,9 +134,13 @@ outputs/milestones/no_human_scientific_consequence/
 This package reports materials computational follow-up queues, a materials
 model-zoo release frontier for locally available prediction files, CTC
 official-GT lineage consequence diagnostics, and SpaceNet official-GT
-building-persistence map-consequence diagnostics. Rows for unavailable modern
-materials prediction files are recorded as not-run availability rows, not
-completed evidence.
+building-persistence map-consequence diagnostics. The paper integration script
+then writes `table_no_human_consequence_summary.csv`,
+`figure_no_human_consequence_main.{csv,pdf}`,
+`figure_materials_model_zoo_frontier.{csv,pdf}`, and
+`NO_HUMAN_PAPER_INTEGRATION.md` for Figure 6 and impact-first submission text.
+Rows for unavailable modern materials prediction files are recorded as not-run
+availability rows, not completed evidence.
 
 ## 4. Re-run with External Datasets
 

@@ -1,0 +1,31 @@
+model_family,K,alpha,release_status,status_code,non_empty_seeds,mean_release,PARC_FTR_mean,raw_topK_FTR_mean,prevented_unstable_followups_mean,cell_label,evidence_status
+ALIGNN-FF,100,0.1,certified_release_low_FTR,2,20,100.0,0.0854999999999999,0.0854999999999999,0.0,"20/20
+FTR 0.085",completed_public_DFT_label_followup
+ALIGNN-FF,300,0.1,certified_release_low_FTR,2,20,115.1,0.0870024948491858,0.2531666666666666,64.25,"20/20
+FTR 0.087",completed_public_DFT_label_followup
+ALIGNN-FF,500,0.1,certified_release_low_FTR,2,20,90.75,0.0482207668261013,0.3269,158.3,"20/20
+FTR 0.048",completed_public_DFT_label_followup
+ALIGNN-FF,1000,0.1,boundary_or_partial_release,1,15,60.8,0.0059724934477619,0.3909999999999999,390.5,"15/20
+FTR 0.006",completed_public_DFT_label_followup
+ALIGNN-FF,5000,0.1,certified_refusal_or_low_power,0,0,0.0,0.0,0.51548,2577.4,"0/20
+FTR 0.000",completed_public_DFT_label_followup
+CGCNN 10-member ensemble,100,0.1,certified_release_low_FTR,2,20,100.0,0.03,0.03,0.0,"20/20
+FTR 0.030",completed_public_DFT_label_followup
+CGCNN 10-member ensemble,300,0.1,certified_release_low_FTR,2,20,163.8,0.091556238689795,0.2349999999999999,52.55,"20/20
+FTR 0.092",completed_public_DFT_label_followup
+CGCNN 10-member ensemble,500,0.1,certified_release_low_FTR,2,20,118.8,0.0318972059842815,0.3258999999999999,158.25,"20/20
+FTR 0.032",completed_public_DFT_label_followup
+CGCNN 10-member ensemble,1000,0.1,boundary_or_partial_release,1,16,83.05,0.0135530164863021,0.4096,407.95,"16/20
+FTR 0.014",completed_public_DFT_label_followup
+CGCNN 10-member ensemble,5000,0.1,certified_refusal_or_low_power,0,0,0.0,0.0,0.40651,2032.55,"0/20
+FTR 0.000",completed_public_DFT_label_followup
+MEGNet,100,0.1,certified_release_low_FTR,2,20,100.0,0.0465,0.0465,0.0,"20/20
+FTR 0.046",completed_public_DFT_label_followup
+MEGNet,300,0.1,boundary_or_partial_release,1,20,197.0,0.1134224425316824,0.184,30.7,"20/20
+FTR 0.113",completed_public_DFT_label_followup
+MEGNet,500,0.1,certified_release_low_FTR,2,20,102.75,0.0413139560333971,0.2209,105.4,"20/20
+FTR 0.041",completed_public_DFT_label_followup
+MEGNet,1000,0.1,boundary_or_partial_release,1,16,68.7,0.0088096164778365,0.2916,290.7,"16/20
+FTR 0.009",completed_public_DFT_label_followup
+MEGNet,5000,0.1,certified_refusal_or_low_power,0,0,0.0,0.0,0.5366899999999999,2683.45,"0/20
+FTR 0.000",completed_public_DFT_label_followup

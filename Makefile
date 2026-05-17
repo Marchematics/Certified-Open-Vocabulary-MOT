@@ -1,7 +1,7 @@
 PYTHON ?= python
 PYTHONPATH ?= code/parc_track
 
-.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures validate-public-bundle verify-manifest package-release package-release-story package-scientific-release
+.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence validate-public-bundle verify-manifest package-release package-release-story package-scientific-release
 
 test:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q tests
@@ -16,9 +16,14 @@ reproduce-main-tables:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m parc_track.cli phase16 generality-closeout
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m parc_track.cli phase17 reviewer-closeout
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m parc_track.cli phase19 success-domain
+	$(PYTHON) scripts/build_no_human_paper_integration.py
 
 reproduce-main-figures:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m parc_track.cli phase16 generality-closeout
+
+reproduce-no-human-consequence:
+	$(PYTHON) scripts/build_no_human_scientific_consequence.py
+	$(PYTHON) scripts/build_no_human_paper_integration.py
 
 validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/reliability_fortress

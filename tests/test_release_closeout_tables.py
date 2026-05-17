@@ -278,7 +278,10 @@ def test_no_human_scientific_consequence_package_is_completed_and_scoped() -> No
     availability = pd.read_csv(root / "table_materials_model_prediction_availability.csv")
     ctc = pd.read_csv(root / "table_ctc_lineage_consequence.csv")
     spacenet = pd.read_csv(root / "table_spacenet_map_consequence.csv")
+    paper_summary = pd.read_csv(root / "table_no_human_consequence_summary.csv")
+    figure_source = pd.read_csv(root / "figure_no_human_consequence_main.csv")
     closeout = (root / "NO_HUMAN_SCIENTIFIC_CONSEQUENCE_CLOSEOUT.md").read_text(encoding="utf-8")
+    paper_note = (root / "NO_HUMAN_PAPER_INTEGRATION.md").read_text(encoding="utf-8")
 
     assert {"cgcnn_ensemble_learned_materials_model", "alignn_ff_modern_learned_materials_model"}.issubset(
         set(materials["proposal_source"])
@@ -308,3 +311,12 @@ def test_no_human_scientific_consequence_package_is_completed_and_scoped() -> No
     assert float(random_spacenet["raw_false_link_fraction"]) > 0.5
     assert "no new human labels" in closeout
     assert "no completed results are fabricated" in closeout
+    assert {"Materials", "CTC", "SpaceNet 7"}.issubset(set(paper_summary["domain"]))
+    assert {"a_materials_followup", "b_materials_model_zoo", "c_ctc_lineage", "d_spacenet_map"}.issubset(
+        set(figure_source["panel"])
+    )
+    assert (root / "figure_no_human_consequence_main.pdf").exists()
+    assert (root / "figure_materials_model_zoo_frontier.pdf").exists()
+    assert "Release decisions change downstream scientific artifacts" in paper_note
+    assert "no new human labels" in paper_note
+    assert "not-run" in paper_note
