@@ -67,6 +67,7 @@ def test_closeout_tables_are_public_safe() -> None:
         ROOT / "outputs/milestones/scientific_domain_iwildcam_human_audit",
         ROOT / "outputs/milestones/scientific_domain_materials",
         ROOT / "outputs/milestones/release_story/paper_diagnostics",
+        ROOT / "outputs/milestones/no_human_scientific_consequence",
     ]
     forbidden = [
         "/" + "home" + "/",
@@ -269,3 +270,41 @@ def test_verified_positive_removal_load_bearing_is_candidate_level_completed_evi
     assert "not derived from summary-only tables" in closeout
     for path in provenance_paths:
         assert path.exists(), path
+
+
+def test_no_human_scientific_consequence_package_is_completed_and_scoped() -> None:
+    root = ROOT / "outputs/milestones/no_human_scientific_consequence"
+    materials = pd.read_csv(root / "table_materials_computational_followup.csv")
+    availability = pd.read_csv(root / "table_materials_model_prediction_availability.csv")
+    ctc = pd.read_csv(root / "table_ctc_lineage_consequence.csv")
+    spacenet = pd.read_csv(root / "table_spacenet_map_consequence.csv")
+    closeout = (root / "NO_HUMAN_SCIENTIFIC_CONSEQUENCE_CLOSEOUT.md").read_text(encoding="utf-8")
+
+    assert {"cgcnn_ensemble_learned_materials_model", "alignn_ff_modern_learned_materials_model"}.issubset(
+        set(materials["proposal_source"])
+    )
+    assert (materials["evidence_status"] == "completed_public_DFT_label_followup").all()
+    alignn_k500 = materials[
+        (materials["proposal_source"] == "alignn_ff_modern_learned_materials_model")
+        & (materials["alpha"] == 0.10)
+        & (materials["K"] == 500)
+    ].iloc[0]
+    assert float(alignn_k500["PARC_FTR_mean"]) < float(alignn_k500["raw_topK_FTR_mean"])
+    assert float(alignn_k500["prevented_unstable_followups_mean"]) > 100
+
+    not_run = availability[availability["paper_status"] == "not_run_missing_public_prediction_file"]
+    assert {"CHGNet", "MACE", "M3GNet"}.issubset(set(not_run["model_family"]))
+    assert (ctc["evidence_status"] == "completed_official_GT_lineage_consequence").all()
+    assert (spacenet["evidence_status"] == "completed_official_GT_map_consequence").all()
+    random_ctc = ctc[
+        (ctc["proposal_source"] == "ctc_random_score_negative_control")
+        & (ctc["K"] == 5000)
+    ].iloc[0]
+    assert float(random_ctc["prevented_false_links_mean"]) > 1000
+    random_spacenet = spacenet[
+        (spacenet["proposal_source"] == "randomized_linker")
+        & (spacenet["K"] == 5000)
+    ].iloc[0]
+    assert float(random_spacenet["raw_false_link_fraction"]) > 0.5
+    assert "no new human labels" in closeout
+    assert "no completed results are fabricated" in closeout

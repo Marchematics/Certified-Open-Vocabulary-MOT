@@ -28,6 +28,7 @@ validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/scientific_domain_iwildcam_human_audit
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/scientific_domain_materials
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/scientific_release_success_map
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/no_human_scientific_consequence
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/release_story/paper_diagnostics
 
 verify-manifest:
@@ -43,6 +44,7 @@ package-release:
 	tar -czf outputs/packages/scientific_domain_iwildcam_human_audit.tar.gz -C outputs/milestones scientific_domain_iwildcam_human_audit
 	tar -czf outputs/packages/scientific_domain_materials.tar.gz -C outputs/milestones scientific_domain_materials
 	tar -czf outputs/packages/scientific_release_success_map.tar.gz -C outputs/milestones scientific_release_success_map
+	tar -czf outputs/packages/no_human_scientific_consequence.tar.gz -C outputs/milestones no_human_scientific_consequence
 
 package-release-story:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m parc_track.cli phase13 release-story

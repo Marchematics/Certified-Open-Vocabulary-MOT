@@ -37,6 +37,7 @@ outputs/milestones/scientific_domain_spacenet7/
 outputs/milestones/scientific_domain_spacenet7_prospective/
 outputs/milestones/scientific_domain_materials/
 outputs/milestones/scientific_release_success_map/
+outputs/milestones/no_human_scientific_consequence/
 outputs/milestones/generality_reliability/
 outputs/milestones/release_story/
 outputs/benchmarks/parc_certification_benchmark/
@@ -115,6 +116,26 @@ outputs/milestones/scientific_release_success_map/VERIFIED_POSITIVE_REMOVAL_LOAD
 
 The ALIGNN margin-excluded 25meV K=100 row remains a boundary sensitivity row,
 not a strict pass, even though it is included in this load-bearing diagnostic.
+
+The no-human scientific consequence package uses public/official labels only
+and adds no new human review:
+
+```bash
+python scripts/build_no_human_scientific_consequence.py
+```
+
+The outputs live under:
+
+```text
+outputs/milestones/no_human_scientific_consequence/
+```
+
+This package reports materials computational follow-up queues, a materials
+model-zoo release frontier for locally available prediction files, CTC
+official-GT lineage consequence diagnostics, and SpaceNet official-GT
+building-persistence map-consequence diagnostics. Rows for unavailable modern
+materials prediction files are recorded as not-run availability rows, not
+completed evidence.
 
 ## 4. Re-run with External Datasets
 

@@ -36,6 +36,7 @@ parc-track/
 │   ├── milestones/scientific_domain_iwildcam_human_audit/
 │   ├── milestones/scientific_domain_materials/
 │   ├── milestones/scientific_release_success_map/
+│   ├── milestones/no_human_scientific_consequence/
 │   └── benchmarks/parc_certification_benchmark/
 ├── tests/                            # pytest suite and tiny fixtures
 ├── scripts/                          # public-safe helper scripts
@@ -97,6 +98,7 @@ For full benchmark reproduction, see `REPRODUCIBILITY.md`.
 - Prospective iWildCam animal-present audit trial: `outputs/milestones/scientific_domain_iwildcam_human_audit/` (operational `alpha=0.20, K=50` human-confirmed ecology release; strict `alpha=0.10` refusal)
 - Materials discovery milestone: `outputs/milestones/scientific_domain_materials/` (Matbench Discovery / WBM stable-candidate release; CGCNN strict `alpha=0.10, K=100` flagship with controls; paper-ready threshold, gamma, and raw-vs-PARC figures)
 - Scientific release success map: `outputs/milestones/scientific_release_success_map/` (cross-domain evidence matrix, success/refusal diagnostics, ILP/refusal diagnosis, verified-positive-removal load-bearing reruns, descriptive success-domain predictor, validity-assumption table, practical-value rows, and protocol-only flags for unfinished extensions)
+- No-human scientific consequence milestone: `outputs/milestones/no_human_scientific_consequence/` (materials computational follow-up queue, materials model-zoo release frontier, CTC lineage consequence, and SpaceNet map-consequence diagnostics using public/official labels only)
 - Community benchmark: `outputs/benchmarks/parc_certification_benchmark/`
 - File integrity manifest: `MANIFEST_SHA256.txt`
 

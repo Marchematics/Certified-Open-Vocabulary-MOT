@@ -13,6 +13,7 @@ This directory contains public-safe derived artifacts only.
 - `milestones/scientific_domain_iwildcam_human_audit/`: prospective iWildCam animal-present human-audit package; operational `alpha=0.20, K=50` human-confirmed ecology release with strict `alpha=0.10` refusal.
 - `milestones/scientific_domain_materials/`: Matbench Discovery / WBM materials-candidate release package; CGCNN learned model strict `alpha=0.10, K=100` release with DFT-label holdout evaluation, controls, and paper-ready threshold/gamma/raw-vs-PARC figures.
 - `milestones/scientific_release_success_map/`: consolidated domain-of-success evidence map and practitioner diagnostics across completed release, refusal, boundary, and protocol-only rows, including refusal/ILP aggregate diagnostics, verified-positive-removal load-bearing reruns, a descriptive success-domain predictor, and validity assumptions by domain.
+- `milestones/no_human_scientific_consequence/`: no-new-human-label consequence package using public WBM/Matbench labels, public model prediction CSVs, CTC official GT labels, and SpaceNet 7 official building identities.
 - `benchmarks/parc_certification_benchmark/`: compact community benchmark package with audit labels, result tables, schemas, and a tiny fixture.
 
 Raw videos, raw annotations, model weights, detector caches, frame caches, and montage images are intentionally excluded.
