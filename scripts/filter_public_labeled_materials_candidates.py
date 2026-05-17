@@ -63,15 +63,31 @@ def main() -> None:
             matches = _match_public_labels(pool, index)
             has_structure = pool["has_structure_ref"].astype(bool) if "has_structure_ref" in pool.columns else pd.Series(False, index=pool.index)
             duplicate = pool["candidate_id"].duplicated(keep=False) if "candidate_id" in pool.columns else pd.Series(True, index=pool.index)
-            keep = (~matches) & has_structure & (~duplicate)
+            input_keep = pool["keep_for_followup"].map(lambda x: str(x).strip().lower() in {"1", "true", "yes", "y", "t"}) if "keep_for_followup" in pool.columns else pd.Series(True, index=pool.index)
+            has_formula = pool["formula"].notna() & pool["formula"].astype(str).str.strip().ne("") if "formula" in pool.columns else pd.Series(False, index=pool.index)
+            keep = input_keep & (~matches) & has_structure & (~duplicate) & has_formula
             filtered = pool.copy()
             filtered["public_label_status"] = matches.map(lambda x: "excluded_public_label_index_match" if bool(x) else "no_public_label_index_match")
             filtered["novelty_status"] = "public_label_index_checked_structure_matcher_external_or_not_applicable"
             filtered["keep_for_followup"] = keep
-            filtered["exclusion_reason"] = [
-                "" if ok else "public_label_match_or_duplicate_or_missing_structure_ref"
-                for ok in keep
-            ]
+            reasons = []
+            for ok, was_input_keep, matched, is_dup, has_ref, formula_ok in zip(keep, input_keep, matches, duplicate, has_structure, has_formula):
+                if ok:
+                    reasons.append("")
+                    continue
+                parts = []
+                if not bool(was_input_keep):
+                    parts.append("input_candidate_not_followup_eligible")
+                if bool(matched):
+                    parts.append("public_label_index_match")
+                if bool(is_dup):
+                    parts.append("duplicate_candidate_id")
+                if not bool(has_ref):
+                    parts.append("missing_structure_ref")
+                if not bool(formula_ok):
+                    parts.append("missing_formula")
+                reasons.append("|".join(parts) or "not_followup_eligible")
+            filtered["exclusion_reason"] = reasons
             filtered["evidence_status"] = "candidate_pool_public_label_excluded_pending_alignnff_scores"
             extra = [c for c in ["structure_ref", "structure_sha256", "has_structure_ref"] if c in filtered.columns]
             candidates = filtered[CANDIDATE_COLUMNS + extra]

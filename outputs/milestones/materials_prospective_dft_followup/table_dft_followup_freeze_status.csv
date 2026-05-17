@@ -1,7 +1,7 @@
 item,status,completed_positive_result,blocks_DFT_submission,reason
 protocol,frozen,False,False,protocol and failure policy are frozen before DFT outcomes
-candidate_pool,blocked_missing_unlabeled_candidate_pool,False,True,requires unlabeled generated candidates with public-label exclusion and structure crossmatch
-public_label_exclusion,pending_candidate_pool,False,True,must exclude public WBM/MP/OQMD/Alexandria/GNoME stability labels before DFT
-selection_frozen,not_started_no_candidates,False,True,selection arms require a valid PARC release and raw-only tail before job export
-dft_job_manifest,empty_until_selection_exists,False,True,DFT jobs are exported only after nonempty frozen selection arms exist
+candidate_pool,ready_for_public_label_filter,False,False,PGCGM generated pool frozen public-safe with 2065 follow-up-eligible structures before public-label exclusion
+public_label_exclusion,ready_for_alignnff_scoring,False,False,WBM/Matbench formula-level public-label exclusion applied; frozen ALIGNN-FF scores still required
+selection_frozen,blocked_missing_alignnff_scores,False,True,selection arms require true frozen ALIGNN-FF candidate scores and a PARC release file before job export
+dft_job_manifest,empty_until_nonempty_selection_exists,False,True,DFT jobs are exported only after nonempty frozen selection arms exist
 dft_results,not_started,False,False,new DFT outcomes must be collected after protocol and selection freeze

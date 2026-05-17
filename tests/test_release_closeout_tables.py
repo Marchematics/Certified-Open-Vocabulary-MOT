@@ -547,20 +547,24 @@ def test_materials_prospective_dft_followup_is_protocol_freeze_not_result() -> N
 
     status_by_item = dict(zip(status["item"], status["status"]))
     assert status_by_item["protocol"] == "frozen"
-    assert status_by_item["candidate_pool"] == "blocked_missing_unlabeled_candidate_pool"
-    assert status_by_item["selection_frozen"] == "not_started_no_candidates"
-    assert status_by_item["dft_job_manifest"] == "empty_until_selection_exists"
+    assert status_by_item["candidate_pool"] == "ready_for_public_label_filter"
+    assert status_by_item["public_label_exclusion"] == "ready_for_alignnff_scoring"
+    assert status_by_item["selection_frozen"] == "blocked_missing_alignnff_scores"
+    assert status_by_item["dft_job_manifest"] == "empty_until_nonempty_selection_exists"
     assert not status["completed_positive_result"].astype(bool).any()
-    assert status[status["item"].isin(["candidate_pool", "selection_frozen", "dft_job_manifest"])]["blocks_DFT_submission"].astype(bool).all()
+    assert status[status["item"].isin(["selection_frozen", "dft_job_manifest"])]["blocks_DFT_submission"].astype(bool).all()
 
     assert {"PARC-release", "raw-only rejected tail", "raw top-R matched"} == set(arms["arm"])
     assert (arms["target_n"] == 40).all()
     assert (arms["minimum_analyzable_n"] == 25).all()
-    assert candidates.empty
+    assert len(candidates) == 3000
+    assert int(candidates["keep_for_followup"].astype(bool).sum()) == 2065
     assert selection.empty
     assert jobs.empty
-    assert public_report.empty
-    assert novelty.empty
+    assert len(public_report) == 3000
+    assert int(public_report["keep_for_followup"].astype(bool).sum()) == 2065
+    assert len(novelty) == 3000
+    assert int(novelty["keep_for_followup"].astype(bool).sum()) == 2065
     assert {"non_convergence", "hull_unavailable", "completed_only_secondary"} == set(failure["policy_item"])
     assert "Candidate selection must be frozen before new DFT outcomes are computed" in protocol
     assert "does not promote a protocol-only positive result" in closeout

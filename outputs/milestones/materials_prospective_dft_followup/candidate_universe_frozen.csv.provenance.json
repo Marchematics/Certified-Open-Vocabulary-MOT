@@ -2,10 +2,11 @@
   "artifact": "candidate_universe_frozen.csv",
   "command": "python scripts/filter_public_labeled_materials_candidates.py",
   "inputs": {
-    "raw_pool_sha256": "06e0e894c09fc8d50fc860f76d0b408c67a8a902616cc10defe2c8abd9224e97",
+    "raw_pool_sha256": "317e5ade9f42531b022736126990981aadf7b48094b4181648c0943cd8dcb1ca",
     "raw_pool_name": "raw_generated_candidate_pool.csv",
-    "public_label_index": null
+    "public_label_index_sha256": "04e10d4fd6aaba6f03e81e93650c4c46cf22f7f1bd1dcf10467451088f178e88",
+    "public_label_index_name": "public_label_index_wbm_formula_public_safe.csv"
   },
-  "generated_at_utc": "2026-05-17T17:25:46+00:00",
-  "artifact_sha256": "6415bc20137fe432f98ea5a4e18a42cbef44da3413aad8df054eb44f209ffd12"
+  "generated_at_utc": "2026-05-17T18:00:24+00:00",
+  "artifact_sha256": "7238e5edc940046f72f713b437e342644bdc85d594303ab88ddf0833ec0ae6ba"
 }

@@ -64,7 +64,8 @@ def main() -> None:
         pool = normalize_raw_pool(raw, primary_model=args.primary_model, score_column=args.score_column)
         n_with_structure = int(pool["has_structure_ref"].astype(bool).sum())
         n_candidates = int(len(pool))
-        ready = n_candidates >= args.min_candidates and n_with_structure >= args.min_candidates
+        n_followup_eligible = int(pool["keep_for_followup"].astype(bool).sum())
+        ready = n_followup_eligible >= args.min_candidates and n_with_structure >= args.min_candidates
         status = status_frame(
             [
                 {
@@ -72,6 +73,7 @@ def main() -> None:
                     "status": "ready_for_public_label_filter" if ready else "insufficient_candidates_or_structure_refs",
                     "n_candidates": n_candidates,
                     "n_with_structure_ref": n_with_structure,
+                    "n_followup_eligible_before_public_label_filter": n_followup_eligible,
                     "min_candidates": args.min_candidates,
                     "target_candidates": args.target_candidates,
                     "completed_positive_result": False,

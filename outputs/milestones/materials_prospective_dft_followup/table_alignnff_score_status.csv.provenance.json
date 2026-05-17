@@ -2,10 +2,10 @@
   "artifact": "table_alignnff_score_status.csv",
   "command": "python scripts/score_unlabeled_pool_alignnff.py",
   "inputs": {
-    "candidates_sha256": "6415bc20137fe432f98ea5a4e18a42cbef44da3413aad8df054eb44f209ffd12",
+    "candidates_sha256": "7238e5edc940046f72f713b437e342644bdc85d594303ab88ddf0833ec0ae6ba",
     "candidates_name": "candidate_universe_frozen.csv",
     "scores": null
   },
-  "generated_at_utc": "2026-05-17T17:25:46+00:00",
+  "generated_at_utc": "2026-05-17T18:00:25+00:00",
   "artifact_sha256": "919818a88fdca703d2dff887d7b8e18e6377e2922c3c136390489d60a6884353"
 }

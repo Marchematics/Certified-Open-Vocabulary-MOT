@@ -2,10 +2,11 @@
   "artifact": "PUBLIC_LABEL_EXCLUSION_REPORT.csv",
   "command": "python scripts/filter_public_labeled_materials_candidates.py",
   "inputs": {
-    "raw_pool_sha256": "06e0e894c09fc8d50fc860f76d0b408c67a8a902616cc10defe2c8abd9224e97",
+    "raw_pool_sha256": "317e5ade9f42531b022736126990981aadf7b48094b4181648c0943cd8dcb1ca",
     "raw_pool_name": "raw_generated_candidate_pool.csv",
-    "public_label_index": null
+    "public_label_index_sha256": "04e10d4fd6aaba6f03e81e93650c4c46cf22f7f1bd1dcf10467451088f178e88",
+    "public_label_index_name": "public_label_index_wbm_formula_public_safe.csv"
   },
-  "generated_at_utc": "2026-05-17T17:25:46+00:00",
-  "artifact_sha256": "8ad218c1c1208bbd815a3b3627b10170155fa5d16c71ba37882abe5767e21e73"
+  "generated_at_utc": "2026-05-17T18:00:24+00:00",
+  "artifact_sha256": "8ccb5906c330a84f0a56918c71a0d2109209e7f9512963bf612f45282929489b"
 }

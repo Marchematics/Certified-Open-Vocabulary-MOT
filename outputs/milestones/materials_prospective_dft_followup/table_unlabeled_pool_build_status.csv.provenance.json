@@ -2,9 +2,11 @@
   "artifact": "table_unlabeled_pool_build_status.csv",
   "command": "python scripts/build_unlabeled_materials_candidate_pool.py",
   "inputs": {
-    "candidate_pool": null,
-    "primary_model": "ALIGNN-FF"
+    "candidate_pool_sha256": "632a638bfeae0cf28d7038193c3301f2d8127904a39ee059307a8ae93b8579e6",
+    "candidate_pool_name": "pgcgm_unlabeled_candidate_pool_public_safe_input.csv",
+    "primary_model": "PGCGM_generated_pool_pending_ALIGNN_FF",
+    "score_column": ""
   },
-  "generated_at_utc": "2026-05-17T17:25:46+00:00",
-  "artifact_sha256": "afbaa8efacc0eb7a8cffa824a7c4815fb31f0f0271917a1756b6a0882e5ce438"
+  "generated_at_utc": "2026-05-17T18:00:23+00:00",
+  "artifact_sha256": "23160edb0da17de434ddd1e33bf5f0f185a4be56feb46a7736af1b0176bf7f1e"
 }

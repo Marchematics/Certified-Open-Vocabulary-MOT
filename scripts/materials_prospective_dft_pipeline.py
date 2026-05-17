@@ -128,9 +128,11 @@ def normalize_raw_pool(raw: pd.DataFrame, primary_model: str, score_column: str 
     duplicated_candidates = raw.duplicated(subset=[c for c in ["candidate_id"] if c in raw.columns], keep=False) if "candidate_id" in raw.columns else pd.Series(False, index=raw.index)
     for idx, row in raw.iterrows():
         formula = str(first_present(row, ["formula", "reduced_formula"], "")).strip()
-        elements = "|".join(parse_elements(formula))
+        parsed_elements = parse_elements(formula)
+        elements = "|".join(parsed_elements)
         structure_ref = sanitize_structure_ref(row)
         structure_digest = structure_sha(row)
+        input_keep = safe_bool(row["keep_for_followup"]) if "keep_for_followup" in raw.columns else True
         chosen_score = score_column
         if chosen_score is None:
             for col in ["frozen_model_score", "alignn_ff_score", "score", "model_score", "predicted_score", "stability_score"]:
@@ -140,14 +142,19 @@ def normalize_raw_pool(raw: pd.DataFrame, primary_model: str, score_column: str 
         label_present = any(col in raw.columns and pd.notna(row[col]) for col in LABEL_COLUMNS)
         duplicate_status = "duplicate_candidate_id" if bool(duplicated_candidates.loc[idx]) else "unique_candidate_id"
         has_structure = bool(structure_ref or structure_digest)
-        keep = (not label_present) and duplicate_status == "unique_candidate_id" and has_structure
+        has_formula = bool(formula and parsed_elements)
+        keep = input_keep and (not label_present) and duplicate_status == "unique_candidate_id" and has_structure and has_formula
         exclusion_reasons = []
+        if not input_keep:
+            exclusion_reasons.append("input_keep_for_followup_false")
         if label_present:
             exclusion_reasons.append("public_label_column_present")
         if duplicate_status != "unique_candidate_id":
             exclusion_reasons.append("duplicate_candidate_id")
         if not has_structure:
             exclusion_reasons.append("missing_structure_ref")
+        if not has_formula:
+            exclusion_reasons.append("missing_formula_or_elements")
         rows.append(
             {
                 "candidate_id": candidate_id_for(row, idx),
@@ -171,7 +178,7 @@ def normalize_raw_pool(raw: pd.DataFrame, primary_model: str, score_column: str 
                 "structure_sha256": structure_digest,
                 "has_structure_ref": has_structure,
                 "raw_pool_rank": idx + 1,
-                "generation_status": "external_unlabeled_pool_normalized",
+                "generation_status": first_present(row, ["generation_status"], "external_unlabeled_pool_normalized"),
             }
         )
     out = pd.DataFrame(rows, columns=RAW_POOL_COLUMNS)

@@ -32,8 +32,9 @@ It is a protocol and selection-freeze package, not a completed DFT result.
 
 ## Current Freeze Status
 
-- Candidate-pool status: `not_supplied`
-- Candidate-pool gate: `blocked_missing_unlabeled_candidate_pool`
+- Candidate-pool status: `ready_for_public_label_filter`
+- Public-label exclusion status: `ready_for_alignnff_scoring`
+- Scoring gate: `blocked_missing_alignnff_scores`
+- Selection gate: `blocked_missing_alignnff_scores`
 
-If the candidate-pool gate is not `ready_for_selection`, this milestone must
-not be described as a completed prospective DFT follow-up result.
+If the selection gate is not nonempty, this milestone must not be described as a completed prospective DFT follow-up result. The current package contains a generated candidate pool and public-label exclusion outputs, but it does not contain frozen ALIGNN-FF candidate scores, selected DFT arms, or DFT outcomes.
