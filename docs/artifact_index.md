@@ -52,6 +52,12 @@ This repository uses neutral public artifact names. Older internal experiment la
 - `outputs/milestones/release_certification_benchmark/`
   Community-facing scientific AI release-certification benchmark cards. This milestone packages completed release/refusal evidence into `table_release_certification_cards.csv`, `table_release_certification_track_registry.csv`, `table_release_card_field_schema.csv`, `table_release_governance_checklist.csv`, `table_release_certification_benchmark_index.csv`, and `figure_release_certification_benchmark_map.{csv,pdf}`. It is a reusable governance protocol for future candidate-release tasks and does not promote protocol-only ideas as completed evidence.
 
+- `outputs/milestones/block_heterogeneity_robustness/`
+  Phase25 block-size heterogeneity robustness milestone. It contains `table_block_size_heterogeneity_summary.csv`, `figure_block_size_superuniformity.{csv,pdf}`, `table_size_matched_rerun.csv`, `table_downsampled_blockmax_stress.csv`, `BLOCK_HETEROGENEITY_ROBUSTNESS_CLOSEOUT.md`, and `B2_APPROXIMATE_EVALUE_VALIDITY_LEMMA.md`. Candidate-level size-matched and downsampled reruns are completed for materials, where block/score/label artifacts are public-safe; CTC and SpaceNet are explicitly scoped as aggregate/audit-sample diagnostics rather than fabricated candidate-level reruns.
+
+- `outputs/milestones/materials_prospective_validation_protocols/`
+  A1/A2 materials prospective-validation preregistration and feasibility package. It contains temporal-split and independent-DFT protocols, feasibility tables, release-card stubs, and go/no-go decisions. These artifacts are protocol/feasibility evidence only: they do not claim a completed prospective computational trial, new DFT labels, or an independent-DFT cross-validation result.
+
 - `outputs/milestones/release_story/paper_diagnostics/`
   Paper-facing diagnostic tables for assumptions, seed variability/interval summaries, verification budgets, and prevented false releases.
 

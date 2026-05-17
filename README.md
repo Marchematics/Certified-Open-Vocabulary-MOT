@@ -40,6 +40,8 @@ parc-track/
 │   ├── milestones/materials_computational_followup_trial/
 │   ├── milestones/official_downstream_consequence/
 │   ├── milestones/release_certification_benchmark/
+│   ├── milestones/block_heterogeneity_robustness/
+│   ├── milestones/materials_prospective_validation_protocols/
 │   └── benchmarks/parc_certification_benchmark/
 ├── tests/                            # pytest suite and tiny fixtures
 ├── scripts/                          # public-safe helper scripts
@@ -53,6 +55,8 @@ parc-track/
 - Audit benchmark: `outputs/benchmarks/parc_certification_benchmark/audit/` and the full frozen milestone under `outputs/milestones/reliability_fortress/`.
 - Scientific-domain milestones for CTC cell-link certification, learned-hybrid CTC link certification, SpaceNet 7 building-link certification, a prospective iWildCam animal-present human-audit package, and Matbench Discovery stable-material candidate release.
 - Release-certification benchmark cards that package completed CTC, materials, iWildCam, SpaceNet, and downstream-artifact evidence into a reusable scientific AI governance protocol.
+- Block-heterogeneity robustness diagnostics for the current public artifact package: candidate-level size-stratified, size-matched, and downsampled block-max checks for materials, plus scoped aggregate/audit-sample diagnostics for CTC and SpaceNet where candidate-level universes are not included.
+- Preregistered A1/A2 materials prospective-validation protocols and feasibility cards. These are explicitly protocol/feasibility artifacts and are not promoted as completed positive evidence.
 - Result tables for OVT-B, TAO, BURST, black-box generators, published-tracker adapters, non-exchangeability stress tests, null-inflation sensitivity, LVIS/LVVIS/OVVIS generality checks, Mondrian/per-class/runtime/anytime diagnostics, and Prop. 5 high-evidence mass diagnostics.
 - Tiny fixture for validating the full schema-to-certification path without downloading external datasets.
 
@@ -106,6 +110,8 @@ For full benchmark reproduction, see `REPRODUCIBILITY.md`.
 - Materials computational follow-up trial: `outputs/milestones/materials_computational_followup_trial/` (quasi-prospective public-DFT replay with frozen queues/rules, release cards, and follow-up efficiency figures; no new DFT or synthesis claim)
 - Official downstream consequence milestone: `outputs/milestones/official_downstream_consequence/` (CTC official-GT lineage-edge edit-burden proxies and SpaceNet 7 official-identity building-persistence map metrics; no new human labels and no official challenge leaderboard-score claim)
 - Release certification benchmark cards: `outputs/milestones/release_certification_benchmark/` (community-facing release cards, track registry, field schema, governance checklist, and benchmark map; only completed evidence/diagnostics are promoted, while protocol-only ideas remain schema/checklist items)
+- Block heterogeneity robustness: `outputs/milestones/block_heterogeneity_robustness/` (Phase25 size-stratified p-value diagnostics, candidate-level materials size-matched and downsampled block-max stress, scoped CTC/SpaceNet diagnostics, and an approximate e-value validity lemma)
+- Materials prospective validation protocols: `outputs/milestones/materials_prospective_validation_protocols/` (A1 temporal-split and A2 independent-DFT preregistration protocols plus feasibility/go-no-go cards; protocol-only, not completed evidence)
 - Community benchmark: `outputs/benchmarks/parc_certification_benchmark/`
 - File integrity manifest: `MANIFEST_SHA256.txt`
 

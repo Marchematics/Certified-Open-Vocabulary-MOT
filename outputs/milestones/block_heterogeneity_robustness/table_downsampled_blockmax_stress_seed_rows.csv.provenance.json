@@ -1,0 +1,15 @@
+{
+  "artifact": "table_downsampled_blockmax_stress_seed_rows.csv",
+  "command": "python scripts/build_block_heterogeneity_robustness.py",
+  "input_sha256": {
+    "alignn_predictions_sha256": "dc75be97f3bce3ce724680065abf11a19bdc6a3928fdd77ccb42d3f62a02e593",
+    "cgcnn_predictions_sha256": "9fba78430e76e7443436d143d2af9ad1d7e54ef84e73443abe9058e41e4d7ebb",
+    "ctc_strict_table": "2489e6f760d419e3ffdf2af15a18077b92782a106e4bf2bf0dc1f53d7600abf3",
+    "spacenet_prospective_audit_manifest": "1da2f6e8b9bdb808378627dc25946728d83e2b0820642e7267937cd992c6967d",
+    "spacenet_real_audit_primary_refusal": "907b86a769e36d69a8f019660bb96f6d5acc7802bfc69d67122d6ee7bf0c69ab",
+    "wbm_summary_sha256": "ff19e59d74115de9762fbc868c9f35900ae099c18f23e9c89d10589af1418225"
+  },
+  "output_sha256": "0c7ee1d853e593248a3d335f02fe88126573f0f358bdc0cf90386e22cc726e9b",
+  "role": "table_downsampled_blockmax_stress_seed_rows",
+  "runtime_sec": 46.735
+}

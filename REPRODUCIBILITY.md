@@ -41,6 +41,8 @@ outputs/milestones/no_human_scientific_consequence/
 outputs/milestones/materials_computational_followup_trial/
 outputs/milestones/official_downstream_consequence/
 outputs/milestones/release_certification_benchmark/
+outputs/milestones/block_heterogeneity_robustness/
+outputs/milestones/materials_prospective_validation_protocols/
 outputs/milestones/generality_reliability/
 outputs/milestones/release_story/
 outputs/benchmarks/parc_certification_benchmark/
@@ -200,6 +202,42 @@ track registry, field schema, checklist, benchmark index, and figure sources.
 It does not introduce new experiments or new human labels, and protocol-only
 ideas are kept in the schema/checklist rather than promoted to completed
 evidence.
+
+Phase25 block-size heterogeneity diagnostics can be regenerated with:
+
+```bash
+python scripts/build_block_heterogeneity_robustness.py
+```
+
+Outputs live under:
+
+```text
+outputs/milestones/block_heterogeneity_robustness/
+```
+
+This package reports size-stratified p-value diagnostics, candidate-level
+materials size-matched reruns, candidate-level materials downsampled
+block-max stress tests, and scoped aggregate/audit-sample diagnostics for CTC
+and SpaceNet. Candidate-level reruns are not fabricated when a full candidate
+universe is absent from the public package.
+
+The A1/A2 materials prospective-validation preregistration and feasibility
+cards can be regenerated with:
+
+```bash
+python scripts/build_materials_prospective_validation_protocols.py
+```
+
+Outputs live under:
+
+```text
+outputs/milestones/materials_prospective_validation_protocols/
+```
+
+These artifacts freeze temporal-split and independent-DFT validation protocols
+and record local feasibility. They are protocol/feasibility artifacts only:
+they do not report a completed prospective computational trial, new DFT labels,
+or an independent-DFT cross-validation result.
 
 ## 4. Re-run with External Datasets
 

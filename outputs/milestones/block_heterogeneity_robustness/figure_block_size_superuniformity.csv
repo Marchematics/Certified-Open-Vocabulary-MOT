@@ -1,0 +1,5 @@
+domain,diagnostic_scope,source,block_definition,size_stratum,n_calibration_blocks,n_false_candidates,median_p_value,one_sided_KS_ecdf_minus_uniform,superuniformity_flag
+materials_discovery,candidate_level_completed,ALIGNN-FF,composition_family_pair,large,1225,73349,0.9861337683523654,0.0,no_qualitative_violation
+materials_discovery,candidate_level_completed,ALIGNN-FF,composition_family_pair,medium,1224,11816,0.9093877551020408,0.0,no_qualitative_violation
+materials_discovery,candidate_level_completed,ALIGNN-FF,composition_family_pair,small,1225,2761,0.6590538336052202,0.0,no_qualitative_violation
+earth_observation,audit_sample_only_underpowered,SpaceNet prospective audit manifest,"AOI x time block proxy, stratified by AOI candidate_links",large,1,4,0.5,0.5,underpowered_no_release_claim

@@ -72,6 +72,8 @@ def test_closeout_tables_are_public_safe() -> None:
         ROOT / "outputs/milestones/materials_computational_followup_trial",
         ROOT / "outputs/milestones/official_downstream_consequence",
         ROOT / "outputs/milestones/release_certification_benchmark",
+        ROOT / "outputs/milestones/block_heterogeneity_robustness",
+        ROOT / "outputs/milestones/materials_prospective_validation_protocols",
     ]
     forbidden = [
         "/" + "home" + "/",
@@ -463,3 +465,67 @@ def test_release_certification_benchmark_cards_are_completed_and_governance_read
     assert (root / "figure_release_certification_benchmark_map.pdf").exists()
     assert "completed benchmark-card package" in closeout
     assert "Protocol-only designs must not be reported as completed evidence" in protocol
+
+
+def test_block_heterogeneity_robustness_is_scoped_and_candidate_level_where_available() -> None:
+    root = ROOT / "outputs/milestones/block_heterogeneity_robustness"
+    summary = pd.read_csv(root / "table_block_size_heterogeneity_summary.csv")
+    superuniform = pd.read_csv(root / "figure_block_size_superuniformity.csv")
+    size_matched = pd.read_csv(root / "table_size_matched_rerun.csv")
+    downsampled = pd.read_csv(root / "table_downsampled_blockmax_stress.csv")
+    closeout = (root / "BLOCK_HETEROGENEITY_ROBUSTNESS_CLOSEOUT.md").read_text(encoding="utf-8")
+    lemma = (root / "B2_APPROXIMATE_EVALUE_VALIDITY_LEMMA.md").read_text(encoding="utf-8")
+
+    assert set(summary["domain"]) == {
+        "materials_discovery",
+        "biomedical_cell_tracking",
+        "earth_observation",
+    }
+    status = dict(zip(summary["domain"], summary["evidence_status"]))
+    assert status["materials_discovery"] == "candidate_level_completed"
+    assert status["biomedical_cell_tracking"] == "aggregate_only_public_package"
+    assert status["earth_observation"] == "audit_sample_and_aggregate_diagnostic"
+
+    material_superuniform = superuniform[superuniform["domain"] == "materials_discovery"]
+    assert set(material_superuniform["size_stratum"]) == {"small", "medium", "large"}
+    assert (material_superuniform["superuniformity_flag"] == "no_qualitative_violation").all()
+    assert (material_superuniform["one_sided_KS_ecdf_minus_uniform"].astype(float) <= 0.10).all()
+
+    material_size = size_matched[size_matched["domain"] == "materials_discovery"]
+    assert {"global_original", "loose", "medium", "strict"}.issubset(set(material_size["match_level"]))
+    assert (material_size["safety_flag"] == "no_over_alpha_mean_FTR").all()
+    cgcnn_strict = material_size[
+        (material_size["row_id"] == "materials_cgcnn_alpha010_K100")
+        & (material_size["match_level"] == "strict")
+    ].iloc[0]
+    assert int(cgcnn_strict["non_empty_seeds"]) >= 9
+
+    assert (downsampled["domain"] == "materials_discovery").all()
+    assert (downsampled["mean_FTR"].astype(float) <= downsampled["alpha"].astype(float)).all()
+    assert (downsampled["stress_interpretation"] == "no_silent_overrelease_under_downsampled_blockmax").all()
+    assert set(downsampled["downsample_m"]) == {10, 25, 50, 100}
+    assert "no size-matched rerun is fabricated" in closeout
+    assert "alpha (1 + eta)" in lemma
+
+
+def test_materials_prospective_validation_protocols_are_not_promoted() -> None:
+    root = ROOT / "outputs/milestones/materials_prospective_validation_protocols"
+    temporal = pd.read_csv(root / "table_materials_temporal_split_feasibility.csv")
+    independent = pd.read_csv(root / "table_materials_independent_dft_source_feasibility.csv")
+    cards = pd.read_csv(root / "table_materials_prospective_validation_cards.csv")
+    go_no_go = pd.read_csv(root / "table_materials_prospective_validation_go_no_go.csv")
+    closeout = (root / "MATERIALS_PROSPECTIVE_VALIDATION_CLOSEOUT.md").read_text(encoding="utf-8")
+
+    timestamp_row = temporal[temporal["check_name"] == "label_release_timestamp_available"].iloc[0]
+    assert not bool(timestamp_row["observed"])
+    assert bool(timestamp_row["required_for_A1"])
+    assert not independent["local_label_file_available"].astype(bool).any()
+    assert set(independent["feasibility_status"]) == {"external_mapping_required"}
+    assert not cards["completed_positive_result"].astype(bool).any()
+    assert not cards["blocks_submission"].astype(bool).any()
+
+    status = dict(zip(go_no_go["item"], go_no_go["evidence_status"]))
+    assert status["A1_temporal_split"] == "protocol_feasibility_not_completed_evidence"
+    assert status["A2_independent_DFT_source"] == "protocol_feasibility_not_completed_evidence"
+    assert status["A3_new_DFT_followup"] == "not_started_optional"
+    assert "no protocol-only positive row" in closeout
