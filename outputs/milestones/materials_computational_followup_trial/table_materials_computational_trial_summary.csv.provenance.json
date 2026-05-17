@@ -1,0 +1,15 @@
+{
+  "artifact": "table_materials_computational_trial_summary.csv",
+  "command": "python scripts/build_materials_computational_trial.py",
+  "evidence_status": "completed_quasi_prospective_public_DFT_label_trial",
+  "input_hashes": {
+    "alignn_ff_modern_learned_materials_model_sha256": "dc75be97f3bce3ce724680065abf11a19bdc6a3928fdd77ccb42d3f62a02e593",
+    "cgcnn_ensemble_learned_materials_model_sha256": "9fba78430e76e7443436d143d2af9ad1d7e54ef84e73443abe9058e41e4d7ebb",
+    "megnet_weak_learned_materials_model_sha256": "99d55d75f9f4f357253ba84ff685e8fe4fe75197a7b78ec177a2c8f1e0f1cfc1",
+    "wbm_summary_sha256": "ff19e59d74115de9762fbc868c9f35900ae099c18f23e9c89d10589af1418225"
+  },
+  "output_sha256": "bd70a3177c745b8b3165f3110637a1be6f437af6a215f12fdd978880646cfe13",
+  "role": "summary",
+  "scope": "quasi-prospective public-DFT computational follow-up replay; no new labels/DFT",
+  "status": "completed"
+}

@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 import pandas as pd
@@ -68,6 +69,7 @@ def test_closeout_tables_are_public_safe() -> None:
         ROOT / "outputs/milestones/scientific_domain_materials",
         ROOT / "outputs/milestones/release_story/paper_diagnostics",
         ROOT / "outputs/milestones/no_human_scientific_consequence",
+        ROOT / "outputs/milestones/materials_computational_followup_trial",
     ]
     forbidden = [
         "/" + "home" + "/",
@@ -320,3 +322,35 @@ def test_no_human_scientific_consequence_package_is_completed_and_scoped() -> No
     assert "Release decisions change downstream scientific artifacts" in paper_note
     assert "no new human labels" in paper_note
     assert "not-run" in paper_note
+
+
+def test_materials_computational_followup_trial_is_scoped_and_decision_relevant() -> None:
+    root = ROOT / "outputs/milestones/materials_computational_followup_trial"
+    summary = pd.read_csv(root / "table_materials_computational_trial_summary.csv")
+    cards = pd.read_csv(root / "table_materials_computational_trial_release_cards.csv")
+    closeout = (root / "MATERIALS_COMPUTATIONAL_TRIAL_CLOSEOUT.md").read_text(encoding="utf-8")
+    protocol = json.loads((root / "MATERIALS_COMPUTATIONAL_TRIAL_PROTOCOL.json").read_text(encoding="utf-8"))
+
+    assert (summary["evidence_status"] == "completed_quasi_prospective_public_DFT_label_trial").all()
+    assert "no new dft" in closeout.lower()
+    assert "not true prospective discovery" in closeout.lower()
+    assert "not new DFT" in protocol["scope"]
+    assert {"ALIGNN-FF", "CGCNN 10-member ensemble", "MEGNet"}.issubset(set(summary["model_family"]))
+    alignn_k500 = summary[
+        (summary["model_family"] == "ALIGNN-FF")
+        & (summary["alpha"] == 0.10)
+        & (summary["K"] == 500)
+    ].iloc[0]
+    assert int(alignn_k500["non_empty_seeds"]) == 20
+    assert float(alignn_k500["PARC_FTR_mean"]) < 0.10
+    assert float(alignn_k500["raw_topK_FTR_mean"]) > 0.30
+    assert float(alignn_k500["unstable_followups_prevented_mean"]) > 100
+    alignn_k5000 = summary[
+        (summary["model_family"] == "ALIGNN-FF")
+        & (summary["alpha"] == 0.10)
+        & (summary["K"] == 5000)
+    ].iloc[0]
+    assert int(alignn_k5000["non_empty_seeds"]) == 0
+    assert float(alignn_k5000["unstable_followups_prevented_mean"]) > 2000
+    assert cards["scope_limitations"].str.contains("quasi-prospective replay").all()
+    assert (root / "figure_materials_computational_trial_main.pdf").exists()

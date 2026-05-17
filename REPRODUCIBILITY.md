@@ -38,6 +38,7 @@ outputs/milestones/scientific_domain_spacenet7_prospective/
 outputs/milestones/scientific_domain_materials/
 outputs/milestones/scientific_release_success_map/
 outputs/milestones/no_human_scientific_consequence/
+outputs/milestones/materials_computational_followup_trial/
 outputs/milestones/generality_reliability/
 outputs/milestones/release_story/
 outputs/benchmarks/parc_certification_benchmark/
@@ -141,6 +142,25 @@ then writes `table_no_human_consequence_summary.csv`,
 `NO_HUMAN_PAPER_INTEGRATION.md` for Figure 6 and impact-first submission text.
 Rows for unavailable modern materials prediction files are recorded as not-run
 availability rows, not completed evidence.
+
+The materials computational follow-up trial freezes model-ranked public WBM
+candidate queues, composition-family splits, requested budgets, alpha levels,
+and the one-sided observed-positive rule before evaluating held-out public DFT
+labels in the follow-up partition:
+
+```bash
+python scripts/build_materials_computational_trial.py
+```
+
+Outputs live under:
+
+```text
+outputs/milestones/materials_computational_followup_trial/
+```
+
+This is a quasi-prospective public-label replay. It does not run new DFT,
+does not claim experimental synthesis, and should not be described as a true
+prospective materials-discovery deployment.
 
 ## 4. Re-run with External Datasets
 

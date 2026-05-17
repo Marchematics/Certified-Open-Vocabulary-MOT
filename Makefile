@@ -1,7 +1,7 @@
 PYTHON ?= python
 PYTHONPATH ?= code/parc_track
 
-.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence validate-public-bundle verify-manifest package-release package-release-story package-scientific-release
+.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial validate-public-bundle verify-manifest package-release package-release-story package-scientific-release
 
 test:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q tests
@@ -17,6 +17,7 @@ reproduce-main-tables:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m parc_track.cli phase17 reviewer-closeout
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m parc_track.cli phase19 success-domain
 	$(PYTHON) scripts/build_no_human_paper_integration.py
+	$(PYTHON) scripts/build_materials_computational_trial.py
 
 reproduce-main-figures:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m parc_track.cli phase16 generality-closeout
@@ -24,6 +25,9 @@ reproduce-main-figures:
 reproduce-no-human-consequence:
 	$(PYTHON) scripts/build_no_human_scientific_consequence.py
 	$(PYTHON) scripts/build_no_human_paper_integration.py
+
+reproduce-materials-computational-trial:
+	$(PYTHON) scripts/build_materials_computational_trial.py
 
 validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/reliability_fortress
@@ -34,6 +38,7 @@ validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/scientific_domain_materials
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/scientific_release_success_map
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/no_human_scientific_consequence
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/materials_computational_followup_trial
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/release_story/paper_diagnostics
 
 verify-manifest:
@@ -50,6 +55,7 @@ package-release:
 	tar -czf outputs/packages/scientific_domain_materials.tar.gz -C outputs/milestones scientific_domain_materials
 	tar -czf outputs/packages/scientific_release_success_map.tar.gz -C outputs/milestones scientific_release_success_map
 	tar -czf outputs/packages/no_human_scientific_consequence.tar.gz -C outputs/milestones no_human_scientific_consequence
+	tar -czf outputs/packages/materials_computational_followup_trial.tar.gz -C outputs/milestones materials_computational_followup_trial
 
 package-release-story:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m parc_track.cli phase13 release-story

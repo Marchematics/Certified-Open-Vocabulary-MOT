@@ -43,6 +43,9 @@ This repository uses neutral public artifact names. Older internal experiment la
 - `outputs/milestones/no_human_scientific_consequence/`
   No-human scientific consequence diagnostics. This milestone uses public WBM/Matbench labels, public model prediction CSVs, CTC official GT labels, and SpaceNet 7 official building identities to quantify downstream follow-up consequences without adding human labels. It includes materials computational follow-up queues, a materials model-zoo release frontier, CTC lineage-edge consequence diagnostics, SpaceNet building-persistence map-consequence diagnostics, a paper-facing no-human consequence summary, Figure 6 source/PDF, and impact-first Results/cover-letter text. Missing CHGNet/MACE/M3GNet/ORB/SevenNet/EquiformerV2/MatterSim prediction files are recorded as not-run availability rows, not completed evidence.
 
+- `outputs/milestones/materials_computational_followup_trial/`
+  Quasi-prospective public-DFT materials computational follow-up replay. This milestone freezes model-ranked WBM candidate queues, composition-family block splits, one-sided pre-release DFT-positive verification, requested budgets, and PARC release/refusal rules before evaluating held-out follow-up labels. It includes `table_materials_computational_trial_summary.csv`, seed-level results, release cards, a protocol JSON, and `figure_materials_computational_trial_main.{csv,pdf}`. It explicitly does not claim new DFT, experimental synthesis, or true prospective discovery.
+
 - `outputs/milestones/release_story/paper_diagnostics/`
   Paper-facing diagnostic tables for assumptions, seed variability/interval summaries, verification budgets, and prevented false releases.
 
