@@ -1,0 +1,17 @@
+{
+  "artifact": "SCIENTIFIC_AI_RELEASE_CERTIFICATION_BENCHMARK.md",
+  "command": "python scripts/build_release_certification_benchmark_cards.py",
+  "input_sha256": {
+    "ctc_human": "488e0d0cdbbac86b851845ebef03968e40695278cde8c35f7b2d7d2e530455c8",
+    "ctc_human_summary": "9b6e51ea64c090e9986ba62b12522f4cf5b314e7927dcbc60e679c7ad32ed437",
+    "ctc_strict": "2489e6f760d419e3ffdf2af15a18077b92782a106e4bf2bf0dc1f53d7600abf3",
+    "downstream_ctc": "6068faf9f4fe326b2692f428055dea26d1df4c8decc01b98f57c5bd501ad80ab",
+    "downstream_spacenet": "d8b3536972a3fcc70fff393408c19e314b514635df57d836ed57fff09b9adf53",
+    "iwildcam": "93e0d9fa5c968ce7d88354a1b1f21ce2302e64bedf642298987c1073d9f0e63d",
+    "materials_trial": "bd70a3177c745b8b3165f3110637a1be6f437af6a215f12fdd978880646cfe13",
+    "validity": "2a91a73473f577800011b4163fae33a5625cecc9b92cff1d2456bdf33029cce7"
+  },
+  "output_sha256": "16b22c1ae42745a2ec4f4361a672aecba9bdf248717b5ccad7afb08155ee7450",
+  "role": "benchmark_closeout",
+  "runtime_sec": 1.658
+}

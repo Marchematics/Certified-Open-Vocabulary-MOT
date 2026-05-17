@@ -1,7 +1,7 @@
 PYTHON ?= python
 PYTHONPATH ?= code/parc_track
 
-.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence validate-public-bundle verify-manifest package-release package-release-story package-scientific-release
+.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark validate-public-bundle verify-manifest package-release package-release-story package-scientific-release
 
 test:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q tests
@@ -19,6 +19,7 @@ reproduce-main-tables:
 	$(PYTHON) scripts/build_no_human_paper_integration.py
 	$(PYTHON) scripts/build_materials_computational_trial.py
 	$(PYTHON) scripts/build_official_downstream_consequence.py
+	$(PYTHON) scripts/build_release_certification_benchmark_cards.py
 
 reproduce-main-figures:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m parc_track.cli phase16 generality-closeout
@@ -33,6 +34,9 @@ reproduce-materials-computational-trial:
 reproduce-official-downstream-consequence:
 	$(PYTHON) scripts/build_official_downstream_consequence.py
 
+reproduce-release-certification-benchmark:
+	$(PYTHON) scripts/build_release_certification_benchmark_cards.py
+
 validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/reliability_fortress
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/release_story
@@ -44,6 +48,7 @@ validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/no_human_scientific_consequence
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/materials_computational_followup_trial
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/official_downstream_consequence
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/release_certification_benchmark
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/release_story/paper_diagnostics
 
 verify-manifest:
@@ -62,6 +67,7 @@ package-release:
 	tar -czf outputs/packages/no_human_scientific_consequence.tar.gz -C outputs/milestones no_human_scientific_consequence
 	tar -czf outputs/packages/materials_computational_followup_trial.tar.gz -C outputs/milestones materials_computational_followup_trial
 	tar -czf outputs/packages/official_downstream_consequence.tar.gz -C outputs/milestones official_downstream_consequence
+	tar -czf outputs/packages/release_certification_benchmark.tar.gz -C outputs/milestones release_certification_benchmark
 
 package-release-story:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m parc_track.cli phase13 release-story

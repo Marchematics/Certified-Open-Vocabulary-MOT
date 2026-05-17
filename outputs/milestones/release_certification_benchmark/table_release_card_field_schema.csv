@@ -1,0 +1,25 @@
+field,type,definition,requirement
+card_id,string,Stable unique card identifier.,required
+track_id,string,Reusable benchmark track identifier.,required
+domain,string,Scientific or benchmark domain.,required
+dataset,string,Source dataset or public label collection.,required
+release_unit,string,Finite candidate object released or refused.,required
+proposal_source,string,Frozen upstream model/source ranking candidates.,required
+verification_source,string,One-sided positive support used by PARC.,required
+block_definition,string,Exchangeability/coverage block construction.,required
+alpha,float,Certified risk target for the card.,required
+requested_K,integer,Requested raw release/follow-up budget.,required
+seeds,integer,Number of split/randomization seeds.,required
+non_empty_seeds,integer,Seeds with non-empty PARC release.,required
+mean_release,float,Mean release size across seeds.,required
+PARC_FTR,float,Realized false-release fraction on the card evaluation source.,required
+raw_topK_FTR,float,Raw top-K false fraction on the same evaluation source.,required
+PARC_decision,enum,"certified_release, certified_refusal, operational_release, or diagnostic frontier.",required
+risk_regime,string,"Strict, operational, or downstream-guardrail regime.",required
+downstream_artifact,string,Scientific object passed downstream.,required
+consequence_metric,string,Workflow metric summarized by the card.,required
+consequence_prevented,float,Prevented false candidates or edit-burden proxy units when applicable.,optional
+evidence_status,enum,"completed_evidence, completed_diagnostic, completed_human_confirmed_closeout, or protocol_only.",required
+paper_status,string,How the card may be used in writing.,required
+primary_artifact,path,Primary public-safe evidence file.,required
+scope_limitations,string,Required limitation language.,required

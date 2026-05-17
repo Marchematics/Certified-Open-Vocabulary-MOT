@@ -39,6 +39,7 @@ parc-track/
 │   ├── milestones/no_human_scientific_consequence/
 │   ├── milestones/materials_computational_followup_trial/
 │   ├── milestones/official_downstream_consequence/
+│   ├── milestones/release_certification_benchmark/
 │   └── benchmarks/parc_certification_benchmark/
 ├── tests/                            # pytest suite and tiny fixtures
 ├── scripts/                          # public-safe helper scripts
@@ -51,6 +52,7 @@ parc-track/
 - PARC certification code: null-superset block calibration, coverage-conditional empty-block handling, e-value generation, finite-resolution diagnostics, SCS-Greedy release, report builders, TrackEval export helpers, and adapter utilities.
 - Audit benchmark: `outputs/benchmarks/parc_certification_benchmark/audit/` and the full frozen milestone under `outputs/milestones/reliability_fortress/`.
 - Scientific-domain milestones for CTC cell-link certification, learned-hybrid CTC link certification, SpaceNet 7 building-link certification, a prospective iWildCam animal-present human-audit package, and Matbench Discovery stable-material candidate release.
+- Release-certification benchmark cards that package completed CTC, materials, iWildCam, SpaceNet, and downstream-artifact evidence into a reusable scientific AI governance protocol.
 - Result tables for OVT-B, TAO, BURST, black-box generators, published-tracker adapters, non-exchangeability stress tests, null-inflation sensitivity, LVIS/LVVIS/OVVIS generality checks, Mondrian/per-class/runtime/anytime diagnostics, and Prop. 5 high-evidence mass diagnostics.
 - Tiny fixture for validating the full schema-to-certification path without downloading external datasets.
 
@@ -103,6 +105,7 @@ For full benchmark reproduction, see `REPRODUCIBILITY.md`.
 - No-human scientific consequence milestone: `outputs/milestones/no_human_scientific_consequence/` (materials computational follow-up queue, materials model-zoo release frontier, CTC lineage consequence, SpaceNet map-consequence diagnostics, paper-facing Figure 6 source, and impact-first cover-letter text using public/official labels only)
 - Materials computational follow-up trial: `outputs/milestones/materials_computational_followup_trial/` (quasi-prospective public-DFT replay with frozen queues/rules, release cards, and follow-up efficiency figures; no new DFT or synthesis claim)
 - Official downstream consequence milestone: `outputs/milestones/official_downstream_consequence/` (CTC official-GT lineage-edge edit-burden proxies and SpaceNet 7 official-identity building-persistence map metrics; no new human labels and no official challenge leaderboard-score claim)
+- Release certification benchmark cards: `outputs/milestones/release_certification_benchmark/` (community-facing release cards, track registry, field schema, governance checklist, and benchmark map; only completed evidence/diagnostics are promoted, while protocol-only ideas remain schema/checklist items)
 - Community benchmark: `outputs/benchmarks/parc_certification_benchmark/`
 - File integrity manifest: `MANIFEST_SHA256.txt`
 

@@ -49,6 +49,9 @@ This repository uses neutral public artifact names. Older internal experiment la
 - `outputs/milestones/official_downstream_consequence/`
   Official-label downstream artifact metrics for CTC and SpaceNet 7. This milestone translates release/refusal decisions into the artifacts a downstream workflow would consume: CTC lineage graphs and SpaceNet building-persistence maps. It includes `table_ctc_official_lineage_metric_summary.csv`, `table_spacenet_map_metric_summary.csv`, `table_official_downstream_consequence_summary.csv`, and `figure_official_downstream_consequence.{csv,pdf}`. CTC TRA/AOGM-style values are edge-edit burden proxies and should not be described as official challenge leaderboard scores.
 
+- `outputs/milestones/release_certification_benchmark/`
+  Community-facing scientific AI release-certification benchmark cards. This milestone packages completed release/refusal evidence into `table_release_certification_cards.csv`, `table_release_certification_track_registry.csv`, `table_release_card_field_schema.csv`, `table_release_governance_checklist.csv`, `table_release_certification_benchmark_index.csv`, and `figure_release_certification_benchmark_map.{csv,pdf}`. It is a reusable governance protocol for future candidate-release tasks and does not promote protocol-only ideas as completed evidence.
+
 - `outputs/milestones/release_story/paper_diagnostics/`
   Paper-facing diagnostic tables for assumptions, seed variability/interval summaries, verification budgets, and prevented false releases.
 

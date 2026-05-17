@@ -29,6 +29,8 @@ model-weight distribution package.
   `outputs/milestones/scientific_domain_*`,
   `outputs/milestones/ctc_strict_human_audit/`, and
   `outputs/milestones/scientific_release_success_map/`
+- Scientific AI release cards:
+  `outputs/milestones/release_certification_benchmark/`
 
 ## Excluded Assets
 
@@ -80,6 +82,16 @@ When adding a new benchmark row, report:
 - PARC release size and FTR;
 - refusal reason when release is empty;
 - whether the row is strict, operational, diagnostic, or boundary evidence.
+
+## Release-Card Governance Layer
+
+The Phase23 release-card package under
+`outputs/milestones/release_certification_benchmark/` standardizes completed
+evidence into community-reusable cards. Each card records the release unit,
+proposal source, verification source, block definition, risk/budget request,
+release/refusal decision, raw baseline risk, downstream artifact, evidence
+status, and limitation language. Protocol-only designs may appear in the field
+schema or checklist, but they should not be reported as completed evidence.
 
 ## Public-Safe Use
 

@@ -1,0 +1,11 @@
+step,check_name,description,stage
+1,freeze_candidate_universe,"Freeze candidate IDs, scores, proposal source and requested budgets before release.",pre_release
+2,define_release_unit,"State exactly what object can be released: link, detection, material candidate, or map edge.",pre_release
+3,define_one_sided_positive_rule,Only high-precision positive support may enter A=1; negative/uncertain labels remain unverified.,pre_release
+4,define_blocks,Declare exchangeability/coverage blocks and empty-block policy.,pre_release
+5,lock_alpha_K_seed_grid,"Declare alpha, K and seeds before evaluating held-out/full labels.",pre_release
+6,run_parc_release_or_refusal,Run null-superset calibration and SCS release/refusal on the frozen universe.,release
+7,evaluate_on_heldout_or_human_source,"Evaluate realized FTR only after the release decision using held-out official, DFT or human labels.",post_release
+8,report_raw_baseline,Report raw top-K risk on the same evaluation source.,post_release
+9,report_downstream_artifact,Translate release/refusal into the downstream workflow object when available.,post_release
+10,write_release_card,"Publish card, provenance, evidence status, limitations and manifest hash.",public_release

@@ -71,6 +71,7 @@ def test_closeout_tables_are_public_safe() -> None:
         ROOT / "outputs/milestones/no_human_scientific_consequence",
         ROOT / "outputs/milestones/materials_computational_followup_trial",
         ROOT / "outputs/milestones/official_downstream_consequence",
+        ROOT / "outputs/milestones/release_certification_benchmark",
     ]
     forbidden = [
         "/" + "home" + "/",
@@ -400,3 +401,65 @@ def test_official_downstream_consequence_metrics_are_completed_and_scoped() -> N
     assert "No new human labels" in closeout
     assert "not official challenge leaderboard scores" in closeout
     assert (root / "figure_official_downstream_consequence.pdf").exists()
+
+
+def test_release_certification_benchmark_cards_are_completed_and_governance_ready() -> None:
+    root = ROOT / "outputs/milestones/release_certification_benchmark"
+    cards = pd.read_csv(root / "table_release_certification_cards.csv")
+    registry = pd.read_csv(root / "table_release_certification_track_registry.csv")
+    schema = pd.read_csv(root / "table_release_card_field_schema.csv")
+    checklist = pd.read_csv(root / "table_release_governance_checklist.csv")
+    index = pd.read_csv(root / "table_release_certification_benchmark_index.csv")
+    figure = pd.read_csv(root / "figure_release_certification_benchmark_map.csv")
+    closeout = (root / "SCIENTIFIC_AI_RELEASE_CERTIFICATION_BENCHMARK.md").read_text(encoding="utf-8")
+    protocol = (root / "RELEASE_CERTIFICATION_GOVERNANCE_PROTOCOL.md").read_text(encoding="utf-8")
+
+    required_cards = {
+        "ctc_learned_strict_alpha010_K300",
+        "ctc_strict_human_confirmed_release_queue",
+        "materials_alignn_followup_alpha010_K500",
+        "materials_alignn_followup_alpha010_K5000",
+        "iwildcam_animal_human_audit_alpha020_K50",
+        "ctc_noisy_geometric_linker_official_lineage_refusal_K5000",
+        "ctc_random_score_negative_control_official_lineage_refusal_K5000",
+        "spacenet_geometry_linker_official_map_K5000",
+        "spacenet_identity_preserving_random_score_control_official_map_K5000",
+    }
+    assert required_cards.issubset(set(cards["card_id"]))
+    assert len(cards) >= 9
+    assert not cards["evidence_status"].astype(str).str.contains("protocol_only").any()
+    assert set(registry["track_id"]).issuperset(
+        {
+            "biomedical_cell_link_release",
+            "materials_computational_followup",
+            "ecology_camera_trap_animal_release",
+            "biomedical_lineage_artifact_guardrail",
+            "earth_observation_persistence_map_guardrail",
+        }
+    )
+
+    ctc_human = cards[cards["card_id"] == "ctc_strict_human_confirmed_release_queue"].iloc[0]
+    assert int(ctc_human["requested_K"]) == 1064
+    assert float(ctc_human["mean_release"]) == 1064.0
+    assert float(ctc_human["PARC_FTR"]) == 0.0
+
+    materials_release = cards[cards["card_id"] == "materials_alignn_followup_alpha010_K500"].iloc[0]
+    assert float(materials_release["PARC_FTR"]) < float(materials_release["raw_topK_FTR"])
+    assert float(materials_release["consequence_prevented"]) > 100
+
+    materials_refusal = cards[cards["card_id"] == "materials_alignn_followup_alpha010_K5000"].iloc[0]
+    assert materials_refusal["PARC_decision"] == "certified_refusal"
+    assert float(materials_refusal["consequence_prevented"]) > 2000
+
+    iwild = cards[cards["card_id"] == "iwildcam_animal_human_audit_alpha020_K50"].iloc[0]
+    assert float(iwild["PARC_FTR"]) == 0.0
+    assert iwild["risk_regime"] == "operational_alpha020"
+
+    assert {"card_id", "track_id", "evidence_status", "scope_limitations"}.issubset(set(schema["field"]))
+    assert len(checklist) == 10
+    assert {"freeze_candidate_universe", "write_release_card"}.issubset(set(checklist["check_name"]))
+    assert index["ready_for_community_reuse"].all()
+    assert len(figure) == len(cards)
+    assert (root / "figure_release_certification_benchmark_map.pdf").exists()
+    assert "completed benchmark-card package" in closeout
+    assert "Protocol-only designs must not be reported as completed evidence" in protocol
