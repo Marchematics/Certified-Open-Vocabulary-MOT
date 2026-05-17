@@ -1,0 +1,50 @@
+{
+  "artifact": "table_verified_positive_removal_load_bearing.csv",
+  "command": "python scripts/run_verified_positive_removal_load_bearing_ablation.py",
+  "evidence_status": "completed_candidate_level_rerun",
+  "inputs": {
+    "alignn_predictions_sha256": "dc75be97f3bce3ce724680065abf11a19bdc6a3928fdd77ccb42d3f62a02e593",
+    "cgcnn_predictions_sha256": "9fba78430e76e7443436d143d2af9ad1d7e54ef84e73443abe9058e41e4d7ebb",
+    "ctc_universe_sha256": "6f0b4cd93ae92529b28734118f02c9a0b333805445555fa21aa26c3c805ae843",
+    "wbm_summary_sha256": "ff19e59d74115de9762fbc868c9f35900ae099c18f23e9c89d10589af1418225"
+  },
+  "notes": [
+    "Candidate-level rerun; no no-removal row was inferred from summary tables.",
+    "ALIGNN margin-excluded 25meV K=100 remains boundary sensitivity, not a strict pass."
+  ],
+  "output_sha256": "eada63dac7df5e31c32545148ee8604e0fce7806ba03f535bc416062dd31183c",
+  "parameters": {
+    "alpha": 0.1,
+    "removal_modes": [
+      "full_parc",
+      "no_verified_positive_removal",
+      "random_positive_removal"
+    ],
+    "rho": 0.1,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "target_rows": 6
+  },
+  "role": "summary_table",
+  "status": "completed"
+}

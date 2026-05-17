@@ -1,0 +1,13 @@
+{
+  "status": "completed",
+  "evidence_status": "completed_candidate_level_rerun",
+  "runtime_sec": 40.345105902990326,
+  "target_rows": 6,
+  "seed_rows": 360,
+  "summary_table": "outputs/milestones/scientific_release_success_map/table_verified_positive_removal_load_bearing.csv",
+  "seed_table": "outputs/milestones/scientific_release_success_map/table_verified_positive_removal_load_bearing_seed_rows.csv",
+  "ctc_universe_sha256": "6f0b4cd93ae92529b28734118f02c9a0b333805445555fa21aa26c3c805ae843",
+  "wbm_summary_sha256": "ff19e59d74115de9762fbc868c9f35900ae099c18f23e9c89d10589af1418225",
+  "cgcnn_predictions_sha256": "9fba78430e76e7443436d143d2af9ad1d7e54ef84e73443abe9058e41e4d7ebb",
+  "alignn_predictions_sha256": "dc75be97f3bce3ce724680065abf11a19bdc6a3928fdd77ccb42d3f62a02e593"
+}

@@ -229,3 +229,43 @@ def test_p0_supplemental_baselines_runtime_and_iwildcam_review_status() -> None:
     release_row = second_agreement[second_agreement["scope"] == "all_release_candidates"].iloc[0]
     assert float(release_row["label_agreement"]) == 1.0
     assert "P0 Supplemental Closeout" in closeout
+
+
+def test_verified_positive_removal_load_bearing_is_candidate_level_completed_evidence() -> None:
+    root = ROOT / "outputs/milestones/scientific_release_success_map"
+    summary = pd.read_csv(root / "table_verified_positive_removal_load_bearing.csv")
+    seeds = pd.read_csv(root / "table_verified_positive_removal_load_bearing_seed_rows.csv")
+    closeout = (root / "VERIFIED_POSITIVE_REMOVAL_LOAD_BEARING_CLOSEOUT.md").read_text(encoding="utf-8")
+    provenance_paths = [
+        root / "table_verified_positive_removal_load_bearing.csv.provenance.json",
+        root / "table_verified_positive_removal_load_bearing_seed_rows.csv.provenance.json",
+        root / "VERIFIED_POSITIVE_REMOVAL_LOAD_BEARING_CLOSEOUT.md.provenance.json",
+    ]
+
+    assert len(summary) == 18
+    assert len(seeds) == 360
+    assert summary["target_row"].nunique() == 6
+    assert set(summary["removal_mode"]) == {
+        "full_parc",
+        "no_verified_positive_removal",
+        "random_positive_removal",
+    }
+    assert set(summary["evidence_status"]) == {"completed_candidate_level_rerun"}
+    assert set(seeds["evidence_status"]) == {"completed_candidate_level_rerun"}
+
+    pivot = summary.pivot(index="target_row", columns="removal_mode", values="mean_release")
+    assert (pivot["no_verified_positive_removal"] < pivot["full_parc"]).all()
+    assert (pivot["random_positive_removal"] < pivot["full_parc"]).all()
+
+    control_rows = summary[summary["removal_mode"].isin(["no_verified_positive_removal", "random_positive_removal"])]
+    assert (control_rows["load_bearing_interpretation"] == "verified_positive_removal_load_bearing").all()
+
+    boundary = summary[
+        (summary["target_row"] == "materials_alignn_margin_excluded_25meV_alpha010_K100")
+        & (summary["removal_mode"] == "full_parc")
+    ].iloc[0]
+    assert float(boundary["actual_FTR_mean"]) > 0.10
+    assert "boundary sensitivity row, not a strict pass" in closeout
+    assert "not derived from summary-only tables" in closeout
+    for path in provenance_paths:
+        assert path.exists(), path

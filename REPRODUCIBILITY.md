@@ -96,6 +96,26 @@ This command also regenerates:
 
 Rows marked protocol-only remain protocol-only and are not promoted to completed evidence.
 
+The verified-positive-removal load-bearing ablation uses candidate-level CTC
+learned and materials artifacts rather than summary tables. It reruns the six
+preselected CTC/materials main or boundary rows under full PARC, no
+verified-positive removal, and random positive removal:
+
+```bash
+python scripts/run_verified_positive_removal_load_bearing_ablation.py
+```
+
+The outputs are:
+
+```text
+outputs/milestones/scientific_release_success_map/table_verified_positive_removal_load_bearing.csv
+outputs/milestones/scientific_release_success_map/table_verified_positive_removal_load_bearing_seed_rows.csv
+outputs/milestones/scientific_release_success_map/VERIFIED_POSITIVE_REMOVAL_LOAD_BEARING_CLOSEOUT.md
+```
+
+The ALIGNN margin-excluded 25meV K=100 row remains a boundary sensitivity row,
+not a strict pass, even though it is included in this load-bearing diagnostic.
+
 ## 4. Re-run with External Datasets
 
 The configs are sanitized and may contain `${PARC_TRACK_ROOT}` placeholders. Materialize a local runnable copy:
