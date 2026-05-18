@@ -1,0 +1,10 @@
+check_id,go_required,status,details
+lead_numbers_have_sha256,True,PASS,required presubmission guardrail satisfied
+no_A3_positive_claim,True,PASS,required presubmission guardrail satisfied
+no_prospective_materials_discovery_claim,True,PASS,required presubmission guardrail satisfied
+two_hard_anchors_visible,True,PASS,required presubmission guardrail satisfied
+audited_boundary_not_oversold,True,PASS,required presubmission guardrail satisfied
+source_discordance_scoped_as_stress_test,True,PASS,required presubmission guardrail satisfied
+abstract_contains_release_refuse_language,True,PASS,required presubmission guardrail satisfied
+abstract_does_not_claim_four_domain_success,True,PASS,required presubmission guardrail satisfied
+referee_rationale_balanced,True,PASS,required presubmission guardrail satisfied

@@ -64,6 +64,7 @@ parc-track/
 │   ├── milestones/materials_fixed_budget_scientific_utility/
 │   ├── milestones/ctc_scientific_artifact_consequence/
 │   ├── milestones/nmi_presubmission_package/
+│   ├── milestones/nmi_presubmission_final/
 │   ├── milestones/reproducibility_freeze/
 │   └── benchmarks/parc_certification_benchmark/
 ├── tests/                            # pytest suite and tiny fixtures
@@ -82,6 +83,7 @@ parc-track/
 - Preregistered A1/A2 materials prospective-validation protocols and feasibility cards. These are explicitly protocol/feasibility artifacts and are not promoted as completed positive evidence.
 - Completed A1/A2 external-source diagnostics for OQMD and alex-mp. The alex-mp exact-structure coverage is higher than OQMD but the labels are discordant and do not support a positive independent-validation claim; the package records this as a source-discordance stress test, not a materials rescue result.
 - Phase30 main-evidence hard-upgrade tables that pivot away from A3 dependency: CTC decision utility, completed cross-domain human-audit release/refusal behavior, and materials external-source discordance diagnostics.
+- Phase33 final NMI presubmission go/no-go package: compressed inquiry, final abstract, evidence table, forbidden claims, cold read, cover-letter positioning, and PASS checklist.
 - Phase32 NMI presubmission package: editor-facing inquiry, abstract draft, one-page evidence table, desk-risk cold read, referee rationale, and positioning guardrails built from phase31-approved claims only.
 - Phase31 protocol/claim-alignment guardrails: every candidate headline result is assigned an allowed manuscript role; primary-headline rows require completed artifacts, source SHA256 hashes, and exact manuscript sentences; `docs/abstract_claim_scope.md` forbids prospective materials-discovery language unless A3 DFT gates are met.
 - A3 prospective in-silico DFT follow-up protocol gates. The ALIGNN-FF v1 package is a protocol-only blocked record; CHGNet v2 scores the PGCGM generated pool and CHGNet v3 scores a near-hull isovalent-substitution pool. Both CHGNet gates keep selection/job manifests empty when the predeclared release endpoints are unsupported. The MatterGen v4 gate records a locally smoke-tested MatterGen entrypoint and MACE-MP smoke test, but has not generated a candidate pool or exported DFT jobs. None of these A3 gates includes new DFT outcomes or a completed positive result.

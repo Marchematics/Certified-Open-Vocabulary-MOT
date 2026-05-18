@@ -62,6 +62,7 @@ outputs/milestones/protocol_claim_alignment/
 outputs/milestones/materials_fixed_budget_scientific_utility/
 outputs/milestones/ctc_scientific_artifact_consequence/
 outputs/milestones/nmi_presubmission_package/
+outputs/milestones/nmi_presubmission_final/
 outputs/milestones/reproducibility_freeze/
 outputs/milestones/generality_reliability/
 outputs/milestones/release_story/
@@ -151,6 +152,7 @@ outputs/milestones/protocol_claim_alignment/
 outputs/milestones/materials_fixed_budget_scientific_utility/
 outputs/milestones/ctc_scientific_artifact_consequence/
 outputs/milestones/nmi_presubmission_package/
+outputs/milestones/nmi_presubmission_final/
 docs/abstract_claim_scope.md
 ```
 
@@ -160,6 +162,17 @@ as calibration/validity support, and forbid prospective materials-discovery
 language unless A3 has a frozen nonempty release, at least 25 completed DFT
 outcomes, and primary FTR within the target alpha.
 
+
+
+Regenerate the phase33 NMI presubmission final package:
+
+```bash
+python scripts/build_phase33_nmi_presubmission_final.py
+```
+
+This command builds the compressed final inquiry, final evidence table, final
+abstract, editor cold read, forbidden-claims list, cover-letter positioning,
+and go/no-go checklist. All go-required checks must be `PASS`.
 
 Regenerate the phase32 NMI presubmission package:
 
