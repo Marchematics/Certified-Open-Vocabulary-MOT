@@ -1,0 +1,5 @@
+gate,status,n_rows,blocks_DFT_submission,completed_positive_result,reason
+generated_5k_scoring_diagnostic,completed,4039,False,False,diagnostic only; not a DFT outcome
+formal_public_label_exclusion_available_sources,completed_limited_available_source_structure_exclusion,2990,False,False,WBM/Matbench formula exclusion plus alex-mp same-formula StructureMatcher; OQMD/GNoME/AFLOW/NOMAD unavailable
+formal_selection,pilot_go_release_only_no_raw_only_comparator,60,False,False,release-only pilot manifest; raw-only comparator absent because PARC released the full predeclared K=100 prefix
+DFT_manifest,frozen_release_only_manifest,40,False,False,DFT outcomes not started; manifest is pre-outcome only

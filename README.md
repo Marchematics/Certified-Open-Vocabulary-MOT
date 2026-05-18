@@ -156,10 +156,13 @@ For full benchmark reproduction, see `REPRODUCIBILITY.md`.
 - Reproducibility freeze: `outputs/milestones/reproducibility_freeze/` and `outputs/artifact_index.csv` (experiment-finalization milestone index and validation commands)
 - Materials prospective CHGNet v2 gate: `outputs/milestones/materials_prospective_dft_followup_chgnet_v2/` (locally executable CHGNet scorer on PGCGM candidates; PARC release remained empty, so no DFT jobs were exported)
 - Materials prospective CHGNet v3 near-hull gate: `outputs/milestones/materials_prospective_dft_followup_chgnet_v3/` (5,000 near-hull isovalent/chemically similar substitutions scored by CHGNet; strict and operational predeclared endpoints all refused, so no DFT jobs were exported)
-- Materials prospective MatterGen v4 gate: `outputs/milestones/mattergen_parc_prospective_dft_followup/` (frontier-generator protocol using MatterGen plus CHGNet/MACE-MP consensus scoring; MatterGen and MACE smoke checks are recorded, but no generated candidate pool, frozen PARC selection, DFT manifest, DFT outcomes, or positive result is claimed)
+- Materials prospective MatterGen v4 gate: `outputs/milestones/mattergen_parc_prospective_dft_followup/` (5k MatterGen generation, CHGNet/MACE-MP consensus scoring, alex-mp available-source structure exclusion, and a pre-DFT release-only manifest are recorded; DFT outcomes have not started and no positive prospective materials result is claimed)
 - Community benchmark: `outputs/benchmarks/parc_certification_benchmark/`
 - File integrity manifest: `MANIFEST_SHA256.txt`
 
 ## Citation
 
 A formal citation will be added after archival release. Until then, cite the repository title and commit hash.
+
+
+- A3-v4 formal selection gate: MatterGen 5k generation/scoring is completed as a diagnostic, and an available-source pre-DFT release-only selection gate is frozen without claiming prospective materials discovery.

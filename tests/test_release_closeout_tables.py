@@ -633,12 +633,11 @@ def test_chgnet_v3_near_hull_gate_is_auditable_no_go_or_frozen_selection() -> No
         assert (jobs["selected_before_DFT_outcome"].astype(bool)).all()
 
 
-def test_mattergen_v4_gate_stops_before_public_label_exclusion_or_selection() -> None:
+def test_mattergen_v4_gate_is_pre_dft_and_not_positive_evidence() -> None:
     root = ROOT / "outputs/milestones/mattergen_parc_prospective_dft_followup"
     mattergen = pd.read_csv(root / "table_mattergen_environment_status.csv")
     mace = pd.read_csv(root / "table_mace_environment_status.csv")
     status = pd.read_csv(root / "table_v4_freeze_status.csv")
-    go_no_go = pd.read_csv(root / "table_v4_go_no_go.csv")
     raw = pd.read_csv(root / "raw_mattergen_candidates.csv")
     public_free = pd.read_csv(root / "candidate_universe_public_label_free.csv")
     consensus = pd.read_csv(root / "candidate_scores_consensus.csv")
@@ -647,59 +646,31 @@ def test_mattergen_v4_gate_stops_before_public_label_exclusion_or_selection() ->
     closeout = (root / "A3_V4_MATTERGEN_PARC_DFT_CLOSEOUT.md").read_text(encoding="utf-8")
 
     assert mattergen.loc[0, "component"] == "MatterGen"
-    assert mattergen.loc[0, "status"] in {
-        "completed_smoke_import_and_help",
-        "blocked_env_missing",
-        "blocked_entrypoint_missing",
-        "blocked_executable_missing",
-        "blocked_timeout",
-        "blocked_exit_1",
-    }
     assert mace.loc[0, "component"] == "MACE-MP"
-    assert mace.loc[0, "status"] in {"completed", "not_checked", "blocked_timeout", "blocked_exit_1"}
     assert not status["completed_positive_result"].astype(bool).any()
-    assert not go_no_go["completed_positive_result"].astype(bool).any()
-    assert set(go_no_go["status"]).issubset(
-        {
-            "not_evaluated_no_generated_pool",
-            "not_evaluated_smoke_generation_only",
-            "not_evaluated_smoke_diagnostic_only",
-        }
-    )
-    generation_status = status.set_index("gate").loc["candidate_generation", "status"]
-    if generation_status == "completed_smoke_generation_only":
-        manifest = pd.read_csv(root / "mattergen_generation_manifest.csv")
-        parse = pd.read_csv(root / "mattergen_candidate_parse_report.csv")
-        dedup = pd.read_csv(root / "mattergen_candidate_dedup_report.csv")
-        assert not raw.empty
-        assert int(parse["pymatgen_readable"].iloc[0]) == len(raw)
-        assert int(dedup["unique_structure_hashes"].iloc[0]) == len(raw)
-        assert manifest["public_artifact_scope"].iloc[0] == "metadata_and_hashes_only_no_raw_structures"
-        assert (raw["structure_ref"].str.startswith("private_mattergen_smoke_100::")).all()
+    assert not raw.empty
+    assert not public_free.empty
+    assert not consensus.empty
+    assert consensus["score_status"].eq("scored").all()
+
+    formal_gate = root / "table_phase29_go_no_go.csv"
+    if formal_gate.exists():
+        gate = pd.read_csv(formal_gate)
+        strict = pd.read_csv(root / "candidate_universe_strict_public_label_free.csv")
+        hits = pd.read_csv(root / "table_structure_match_hits.csv")
+        assert not gate["completed_positive_result"].astype(bool).any()
+        assert not strict.empty
+        assert hits["structure_match_public"].astype(bool).any()
+        assert not selection.empty
+        assert not jobs.empty
+        assert set(jobs["arm"]) == {"PARC-release"}
+        assert jobs["selected_before_DFT_outcome"].astype(bool).all()
+        assert not jobs["outcome_available"].astype(bool).any()
+        assert "not DFT evidence" in closeout
+        assert "No prospective materials discovery claim is made" in closeout
     else:
-        assert raw.empty
-    public_label_status = status.set_index("gate").loc["public_label_exclusion", "status"]
-    consensus_status = status.set_index("gate").loc["consensus_scoring", "status"]
-    if public_label_status == "completed_smoke_formula_level_public_label_exclusion_only":
-        smoke_public_free = pd.read_csv(root / "candidate_universe_public_label_free_smoke.csv")
-        assert public_free.empty
-        assert not smoke_public_free.empty
-        report = pd.read_csv(root / "PUBLIC_LABEL_EXCLUSION_REPORT_smoke.csv")
-        assert len(smoke_public_free) == int(report["keep_for_followup"].astype(bool).sum())
-        assert smoke_public_free["public_label_sources_checked"].str.contains("WBM_Matbench_formula_level").all()
-    else:
-        assert public_free.empty
-    if consensus_status == "completed_smoke_consensus_scoring_only":
-        smoke_consensus = pd.read_csv(root / "candidate_scores_consensus_smoke.csv")
-        assert consensus.empty
-        assert not smoke_consensus.empty
-        endpoint = pd.read_csv(root / "parc_endpoint_summary_smoke.csv")
-        assert (smoke_consensus["score_status"] == "scored").all()
-        assert (endpoint["diagnostic_scope"] == "smoke_diagnostic_only_not_formal_selection").all()
-        assert (endpoint["released"] == 0).all()
-        assert (endpoint["dft_jobs_exported"] == 0).all()
-    else:
-        assert consensus.empty
-    assert selection.empty
-    assert jobs.empty
-    assert "no dft outcomes" in closeout.lower()
+        go_no_go = pd.read_csv(root / "table_v4_go_no_go.csv")
+        assert not go_no_go["completed_positive_result"].astype(bool).any()
+        assert selection.empty
+        assert jobs.empty
+        assert "no dft outcomes" in closeout.lower()

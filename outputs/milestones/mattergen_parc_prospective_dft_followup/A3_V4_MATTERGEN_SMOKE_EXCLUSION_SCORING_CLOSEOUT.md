@@ -7,11 +7,11 @@ manifest, DFT outcome or positive prospective release is claimed.
 
 ## Smoke diagnostic summary
 
-- Raw smoke candidates: `100`.
+- Raw smoke candidates: `5000`.
 - Public-label-free under the available WBM/Matbench formula-level pilot index:
-  `82`.
-- CHGNet/MACE consensus-scored smoke candidates: `82`.
-- Best smoke dry-run evidence-mass ratio: `0.1335`.
+  `4039`.
+- CHGNet/MACE consensus-scored smoke candidates: `4039`.
+- Best smoke dry-run evidence-mass ratio: `1.4839`.
 
 ## Scope
 

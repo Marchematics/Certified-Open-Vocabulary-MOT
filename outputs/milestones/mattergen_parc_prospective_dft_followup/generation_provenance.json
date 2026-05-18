@@ -1,0 +1,9 @@
+{
+  "best_mass_ratio_dryrun": 1.4838543096304198,
+  "generated_zip_sha256": "66c2cbf529b208c465004e0abe4eb2a42d84bc9589c2cf4afdc1de1323912db8",
+  "parsed_candidate_count": 5000,
+  "pilot_public_label_free_count": 4039,
+  "raw_generated_cif_count": 5000,
+  "scored_candidate_count": 4039,
+  "status": "completed_generation_scoring_diagnostic_not_formal_selection"
+}

@@ -1,2 +1,2 @@
 stage,requested_candidates,cif_members,pymatgen_readable,parse_failed,valid_fraction,status
-smoke_100,100,100,100,0,1.0,completed_smoke_generation_only
+pilot_5k_3gpu,5000,5000,5000,0,1.0,completed_smoke_generation_only

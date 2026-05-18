@@ -391,3 +391,7 @@ checks this behavior.
 ## 7. Public Safety
 
 Do not commit raw videos, raw annotations, weights, cache directories, or private credentials. The included `scripts/validate_public_bundle.py` checks common leakage patterns.
+
+## A3-v4 formal selection gate
+
+Run `make reproduce-a3-v4-formal-selection-gate` to rebuild the available-source MatterGen formal selection gate. This requires the private MatterGen generated CIF zip and alex-mp local public snapshot; it is not completed DFT evidence.

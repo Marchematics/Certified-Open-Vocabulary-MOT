@@ -1,0 +1,2 @@
+endpoint_id,formal_topK_rows_available,formal_released,formal_raw_only_tail,raw_topR_identical_to_release,release_primary_jobs,raw_only_primary_jobs,go_status,completed_positive_result
+v4a_strict_exact_K100,75,75,0,True,40,0,pilot_go_release_only_no_raw_only_comparator,False

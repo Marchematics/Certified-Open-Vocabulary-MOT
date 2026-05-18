@@ -9,5 +9,5 @@
   "public_label_exclusion_completed": false,
   "raw_structures_committed": false,
   "sampling_config_source": "official_mattergen_repo_sampling_conf",
-  "stage": "smoke_100"
+  "stage": "pilot_5k_3gpu"
 }
