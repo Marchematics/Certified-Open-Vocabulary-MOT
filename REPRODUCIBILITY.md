@@ -407,3 +407,7 @@ Run `make reproduce-a3-v4-phase29c-extra-tail-manifest` after the Phase29b adden
 ## A3 DFT run package
 
 Run `make reproduce-a3-dft-run-package` after Phase29c to rebuild the DFT execution package. The package contains CIF inputs and frozen manifests only; it does not modify `selection_frozen_v4.csv` and includes no DFT outcomes.
+
+## A3 local Quantum ESPRESSO execution layer
+
+Run `make reproduce-a3-qe-local-run` after `make reproduce-a3-dft-run-package` to derive local QE input decks from the frozen A3 CIF package. This target does not modify `selection_frozen_v4.csv`, does not contain outcomes, and must not be cited as prospective DFT evidence.

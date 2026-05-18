@@ -1,0 +1,2 @@
+component,status,detail,n_jobs,n_release_jobs,n_extra_tail_jobs,n_required_elements,n_pseudo_elements_covered,outcomes_present,claim_scope
+Quantum ESPRESSO,available_local_cpu_qe,pw.x command and mpirun.openmpi command detected on the local host,100,75,25,70,70,False,environment_and_input_deck_only_not_DFT_evidence

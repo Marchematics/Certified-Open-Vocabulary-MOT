@@ -72,3 +72,4 @@ For the consolidated evidence matrix, use:
 ```bash
 PYTHONPATH=code/parc_track python -m parc_track.cli phase19 success-domain
 ```
+| A3-v4 local QE execution layer is prepared on this machine but remains pre-outcome non-evidence. | `outputs/milestones/mattergen_parc_prospective_dft_followup/A3_QE_LOCAL_RUN/qe_job_manifest.csv`; `QE_ENVIRONMENT_STATUS.csv` | `python scripts/build_a3_qe_local_run_package.py` | Quantum ESPRESSO and SSSP pseudopotentials are used to create local QE input decks and tmux launch scripts. No DFT outcome or prospective discovery claim is made until returned outcomes are analyzed under the conservative failure policy. |

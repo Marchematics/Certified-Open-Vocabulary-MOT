@@ -1,0 +1,66 @@
+&CONTROL
+  calculation = 'vc-relax',
+  outdir = '../../qe_outputs/a3v4-phase29c-raw-top100-extra-tail-0002/scratch',
+  prefix = 'a3',
+  pseudo_dir = '../../pseudos',
+  restart_mode = 'from_scratch',
+  tprnfor = .TRUE.,
+  tstress = .TRUE.,
+  verbosity = 'high',
+/
+&SYSTEM
+  degauss = 0.02,
+  ecutrho = 480,
+  ecutwfc = 60,
+  input_dft = 'PBE',
+  nosym = .TRUE.,
+  occupations = 'smearing',
+  smearing = 'mv',
+  ibrav = 0,
+  nat = 20,
+  ntyp = 4,
+/
+&ELECTRONS
+  conv_thr = 1d-06,
+  electron_maxstep = 100,
+  mixing_beta = 0.3,
+/
+&IONS
+  ion_dynamics = 'bfgs',
+/
+&CELL
+  cell_dynamics = 'bfgs',
+  press_conv_thr = 1.0,
+/
+ATOMIC_SPECIES
+  B  10.8110 b_pbe_v1.4.uspp.F.UPF
+  O  15.9994 O.pbe-n-kjpaw_psl.0.1.UPF
+  Sm  150.3600 Sm.GGA-PBE-paw-v1.0.UPF
+  Tb  158.9254 Tb.GGA-PBE-paw-v1.0.UPF
+ATOMIC_POSITIONS crystal
+  Tb 0.953316 0.157464 0.628259
+  Tb 0.318802 0.794179 0.128683
+  Sm 0.512425 0.598779 0.627607
+  Sm 0.759668 0.351310 0.128520
+  B 0.459733 0.120430 0.614969
+  B 0.811682 0.829844 0.140422
+  B 0.281261 0.299792 0.115321
+  B 0.990710 0.651720 0.641964
+  O 0.618790 0.708287 0.002579
+  O 0.401298 0.493068 0.253583
+  O 0.448376 0.912460 0.501616
+  O 0.652412 0.242655 0.753319
+  O 0.977491 0.718814 0.168669
+  O 0.293989 0.230609 0.587450
+  O 0.072837 0.287149 0.000720
+  O 0.198770 0.662923 0.756176
+  O 0.870277 0.458886 0.503021
+  O 0.879822 0.817140 0.668991
+  O 0.392877 0.134256 0.088269
+  O 0.822756 0.037748 0.255314
+K_POINTS automatic
+  4 4 4 0 0 0
+CELL_PARAMETERS angstrom
+  6.289272 0.000000 -1.245992
+  -1.351925 6.145438 -1.232296
+  0.000000 0.000000 6.568098

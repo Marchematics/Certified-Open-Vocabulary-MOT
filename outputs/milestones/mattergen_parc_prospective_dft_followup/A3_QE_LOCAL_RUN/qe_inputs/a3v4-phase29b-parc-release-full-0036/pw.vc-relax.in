@@ -1,0 +1,51 @@
+&CONTROL
+  calculation = 'vc-relax',
+  outdir = '../../qe_outputs/a3v4-phase29b-parc-release-full-0036/scratch',
+  prefix = 'a3',
+  pseudo_dir = '../../pseudos',
+  restart_mode = 'from_scratch',
+  tprnfor = .TRUE.,
+  tstress = .TRUE.,
+  verbosity = 'high',
+/
+&SYSTEM
+  degauss = 0.02,
+  ecutrho = 480,
+  ecutwfc = 60,
+  input_dft = 'PBE',
+  nosym = .TRUE.,
+  occupations = 'smearing',
+  smearing = 'mv',
+  ibrav = 0,
+  nat = 6,
+  ntyp = 3,
+/
+&ELECTRONS
+  conv_thr = 1d-06,
+  electron_maxstep = 100,
+  mixing_beta = 0.3,
+/
+&IONS
+  ion_dynamics = 'bfgs',
+/
+&CELL
+  cell_dynamics = 'bfgs',
+  press_conv_thr = 1.0,
+/
+ATOMIC_SPECIES
+  Cu  63.5460 Cu_pbe_v1.2.uspp.F.UPF
+  Ni  58.6934 ni_pbe_v1.4.uspp.F.UPF
+  Ta  180.9479 Ta_pbe_v1.uspp.F.UPF
+ATOMIC_POSITIONS crystal
+  Ta 0.462606 0.054017 0.509775
+  Ta 0.129662 0.388159 0.857256
+  Cu 0.461821 0.054556 0.032170
+  Cu 0.794979 0.721691 0.181646
+  Ni 0.794881 0.718274 0.680247
+  Ni 0.128776 0.389752 0.344117
+K_POINTS automatic
+  6 6 5 0 0 0
+CELL_PARAMETERS angstrom
+  4.182486 0.000000 0.011055
+  -2.086544 3.673921 -0.066498
+  0.000000 0.000000 5.315486
