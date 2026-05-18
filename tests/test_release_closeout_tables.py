@@ -633,7 +633,7 @@ def test_chgnet_v3_near_hull_gate_is_auditable_no_go_or_frozen_selection() -> No
         assert (jobs["selected_before_DFT_outcome"].astype(bool)).all()
 
 
-def test_mattergen_v4_gate_is_protocol_only_until_candidate_pool_exists() -> None:
+def test_mattergen_v4_gate_stops_before_public_label_exclusion_or_selection() -> None:
     root = ROOT / "outputs/milestones/mattergen_parc_prospective_dft_followup"
     mattergen = pd.read_csv(root / "table_mattergen_environment_status.csv")
     mace = pd.read_csv(root / "table_mace_environment_status.csv")
@@ -659,10 +659,23 @@ def test_mattergen_v4_gate_is_protocol_only_until_candidate_pool_exists() -> Non
     assert mace.loc[0, "status"] in {"completed", "not_checked", "blocked_timeout", "blocked_exit_1"}
     assert not status["completed_positive_result"].astype(bool).any()
     assert not go_no_go["completed_positive_result"].astype(bool).any()
-    assert (go_no_go["status"] == "not_evaluated_no_generated_pool").all()
-    assert raw.empty
+    assert set(go_no_go["status"]).issubset(
+        {"not_evaluated_no_generated_pool", "not_evaluated_smoke_generation_only"}
+    )
+    generation_status = status.set_index("gate").loc["candidate_generation", "status"]
+    if generation_status == "completed_smoke_generation_only":
+        manifest = pd.read_csv(root / "mattergen_generation_manifest.csv")
+        parse = pd.read_csv(root / "mattergen_candidate_parse_report.csv")
+        dedup = pd.read_csv(root / "mattergen_candidate_dedup_report.csv")
+        assert not raw.empty
+        assert int(parse["pymatgen_readable"].iloc[0]) == len(raw)
+        assert int(dedup["unique_structure_hashes"].iloc[0]) == len(raw)
+        assert manifest["public_artifact_scope"].iloc[0] == "metadata_and_hashes_only_no_raw_structures"
+        assert (raw["structure_ref"].str.startswith("private_mattergen_smoke_100::")).all()
+    else:
+        assert raw.empty
     assert public_free.empty
     assert consensus.empty
     assert selection.empty
     assert jobs.empty
-    assert "no dft outcomes are included" in closeout.lower()
+    assert "no dft outcomes" in closeout.lower()

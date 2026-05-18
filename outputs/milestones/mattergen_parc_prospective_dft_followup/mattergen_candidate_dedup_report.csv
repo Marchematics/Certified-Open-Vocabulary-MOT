@@ -1,0 +1,2 @@
+stage,parsed_candidates,unique_structure_hashes,duplicate_structure_hashes,unique_reduced_formulas,unique_chemical_systems,dedup_scope,status
+smoke_100,100,100,0,100,100,hash_metadata_only_not_structurematcher_public_label_filter,smoke_dedup_metadata_only

@@ -1,0 +1,13 @@
+{
+  "consensus_scoring_completed": false,
+  "dft_manifest_exported": false,
+  "generator": "MatterGen",
+  "parc_selection_completed": false,
+  "pretrained_name": "mattergen_base",
+  "private_generation_dir": "<PRIVATE_MATTERGEN_GENERATION_DIR>",
+  "public_artifact_scope": "metadata_and_hashes_only",
+  "public_label_exclusion_completed": false,
+  "raw_structures_committed": false,
+  "sampling_config_source": "official_mattergen_repo_sampling_conf",
+  "stage": "smoke_100"
+}

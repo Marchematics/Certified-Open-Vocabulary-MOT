@@ -1,6 +1,6 @@
 gate,required_for_dft,status,n_rows,completed_positive_result
-candidate_generation,True,pending_generation_run,0,False
-public_label_exclusion,True,blocked_no_generated_pool,0,False
+candidate_generation,True,completed_smoke_generation_only,100,False
+public_label_exclusion,True,blocked_smoke_candidates_not_public_label_filtered,0,False
 consensus_scoring,True,blocked_no_public_label_free_pool,0,False
 PARC_release_selection,True,blocked_no_consensus_scores,0,False
 DFT_manifest,True,blocked_no_frozen_selection,0,False
