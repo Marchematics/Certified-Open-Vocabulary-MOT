@@ -660,7 +660,11 @@ def test_mattergen_v4_gate_stops_before_public_label_exclusion_or_selection() ->
     assert not status["completed_positive_result"].astype(bool).any()
     assert not go_no_go["completed_positive_result"].astype(bool).any()
     assert set(go_no_go["status"]).issubset(
-        {"not_evaluated_no_generated_pool", "not_evaluated_smoke_generation_only"}
+        {
+            "not_evaluated_no_generated_pool",
+            "not_evaluated_smoke_generation_only",
+            "not_evaluated_smoke_diagnostic_only",
+        }
     )
     generation_status = status.set_index("gate").loc["candidate_generation", "status"]
     if generation_status == "completed_smoke_generation_only":
@@ -674,8 +678,24 @@ def test_mattergen_v4_gate_stops_before_public_label_exclusion_or_selection() ->
         assert (raw["structure_ref"].str.startswith("private_mattergen_smoke_100::")).all()
     else:
         assert raw.empty
-    assert public_free.empty
-    assert consensus.empty
+    public_label_status = status.set_index("gate").loc["public_label_exclusion", "status"]
+    consensus_status = status.set_index("gate").loc["consensus_scoring", "status"]
+    if public_label_status == "completed_smoke_formula_level_public_label_exclusion_only":
+        assert not public_free.empty
+        report = pd.read_csv(root / "PUBLIC_LABEL_EXCLUSION_REPORT_smoke.csv")
+        assert len(public_free) == int(report["keep_for_followup"].astype(bool).sum())
+        assert public_free["public_label_sources_checked"].str.contains("WBM_Matbench_formula_level").all()
+    else:
+        assert public_free.empty
+    if consensus_status == "completed_smoke_consensus_scoring_only":
+        assert not consensus.empty
+        endpoint = pd.read_csv(root / "parc_endpoint_summary_smoke.csv")
+        assert (consensus["score_status"] == "scored").all()
+        assert (endpoint["diagnostic_scope"] == "smoke_diagnostic_only_not_formal_selection").all()
+        assert (endpoint["released"] == 0).all()
+        assert (endpoint["dft_jobs_exported"] == 0).all()
+    else:
+        assert consensus.empty
     assert selection.empty
     assert jobs.empty
     assert "no dft outcomes" in closeout.lower()

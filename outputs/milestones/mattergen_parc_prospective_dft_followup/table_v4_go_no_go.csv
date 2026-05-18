@@ -1,4 +1,4 @@
 endpoint_id,alpha,K,label_target,status,released,raw_only_tail,dft_jobs_exported,completed_positive_result
-v4a_strict_exact_K100,0.1,100,exact_stable,not_evaluated_smoke_generation_only,0,0,0,False
-v4b_strict_exact_K300,0.1,300,exact_stable,not_evaluated_smoke_generation_only,0,0,0,False
-v4c_near_hull_25meV_K300,0.1,300,e_above_hull <= 25 meV/atom,not_evaluated_smoke_generation_only,0,0,0,False
+v4a_strict_exact_K100,0.1,100,exact_stable,not_evaluated_smoke_diagnostic_only,0,0,0,False
+v4b_strict_exact_K300,0.1,300,exact_stable,not_evaluated_smoke_diagnostic_only,0,0,0,False
+v4c_near_hull_25meV_K300,0.1,300,e_above_hull <= 25 meV/atom,not_evaluated_smoke_diagnostic_only,0,0,0,False
