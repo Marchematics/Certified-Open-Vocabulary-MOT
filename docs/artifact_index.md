@@ -67,6 +67,9 @@ This repository uses neutral public artifact names. Older internal experiment la
 - `outputs/milestones/materials_prospective_dft_followup_chgnet_v3/`
   A3-v3 near-hull parent-prototype substitution gate. It contains `protocol_v3_chgnet_near_hull.yaml`, `candidate_universe_chgnet_v3.csv`, `candidate_scores_chgnet_v3.csv`, `table_chgnet_v3_endpoint_diagnostics.csv`, `selection_frozen_chgnet_v3.csv`, `dft_job_manifest_chgnet_v3.csv`, and `CHGNET_V3_CLOSEOUT.md`. It generates 5,000 public-label-excluded near-hull candidates and scores them with CHGNet, but strict and operational endpoints all refuse, so no DFT jobs are exported.
 
+- `outputs/milestones/mattergen_parc_prospective_dft_followup/`
+  A3-v4 frontier-generator prospective DFT gate. It contains `PROTOCOL.md`, `protocol_v4_mattergen.yaml`, local MatterGen and MACE-MP smoke-status tables, empty generated-candidate / public-label-free / consensus-score schemas, empty `selection_frozen_v4.csv`, empty `dft_job_manifest_v4.csv`, and `A3_V4_MATTERGEN_PARC_DFT_CLOSEOUT.md`. MatterGen and MACE are checked as executable protocol components, but candidate generation has not been run and no DFT evidence or positive result is claimed.
+
 - `outputs/milestones/release_story/paper_diagnostics/`
   Paper-facing diagnostic tables for assumptions, seed variability/interval summaries, verification budgets, and prevented false releases.
 

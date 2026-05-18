@@ -1,0 +1,56 @@
+trial_name: mattergen_parc_prospective_dft_followup_v4
+evidence_status: protocol_and_environment_gate_only
+generator:
+  primary: MatterGen
+  candidate_pool_target: frontier-generated public-label-free inorganic structures
+  raw_generation_target: 20000-50000 candidates
+  minimum_public_label_free_candidates: 5000
+  minimum_consensus_scored_candidates: 2000
+scorers:
+  primary: CHGNet + MACE-MP conservative consensus
+  consensus_rule: -max(predicted_e_above_hull_proxy_CHGNet, predicted_e_above_hull_proxy_MACE)
+  calibration_requirement: same consensus scorer must be applied to WBM/Matbench calibration
+    representatives and generated candidates
+public_label_exclusion:
+  minimum_sources:
+  - WBM/Matbench
+  - Materials Project
+  preferred_sources:
+  - WBM/Matbench
+  - Materials Project
+  - OQMD
+  - Alexandria
+  - GNoME
+  rule: exclude known public stability labels and public-structure matches before
+    selection
+endpoints:
+- endpoint_id: v4a_strict_exact_K100
+  alpha: 0.1
+  rho: 0.1
+  K: 100
+  block: composition-family
+  label_target: exact_stable
+  minimum_release_for_dft: 25
+- endpoint_id: v4b_strict_exact_K300
+  alpha: 0.1
+  rho: 0.1
+  K: 300
+  block: composition-family
+  label_target: exact_stable
+  minimum_release_for_dft: 25
+- endpoint_id: v4c_near_hull_25meV_K300
+  alpha: 0.1
+  rho: 0.1
+  K: 300
+  block: composition-family
+  label_target: e_above_hull <= 25 meV/atom
+  minimum_release_for_dft: 25
+  scope: near-hull computational follow-up; not exact-stability strict pass
+dft_arms:
+  parc_release: 40
+  raw_only_rejected_tail: 40
+  raw_topR_matched: 40
+  minimum_analyzable_per_arm: 25
+dft_failure_policy: conservative_failed_dft_counted_not_certified_stable
+promotion_rule: no DFT jobs exported unless generated pool, public-label exclusion,
+  consensus scores and a nonempty PARC release arm are frozen before DFT outcomes

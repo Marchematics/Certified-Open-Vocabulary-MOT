@@ -45,6 +45,7 @@ parc-track/
 │   ├── milestones/materials_prospective_dft_followup/
 │   ├── milestones/materials_prospective_dft_followup_chgnet_v2/
 │   ├── milestones/materials_prospective_dft_followup_chgnet_v3/
+│   ├── milestones/mattergen_parc_prospective_dft_followup/
 │   └── benchmarks/parc_certification_benchmark/
 ├── tests/                            # pytest suite and tiny fixtures
 ├── scripts/                          # public-safe helper scripts
@@ -60,7 +61,7 @@ parc-track/
 - Release-certification benchmark cards that package completed CTC, materials, iWildCam, SpaceNet, and downstream-artifact evidence into a reusable scientific AI governance protocol.
 - Block-heterogeneity robustness diagnostics for the current public artifact package: candidate-level size-stratified, size-matched, and downsampled block-max checks for materials, plus scoped aggregate/audit-sample diagnostics for CTC and SpaceNet where candidate-level universes are not included.
 - Preregistered A1/A2 materials prospective-validation protocols and feasibility cards. These are explicitly protocol/feasibility artifacts and are not promoted as completed positive evidence.
-- A3 prospective in-silico DFT follow-up protocol gates. The ALIGNN-FF v1 package is a protocol-only blocked record; CHGNet v2 scores the PGCGM generated pool and CHGNet v3 scores a near-hull isovalent-substitution pool. Both CHGNet gates keep selection/job manifests empty when the predeclared release endpoints are unsupported, and neither includes new DFT outcomes or a completed positive result.
+- A3 prospective in-silico DFT follow-up protocol gates. The ALIGNN-FF v1 package is a protocol-only blocked record; CHGNet v2 scores the PGCGM generated pool and CHGNet v3 scores a near-hull isovalent-substitution pool. Both CHGNet gates keep selection/job manifests empty when the predeclared release endpoints are unsupported. The MatterGen v4 gate records a locally smoke-tested MatterGen entrypoint and MACE-MP smoke test, but has not generated a candidate pool or exported DFT jobs. None of these A3 gates includes new DFT outcomes or a completed positive result.
 - Result tables for OVT-B, TAO, BURST, black-box generators, published-tracker adapters, non-exchangeability stress tests, null-inflation sensitivity, LVIS/LVVIS/OVVIS generality checks, Mondrian/per-class/runtime/anytime diagnostics, and Prop. 5 high-evidence mass diagnostics.
 - Tiny fixture for validating the full schema-to-certification path without downloading external datasets.
 
@@ -119,6 +120,7 @@ For full benchmark reproduction, see `REPRODUCIBILITY.md`.
 - Materials prospective DFT follow-up protocol: `outputs/milestones/materials_prospective_dft_followup/` (A3 in-silico DFT follow-up protocol freeze, arm plan, failure policy, empty candidate/selection/job schemas, and input-gate closeout; no new DFT outcomes and no completed positive result)
 - Materials prospective CHGNet v2 gate: `outputs/milestones/materials_prospective_dft_followup_chgnet_v2/` (locally executable CHGNet scorer on PGCGM candidates; PARC release remained empty, so no DFT jobs were exported)
 - Materials prospective CHGNet v3 near-hull gate: `outputs/milestones/materials_prospective_dft_followup_chgnet_v3/` (5,000 near-hull isovalent/chemically similar substitutions scored by CHGNet; strict and operational predeclared endpoints all refused, so no DFT jobs were exported)
+- Materials prospective MatterGen v4 gate: `outputs/milestones/mattergen_parc_prospective_dft_followup/` (frontier-generator protocol using MatterGen plus CHGNet/MACE-MP consensus scoring; MatterGen and MACE smoke checks are recorded, but no generated candidate pool, frozen PARC selection, DFT manifest, DFT outcomes, or positive result is claimed)
 - Community benchmark: `outputs/benchmarks/parc_certification_benchmark/`
 - File integrity manifest: `MANIFEST_SHA256.txt`
 

@@ -1,0 +1,4 @@
+source_name,required_minimum,status,available_in_current_v4_pool
+WBM_Matbench,True,planned_for_public_label_exclusion,False
+Materials_Project,True,planned_for_public_label_exclusion,False
+OQMD_Alexandria_GNoME,False,preferred_if_local_indexes_available,False

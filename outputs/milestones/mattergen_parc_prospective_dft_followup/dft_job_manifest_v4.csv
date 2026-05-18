@@ -1,0 +1,1 @@
+dft_job_id,candidate_id,arm,endpoint_id,structure_ref,structure_sha256,dft_engine,input_status,failure_policy,selected_before_DFT_outcome,outcome_available,outcome_file,evidence_status

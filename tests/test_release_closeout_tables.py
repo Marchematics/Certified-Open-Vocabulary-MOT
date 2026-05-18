@@ -631,3 +631,38 @@ def test_chgnet_v3_near_hull_gate_is_auditable_no_go_or_frozen_selection() -> No
         assert not selection.empty
         assert not jobs.empty
         assert (jobs["selected_before_DFT_outcome"].astype(bool)).all()
+
+
+def test_mattergen_v4_gate_is_protocol_only_until_candidate_pool_exists() -> None:
+    root = ROOT / "outputs/milestones/mattergen_parc_prospective_dft_followup"
+    mattergen = pd.read_csv(root / "table_mattergen_environment_status.csv")
+    mace = pd.read_csv(root / "table_mace_environment_status.csv")
+    status = pd.read_csv(root / "table_v4_freeze_status.csv")
+    go_no_go = pd.read_csv(root / "table_v4_go_no_go.csv")
+    raw = pd.read_csv(root / "raw_mattergen_candidates.csv")
+    public_free = pd.read_csv(root / "candidate_universe_public_label_free.csv")
+    consensus = pd.read_csv(root / "candidate_scores_consensus.csv")
+    selection = pd.read_csv(root / "selection_frozen_v4.csv")
+    jobs = pd.read_csv(root / "dft_job_manifest_v4.csv")
+    closeout = (root / "A3_V4_MATTERGEN_PARC_DFT_CLOSEOUT.md").read_text(encoding="utf-8")
+
+    assert mattergen.loc[0, "component"] == "MatterGen"
+    assert mattergen.loc[0, "status"] in {
+        "completed_smoke_import_and_help",
+        "blocked_env_missing",
+        "blocked_entrypoint_missing",
+        "blocked_executable_missing",
+        "blocked_timeout",
+        "blocked_exit_1",
+    }
+    assert mace.loc[0, "component"] == "MACE-MP"
+    assert mace.loc[0, "status"] in {"completed", "not_checked", "blocked_timeout", "blocked_exit_1"}
+    assert not status["completed_positive_result"].astype(bool).any()
+    assert not go_no_go["completed_positive_result"].astype(bool).any()
+    assert (go_no_go["status"] == "not_evaluated_no_generated_pool").all()
+    assert raw.empty
+    assert public_free.empty
+    assert consensus.empty
+    assert selection.empty
+    assert jobs.empty
+    assert "no dft outcomes are included" in closeout.lower()
