@@ -592,3 +592,42 @@ def test_chgnet_v2_prospective_scorer_no_go_is_not_promoted() -> None:
     assert selection.empty
     assert jobs.empty
     assert "No new DFT outcomes are included" in closeout
+
+
+def test_chgnet_v3_near_hull_gate_is_auditable_no_go_or_frozen_selection() -> None:
+    root = ROOT / "outputs/milestones/materials_prospective_dft_followup_chgnet_v3"
+    status = pd.read_csv(root / "table_chgnet_v3_freeze_status.csv")
+    diagnostics = pd.read_csv(root / "table_chgnet_v3_endpoint_diagnostics.csv")
+    pool = pd.read_csv(root / "candidate_universe_chgnet_v3.csv")
+    scores = pd.read_csv(root / "candidate_scores_chgnet_v3.csv")
+    selection = pd.read_csv(root / "selection_frozen_chgnet_v3.csv")
+    jobs = pd.read_csv(root / "dft_job_manifest_chgnet_v3.csv")
+    index_scope = pd.read_csv(root / "table_public_label_index_scope_chgnet_v3.csv")
+    closeout = (root / "CHGNET_V3_CLOSEOUT.md").read_text(encoding="utf-8")
+
+    status_by_item = dict(zip(status["item"], status["status"]))
+    assert status_by_item["near_hull_candidate_pool"] == "completed"
+    assert status_by_item["CHGNet_scoring_v3"] == "completed"
+    assert not status["completed_positive_result"].astype(bool).any()
+    assert len(pool) == 5000
+    assert len(scores) == 5000
+    assert (scores["score_status"] == "scored").all()
+    assert set(diagnostics["endpoint_id"]) == {
+        "v3_strict_K500",
+        "v3a_strict_K300",
+        "v3b_operational_K500",
+    }
+    assert (diagnostics["alpha"] == [0.10, 0.10, 0.20]).all()
+    assert "WBM_Matbench_summary" in set(index_scope["source_name"])
+    assert "DFT jobs are exported only when" in closeout
+
+    selection_status = status_by_item["selection_frozen_chgnet_v3"]
+    if selection_status == "blocked_no_endpoint_release_for_DFT_arm":
+        assert int(diagnostics["released"].max()) == 0
+        assert selection.empty
+        assert jobs.empty
+    else:
+        assert selection_status == "nonempty_selection_frozen_before_DFT"
+        assert not selection.empty
+        assert not jobs.empty
+        assert (jobs["selected_before_DFT_outcome"].astype(bool)).all()

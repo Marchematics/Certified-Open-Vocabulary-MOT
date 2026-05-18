@@ -1,0 +1,4 @@
+item,status,blocks_DFT_submission,completed_positive_result,reason
+near_hull_candidate_pool,completed,False,False,generated 5000 public-label-excluded near-hull candidates from 13211 parents
+CHGNet_scoring_v3,completed,False,False,scored 5000 near-hull candidates and 5797 calibration candidates
+selection_frozen_chgnet_v3,blocked_no_endpoint_release_for_DFT_arm,True,False,selected_endpoint=none; no DFT outcomes are present

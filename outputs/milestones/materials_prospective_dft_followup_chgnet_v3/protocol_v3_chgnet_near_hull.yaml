@@ -1,0 +1,38 @@
+trial_name: materials_prospective_dft_followup_chgnet_v3_near_hull
+scorer: CHGNet
+model_load_rule: CHGNet.load()
+candidate_pool: near-hull WBM parent prototype substitutions
+parent_selection:
+  source: WBM step-1 unique prototypes
+  e_above_hull_max_meV_per_atom: 25.0
+  max_sites: 40
+substitution: isovalent_or_chemically_similar_groups_only
+public_label_exclusion: WBM/Matbench formula-level exclusion plus internal structural
+  dedup; missing external public indexes are recorded as unavailable
+alpha: 0.1
+rho: 0.1
+K: 500
+seed: 0
+block: composition-family
+endpoint_hierarchy:
+- endpoint_id: v3_strict_K500
+  endpoint_role: primary_strict
+  alpha: 0.1
+  K: 500
+  interpretation: strict alpha=0.10 K=500 near-hull follow-up gate
+- endpoint_id: v3a_strict_K300
+  endpoint_role: strict_lower_budget
+  alpha: 0.1
+  K: 300
+  interpretation: strict alpha=0.10 K=300 fallback before risk relaxation
+- endpoint_id: v3b_operational_K500
+  endpoint_role: operational_relaxed_risk
+  alpha: 0.2
+  K: 500
+  interpretation: operational alpha=0.20 K=500 fallback, not a strict pass
+arms:
+  PARC-release: 40
+  raw-only rejected tail: 40
+  raw top-R matched: 40
+minimum_analyzable_per_arm: 25
+no_dft_outcomes_used: true

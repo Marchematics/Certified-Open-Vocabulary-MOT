@@ -61,6 +61,12 @@ This repository uses neutral public artifact names. Older internal experiment la
 - `outputs/milestones/materials_prospective_dft_followup/`
   A3 prospective in-silico DFT follow-up protocol freeze. It contains `PROTOCOL.md`, `protocol.yaml`, `candidate_universe_frozen.csv`, `selection_frozen.csv`, `dft_job_manifest.csv`, public-label and novelty-crossmatch schemas, the DFT failure policy, and `MATERIALS_PROSPECTIVE_DFT_FOLLOWUP_CLOSEOUT.md`. In the current public package the unlabeled generated crystal pool is not supplied, so candidate selection and DFT job export are intentionally empty and must not be reported as a completed DFT follow-up result.
 
+- `outputs/milestones/materials_prospective_dft_followup_chgnet_v2/`
+  A3-v2 locally executable CHGNet prospective scorer gate. It records the blocked ALIGNN-FF status, scores WBM calibration representatives and PGCGM generated candidates with `CHGNet.load()`, and keeps `selection_frozen_chgnet_v2.csv` / `dft_job_manifest_chgnet_v2.csv` empty because the predeclared release arm is unsupported. This is a no-go diagnostic, not DFT evidence.
+
+- `outputs/milestones/materials_prospective_dft_followup_chgnet_v3/`
+  A3-v3 near-hull parent-prototype substitution gate. It contains `protocol_v3_chgnet_near_hull.yaml`, `candidate_universe_chgnet_v3.csv`, `candidate_scores_chgnet_v3.csv`, `table_chgnet_v3_endpoint_diagnostics.csv`, `selection_frozen_chgnet_v3.csv`, `dft_job_manifest_chgnet_v3.csv`, and `CHGNET_V3_CLOSEOUT.md`. It generates 5,000 public-label-excluded near-hull candidates and scores them with CHGNet, but strict and operational endpoints all refuse, so no DFT jobs are exported.
+
 - `outputs/milestones/release_story/paper_diagnostics/`
   Paper-facing diagnostic tables for assumptions, seed variability/interval summaries, verification budgets, and prevented false releases.
 

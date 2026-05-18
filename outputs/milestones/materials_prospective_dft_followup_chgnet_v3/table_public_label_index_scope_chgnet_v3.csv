@@ -1,0 +1,6 @@
+source_name,status,n_entries,hash,matching_method
+WBM_Matbench_summary,available_formula_level_exclusion,256963,ff19e59d74115de9762fbc868c9f35900ae099c18f23e9c89d10589af1418225,formula/reduced-formula exclusion plus generated-pool internal structure hash dedup
+Materials_Project,unavailable_locally_for_this_gate,0,,not_run
+OQMD,unavailable_locally_for_this_gate,0,,not_run
+Alexandria,unavailable_locally_for_this_gate,0,,not_run
+GNoME,unavailable_locally_for_this_gate,0,,not_run
