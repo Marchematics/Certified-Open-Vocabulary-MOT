@@ -1,0 +1,3 @@
+claim,evidence_state,scope
+SCS-Greedy refusals in diagnosed rows are caused by greedy missing an ILP-feasible set,not_supported,current diagnosed refusal rows fail finite-resolution or pre-graph mass checks
+ILP oracle proves no release for every possible candidate graph,not_claimed,aggregate rows diagnose pre-graph infeasibility; candidate-level graph optimality is only claimed when candidate-level graph artifacts exist

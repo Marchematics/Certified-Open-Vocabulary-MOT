@@ -1,0 +1,2 @@
+domain,trial,requested_validation,release_version_inputs,completed_replay,completed_positive_result,evidence_state,future_FTR,raw_topK_future_FTR,raw_vs_PARC_delta,claim_scope,blocker
+materials_discovery,materials_temporal_replay_completed,t0_to_t1_quasi_prospective_public_label_replay,missing_t0_t1_public_label_snapshots,False,False,protocol_only,,,,not a temporal validation result; current public-label utility is reported separately,No auditable historical public-label snapshot or release-version table is present in the public bundle.

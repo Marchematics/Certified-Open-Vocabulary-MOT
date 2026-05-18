@@ -93,6 +93,10 @@ validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/iwildcam_audit_final
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/spacenet_real_audit_final
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/reproducibility_freeze
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/materials_temporal_replay_completed
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/fixed_budget_scientific_utility_trial
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/adversarial_release_stress_trial
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/selector_optimality_diagnostics
 
 verify-manifest:
 	sha256sum -c MANIFEST_SHA256.txt

@@ -1,0 +1,3 @@
+claim,evidence_state,scope
+PARC refuses or loses power under adversarial stress instead of silently over-releasing,completed_diagnostic,uses completed stress/refusal tables; not a new theorem
+Random score or high-volume rows are main positive evidence,not_claimed,controls and refusal-boundary diagnostics only

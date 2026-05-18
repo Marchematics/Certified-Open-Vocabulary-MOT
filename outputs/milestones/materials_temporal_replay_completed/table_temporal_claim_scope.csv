@@ -1,0 +1,3 @@
+claim,state,reason,allowed_use
+A1 temporal public-label replay,not_completed,requires versioned t0/t1 public labels,documents blocker and current-snapshot diagnostic only
+materials fixed-budget utility under current WBM labels,completed_elsewhere,uses completed public DFT labels but not temporal replay,"downstream utility / certified stopping evidence, not quasi-prospective validation"

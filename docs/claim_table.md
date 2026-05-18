@@ -37,6 +37,11 @@ command when available, and the intended limitation language.
 | Audit2000 and second-review evidence support the visual-audit benchmark. | `outputs/milestones/reliability_fortress/audit_review/` | `sha256sum -c outputs/milestones/reliability_fortress/MANIFEST_SHA256.txt` | The benchmark is public-safe and does not include raw videos or montage imagery. |
 | Community can run the schema-to-certification path without external datasets. | `outputs/benchmarks/parc_certification_benchmark/tiny_fixture/` | `PYTHONPATH=code/parc_track python -m parc_track.cli phase9 certification-api --output-dir outputs/tmp_cert_api` | Tiny fixture verifies code paths, not paper-scale statistical power. |
 
+| Materials temporal replay remains blocked unless timestamped t0/t1 public-label snapshots are available. | `outputs/milestones/materials_temporal_replay_completed/table_temporal_primary.csv`; `table_temporal_snapshot_inventory.csv` | `python scripts/build_non_a3_main_evidence_upgrades.py` | This milestone is protocol-only for temporal validation and must not be promoted to completed quasi-prospective evidence. |
+| Fixed-budget scientific utility is quantified as downstream follow-up value. | `outputs/milestones/fixed_budget_scientific_utility_trial/table_decision_curve.csv`; `table_false_followups_prevented.csv`; `table_cost_per_true_candidate.csv` | `python scripts/build_non_a3_main_evidence_upgrades.py` | Completed public-label utility evidence; the claim is certified stopping/refusal, not fixed-size reranking superiority. |
+| Adversarial release stress rows support refusal-boundary diagnostics. | `outputs/milestones/adversarial_release_stress_trial/table_adversarial_stress_trials.csv`; `table_refusal_boundary.csv` | `python scripts/build_non_a3_main_evidence_upgrades.py` | Stress rows are controls/diagnostics and not primary positive evidence. |
+| Selector optimality diagnostics separate evidence-mass failure from greedy selector limitations. | `outputs/milestones/selector_optimality_diagnostics/table_greedy_vs_ilp.csv`; `table_mass_vs_graph_failure.csv`; `table_conflict_loss.csv` | `python scripts/build_non_a3_main_evidence_upgrades.py` | ILP/MIS claims are limited to available diagnostics; candidate graphs are not fabricated. |
+
 ## Reviewer Route
 
 Use this route when checking the repository from a clean clone:
