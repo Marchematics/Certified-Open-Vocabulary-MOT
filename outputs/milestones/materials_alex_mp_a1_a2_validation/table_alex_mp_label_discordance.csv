@@ -1,0 +1,2 @@
+comparison,n_exact_matches,discordance_rate,interpretation
+WBM_vs_alex_mp_exact_structure_matches,270,0.5222222222222223,exact-structure matched subset only; discordance partly reflects label-source/hull differences

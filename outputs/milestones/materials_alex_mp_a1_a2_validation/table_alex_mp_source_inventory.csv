@@ -1,0 +1,4 @@
+source_file,rows_scanned,formula_candidate_rows_retained,role
+alex_mp_20/val.csv,67521,51,exact_structure_match_candidate_source
+alex_mp_20/train.csv,607683,397,exact_structure_match_candidate_source
+ref.csv,968035,479,formula_only_reference_inventory_not_used_for_primary_FTR
