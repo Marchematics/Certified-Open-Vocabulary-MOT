@@ -18,6 +18,8 @@ def test_final_presubmission_inquiry_word_count_and_scope() -> None:
 
     assert 600 <= words <= 750
     assert "release-time certification" in text or "release/refuse" in text
+    assert "cost per true candidate decreases from 1.49 to 1.06" in text
+    assert "2,577.4 unstable candidates" in text
     assert "prospective materials discovery is not claimed" in text
     assert "A3 positive evidence" not in text
     assert "not positive independent validation" in text
@@ -41,11 +43,22 @@ def test_final_evidence_table_roles_and_provenance() -> None:
     assert "pending" in a3["parc_decision"].iloc[0]
     assert "positive evidence" in a3["lead_consequence"].iloc[0]
 
+    materials = table[table["evidence_block"].eq("Materials fixed-budget release utility")]
+    assert len(materials) == 1
+    lead = materials["lead_consequence"].iloc[0]
+    scope = materials["claim_scope"].iloc[0]
+    assert "1.49->1.06" in lead
+    assert "2,577.4 unstable follow-ups" in lead
+    assert "retrospective fixed-budget public-DFT utility" in scope
+    assert "not prospective materials discovery" in scope
+
 
 def test_final_abstract_has_release_refuse_and_no_prospective_discovery_claim() -> None:
     text = (MILESTONE / "nmi_abstract_presubmission_final.md").read_text(encoding="utf-8")
 
     assert "release-time certification" in text or "refuse" in text
+    assert "cost per true candidate falls from 1.49 to 1.06" in text
+    assert "2,577.4 unstable follow-ups" in text
     assert "without claiming prospective discovery" in text
     assert "four-domain success" not in text.lower()
     assert "new materials discovered" not in text.lower()

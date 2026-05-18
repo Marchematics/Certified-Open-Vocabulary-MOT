@@ -82,7 +82,7 @@ We introduce PARC, a release/refuse interface for finite candidate universes. Gi
 
 The first hard result is in cell tracking. PARC released sequence-disjoint learned cell-link candidates at alpha=0.10 with 20/20 non-empty seeds and zero held-out false-link fraction. In the downstream artifact view, the K=300 release has zero false lineage edges under official ground-truth consequence proxies. Corrupted rankings are refused: a random-score K=300 control avoids 237.00 false lineage edges entering the lineage graph. This makes CTC more than a link-level benchmark row; it shows that the release/refuse decision changes the evidence passed to a scientific artifact.
 
-The second hard result is in materials-discovery follow-up under public DFT labels. For an ALIGNN-FF stability source, PARC changes fixed-budget follow-up queues; prospective materials discovery is not claimed. At K=300, raw top-K FTR is 0.253, PARC FTR is 0.087, and PARC prevents 64.25 unstable follow-ups on average. At K=500, raw top-K FTR is 0.327, PARC FTR is 0.048, and PARC prevents 158.30 unstable follow-ups on average. These numbers come from completed phase31-approved primary-headline artifacts with source SHA256 hashes. The claim is fixed-budget public-DFT utility: PARC determines where to stop releasing candidates under partial evidence.
+The second hard result is in materials-discovery follow-up under public DFT labels. For an ALIGNN-FF stability source, PARC changes fixed-budget follow-up queues; prospective materials discovery is not claimed. At K=300, raw top-K FTR is 0.253, PARC FTR is 0.087, and PARC prevents 64.25 unstable follow-ups on average. At K=500, raw top-K FTR is 0.327, PARC FTR is 0.048, PARC prevents 158.30 unstable follow-ups, and the cost per true candidate decreases from 1.49 to 1.06. At K=5000, certified refusal prevents 2,577.4 unstable candidates from entering the follow-up queue. These numbers come from completed phase31-approved primary-headline artifacts with source SHA256 hashes. The claim is fixed-budget public-DFT utility: PARC determines where to stop releasing candidates under partial evidence.
 
 We also include audited boundary settings. iWildCam provides an operational human-audited ecology release: 167/167 released candidates are animal-present, with second-review reliability reported separately. SpaceNet 7 provides a real-audit release/refusal vignette: the K=100 request is refused, while K=50 is a diagnostic lower-volume release. These rows demonstrate the release/refuse interface under real partial verification, but they are not overstated as four-domain universal success.
 
@@ -105,6 +105,13 @@ def build_final_evidence_table() -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
     for _, row in phase32.iterrows():
         block = str(row["evidence_block"])
+        row_dict = row.to_dict()
+        if "Materials fixed-budget" in block:
+            row_dict["lead_consequence"] = (
+                "K=300 prevented 64.25; K=500 prevented 158.30 unstable follow-ups; "
+                "K=500 cost per true candidate 1.49->1.06; K=5000 refusal avoids 2,577.4 unstable follow-ups"
+            )
+            row_dict["claim_scope"] = "retrospective fixed-budget public-DFT utility, not prospective materials discovery"
         if "Materials fixed-budget" in block or "CTC strict" in block:
             final_role = "hard_anchor"
         elif "iWildCam" in block or "SpaceNet" in block:
@@ -114,7 +121,7 @@ def build_final_evidence_table() -> pd.DataFrame:
         else:
             final_role = "audited_boundary"
         if "external-source" not in block:
-            rows.append({**row.to_dict(), "final_role": final_role})
+            rows.append({**row_dict, "final_role": final_role})
 
     stress_artifact, stress_hash = source(
         MILESTONES / "materials_source_discordance_stress_test" / "table_materials_external_source_stress_summary.csv"
@@ -159,7 +166,7 @@ def build_final_evidence_table() -> pd.DataFrame:
 def build_abstract() -> None:
     text = """# NMI Abstract Presubmission Final
 
-Scientific AI systems often produce finite ranked candidate lists before exhaustive verification is available. We study the release decision itself: which candidates may enter downstream workflows, and when should an AI system refuse to release any set? PARC is a release-time certification interface for one-sided partial verification over frozen candidate universes. In cell tracking, PARC releases learned cell-link candidates under strict alpha=0.10 and prevents corrupted rankings from entering lineage-graph artifacts. In materials discovery, PARC changes fixed-budget public-DFT follow-up queues from an ALIGNN-FF source, reducing unstable follow-ups at K=300 and K=500 without claiming prospective discovery. Human-audited iWildCam and SpaceNet 7 rows show operational release/refusal behavior under real partial verification. OQMD and alex-mp joins are reported only as source-discordance stress tests. PARC does not improve the upstream model; it governs release under partial evidence.
+Scientific AI systems often produce finite ranked candidate lists before exhaustive verification is available. We study the release decision itself: which candidates may enter downstream workflows, and when should an AI system refuse to release any set? PARC is a release-time certification interface for one-sided partial verification over frozen candidate universes. In cell tracking, PARC releases learned cell-link candidates under strict alpha=0.10 and prevents corrupted rankings from entering lineage-graph artifacts. In materials discovery, PARC changes fixed-budget public-DFT follow-up queues from an ALIGNN-FF source: at K=500, the cost per true candidate falls from 1.49 to 1.06, and at K=5000 refusal avoids 2,577.4 unstable follow-ups, without claiming prospective discovery. Human-audited iWildCam and SpaceNet 7 rows show operational release/refusal behavior under real partial verification. OQMD and alex-mp joins are reported only as source-discordance stress tests. PARC does not improve the upstream model; it governs release under partial evidence.
 """
     (OUT / "nmi_abstract_presubmission_final.md").write_text(text, encoding="utf-8")
 
