@@ -1,0 +1,5 @@
+gate,status,n_rows,completed_positive_result,blocks_primary_claim,reason
+DFT_outcome_scan,no_DFT_outcomes_detected,190,False,False,No outcome files and no manifest outcome fields were populated before Phase29c.
+PARC_release_launch_attempt,blocked_no_local_DFT_engine_or_scheduler,75,False,True,No local VASP/QE executable or scheduler command was found in PATH; no DFT process was started.
+raw_top100_extra_tail_manifest,frozen_pre_outcome,25,False,False,25 extra-tail candidates exist in the formal score-ranked raw top100 and were frozen before DFT outcomes.
+selection_integrity,selection_frozen_v4_unmodified_input,60,False,False,selection_frozen_v4_sha256=e9741427fa2775ed9f226220f7411fb113f2427837159060e94de055d38d7559

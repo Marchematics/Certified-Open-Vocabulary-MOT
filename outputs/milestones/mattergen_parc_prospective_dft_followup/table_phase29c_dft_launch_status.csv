@@ -1,0 +1,2 @@
+launch_target,requested_jobs,launch_status,processes_started,detected_commands,outcome_available_before_launch_attempt,claim_scope,reason
+PARC-release-full,75,blocked_no_local_DFT_engine_or_scheduler,0,,False,launch_status_only_not_DFT_evidence,No local VASP/QE executable or scheduler command was found in PATH; no DFT process was started.
