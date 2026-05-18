@@ -1,7 +1,7 @@
 PYTHON ?= python
 PYTHONPATH ?= code/parc_track
 
-.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark reproduce-block-heterogeneity-robustness reproduce-materials-prospective-validation phase24-freeze-dft-followup phase24-build-unlabeled-pool phase24-filter-public-labels phase24-score-unlabeled-pool phase24-select-dft-arms phase24-export-dft-jobs validate-public-bundle verify-manifest package-release package-release-story package-scientific-release
+.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark reproduce-block-heterogeneity-robustness reproduce-materials-prospective-validation reproduce-experimental-finalization phase24-freeze-dft-followup phase24-build-unlabeled-pool phase24-filter-public-labels phase24-score-unlabeled-pool phase24-select-dft-arms phase24-export-dft-jobs validate-public-bundle verify-manifest package-release package-release-story package-scientific-release
 
 test:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q tests
@@ -46,6 +46,9 @@ reproduce-block-heterogeneity-robustness:
 reproduce-materials-prospective-validation:
 	$(PYTHON) scripts/build_materials_prospective_validation_protocols.py
 
+reproduce-experimental-finalization:
+	$(PYTHON) scripts/build_experimental_finalization_milestones.py
+
 phase24-freeze-dft-followup:
 	$(PYTHON) scripts/build_materials_prospective_dft_followup_protocol.py
 
@@ -80,6 +83,16 @@ validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/materials_prospective_validation_protocols
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/materials_prospective_dft_followup
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/release_story/paper_diagnostics
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/materials_temporal_validation
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/materials_independent_dft_validation
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/fixed_budget_downstream_utility
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/primary_statistics
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/materials_robustness_triad
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/baseline_matrix_final
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ctc_strict_anchor
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/iwildcam_audit_final
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/spacenet_real_audit_final
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/reproducibility_freeze
 
 verify-manifest:
 	sha256sum -c MANIFEST_SHA256.txt

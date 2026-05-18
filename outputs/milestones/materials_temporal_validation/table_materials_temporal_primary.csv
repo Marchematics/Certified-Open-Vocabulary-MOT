@@ -1,0 +1,2 @@
+domain,source,validation_mode,alpha,K,rho,seeds,release_rate,mean_release_size,future_label_FTR,raw_topK_future_FTR,raw_topR_future_FTR,unstable_followups_prevented,block_coverage,evidence_status,completed_positive_result,blocker
+materials_discovery,ALIGNN-FF / CGCNN preregistered,temporal_public_label_split,0.1,100|300|500|1000|5000,0.1,0..19,,,,,,,,protocol_only_missing_timestamp_snapshot,False,no auditable timestamped t0/t1 public-label snapshot in package

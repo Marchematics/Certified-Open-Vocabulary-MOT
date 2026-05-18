@@ -1,0 +1,2 @@
+K,alpha,non_empty_seeds,total_seeds,mean_required_e,mean_max_observed_e,mean_best_mass_ratio,min_best_mass_ratio,max_best_mass_ratio,dominant_failure_mode,dominant_empty_reason,interpretation,paper_status
+100,0.2,0,20,5.0,6.061336876907763,0.6352281046999336,0.4242935813835434,0.7637284464903783,mass_ratio_below_one,insufficient_high_e_mass_for_uniform_scs,"K100 refuses because the high-evidence mass ratio is below one in every seed, even though max e exceeds the nominal required e.",primary_refusal_diagnostic_ready

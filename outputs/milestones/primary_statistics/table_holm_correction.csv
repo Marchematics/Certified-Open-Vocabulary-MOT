@@ -1,0 +1,5 @@
+comparison_id,paired_p,holm_p,included_in_holm
+materials_alignn_ff_modern_learned_materials_model_K300,9.5367431640625e-07,2.86102294921875e-06,True
+materials_alignn_ff_modern_learned_materials_model_K500,9.5367431640625e-07,2.86102294921875e-06,True
+materials_alignn_ff_modern_learned_materials_model_K5000,9.5367431640625e-07,2.86102294921875e-06,True
+ctc_learned_strict_alpha010_K300,,,False

@@ -1,0 +1,5 @@
+source,label_type,candidate_join_requirement,local_label_file_available,expected_strength,main_risk,feasibility_status
+Materials Project,computed stability / energy above hull,MP material_id mapping or structure/prototype matching,False,"high provenance, strong community familiarity",overlap/systematic dependence with WBM hull reference must be disclosed,external_mapping_required
+OQMD,computed stability / formation energy,formula plus structure/prototype matching,False,independent public DFT source,schema alignment and duplicate structure resolution,external_mapping_required
+Alexandria,computed materials stability labels,structure/prototype matching,False,large independent public source,requires local curated join table before release evaluation,external_mapping_required
+GNoME-derived public candidates,computed stability / discovery-candidate validation,structure/prototype matching and license-compatible labels,False,frontier-scale discovery context,provenance and train/test overlap must be audited carefully,external_mapping_required

@@ -27,6 +27,16 @@ Detector/tracker inference implementations are not vendored. Use each detector/t
   PYTHONPATH=code/parc_track python -m parc_track.cli phase19 success-domain
   ```
 
+- Experiment-finalization milestones:
+
+  ```bash
+  python scripts/build_experimental_finalization_milestones.py
+  ```
+
+  This script consolidates completed evidence and explicitly marks A1/A2/A3
+  unfinished rows as protocol-only or diagnostic. It does not run new DFT or
+  promote protocol gates into completed evidence.
+
 - Tests:
 
   ```bash

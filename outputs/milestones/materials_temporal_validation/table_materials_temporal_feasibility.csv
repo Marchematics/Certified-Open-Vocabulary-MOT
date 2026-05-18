@@ -1,0 +1,6 @@
+check_name,observed,required_for_A1,interpretation
+local_wbm_summary_available,True,True,candidate table and DFT label columns are locally available
+stable_label_available,True,True,e_above_hull label exists for held-out evaluation
+label_release_timestamp_available,False,True,local WBM summary has no timestamp/release-date column; A1 needs an external snapshot or timestamp table
+model_prediction_files_available,True,True,local model prediction files are available for frozen queue replay
+pre_existing_quasi_prospective_replay_available,True,False,Phase21 public-label replay exists but is not a timestamped temporal split

@@ -1,0 +1,2 @@
+rule,status,evidence_status,interpretation
+species_level_metadata_as_local_box_support,invalid_for_localized_one_sided_support,completed_assumption_diagnostic,species-level metadata does not certify each localized animal box as a one-sided positive

@@ -1,0 +1,3 @@
+domain,sample,n,false,observed_FTR,zero_false_upper95,evidence_status
+iWildCam,release_audit,167,0,0.0,0.017778579193621247,completed_human_audit
+SpaceNet7,K50_diagnostic_release_audit,147,0,0.0,0.02017288006866358,completed_human_audit_diagnostic

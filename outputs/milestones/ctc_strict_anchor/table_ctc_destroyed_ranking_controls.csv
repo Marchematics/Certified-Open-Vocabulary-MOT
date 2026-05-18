@@ -1,0 +1,15 @@
+control,K,alpha,non_empty_seeds,raw_topK_FTR,PARC_FTR,evidence_status,interpretation
+random_score_negative_control,10,0.1,0,0.76,0.0,completed_destroyed_ranking_control,PARC refuses random ranking despite high raw top-K false-link rates.
+random_score_negative_control,25,0.1,0,0.79,0.0,completed_destroyed_ranking_control,PARC refuses random ranking despite high raw top-K false-link rates.
+random_score_negative_control,50,0.1,0,0.808,0.0,completed_destroyed_ranking_control,PARC refuses random ranking despite high raw top-K false-link rates.
+random_score_negative_control,75,0.1,0,0.808,0.0,completed_destroyed_ranking_control,PARC refuses random ranking despite high raw top-K false-link rates.
+random_score_negative_control,100,0.1,0,0.8074999999999999,0.0,completed_destroyed_ranking_control,PARC refuses random ranking despite high raw top-K false-link rates.
+random_score_negative_control,300,0.1,0,0.7966666666666666,0.0,completed_destroyed_ranking_control,PARC refuses random ranking despite high raw top-K false-link rates.
+random_score_negative_control,10,0.2,0,0.76,0.0,completed_destroyed_ranking_control,PARC refuses random ranking despite high raw top-K false-link rates.
+random_score_negative_control,25,0.2,0,0.79,0.0,completed_destroyed_ranking_control,PARC refuses random ranking despite high raw top-K false-link rates.
+random_score_negative_control,50,0.2,0,0.808,0.0,completed_destroyed_ranking_control,PARC refuses random ranking despite high raw top-K false-link rates.
+random_score_negative_control,75,0.2,0,0.808,0.0,completed_destroyed_ranking_control,PARC refuses random ranking despite high raw top-K false-link rates.
+random_score_negative_control,100,0.2,0,0.8074999999999999,0.0,completed_destroyed_ranking_control,PARC refuses random ranking despite high raw top-K false-link rates.
+random_score_negative_control,300,0.2,0,0.7966666666666666,0.0,completed_destroyed_ranking_control,PARC refuses random ranking despite high raw top-K false-link rates.
+score_permutation_within_block,,,,,,protocol_only_candidate_level_universe_not_in_public_package,not fabricated; requires candidate-level score artifacts
+score_sign_flip_worst_first,,,,,,protocol_only_candidate_level_universe_not_in_public_package,not fabricated; requires candidate-level score artifacts

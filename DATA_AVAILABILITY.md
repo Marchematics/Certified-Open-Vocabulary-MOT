@@ -17,6 +17,9 @@ by the original benchmark maintainers.
 - `outputs/milestones/scientific_domain_spacenet7/`: public-safe SpaceNet 7 building-link certification result tables, figures, and sanitized provenance.
 - `outputs/milestones/scientific_domain_materials/`: public-safe Matbench Discovery / WBM materials-candidate release tables, source hashes, leakage checks, and controls.
 - `outputs/milestones/scientific_release_success_map/`: consolidated cross-domain release/refusal evidence matrix.
+- `outputs/milestones/fixed_budget_downstream_utility/`, `outputs/milestones/primary_statistics/`, `outputs/milestones/materials_robustness_triad/`, `outputs/milestones/baseline_matrix_final/`, `outputs/milestones/ctc_strict_anchor/`, `outputs/milestones/iwildcam_audit_final/`, and `outputs/milestones/spacenet_real_audit_final/`: experiment-finalization tables derived from completed public-safe evidence.
+- `outputs/milestones/materials_temporal_validation/` and `outputs/milestones/materials_independent_dft_validation/`: A1/A2 protocol-only status packages. They contain feasibility and blocked-status rows, not completed prospective validation results.
+- `outputs/milestones/reproducibility_freeze/` and `outputs/artifact_index.csv`: milestone index and validation commands for the experiment-finalization package.
 
 ## Excluded Data
 

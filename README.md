@@ -46,6 +46,16 @@ parc-track/
 │   ├── milestones/materials_prospective_dft_followup_chgnet_v2/
 │   ├── milestones/materials_prospective_dft_followup_chgnet_v3/
 │   ├── milestones/mattergen_parc_prospective_dft_followup/
+│   ├── milestones/fixed_budget_downstream_utility/
+│   ├── milestones/primary_statistics/
+│   ├── milestones/materials_robustness_triad/
+│   ├── milestones/baseline_matrix_final/
+│   ├── milestones/ctc_strict_anchor/
+│   ├── milestones/iwildcam_audit_final/
+│   ├── milestones/spacenet_real_audit_final/
+│   ├── milestones/materials_temporal_validation/
+│   ├── milestones/materials_independent_dft_validation/
+│   ├── milestones/reproducibility_freeze/
 │   └── benchmarks/parc_certification_benchmark/
 ├── tests/                            # pytest suite and tiny fixtures
 ├── scripts/                          # public-safe helper scripts
@@ -62,6 +72,7 @@ parc-track/
 - Block-heterogeneity robustness diagnostics for the current public artifact package: candidate-level size-stratified, size-matched, and downsampled block-max checks for materials, plus scoped aggregate/audit-sample diagnostics for CTC and SpaceNet where candidate-level universes are not included.
 - Preregistered A1/A2 materials prospective-validation protocols and feasibility cards. These are explicitly protocol/feasibility artifacts and are not promoted as completed positive evidence.
 - A3 prospective in-silico DFT follow-up protocol gates. The ALIGNN-FF v1 package is a protocol-only blocked record; CHGNet v2 scores the PGCGM generated pool and CHGNet v3 scores a near-hull isovalent-substitution pool. Both CHGNet gates keep selection/job manifests empty when the predeclared release endpoints are unsupported. The MatterGen v4 gate records a locally smoke-tested MatterGen entrypoint and MACE-MP smoke test, but has not generated a candidate pool or exported DFT jobs. None of these A3 gates includes new DFT outcomes or a completed positive result.
+- Experiment-finalization milestones for materials temporal/independent-source feasibility, fixed-budget downstream utility, primary statistics, materials robustness, baseline matrix, CTC strict-anchor finalization, iWildCam/SpaceNet audit finalization, and reproducibility freeze. These milestones preserve the completed/diagnostic/protocol-only evidence distinction.
 - Result tables for OVT-B, TAO, BURST, black-box generators, published-tracker adapters, non-exchangeability stress tests, null-inflation sensitivity, LVIS/LVVIS/OVVIS generality checks, Mondrian/per-class/runtime/anytime diagnostics, and Prop. 5 high-evidence mass diagnostics.
 - Tiny fixture for validating the full schema-to-certification path without downloading external datasets.
 
@@ -118,6 +129,15 @@ For full benchmark reproduction, see `REPRODUCIBILITY.md`.
 - Block heterogeneity robustness: `outputs/milestones/block_heterogeneity_robustness/` (Phase25 size-stratified p-value diagnostics, candidate-level materials size-matched and downsampled block-max stress, scoped CTC/SpaceNet diagnostics, and an approximate e-value validity lemma)
 - Materials prospective validation protocols: `outputs/milestones/materials_prospective_validation_protocols/` (A1 temporal-split and A2 independent-DFT preregistration protocols plus feasibility/go-no-go cards; protocol-only, not completed evidence)
 - Materials prospective DFT follow-up protocol: `outputs/milestones/materials_prospective_dft_followup/` (A3 in-silico DFT follow-up protocol freeze, arm plan, failure policy, empty candidate/selection/job schemas, and input-gate closeout; no new DFT outcomes and no completed positive result)
+- Experimental execution plan: `docs/experimental_execution_plan.md` (experiment-only P0/P1/P2 execution map and evidence-state rules)
+- Fixed-budget downstream utility: `outputs/milestones/fixed_budget_downstream_utility/` (completed public-label and official-GT consequence tables for materials follow-up queues, CTC lineage graph consequences, SpaceNet persistence-map consequences, and baseline frontier source data)
+- Primary statistics: `outputs/milestones/primary_statistics/` (paired seed-level materials effect sizes, bootstrap intervals, descriptive sign tests, Holm correction, and zero-FTR audit intervals)
+- Materials robustness triad: `outputs/milestones/materials_robustness_triad/` (stability-definition, block-definition, gamma, and block-size heterogeneity source tables)
+- Baseline matrix final: `outputs/milestones/baseline_matrix_final/` (target-object properties, PU/selective-conformal/e-BH/raw/threshold baseline tables, and load-bearing ablation references)
+- CTC strict anchor final: `outputs/milestones/ctc_strict_anchor/` (leakage audit, reverse split, completed random-score control, protocol-only extra destroyed-ranking controls, and high-volume refusal consequence)
+- iWildCam and SpaceNet final audit packages: `outputs/milestones/iwildcam_audit_final/` and `outputs/milestones/spacenet_real_audit_final/` (human-audit operational ecology row, SpaceNet K=100 refusal and K=50 diagnostic release)
+- Materials A1/A2 finalization packages: `outputs/milestones/materials_temporal_validation/` and `outputs/milestones/materials_independent_dft_validation/` (explicit protocol-only/blocked status; no completed evidence is claimed)
+- Reproducibility freeze: `outputs/milestones/reproducibility_freeze/` and `outputs/artifact_index.csv` (experiment-finalization milestone index and validation commands)
 - Materials prospective CHGNet v2 gate: `outputs/milestones/materials_prospective_dft_followup_chgnet_v2/` (locally executable CHGNet scorer on PGCGM candidates; PARC release remained empty, so no DFT jobs were exported)
 - Materials prospective CHGNet v3 near-hull gate: `outputs/milestones/materials_prospective_dft_followup_chgnet_v3/` (5,000 near-hull isovalent/chemically similar substitutions scored by CHGNet; strict and operational predeclared endpoints all refused, so no DFT jobs were exported)
 - Materials prospective MatterGen v4 gate: `outputs/milestones/mattergen_parc_prospective_dft_followup/` (frontier-generator protocol using MatterGen plus CHGNet/MACE-MP consensus scoring; MatterGen and MACE smoke checks are recorded, but no generated candidate pool, frozen PARC selection, DFT manifest, DFT outcomes, or positive result is claimed)

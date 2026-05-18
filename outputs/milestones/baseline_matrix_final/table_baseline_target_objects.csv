@@ -1,0 +1,12 @@
+method,target_object,uses_null_superset,uses_one_sided_support,uses_SCS_denominator,uses_full_or_negative_labels,deployable_under_partial_verification,claim_scope
+raw top-K,ranked prefix,False,False,False,False,True,no_certificate
+raw top-R,matched-volume diagnostic,False,False,False,False,False,diagnostic_not_policy
+fixed threshold,score threshold,False,False,False,False,True,empirical_filter
+calibrated threshold,calibrated score threshold,False,False,False,False,True,threshold_policy
+split conformal candidate threshold,candidate-level threshold,False,False,False,False,True,different_target
+post-filter e-value,candidate e-value filter,True,True,False,False,True,missing_SCS_denominator
+e-BH-style,e-value multiple testing,True,True,False,False,True,different_target
+nnPU classifier release,PU plug-in classifier,False,False,False,True,True,different_target
+Bao-style selective conformal adaptation,selective conformal adaptation,False,False,False,False,True,different_target
+oracle prefix,full-label oracle diagnostic,False,False,False,True,False,non_deployable_oracle
+PARC,finite compatible release set,True,True,True,False,True,set_level_release_certificate

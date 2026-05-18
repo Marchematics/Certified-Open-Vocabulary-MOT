@@ -1,0 +1,23 @@
+domain,dataset,proposal_source,K,alpha,method,release_count,FTR,certificate_type,evidence_status
+Materials discovery,Matbench Discovery WBM unique prototypes,CGCNN ensemble learned materials model,300,0.05,raw top-K,300.0,0.2349999999999999,different_or_no_set_certificate,completed_retrospective_public_label_diagnostic
+Materials discovery,Matbench Discovery WBM unique prototypes,CGCNN ensemble learned materials model,300,0.05,raw top-R,111.7,0.0263138538256426,different_or_no_set_certificate,completed_retrospective_public_label_diagnostic
+Materials discovery,Matbench Discovery WBM unique prototypes,CGCNN ensemble learned materials model,300,0.05,split conformal,300.0,0.2349999999999999,different_or_no_set_certificate,completed_retrospective_public_label_diagnostic
+Materials discovery,Matbench Discovery WBM unique prototypes,CGCNN ensemble learned materials model,300,0.05,post-filter e-value,154.2,0.0845109870300157,different_or_no_set_certificate,completed_retrospective_public_label_diagnostic
+Materials discovery,Matbench Discovery WBM unique prototypes,CGCNN ensemble learned materials model,300,0.05,e-BH-style,0.0,,different_or_no_set_certificate,completed_retrospective_public_label_diagnostic
+Materials discovery,Matbench Discovery WBM unique prototypes,CGCNN ensemble learned materials model,300,0.05,PARC,111.7,0.0263138538256426,PARC_set_level,completed_retrospective_public_label_diagnostic
+Materials discovery,Matbench Discovery WBM unique prototypes,CGCNN ensemble learned materials model,300,0.1,raw top-K,300.0,0.2349999999999999,different_or_no_set_certificate,completed_retrospective_public_label_diagnostic
+Materials discovery,Matbench Discovery WBM unique prototypes,CGCNN ensemble learned materials model,300,0.1,raw top-R,163.8,0.091556238689795,different_or_no_set_certificate,completed_retrospective_public_label_diagnostic
+Materials discovery,Matbench Discovery WBM unique prototypes,CGCNN ensemble learned materials model,300,0.1,split conformal,300.0,0.2349999999999999,different_or_no_set_certificate,completed_retrospective_public_label_diagnostic
+Materials discovery,Matbench Discovery WBM unique prototypes,CGCNN ensemble learned materials model,300,0.1,post-filter e-value,214.0,0.1624888642912147,different_or_no_set_certificate,completed_retrospective_public_label_diagnostic
+Materials discovery,Matbench Discovery WBM unique prototypes,CGCNN ensemble learned materials model,300,0.1,e-BH-style,0.0,,different_or_no_set_certificate,completed_retrospective_public_label_diagnostic
+Materials discovery,Matbench Discovery WBM unique prototypes,CGCNN ensemble learned materials model,300,0.1,PARC,163.8,0.091556238689795,PARC_set_level,completed_retrospective_public_label_diagnostic
+Materials discovery,Matbench Discovery WBM unique prototypes,CGCNN ensemble learned materials model,500,0.1,raw top-K,500.0,0.3258999999999999,different_or_no_set_certificate,completed_retrospective_public_label_diagnostic
+Materials discovery,Matbench Discovery WBM unique prototypes,CGCNN ensemble learned materials model,500,0.1,raw top-R,118.8,0.0318972059842815,different_or_no_set_certificate,completed_retrospective_public_label_diagnostic
+Materials discovery,Matbench Discovery WBM unique prototypes,CGCNN ensemble learned materials model,500,0.1,split conformal,500.0,0.3258999999999999,different_or_no_set_certificate,completed_retrospective_public_label_diagnostic
+Materials discovery,Matbench Discovery WBM unique prototypes,CGCNN ensemble learned materials model,500,0.1,post-filter e-value,214.4,0.1627031500055005,different_or_no_set_certificate,completed_retrospective_public_label_diagnostic
+Materials discovery,Matbench Discovery WBM unique prototypes,CGCNN ensemble learned materials model,500,0.1,e-BH-style,0.0,,different_or_no_set_certificate,completed_retrospective_public_label_diagnostic
+Materials discovery,Matbench Discovery WBM unique prototypes,CGCNN ensemble learned materials model,500,0.1,PARC,118.8,0.0318972059842815,PARC_set_level,completed_retrospective_public_label_diagnostic
+Materials discovery,Matbench Discovery WBM,CGCNN ensemble,100,0.1,Bao-style selective conformal adaptation,97.0,0.028665970933828,no,completed_different_target_baseline
+Materials discovery,Matbench Discovery WBM,CGCNN ensemble,100,0.1,Bao-style selective conformal oracle-label diagnostic,97.0,0.028665970933828,oracle_not_deployable_under_partial_verification,completed_different_target_baseline
+Materials discovery,Matbench Discovery WBM,CGCNN ensemble,100,0.1,Raw top-K source ranking,100.0,0.03,no,completed_different_target_baseline
+Materials discovery,Matbench Discovery WBM,CGCNN ensemble,100,0.1,nnPU classifier release,100.0,0.03,no,completed_different_target_baseline

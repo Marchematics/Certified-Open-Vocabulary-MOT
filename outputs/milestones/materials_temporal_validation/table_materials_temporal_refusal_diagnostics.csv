@@ -1,0 +1,2 @@
+diagnostic,evidence_status,completed_positive_result,interpretation
+temporal_refusal_boundary,protocol_only_missing_timestamp_snapshot,False,not computed without t0/t1 labels

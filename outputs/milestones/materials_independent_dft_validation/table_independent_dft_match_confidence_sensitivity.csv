@@ -1,0 +1,3 @@
+match_confidence,role,evidence_status
+exact_or_high_confidence_structure_match,primary,protocol_only_missing_independent_join_table
+composition_only,sensitivity_only,protocol_only_missing_independent_join_table

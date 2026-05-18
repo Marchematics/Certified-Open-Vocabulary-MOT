@@ -1,0 +1,12 @@
+method,certificate_type,respects_compatibility,uses_null_superset,uses_SCS_denominator,deployable
+raw top-K,no_certificate,False,False,False,True
+raw top-R,diagnostic_not_policy,False,False,False,False
+fixed threshold,empirical_filter,False,False,False,True
+calibrated threshold,threshold_policy,False,False,False,True
+split conformal candidate threshold,different_target,False,False,False,True
+post-filter e-value,missing_SCS_denominator,False,True,False,True
+e-BH-style,different_target,False,True,False,True
+nnPU classifier release,different_target,False,False,False,True
+Bao-style selective conformal adaptation,different_target,False,False,False,True
+oracle prefix,non_deployable_oracle,False,False,False,False
+PARC,set_level_release_certificate,True,True,True,True

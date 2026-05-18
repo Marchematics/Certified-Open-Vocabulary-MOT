@@ -1,0 +1,2 @@
+comparison,metric,evidence_status,completed_positive_result,interpretation
+raw_topK_vs_PARC,future_label_FTR_and_unstable_followups_prevented,protocol_only_missing_timestamp_snapshot,False,awaits timestamped snapshot before evaluation

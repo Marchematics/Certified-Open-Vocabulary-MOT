@@ -1,0 +1,2 @@
+domain,source,external_label_source,match_confidence,n_released_matched,independent_FTR,coverage_of_independent_source,discordance_rate,raw_topK_independent_FTR,PARC_vs_raw_delta,evidence_status,completed_positive_result,blocker
+materials_discovery,ALIGNN-FF / CGCNN preregistered,not_available_in_public_bundle,exact_or_high_confidence_required,,,,,,,protocol_only_missing_independent_join_table,False,no independent DFT join table in package

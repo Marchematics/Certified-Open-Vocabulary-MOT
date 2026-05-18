@@ -1,0 +1,2 @@
+K,alpha,label_source,n_unique_released_candidates_reviewed,n_true_same_building,n_false_link,n_uncertain,audited_FTR_uncertain_as_false,bootstrap95_low_uncertain_as_false,bootstrap95_high_uncertain_as_false,official_GT_FTR,non_empty_seeds,total_seeds,mean_release_across_seeds,mean_mass_ratio,min_mass_ratio,max_mass_ratio,decision,paper_status
+50,0.2,human_confirmed,147,147,0,0,0.0,0.0,0.0,0.0,18,20,43.95,1.1552908087386202,0.8485871627670869,1.2122673753815527,go_human_confirmed_diagnostic_row,diagnostic_not_primary

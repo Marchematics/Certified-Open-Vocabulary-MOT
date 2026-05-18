@@ -1,0 +1,4 @@
+block_definition,role,evidence_status
+composition_family,primary,protocol_only_missing_timestamp_snapshot
+chemical_system,sensitivity,protocol_only_missing_timestamp_snapshot
+Wyckoff_family,sensitivity,protocol_only_missing_timestamp_snapshot

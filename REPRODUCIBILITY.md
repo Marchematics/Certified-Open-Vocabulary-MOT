@@ -44,6 +44,16 @@ outputs/milestones/release_certification_benchmark/
 outputs/milestones/block_heterogeneity_robustness/
 outputs/milestones/materials_prospective_validation_protocols/
 outputs/milestones/materials_prospective_dft_followup/
+outputs/milestones/fixed_budget_downstream_utility/
+outputs/milestones/primary_statistics/
+outputs/milestones/materials_robustness_triad/
+outputs/milestones/baseline_matrix_final/
+outputs/milestones/ctc_strict_anchor/
+outputs/milestones/iwildcam_audit_final/
+outputs/milestones/spacenet_real_audit_final/
+outputs/milestones/materials_temporal_validation/
+outputs/milestones/materials_independent_dft_validation/
+outputs/milestones/reproducibility_freeze/
 outputs/milestones/generality_reliability/
 outputs/milestones/release_story/
 outputs/benchmarks/parc_certification_benchmark/
@@ -87,6 +97,18 @@ Regenerate the current paper-facing release/refusal tables:
 ```bash
 make reproduce-main-tables PYTHON=python
 ```
+
+Regenerate the experiment-finalization milestones:
+
+```bash
+python scripts/build_experimental_finalization_milestones.py
+```
+
+This command builds the fixed-budget downstream utility tables, primary
+statistics, materials robustness triad, final baseline matrix, strict CTC anchor
+tables, final iWildCam/SpaceNet audit tables, A1/A2 protocol-only status
+packages, `outputs/artifact_index.csv`, and the reproducibility-freeze index.
+It does not promote protocol-only A1/A2/A3 rows into completed evidence.
 
 The cross-domain success/refusal map can also be regenerated directly:
 
