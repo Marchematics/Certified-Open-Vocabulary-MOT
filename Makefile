@@ -1,7 +1,7 @@
 PYTHON ?= python
 PYTHONPATH ?= code/parc_track
 
-.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark reproduce-block-heterogeneity-robustness reproduce-materials-prospective-validation reproduce-materials-alex-mp-a1-a2 reproduce-experimental-finalization phase24-freeze-dft-followup phase24-build-unlabeled-pool phase24-filter-public-labels phase24-score-unlabeled-pool phase24-select-dft-arms phase24-export-dft-jobs validate-public-bundle verify-manifest package-release package-release-story package-scientific-release
+.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark reproduce-block-heterogeneity-robustness reproduce-materials-prospective-validation reproduce-materials-alex-mp-a1-a2 reproduce-phase30-main-evidence reproduce-experimental-finalization phase24-freeze-dft-followup phase24-build-unlabeled-pool phase24-filter-public-labels phase24-score-unlabeled-pool phase24-select-dft-arms phase24-export-dft-jobs validate-public-bundle verify-manifest package-release package-release-story package-scientific-release
 
 test:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q tests
@@ -48,6 +48,9 @@ reproduce-materials-prospective-validation:
 
 reproduce-materials-alex-mp-a1-a2:
 	$(PYTHON) scripts/build_materials_alex_mp_a1_a2_validation.py
+
+reproduce-phase30-main-evidence:
+	$(PYTHON) scripts/build_phase30_main_evidence_hard_upgrade.py
 
 reproduce-experimental-finalization:
 	$(PYTHON) scripts/build_experimental_finalization_milestones.py
@@ -101,6 +104,10 @@ validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/fixed_budget_scientific_utility_trial
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/adversarial_release_stress_trial
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/selector_optimality_diagnostics
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/main_evidence_hard_upgrade_phase30
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/materials_source_discordance_stress_test
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ctc_decision_utility_main_evidence
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/cross_domain_blind_audit_main_evidence
 
 verify-manifest:
 	sha256sum -c MANIFEST_SHA256.txt

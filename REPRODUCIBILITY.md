@@ -53,6 +53,11 @@ outputs/milestones/iwildcam_audit_final/
 outputs/milestones/spacenet_real_audit_final/
 outputs/milestones/materials_temporal_validation/
 outputs/milestones/materials_independent_dft_validation/
+outputs/milestones/materials_alex_mp_a1_a2_validation/
+outputs/milestones/main_evidence_hard_upgrade_phase30/
+outputs/milestones/materials_source_discordance_stress_test/
+outputs/milestones/ctc_decision_utility_main_evidence/
+outputs/milestones/cross_domain_blind_audit_main_evidence/
 outputs/milestones/reproducibility_freeze/
 outputs/milestones/generality_reliability/
 outputs/milestones/release_story/
@@ -109,6 +114,25 @@ statistics, materials robustness triad, final baseline matrix, strict CTC anchor
 tables, final iWildCam/SpaceNet audit tables, A1/A2 protocol-only status
 packages, `outputs/artifact_index.csv`, and the reproducibility-freeze index.
 It does not promote protocol-only A1/A2/A3 rows into completed evidence.
+
+Regenerate the phase30 non-A3 main-evidence pivot:
+
+```bash
+python scripts/build_phase30_main_evidence_hard_upgrade.py
+```
+
+This command builds:
+
+```text
+outputs/milestones/main_evidence_hard_upgrade_phase30/
+outputs/milestones/materials_source_discordance_stress_test/
+outputs/milestones/ctc_decision_utility_main_evidence/
+outputs/milestones/cross_domain_blind_audit_main_evidence/
+```
+
+The phase30 matrix explicitly keeps OQMD/alex-mp rows as completed negative
+diagnostics and keeps A3 as a high-risk bonus track unless a nonempty frozen
+selection and DFT outcomes exist.
 
 The cross-domain success/refusal map can also be regenerated directly:
 

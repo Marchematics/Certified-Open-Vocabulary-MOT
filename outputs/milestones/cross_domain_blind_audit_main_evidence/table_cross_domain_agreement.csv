@@ -1,0 +1,3 @@
+domain,dataset,agreement_scope,n_rows,n_disagreements,label_agreement,cohen_kappa,cohen_kappa_bootstrap95_low,cohen_kappa_bootstrap95_high,reportable_status
+ecological_camera_traps,iWildCam,all_rows,1123,110,0.9020480854853072,0.8041798634823107,0.7684940528645046,0.8378977032144651,human_confirmed
+earth_observation,SpaceNet7,release_audit_human_confirmed,147,0,1.0,,,,human_confirmed_release_audit_no_second_reviewer_kappa

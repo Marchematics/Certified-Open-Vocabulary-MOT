@@ -55,6 +55,11 @@ parc-track/
 │   ├── milestones/spacenet_real_audit_final/
 │   ├── milestones/materials_temporal_validation/
 │   ├── milestones/materials_independent_dft_validation/
+│   ├── milestones/materials_alex_mp_a1_a2_validation/
+│   ├── milestones/main_evidence_hard_upgrade_phase30/
+│   ├── milestones/materials_source_discordance_stress_test/
+│   ├── milestones/ctc_decision_utility_main_evidence/
+│   ├── milestones/cross_domain_blind_audit_main_evidence/
 │   ├── milestones/reproducibility_freeze/
 │   └── benchmarks/parc_certification_benchmark/
 ├── tests/                            # pytest suite and tiny fixtures
@@ -71,6 +76,8 @@ parc-track/
 - Release-certification benchmark cards that package completed CTC, materials, iWildCam, SpaceNet, and downstream-artifact evidence into a reusable scientific AI governance protocol.
 - Block-heterogeneity robustness diagnostics for the current public artifact package: candidate-level size-stratified, size-matched, and downsampled block-max checks for materials, plus scoped aggregate/audit-sample diagnostics for CTC and SpaceNet where candidate-level universes are not included.
 - Preregistered A1/A2 materials prospective-validation protocols and feasibility cards. These are explicitly protocol/feasibility artifacts and are not promoted as completed positive evidence.
+- Completed A1/A2 external-source diagnostics for OQMD and alex-mp. The alex-mp exact-structure coverage is higher than OQMD but the labels are discordant and do not support a positive independent-validation claim; the package records this as a source-discordance stress test, not a materials rescue result.
+- Phase30 main-evidence hard-upgrade tables that pivot away from A3 dependency: CTC decision utility, completed cross-domain human-audit release/refusal behavior, and materials external-source discordance diagnostics.
 - A3 prospective in-silico DFT follow-up protocol gates. The ALIGNN-FF v1 package is a protocol-only blocked record; CHGNet v2 scores the PGCGM generated pool and CHGNet v3 scores a near-hull isovalent-substitution pool. Both CHGNet gates keep selection/job manifests empty when the predeclared release endpoints are unsupported. The MatterGen v4 gate records a locally smoke-tested MatterGen entrypoint and MACE-MP smoke test, but has not generated a candidate pool or exported DFT jobs. None of these A3 gates includes new DFT outcomes or a completed positive result.
 - Experiment-finalization milestones for materials temporal/independent-source feasibility, fixed-budget downstream utility, primary statistics, materials robustness, baseline matrix, CTC strict-anchor finalization, iWildCam/SpaceNet audit finalization, and reproducibility freeze. These milestones preserve the completed/diagnostic/protocol-only evidence distinction.
 - Result tables for OVT-B, TAO, BURST, black-box generators, published-tracker adapters, non-exchangeability stress tests, null-inflation sensitivity, LVIS/LVVIS/OVVIS generality checks, Mondrian/per-class/runtime/anytime diagnostics, and Prop. 5 high-evidence mass diagnostics.

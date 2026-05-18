@@ -1,0 +1,4 @@
+domain,dataset,candidate_unit,alpha,K,decision,audited_released_n,audited_FTR,conservative_audited_FTR,raw_topK_audited_n,raw_topK_FTR,raw_topK_conservative_FTR,main_text_role,scope
+ecological_camera_traps,iWildCam,animal-present detection box,0.2,50,release,167,0.0,0.0,300,0.0,0.0,primary_main_evidence,operational alpha=0.20 ecology release; strict alpha=0.10 refused
+earth_observation,SpaceNet7,same-building temporal link,0.2,50,diagnostic_release,147,0.0,0.0,200,0.005,0.005,secondary_main_evidence,K=50 diagnostic release; K=100 primary request refused
+earth_observation,SpaceNet7,same-building temporal link,0.2,100,certified_refusal,0,0.0,0.0,200,0.005,0.005,secondary_main_evidence,primary K=100 real-audit request refused because evidence mass is below one
