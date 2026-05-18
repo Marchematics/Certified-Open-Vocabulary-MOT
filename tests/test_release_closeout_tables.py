@@ -681,16 +681,20 @@ def test_mattergen_v4_gate_stops_before_public_label_exclusion_or_selection() ->
     public_label_status = status.set_index("gate").loc["public_label_exclusion", "status"]
     consensus_status = status.set_index("gate").loc["consensus_scoring", "status"]
     if public_label_status == "completed_smoke_formula_level_public_label_exclusion_only":
-        assert not public_free.empty
+        smoke_public_free = pd.read_csv(root / "candidate_universe_public_label_free_smoke.csv")
+        assert public_free.empty
+        assert not smoke_public_free.empty
         report = pd.read_csv(root / "PUBLIC_LABEL_EXCLUSION_REPORT_smoke.csv")
-        assert len(public_free) == int(report["keep_for_followup"].astype(bool).sum())
-        assert public_free["public_label_sources_checked"].str.contains("WBM_Matbench_formula_level").all()
+        assert len(smoke_public_free) == int(report["keep_for_followup"].astype(bool).sum())
+        assert smoke_public_free["public_label_sources_checked"].str.contains("WBM_Matbench_formula_level").all()
     else:
         assert public_free.empty
     if consensus_status == "completed_smoke_consensus_scoring_only":
-        assert not consensus.empty
+        smoke_consensus = pd.read_csv(root / "candidate_scores_consensus_smoke.csv")
+        assert consensus.empty
+        assert not smoke_consensus.empty
         endpoint = pd.read_csv(root / "parc_endpoint_summary_smoke.csv")
-        assert (consensus["score_status"] == "scored").all()
+        assert (smoke_consensus["score_status"] == "scored").all()
         assert (endpoint["diagnostic_scope"] == "smoke_diagnostic_only_not_formal_selection").all()
         assert (endpoint["released"] == 0).all()
         assert (endpoint["dft_jobs_exported"] == 0).all()
