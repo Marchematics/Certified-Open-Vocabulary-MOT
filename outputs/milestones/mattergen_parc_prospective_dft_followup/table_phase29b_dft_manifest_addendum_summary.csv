@@ -1,0 +1,6 @@
+gate,status,n_rows,blocks_primary_claim,completed_positive_result,reason
+DFT_outcome_scan,no_DFT_outcomes_detected,40,False,False,Existing manifest has outcome_available=False and no DFT result files were detected before addendum construction.
+selection_integrity,selection_frozen_v4_unmodified_input,60,False,False,selection_frozen_v4_sha256=e9741427fa2775ed9f226220f7411fb113f2427837159060e94de055d38d7559
+PARC_release_full_arm,pre_outcome_full_release_arm_exported,75,False,False,Full formal PARC release arm exported for possible DFT if compute allows.
+raw_topR_matched_arm,exported_but_identical_to_full_release,75,True,False,Matched raw_topR uses only frozen raw rank and public-label-free status; in this endpoint it is identical to the full PARC release set.
+raw_only_rejected_tail_arm,absent_no_raw_only_tail,0,True,False,"PARC released the full formal K=100 prefix, so no raw-only rejected-tail comparator is available."

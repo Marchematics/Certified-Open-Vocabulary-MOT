@@ -395,3 +395,7 @@ Do not commit raw videos, raw annotations, weights, cache directories, or privat
 ## A3-v4 formal selection gate
 
 Run `make reproduce-a3-v4-formal-selection-gate` to rebuild the available-source MatterGen formal selection gate. This requires the private MatterGen generated CIF zip and alex-mp local public snapshot; it is not completed DFT evidence.
+
+## A3-v4 DFT manifest addendum
+
+Run `make reproduce-a3-v4-dft-manifest-addendum` after the formal selection gate to rebuild the pre-outcome comparator manifest addendum. The addendum does not modify `selection_frozen_v4.csv` and is not completed DFT evidence.

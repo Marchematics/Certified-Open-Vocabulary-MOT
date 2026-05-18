@@ -166,3 +166,5 @@ A formal citation will be added after archival release. Until then, cite the rep
 
 
 - A3-v4 formal selection gate: MatterGen 5k generation/scoring is completed as a diagnostic, and an available-source pre-DFT release-only selection gate is frozen without claiming prospective materials discovery.
+
+- A3-v4 Phase29b manifest addendum: a pre-outcome DFT manifest addendum exports the full PARC release arm and a matched raw_topR arm. The matched arm is identical to the release set here and no DFT outcome or positive prospective materials claim is made.
