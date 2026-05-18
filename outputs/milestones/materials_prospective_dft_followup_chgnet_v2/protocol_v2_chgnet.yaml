@@ -1,0 +1,18 @@
+trial_name: materials_prospective_dft_followup_chgnet_v2
+scorer: CHGNet
+scorer_version_requested: 0.4.2
+model_load_rule: CHGNet.load()
+primary_model_role: locally_executable_frozen_scorer
+alpha: 0.1
+rho: 0.1
+K: 500
+seed: 0
+block: composition-family
+max_sites_primary: 40
+arms:
+  PARC-release: 40
+  raw-only rejected tail: 40
+  raw top-R matched: 40
+minimum_analyzable_per_arm: 25
+failure_policy: conservative_failed_DFT_counted_not_certified_stable
+no_dft_outcomes_used: true

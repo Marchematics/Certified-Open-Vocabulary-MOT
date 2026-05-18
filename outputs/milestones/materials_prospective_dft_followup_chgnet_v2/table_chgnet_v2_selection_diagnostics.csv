@@ -1,0 +1,2 @@
+alpha,rho,K,seed,n_calibration_scored,n_generated_scored,n_observed_positive,n_null_calibration_blocks,p_min_effective,gamma,emax_effective,required_e_for_one_release,required_e_for_40_release,max_candidate_e,best_mass_ratio,released,tau,self_consistency_margin
+0.1,0.1,500,0,5797,669,89,5708,0.00017516202487300754,0.11560962075176903,242.80606887844385,5000.0,125.0,0.11651253635232357,0.011560962075176902,0,10.0,-9.88439037924823

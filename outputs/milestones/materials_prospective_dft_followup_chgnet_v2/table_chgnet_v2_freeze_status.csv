@@ -1,0 +1,4 @@
+item,status,blocks_DFT_submission,completed_positive_result,reason
+ALIGNN_FF_A3_v1,blocked_model_unavailable,False,False,kept as blocked record; no ALIGNN-FF A3 result claimed
+CHGNet_scoring,completed,False,False,scored 669 generated candidates and 5797 calibration candidates
+selection_frozen_chgnet_v2,blocked_no_parc_release_for_primary_arm,True,False,selection is frozen before DFT outcomes; DFT outcomes are not present

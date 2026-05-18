@@ -570,3 +570,25 @@ def test_materials_prospective_dft_followup_is_protocol_freeze_not_result() -> N
     assert "does not promote a protocol-only positive result" in closeout
     assert (root / "dft_inputs/README.md").exists()
     assert (root / "dft_outputs/README.md").exists()
+
+
+def test_chgnet_v2_prospective_scorer_no_go_is_not_promoted() -> None:
+    root = ROOT / "outputs/milestones/materials_prospective_dft_followup_chgnet_v2"
+    status = pd.read_csv(root / "table_chgnet_v2_freeze_status.csv")
+    diagnostics = pd.read_csv(root / "table_chgnet_v2_selection_diagnostics.csv")
+    scores = pd.read_csv(root / "candidate_scores_chgnet_v2.csv")
+    selection = pd.read_csv(root / "selection_frozen_chgnet_v2.csv")
+    jobs = pd.read_csv(root / "dft_job_manifest_chgnet_v2.csv")
+    closeout = (root / "CHGNET_V2_CLOSEOUT.md").read_text(encoding="utf-8")
+
+    status_by_item = dict(zip(status["item"], status["status"]))
+    assert status_by_item["ALIGNN_FF_A3_v1"] == "blocked_model_unavailable"
+    assert status_by_item["CHGNet_scoring"] == "completed"
+    assert status_by_item["selection_frozen_chgnet_v2"] == "blocked_no_parc_release_for_primary_arm"
+    assert not status["completed_positive_result"].astype(bool).any()
+    assert int(diagnostics.iloc[0]["released"]) == 0
+    assert len(scores) == 669
+    assert (scores["score_status"] == "scored").all()
+    assert selection.empty
+    assert jobs.empty
+    assert "No new DFT outcomes are included" in closeout

@@ -1,0 +1,2 @@
+trial,status,download_status,invalid_model_smoke,benchmark_csv_policy,completed_positive_result
+A3-v1_ALIGNN_FF,blocked_model_unavailable,blocked_download_403_or_bad_zip,generative-materials-discovery checkpoint rejected; nonphysical outputs / incompatible architecture,benchmark predictions are not arbitrary-candidate scorers,False
