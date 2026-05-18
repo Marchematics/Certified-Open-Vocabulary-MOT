@@ -60,6 +60,9 @@ parc-track/
 │   ├── milestones/materials_source_discordance_stress_test/
 │   ├── milestones/ctc_decision_utility_main_evidence/
 │   ├── milestones/cross_domain_blind_audit_main_evidence/
+│   ├── milestones/protocol_claim_alignment/
+│   ├── milestones/materials_fixed_budget_scientific_utility/
+│   ├── milestones/ctc_scientific_artifact_consequence/
 │   ├── milestones/reproducibility_freeze/
 │   └── benchmarks/parc_certification_benchmark/
 ├── tests/                            # pytest suite and tiny fixtures
@@ -78,6 +81,7 @@ parc-track/
 - Preregistered A1/A2 materials prospective-validation protocols and feasibility cards. These are explicitly protocol/feasibility artifacts and are not promoted as completed positive evidence.
 - Completed A1/A2 external-source diagnostics for OQMD and alex-mp. The alex-mp exact-structure coverage is higher than OQMD but the labels are discordant and do not support a positive independent-validation claim; the package records this as a source-discordance stress test, not a materials rescue result.
 - Phase30 main-evidence hard-upgrade tables that pivot away from A3 dependency: CTC decision utility, completed cross-domain human-audit release/refusal behavior, and materials external-source discordance diagnostics.
+- Phase31 protocol/claim-alignment guardrails: every candidate headline result is assigned an allowed manuscript role; primary-headline rows require completed artifacts, source SHA256 hashes, and exact manuscript sentences; `docs/abstract_claim_scope.md` forbids prospective materials-discovery language unless A3 DFT gates are met.
 - A3 prospective in-silico DFT follow-up protocol gates. The ALIGNN-FF v1 package is a protocol-only blocked record; CHGNet v2 scores the PGCGM generated pool and CHGNet v3 scores a near-hull isovalent-substitution pool. Both CHGNet gates keep selection/job manifests empty when the predeclared release endpoints are unsupported. The MatterGen v4 gate records a locally smoke-tested MatterGen entrypoint and MACE-MP smoke test, but has not generated a candidate pool or exported DFT jobs. None of these A3 gates includes new DFT outcomes or a completed positive result.
 - Experiment-finalization milestones for materials temporal/independent-source feasibility, fixed-budget downstream utility, primary statistics, materials robustness, baseline matrix, CTC strict-anchor finalization, iWildCam/SpaceNet audit finalization, and reproducibility freeze. These milestones preserve the completed/diagnostic/protocol-only evidence distinction.
 - Result tables for OVT-B, TAO, BURST, black-box generators, published-tracker adapters, non-exchangeability stress tests, null-inflation sensitivity, LVIS/LVVIS/OVVIS generality checks, Mondrian/per-class/runtime/anytime diagnostics, and Prop. 5 high-evidence mass diagnostics.
@@ -144,6 +148,7 @@ For full benchmark reproduction, see `REPRODUCIBILITY.md`.
 - CTC strict anchor final: `outputs/milestones/ctc_strict_anchor/` (leakage audit, reverse split, completed random-score control, protocol-only extra destroyed-ranking controls, and high-volume refusal consequence)
 - iWildCam and SpaceNet final audit packages: `outputs/milestones/iwildcam_audit_final/` and `outputs/milestones/spacenet_real_audit_final/` (human-audit operational ecology row, SpaceNet K=100 refusal and K=50 diagnostic release)
 - Materials A1/A2 finalization packages: `outputs/milestones/materials_temporal_validation/` and `outputs/milestones/materials_independent_dft_validation/` (A1 remains protocol-only; A2 now contains a completed low-coverage OQMD exact-structure diagnostic, not a primary independent validation result)
+- Phase31 claim alignment: `outputs/milestones/protocol_claim_alignment/`, `outputs/milestones/materials_fixed_budget_scientific_utility/`, `outputs/milestones/ctc_scientific_artifact_consequence/`, and `docs/abstract_claim_scope.md` (claim role audit, fixed-budget materials lead numbers, CTC artifact consequence tables, and abstract-scope guardrails)
 - Reproducibility freeze: `outputs/milestones/reproducibility_freeze/` and `outputs/artifact_index.csv` (experiment-finalization milestone index and validation commands)
 - Materials prospective CHGNet v2 gate: `outputs/milestones/materials_prospective_dft_followup_chgnet_v2/` (locally executable CHGNet scorer on PGCGM candidates; PARC release remained empty, so no DFT jobs were exported)
 - Materials prospective CHGNet v3 near-hull gate: `outputs/milestones/materials_prospective_dft_followup_chgnet_v3/` (5,000 near-hull isovalent/chemically similar substitutions scored by CHGNet; strict and operational predeclared endpoints all refused, so no DFT jobs were exported)

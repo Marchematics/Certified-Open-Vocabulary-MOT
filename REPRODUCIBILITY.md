@@ -58,6 +58,9 @@ outputs/milestones/main_evidence_hard_upgrade_phase30/
 outputs/milestones/materials_source_discordance_stress_test/
 outputs/milestones/ctc_decision_utility_main_evidence/
 outputs/milestones/cross_domain_blind_audit_main_evidence/
+outputs/milestones/protocol_claim_alignment/
+outputs/milestones/materials_fixed_budget_scientific_utility/
+outputs/milestones/ctc_scientific_artifact_consequence/
 outputs/milestones/reproducibility_freeze/
 outputs/milestones/generality_reliability/
 outputs/milestones/release_story/
@@ -133,6 +136,27 @@ outputs/milestones/cross_domain_blind_audit_main_evidence/
 The phase30 matrix explicitly keeps OQMD/alex-mp rows as completed negative
 diagnostics and keeps A3 as a high-risk bonus track unless a nonempty frozen
 selection and DFT outcomes exist.
+
+Regenerate the phase31 protocol/claim-alignment guardrails:
+
+```bash
+python scripts/build_phase31_protocol_claim_alignment.py
+```
+
+This command builds:
+
+```text
+outputs/milestones/protocol_claim_alignment/
+outputs/milestones/materials_fixed_budget_scientific_utility/
+outputs/milestones/ctc_scientific_artifact_consequence/
+docs/abstract_claim_scope.md
+```
+
+The phase31 tables assign each candidate headline result exactly one manuscript
+role, require source SHA256 hashes for primary-headline rows, keep CGCNN K=100
+as calibration/validity support, and forbid prospective materials-discovery
+language unless A3 has a frozen nonempty release, at least 25 completed DFT
+outcomes, and primary FTR within the target alpha.
 
 The cross-domain success/refusal map can also be regenerated directly:
 
