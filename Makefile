@@ -1,7 +1,7 @@
 PYTHON ?= python
 PYTHONPATH ?= code/parc_track
 
-.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark reproduce-block-heterogeneity-robustness reproduce-materials-prospective-validation reproduce-materials-alex-mp-a1-a2 reproduce-phase30-main-evidence reproduce-phase31-claim-alignment reproduce-experimental-finalization phase24-freeze-dft-followup phase24-build-unlabeled-pool phase24-filter-public-labels phase24-score-unlabeled-pool phase24-select-dft-arms phase24-export-dft-jobs validate-public-bundle verify-manifest package-release package-release-story package-scientific-release
+.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark reproduce-block-heterogeneity-robustness reproduce-materials-prospective-validation reproduce-materials-alex-mp-a1-a2 reproduce-phase30-main-evidence reproduce-phase31-claim-alignment reproduce-phase32-presubmission reproduce-experimental-finalization phase24-freeze-dft-followup phase24-build-unlabeled-pool phase24-filter-public-labels phase24-score-unlabeled-pool phase24-select-dft-arms phase24-export-dft-jobs validate-public-bundle verify-manifest package-release package-release-story package-scientific-release
 
 test:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q tests
@@ -54,6 +54,9 @@ reproduce-phase30-main-evidence:
 
 reproduce-phase31-claim-alignment:
 	$(PYTHON) scripts/build_phase31_protocol_claim_alignment.py
+
+reproduce-phase32-presubmission:
+	$(PYTHON) scripts/build_phase32_nmi_presubmission_package.py
 
 reproduce-experimental-finalization:
 	$(PYTHON) scripts/build_experimental_finalization_milestones.py
@@ -114,6 +117,7 @@ validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/protocol_claim_alignment
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/materials_fixed_budget_scientific_utility
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ctc_scientific_artifact_consequence
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/nmi_presubmission_package
 
 verify-manifest:
 	sha256sum -c MANIFEST_SHA256.txt

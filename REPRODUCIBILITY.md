@@ -61,6 +61,7 @@ outputs/milestones/cross_domain_blind_audit_main_evidence/
 outputs/milestones/protocol_claim_alignment/
 outputs/milestones/materials_fixed_budget_scientific_utility/
 outputs/milestones/ctc_scientific_artifact_consequence/
+outputs/milestones/nmi_presubmission_package/
 outputs/milestones/reproducibility_freeze/
 outputs/milestones/generality_reliability/
 outputs/milestones/release_story/
@@ -149,6 +150,7 @@ This command builds:
 outputs/milestones/protocol_claim_alignment/
 outputs/milestones/materials_fixed_budget_scientific_utility/
 outputs/milestones/ctc_scientific_artifact_consequence/
+outputs/milestones/nmi_presubmission_package/
 docs/abstract_claim_scope.md
 ```
 
@@ -157,6 +159,18 @@ role, require source SHA256 hashes for primary-headline rows, keep CGCNN K=100
 as calibration/validity support, and forbid prospective materials-discovery
 language unless A3 has a frozen nonempty release, at least 25 completed DFT
 outcomes, and primary FTR within the target alpha.
+
+
+Regenerate the phase32 NMI presubmission package:
+
+```bash
+python scripts/build_phase32_nmi_presubmission_package.py
+```
+
+This command builds the editor-facing inquiry, one-page evidence table,
+abstract draft, desk-risk cold read, referee rationale, and positioning
+document from phase31-approved evidence only. It excludes pending A3 rows and
+external-source diagnostics from positive claims.
 
 The cross-domain success/refusal map can also be regenerated directly:
 
