@@ -1,6 +1,3 @@
 # Independent DFT Source Inventory
 
-This milestone records the A2 independent DFT-source status. The current
-public-safe package contains no local independent Materials Project, OQMD,
-Alexandria, AFLOW, NOMAD, or new-DFT join table. A2 is therefore protocol-only
-until an auditable external source join is supplied.
+OQMD was queried through its public formation-energy API after PARC row reconstruction. Materials Project remains blocked in this run because no API key or local public snapshot is available. Raw WBM structures are private inputs used only for matching and are not redistributed in the public-safe bundle.

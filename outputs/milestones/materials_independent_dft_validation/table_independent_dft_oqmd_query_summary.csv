@@ -1,0 +1,450 @@
+source,chemical_system,api_records_returned,api_query_error,api_timestamp,evidence_status
+OQMD,Ac-As-Pt,173,,2026-05-17 22:34:58,queried_public_api
+OQMD,Ac-Ir-Pt,264,,2026-05-17 22:35:23,queried_public_api
+OQMD,Ac-K-Se,202,,2026-05-17 22:35:39,queried_public_api
+OQMD,Ac-Li-Se,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ac-Na-Se,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ac-P-Pt,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ac-Pd,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ac-Pd-Pt,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ac-Pt,70,,2026-05-17 22:37:17,queried_public_api
+OQMD,Ac-Pt-Rh,274,,2026-05-17 22:37:33,queried_public_api
+OQMD,Ac-Rb-Se,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ac-Se,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ac-Se-Sn,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ac-Se-Tl,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ac-Te,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ag-F,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ag-Pm-Te,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Al-Br-Er,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Al-Ca-F,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Al-Cl-K,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Al-F-Na,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Al-F-Pa,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Al-F-Sr,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Al-Gd-I,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,As-Br,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,As-Br-Er,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,As-Cl,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,As-Gd-I,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,As-Pm-Pt,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Au-Pm-Te,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-Br,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-Br-Er,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-Br-Sr,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-Ca-Cl,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-Ca-F,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-Ca-F-Na,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-Cd-F,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-Cl,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-Cl-Sr,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-Cl-Yb,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-Cu-F,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-Dy-F,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-Er-F,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-Eu-F,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-F,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-F-Gd,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-F-Gd-Li,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-F-Hg,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-F-Ho,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-F-In,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-F-La,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-F-Li,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-F-Li-Pa,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-F-Lu,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-F-Mg,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-F-Na,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-F-Pa,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-F-Sc,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-F-Sm,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-F-Sr,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-F-Tm,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-F-Y,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-F-Yb,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-F-Zn,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-Gd-I,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Ba-I,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Bi-Cl,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Bi-Gd-I,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Bi-Pa-Se,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Br-Ca,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Br-Cd-Se,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Br-Ce,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Br-Cl-Er,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Br-Co,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Br-Cr,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Br-Cu-Er,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Br-Dy,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Br-Er,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Er-F,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Br-Er-Ga,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Er-Ge,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Br-Er-H,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Br-Er-In,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Er-K,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Er-K-Rb,0,TimeoutError: The read operation timed out,,queried_public_api_no_records_or_error
+OQMD,Br-Er-Li-Rb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Er-N,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Er-Na-Rb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Er-Ni,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Er-P,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Er-Pb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Er-Rb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Er-Rh,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Er-Ru,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Er-S,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Er-Sb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Er-Se,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Er-Si,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Er-Sn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Eu,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Fe,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Gd,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Hf,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Hg,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Ho,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-La,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Lu,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Mg,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Mn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Mn-Se,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Mo,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Nd,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Ni,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Pb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Pd,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Pr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Pt,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Pu,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Rb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Sb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Sc,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Sm,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Tb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Tm,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-V,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Y,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Yb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Br-Zr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,C-Gd-I,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-Cd-F,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-Cl,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-Cl-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-Eu-F,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-F,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-F-Ga,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-F-Gd,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-F-Gd-Li,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-F-K,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-F-Li,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-F-Li-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-F-Li-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-F-Li-Tm,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-F-Lu-Na,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-F-Na-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-F-Na-Tm,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-F-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-F-Sc,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-F-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-F-Yb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-F-Zn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-Gd-I,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ca-I,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cd-Co-F,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cd-Cs-Pa-Se,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cd-Er-F,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cd-Eu-F,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cd-F,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cd-F-Ga,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cd-F-Gd,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cd-F-Hg,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cd-F-Ho,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cd-F-In,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cd-F-Mg,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cd-F-Ni,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cd-F-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cd-F-Sc,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cd-F-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cd-F-Tm,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ce-Cl,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ce-F,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ce-F-K,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ce-F-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ce-I,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Co,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Cs,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Cs-Cu,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Cs-Dy,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Cs-Er,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Cs-Gd,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Cs-Ho,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Cs-La,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Cs-Lu,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Cs-Mg,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Cs-Nd,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Cs-Ni,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Cs-Pr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Cs-Rb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Cs-Sc,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Cs-Sm,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Cs-Tb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Cs-Tm,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Cs-Y,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Cs-Zn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Cu,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Cu-K,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Cu-Rb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Dy,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Er,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Eu,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Gd,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Hg,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Ho,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-In,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-In-Rb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Ir,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-K-Lu,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-K-Ni,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-La,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Lu,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Mg,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Mn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Nd,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Ni,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Ni-Rb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Np,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Np-P,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-P,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Pb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Pd,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Pr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Pt,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Pu,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Rb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Rb-Sc,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Rb-Zn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Rh,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Ru,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Sc,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Sm,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Tb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Ti,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Tm,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Y,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Yb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cl-Zn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Co-Cs-F,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Co-F,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Co-F-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Co-Pm-Te,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cr-F-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cr-Pm-Te,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cs-Dy-F,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cs-Eu-F,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cs-F-Hg,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cs-F-Nd,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cs-F-Ni,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cs-F-Ti,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cs-F-Tm,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cs-F-Y,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cs-Pa-Se,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cs-Pa-Se-Zn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cs-Pa-Te,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cs-Pm-Te,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cu-F,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cu-F-K,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cu-F-Na,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cu-F-Ni,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cu-F-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cu-F-Rb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cu-F-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cu-F-Tb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cu-F-Tm,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cu-F-Yb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cu-Gd-I,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cu-K-Pa-Se,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Cu-Pm-Te,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Dy-F-Li,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Dy-F-Li-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Dy-F-Mg,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Dy-F-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Dy-F-Zn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Dy-La-O,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Er-F-Li,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Er-F-Li-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Er-F-Mg,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Er-F-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Er-F-Zn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Er-La-O,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Eu-F-Li,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Eu-F-Mg,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Eu-F-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Eu-F-Yb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Eu-F-Zn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Fe-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Ga-Mg,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Ga-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Ga-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Gd,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Gd-I,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Gd-Li,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Gd-Li-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Gd-Mg,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Gd-Zn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Ge-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Hf-K,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Hf-Li,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Hf-Na,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Hg-Mg,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Hg-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Hg-Rb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Hg-Sc,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Hg-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Hg-Tm,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Ho-Li,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Ho-Li-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Ho-Mg,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Ho-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Ho-Zn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-In,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-In-Mg,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-In-Ni,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-In-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-K-La,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-K-Ti,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-K-Zr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-La-Mg,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-La-Ni,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-La-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Li-Lu,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Li-Mg,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Li-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Li-Pa-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Li-Pa-Yb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Li-Sc,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Li-Sm,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Li-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Li-Sr-Tm,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Li-Tm,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Li-Zn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Li-Zr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Lu-Mg,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Lu-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Lu-Zn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Mg,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Mg-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Mg-Sc,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Mg-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Mg-Tm,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Mg-Y,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Mn-Np,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Mn-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-N-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-N-Pu,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Na-Ni,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Na-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Na-Pd,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Na-Rh,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Na-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Na-Sr-Tm,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Na-Ti,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Na-Tm-Yb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Na-Zr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Nb-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Nd-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Ni,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Ni-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Np,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Np-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-O-Pa,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pa-Pb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pa-Pd,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pa-Pr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pa-Pt,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pa-Pu,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pa-Rh,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pa-Ru,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pa-Sc,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pa-Si,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pa-Sm,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pa-Sn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pa-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pa-Tb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pa-Th,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pa-Tl,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pa-Tm,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pa-U,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pa-V,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pa-Y,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pa-Yb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pa-Zn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pa-Zr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Pu-Rb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Rb-Ti,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Rb-Tm,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Sc-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Sc-Yb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Sc-Zn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Se,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Sr-Yb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Sr-Zn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Ti,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Tm,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Tm-Zn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Y-Zn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,F-Zn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ga-Gd-I,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ga-Pm-Te,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Gd-Ge-I,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Gd-H-I,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Gd-I,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Gd-I-In,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Gd-I-Li,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Gd-I-N,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Gd-I-P,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Gd-I-Pb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Gd-I-Ru,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Gd-I-Sb,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Gd-I-Se,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Gd-I-Si,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Gd-I-Sn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Gd-I-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Gd-I-Te,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ge-Pm-Te,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ho-La-O,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,I-Ru,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,I-Sr,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,In-Pa-Se,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,In-Pm-Te,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ir-Pm,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,K-Pa-Se,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,K-Pa-Te,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,K-Pm-Te,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,La-O,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Li-Pm-Te,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Mg-Pm-Te,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Mn-Pm-Te,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Na-Pa-Se,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Ni-Pm-Te,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Np-Se,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Np-Se-Te,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,P-Pm-Pt,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Pa-Pb-Se,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Pa-Rb-Se,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Pa-Rb-Se-Zn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Pa-Se,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Pa-Se-Sn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Pa-Se-Tl,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Pa-Te,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Pb-Pm-Te,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Pm-Pt,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Pm-Rb-Te,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Pm-Sn-Te,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Pm-Te,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Pm-Te-Zn,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error
+OQMD,Se-Tc,0,HTTPError: HTTP Error 429: Too Many Requests,,queried_public_api_no_records_or_error

@@ -18,12 +18,12 @@ by the original benchmark maintainers.
 - `outputs/milestones/scientific_domain_materials/`: public-safe Matbench Discovery / WBM materials-candidate release tables, source hashes, leakage checks, and controls.
 - `outputs/milestones/scientific_release_success_map/`: consolidated cross-domain release/refusal evidence matrix.
 - `outputs/milestones/fixed_budget_downstream_utility/`, `outputs/milestones/primary_statistics/`, `outputs/milestones/materials_robustness_triad/`, `outputs/milestones/baseline_matrix_final/`, `outputs/milestones/ctc_strict_anchor/`, `outputs/milestones/iwildcam_audit_final/`, and `outputs/milestones/spacenet_real_audit_final/`: experiment-finalization tables derived from completed public-safe evidence.
-- `outputs/milestones/materials_temporal_validation/` and `outputs/milestones/materials_independent_dft_validation/`: A1/A2 protocol-only status packages. They contain feasibility and blocked-status rows, not completed prospective validation results.
+- `outputs/milestones/materials_temporal_validation/` and `outputs/milestones/materials_independent_dft_validation/`: A1 remains a protocol-only status package. A2 contains a completed OQMD exact-structure matching diagnostic with low independent-source coverage; it is not promoted as a primary independent validation result.
 - `outputs/milestones/reproducibility_freeze/` and `outputs/artifact_index.csv`: milestone index and validation commands for the experiment-finalization package.
 
 ## Excluded Data
 
-We do not redistribute raw OVT-B, TAO, BURST, LV-VIS/BURST frames, CTC microscopy images/annotations, SpaceNet imagery/GeoJSON labels, raw WBM crystal structures, raw annotation JSON files, detector outputs containing raw frame crops, model weights, or caches. These assets must be obtained from the original dataset/model maintainers. The materials milestone uses public Matbench Discovery / WBM summary and prediction CSVs; the public package includes only derived result tables and SHA256 hashes.
+We do not redistribute raw OVT-B, TAO, BURST, LV-VIS/BURST frames, CTC microscopy images/annotations, SpaceNet imagery/GeoJSON labels, raw WBM crystal structures, raw OQMD API caches, raw annotation JSON files, detector outputs containing raw frame crops, model weights, or caches. These assets must be obtained from the original dataset/model maintainers. The materials milestone uses public Matbench Discovery / WBM summary and prediction CSVs; the public package includes only derived result tables and SHA256 hashes.
 
 ## Reconstructing Full Experiments
 

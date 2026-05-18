@@ -40,17 +40,22 @@ def test_final_milestones_exist_with_manifests() -> None:
         assert manifest.read_text(encoding="utf-8").strip(), name
 
 
-def test_a1_a2_are_not_promoted_without_external_inputs() -> None:
+def test_a1_is_protocol_only_and_a2_is_low_coverage_diagnostic() -> None:
     temporal = pd.read_csv(MILESTONES / "materials_temporal_validation" / "table_materials_temporal_primary.csv")
     independent = pd.read_csv(
         MILESTONES / "materials_independent_dft_validation" / "table_independent_dft_primary_results.csv"
     )
+    matches = pd.read_csv(
+        MILESTONES / "materials_independent_dft_validation" / "table_independent_dft_candidate_matches.csv"
+    )
     assert not temporal["completed_positive_result"].astype(bool).any()
     assert not independent["completed_positive_result"].astype(bool).any()
     assert temporal["evidence_status"].astype(str).str.contains("protocol_only").all()
-    assert independent["evidence_status"].astype(str).str.contains("protocol_only").all()
+    assert independent["evidence_status"].astype(str).str.contains("completed_independent_oqmd").all()
+    assert independent["evidence_status"].astype(str).str.contains("low_coverage").all()
     assert "timestamp" in temporal["blocker"].iloc[0]
-    assert "join table" in independent["blocker"].iloc[0]
+    assert "exact_structure_match" in set(matches["match_confidence"])
+    assert float(independent["coverage_of_independent_source"].iloc[0]) < 0.60
 
 
 def test_fixed_budget_utility_contains_completed_materials_and_consequence_rows() -> None:

@@ -1,2 +1,2 @@
-comparison,discordance_rate,evidence_status,interpretation
-WBM_vs_independent_DFT,,protocol_only_missing_independent_join_table,not computed without independent source join
+comparison,n_exact_matches,discordance_rate,evidence_status,interpretation
+WBM_vs_OQMD_exact_structure_matches,5,0.8,completed_independent_oqmd_exact_structure_diagnostic_low_coverage,computed on exact-structure OQMD matches only; formula-only hits excluded

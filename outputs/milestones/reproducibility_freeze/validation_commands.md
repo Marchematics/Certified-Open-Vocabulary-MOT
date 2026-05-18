@@ -7,5 +7,6 @@ make validate-public-bundle
 sha256sum -c MANIFEST_SHA256.txt
 ```
 
-The A1/A2 materials prospective-validation rows remain protocol-only until
-timestamped public-label snapshots or independent DFT joins are supplied.
+A1 remains protocol-only until timestamped public-label snapshots are supplied.
+A2 contains a completed low-coverage OQMD exact-structure diagnostic and is not
+promoted as primary independent validation evidence.

@@ -1,1 +1,21 @@
-domain,source,external_label_source,seed,released,independent_FTR,raw_topK_independent_FTR,evidence_status
+domain,source,external_label_source,match_confidence,seed,K,alpha,released,n_raw_topK_exact_matches,n_released_exact_matches,independent_FTR,raw_topK_independent_FTR,coverage_raw_topK,coverage_released,PARC_vs_raw_delta,evidence_status
+materials_discovery,ALIGNN-FF,OQMD public API,exact_structure_match,0,300,0.1,57,1,0,,1.0,0.0033333333333333335,0.0,,completed_independent_oqmd_exact_structure_diagnostic
+materials_discovery,ALIGNN-FF,OQMD public API,exact_structure_match,1,300,0.1,166,3,1,1.0,1.0,0.01,0.006024096385542169,0.0,completed_independent_oqmd_exact_structure_diagnostic
+materials_discovery,ALIGNN-FF,OQMD public API,exact_structure_match,2,300,0.1,163,4,1,1.0,0.75,0.013333333333333334,0.006134969325153374,-0.25,completed_independent_oqmd_exact_structure_diagnostic
+materials_discovery,ALIGNN-FF,OQMD public API,exact_structure_match,3,300,0.1,41,5,0,,0.8,0.016666666666666666,0.0,,completed_independent_oqmd_exact_structure_diagnostic
+materials_discovery,ALIGNN-FF,OQMD public API,exact_structure_match,4,300,0.1,103,4,1,1.0,0.75,0.013333333333333334,0.009708737864077669,-0.25,completed_independent_oqmd_exact_structure_diagnostic
+materials_discovery,ALIGNN-FF,OQMD public API,exact_structure_match,5,300,0.1,151,4,1,1.0,0.75,0.013333333333333334,0.006622516556291391,-0.25,completed_independent_oqmd_exact_structure_diagnostic
+materials_discovery,ALIGNN-FF,OQMD public API,exact_structure_match,6,300,0.1,39,4,0,,0.75,0.013333333333333334,0.0,,completed_independent_oqmd_exact_structure_diagnostic
+materials_discovery,ALIGNN-FF,OQMD public API,exact_structure_match,7,300,0.1,101,4,1,1.0,0.75,0.013333333333333334,0.009900990099009901,-0.25,completed_independent_oqmd_exact_structure_diagnostic
+materials_discovery,ALIGNN-FF,OQMD public API,exact_structure_match,8,300,0.1,64,1,0,,1.0,0.0033333333333333335,0.0,,completed_independent_oqmd_exact_structure_diagnostic
+materials_discovery,ALIGNN-FF,OQMD public API,exact_structure_match,9,300,0.1,109,1,0,,1.0,0.0033333333333333335,0.0,,completed_independent_oqmd_exact_structure_diagnostic
+materials_discovery,ALIGNN-FF,OQMD public API,exact_structure_match,10,300,0.1,126,5,1,1.0,0.8,0.016666666666666666,0.007936507936507936,-0.19999999999999996,completed_independent_oqmd_exact_structure_diagnostic
+materials_discovery,ALIGNN-FF,OQMD public API,exact_structure_match,11,300,0.1,82,5,1,1.0,0.8,0.016666666666666666,0.012195121951219513,-0.19999999999999996,completed_independent_oqmd_exact_structure_diagnostic
+materials_discovery,ALIGNN-FF,OQMD public API,exact_structure_match,12,300,0.1,93,1,0,,1.0,0.0033333333333333335,0.0,,completed_independent_oqmd_exact_structure_diagnostic
+materials_discovery,ALIGNN-FF,OQMD public API,exact_structure_match,13,300,0.1,126,0,0,,,0.0,0.0,,completed_independent_oqmd_exact_structure_diagnostic
+materials_discovery,ALIGNN-FF,OQMD public API,exact_structure_match,14,300,0.1,129,1,0,,1.0,0.0033333333333333335,0.0,,completed_independent_oqmd_exact_structure_diagnostic
+materials_discovery,ALIGNN-FF,OQMD public API,exact_structure_match,15,300,0.1,176,0,0,,,0.0,0.0,,completed_independent_oqmd_exact_structure_diagnostic
+materials_discovery,ALIGNN-FF,OQMD public API,exact_structure_match,16,300,0.1,43,3,0,,0.6666666666666666,0.01,0.0,,completed_independent_oqmd_exact_structure_diagnostic
+materials_discovery,ALIGNN-FF,OQMD public API,exact_structure_match,17,300,0.1,191,1,0,,1.0,0.0033333333333333335,0.0,,completed_independent_oqmd_exact_structure_diagnostic
+materials_discovery,ALIGNN-FF,OQMD public API,exact_structure_match,18,300,0.1,211,4,1,1.0,1.0,0.013333333333333334,0.004739336492890996,0.0,completed_independent_oqmd_exact_structure_diagnostic
+materials_discovery,ALIGNN-FF,OQMD public API,exact_structure_match,19,300,0.1,131,3,1,1.0,0.6666666666666666,0.01,0.007633587786259542,-0.33333333333333337,completed_independent_oqmd_exact_structure_diagnostic

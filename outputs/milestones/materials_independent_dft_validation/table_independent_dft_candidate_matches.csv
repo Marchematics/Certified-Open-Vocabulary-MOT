@@ -1,0 +1,702 @@
+material_id,formula,chemical_system,match_confidence,oqmd_match_count,oqmd_entry_ids,oqmd_stability_min,oqmd_stable_exact,formula_only_candidate_count,wbm_stable_DFT,wbm_e_above_hull
+wbm-4-3401,Ac1 As1 Pt2,Ac-As-Pt,formula_only_no_structure_match,0,,,,1,True,-0.618189
+wbm-1-22490,Ac2 Ir1 Pt1,Ac-Ir-Pt,exact_structure_match,1,402315,0.14201387750000027,False,2,True,-0.746781
+wbm-1-23080,Ac1 K1 Se2,Ac-K-Se,formula_only_no_structure_match,0,,,,1,True,-0.648392
+wbm-1-26351,Ac1 Li1 Se2,Ac-Li-Se,no_formula_match,0,,,,0,True,-0.5683
+wbm-1-33619,Ac1 Na1 Se2,Ac-Na-Se,no_formula_match,0,,,,0,True,-0.667133
+wbm-4-29541,Ac1 P1 Pt2,Ac-P-Pt,no_formula_match,0,,,,0,True,-0.508007
+wbm-2-39784,Ac1 Pd1,Ac-Pd,no_formula_match,0,,,,0,True,-0.707457
+wbm-1-47068,Ac2 Pd1 Pt1,Ac-Pd-Pt,no_formula_match,0,,,,0,True,-0.828243
+wbm-2-40308,Ac1 Pt1,Ac-Pt,exact_structure_match,2,305945;337487,0.16269584500000045,False,7,True,-0.994646
+wbm-3-60666,Ac2 Pt6,Ac-Pt,formula_only_no_structure_match,0,,,,4,True,-0.73546
+wbm-1-47283,Ac2 Pt6,Ac-Pt,exact_structure_match,1,321574,0.20102592666666674,False,4,True,-0.691066
+wbm-2-40300,Ac1 Pt5,Ac-Pt,exact_structure_match,1,1880141,0.0,True,1,True,-0.747818
+wbm-2-41173,Ac2 Pt1 Rh1,Ac-Pt-Rh,exact_structure_match,1,402230,0.10262361000000031,False,1,True,-0.773999
+wbm-1-52444,Ac1 Rb1 Se2,Ac-Rb-Se,no_formula_match,0,,,,0,True,-0.588248
+wbm-1-52568,Ac4 Se6,Ac-Se,no_formula_match,0,,,,0,True,-1.128637
+wbm-2-44821,Ac1 Se2 Sn1,Ac-Se-Sn,no_formula_match,0,,,,0,True,-0.31081
+wbm-1-52527,Ac1 Se2 Tl1,Ac-Se-Tl,no_formula_match,0,,,,0,True,-0.591781
+wbm-2-49902,Ac4 Te6,Ac-Te,no_formula_match,0,,,,0,True,-0.810182
+wbm-5-6218,Ag1 F6,Ag-F,no_formula_match,0,,,,0,True,-0.036677
+wbm-1-412,Ag1 Pm1 Te2,Ag-Pm-Te,no_formula_match,0,,,,0,True,-0.66647
+wbm-2-2321,Al1 Br3 Er3,Al-Br-Er,no_formula_match,0,,,,0,True,-0.459001
+wbm-3-3614,Al2 Br6 Er2,Al-Br-Er,no_formula_match,0,,,,0,True,-0.100719
+wbm-5-6222,Al1 Ca1 F6,Al-Ca-F,no_formula_match,0,,,,0,False,0.010344
+wbm-2-15292,Al1 Ca1 F6,Al-Ca-F,no_formula_match,0,,,,0,False,0.020547
+wbm-2-2420,Al1 Cl6 K2,Al-Cl-K,no_formula_match,0,,,,0,True,-0.026631
+wbm-4-10888,Al1 F6 Na1,Al-F-Na,no_formula_match,0,,,,0,False,0.043835
+wbm-5-6249,Al1 F6 Pa1,Al-F-Pa,no_formula_match,0,,,,0,True,-1.82236
+wbm-5-6248,Al1 F6 Pa1,Al-F-Pa,no_formula_match,0,,,,0,True,-1.815007
+wbm-5-6253,Al1 F6 Sr1,Al-F-Sr,no_formula_match,0,,,,0,False,0.017327
+wbm-3-4510,Al1 Gd3 I3,Al-Gd-I,no_formula_match,0,,,,0,True,-0.497011
+wbm-1-3483,As2 Br10,As-Br,no_formula_match,0,,,,0,True,-0.065736
+wbm-2-4001,As1 Br3 Er3,As-Br-Er,no_formula_match,0,,,,0,True,-1.048727
+wbm-2-3984,As1 Br2 Er2,As-Br-Er,no_formula_match,0,,,,0,True,-1.238349
+wbm-3-6307,As1 Br1 Er2,As-Br-Er,no_formula_match,0,,,,0,True,-0.593304
+wbm-2-10005,As1 Cl11,As-Cl,no_formula_match,0,,,,0,True,-0.249304
+wbm-2-4112,As1 Gd2 I2,As-Gd-I,no_formula_match,0,,,,0,True,-1.009602
+wbm-2-4129,As1 Gd2 I1,As-Gd-I,no_formula_match,0,,,,0,True,-0.531814
+wbm-5-2072,As1 Pm1 Pt2,As-Pm-Pt,no_formula_match,0,,,,0,True,-0.568497
+wbm-2-49858,Au1 Pm1 Te2,Au-Pm-Te,no_formula_match,0,,,,0,True,-0.509188
+wbm-2-6993,Ba2 Br8,Ba-Br,no_formula_match,0,,,,0,True,-0.125122
+wbm-4-4752,Ba2 Br6,Ba-Br,no_formula_match,0,,,,0,False,0.055985
+wbm-2-6842,Ba2 Br6,Ba-Br,no_formula_match,0,,,,0,True,-0.025478
+wbm-5-3055,Ba2 Br6,Ba-Br,no_formula_match,0,,,,0,True,-0.082518
+wbm-4-4751,Ba2 Br6,Ba-Br,no_formula_match,0,,,,0,True,-0.142635
+wbm-3-10586,Ba1 Br8 Er2,Ba-Br-Er,no_formula_match,0,,,,0,True,-1.593117
+wbm-2-6980,Ba2 Br8 Er2,Ba-Br-Er,no_formula_match,0,,,,0,True,-0.956614
+wbm-3-10602,Ba1 Br8 Sr2,Ba-Br-Sr,no_formula_match,0,,,,0,True,-0.017929
+wbm-1-10803,Ba1 Ca2 Cl8,Ba-Ca-Cl,no_formula_match,0,,,,0,True,-0.027628
+wbm-3-22332,Ba1 Ca1 F6,Ba-Ca-F,no_formula_match,0,,,,0,False,0.152061
+wbm-1-16611,Ba1 Ca2 F8,Ba-Ca-F,no_formula_match,0,,,,0,False,0.039482
+wbm-4-11329,Ba1 Ca1 F8 Na2,Ba-Ca-F-Na,no_formula_match,0,,,,0,False,0.002203
+wbm-4-10422,Ba1 Cd1 F6,Ba-Cd-F,no_formula_match,0,,,,0,False,0.049388
+wbm-2-10321,Ba2 Cl8,Ba-Cl,no_formula_match,0,,,,0,True,-0.163276
+wbm-2-10113,Ba2 Cl6,Ba-Cl,no_formula_match,0,,,,0,False,0.121676
+wbm-2-10112,Ba2 Cl6,Ba-Cl,no_formula_match,0,,,,0,True,-0.054894
+wbm-2-10322,Ba2 Cl8,Ba-Cl,no_formula_match,0,,,,0,True,-0.198469
+wbm-1-10810,Ba1 Cl8 Sr2,Ba-Cl-Sr,no_formula_match,0,,,,0,True,-0.006819
+wbm-1-10801,Ba1 Cl8 Yb2,Ba-Cl-Yb,no_formula_match,0,,,,0,True,-0.033691
+wbm-1-15667,Ba1 Cu1 F6,Ba-Cu-F,no_formula_match,0,,,,0,True,-0.259077
+wbm-1-16618,Ba1 Cu2 F8,Ba-Cu-F,no_formula_match,0,,,,0,True,-0.254627
+wbm-2-15329,Ba1 Dy1 F6,Ba-Dy-F,no_formula_match,0,,,,0,False,0.077625
+wbm-2-15330,Ba1 Er1 F6,Ba-Er-F,no_formula_match,0,,,,0,False,0.083555
+wbm-3-22291,Ba1 Eu1 F6,Ba-Eu-F,no_formula_match,0,,,,0,False,0.001566
+wbm-3-22292,Ba1 Eu1 F6,Ba-Eu-F,no_formula_match,0,,,,0,False,0.00104
+wbm-4-10193,Ba2 F6,Ba-F,no_formula_match,0,,,,0,False,0.158262
+wbm-2-15331,Ba1 F6 Gd1,Ba-F-Gd,no_formula_match,0,,,,0,True,-0.071557
+wbm-4-10380,Ba1 F6 Gd1,Ba-F-Gd,no_formula_match,0,,,,0,True,-0.082801
+wbm-3-36021,Ba1 F8 Gd1 Li2,Ba-F-Gd-Li,no_formula_match,0,,,,0,True,-0.084854
+wbm-5-6269,Ba1 F6 Hg1,Ba-F-Hg,no_formula_match,0,,,,0,True,-0.08981
+wbm-4-10381,Ba1 F6 Hg1,Ba-F-Hg,no_formula_match,0,,,,0,True,-0.096296
+wbm-3-22296,Ba1 F6 Hg1,Ba-F-Hg,no_formula_match,0,,,,0,True,-0.12929
+wbm-2-15333,Ba1 F6 Ho1,Ba-F-Ho,no_formula_match,0,,,,0,False,0.068383
+wbm-1-15732,Ba1 F6 In1,Ba-F-In,no_formula_match,0,,,,0,False,0.028388
+wbm-3-22300,Ba1 F6 La1,Ba-F-La,no_formula_match,0,,,,0,False,0.120055
+wbm-3-36015,Ba1 F6 Li2,Ba-F-Li,no_formula_match,0,,,,0,False,0.064794
+wbm-4-17914,Ba1 F8 Li2 Pa1,Ba-F-Li-Pa,no_formula_match,0,,,,0,True,-1.741868
+wbm-2-15335,Ba1 F6 Lu1,Ba-F-Lu,no_formula_match,0,,,,0,False,0.063113
+wbm-3-22981,Ba1 F6 Mg1,Ba-F-Mg,no_formula_match,0,,,,0,False,0.099077
+wbm-3-22113,Ba2 F8 Na2,Ba-F-Na,no_formula_match,0,,,,0,False,0.015752
+wbm-4-10387,Ba1 F6 Pa1,Ba-F-Pa,no_formula_match,0,,,,0,True,-2.61905
+wbm-3-23431,Ba1 F6 Sc1,Ba-F-Sc,no_formula_match,0,,,,0,False,0.053242
+wbm-1-16322,Ba1 F6 Sc1,Ba-F-Sc,no_formula_match,0,,,,0,False,0.022339
+wbm-3-22315,Ba1 F6 Sm1,Ba-F-Sm,no_formula_match,0,,,,0,False,0.113803
+wbm-3-23554,Ba1 F6 Sr1,Ba-F-Sr,no_formula_match,0,,,,0,False,0.176781
+wbm-2-15340,Ba1 F6 Tm1,Ba-F-Tm,no_formula_match,0,,,,0,False,0.075942
+wbm-2-16410,Ba1 F6 Y1,Ba-F-Y,no_formula_match,0,,,,0,False,0.092619
+wbm-1-16608,Ba1 F8 Yb2,Ba-F-Yb,no_formula_match,0,,,,0,False,0.044946
+wbm-3-23746,Ba1 F6 Zn1,Ba-F-Zn,no_formula_match,0,,,,0,False,0.024472
+wbm-1-21905,Ba1 Gd2 I8,Ba-Gd-I,no_formula_match,0,,,,0,True,-1.102237
+wbm-1-21845,Ba2 Gd2 I8,Ba-Gd-I,no_formula_match,0,,,,0,True,-0.722716
+wbm-3-33636,Ba2 I6,Ba-I,no_formula_match,0,,,,0,True,-0.006306
+wbm-2-10006,Bi1 Cl11,Bi-Cl,no_formula_match,0,,,,0,True,-0.29983
+wbm-1-10533,Bi2 Cl10,Bi-Cl,no_formula_match,0,,,,0,True,-0.023836
+wbm-5-10269,Bi1 Gd3 I3,Bi-Gd-I,no_formula_match,0,,,,0,True,-0.678713
+wbm-5-10232,Bi1 Gd2 I2,Bi-Gd-I,no_formula_match,0,,,,0,True,-0.771457
+wbm-5-19513,Bi2 Pa2 Se2,Bi-Pa-Se,no_formula_match,0,,,,0,True,-0.311053
+wbm-4-5718,Br6 Ca2,Br-Ca,no_formula_match,0,,,,0,True,-0.052818
+wbm-1-8396,Br6 Ca2,Br-Ca,no_formula_match,0,,,,0,True,-0.014015
+wbm-4-5717,Br6 Ca2,Br-Ca,no_formula_match,0,,,,0,True,-0.084834
+wbm-3-12828,Br6 Ca2,Br-Ca,no_formula_match,0,,,,0,False,0.013454
+wbm-3-12827,Br6 Ca2,Br-Ca,no_formula_match,0,,,,0,False,0.035961
+wbm-3-12832,Br8 Ca2,Br-Ca,no_formula_match,0,,,,0,True,-0.152682
+wbm-1-8415,Br8 Ca2,Br-Ca,no_formula_match,0,,,,0,True,-0.14796
+wbm-5-19510,Br2 Cd1 Se6,Br-Cd-Se,no_formula_match,0,,,,0,True,-0.253482
+wbm-1-6398,Br8 Ce2,Br-Ce,no_formula_match,0,,,,0,True,-0.188298
+wbm-2-6996,Br8 Ce2,Br-Ce,no_formula_match,0,,,,0,True,-0.204244
+wbm-1-6397,Br8 Ce2,Br-Ce,no_formula_match,0,,,,0,True,-0.18754
+wbm-3-15228,Br4 Cl4 Er4,Br-Cl-Er,no_formula_match,0,,,,0,True,-0.771256
+wbm-3-16744,Br8 Co2,Br-Co,no_formula_match,0,,,,0,True,-0.237985
+wbm-3-16745,Br10 Co2,Br-Co,no_formula_match,0,,,,0,True,-0.287516
+wbm-1-11501,Br6 Co2,Br-Co,no_formula_match,0,,,,0,True,-0.267691
+wbm-4-7615,Br6 Co2,Br-Co,no_formula_match,0,,,,0,True,-0.267131
+wbm-3-16740,Br6 Co2,Br-Co,no_formula_match,0,,,,0,True,-0.251291
+wbm-2-12544,Br10 Cr2,Br-Cr,no_formula_match,0,,,,0,True,-0.066665
+wbm-5-5735,Br2 Cu2 Er2,Br-Cu-Er,no_formula_match,0,,,,0,True,-0.712137
+wbm-2-7016,Br8 Dy2,Br-Dy,no_formula_match,0,,,,0,True,-0.015942
+wbm-1-6405,Br8 Dy2,Br-Dy,no_formula_match,0,,,,0,True,-0.005934
+wbm-1-6404,Br8 Dy2,Br-Dy,no_formula_match,0,,,,0,True,-0.073443
+wbm-1-6237,Br6 Er2,Br-Er,no_formula_match,0,,,,0,True,-2.371134
+wbm-2-6860,Br6 Er2,Br-Er,no_formula_match,0,,,,0,True,-2.37129
+wbm-1-6239,Br6 Er2,Br-Er,no_formula_match,0,,,,0,True,-2.303959
+wbm-2-6861,Br6 Er2,Br-Er,no_formula_match,0,,,,0,True,-2.319751
+wbm-3-10261,Br6 Er2,Br-Er,no_formula_match,0,,,,0,True,-2.300818
+wbm-2-7017,Br8 Er2,Br-Er,no_formula_match,0,,,,0,True,-1.859184
+wbm-1-6406,Br8 Er2,Br-Er,no_formula_match,0,,,,0,True,-1.908747
+wbm-1-6407,Br8 Er2,Br-Er,no_formula_match,0,,,,0,True,-1.839014
+wbm-3-10122,Br8 Er4,Br-Er,no_formula_match,0,,,,0,True,-1.981241
+wbm-3-10123,Br2 Er1,Br-Er,no_formula_match,0,,,,0,True,-2.044082
+wbm-3-10124,Br2 Er1,Br-Er,no_formula_match,0,,,,0,True,-1.980797
+wbm-1-6238,Br6 Er2,Br-Er,no_formula_match,0,,,,0,True,-2.30994
+wbm-2-6859,Br6 Er4,Br-Er,no_formula_match,0,,,,0,True,-1.862534
+wbm-2-7138,Br2 Er2,Br-Er,no_formula_match,0,,,,0,True,-1.517872
+wbm-3-24009,Br2 Er2 F2,Br-Er-F,no_formula_match,0,,,,0,True,-0.498245
+wbm-1-18634,Br3 Er3 Ga1,Br-Er-Ga,no_formula_match,0,,,,0,True,-0.72204
+wbm-3-28622,Br6 Er2 Ga2,Br-Er-Ga,no_formula_match,0,,,,0,True,-0.515759
+wbm-2-18899,Br2 Er2 Ga2,Br-Er-Ga,no_formula_match,0,,,,0,True,-0.520349
+wbm-5-9447,Br3 Er3 Ge1,Br-Er-Ge,no_formula_match,0,,,,0,True,-0.839259
+wbm-2-20289,Br2 Er2 Ge1,Br-Er-Ge,no_formula_match,0,,,,0,True,-0.912718
+wbm-4-14820,Br2 Er2 Ge1,Br-Er-Ge,no_formula_match,0,,,,0,True,-0.912611
+wbm-2-20290,Br2 Er2 Ge1,Br-Er-Ge,no_formula_match,0,,,,0,True,-0.912731
+wbm-1-21043,Br4 Er2 H2,Br-Er-H,no_formula_match,0,,,,0,True,-1.567629
+wbm-2-21738,Br4 Er4 H2,Br-Er-H,no_formula_match,0,,,,0,True,-1.241707
+wbm-2-21760,Br2 Er2 H2,Br-Er-H,no_formula_match,0,,,,0,True,-1.038636
+wbm-2-21759,Br2 Er2 H2,Br-Er-H,no_formula_match,0,,,,0,True,-0.821166
+wbm-3-10275,Br6 Er2 In2,Br-Er-In,no_formula_match,0,,,,0,True,-0.587948
+wbm-2-6880,Br6 Er2 In2,Br-Er-In,no_formula_match,0,,,,0,True,-0.572002
+wbm-4-17281,Br6 Er1 K2,Br-Er-K,no_formula_match,0,,,,0,True,-0.973023
+wbm-2-23142,Br6 Er2 K2,Br-Er-K,no_formula_match,0,,,,0,True,-1.069375
+wbm-3-34798,Br6 Er1 K2,Br-Er-K,no_formula_match,0,,,,0,True,-0.97205
+wbm-3-34978,Br6 Er1 K3,Br-Er-K,no_formula_match,0,,,,0,True,-0.928315
+wbm-3-35118,Br6 Er1 K1 Rb2,Br-Er-K-Rb,no_formula_match,0,,,,0,True,-0.910099
+wbm-3-36718,Br6 Er1 Li1 Rb2,Br-Er-Li-Rb,no_formula_match,0,,,,0,True,-0.635276
+wbm-2-29369,Br6 Er4 N2,Br-Er-N,no_formula_match,0,,,,0,True,-1.569984
+wbm-2-29348,Br2 Er2 N1,Br-Er-N,no_formula_match,0,,,,0,True,-1.065943
+wbm-1-31604,Br2 Er2 N2,Br-Er-N,no_formula_match,0,,,,0,True,-0.201925
+wbm-1-31603,Br2 Er2 N2,Br-Er-N,no_formula_match,0,,,,0,True,-0.238789
+wbm-3-44771,Br2 Er4 N2,Br-Er-N,no_formula_match,0,,,,0,True,-0.548562
+wbm-2-29383,Br1 Er2 N1,Br-Er-N,no_formula_match,0,,,,0,True,-0.521915
+wbm-1-31602,Br2 Er2 N2,Br-Er-N,no_formula_match,0,,,,0,True,-0.286443
+wbm-3-46128,Br6 Er1 Na1 Rb2,Br-Er-Na-Rb,no_formula_match,0,,,,0,True,-0.636921
+wbm-4-24375,Br2 Er2 Ni2,Br-Er-Ni,no_formula_match,0,,,,0,True,-0.741684
+wbm-3-58241,Br3 Er3 P1,Br-Er-P,no_formula_match,0,,,,0,True,-0.957654
+wbm-1-45469,Br2 Er2 P1,Br-Er-P,no_formula_match,0,,,,0,True,-1.191717
+wbm-3-58261,Br1 Er2 P1,Br-Er-P,no_formula_match,0,,,,0,True,-0.621559
+wbm-3-10428,Br4 Er1 Pb1,Br-Er-Pb,no_formula_match,0,,,,0,True,-1.040832
+wbm-4-4706,Br2 Er2 Pb1,Br-Er-Pb,no_formula_match,0,,,,0,True,-0.614773
+wbm-4-4705,Br2 Er2 Pb1,Br-Er-Pb,no_formula_match,0,,,,0,True,-0.615149
+wbm-3-10532,Br6 Er1 Rb2,Br-Er-Rb,no_formula_match,0,,,,0,True,-1.023884
+wbm-3-10531,Br6 Er1 Rb2,Br-Er-Rb,no_formula_match,0,,,,0,True,-1.022087
+wbm-3-10313,Br6 Er2 Rb2,Br-Er-Rb,no_formula_match,0,,,,0,True,-1.085488
+wbm-5-3090,Br2 Er2 Rh2,Br-Er-Rh,no_formula_match,0,,,,0,True,-0.559693
+wbm-5-3100,Br2 Er2 Ru2,Br-Er-Ru,no_formula_match,0,,,,0,True,-0.614694
+wbm-3-65363,Br2 Er2 S1,Br-Er-S,no_formula_match,0,,,,0,True,-1.298804
+wbm-3-65379,Br2 Er2 S2,Br-Er-S,no_formula_match,0,,,,0,True,-0.929136
+wbm-3-10338,Br3 Er3 Sb1,Br-Er-Sb,no_formula_match,0,,,,0,True,-0.817448
+wbm-3-10163,Br2 Er2 Sb1,Br-Er-Sb,no_formula_match,0,,,,0,True,-0.938287
+wbm-3-68170,Br2 Er2 Se1,Br-Er-Se,no_formula_match,0,,,,0,True,-1.160835
+wbm-5-19526,Br2 Er2 Se2,Br-Er-Se,no_formula_match,0,,,,0,True,-0.975843
+wbm-5-20078,Br2 Er2 Si1,Br-Er-Si,no_formula_match,0,,,,0,True,-0.765488
+wbm-4-35480,Br2 Er2 Si1,Br-Er-Si,no_formula_match,0,,,,0,True,-0.765514
+wbm-3-70437,Br2 Er2 Si1,Br-Er-Si,no_formula_match,0,,,,0,True,-0.765335
+wbm-3-70438,Br2 Er3 Si1,Br-Er-Si,no_formula_match,0,,,,0,True,-0.435293
+wbm-4-4791,Br4 Er1 Sn1,Br-Er-Sn,no_formula_match,0,,,,0,True,-0.66639
+wbm-3-10187,Br2 Er2 Sn1,Br-Er-Sn,no_formula_match,0,,,,0,True,-0.744002
+wbm-3-10186,Br2 Er2 Sn1,Br-Er-Sn,no_formula_match,0,,,,0,True,-0.744093
+wbm-3-10361,Br6 Er2 Sn2,Br-Er-Sn,no_formula_match,0,,,,0,True,-0.472896
+wbm-1-6408,Br8 Eu2,Br-Eu,no_formula_match,0,,,,0,True,-0.095968
+wbm-2-17454,Br10 Fe2,Br-Fe,no_formula_match,0,,,,0,True,-0.147232
+wbm-1-6411,Br8 Gd2,Br-Gd,no_formula_match,0,,,,0,False,0.026413
+wbm-2-7019,Br8 Gd2,Br-Gd,no_formula_match,0,,,,0,False,0.019083
+wbm-1-6410,Br8 Gd2,Br-Gd,no_formula_match,0,,,,0,True,-0.03382
+wbm-1-6476,Br10 Hf2,Br-Hf,no_formula_match,0,,,,0,True,-0.042086
+wbm-2-6867,Br6 Hg2,Br-Hg,no_formula_match,0,,,,0,False,0.085285
+wbm-2-7020,Br8 Ho2,Br-Ho,no_formula_match,0,,,,0,True,-0.021036
+wbm-1-6415,Br8 Ho2,Br-Ho,no_formula_match,0,,,,0,True,-0.07457
+wbm-1-6416,Br8 Ho2,Br-Ho,no_formula_match,0,,,,0,True,-0.006043
+wbm-1-6423,Br8 La2,Br-La,no_formula_match,0,,,,0,True,-0.000477
+wbm-3-10439,Br8 La2,Br-La,no_formula_match,0,,,,0,False,0.073293
+wbm-2-7023,Br8 Lu2,Br-Lu,no_formula_match,0,,,,0,True,-0.017486
+wbm-1-6424,Br8 Lu2,Br-Lu,no_formula_match,0,,,,0,True,-0.054862
+wbm-1-6425,Br8 Lu2,Br-Lu,no_formula_match,0,,,,0,False,0.01868
+wbm-2-25692,Br8 Mg2,Br-Mg,no_formula_match,0,,,,0,True,-0.168809
+wbm-3-38575,Br8 Mg2,Br-Mg,no_formula_match,0,,,,0,True,-0.199022
+wbm-3-38574,Br8 Mg2,Br-Mg,no_formula_match,0,,,,0,True,-0.109247
+wbm-3-38571,Br6 Mg2,Br-Mg,no_formula_match,0,,,,0,False,0.018379
+wbm-3-38570,Br6 Mg2,Br-Mg,no_formula_match,0,,,,0,False,0.045805
+wbm-1-27534,Br6 Mg2,Br-Mg,no_formula_match,0,,,,0,False,0.088092
+wbm-2-27627,Br10 Mn2,Br-Mn,no_formula_match,0,,,,0,True,-0.327941
+wbm-3-41495,Br6 Mn2,Br-Mn,no_formula_match,0,,,,0,True,-0.22323
+wbm-2-27626,Br8 Mn2,Br-Mn,no_formula_match,0,,,,0,True,-0.301293
+wbm-2-27624,Br6 Mn2,Br-Mn,no_formula_match,0,,,,0,True,-0.18961
+wbm-1-29475,Br6 Mn2,Br-Mn,no_formula_match,0,,,,0,False,0.072675
+wbm-4-21734,Br2 Mn1 Se6,Br-Mn-Se,no_formula_match,0,,,,0,True,-0.247282
+wbm-1-6491,Br6 Mo1,Br-Mo,no_formula_match,0,,,,0,True,-0.340295
+wbm-1-6428,Br8 Nd2,Br-Nd,no_formula_match,0,,,,0,False,0.000381
+wbm-3-48753,Br8 Ni2,Br-Ni,no_formula_match,0,,,,0,True,-0.161914
+wbm-1-35252,Br6 Ni2,Br-Ni,no_formula_match,0,,,,0,True,-0.128574
+wbm-1-6431,Br8 Pb2,Br-Pb,no_formula_match,0,,,,0,True,-0.130446
+wbm-4-4766,Br6 Pb2,Br-Pb,no_formula_match,0,,,,0,False,0.001031
+wbm-3-10304,Br6 Pb2,Br-Pb,no_formula_match,0,,,,0,True,-0.081054
+wbm-4-4786,Br8 Pd2,Br-Pd,no_formula_match,0,,,,0,True,-0.224522
+wbm-1-6280,Br6 Pd2,Br-Pd,no_formula_match,0,,,,0,True,-0.136665
+wbm-4-4767,Br6 Pd2,Br-Pd,no_formula_match,0,,,,0,True,-0.142522
+wbm-1-6435,Br8 Pr2,Br-Pr,no_formula_match,0,,,,0,True,-0.005811
+wbm-3-10451,Br8 Pr2,Br-Pr,no_formula_match,0,,,,0,True,-0.027901
+wbm-4-4787,Br8 Pt2,Br-Pt,no_formula_match,0,,,,0,True,-0.154458
+wbm-1-6437,Br8 Pu2,Br-Pu,no_formula_match,0,,,,0,True,-0.123477
+wbm-1-6436,Br8 Pu2,Br-Pu,no_formula_match,0,,,,0,True,-0.128597
+wbm-3-10159,Br8 Rb4,Br-Rb,no_formula_match,0,,,,0,False,0.020039
+wbm-2-6782,Br11 Sb1,Br-Sb,no_formula_match,0,,,,0,True,-0.370614
+wbm-2-44138,Br8 Sc2,Br-Sc,no_formula_match,0,,,,0,True,-0.013844
+wbm-1-51487,Br8 Sc2,Br-Sc,no_formula_match,0,,,,0,False,0.055508
+wbm-1-6454,Br8 Sm2,Br-Sm,no_formula_match,0,,,,0,False,5.5e-05
+wbm-3-10464,Br8 Sm2,Br-Sm,no_formula_match,0,,,,0,True,-0.040612
+wbm-2-6957,Br6 Sr2,Br-Sr,no_formula_match,0,,,,0,True,-0.017085
+wbm-1-6460,Br8 Sr2,Br-Sr,no_formula_match,0,,,,0,True,-0.237261
+wbm-4-4775,Br6 Sr2,Br-Sr,no_formula_match,0,,,,0,True,-0.070771
+wbm-3-10376,Br6 Sr2,Br-Sr,no_formula_match,0,,,,0,False,0.047107
+wbm-1-6358,Br6 Sr2,Br-Sr,no_formula_match,0,,,,0,False,0.054019
+wbm-5-3063,Br6 Sr2,Br-Sr,no_formula_match,0,,,,0,True,-0.090365
+wbm-1-6461,Br8 Sr2,Br-Sr,no_formula_match,0,,,,0,True,-0.161811
+wbm-3-10473,Br8 Sr2,Br-Sr,no_formula_match,0,,,,0,True,-0.1652
+wbm-2-7059,Br8 Tb2,Br-Tb,no_formula_match,0,,,,0,True,-0.019561
+wbm-1-6464,Br8 Tb2,Br-Tb,no_formula_match,0,,,,0,True,-0.014424
+wbm-2-7062,Br8 Tm2,Br-Tm,no_formula_match,0,,,,0,True,-0.017631
+wbm-1-6465,Br8 Tm2,Br-Tm,no_formula_match,0,,,,0,True,-0.062807
+wbm-1-6466,Br8 Tm2,Br-Tm,no_formula_match,0,,,,0,False,0.008113
+wbm-1-59200,Br10 V2,Br-V,no_formula_match,0,,,,0,True,-0.330503
+wbm-2-50812,Br8 V2,Br-V,no_formula_match,0,,,,0,True,-0.270783
+wbm-1-6471,Br8 Y2,Br-Y,no_formula_match,0,,,,0,True,-0.024177
+wbm-1-6472,Br8 Y2,Br-Y,no_formula_match,0,,,,0,False,0.044318
+wbm-1-6380,Br6 Yb2,Br-Yb,no_formula_match,0,,,,0,True,-0.01169
+wbm-3-10403,Br6 Yb2,Br-Yb,no_formula_match,0,,,,0,True,-0.064996
+wbm-3-10404,Br6 Yb2,Br-Yb,no_formula_match,0,,,,0,False,0.020499
+wbm-3-10478,Br8 Yb2,Br-Yb,no_formula_match,0,,,,0,True,-0.159541
+wbm-4-4780,Br6 Yb2,Br-Yb,no_formula_match,0,,,,0,True,-0.080941
+wbm-1-6470,Br8 Yb2,Br-Yb,no_formula_match,0,,,,0,True,-0.154653
+wbm-1-6479,Br10 Zr2,Br-Zr,no_formula_match,0,,,,0,True,-0.039134
+wbm-1-7396,C1 Gd4 I5,C-Gd-I,no_formula_match,0,,,,0,True,-0.457468
+wbm-3-22335,Ca1 Cd1 F6,Ca-Cd-F,no_formula_match,0,,,,0,False,0.095067
+wbm-2-10327,Ca2 Cl8,Ca-Cl,no_formula_match,0,,,,0,True,-0.061998
+wbm-1-10361,Ca2 Cl8,Ca-Cl,no_formula_match,0,,,,0,True,-0.199116
+wbm-1-9925,Ca2 Cl6,Ca-Cl,no_formula_match,0,,,,0,False,0.052934
+wbm-1-10360,Ca2 Cl8,Ca-Cl,no_formula_match,0,,,,0,True,-0.075876
+wbm-1-9926,Ca2 Cl6,Ca-Cl,no_formula_match,0,,,,0,False,0.125079
+wbm-1-10804,Ca2 Cl8 Sr1,Ca-Cl-Sr,no_formula_match,0,,,,0,False,0.015154
+wbm-2-15347,Ca1 Eu1 F6,Ca-Eu-F,no_formula_match,0,,,,0,False,0.01905
+wbm-2-15027,Ca2 F6,Ca-F,no_formula_match,0,,,,0,False,0.134373
+wbm-3-21975,Ca1 F3,Ca-F,no_formula_match,0,,,,0,False,0.087898
+wbm-5-6289,Ca1 F6 Ga1,Ca-F-Ga,no_formula_match,0,,,,0,False,0.007796
+wbm-2-15348,Ca1 F6 Gd1,Ca-F-Gd,no_formula_match,0,,,,0,True,-0.07118
+wbm-3-36041,Ca1 F8 Gd1 Li2,Ca-F-Gd-Li,no_formula_match,0,,,,0,True,-0.099296
+wbm-3-22091,Ca2 F8 K2,Ca-F-K,no_formula_match,0,,,,0,False,0.039962
+wbm-2-23642,Ca1 F6 Li2,Ca-F-Li,no_formula_match,0,,,,0,False,0.062233
+wbm-1-24972,Ca2 F8 Li2,Ca-F-Li,no_formula_match,0,,,,0,False,0.005302
+wbm-3-36049,Ca1 F8 Li2 Pa1,Ca-F-Li-Pa,no_formula_match,0,,,,0,True,-1.753513
+wbm-2-23675,Ca1 F8 Li2 Sr1,Ca-F-Li-Sr,no_formula_match,0,,,,0,False,0.028918
+wbm-3-36058,Ca1 F8 Li2 Tm1,Ca-F-Li-Tm,no_formula_match,0,,,,0,True,-0.131841
+wbm-3-23917,Ca1 F8 Lu1 Na2,Ca-F-Lu-Na,no_formula_match,0,,,,0,True,-0.04057
+wbm-4-11331,Ca1 F8 Na2 Pa1,Ca-F-Na-Pa,no_formula_match,0,,,,0,True,-0.31806
+wbm-3-23931,Ca1 F8 Na2 Tm1,Ca-F-Na-Tm,no_formula_match,0,,,,0,True,-0.152443
+wbm-3-22348,Ca1 F6 Pa1,Ca-F-Pa,no_formula_match,0,,,,0,True,-2.621406
+wbm-1-15593,Ca1 F6 Sc1,Ca-F-Sc,no_formula_match,0,,,,0,False,0.047365
+wbm-2-15369,Ca1 F6 Sr1,Ca-F-Sr,no_formula_match,0,,,,0,False,0.148675
+wbm-5-6306,Ca1 F6 Yb1,Ca-F-Yb,no_formula_match,0,,,,0,False,0.142469
+wbm-2-15374,Ca1 F6 Yb1,Ca-F-Yb,no_formula_match,0,,,,0,False,0.157827
+wbm-2-15376,Ca1 F6 Zn1,Ca-F-Zn,no_formula_match,0,,,,0,False,0.05705
+wbm-3-13300,Ca1 Gd2 I8,Ca-Gd-I,no_formula_match,0,,,,0,True,-1.02707
+wbm-3-13298,Ca2 I8,Ca-I,no_formula_match,0,,,,0,True,-0.075563
+wbm-5-6318,Cd1 Co1 F6,Cd-Co-F,no_formula_match,0,,,,0,False,0.038742
+wbm-3-67844,Cd2 Cs2 Pa2 Se6,Cd-Cs-Pa-Se,no_formula_match,0,,,,0,True,-0.254473
+wbm-2-15384,Cd1 Er1 F6,Cd-Er-F,no_formula_match,0,,,,0,False,0.066265
+wbm-3-22364,Cd1 Eu1 F6,Cd-Eu-F,no_formula_match,0,,,,0,True,-0.011632
+wbm-3-22363,Cd1 Eu1 F6,Cd-Eu-F,no_formula_match,0,,,,0,False,0.000745
+wbm-5-6143,Cd2 F6,Cd-F,no_formula_match,0,,,,0,False,0.028272
+wbm-3-22727,Cd1 F6 Ga1,Cd-F-Ga,no_formula_match,0,,,,0,False,0.026226
+wbm-2-15385,Cd1 F6 Gd1,Cd-F-Gd,no_formula_match,0,,,,0,True,-0.094431
+wbm-3-22365,Cd1 F6 Gd1,Cd-F-Gd,no_formula_match,0,,,,0,True,-0.108684
+wbm-4-10425,Cd1 F6 Hg1,Cd-F-Hg,no_formula_match,0,,,,0,True,-0.073656
+wbm-2-15387,Cd1 F6 Ho1,Cd-F-Ho,no_formula_match,0,,,,0,False,0.066962
+wbm-3-22367,Cd1 F6 In1,Cd-F-In,no_formula_match,0,,,,0,False,0.050265
+wbm-4-10770,Cd1 F6 Mg1,Cd-F-Mg,no_formula_match,0,,,,0,False,0.103282
+wbm-5-6864,Cd1 F6 Ni1,Cd-F-Ni,no_formula_match,0,,,,0,True,-0.004251
+wbm-4-10427,Cd1 F6 Pa1,Cd-F-Pa,no_formula_match,0,,,,0,True,-2.607102
+wbm-2-16249,Cd1 F6 Sc1,Cd-F-Sc,no_formula_match,0,,,,0,False,0.064313
+wbm-1-16323,Cd1 F6 Sc1,Cd-F-Sc,no_formula_match,0,,,,0,False,0.070731
+wbm-3-23557,Cd1 F6 Sr1,Cd-F-Sr,no_formula_match,0,,,,0,False,0.07856
+wbm-2-15396,Cd1 F6 Tm1,Cd-F-Tm,no_formula_match,0,,,,0,True,-0.120483
+wbm-1-10366,Ce2 Cl8,Ce-Cl,no_formula_match,0,,,,0,True,-0.225363
+wbm-1-10365,Ce2 Cl8,Ce-Cl,no_formula_match,0,,,,0,True,-0.226148
+wbm-1-10364,Ce2 Cl8,Ce-Cl,no_formula_match,0,,,,0,True,-0.226878
+wbm-3-14529,Ce1 Cl2,Ce-Cl,no_formula_match,0,,,,0,False,0.171549
+wbm-2-14998,Ce1 F2,Ce-F,no_formula_match,0,,,,0,False,0.212554
+wbm-5-6709,Ce1 F6 K1,Ce-F-K,no_formula_match,0,,,,0,False,0.007258
+wbm-5-6315,Ce1 F6 Pa1,Ce-F-Pa,no_formula_match,0,,,,0,True,-1.445216
+wbm-3-33668,Ce2 I8,Ce-I,no_formula_match,0,,,,0,True,-0.097168
+wbm-2-22291,Ce2 I8,Ce-I,no_formula_match,0,,,,0,True,-0.074523
+wbm-2-10335,Cl8 Co2,Cl-Co,no_formula_match,0,,,,0,True,-0.261763
+wbm-2-10119,Cl6 Co2,Cl-Co,no_formula_match,0,,,,0,True,-0.305775
+wbm-1-9948,Cl6 Co2,Cl-Co,no_formula_match,0,,,,0,True,-0.305787
+wbm-1-9744,Cl8 Cs4,Cl-Cs,no_formula_match,0,,,,0,True,-0.179085
+wbm-4-6675,Cl6 Cs2 Cu1,Cl-Cs-Cu,no_formula_match,0,,,,0,True,-0.067546
+wbm-1-10581,Cl6 Cs2 Dy1,Cl-Cs-Dy,no_formula_match,0,,,,0,False,0.03406
+wbm-3-14997,Cl6 Cs2 Dy1,Cl-Cs-Dy,no_formula_match,0,,,,0,False,0.040838
+wbm-1-10582,Cl6 Cs2 Er1,Cl-Cs-Er,no_formula_match,0,,,,0,False,0.032034
+wbm-3-14998,Cl6 Cs2 Er1,Cl-Cs-Er,no_formula_match,0,,,,0,False,0.036439
+wbm-1-10584,Cl6 Cs2 Gd1,Cl-Cs-Gd,no_formula_match,0,,,,0,False,0.034048
+wbm-1-10587,Cl6 Cs2 Ho1,Cl-Cs-Ho,no_formula_match,0,,,,0,False,0.033084
+wbm-3-15001,Cl6 Cs2 Ho1,Cl-Cs-Ho,no_formula_match,0,,,,0,False,0.038619
+wbm-3-15002,Cl6 Cs2 La1,Cl-Cs-La,no_formula_match,0,,,,0,False,0.084314
+wbm-1-10589,Cl6 Cs2 Lu1,Cl-Cs-Lu,no_formula_match,0,,,,0,True,-0.029227
+wbm-2-25761,Cl6 Cs2 Mg1,Cl-Cs-Mg,no_formula_match,0,,,,0,True,-0.008113
+wbm-1-10590,Cl6 Cs2 Nd1,Cl-Cs-Nd,no_formula_match,0,,,,0,False,0.040217
+wbm-1-10689,Cl6 Cs2 Ni1,Cl-Cs-Ni,no_formula_match,0,,,,0,True,-0.19269
+wbm-1-10592,Cl6 Cs2 Pr1,Cl-Cs-Pr,no_formula_match,0,,,,0,False,0.05639
+wbm-2-10401,Cl8 Cs2 Rb2,Cl-Cs-Rb,no_formula_match,0,,,,0,False,0.007315
+wbm-1-10730,Cl6 Cs2 Sc1,Cl-Cs-Sc,no_formula_match,0,,,,0,False,0.019424
+wbm-1-10593,Cl6 Cs2 Sm1,Cl-Cs-Sm,no_formula_match,0,,,,0,False,0.015256
+wbm-3-15008,Cl6 Cs2 Sm1,Cl-Cs-Sm,no_formula_match,0,,,,0,False,0.028333
+wbm-1-10594,Cl6 Cs2 Tb1,Cl-Cs-Tb,no_formula_match,0,,,,0,False,0.002284
+wbm-1-10595,Cl6 Cs2 Tb1,Cl-Cs-Tb,no_formula_match,0,,,,0,False,0.010144
+wbm-1-10596,Cl6 Cs2 Tm1,Cl-Cs-Tm,no_formula_match,0,,,,0,False,0.030811
+wbm-1-10771,Cl6 Cs2 Y1,Cl-Cs-Y,no_formula_match,0,,,,0,False,0.033633
+wbm-3-15185,Cl6 Cs2 Zn1,Cl-Cs-Zn,no_formula_match,0,,,,0,False,0.097405
+wbm-3-14916,Cl8 Cu2,Cl-Cu,no_formula_match,0,,,,0,True,-0.098165
+wbm-1-10630,Cl6 Cu1 K2,Cl-Cu-K,no_formula_match,0,,,,0,True,-0.069428
+wbm-1-10605,Cl6 Cu1 Rb2,Cl-Cu-Rb,no_formula_match,0,,,,0,True,-0.072773
+wbm-1-10388,Cl8 Dy2,Cl-Dy,no_formula_match,0,,,,0,False,0.044582
+wbm-1-10389,Cl8 Dy2,Cl-Dy,no_formula_match,0,,,,0,True,-0.111999
+wbm-1-10390,Cl8 Dy2,Cl-Dy,no_formula_match,0,,,,0,False,0.04233
+wbm-1-10391,Cl8 Er2,Cl-Er,no_formula_match,0,,,,0,False,0.01531
+wbm-1-10393,Cl8 Er2,Cl-Er,no_formula_match,0,,,,0,False,0.021245
+wbm-1-10392,Cl8 Er2,Cl-Er,no_formula_match,0,,,,0,False,0.033204
+wbm-1-10394,Cl8 Eu2,Cl-Eu,no_formula_match,0,,,,0,False,0.032316
+wbm-2-10357,Cl8 Eu2,Cl-Eu,no_formula_match,0,,,,0,True,-0.070803
+wbm-1-10404,Cl8 Gd2,Cl-Gd,no_formula_match,0,,,,0,False,0.022748
+wbm-1-10405,Cl8 Gd2,Cl-Gd,no_formula_match,0,,,,0,False,0.047009
+wbm-2-10155,Cl6 Hg2,Cl-Hg,no_formula_match,0,,,,0,False,0.144856
+wbm-1-10410,Cl8 Ho2,Cl-Ho,no_formula_match,0,,,,0,False,0.015707
+wbm-1-10412,Cl8 Ho2,Cl-Ho,no_formula_match,0,,,,0,False,0.017331
+wbm-1-10411,Cl8 Ho2,Cl-Ho,no_formula_match,0,,,,0,False,0.029427
+wbm-1-10417,Cl8 In2,Cl-In,no_formula_match,0,,,,0,True,-0.012518
+wbm-2-10371,Cl8 In2,Cl-In,no_formula_match,0,,,,0,True,-0.065381
+wbm-1-10706,Cl6 In1 Rb2,Cl-In-Rb,no_formula_match,0,,,,0,True,-0.036288
+wbm-3-15116,Cl6 In1 Rb2,Cl-In-Rb,no_formula_match,0,,,,0,True,-0.026726
+wbm-4-6660,Cl8 Ir2,Cl-Ir,no_formula_match,0,,,,0,True,-0.111106
+wbm-2-10490,Cl6 K2 Lu1,Cl-K-Lu,no_formula_match,0,,,,0,True,-0.00553
+wbm-1-10638,Cl6 K2 Ni1,Cl-K-Ni,no_formula_match,0,,,,0,True,-0.18179
+wbm-1-10442,Cl8 La2,Cl-La,no_formula_match,0,,,,0,False,0.07881
+wbm-2-10377,Cl8 La2,Cl-La,no_formula_match,0,,,,0,False,0.116081
+wbm-3-14557,Cl2 La1,Cl-La,no_formula_match,0,,,,0,False,0.173835
+wbm-1-10444,Cl8 Lu2,Cl-Lu,no_formula_match,0,,,,0,False,0.016911
+wbm-1-10445,Cl8 Lu2,Cl-Lu,no_formula_match,0,,,,0,False,0.03921
+wbm-3-38649,Cl6 Mg2,Cl-Mg,no_formula_match,0,,,,0,False,0.09391
+wbm-2-25758,Cl6 Mg2,Cl-Mg,no_formula_match,0,,,,0,False,0.093615
+wbm-2-25760,Cl8 Mg2,Cl-Mg,no_formula_match,0,,,,0,True,-0.025955
+wbm-1-10447,Cl8 Mn2,Cl-Mn,no_formula_match,0,,,,0,True,-0.40207
+wbm-1-10154,Cl6 Mn2,Cl-Mn,no_formula_match,0,,,,0,True,-0.145754
+wbm-1-10155,Cl6 Mn2,Cl-Mn,no_formula_match,0,,,,0,True,-0.273431
+wbm-2-10382,Cl8 Mn2,Cl-Mn,no_formula_match,0,,,,0,True,-0.231078
+wbm-2-10211,Cl6 Mn2,Cl-Mn,no_formula_match,0,,,,0,True,-0.146728
+wbm-1-10156,Cl6 Mn2,Cl-Mn,no_formula_match,0,,,,0,True,-0.246356
+wbm-1-10451,Cl8 Nd2,Cl-Nd,no_formula_match,0,,,,0,False,0.052547
+wbm-1-10450,Cl8 Nd2,Cl-Nd,no_formula_match,0,,,,0,False,0.065399
+wbm-2-10385,Cl8 Nd2,Cl-Nd,no_formula_match,0,,,,0,False,0.071692
+wbm-2-10391,Cl8 Ni2,Cl-Ni,no_formula_match,0,,,,0,True,-0.159263
+wbm-1-10169,Cl6 Ni2,Cl-Ni,no_formula_match,0,,,,0,True,-0.133818
+wbm-2-10219,Cl6 Ni2,Cl-Ni,no_formula_match,0,,,,0,True,-0.138322
+wbm-1-10690,Cl6 Ni1 Rb2,Cl-Ni-Rb,no_formula_match,0,,,,0,True,-0.18973
+wbm-5-4114,Cl2 Np1,Cl-Np,no_formula_match,0,,,,0,False,0.177504
+wbm-3-58330,Cl2 Np2 P1,Cl-Np-P,no_formula_match,0,,,,0,False,0.061632
+wbm-2-38222,Cl11 P1,Cl-P,no_formula_match,0,,,,0,True,-0.221317
+wbm-2-10222,Cl6 Pb2,Cl-Pb,no_formula_match,0,,,,0,False,0.112247
+wbm-3-14956,Cl8 Pd2,Cl-Pd,no_formula_match,0,,,,0,True,-0.241106
+wbm-1-10175,Cl6 Pd2,Cl-Pd,no_formula_match,0,,,,0,True,-0.152627
+wbm-3-14800,Cl6 Pd2,Cl-Pd,no_formula_match,0,,,,0,True,-0.153138
+wbm-1-10467,Cl8 Pr2,Cl-Pr,no_formula_match,0,,,,0,True,-0.064568
+wbm-3-14564,Cl2 Pr1,Cl-Pr,no_formula_match,0,,,,0,False,0.209515
+wbm-3-14957,Cl8 Pt2,Cl-Pt,no_formula_match,0,,,,0,True,-0.181322
+wbm-1-10472,Cl8 Pu2,Cl-Pu,no_formula_match,0,,,,0,True,-0.191042
+wbm-1-9828,Cl8 Rb4,Cl-Rb,no_formula_match,0,,,,0,True,-0.166521
+wbm-1-10732,Cl6 Rb2 Sc1,Cl-Rb-Sc,no_formula_match,0,,,,0,True,-0.016496
+wbm-4-6719,Cl6 Rb2 Zn1,Cl-Rb-Zn,no_formula_match,0,,,,0,True,-0.002121
+wbm-3-14960,Cl8 Rh2,Cl-Rh,no_formula_match,0,,,,0,True,-0.03392
+wbm-3-14961,Cl8 Ru2,Cl-Ru,no_formula_match,0,,,,0,True,-0.141115
+wbm-1-10490,Cl8 Sc2,Cl-Sc,no_formula_match,0,,,,0,True,-0.057723
+wbm-1-10489,Cl8 Sc2,Cl-Sc,no_formula_match,0,,,,0,False,0.091544
+wbm-1-10491,Cl8 Sc2,Cl-Sc,no_formula_match,0,,,,0,False,0.156958
+wbm-2-10407,Cl8 Sc2,Cl-Sc,no_formula_match,0,,,,0,True,-0.054568
+wbm-1-10494,Cl8 Sm2,Cl-Sm,no_formula_match,0,,,,0,True,-0.012993
+wbm-1-10493,Cl8 Sm2,Cl-Sm,no_formula_match,0,,,,0,True,-0.149498
+wbm-2-10409,Cl8 Sm2,Cl-Sm,no_formula_match,0,,,,0,False,0.002216
+wbm-2-10302,Cl6 Sr2,Cl-Sr,no_formula_match,0,,,,0,False,0.034837
+wbm-1-10281,Cl6 Sr2,Cl-Sr,no_formula_match,0,,,,0,False,0.105834
+wbm-1-10504,Cl8 Sr2,Cl-Sr,no_formula_match,0,,,,0,True,-0.202669
+wbm-1-10503,Cl8 Sr2,Cl-Sr,no_formula_match,0,,,,0,True,-0.041343
+wbm-2-10413,Cl8 Sr2,Cl-Sr,no_formula_match,0,,,,0,True,-0.049492
+wbm-2-10414,Cl8 Sr2,Cl-Sr,no_formula_match,0,,,,0,True,-0.177752
+wbm-1-10812,Cl8 Sr3,Cl-Sr,no_formula_match,0,,,,0,False,0.098502
+wbm-1-10509,Cl8 Tb2,Cl-Tb,no_formula_match,0,,,,0,False,0.044846
+wbm-1-10507,Cl8 Tb2,Cl-Tb,no_formula_match,0,,,,0,False,0.051043
+wbm-1-10508,Cl8 Tb2,Cl-Tb,no_formula_match,0,,,,0,True,-0.104922
+wbm-3-14971,Cl10 Ti2,Cl-Ti,no_formula_match,0,,,,0,False,0.058864
+wbm-1-10516,Cl8 Tm2,Cl-Tm,no_formula_match,0,,,,0,False,0.058011
+wbm-1-10514,Cl8 Tm2,Cl-Tm,no_formula_match,0,,,,0,False,0.045554
+wbm-1-10524,Cl8 Y2,Cl-Y,no_formula_match,0,,,,0,True,-0.08154
+wbm-1-10525,Cl8 Y2,Cl-Y,no_formula_match,0,,,,0,False,0.074202
+wbm-1-10522,Cl8 Yb2,Cl-Yb,no_formula_match,0,,,,0,True,-0.203917
+wbm-1-10521,Cl8 Yb2,Cl-Yb,no_formula_match,0,,,,0,True,-0.060537
+wbm-2-10315,Cl6 Zn2,Cl-Zn,no_formula_match,0,,,,0,False,0.082493
+wbm-3-22408,Co1 Cs1 F6,Co-Cs-F,no_formula_match,0,,,,0,True,-0.141961
+wbm-1-15627,Co1 F6,Co-F,no_formula_match,0,,,,0,True,-0.08547
+wbm-5-6341,Co1 F6 Pa1,Co-F-Pa,no_formula_match,0,,,,0,True,-2.368925
+wbm-3-17923,Co1 Pm1 Te2,Co-Pm-Te,no_formula_match,0,,,,0,True,-0.360163
+wbm-5-6415,Cr1 F6 Pa1,Cr-F-Pa,no_formula_match,0,,,,0,True,-1.611739
+wbm-5-6417,Cr1 F6 Pa1,Cr-F-Pa,no_formula_match,0,,,,0,True,-1.839756
+wbm-5-6416,Cr1 F6 Pa1,Cr-F-Pa,no_formula_match,0,,,,0,True,-1.583051
+wbm-5-6414,Cr1 F6 Pa1,Cr-F-Pa,no_formula_match,0,,,,0,True,-1.678552
+wbm-3-19027,Cr1 Pm1 Te2,Cr-Pm-Te,no_formula_match,0,,,,0,True,-0.374309
+wbm-3-22537,Cs2 Dy1 F6,Cs-Dy-F,no_formula_match,0,,,,0,True,-0.006134
+wbm-3-23792,Cs3 Eu1 F7,Cs-Eu-F,no_formula_match,0,,,,0,True,-0.032857
+wbm-3-22580,Cs1 F6 Hg1,Cs-F-Hg,no_formula_match,0,,,,0,True,-0.176629
+wbm-2-15450,Cs2 F6 Nd1,Cs-F-Nd,no_formula_match,0,,,,0,True,-0.058757
+wbm-3-23205,Cs1 F6 Ni1,Cs-F-Ni,no_formula_match,0,,,,0,True,-0.003911
+wbm-1-16394,Cs1 F6 Ti1,Cs-F-Ti,no_formula_match,0,,,,0,True,-0.028405
+wbm-4-11174,Cs1 F6 Ti1,Cs-F-Ti,no_formula_match,0,,,,0,True,-0.030761
+wbm-4-10207,Cs1 F3 Tm1,Cs-F-Tm,no_formula_match,0,,,,0,False,0.098062
+wbm-2-16487,Cs1 F7 Tm2,Cs-F-Tm,no_formula_match,0,,,,0,True,-0.3774
+wbm-3-22056,Cs2 F4 Tm1,Cs-F-Tm,no_formula_match,0,,,,0,True,-0.203874
+wbm-4-11244,Cs2 F6 Y1,Cs-F-Y,no_formula_match,0,,,,0,True,-0.016266
+wbm-5-19419,Cs2 Pa2 Se4,Cs-Pa-Se,no_formula_match,0,,,,0,True,-0.44377
+wbm-5-19418,Cs1 Pa1 Se2,Cs-Pa-Se,no_formula_match,0,,,,0,True,-0.442782
+wbm-3-78502,Cs2 Pa2 Se6 Zn2,Cs-Pa-Se-Zn,no_formula_match,0,,,,0,True,-0.280293
+wbm-3-74160,Cs1 Pa1 Te2,Cs-Pa-Te,no_formula_match,0,,,,0,True,-0.266949
+wbm-1-57407,Cs1 Pm1 Te2,Cs-Pm-Te,no_formula_match,0,,,,0,True,-0.452766
+wbm-1-14847,Cu2 F6,Cu-F,no_formula_match,0,,,,0,True,-0.296433
+wbm-1-15286,Cu2 F8,Cu-F,no_formula_match,0,,,,0,True,-0.207275
+wbm-4-10584,Cu1 F6,Cu-F,no_formula_match,0,,,,0,True,-0.192643
+wbm-2-15504,Cu1 F6,Cu-F,no_formula_match,0,,,,0,True,-0.137503
+wbm-1-15864,Cu1 F6 K1,Cu-F-K,no_formula_match,0,,,,0,True,-0.270236
+wbm-1-15319,Cu2 F8 K2,Cu-F-K,no_formula_match,0,,,,0,True,-0.26358
+wbm-4-10891,Cu1 F6 Na1,Cu-F-Na,no_formula_match,0,,,,0,True,-0.146673
+wbm-4-10892,Cu1 F6 Na1,Cu-F-Na,no_formula_match,0,,,,0,True,-0.17754
+wbm-2-16012,Cu1 F6 Ni1,Cu-F-Ni,no_formula_match,0,,,,0,True,-0.102085
+wbm-4-10574,Cu1 F6 Pa1,Cu-F-Pa,no_formula_match,0,,,,0,True,-2.725506
+wbm-2-15500,Cu1 F6 Rb1,Cu-F-Rb,no_formula_match,0,,,,0,True,-0.134641
+wbm-2-16572,Cu2 F8 Sr1,Cu-F-Sr,no_formula_match,0,,,,0,True,-0.220924
+wbm-4-10580,Cu1 F6 Tb1,Cu-F-Tb,no_formula_match,0,,,,0,True,-0.107115
+wbm-4-10582,Cu1 F6 Tm1,Cu-F-Tm,no_formula_match,0,,,,0,True,-0.299066
+wbm-4-10585,Cu1 F6 Yb1,Cu-F-Yb,no_formula_match,0,,,,0,True,-0.157328
+wbm-4-9645,Cu2 Gd2 I2,Cu-Gd-I,no_formula_match,0,,,,0,True,-0.649344
+wbm-4-17484,Cu2 K2 Pa2 Se6,Cu-K-Pa-Se,no_formula_match,0,,,,0,True,-0.401381
+wbm-2-14664,Cu1 Pm1 Te2,Cu-Pm-Te,no_formula_match,0,,,,0,True,-0.496842
+wbm-2-23643,Dy1 F6 Li2,Dy-F-Li,no_formula_match,0,,,,0,False,0.043406
+wbm-3-36145,Dy1 F8 Li2 Sr1,Dy-F-Li-Sr,no_formula_match,0,,,,0,True,-0.002187
+wbm-2-15853,Dy1 F6 Mg1,Dy-F-Mg,no_formula_match,0,,,,0,False,0.058005
+wbm-5-6481,Dy1 F6 Pa1,Dy-F-Pa,no_formula_match,0,,,,0,True,-1.804548
+wbm-2-16430,Dy1 F6 Zn1,Dy-F-Zn,no_formula_match,0,,,,0,False,0.038358
+wbm-3-52079,Dy1 La1 O4,Dy-La-O,no_formula_match,0,,,,0,False,0.137452
+wbm-2-23644,Er1 F6 Li2,Er-F-Li,no_formula_match,0,,,,0,False,0.03584
+wbm-3-36146,Er1 F8 Li2 Sr1,Er-F-Li-Sr,no_formula_match,0,,,,0,True,-0.005132
+wbm-2-15854,Er1 F6 Mg1,Er-F-Mg,no_formula_match,0,,,,0,False,0.048242
+wbm-5-6488,Er1 F6 Pa1,Er-F-Pa,no_formula_match,0,,,,0,True,-1.811966
+wbm-2-16431,Er1 F6 Zn1,Er-F-Zn,no_formula_match,0,,,,0,False,0.033398
+wbm-3-52080,Er1 La1 O4,Er-La-O,no_formula_match,0,,,,0,False,0.138623
+wbm-2-23645,Eu1 F6 Li2,Eu-F-Li,no_formula_match,0,,,,0,True,-0.018005
+wbm-2-15855,Eu1 F6 Mg1,Eu-F-Mg,no_formula_match,0,,,,0,False,0.020849
+wbm-3-23560,Eu1 F6 Sr1,Eu-F-Sr,no_formula_match,0,,,,0,False,0.015016
+wbm-3-22649,Eu1 F6 Yb1,Eu-F-Yb,no_formula_match,0,,,,0,False,0.031002
+wbm-2-16432,Eu1 F6 Zn1,Eu-F-Zn,no_formula_match,0,,,,0,True,-0.030755
+wbm-4-10623,F6 Fe1 Pa1,F-Fe-Pa,no_formula_match,0,,,,0,True,-1.979667
+wbm-4-10622,F6 Fe1 Pa1,F-Fe-Pa,no_formula_match,0,,,,0,True,-2.164601
+wbm-4-10624,F6 Fe1 Pa1,F-Fe-Pa,no_formula_match,0,,,,0,True,-2.15338
+wbm-3-22990,F6 Ga1 Mg1,F-Ga-Mg,no_formula_match,0,,,,0,False,0.015696
+wbm-5-6604,F6 Ga1 Pa1,F-Ga-Pa,no_formula_match,0,,,,0,True,-2.135977
+wbm-5-6584,F6 Ga2 Pa1,F-Ga-Pa,no_formula_match,0,,,,0,True,-0.507132
+wbm-5-6613,F6 Ga1 Sr1,F-Ga-Sr,no_formula_match,0,,,,0,False,0.014736
+wbm-2-15003,F2 Gd1,F-Gd,no_formula_match,0,,,,0,True,-0.010682
+wbm-3-24031,F2 Gd2 I2,F-Gd-I,no_formula_match,0,,,,0,True,-0.567117
+wbm-2-23646,F6 Gd1 Li2,F-Gd-Li,no_formula_match,0,,,,0,True,-0.095428
+wbm-3-36148,F8 Gd1 Li2 Sr1,F-Gd-Li-Sr,no_formula_match,0,,,,0,True,-0.096766
+wbm-3-22991,F6 Gd1 Mg1,F-Gd-Mg,no_formula_match,0,,,,0,True,-0.072465
+wbm-3-23753,F6 Gd1 Zn1,F-Gd-Zn,no_formula_match,0,,,,0,True,-0.121616
+wbm-5-6636,F6 Ge1 Pa1,F-Ge-Pa,no_formula_match,0,,,,0,True,-1.772521
+wbm-4-10749,F6 Hf1 K1,F-Hf-K,no_formula_match,0,,,,0,False,0.008668
+wbm-2-24303,F6 Hf1 Li1,F-Hf-Li,no_formula_match,0,,,,0,True,-0.006418
+wbm-4-10894,F6 Hf1 Na1,F-Hf-Na,no_formula_match,0,,,,0,False,0.024504
+wbm-5-6753,F6 Hg1 Mg1,F-Hg-Mg,no_formula_match,0,,,,0,False,0.004883
+wbm-5-6641,F6 Hg1 Pa1,F-Hg-Pa,no_formula_match,0,,,,0,True,-2.728363
+wbm-3-23347,F6 Hg1 Rb1,F-Hg-Rb,no_formula_match,0,,,,0,True,-0.030054
+wbm-3-23453,F6 Hg1 Sc1,F-Hg-Sc,no_formula_match,0,,,,0,False,0.02492
+wbm-4-11159,F6 Hg1 Sr1,F-Hg-Sr,no_formula_match,0,,,,0,True,-0.064077
+wbm-4-11158,F6 Hg1 Sr1,F-Hg-Sr,no_formula_match,0,,,,0,True,-0.076112
+wbm-4-11157,F6 Hg1 Sr1,F-Hg-Sr,no_formula_match,0,,,,0,True,-0.075126
+wbm-3-23663,F6 Hg1 Tm1,F-Hg-Tm,no_formula_match,0,,,,0,True,-0.170772
+wbm-2-23647,F6 Ho1 Li2,F-Ho-Li,no_formula_match,0,,,,0,False,0.037692
+wbm-3-36150,F8 Ho1 Li2 Sr1,F-Ho-Li-Sr,no_formula_match,0,,,,0,True,-0.005496
+wbm-2-15858,F6 Ho1 Mg1,F-Ho-Mg,no_formula_match,0,,,,0,False,0.050865
+wbm-5-6645,F6 Ho1 Pa1,F-Ho-Pa,no_formula_match,0,,,,0,True,-1.81048
+wbm-2-16434,F6 Ho1 Zn1,F-Ho-Zn,no_formula_match,0,,,,0,False,0.03367
+wbm-1-15312,F4 In1,F-In,no_formula_match,0,,,,0,False,0.142553
+wbm-3-22993,F6 In1 Mg1,F-In-Mg,no_formula_match,0,,,,0,False,0.044206
+wbm-3-23218,F6 In1 Ni1,F-In-Ni,no_formula_match,0,,,,0,False,0.094593
+wbm-5-6661,F6 In1 Pa1,F-In-Pa,no_formula_match,0,,,,0,True,-2.221734
+wbm-5-6715,F6 K1 La1,F-K-La,no_formula_match,0,,,,0,False,0.015916
+wbm-3-22962,F6 K1 Ti1,F-K-Ti,no_formula_match,0,,,,0,False,0.009951
+wbm-4-10762,F6 K1 Zr1,F-K-Zr,no_formula_match,0,,,,0,False,0.054601
+wbm-5-6756,F6 La1 Mg1,F-La-Mg,no_formula_match,0,,,,0,False,0.086645
+wbm-3-23220,F6 La1 Ni1,F-La-Ni,no_formula_match,0,,,,0,False,0.082812
+wbm-5-6735,F6 La1 Pa1,F-La-Pa,no_formula_match,0,,,,0,True,-1.789896
+wbm-2-23649,F6 Li2 Lu1,F-Li-Lu,no_formula_match,0,,,,0,False,0.048518
+wbm-2-24276,F8 Li2 Mg2,F-Li-Mg,no_formula_match,0,,,,0,False,0.050245
+wbm-3-36858,F8 Li2 Pa2,F-Li-Pa,no_formula_match,0,,,,0,True,-2.474685
+wbm-3-36018,F6 Li2 Pa1,F-Li-Pa,no_formula_match,0,,,,0,True,-2.335524
+wbm-4-17932,F8 Li2 Pa1 Sr1,F-Li-Pa-Sr,no_formula_match,0,,,,0,True,-1.754417
+wbm-4-17936,F8 Li2 Pa1 Yb1,F-Li-Pa-Yb,no_formula_match,0,,,,0,True,-1.752649
+wbm-1-23510,F6 Li2 Sc1,F-Li-Sc,no_formula_match,0,,,,0,False,0.028261
+wbm-2-23654,F6 Li2 Sm1,F-Li-Sm,no_formula_match,0,,,,0,False,0.063509
+wbm-2-23655,F6 Li2 Sr1,F-Li-Sr,no_formula_match,0,,,,0,False,0.052021
+wbm-3-36165,F8 Li2 Sr1 Tm1,F-Li-Sr-Tm,no_formula_match,0,,,,0,True,-0.127165
+wbm-1-23514,F6 Li2 Tm1,F-Li-Tm,no_formula_match,0,,,,0,True,-0.130014
+wbm-2-24289,F8 Li2 Zn2,F-Li-Zn,no_formula_match,0,,,,0,True,-0.045204
+wbm-2-24324,F6 Li1 Zr1,F-Li-Zr,no_formula_match,0,,,,0,False,0.051607
+wbm-2-15864,F6 Lu1 Mg1,F-Lu-Mg,no_formula_match,0,,,,0,False,0.018977
+wbm-5-6739,F6 Lu1 Pa1,F-Lu-Pa,no_formula_match,0,,,,0,True,-1.837425
+wbm-2-16437,F6 Lu1 Zn1,F-Lu-Zn,no_formula_match,0,,,,0,False,0.010266
+wbm-3-22004,F6 Mg2,F-Mg,no_formula_match,0,,,,0,False,0.072991
+wbm-3-23005,F6 Mg1 Pa1,F-Mg-Pa,no_formula_match,0,,,,0,True,-2.615062
+wbm-1-15962,F6 Mg1 Sc1,F-Mg-Sc,no_formula_match,0,,,,0,False,0.038037
+wbm-2-15877,F6 Mg1 Sr1,F-Mg-Sr,no_formula_match,0,,,,0,False,0.099842
+wbm-1-15969,F6 Mg1 Tm1,F-Mg-Tm,no_formula_match,0,,,,0,True,-0.139557
+wbm-5-6767,F6 Mg1 Y1,F-Mg-Y,no_formula_match,0,,,,0,False,0.053675
+wbm-4-10809,F6 Mn1 Np1,F-Mn-Np,no_formula_match,0,,,,0,False,0.000421
+wbm-5-6788,F6 Mn1 Pa1,F-Mn-Pa,no_formula_match,0,,,,0,True,-1.951794
+wbm-5-6790,F6 Mn1 Pa1,F-Mn-Pa,no_formula_match,0,,,,0,True,-1.825667
+wbm-3-44989,F2 N2 Pa2,F-N-Pa,no_formula_match,0,,,,0,True,-1.633659
+wbm-1-31913,F2 N2 Pu2,F-N-Pu,no_formula_match,0,,,,0,True,-0.115688
+wbm-3-23142,F6 Na1 Ni1,F-Na-Ni,no_formula_match,0,,,,0,True,-0.032219
+wbm-4-10271,F8 Na2 Pa2,F-Na-Pa,no_formula_match,0,,,,0,True,-1.048408
+wbm-4-10901,F6 Na1 Pd1,F-Na-Pd,no_formula_match,0,,,,0,True,-0.070343
+wbm-3-23147,F6 Na1 Rh1,F-Na-Rh,no_formula_match,0,,,,0,True,-0.117733
+wbm-2-15210,F8 Na2 Sr2,F-Na-Sr,no_formula_match,0,,,,0,True,-0.022514
+wbm-1-16534,F7 Na3 Sr1,F-Na-Sr,no_formula_match,0,,,,0,True,-0.005951
+wbm-4-11381,F8 Na2 Sr1 Tm1,F-Na-Sr-Tm,no_formula_match,0,,,,0,True,-0.144285
+wbm-5-6846,F6 Na1 Ti1,F-Na-Ti,no_formula_match,0,,,,0,False,0.018345
+wbm-4-11392,F8 Na2 Tm1 Yb1,F-Na-Tm-Yb,no_formula_match,0,,,,0,True,-0.132482
+wbm-4-10908,F6 Na1 Zr1,F-Na-Zr,no_formula_match,0,,,,0,False,0.046858
+wbm-5-6854,F6 Nb1 Pa1,F-Nb-Pa,no_formula_match,0,,,,0,True,-0.801118
+wbm-5-6860,F6 Nd1 Pa1,F-Nd-Pa,no_formula_match,0,,,,0,True,-1.748642
+wbm-5-6155,F6 Ni2,F-Ni,no_formula_match,0,,,,0,False,0.116789
+wbm-4-10934,F6 Ni1 Pa1,F-Ni-Pa,no_formula_match,0,,,,0,True,-2.525234
+wbm-1-15071,F3 Np1,F-Np,no_formula_match,0,,,,0,False,0.225158
+wbm-1-15070,F3 Np1,F-Np,no_formula_match,0,,,,0,False,0.169704
+wbm-5-6905,F6 Np1 Pa1,F-Np-Pa,no_formula_match,0,,,,0,True,-0.66083
+wbm-3-56891,F4 O4 Pa4,F-O-Pa,no_formula_match,0,,,,0,True,-1.512202
+wbm-3-23261,F6 Pa1 Pb1,F-Pa-Pb,no_formula_match,0,,,,0,True,-2.241511
+wbm-5-6917,F6 Pa1 Pd1,F-Pa-Pd,no_formula_match,0,,,,0,True,-2.312996
+wbm-3-23274,F6 Pa1 Pd1,F-Pa-Pd,no_formula_match,0,,,,0,True,-2.318409
+wbm-5-6932,F6 Pa1 Pr1,F-Pa-Pr,no_formula_match,0,,,,0,True,-1.776307
+wbm-5-6934,F6 Pa1 Pt1,F-Pa-Pt,no_formula_match,0,,,,0,True,-1.701841
+wbm-5-6906,F6 Pa1 Pu1,F-Pa-Pu,no_formula_match,0,,,,0,True,-1.494223
+wbm-5-6975,F6 Pa1 Rh1,F-Pa-Rh,no_formula_match,0,,,,0,True,-1.766474
+wbm-5-6991,F6 Pa1 Ru1,F-Pa-Ru,no_formula_match,0,,,,0,True,-1.372367
+wbm-5-7028,F6 Pa1 Sc1,F-Pa-Sc,no_formula_match,0,,,,0,True,-1.8456
+wbm-5-7057,F6 Pa1 Si1,F-Pa-Si,no_formula_match,0,,,,0,True,-1.168919
+wbm-5-7070,F6 Pa1 Sm1,F-Pa-Sm,no_formula_match,0,,,,0,True,-1.784131
+wbm-4-11153,F6 Pa1 Sn1,F-Pa-Sn,no_formula_match,0,,,,0,True,-1.859311
+wbm-5-7072,F6 Pa1 Sn2,F-Pa-Sn,no_formula_match,0,,,,0,True,-0.560087
+wbm-4-11162,F6 Pa1 Sr1,F-Pa-Sr,no_formula_match,0,,,,0,True,-2.6183
+wbm-5-7112,F6 Pa1 Tb1,F-Pa-Tb,no_formula_match,0,,,,0,True,-1.799893
+wbm-5-7115,F6 Pa1 Th1,F-Pa-Th,no_formula_match,0,,,,0,True,-0.921484
+wbm-5-7145,F6 Pa1 Tl1,F-Pa-Tl,no_formula_match,0,,,,0,True,-2.647869
+wbm-4-11191,F6 Pa1 Tl2,F-Pa-Tl,no_formula_match,0,,,,0,True,-1.357443
+wbm-5-7148,F6 Pa1 Tm1,F-Pa-Tm,no_formula_match,0,,,,0,True,-1.998206
+wbm-5-6907,F6 Pa1 U1,F-Pa-U,no_formula_match,0,,,,0,True,-0.414021
+wbm-4-11212,F6 Pa1 V1,F-Pa-V,no_formula_match,0,,,,0,True,-1.632567
+wbm-5-7241,F6 Pa1 Y1,F-Pa-Y,no_formula_match,0,,,,0,True,-1.809484
+wbm-4-11241,F6 Pa1 Yb1,F-Pa-Yb,no_formula_match,0,,,,0,True,-2.598668
+wbm-4-11265,F6 Pa1 Zn1,F-Pa-Zn,no_formula_match,0,,,,0,True,-2.600705
+wbm-5-7266,F6 Pa1 Zr1,F-Pa-Zr,no_formula_match,0,,,,0,True,-1.148187
+wbm-2-15010,F2 Pr1,F-Pr,no_formula_match,0,,,,0,False,0.300184
+wbm-4-11034,F6 Pu1 Rb1,F-Pu-Rb,no_formula_match,0,,,,0,True,-0.290611
+wbm-5-7137,F6 Rb1 Ti1,F-Rb-Ti,no_formula_match,0,,,,0,False,0.022579
+wbm-1-16251,F6 Rb2 Tm1,F-Rb-Tm,no_formula_match,0,,,,0,True,-0.019804
+wbm-3-23481,F6 Sc1 Sr1,F-Sc-Sr,no_formula_match,0,,,,0,False,0.05163
+wbm-3-23489,F6 Sc1 Yb1,F-Sc-Yb,no_formula_match,0,,,,0,False,0.068448
+wbm-1-16335,F6 Sc1 Zn1,F-Sc-Zn,no_formula_match,0,,,,0,False,0.041826
+wbm-1-16339,F6 Se1,F-Se,no_formula_match,0,,,,0,True,-0.485184
+wbm-1-16338,F6 Se1,F-Se,no_formula_match,0,,,,0,True,-0.480559
+wbm-3-22021,F3 Sr1,F-Sr,no_formula_match,0,,,,0,False,0.081545
+wbm-3-22022,F6 Sr2,F-Sr,no_formula_match,0,,,,0,False,0.168524
+wbm-3-23582,F6 Sr1 Yb1,F-Sr-Yb,no_formula_match,0,,,,0,False,0.172007
+wbm-2-16445,F6 Sr1 Zn1,F-Sr-Zn,no_formula_match,0,,,,0,False,0.047457
+wbm-1-15524,F10 Ti2,F-Ti,no_formula_match,0,,,,0,False,0.095686
+wbm-2-15017,F2 Tm1,F-Tm,no_formula_match,0,,,,0,False,0.139585
+wbm-1-16449,F6 Tm1 Zn1,F-Tm-Zn,no_formula_match,0,,,,0,True,-0.152438
+wbm-4-11272,F6 Tm1 Zn1,F-Tm-Zn,no_formula_match,0,,,,0,True,-0.149578
+wbm-1-16451,F6 Y1 Zn1,F-Y-Zn,no_formula_match,0,,,,0,False,0.038399
+wbm-5-6172,F6 Zn2,F-Zn,no_formula_match,0,,,,0,True,-0.007762
+wbm-2-19029,Ga1 Gd3 I3,Ga-Gd-I,no_formula_match,0,,,,0,True,-0.547434
+wbm-4-14186,Ga1 Pm1 Te2,Ga-Pm-Te,no_formula_match,0,,,,0,True,-0.643029
+wbm-1-19096,Ga1 Pm1 Te2,Ga-Pm-Te,no_formula_match,0,,,,0,True,-0.557736
+wbm-2-20452,Gd2 Ge1 I2,Gd-Ge-I,no_formula_match,0,,,,0,True,-0.863557
+wbm-2-21875,Gd2 H2 I4,Gd-H-I,no_formula_match,0,,,,0,True,-1.143224
+wbm-3-33246,Gd2 H2 I2,Gd-H-I,no_formula_match,0,,,,0,True,-0.734062
+wbm-2-21892,Gd2 H2 I2,Gd-H-I,no_formula_match,0,,,,0,True,-0.606208
+wbm-3-33640,Gd2 I6,Gd-I,no_formula_match,0,,,,0,True,-1.699276
+wbm-1-21795,Gd2 I6,Gd-I,no_formula_match,0,,,,0,True,-1.699482
+wbm-1-21797,Gd2 I6,Gd-I,no_formula_match,0,,,,0,True,-1.648413
+wbm-1-21796,Gd2 I6,Gd-I,no_formula_match,0,,,,0,True,-1.665914
+wbm-1-21798,Gd2 I6,Gd-I,no_formula_match,0,,,,0,True,-1.650813
+wbm-1-21717,Gd1 I2,Gd-I,no_formula_match,0,,,,0,True,-1.430186
+wbm-2-22267,Gd2 I6,Gd-I,no_formula_match,0,,,,0,True,-1.658392
+wbm-1-21716,Gd2 I4,Gd-I,no_formula_match,0,,,,0,True,-1.374341
+wbm-2-22312,Gd2 I2,Gd-I,no_formula_match,0,,,,0,True,-0.917197
+wbm-4-16672,Gd1 I2,Gd-I,no_formula_match,0,,,,0,True,-1.527202
+wbm-3-33581,Gd1 I2,Gd-I,no_formula_match,0,,,,0,True,-1.486754
+wbm-3-33715,Gd2 I2,Gd-I,no_formula_match,0,,,,0,True,-0.943493
+wbm-3-34422,Gd2 I2 In1,Gd-I-In,no_formula_match,0,,,,0,True,-0.587981
+wbm-2-24415,Gd2 I6 Li2,Gd-I-Li,no_formula_match,0,,,,0,True,-0.840412
+wbm-3-45128,Gd2 I2 N1,Gd-I-N,no_formula_match,0,,,,0,True,-0.712843
+wbm-1-31976,Gd2 I2 N2,Gd-I-N,no_formula_match,0,,,,0,True,-0.143665
+wbm-1-31977,Gd2 I2 N2,Gd-I-N,no_formula_match,0,,,,0,True,-0.122848
+wbm-2-38570,Gd2 I2 P1,Gd-I-P,no_formula_match,0,,,,0,True,-1.026631
+wbm-2-38579,Gd2 I1 P1,Gd-I-P,no_formula_match,0,,,,0,True,-0.398551
+wbm-3-33580,Gd2 I2 Pb1,Gd-I-Pb,no_formula_match,0,,,,0,True,-0.633112
+wbm-4-32034,Gd2 I2 Ru2,Gd-I-Ru,no_formula_match,0,,,,0,True,-0.756942
+wbm-4-33368,Gd3 I3 Sb1,Gd-I-Sb,no_formula_match,0,,,,0,True,-0.78727
+wbm-3-65919,Gd2 I2 Sb1,Gd-I-Sb,no_formula_match,0,,,,0,True,-0.880328
+wbm-3-65941,Gd2 I1 Sb1,Gd-I-Sb,no_formula_match,0,,,,0,True,-0.233764
+wbm-2-45206,Gd2 I2 Se1,Gd-I-Se,no_formula_match,0,,,,0,True,-0.864652
+wbm-3-71133,Gd2 I2 Si1,Gd-I-Si,no_formula_match,0,,,,0,True,-0.775662
+wbm-2-47458,Gd2 I2 Si2,Gd-I-Si,no_formula_match,0,,,,0,True,-0.50673
+wbm-2-48890,Gd2 I2 Sn1,Gd-I-Sn,no_formula_match,0,,,,0,True,-0.821793
+wbm-3-73170,Gd2 I2 Sn2,Gd-I-Sn,no_formula_match,0,,,,0,True,-0.430194
+wbm-2-49271,Gd2 I8 Sr1,Gd-I-Sr,no_formula_match,0,,,,0,True,-1.068628
+wbm-1-57662,Gd2 I2 Te1,Gd-I-Te,no_formula_match,0,,,,0,True,-0.847165
+wbm-3-31771,Ge1 Pm1 Te2,Ge-Pm-Te,no_formula_match,0,,,,0,True,-0.518138
+wbm-3-52085,Ho1 La1 O4,Ho-La-O,no_formula_match,0,,,,0,False,0.137836
+wbm-1-48434,I6 Ru2,I-Ru,no_formula_match,0,,,,0,True,-0.407742
+wbm-4-32031,I6 Ru2,I-Ru,no_formula_match,0,,,,0,True,-0.407949
+wbm-3-73689,I8 Sr2,I-Sr,no_formula_match,0,,,,0,True,-0.114372
+wbm-4-37186,I8 Sr2,I-Sr,no_formula_match,0,,,,0,True,-0.127783
+wbm-4-34284,In1 Pa1 Se2,In-Pa-Se,no_formula_match,0,,,,0,True,-0.266089
+wbm-1-22388,In1 Pm1 Te2,In-Pm-Te,no_formula_match,0,,,,0,True,-0.596487
+wbm-4-30498,Ir1 Pm1,Ir-Pm,no_formula_match,0,,,,0,True,-0.606156
+wbm-2-40213,Ir2 Pm2,Ir-Pm,no_formula_match,0,,,,0,True,-0.610076
+wbm-4-17664,K1 Pa1 Se2,K-Pa-Se,no_formula_match,0,,,,0,True,-0.464264
+wbm-3-35747,K1 Pa1 Te2,K-Pa-Te,no_formula_match,0,,,,0,True,-0.274511
+wbm-1-23176,K1 Pm1 Te2,K-Pm-Te,no_formula_match,0,,,,0,True,-0.704623
+wbm-3-50545,La3 O6,La-O,no_formula_match,0,,,,0,False,0.081878
+wbm-1-26610,Li1 Pm1 Te2,Li-Pm-Te,no_formula_match,0,,,,0,True,-0.827611
+wbm-4-20375,Mg1 Pm1 Te2,Mg-Pm-Te,no_formula_match,0,,,,0,True,-0.409092
+wbm-3-42967,Mn1 Pm1 Te2,Mn-Pm-Te,no_formula_match,0,,,,0,True,-0.480103
+wbm-3-46799,Na1 Pa1 Se2,Na-Pa-Se,no_formula_match,0,,,,0,True,-0.428955
+wbm-3-45870,Na4 Pa2 Se6,Na-Pa-Se,no_formula_match,0,,,,0,True,-0.409173
+wbm-3-49958,Ni1 Pm1 Te2,Ni-Pm-Te,no_formula_match,0,,,,0,True,-0.445741
+wbm-3-67617,Np1 Se2,Np-Se,no_formula_match,0,,,,0,False,0.055951
+wbm-2-45300,Np2 Se2 Te4,Np-Se-Te,no_formula_match,0,,,,0,True,-0.028115
+wbm-4-29521,P1 Pm1 Pt2,P-Pm-Pt,no_formula_match,0,,,,0,True,-0.4822
+wbm-4-34291,Pa1 Pb1 Se2,Pa-Pb-Se,no_formula_match,0,,,,0,True,-0.205566
+wbm-3-67666,Pa1 Rb1 Se2,Pa-Rb-Se,no_formula_match,0,,,,0,True,-0.454447
+wbm-4-34400,Pa2 Rb4 Se6,Pa-Rb-Se,no_formula_match,0,,,,0,True,-0.367683
+wbm-4-39964,Pa2 Rb2 Se6 Zn2,Pa-Rb-Se-Zn,no_formula_match,0,,,,0,True,-0.268141
+wbm-3-67623,Pa2 Se4,Pa-Se,no_formula_match,0,,,,0,True,-0.471366
+wbm-4-34290,Pa1 Se2,Pa-Se,no_formula_match,0,,,,0,True,-0.546032
+wbm-4-34319,Pa1 Se2 Sn1,Pa-Se-Sn,no_formula_match,0,,,,0,True,-0.12378
+wbm-3-67750,Pa1 Se2 Tl1,Pa-Se-Tl,no_formula_match,0,,,,0,True,-0.386363
+wbm-3-74187,Pa1 Te2,Pa-Te,no_formula_match,0,,,,0,True,-0.357022
+wbm-4-37444,Pa2 Te4,Pa-Te,no_formula_match,0,,,,0,True,-0.272661
+wbm-2-49859,Pb1 Pm1 Te2,Pb-Pm-Te,no_formula_match,0,,,,0,True,-0.398098
+wbm-3-60534,Pm1 Pt1,Pm-Pt,no_formula_match,0,,,,0,True,-1.069577
+wbm-2-40217,Pm2 Pt6,Pm-Pt,no_formula_match,0,,,,0,True,-0.828812
+wbm-4-30504,Pm1 Pt3,Pm-Pt,no_formula_match,0,,,,0,True,-0.574788
+wbm-1-47549,Pm1 Rb1 Te2,Pm-Rb-Te,no_formula_match,0,,,,0,True,-0.563533
+wbm-2-49042,Pm1 Sn1 Te2,Pm-Sn-Te,no_formula_match,0,,,,0,True,-0.561349
+wbm-3-74265,Pm4 Te6,Pm-Te,no_formula_match,0,,,,0,True,-1.634557
+wbm-2-49943,Pm2 Te6,Pm-Te,no_formula_match,0,,,,0,True,-0.95313
+wbm-1-57553,Pm1 Te3,Pm-Te,no_formula_match,0,,,,0,True,-0.996901
+wbm-4-40044,Pm1 Te2 Zn1,Pm-Te-Zn,no_formula_match,0,,,,0,True,-0.642644
+wbm-1-52521,Se8 Tc4,Se-Tc,no_formula_match,0,,,,0,True,-0.827251

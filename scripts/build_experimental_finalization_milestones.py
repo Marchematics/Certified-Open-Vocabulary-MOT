@@ -278,6 +278,17 @@ or timestamp table is supplied.
 
 
 def build_materials_independent_validation() -> None:
+    existing = OUT / "materials_independent_dft_validation"
+    if (existing / "table_independent_dft_candidate_matches.csv").exists() and (
+        existing / "MATERIALS_INDEPENDENT_DFT_VALIDATION_CLOSEOUT.md"
+    ).exists():
+        # The independent-source diagnostic is produced by
+        # build_materials_independent_oqmd_validation.py because it requires
+        # private WBM structures plus live/public OQMD queries. Preserve that
+        # completed diagnostic rather than overwriting it with protocol-only
+        # placeholders when refreshing the broader finalization milestone.
+        write_manifest(existing)
+        return
     out = ensure_clean_dir("materials_independent_dft_validation")
     write_md(
         out / "independent_source_inventory.md",
@@ -924,7 +935,7 @@ def build_reproducibility_freeze() -> None:
     milestone_rows = []
     states = {
         "materials_temporal_validation": "protocol_only",
-        "materials_independent_dft_validation": "protocol_only",
+        "materials_independent_dft_validation": "completed_low_coverage_independent_source_diagnostic",
         "fixed_budget_downstream_utility": "completed_evidence",
         "primary_statistics": "completed_evidence",
         "materials_robustness_triad": "completed_evidence_and_diagnostics",
@@ -966,8 +977,9 @@ make validate-public-bundle
 sha256sum -c MANIFEST_SHA256.txt
 ```
 
-The A1/A2 materials prospective-validation rows remain protocol-only until
-timestamped public-label snapshots or independent DFT joins are supplied.
+A1 remains protocol-only until timestamped public-label snapshots are supplied.
+A2 contains a completed low-coverage OQMD exact-structure diagnostic and is not
+promoted as primary independent validation evidence.
 """,
     )
     write_manifest(out)
