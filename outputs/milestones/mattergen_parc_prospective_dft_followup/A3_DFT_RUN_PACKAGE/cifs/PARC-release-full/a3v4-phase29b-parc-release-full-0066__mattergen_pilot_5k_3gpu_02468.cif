@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       O3CeNaHoNaO
+_chemical_formula_sum              "O4 Ce1 Na2 Ho1"
+_cell_length_a       4.685190653272415
+_cell_length_b       4.676186892160106
+_cell_length_c       6.17526388168335
+_cell_angle_alpha    112.28337649864673
+_cell_angle_beta     112.35536202901885
+_cell_angle_gamma    90.16286918407154
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  O   O1        1.0  0.21391415596008304  0.3782988786697388  0.4891154766082764  1.0000
+  O   O2        1.0  0.9746540188789368  0.6392544507980347  0.010926859453320576  1.0000
+  O   O3        1.0  0.7808838486671448  0.9451104402542115  0.6232259273529054  1.0000
+  Ce  Ce1       1.0  0.747289776802063  0.4117881953716278  0.5560107827186584  1.0000
+  Na  Na1       1.0  0.49686771631240845  0.6615703105926514  0.055471766740083694  1.0000
+  Ho  Ho1       1.0  0.9971025586128235  0.1616668552160263  0.055851973593235016  1.0000
+  Na  Na2       1.0  0.24772390723228455  0.9120289087295532  0.5567666292190553  1.0000
+  O   O4        1.0  0.5197688937187195  0.18457689881324768  0.10167239606380463  1.0000

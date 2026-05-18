@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       NCaTaHoN2HoN
+_chemical_formula_sum              "N4 Ca1 Ta1 Ho2"
+_cell_length_a       4.843829477577068
+_cell_length_b       4.847157068376783
+_cell_length_c       5.8177900314331055
+_cell_angle_alpha    114.6071448275258
+_cell_angle_beta     114.58710713202565
+_cell_angle_gamma    90.25420108698837
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  N   N1        1.0  0.02789226360619068  0.37436220049858093  0.6870046257972717  1.0000
+  Ca  Ca1       1.0  0.529542863368988  0.32137101888656616  0.6870865225791931  1.0000
+  Ta  Ta1       1.0  0.07122600078582764  0.7803031206130981  0.6866652369499207  1.0000
+  Ho  Ho1       1.0  0.7788812518119812  0.07239831238985063  0.18716369569301608  1.0000
+  N   N2        1.0  0.24572962522506714  0.0519585944712162  0.13304877281188965  1.0000
+  N   N3        1.0  0.7995709180831909  0.6057404279708862  0.24123987555503845  1.0000
+  Ho  Ho2       1.0  0.2786085903644562  0.5719095468521118  0.18640440702438354  1.0000
+  N   N4        1.0  0.4775778353214264  0.8227080702781678  0.6868053078651428  1.0000

@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       TaZnPdRu
+_chemical_formula_sum              "Ta1 Zn1 Pd1 Ru1"
+_cell_length_a       4.4106927662521285
+_cell_length_b       4.409565880474239
+_cell_length_c       4.409051895141602
+_cell_angle_alpha    60.06635137709939
+_cell_angle_beta     60.05034824602736
+_cell_angle_gamma    60.09653297636889
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ta  Ta1       1.0  0.36161252856254583  0.7951679229736328  0.9134661555290222  1.0000
+  Zn  Zn1       1.0  0.8616336584091188  0.29488968849182123  0.41304147243499756  1.0000
+  Pd  Pd1       1.0  0.1116513311862946  0.5450859665870665  0.6632034778594971  1.0000
+  Ru  Ru1       1.0  0.6115282773971559  0.04499148577451706  0.16327604651451105  1.0000

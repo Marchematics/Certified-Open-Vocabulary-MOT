@@ -1,0 +1,2 @@
+package,local_execution_status,detected_commands,processes_started,reason,claim_scope
+A3_DFT_RUN_PACKAGE,local_execution_blocked_no_DFT_engine_or_scheduler,,0,"No VASP/QE executable or scheduler command was detected in PATH; transfer this package to HPC, collaborator, or cloud DFT.",execution_package_only_not_DFT_evidence

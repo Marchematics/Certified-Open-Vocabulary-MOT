@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       PrYHo2
+_chemical_formula_sum              "Pr1 Y1 Ho2"
+_cell_length_a       3.5998133843708966
+_cell_length_b       3.6002124745865123
+_cell_length_c       11.853720664978027
+_cell_angle_alpha    81.11738290097871
+_cell_angle_beta     81.14050972928523
+_cell_angle_gamma    59.79737706622979
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Pr  Pr1       1.0  0.8895801305770874  0.2789849638938904  0.20075978338718414  1.0000
+  Y   Y1        1.0  0.7236406803131104  0.11242685467004776  0.6999601125717163  1.0000
+  Ho  Ho1       1.0  0.30847573280334484  0.6976166963577269  0.9448634386062622  1.0000
+  Ho  Ho2       1.0  0.138973131775856  0.527528703212738  0.4553484320640564  1.0000

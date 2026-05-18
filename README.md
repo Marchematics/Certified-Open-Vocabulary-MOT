@@ -170,3 +170,5 @@ A formal citation will be added after archival release. Until then, cite the rep
 - A3-v4 Phase29b manifest addendum: a pre-outcome DFT manifest addendum exports the full PARC release arm and a matched raw_topR arm. The matched arm is identical to the release set here and no DFT outcome or positive prospective materials claim is made.
 
 - A3-v4 Phase29c extra-tail manifest: 25 formal raw-top100 extra-tail candidates are frozen before DFT outcomes. Local DFT execution was not started in this environment because no DFT engine/scheduler was detected; no DFT outcome or prospective materials claim is made.
+
+- A3 DFT run package: `outputs/milestones/mattergen_parc_prospective_dft_followup/A3_DFT_RUN_PACKAGE/` contains 75 PARC-release CIFs, 25 raw-top100 extra-tail CIFs, frozen manifests, protocol/settings templates, and package hashes. It contains no DFT outcomes and no prospective materials claim.

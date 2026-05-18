@@ -1,0 +1,30 @@
+data_image0
+_chemical_formula_structural       H2Y2Se
+_chemical_formula_sum              "H2 Y2 Se1"
+_cell_length_a       3.645079949098567
+_cell_length_b       3.649864679826077
+_cell_length_c       6.529350757598877
+_cell_angle_alpha    106.17440129504742
+_cell_angle_beta     106.18638045075926
+_cell_angle_gamma    90.04301222603925
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  H   H1        1.0  0.3525001108646393  0.493823766708374  0.47301888465881353  1.0000
+  H   H2        1.0  0.8524183630943298  0.9936705231666565  0.4732526242733002  1.0000
+  Y   Y1        1.0  0.9606801271438599  0.6019367575645447  0.688872754573822  1.0000
+  Y   Y2        1.0  0.244171604514122  0.8857713937759398  0.25733527541160583  1.0000
+  Se  Se1       1.0  0.6023781895637512  0.2432519197463989  0.9729471802711488  1.0000

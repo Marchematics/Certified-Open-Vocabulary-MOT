@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       Ho4RhBrRuBr
+_chemical_formula_sum              "Ho4 Rh1 Br2 Ru1"
+_cell_length_a       3.958520411167491
+_cell_length_b       6.806407249260298
+_cell_length_c       7.987823963165283
+_cell_angle_alpha    106.59766838172428
+_cell_angle_beta     89.9801676346909
+_cell_angle_gamma    90.00239307024015
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ho  Ho1       1.0  0.7284956574440001  0.5753650665283203  0.8125237822532654  1.0000
+  Ho  Ho2       1.0  0.2285613268613815  0.08339272439479828  0.8105998635292053  1.0000
+  Ho  Ho3       1.0  0.22856649756431577  0.6130930185317993  0.42435500025749207  1.0000
+  Ho  Ho4       1.0  0.7283996939659118  0.12055235356092453  0.4222175180912018  1.0000
+  Rh  Rh1       1.0  0.7285925745964049  0.8478951454162598  0.617466926574707  1.0000
+  Br  Br1       1.0  0.22846914827823636  0.8480061292648315  0.11733542382717133  1.0000
+  Ru  Ru1       1.0  0.2285376191139221  0.3479416370391846  0.6172516942024231  1.0000
+  Br  Br2       1.0  0.7283597588539122  0.3484760522842408  0.11723958700895311  1.0000

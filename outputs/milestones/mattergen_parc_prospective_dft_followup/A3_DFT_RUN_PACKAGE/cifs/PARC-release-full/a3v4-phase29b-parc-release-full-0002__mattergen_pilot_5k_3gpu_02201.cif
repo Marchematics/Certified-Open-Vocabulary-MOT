@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       CrYSiYCr2
+_chemical_formula_sum              "Cr3 Y2 Si1"
+_cell_length_a       5.236341332704303
+_cell_length_b       5.1845946615676155
+_cell_length_c       5.18873405456543
+_cell_angle_alpha    60.10182908174369
+_cell_angle_beta     60.377225234966964
+_cell_angle_gamma    60.390989567041146
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Cr  Cr1       1.0  0.009820680133998394  0.3994198739528656  0.4295557737350464  1.0000
+  Y   Y1        1.0  0.38063499331474304  0.7758588194847107  0.3059481084346771  1.0000
+  Si  Si1       1.0  0.5106892585754395  0.3995004892349243  0.9297375082969666  1.0000
+  Y   Y2        1.0  0.6397035717964172  0.023243410512804985  0.5532938838005066  1.0000
+  Cr  Cr2       1.0  0.010936856269836426  0.39983487129211426  0.93000328540802  1.0000
+  Cr  Cr3       1.0  0.010017077438533306  0.8995951414108276  0.9298442602157593  1.0000

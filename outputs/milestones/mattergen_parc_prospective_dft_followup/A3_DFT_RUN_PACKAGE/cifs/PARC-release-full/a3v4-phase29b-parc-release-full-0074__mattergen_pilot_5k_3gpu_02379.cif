@@ -1,0 +1,32 @@
+data_image0
+_chemical_formula_structural       YLi2Y2As2
+_chemical_formula_sum              "Y3 Li2 As2"
+_cell_length_a       4.083677771821987
+_cell_length_b       5.922762436629665
+_cell_length_c       7.758352756500244
+_cell_angle_alpha    111.75967419297982
+_cell_angle_beta     89.997762202331
+_cell_angle_gamma    110.12536500323071
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Y   Y1        1.0  0.14352194964885712  0.8152444362640381  0.8229875564575195  1.0000
+  Li  Li1       1.0  0.6314898729324341  0.7903515696525574  0.476018488407135  1.0000
+  Li  Li2       1.0  0.3622227907180786  0.2508233785629272  0.5987936854362488  1.0000
+  Y   Y2        1.0  0.850182831287384  0.22642263770103455  0.25174999237060547  1.0000
+  Y   Y3        1.0  0.4967647194862366  0.5207928419113159  0.037398096174001694  1.0000
+  As  As1       1.0  0.1644056886434555  0.8545180559158325  0.2724973261356354  1.0000
+  As  As2       1.0  0.8294962048530579  0.18679168820381165  0.8017798066139221  1.0000

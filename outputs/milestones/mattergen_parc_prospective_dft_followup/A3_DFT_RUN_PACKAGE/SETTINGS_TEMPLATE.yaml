@@ -1,0 +1,24 @@
+# A3-v4 DFT settings template
+dft_engine: VASP-or-equivalent-MP-compatible-engine
+input_set: MPRelaxSet-compatible
+functional: PBE-GGA
+encut_ev: 520
+kpoint_policy: MPRelaxSet default or fixed equivalent recorded per job
+electronic_convergence_ev: 1.0e-5
+force_convergence_ev_per_angstrom: 0.02
+spin_policy: same frozen magnetic-element rule for all arms
+relaxation_policy: full cell plus ionic relaxation
+static_calculation_policy: final static calculation after relaxation
+compatibility_corrections: fixed Materials Project-compatible correction scheme if used
+failure_policy: one standard rerun; unresolved failures count as not-certified-stable / false for FTR
+outcome_required_fields:
+  - dft_job_id
+  - candidate_id
+  - arm
+  - completed
+  - failed
+  - failure_reason
+  - final_energy_per_atom
+  - e_above_hull_ev_per_atom
+  - stable_exact
+  - stable_25mev

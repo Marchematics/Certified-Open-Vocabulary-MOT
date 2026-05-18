@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       TaCu2TaNi2
+_chemical_formula_sum              "Ta2 Cu2 Ni2"
+_cell_length_a       4.18250066762801
+_cell_length_b       4.225610436287251
+_cell_length_c       5.315486431121826
+_cell_angle_alpha    90.90169672182024
+_cell_angle_beta     89.8485567206283
+_cell_angle_gamma    119.59231197823121
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ta  Ta1       1.0  0.4626064896583557  0.05401669070124626  0.5097752213478088  1.0000
+  Cu  Cu1       1.0  0.46182072162628174  0.05455608293414116  0.03217026963829994  1.0000
+  Cu  Cu2       1.0  0.7949793934822083  0.7216914296150208  0.1816462129354477  1.0000
+  Ta  Ta2       1.0  0.1296624094247818  0.38815924525260925  0.8572556376457214  1.0000
+  Ni  Ni1       1.0  0.7948805689811707  0.7182738780975342  0.6802474856376648  1.0000
+  Ni  Ni2       1.0  0.12877556681632996  0.38975220918655396  0.344116747379303  1.0000

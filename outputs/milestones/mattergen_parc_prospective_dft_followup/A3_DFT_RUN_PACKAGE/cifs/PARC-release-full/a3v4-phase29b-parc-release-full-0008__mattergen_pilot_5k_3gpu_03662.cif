@@ -1,0 +1,32 @@
+data_image0
+_chemical_formula_structural       OTaONbO3
+_chemical_formula_sum              "O5 Ta1 Nb1"
+_cell_length_a       3.8853369169764003
+_cell_length_b       3.891117728951299
+_cell_length_c       6.850375652313232
+_cell_angle_alpha    89.98376714511281
+_cell_angle_beta     106.57481426297132
+_cell_angle_gamma    89.92278038153951
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  O   O1        1.0  0.7540919780731202  0.9765632748603821  0.04753294959664346  1.0000
+  Ta  Ta1       1.0  0.2901234030723572  0.9769999384880067  0.11631668359041214  1.0000
+  O   O2        1.0  0.5859262347221375  0.4780246317386627  0.7123468518257142  1.0000
+  Nb  Nb1       1.0  0.579525887966156  0.9762797951698304  0.7006268501281738  1.0000
+  O   O3        1.0  0.12244876474142076  0.9771075844764711  0.7852187752723694  1.0000
+  O   O4        1.0  0.2862871587276459  0.4773108363151551  0.11003199219703674  1.0000
+  O   O5        1.0  0.435030609369278  0.9769268035888672  0.4097128212451935  1.0000

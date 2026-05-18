@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       TlY3TlHg
+_chemical_formula_sum              "Tl2 Y3 Hg1"
+_cell_length_a       3.7629063767948328
+_cell_length_b       5.373811635698098
+_cell_length_c       8.463343620300293
+_cell_angle_alpha    108.59394967378783
+_cell_angle_beta     90.01055514714395
+_cell_angle_gamma    89.98692269154682
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Tl  Tl1       1.0  0.9217388033866883  0.440430223941803  0.01521125994622706  1.0000
+  Y   Y1        1.0  0.42187017202377325  0.6064374446868896  0.34678104519844055  1.0000
+  Y   Y2        1.0  0.4218417704105378  0.26984408497810364  0.6733104586601257  1.0000
+  Y   Y3        1.0  0.4216126501560212  0.9434486031532288  0.020801836624741527  1.0000
+  Tl  Tl2       1.0  0.9218554496765138  0.7726459503173828  0.6791445016860962  1.0000
+  Hg  Hg1       1.0  0.9218972921371461  0.10694627463817595  0.34748533368110657  1.0000

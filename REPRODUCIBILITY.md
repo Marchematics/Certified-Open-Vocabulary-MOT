@@ -403,3 +403,7 @@ Run `make reproduce-a3-v4-dft-manifest-addendum` after the formal selection gate
 ## A3-v4 Phase29c extra-tail manifest
 
 Run `make reproduce-a3-v4-phase29c-extra-tail-manifest` after the Phase29b addendum to rebuild the pre-outcome formal raw-top100 extra-tail manifest. This does not modify `selection_frozen_v4.csv` and is not completed DFT evidence.
+
+## A3 DFT run package
+
+Run `make reproduce-a3-dft-run-package` after Phase29c to rebuild the DFT execution package. The package contains CIF inputs and frozen manifests only; it does not modify `selection_frozen_v4.csv` and includes no DFT outcomes.

@@ -1,0 +1,1 @@
+dft_job_id,candidate_id,arm,completed,failed,failure_reason,final_energy_per_atom,e_above_hull_ev_per_atom,stable_exact,stable_25mev,outcome_file

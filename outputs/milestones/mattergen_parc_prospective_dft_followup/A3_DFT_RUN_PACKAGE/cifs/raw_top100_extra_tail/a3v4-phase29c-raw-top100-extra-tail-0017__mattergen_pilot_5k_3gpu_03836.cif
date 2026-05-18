@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       Tb2Ho6
+_chemical_formula_sum              "Tb2 Ho6"
+_cell_length_a       5.676052130956579
+_cell_length_b       7.213420269426138
+_cell_length_c       7.216632843017578
+_cell_angle_alpha    119.99784448689115
+_cell_angle_beta     89.99341820229623
+_cell_angle_gamma    89.99032412625571
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Tb  Tb1       1.0  0.0522284135222435  0.5968468189239502  0.8055758476257323  1.0000
+  Tb  Tb2       1.0  0.5519083738327026  0.9300323128700255  0.47279506921768183  1.0000
+  Ho  Ho1       1.0  0.05222722142934799  0.09748566150665283  0.8067628741264342  1.0000
+  Ho  Ho2       1.0  0.052131474018096924  0.09712591022253036  0.3047540485858917  1.0000
+  Ho  Ho3       1.0  0.05153539776802063  0.5956191420555115  0.3048877716064453  1.0000
+  Ho  Ho4       1.0  0.551946759223938  0.4296735525131225  0.9733610153198241  1.0000
+  Ho  Ho5       1.0  0.551963746547699  0.42920029163360596  0.47127351164817805  1.0000
+  Ho  Ho6       1.0  0.5519852638244629  0.9310064911842345  0.9733334779739379  1.0000

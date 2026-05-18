@@ -1,0 +1,30 @@
+data_image0
+_chemical_formula_structural       YbOYbOF
+_chemical_formula_sum              "Yb2 O2 F1"
+_cell_length_a       3.9540388794036603
+_cell_length_b       3.9476205430808977
+_cell_length_c       4.8200531005859375
+_cell_angle_alpha    90.27204211805615
+_cell_angle_beta     89.6219105587409
+_cell_angle_gamma    119.74052525546443
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Yb  Yb1       1.0  0.4239684343338012  0.7084658145904541  0.6001550555229187  1.0000
+  O   O1        1.0  0.7580590248107909  0.37520524859428406  0.6555346846580505  1.0000
+  Yb  Yb2       1.0  0.7585322260856627  0.3752131462097168  0.13588865101337433  1.0000
+  O   O2        1.0  0.4240895509719848  0.7085556983947754  0.0806947648525238  1.0000
+  F   F1        1.0  0.09093978255987166  0.041868623346090324  0.367271363735199  1.0000

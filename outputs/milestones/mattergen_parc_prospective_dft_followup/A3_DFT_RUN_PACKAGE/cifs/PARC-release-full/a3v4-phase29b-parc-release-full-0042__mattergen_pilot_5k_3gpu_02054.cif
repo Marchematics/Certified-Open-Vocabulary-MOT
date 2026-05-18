@@ -1,0 +1,30 @@
+data_image0
+_chemical_formula_structural       Cr2NiRuN
+_chemical_formula_sum              "Cr2 Ni1 Ru1 N1"
+_cell_length_a       3.779582502282054
+_cell_length_b       3.7788212550288387
+_cell_length_c       3.989124059677124
+_cell_angle_alpha    89.97046876554747
+_cell_angle_beta     89.99821982499489
+_cell_angle_gamma    90.09520850884549
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Cr  Cr1       1.0  0.4792136549949646  0.06654709577560423  0.49617421627044683  1.0000
+  Cr  Cr2       1.0  0.979391872882843  0.5666505098342896  0.4962476491928101  1.0000
+  Ni  Ni1       1.0  0.9790602326393127  0.06661672890186308  0.996145248413086  1.0000
+  Ru  Ru1       1.0  0.47910818457603455  0.5666336417198181  0.9962943196296693  1.0000
+  N   N1        1.0  0.47937482595443726  0.5665162801742554  0.4966691434383393  1.0000
