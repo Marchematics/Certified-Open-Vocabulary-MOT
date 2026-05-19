@@ -618,17 +618,19 @@ def test_mattergen_v4_gate_is_pre_dft_and_not_positive_evidence() -> None:
     mattergen = pd.read_csv(root / "table_mattergen_environment_status.csv")
     mace = pd.read_csv(root / "table_mace_environment_status.csv")
     status = pd.read_csv(root / "table_v4_freeze_status.csv")
-    raw = pd.read_csv(root / "raw_mattergen_candidates.csv")
     public_free = pd.read_csv(root / "candidate_universe_public_label_free.csv")
     consensus = pd.read_csv(root / "candidate_scores_consensus.csv")
     selection = pd.read_csv(root / "selection_frozen_v4.csv")
     jobs = pd.read_csv(root / "dft_job_manifest_v4.csv")
+    provenance = pd.read_json(root / "generation_provenance.json", typ="series")
     closeout = (root / "A3_V4_MATTERGEN_PARC_DFT_CLOSEOUT.md").read_text(encoding="utf-8")
 
     assert mattergen.loc[0, "component"] == "MatterGen"
     assert mace.loc[0, "component"] == "MACE-MP"
     assert not status["completed_positive_result"].astype(bool).any()
-    assert not raw.empty
+    assert not (root / "raw_mattergen_candidates.csv").exists()
+    assert int(provenance["raw_generated_cif_count"]) == 5000
+    assert int(provenance["scored_candidate_count"]) == 4039
     assert not public_free.empty
     assert not consensus.empty
     assert consensus["score_status"].eq("scored").all()

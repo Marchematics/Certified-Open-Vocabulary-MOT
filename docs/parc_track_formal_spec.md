@@ -1245,17 +1245,16 @@ This is the remaining blocker before IDSW can be claimed as a fully validated re
 
 ## 28. journal-Core Result Bundle
 
-The paper-facing bundle is frozen at:
+The pre-release paper-facing evidence is indexed at:
 
 ```text
-outputs/milestones/core_results/
+docs/claim_table.md
+outputs/artifact_index.csv
 ```
 
-It contains current CSV tables, SHA256 hashes, and LaTeX table exports. A compact paper result summary is written to:
-
-```text
-docs/paper_results_summary.md
-```
+These files point to the current claim-bearing milestones and SHA256 manifests.
+Older `paper_results_summary*` notes were removed from the pre-release
+repository because they referenced superseded legacy workspaces.
 
 This bundle supports a dual-track writing strategy:
 

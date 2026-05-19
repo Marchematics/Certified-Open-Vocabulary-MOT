@@ -194,6 +194,9 @@ A3 runtime policy: local Quantum ESPRESSO outcome files under
 `outputs/milestones/mattergen_parc_prospective_dft_followup/A3_QE_LOCAL_RUN/qe_outputs/`
 are ignored until a post-outcome analysis milestone is created under the
 predeclared conservative failure policy.
+Third-party Quantum ESPRESSO pseudopotential payload files under
+`A3_QE_LOCAL_RUN/pseudos/` are also ignored in Git; the tracked artifact is the
+pseudopotential map with source filenames and SHA256 hashes.
 
 Regenerate the phase32 NMI presubmission package:
 

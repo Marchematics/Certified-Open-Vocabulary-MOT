@@ -109,17 +109,16 @@ The audit loop is considered a positive real partial-verification validation if:
 Expected files:
 
 ```text
-outputs/spacenet7_real_audit/audit_manifest.csv
-outputs/spacenet7_real_audit/calibration_audit_blind_template.csv
-outputs/spacenet7_real_audit/release_audit_blind_template.csv
-outputs/spacenet7_real_audit/raw_topk_audit_blind_template.csv
-outputs/spacenet7_real_audit/table_spacenet7_real_audit_seed_results.csv
-outputs/spacenet7_real_audit/table_spacenet7_real_audit_summary.csv
-outputs/spacenet7_real_audit/RUN_REPORT.md
+outputs/milestones/spacenet_real_audit_final/table_spacenet_k100_refusal_diagnostics.csv
+outputs/milestones/spacenet_real_audit_final/table_spacenet_k50_release_audit.csv
+outputs/milestones/spacenet_real_audit_final/table_spacenet_calibration_audit_summary.csv
+outputs/milestones/spacenet_real_audit_final/table_spacenet_raw_topK_audit.csv
+outputs/milestones/spacenet_real_audit_final/table_spacenet_block_coverage.csv
 ```
 
-Pre-release note: review-prefill sheets are intermediate aids and are not part
-of the formal tracked evidence package.
+Pre-release note: the historical `outputs/spacenet7_real_audit/` workspace and
+review-prefill sheets were removed from the tracked repository. Use only the
+final milestone above for paper-facing evidence.
 
 ## Paper Positioning
 

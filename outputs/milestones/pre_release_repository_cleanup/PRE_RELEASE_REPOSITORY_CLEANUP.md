@@ -21,12 +21,16 @@ The pre-release repository removes:
 - CTC strict-audit prefill/private-key package after final human-confirmed labels were frozen;
 - iWildCam second-review draft and correction-draft files after final human-confirmed labels were frozen;
 - SpaceNet review prefill sheets while retaining final blind/metadata/audit summary tables;
+- the historical SpaceNet working directory after its final paper-facing milestone was frozen;
+- A3 MatterGen smoke/pilot raw-generation intermediates while retaining formal public-label exclusion, selection, and pre-DFT manifests;
+- large breadth candidate-level payload CSVs whose paper-facing summary/provenance artifacts remain tracked;
+- third-party Quantum ESPRESSO pseudopotential payloads, retaining only a source/hash map in Git while leaving local runtime copies available for active jobs;
 - helper scripts whose sole purpose was to create prefill or draft label sheets;
 - local runtime scratch files and caches.
 
 ## Claim Boundary
 
-This cleanup does not create new evidence. It also does not modify A3-v4 selection or DFT manifests. The active A3 Quantum ESPRESSO outputs remain local runtime state under `A3_QE_LOCAL_RUN/qe_outputs/` and are ignored until outcomes are formally analyzed under the conservative failure policy.
+This cleanup does not create new evidence. It also does not modify A3-v4 selection or DFT manifests. The active A3 Quantum ESPRESSO outputs remain local runtime state under `A3_QE_LOCAL_RUN/qe_outputs/` and are ignored until outcomes are formally analyzed under the conservative failure policy. The QE pseudopotential payloads are local third-party runtime dependencies and remain available on the execution host, but are no longer tracked in the GitHub pre-release.
 
 No row removed here may be cited as completed evidence. Removed prefill/draft rows were adjudication aids, not final paper-facing human labels.
 

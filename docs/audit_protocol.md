@@ -65,4 +65,4 @@ than redistributing the underlying raw data.
 - `outputs/milestones/reliability_fortress/audit_review/`
 - `outputs/milestones/ctc_strict_human_audit/`
 - `outputs/milestones/scientific_domain_iwildcam_human_audit/`
-- `outputs/spacenet7_real_audit/`
+- `outputs/milestones/spacenet_real_audit_final/`

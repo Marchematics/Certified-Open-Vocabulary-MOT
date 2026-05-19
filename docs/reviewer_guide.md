@@ -60,7 +60,7 @@ See `DATA_AVAILABILITY.md` for the exact public-safe boundary.
 - iWildCam human-audited animal-present release:
   `outputs/milestones/scientific_domain_iwildcam_human_audit/`
 - SpaceNet 7 real-audit low-volume diagnostic release and K=100 refusal:
-  `outputs/spacenet7_real_audit/`.
+  `outputs/milestones/spacenet_real_audit_final/`.
 
 ## Human-Audit Files
 
@@ -70,8 +70,8 @@ See `DATA_AVAILABILITY.md` for the exact public-safe boundary.
   `outputs/milestones/ctc_strict_human_audit/`
 - iWildCam human-confirmed audit:
   `outputs/milestones/scientific_domain_iwildcam_human_audit/`
-- SpaceNet real-audit loop:
-  `outputs/spacenet7_real_audit/`
+- SpaceNet real-audit final evidence:
+  `outputs/milestones/spacenet_real_audit_final/`
 
 ## Interpreting Refusal
 

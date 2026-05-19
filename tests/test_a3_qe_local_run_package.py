@@ -36,6 +36,7 @@ def test_a3_qe_local_run_claim_boundary_and_launch_scripts() -> None:
     assert "Prospective materials discovery claims remain forbidden" in protocol
     assert "run_qe_job.sh" in manifest
     assert "launch_parc_release_tmux.sh" in manifest
+    assert "pseudos/" not in manifest
 
 
 def test_a3_qe_local_run_does_not_change_frozen_selection_or_package() -> None:

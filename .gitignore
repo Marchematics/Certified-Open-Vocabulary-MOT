@@ -22,6 +22,16 @@ outputs/tmp_*/
 outputs/**/qe_outputs/
 outputs/**/dft_outputs/raw/
 outputs/**/dft_outputs/work/
+outputs/milestones/mattergen_parc_prospective_dft_followup/A3_QE_LOCAL_RUN/pseudos/
+outputs/milestones/mattergen_parc_prospective_dft_followup/*_smoke.csv
+outputs/milestones/mattergen_parc_prospective_dft_followup/table_mattergen_smoke_*.csv
+outputs/milestones/mattergen_parc_prospective_dft_followup/raw_mattergen_candidates.csv
+outputs/milestones/mattergen_parc_prospective_dft_followup/generated_5k_*.csv
+outputs/milestones/mattergen_parc_prospective_dft_followup/public_label_free_pilot_4039.csv
+outputs/milestones/generality_reliability/candidate_universe.csv
+outputs/milestones/generality_reliability/candidate_nodes.csv
+outputs/milestones/generality_reliability/candidate_scores.csv
+outputs/milestones/lvvis_mask_certification/mask_shards/mask_nodes_shard*.csv
 *.pth
 *.pt
 *.safetensors

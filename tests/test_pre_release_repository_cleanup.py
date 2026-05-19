@@ -43,6 +43,7 @@ def test_no_tracked_prefill_draft_or_legacy_artifacts_remain() -> None:
     forbidden_substrings = [
         "outputs/milestones/legacy_core_results/",
         "outputs/milestones/ctc_strict_human_audit_prefill/",
+        "outputs/spacenet7_real_audit/",
         "outputs/packages/",
         "ctc_strict_audit_private_key",
         "second_review_draft_for_human_confirmation",
@@ -50,6 +51,22 @@ def test_no_tracked_prefill_draft_or_legacy_artifacts_remain() -> None:
         "table_iwildcam_second_review_draft_",
         "table_iwildcam_second_review_corrected_draft_",
         "_review_prefill.csv",
+        "raw_mattergen_candidates.csv",
+        "generated_5k_",
+        "public_label_free_pilot_4039",
+        "candidate_scores_chgnet_smoke.csv",
+        "candidate_scores_consensus_smoke.csv",
+        "candidate_scores_mace_smoke.csv",
+        "candidate_universe_public_label_free_smoke.csv",
+        "table_mattergen_smoke_",
+        "generality_reliability/candidate_universe.csv",
+        "generality_reliability/candidate_nodes.csv",
+        "generality_reliability/candidate_scores.csv",
+        "lvvis_mask_certification/mask_shards/mask_nodes_shard0.csv",
+        "lvvis_mask_certification/mask_shards/mask_nodes_shard1.csv",
+        "lvvis_mask_certification/mask_shards/mask_nodes_shard2.csv",
+        "lvvis_mask_certification/mask_shards/mask_nodes_shard3.csv",
+        "A3_QE_LOCAL_RUN/pseudos/",
     ]
     offenders = [path for path in tracked if any(token in path for token in forbidden_substrings)]
     assert offenders == []
