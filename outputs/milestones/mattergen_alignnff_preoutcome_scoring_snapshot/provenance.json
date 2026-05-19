@@ -1,0 +1,20 @@
+{
+  "status": "completed_pre_outcome_scorer_diagnostic_not_DFT_evidence",
+  "does_not_modify": [
+    "selection_frozen_v4.csv",
+    "dft_job_manifest_v4.csv",
+    "dft_job_manifest_v4_addendum.csv",
+    "dft_job_manifest_v4_phase29c_raw_top100_extra_tail.csv",
+    "A3_DFT_RUN_PACKAGE/"
+  ],
+  "alignn_package": "alignn==2026.4.2",
+  "alignnff_model_name": "v12.2.2024_dft_3d_307k",
+  "checkpoint_dir": "v12.2.2024_dft_3d_307k",
+  "checkpoint_zip_sha256": "ccc5c71e44e0213f8f5261a5e1df43df03129a4ec661a31c7a880cbf48b4e7b5",
+  "best_model_sha256": "f47f3d231605d58c21538ee5a3d1fe5c7f7711d9cd31deb6964965e23f84b269",
+  "config_sha256": "ac194348870c6d584ab95da25c2e51b27856625326398de7d6dfe825295164cf",
+  "source_zip_sha256": "66c2cbf529b208c465004e0abe4eb2a42d84bc9589c2cf4afdc1de1323912db8",
+  "score_rule": "alignnff_score = -alignnff_energy_per_atom; diagnostic only, not formal A3 selection scorer",
+  "dgl_device_note": "DGL is CPU-only in this environment; scoring used device=cpu and thread caps.",
+  "no_dft_outcomes_used": true
+}
