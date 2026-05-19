@@ -1,6 +1,0 @@
-scope,n_rows,primary_label_counts,draft_label_counts,label_agreement,verified_positive_agreement,cohen_kappa_preview,kappa_note
-all_rows,1123,animal:537|not_animal:586,animal:537|not_animal:586,1.0,1.0,1.0,preview_only_pending_human_confirmation
-all_calibration_not_animal,586,not_animal:586,not_animal:586,1.0,1.0,,not_applicable_single_label_scope
-all_raw_topK_candidates,102,animal:102,animal:102,1.0,1.0,,not_applicable_single_label_scope
-all_release_candidates,167,animal:167,animal:167,1.0,1.0,,not_applicable_single_label_scope
-random_300_calibration_animal,268,animal:268,animal:268,1.0,1.0,,not_applicable_single_label_scope

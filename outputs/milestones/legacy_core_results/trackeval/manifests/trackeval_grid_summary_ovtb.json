@@ -1,7 +1,0 @@
-{
-  "status": "completed",
-  "dataset": "OVT-B",
-  "table": "<PARC_ROOT>/outputs/phase5_trackeval/table_trackeval_ovtb.csv",
-  "summary": "<PARC_ROOT>/outputs/phase5_trackeval/table_trackeval_ovtb_meanstd.csv",
-  "runs": 6
-}

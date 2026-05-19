@@ -1,6 +1,0 @@
-{
-  "status": "completed",
-  "table": "<PARC_ROOT>/outputs/phase5_confidence_calibration/table_confidence_calibration_baselines.csv",
-  "summary": "<PARC_ROOT>/outputs/phase5_confidence_calibration/table_confidence_calibration_baselines_meanstd.csv",
-  "rows": 48
-}

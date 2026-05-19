@@ -36,8 +36,9 @@ Only rows labeled `same_cell_link` and marked
 positive set.  `not_same_cell_link`, `uncertain`, and any future disagreement
 must remain unverified and must not be treated as trusted negatives.
 
-## Provenance
+## Pre-Release Provenance
 
-This release is derived from the reviewed prefill package in
-`outputs/milestones/ctc_strict_human_audit_prefill/`.  The prefill package
-remains as provenance; this milestone is the human-confirmed publication copy.
+The pre-release repository retains this milestone as the human-confirmed
+publication copy and removes the earlier review-prefill/private-key package
+from tracked artifacts. The retained tables in this directory are the
+paper-facing labels for this audit package.

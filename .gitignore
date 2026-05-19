@@ -17,6 +17,11 @@ data/
 cache/
 tmp/
 third_party/
+outputs/packages/
+outputs/tmp_*/
+outputs/**/qe_outputs/
+outputs/**/dft_outputs/raw/
+outputs/**/dft_outputs/work/
 *.pth
 *.pt
 *.safetensors
@@ -29,6 +34,8 @@ third_party/
 # Logs/runtime state
 *.log
 *.pid
+CRASH
+input_tmp.in
 wandb/
 
 # OS/editor

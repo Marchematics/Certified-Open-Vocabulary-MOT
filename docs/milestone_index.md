@@ -11,7 +11,8 @@ This index points reviewers to the main frozen public-safe artifact groups.
 | Materials discovery | `outputs/milestones/scientific_domain_materials/` | Stable-material candidate release under partial DFT verification. |
 | iWildCam human audit | `outputs/milestones/scientific_domain_iwildcam_human_audit/` | Human-audited ecological animal-present operational release. |
 | Scientific success map | `outputs/milestones/scientific_release_success_map/` | Consolidated cross-domain success/refusal matrix. |
-| SpaceNet real audit | `outputs/spacenet7_real_audit/` | Human-audit release/refusal workflow diagnostics for building links. |
+| SpaceNet real audit | `outputs/milestones/spacenet_real_audit_final/` | Human-audit release/refusal workflow diagnostics for building links. |
+| Pre-release cleanup | `outputs/milestones/pre_release_repository_cleanup/` | Repository hygiene record for removed legacy, prefill, draft, archive, and runtime artifacts. |
 
 ## How to use this index
 

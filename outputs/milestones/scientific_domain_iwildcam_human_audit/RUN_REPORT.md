@@ -31,14 +31,10 @@ alpha=0.20 ecology release. Strict alpha=0.10 remains certified refusal under
 current evidence resolution. This should be written as an operational ecology
 positive, not as a strict alpha=0.10 flagship.
 
-Second-review status: the blind second-review template contains 1123 rows. An
-initial draft has been prepared in
-`second_review_draft_for_human_confirmation.csv`, with all rows marked
-`requires_human_confirmation`. Reportable inter-reviewer agreement should be
-computed only after the draft is confirmed or edited by the reviewer.
-
-Second-review completion: the corrected worksheet was confirmed by human review
-and frozen in `second_review_human_confirmed_labels.csv`. The reportable
+Second-review completion: the blind second-review template contains 1123 rows.
+The confirmed worksheet is frozen in `second_review_human_confirmed_labels.csv`.
+Earlier draft/correction-draft worksheets were removed from the pre-release
+repository because they were not paper-facing evidence. The reportable
 agreement table is `table_iwildcam_second_review_agreement_summary.csv`.
 Overall label agreement is 0.902048 with Cohen kappa 0.804180
 (bootstrap 95% CI: 0.768494-0.837898). The release-audit subset remains

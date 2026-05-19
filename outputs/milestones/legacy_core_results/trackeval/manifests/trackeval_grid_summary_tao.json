@@ -1,7 +1,0 @@
-{
-  "status": "completed",
-  "dataset": "TAO",
-  "table": "<PARC_ROOT>/outputs/phase5_trackeval/table_trackeval_tao.csv",
-  "summary": "<PARC_ROOT>/outputs/phase5_trackeval/table_trackeval_tao_meanstd.csv",
-  "runs": 6
-}

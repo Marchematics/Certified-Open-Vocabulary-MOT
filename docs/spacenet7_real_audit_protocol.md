@@ -111,15 +111,15 @@ Expected files:
 ```text
 outputs/spacenet7_real_audit/audit_manifest.csv
 outputs/spacenet7_real_audit/calibration_audit_blind_template.csv
-outputs/spacenet7_real_audit/calibration_audit_review_prefill.csv
 outputs/spacenet7_real_audit/release_audit_blind_template.csv
-outputs/spacenet7_real_audit/release_audit_review_prefill.csv
 outputs/spacenet7_real_audit/raw_topk_audit_blind_template.csv
-outputs/spacenet7_real_audit/raw_topk_audit_review_prefill.csv
 outputs/spacenet7_real_audit/table_spacenet7_real_audit_seed_results.csv
 outputs/spacenet7_real_audit/table_spacenet7_real_audit_summary.csv
 outputs/spacenet7_real_audit/RUN_REPORT.md
 ```
+
+Pre-release note: review-prefill sheets are intermediate aids and are not part
+of the formal tracked evidence package.
 
 ## Paper Positioning
 

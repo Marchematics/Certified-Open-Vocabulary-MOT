@@ -63,6 +63,7 @@ outputs/milestones/materials_fixed_budget_scientific_utility/
 outputs/milestones/ctc_scientific_artifact_consequence/
 outputs/milestones/nmi_presubmission_package/
 outputs/milestones/nmi_presubmission_final/
+outputs/milestones/pre_release_repository_cleanup/
 outputs/milestones/reproducibility_freeze/
 outputs/milestones/generality_reliability/
 outputs/milestones/release_story/
@@ -139,6 +140,17 @@ The phase30 matrix explicitly keeps OQMD/alex-mp rows as completed negative
 diagnostics and keeps A3 as a high-risk bonus track unless a nonempty frozen
 selection and DFT outcomes exist.
 
+Verify the pre-release cleanup guardrails:
+
+```bash
+python scripts/validate_public_bundle.py outputs/milestones/pre_release_repository_cleanup
+pytest -q tests/test_pre_release_repository_cleanup.py
+```
+
+The cleanup milestone records which obsolete legacy, prefill, draft, archive,
+and runtime artifacts were removed. It does not alter completed evidence and
+does not promote any A3 row to positive evidence.
+
 Regenerate the phase31 protocol/claim-alignment guardrails:
 
 ```bash
@@ -173,6 +185,15 @@ python scripts/build_phase33_nmi_presubmission_final.py
 This command builds the compressed final inquiry, final evidence table, final
 abstract, editor cold read, forbidden-claims list, cover-letter positioning,
 and go/no-go checklist. All go-required checks must be `PASS`.
+
+Pre-release archive policy: `outputs/packages/*.tar.gz` files are generated
+artifacts, not source artifacts. They are ignored in Git and can be recreated
+with `make package-release` when a release archive is needed.
+
+A3 runtime policy: local Quantum ESPRESSO outcome files under
+`outputs/milestones/mattergen_parc_prospective_dft_followup/A3_QE_LOCAL_RUN/qe_outputs/`
+are ignored until a post-outcome analysis milestone is created under the
+predeclared conservative failure policy.
 
 Regenerate the phase32 NMI presubmission package:
 

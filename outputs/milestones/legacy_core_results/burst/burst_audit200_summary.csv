@@ -1,2 +1,0 @@
-dataset,audit_candidates,labeled,pending,actually_true,actually_false,uncertain,verified_positive_for_calibration,actually_true_rate,verified_positive_rate,auditor,status
-BURST,200,200,0,168,6,26,168,0.84,0.84,human_visual_audit_v1,model_assisted_visual_audit

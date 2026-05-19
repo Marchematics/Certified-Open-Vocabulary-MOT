@@ -1,4 +1,0 @@
-dataset,rows,existing_gold,pending,actually_true,actually_false,uncertain,verified_positive
-BURST,600,0,600,0,0,0,0
-OVT-B,700,77,623,57,18,2,38
-TAO,700,88,612,73,15,0,31

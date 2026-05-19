@@ -1,3 +1,0 @@
-video_id,path_id,node_index,image_id,frame_index,image_path,bbox_x,bbox_y,bbox_w,bbox_h,score
-1,p0,0,1,0,,0,0,10,10,0.9
-1,p0,1,2,1,,1,0,10,10,0.9

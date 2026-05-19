@@ -1,9 +1,0 @@
-method,released,utr,conservative_ftr,margin,nonempty_rate
-confidence_threshold,150 ± 0,0.02667 ± 0.01155,0.9667 ± 0.006667,,1.000
-greedy_score_no_risk,150 ± 0,0.02667 ± 0.01155,0.9667 ± 0.006667,,1.000
-null_superset_no_audit,0 ± 0,0 ± 0,,,0.000
-parc_track_gamma_tuned_uniform_scs,0 ± 0,0 ± 0,,,0.000
-post_filter_e_bh,0 ± 0,0 ± 0,,,0.000
-tracklet_e_bh,0 ± 0,0 ± 0,,,0.000
-tracklet_p_bh,150 ± 0,0.02667 ± 0.01155,0.9667 ± 0.006667,,1.000
-unmatched_as_false_block,0 ± 0,0 ± 0,,,0.000

@@ -1,0 +1,12 @@
+artifact_group,path,status,reason
+ctc_final_audit,outputs/milestones/ctc_strict_human_audit/,kept,"Final human-confirmed CTC audit labels and summaries are paper-facing evidence."
+iwildcam_final_audit,outputs/milestones/iwildcam_audit_final/,kept,"Final iWildCam release audit, second-review agreement, strict-refusal, and species-rule invalidity tables are paper-facing evidence."
+spacenet_final_audit,outputs/milestones/spacenet_real_audit_final/,kept,"Final SpaceNet K=100 refusal and K=50 diagnostic release tables are paper-facing audited-boundary evidence."
+materials_fixed_budget,outputs/milestones/materials_fixed_budget_scientific_utility/,kept,"Primary materials fixed-budget utility lead numbers and source hashes are headline-approved."
+ctc_artifact_consequence,outputs/milestones/ctc_scientific_artifact_consequence/,kept,"CTC false-lineage/artifact-consequence tables are headline-approved."
+source_discordance,outputs/milestones/materials_source_discordance_stress_test/,kept,"OQMD/alex-mp rows are retained as diagnostic stress tests, not positive validation."
+claim_alignment,outputs/milestones/protocol_claim_alignment/,kept,"Claim role audit and evidence-alignment guardrails enforce manuscript boundaries."
+nmi_presubmission,outputs/milestones/nmi_presubmission_final/,kept,"Final presubmission go/no-go package and forbidden-claims guardrails."
+a3_formal_gate,outputs/milestones/mattergen_parc_prospective_dft_followup/,kept_pre_outcome,"A3-v4 selection and manifests remain frozen before DFT outcomes; no prospective evidence is claimed."
+a3_local_qe_inputs,outputs/milestones/mattergen_parc_prospective_dft_followup/A3_QE_LOCAL_RUN/,kept_pre_outcome,"QE inputs, pseudopotentials, job lists, and launch scripts are frozen execution package components."
+a3_runtime_outputs,outputs/milestones/mattergen_parc_prospective_dft_followup/A3_QE_LOCAL_RUN/qe_outputs/,ignored_runtime,"Active local QE outputs are not tracked or cited until analyzed after outcomes return."

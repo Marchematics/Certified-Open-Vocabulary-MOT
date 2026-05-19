@@ -65,6 +65,7 @@ parc-track/
 │   ├── milestones/ctc_scientific_artifact_consequence/
 │   ├── milestones/nmi_presubmission_package/
 │   ├── milestones/nmi_presubmission_final/
+│   ├── milestones/pre_release_repository_cleanup/
 │   ├── milestones/reproducibility_freeze/
 │   └── benchmarks/parc_certification_benchmark/
 ├── tests/                            # pytest suite and tiny fixtures
@@ -86,9 +87,10 @@ parc-track/
 - Phase33 final NMI presubmission go/no-go package: compressed inquiry, final abstract, evidence table, forbidden claims, cold read, cover-letter positioning, and PASS checklist.
 - Phase32 NMI presubmission package: editor-facing inquiry, abstract draft, one-page evidence table, desk-risk cold read, referee rationale, and positioning guardrails built from phase31-approved claims only.
 - Phase31 protocol/claim-alignment guardrails: every candidate headline result is assigned an allowed manuscript role; primary-headline rows require completed artifacts, source SHA256 hashes, and exact manuscript sentences; `docs/abstract_claim_scope.md` forbids prospective materials-discovery language unless A3 DFT gates are met.
-- A3 prospective in-silico DFT follow-up protocol gates. The ALIGNN-FF v1 package is a protocol-only blocked record; CHGNet v2 scores the PGCGM generated pool and CHGNet v3 scores a near-hull isovalent-substitution pool. Both CHGNet gates keep selection/job manifests empty when the predeclared release endpoints are unsupported. The MatterGen v4 gate records a locally smoke-tested MatterGen entrypoint and MACE-MP smoke test, but has not generated a candidate pool or exported DFT jobs. None of these A3 gates includes new DFT outcomes or a completed positive result.
+- A3 prospective in-silico DFT follow-up gates. Earlier ALIGNN-FF/CHGNet gates are retained only as scoped no-go diagnostics. The current MatterGen v4 gate has a frozen public-label-excluded selection, DFT run package, and local Quantum ESPRESSO input layer, but it still contains no DFT outcomes and no completed prospective materials-discovery result.
+- Pre-release repository cleanup records under `outputs/milestones/pre_release_repository_cleanup/`. These document the removal of obsolete legacy dumps, prefill/draft label aids, generated archive packages, and local runtime scratch files while preserving final evidence and claim-boundary guardrails.
 - Experiment-finalization milestones for materials temporal/independent-source feasibility, fixed-budget downstream utility, primary statistics, materials robustness, baseline matrix, CTC strict-anchor finalization, iWildCam/SpaceNet audit finalization, and reproducibility freeze. These milestones preserve the completed/diagnostic/protocol-only evidence distinction.
-- Result tables for OVT-B, TAO, BURST, black-box generators, published-tracker adapters, non-exchangeability stress tests, null-inflation sensitivity, LVIS/LVVIS/OVVIS generality checks, Mondrian/per-class/runtime/anytime diagnostics, and Prop. 5 high-evidence mass diagnostics.
+- Paper-facing result tables for the retained OVT-B/TAO/BURST, black-box generator, published-tracker, LVIS/LVVIS/OVIS, stress-test, and success-domain evidence. Obsolete internal legacy dumps are removed from the pre-release tree; regenerated packages should be created with `make package-release` rather than tracked as tarballs.
 - Tiny fixture for validating the full schema-to-certification path without downloading external datasets.
 
 ## What Is Not Included
@@ -156,7 +158,8 @@ For full benchmark reproduction, see `REPRODUCIBILITY.md`.
 - Reproducibility freeze: `outputs/milestones/reproducibility_freeze/` and `outputs/artifact_index.csv` (experiment-finalization milestone index and validation commands)
 - Materials prospective CHGNet v2 gate: `outputs/milestones/materials_prospective_dft_followup_chgnet_v2/` (locally executable CHGNet scorer on PGCGM candidates; PARC release remained empty, so no DFT jobs were exported)
 - Materials prospective CHGNet v3 near-hull gate: `outputs/milestones/materials_prospective_dft_followup_chgnet_v3/` (5,000 near-hull isovalent/chemically similar substitutions scored by CHGNet; strict and operational predeclared endpoints all refused, so no DFT jobs were exported)
-- Materials prospective MatterGen v4 gate: `outputs/milestones/mattergen_parc_prospective_dft_followup/` (5k MatterGen generation, CHGNet/MACE-MP consensus scoring, alex-mp available-source structure exclusion, and a pre-DFT release-only manifest are recorded; DFT outcomes have not started and no positive prospective materials result is claimed)
+- Materials prospective MatterGen v4 gate: `outputs/milestones/mattergen_parc_prospective_dft_followup/` (5k MatterGen generation, CHGNet/MACE-MP consensus scoring, alex-mp available-source structure exclusion, frozen pre-DFT release and extra-tail manifests, DFT run package, and local Quantum ESPRESSO input layer are recorded; no DFT outcomes are committed and no positive prospective materials result is claimed)
+- Pre-release cleanup: `outputs/milestones/pre_release_repository_cleanup/` (records removed legacy/prefill/draft/package artifacts and kept formal evidence)
 - Community benchmark: `outputs/benchmarks/parc_certification_benchmark/`
 - File integrity manifest: `MANIFEST_SHA256.txt`
 
@@ -169,8 +172,8 @@ A formal citation will be added after archival release. Until then, cite the rep
 
 - A3-v4 Phase29b manifest addendum: a pre-outcome DFT manifest addendum exports the full PARC release arm and a matched raw_topR arm. The matched arm is identical to the release set here and no DFT outcome or positive prospective materials claim is made.
 
-- A3-v4 Phase29c extra-tail manifest: 25 formal raw-top100 extra-tail candidates are frozen before DFT outcomes. Local DFT execution was not started in this environment because no DFT engine/scheduler was detected; no DFT outcome or prospective materials claim is made.
+- A3-v4 Phase29c extra-tail manifest: 25 formal raw-top100 extra-tail candidates are frozen before DFT outcomes; no DFT outcome or prospective materials claim is made.
 
 - A3 DFT run package: `outputs/milestones/mattergen_parc_prospective_dft_followup/A3_DFT_RUN_PACKAGE/` contains 75 PARC-release CIFs, 25 raw-top100 extra-tail CIFs, frozen manifests, protocol/settings templates, and package hashes. It contains no DFT outcomes and no prospective materials claim.
 
-- A3 QE local run layer: `outputs/milestones/mattergen_parc_prospective_dft_followup/A3_QE_LOCAL_RUN/` contains Quantum ESPRESSO input decks, SSSP pseudopotential mapping, and tmux launch scripts for the frozen A3 package. It contains no DFT outcomes and no prospective materials claim.
+- A3 QE local run layer: `outputs/milestones/mattergen_parc_prospective_dft_followup/A3_QE_LOCAL_RUN/` contains Quantum ESPRESSO input decks, SSSP pseudopotential mapping, and tmux launch scripts for the frozen A3 package. Runtime `qe_outputs/` are intentionally ignored until outcomes are formally analyzed. It contains no committed DFT outcomes and no prospective materials claim.

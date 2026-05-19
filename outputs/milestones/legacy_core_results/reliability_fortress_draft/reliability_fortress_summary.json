@@ -1,8 +1,0 @@
-{
-  "status": "completed",
-  "output_dir": "<PARC_ROOT>/outputs/milestones/reliability_fortress_draft",
-  "package": "<PARC_ROOT>/outputs/packages/reliability_fortress_draft.tar.gz",
-  "package_sha256": "5aa3299246dd5a00d4a2f3fefb0a8ad554ab769a21d21aca431bbc8653cb99ba",
-  "manifest": "<PARC_ROOT>/outputs/milestones/reliability_fortress_draft/manifest.json",
-  "run_report": "<PARC_ROOT>/outputs/milestones/reliability_fortress_draft/RUN_REPORT.md"
-}

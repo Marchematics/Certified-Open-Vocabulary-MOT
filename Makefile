@@ -1,7 +1,7 @@
 PYTHON ?= python
 PYTHONPATH ?= code/parc_track
 
-.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark reproduce-block-heterogeneity-robustness reproduce-materials-prospective-validation reproduce-materials-alex-mp-a1-a2 reproduce-phase30-main-evidence reproduce-phase31-claim-alignment reproduce-phase32-presubmission reproduce-phase33-presubmission-final reproduce-a3-v4-formal-selection-gate reproduce-a3-v4-dft-manifest-addendum reproduce-a3-v4-phase29c-extra-tail-manifest reproduce-a3-dft-run-package reproduce-a3-qe-local-run reproduce-experimental-finalization phase24-freeze-dft-followup phase24-build-unlabeled-pool phase24-filter-public-labels phase24-score-unlabeled-pool phase24-select-dft-arms phase24-export-dft-jobs validate-public-bundle verify-manifest package-release package-release-story package-scientific-release
+.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark reproduce-block-heterogeneity-robustness reproduce-materials-prospective-validation reproduce-materials-alex-mp-a1-a2 reproduce-phase30-main-evidence reproduce-phase31-claim-alignment reproduce-phase32-presubmission reproduce-phase33-presubmission-final reproduce-a3-v4-formal-selection-gate reproduce-a3-v4-dft-manifest-addendum reproduce-a3-v4-phase29c-extra-tail-manifest reproduce-a3-dft-run-package reproduce-a3-qe-local-run reproduce-experimental-finalization phase24-freeze-dft-followup phase24-build-unlabeled-pool phase24-filter-public-labels phase24-score-unlabeled-pool phase24-select-dft-arms phase24-export-dft-jobs validate-public-bundle verify-manifest pre-release-check package-release package-release-story package-scientific-release
 
 test:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q tests
@@ -137,9 +137,14 @@ validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ctc_scientific_artifact_consequence
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/nmi_presubmission_package
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/nmi_presubmission_final
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/pre_release_repository_cleanup
 
 verify-manifest:
 	sha256sum -c MANIFEST_SHA256.txt
+
+pre-release-check:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q tests/test_pre_release_repository_cleanup.py
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/pre_release_repository_cleanup
 
 package-release:
 	mkdir -p outputs/packages

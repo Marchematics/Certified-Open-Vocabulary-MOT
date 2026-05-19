@@ -1,15 +1,15 @@
 # SpaceNet 7 Real-Audit Loop Report
 
-Status: review-ready audit materials generated. The initial labels are not paper-facing human audit labels until human-confirmed.
+Status: historical real-audit workspace retained for provenance. The paper-facing
+pre-release evidence copy is `outputs/milestones/spacenet_real_audit_final/`.
+Intermediate review-prefill sheets were removed from the tracked pre-release
+repository.
 
 ## Outputs
 
 - Calibration blind template: `outputs/spacenet7_real_audit/calibration_audit_blind_template.csv`
-- Calibration review prefill: `outputs/spacenet7_real_audit/calibration_audit_review_prefill.csv`
 - Release blind template: `outputs/spacenet7_real_audit/release_audit_blind_template.csv`
-- Release review prefill: `outputs/spacenet7_real_audit/release_audit_review_prefill.csv`
 - Raw top-K blind template: `outputs/spacenet7_real_audit/raw_topk_audit_blind_template.csv`
-- Raw top-K review prefill: `outputs/spacenet7_real_audit/raw_topk_audit_review_prefill.csv`
 - Seed results: `table_spacenet7_real_audit_seed_results.csv`
 - Summary: `table_spacenet7_real_audit_summary.csv`
 
@@ -27,7 +27,8 @@ Status: review-ready audit materials generated. The initial labels are not paper
 - Release-audit M: 50
 - Release-audit rows: 147
 
-Human confirmation is required before these labels can be reported as real audit evidence.
+The pre-release claim-bearing SpaceNet tables are frozen under
+`outputs/milestones/spacenet_real_audit_final/`.
 
 ## Summary Tables
 
@@ -36,4 +37,5 @@ Human confirmation is required before these labels can be reported as real audit
 - K=50 diagnostic release audit: `table_spacenet7_real_audit_k50_release_audit.csv`
 - Raw top-K/high-score audit: `table_spacenet7_real_audit_raw_topK_audit.csv`
 
-All summary tables remain marked `requires_human_confirmation` until the `human_*` fields are completed.
+For pre-release citation, use the corresponding finalized milestone tables rather
+than this historical workspace.

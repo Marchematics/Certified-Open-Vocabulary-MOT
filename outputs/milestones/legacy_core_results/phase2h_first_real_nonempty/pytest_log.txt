@@ -1,2 +1,0 @@
-pytest -q <PARC_ROOT>/tests
-30 passed in 3.78s

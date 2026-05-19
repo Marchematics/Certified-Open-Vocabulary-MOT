@@ -1,5 +1,0 @@
-queue,screening_label,rows,verified_positive_prefill_yes,datasets
-calibration,not_same_cell_link,45,0,PhC-C2DH-U373
-calibration,same_cell_link,1455,1455,"DIC-C2DH-HeLa,Fluo-N2DH-GOWT1,Fluo-N2DL-HeLa,PhC-C2DH-U373"
-simulated_strict_release,same_cell_link,1064,1064,"DIC-C2DH-HeLa,Fluo-N2DL-HeLa,PhC-C2DH-U373"
-raw_topK_reference,same_cell_link,300,300,"DIC-C2DH-HeLa,Fluo-N2DL-HeLa,PhC-C2DH-U373"
