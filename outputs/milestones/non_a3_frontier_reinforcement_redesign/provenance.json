@@ -1,0 +1,9 @@
+{
+  "status": "active_non_A3_redesign_plan",
+  "does_not_use_A3_positive_evidence": true,
+  "does_not_modify_A3_selection_or_manifests": true,
+  "source_repos": {
+    "PARC": "Marchematics/PARC-Certified-Open-Vocabulary-MOT",
+    "materials_stability_label_discordance": "Marchematics/materials-stability-label-discordance"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "status": "completed_public_data_frontier_benchmark_reliability_result",
+  "source_repo": "Marchematics/materials-stability-label-discordance",
+  "full_summary_sha256": "f171dfb39bd91d38304a138c5d4f7b60f073ff9731eec566d81db356192b4e30",
+  "full_matches_sha256": "bda12b3cfd3e206beca3fc2194479dd80b86b57214a0eba6e678a87a6804a093",
+  "no_new_DFT": true,
+  "no_new_human_labels": true,
+  "not_PARC_independent_validation_success": true
+}

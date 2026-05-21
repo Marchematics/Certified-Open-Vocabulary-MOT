@@ -1,0 +1,8 @@
+{
+  "status": "candidate_level_overlay_blocked_missing_ids; aggregate_scenario_completed",
+  "no_new_DFT": true,
+  "no_new_human_labels": true,
+  "materials_fixed_budget_source_sha256": "a22c20c573411b5b85308198c6142d2923e1aac348af35efe75847e70ea6d52a",
+  "atlas_summary_sha256": "c717413038866269f6c503cd418aa97cf029a1db65ce2df4a801a8e86055f2a0",
+  "claim_boundary": "not candidate-level overlay evidence"
+}

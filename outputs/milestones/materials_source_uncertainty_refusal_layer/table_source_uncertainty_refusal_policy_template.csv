@@ -1,0 +1,3 @@
+policy_layer,rule,status,completed_evidence
+source_uncertainty_warning,"flag candidate if exact MP-Alex source labels disagree or either source is near hull within 25 meV, when candidate-level exact match exists",predeclared_policy_template_only,False
+source_uncertainty_refusal,refuse or route to audit if source-ambiguous fraction exceeds predeclared tolerance in the covered candidate-level release set,requires_candidate_level_join,False

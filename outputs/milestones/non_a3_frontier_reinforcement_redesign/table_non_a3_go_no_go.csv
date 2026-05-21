@@ -1,0 +1,5 @@
+gate,status,acceptance
+A3_removed_from_headline,required,A3 may appear only as failed/pending/diagnostic unless DFT gates pass
+full_mp_alex_atlas_completed,completed_by_source_repo,43139 strict matches and 5060 discordant exact-stability labels reproduced from source artifact
+PARC_queue_candidate_level_overlay,blocked_pending_candidate_ids,requires material_id/prototype id for released and raw candidates
+external_blind_audit,pending,non-author blind labels and agreement/adjudication table
