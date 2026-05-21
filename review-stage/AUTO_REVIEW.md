@@ -67,3 +67,80 @@ Context: Autonomous review after phase36; focus on whether current non-A3 eviden
 
 ### Status
 - Continuing to Round 2 after fixes.
+
+
+## Round 2 (2026-05-21T17:31:53+00:00)
+
+### Assessment (Summary)
+- Score: 6.5/10
+- Verdict: ready for NMI presubmission inquiry; almost, but not yet ready, for full submission.
+- Key criticisms: final manuscript text still needs forbidden-claim compliance; comparator contract table must be tied to formal target objects; materials must remain public-label queue utility rather than materials science discovery; CTC artifact consequence needs exact denominator/source wording; release should be made from a clean tagged commit or release branch.
+
+### Reviewer Raw Response
+
+<details>
+<summary>Click to expand full reviewer response</summary>
+
+**Score: 6.5/10 for NMI readiness under the narrow release-governance framing.**
+
+**Verdict: ready for NMI presubmission inquiry; almost, but not yet ready, for full submission.**
+
+Phase37 materially addresses my Round 1 framing objections. The two-anchor evidence hierarchy, forbidden-claim replacements, and release/refuse comparator matrix are the right governance move. I would no longer reject the package for scope confusion if the manuscript actually follows this lock.
+
+**Remaining Critical Weaknesses**
+
+1. **The evidence package is still narrow: no prospective discovery, no positive independent external validation.**  
+   This is acceptable only if the paper is explicitly about release-time governance, not scientific discovery performance.  
+   **Minimum fix:** keep title/abstract/intro centered on “release/refuse certification for fixed candidate universes under partial verification.” Treat A3, external blind audit, OQMD/alex-mp, Route C as pending/diagnostic only.
+
+2. **Scope lock exists as an artifact, but the final manuscript still needs to prove compliance.**  
+   A reviewer will judge the paper text, figures, captions, and supplement, not just the phase37 tables.  
+   **Minimum fix:** run a final forbidden-claim audit over manuscript, abstract, figure captions, README, claim table, and supplement. Forbidden terms can appear only in limitation/guardrail contexts.
+
+3. **Comparator matrix is necessary but may look self-serving unless tied to formal target objects.**  
+   Saying only PARC solves the full contract is plausible, but reviewers will push on e-BH, selective conformal, and PU baselines.  
+   **Minimum fix:** include the comparator table with exact target object, assumptions, deployable rule, and missing contract component. Do not oversell baselines as “wrong”; say they solve different contracts.
+
+4. **Materials anchor remains public-label replay utility.**  
+   The K=500 result is strong as queue governance, but weak as materials science evidence.  
+   **Minimum fix:** keep the lead as “public-label follow-up queue utility,” report raw top-K and raw top-R diagnostics, and place source-discordance stress results immediately nearby to prevent overinterpretation.
+
+5. **CTC anchor needs very clean artifact-consequence wording.**  
+   “0 false lineage edges” is compelling, but only if denominator, audit/GT source, and corruption-control behavior are transparent.  
+   **Minimum fix:** define false lineage edge, state this is not an official leaderboard tracker score, and show strict alpha/K, held-out/audit FTR, and corrupted-ranking refusal in one compact table.
+
+6. **Artifact hygiene is still a submission risk.**  
+   I observed a dirty worktree with tracked modifications and untracked pending/probe material after `79e0cb2`. I am not counting those as evidence, but they could confuse artifact review.  
+   **Minimum fix:** submit from a clean tagged commit or clean release branch. Keep phase37 validation in the pre-release checks, and exclude or clearly mark unrelated A3/QE/discordance work.
+
+**Bottom Line**
+
+The Round 1 concerns are addressed enough for **NMI presubmission**. For **full submission**, I would wait until the actual manuscript is fully scope-locked and the repository is clean. No need to wait for A3 or external blind labels if the paper is honestly framed as release-governance, but any drift back toward discovery or broad validation would drop this back below the line.
+
+</details>
+
+### Actions Taken
+- Stopped the autonomous review loop because Round 2 met the configured stop condition: score >= 6 and verdict contains ready/almost.
+- Preserved the reviewer’s raw response verbatim.
+- Updated `review-stage/REVIEW_STATE.json` to `completed`.
+- Added `CLAIMS_FROM_RESULTS.md` with the supported, unsupported, and remaining-evidence claims extracted from the completed review loop.
+
+### Results
+- Final loop score progression: 5.5/10 -> 6.5/10.
+- Final decision: suitable for NMI presubmission inquiry under a narrow release-governance framing; not yet clean enough for full submission without manuscript-level forbidden-claim audit and a clean release branch.
+
+### Status
+- Stopping after Round 2.
+
+
+## Final Summary
+
+The autonomous review loop converged after two rounds. The Round 1 reviewer objected that the package was not credible as a broad scientific discovery paper because A3 remained non-positive/pending, external materials validation was discordant, and the blind audit packet was unlabeled. Phase37 addressed this by locking the submission to two completed hard anchors: materials fixed-budget public-DFT queue governance and CTC strict scientific-artifact protection. iWildCam/SpaceNet remain audited boundary evidence; OQMD/alex-mp and MP-Alex remain source-discordance stress tests; A3 remains pending/failed-gate material until DFT gates are actually met.
+
+The Round 2 reviewer accepted the narrow framing for NMI presubmission and raised remaining full-submission tasks: audit the actual manuscript text and captions for forbidden claims, tie comparator baselines to formal target objects rather than calling them wrong, preserve materials as public-label queue utility, define CTC artifact-consequence denominators precisely, and submit from a clean tagged commit or clean release branch.
+
+## Method Description
+
+PARC is a release-time certification layer for frozen finite scientific AI candidate universes under one-sided partial verification. Given a fixed proposal backend, score, alpha/rho/K operating point, block definition, and verified-positive subset, PARC constructs block-calibrated e-values and uses a self-consistent selection rule to either release a certified subset or refuse the requested release. The method is not a generator and does not improve the upstream model; it governs which model-generated candidates can responsibly enter downstream artifacts.
+
+The final review-approved evidence hierarchy uses two hard anchors. In materials, PARC is framed as public-label fixed-budget follow-up queue governance: it reduces unstable public-DFT follow-ups and supports certified stopping/refusal, while source-discordance diagnostics prevent overinterpretation as independent validation or prospective discovery. In CTC, PARC is framed as scientific-artifact protection: strict alpha release avoids false lineage edges under the declared official-GT/audit proxy and refuses corrupted rankings. Visual audits and source-discordance studies support boundary conditions rather than headline claims.
