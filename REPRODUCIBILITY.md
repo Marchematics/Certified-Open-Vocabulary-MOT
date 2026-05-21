@@ -439,3 +439,7 @@ Run `make reproduce-a3-qe-local-run` after `make reproduce-a3-dft-run-package` t
 ## Materials queue source-uncertainty overlay
 
 Run `make reproduce-materials-queue-source-uncertainty-overlay` to rebuild the candidate-level ALIGNN-FF K=300/500 materials queue overlay against the alex-mp A2 exact-structure diagnostic table. Formula-only matches are retained only as tags and are excluded from alex-mp FTR denominators. This target is a source-discordance stress diagnostic, not a positive independent-validation result and not prospective materials discovery.
+
+## Submission scope lock
+
+Run `make reproduce-phase37-submission-scope-lock` to rebuild the two-anchor evidence hierarchy, release/refuse contract comparator, and forbidden-claim replacement table used for the narrow release-governance submission framing. This target creates no new experiment and does not promote A3, alex-mp/OQMD, Route C, or pending external blind audit rows to positive evidence.

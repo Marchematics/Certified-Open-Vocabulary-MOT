@@ -1,0 +1,11 @@
+method,target_object,deployable_rule,uses_one_sided_verified_positive_support,uses_null_superset,uses_SCS_denominator,solves_full_release_refuse_contract,minimum_claim_boundary
+raw top-K,ranked prefix,True,False,False,False,False,Deployable baseline but no release certificate.
+raw top-R,matched-volume diagnostic,False,False,False,False,False,Diagnostic for smaller queue effect; not an independent policy.
+fixed threshold,score filter,True,False,False,False,False,Empirical score rule without one-sided set-level guarantee.
+calibrated threshold,calibrated score filter,True,False,False,False,False,"May tune a threshold, but does not solve finite compatible release with SCS denominator."
+split conformal candidate threshold,candidate-level coverage rule,True,False,False,False,False,Different target object; usually needs exchangeable labels beyond one-sided positives.
+post-filter e-value,candidate e-value filter,True,True,True,False,False,Has candidate evidence but lacks denominator-aware self-consistent release.
+e-BH-style rule,multiple-testing e-value rule,True,True,True,False,False,Related risk-control idea but not the PARC null-superset plus compatibility release contract.
+nnPU classifier-release,classifier under positive-unlabeled learning,True,False,True,False,False,Different modeling target and assumptions; not a finite release/refuse certificate.
+selective conformal,selective prediction set,True,False,False,False,False,"Different target: prediction/coverage, not one-sided candidate release."
+PARC,release/refuse finite candidate set,True,True,True,True,True,Solves the declared release-time contract under stated assumptions.

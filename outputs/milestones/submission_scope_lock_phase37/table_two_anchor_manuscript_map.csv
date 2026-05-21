@@ -1,0 +1,5 @@
+section_role,section_name,primary_artifact,lead_language,must_not_say
+hard_anchor_1,Materials follow-up queue governance,outputs/milestones/materials_fixed_budget_scientific_utility/table_materials_fixed_budget_lead_numbers.csv,fixed-budget public-label utility and certified stopping/refusal,prospective materials discovery
+hard_anchor_2,CTC lineage artifact protection,outputs/milestones/ctc_scientific_artifact_consequence/table_ctc_false_lineage_edges_avoided.csv,strict alpha=0.10 release/refusal before false lineage evidence enters the graph,official leaderboard tracker result
+boundary_examples,iWildCam and SpaceNet audited boundary behavior,outputs/milestones/cross_domain_blind_audit_main_evidence/table_cross_domain_audit_primary.csv,operational audit/refusal envelope,co-primary four-domain success
+stress_tests,External materials source discordance,outputs/milestones/materials_queue_source_uncertainty_overlay/table_materials_queue_overlay_lead_contrasts.csv,source-discordance stress and claim-scope boundary,independent validation success

@@ -1,0 +1,18 @@
+{
+  "status": "completed_scope_lock_not_new_experiment",
+  "review_round": 1,
+  "review_score_before_fix": 5.5,
+  "positive_primary_roles_allowed": [
+    "primary"
+  ],
+  "diagnostic_rows_not_primary": [
+    "OQMD",
+    "alex-mp",
+    "MP-Alex",
+    "Route C"
+  ],
+  "pending_rows_not_positive": [
+    "A3 MatterGen prospective DFT",
+    "External blind audit packet"
+  ]
+}

@@ -1,7 +1,7 @@
 PYTHON ?= python
 PYTHONPATH ?= code/parc_track
 
-.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark reproduce-block-heterogeneity-robustness reproduce-materials-prospective-validation reproduce-materials-alex-mp-a1-a2 reproduce-materials-queue-source-uncertainty-overlay reproduce-phase30-main-evidence reproduce-phase31-claim-alignment reproduce-phase32-presubmission reproduce-phase33-presubmission-final reproduce-a3-v4-formal-selection-gate reproduce-a3-v4-dft-manifest-addendum reproduce-a3-v4-phase29c-extra-tail-manifest reproduce-a3-dft-run-package reproduce-a3-qe-local-run reproduce-experimental-finalization phase24-freeze-dft-followup phase24-build-unlabeled-pool phase24-filter-public-labels phase24-score-unlabeled-pool phase24-select-dft-arms phase24-export-dft-jobs validate-public-bundle verify-manifest pre-release-check package-release package-release-story package-scientific-release
+.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark reproduce-block-heterogeneity-robustness reproduce-materials-prospective-validation reproduce-materials-alex-mp-a1-a2 reproduce-materials-queue-source-uncertainty-overlay reproduce-phase30-main-evidence reproduce-phase31-claim-alignment reproduce-phase32-presubmission reproduce-phase33-presubmission-final reproduce-phase37-submission-scope-lock reproduce-a3-v4-formal-selection-gate reproduce-a3-v4-dft-manifest-addendum reproduce-a3-v4-phase29c-extra-tail-manifest reproduce-a3-dft-run-package reproduce-a3-qe-local-run reproduce-experimental-finalization phase24-freeze-dft-followup phase24-build-unlabeled-pool phase24-filter-public-labels phase24-score-unlabeled-pool phase24-select-dft-arms phase24-export-dft-jobs validate-public-bundle verify-manifest pre-release-check package-release package-release-story package-scientific-release
 
 test:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q tests
@@ -63,6 +63,9 @@ reproduce-phase32-presubmission:
 
 reproduce-phase33-presubmission-final:
 	$(PYTHON) scripts/build_phase33_nmi_presubmission_final.py
+
+reproduce-phase37-submission-scope-lock:
+	$(PYTHON) scripts/build_phase37_submission_scope_lock.py
 
 reproduce-a3-v4-formal-selection-gate:
 	$(PYTHON) scripts/build_a3_v4_formal_selection_gate.py
@@ -142,6 +145,7 @@ validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/nmi_presubmission_final
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/pre_release_repository_cleanup
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/materials_queue_source_uncertainty_overlay
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/submission_scope_lock_phase37
 
 verify-manifest:
 	sha256sum -c MANIFEST_SHA256.txt
@@ -150,6 +154,7 @@ pre-release-check:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q tests/test_pre_release_repository_cleanup.py
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/pre_release_repository_cleanup
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/materials_queue_source_uncertainty_overlay
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/submission_scope_lock_phase37
 
 package-release:
 	mkdir -p outputs/packages
