@@ -61,6 +61,22 @@ def main() -> None:
             "claim_boundary": "nonzero contamination rows are not formal guarantees",
         },
         {
+            "milestone": "materials_label_discordance_preregistration",
+            "priority": "SUPPORT",
+            "status": "completed_preregistration_and_minimal_probe",
+            "source_artifact": "outputs/milestones/materials_label_discordance_preregistration/table_minimal_discordance_probe.csv",
+            "paper_role": "preregistration_probe_not_primary_claim",
+            "claim_boundary": "not PARC primary contribution; not prospective discovery",
+        },
+        {
+            "milestone": "materials_selection_conditional_discordance",
+            "priority": "SUPPORT",
+            "status": "completed_no_go_diagnostic",
+            "source_artifact": "outputs/milestones/materials_selection_conditional_discordance/table_selection_conditional_go_no_go.csv",
+            "paper_role": "selection_conditional_go_no_go_diagnostic",
+            "claim_boundary": "hypothesis B not supported; do not promote as positive validation",
+        },
+        {
             "milestone": "materials_queue_source_uncertainty_overlay",
             "priority": "NICE",
             "status": "completed_existing_diagnostic",
@@ -93,6 +109,18 @@ def main() -> None:
             "claim_scope": "assumption-boundary diagnostic",
         },
         {
+            "result": "minimal materials label-discordance probe",
+            "lead_number": "matched_n >= 200 and discordance >= 0.40 in the preregistered minimal probe",
+            "source_artifact": "outputs/milestones/materials_label_discordance_preregistration/table_minimal_discordance_probe.csv",
+            "claim_scope": "preregistration/probe only; not final MP-Alex headline",
+        },
+        {
+            "result": "selection-conditional discordance hypothesis B",
+            "lead_number": "n_common 287; baseline discordance 0.1080; models_supporting_rule 0; NO-GO",
+            "source_artifact": "outputs/milestones/materials_selection_conditional_discordance/table_selection_conditional_go_no_go.csv",
+            "claim_scope": "completed no-go diagnostic",
+        },
+        {
             "result": "source-uncertainty overlay",
             "lead_number": "ALIGNN K=300/500 exact-match-only overlay summary completed",
             "source_artifact": "outputs/milestones/materials_queue_source_uncertainty_overlay/table_materials_queue_overlay_summary.csv",
@@ -112,8 +140,9 @@ def main() -> None:
         "Status: completed initial bridge execution.\n\n"
         "The bridge executed the non-A3 reinforcement plan without modifying A3 selection, "
         "DFT manifests, or DFT run packages. The core new run is the verified-positive "
-        "contamination sensitivity grid. Existing completed atlas, overlay, and blind-audit-packet "
-        "artifacts were inventoried and scoped.\n\n"
+        "contamination sensitivity grid. Existing completed atlas, label-discordance preregistration, "
+        "selection-conditional discordance no-go, overlay, and blind-audit-packet artifacts were "
+        "inventoried and scoped.\n\n"
         "## Claim Boundary\n\n"
         "- A3 remains outside headline-positive evidence.\n"
         "- MP-Alex/OQMD remain source-discordance diagnostics, not positive independent validation.\n"

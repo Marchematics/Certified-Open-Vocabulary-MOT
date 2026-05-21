@@ -1,0 +1,6 @@
+model,pre_registered_role,score_source,score_source_sha256,valid_scores_on_exact_denominator,eligible_primary_ranking,ineligibility_reason
+ALIGNN-FF,primary_model_set,private_matbench_discovery::2023-07-11-alignn-ff-wbm-IS2RE.csv.gz,dc75be97f3bce3ce724680065abf11a19bdc6a3928fdd77ccb42d3f62a02e593,270,true,
+CGCNN,legacy_fallback_anchor,private_matbench_discovery::2023-01-26-cgcnn-ens10-wbm-IS2RE.csv.gz,9fba78430e76e7443436d143d2af9ad1d7e54ef84e73443abe9058e41e4d7ebb,270,false,legacy fallback only; not used to define frontier primary endpoint
+MEGNet,pre_existing_auxiliary_public_prediction_not_grilled_primary,private_matbench_discovery::2022-11-18-megnet-wbm-IS2RE.csv.gz,99d55d75f9f4f357253ba84ff685e8fe4fe75197a7b78ec177a2c8f1e0f1cfc1,270,false,not in grilled primary model set; reported as auxiliary only
+CHGNet,primary_model_set,table_frontier_model_scores.csv::CHGNet,d6f333faa87dcc44acea5ee8cd0949181bfc79c60cdaba9742d99a963ff6eda1,270,true,
+MACE-MP,primary_model_set,table_frontier_model_scores.csv::MACE-MP,d6f333faa87dcc44acea5ee8cd0949181bfc79c60cdaba9742d99a963ff6eda1,270,true,

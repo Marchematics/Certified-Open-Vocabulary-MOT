@@ -1,0 +1,2 @@
+check_id,checked_at_utc,source,credential_env_present,mp_api_version,pymatgen_version,query_target,query_fields,status,returned_n,returned_material_id,returned_formula,returned_energy_above_hull,error_type,error_message_redacted,secret_written_to_artifact
+materials_project_mp149_summary_smoke,2026-05-21T18:24:10.581504+00:00,Materials Project,true,0.46.1,2026.5.4,mp-149,"material_id,formula_pretty,energy_above_hull",pass,1,mp-149,Si,0.0,,,false

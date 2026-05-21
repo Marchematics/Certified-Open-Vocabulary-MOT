@@ -1,0 +1,28 @@
+{
+  "baseline_discordance": 0.10801393728222997,
+  "claim_boundary": "No new data, no new DFT, no new training; diagnostic only unless pass gate holds.",
+  "models": [
+    "ALIGNN-FF",
+    "CHGNet",
+    "MACE-MP"
+  ],
+  "n_common": 287,
+  "score_direction": "lower_score_more_stable",
+  "source_matches": "external_discordance_repo::outputs/milestones/materials_label_discordance_preregistration/table_route_b_full_snapshot_matches.csv",
+  "source_matches_sha256": "af683ced1ffa6e296789681b62e51562aaec3ff05d8483c3ae513d6b78a0b7c9",
+  "source_scores": "external_discordance_repo::outputs/milestones/materials_label_discordance_preregistration/table_route_b_full_snapshot_model_scores.csv",
+  "source_scores_sha256": "7c0101a55c0c80e00b41eb7a9b0d8fb73ded22d0d9efe715515305fff93df843",
+  "source_summary": "external_discordance_repo::outputs/milestones/materials_label_discordance_preregistration/table_route_b_full_snapshot_summary.csv",
+  "source_summary_row": {
+    "claim_scope": "diagnostic_until_ALIGNN_FF_clean_hash_match_and_source_archive_PASS",
+    "discordance_rate": 0.1080139372822299,
+    "endpoint": "route_b_full_snapshot_rescue",
+    "go_no_go": "NO_GO_keep_NMI_line_closed",
+    "max_abs_F1_delta": 0.0288220551378446,
+    "models_eligible": "ALIGNN-FF|CHGNet|MACE-MP",
+    "n_common": 287,
+    "ordering_flip": false,
+    "top_model_flip": false
+  },
+  "source_summary_sha256": "1622ce276b67c99ce889a53722331f89861094062752fbf5ed76ea6a90c8df8a"
+}

@@ -1,0 +1,3 @@
+endpoint,models_required,n_common_floor,status,top_model_flip,ordering_flip,max_abs_F1_delta,go_no_go,claim_scope
+primary_frontier_model_ranking,ALIGNN-FF;CHGNet;MACE-MP,200,run,false,false,0.022665,NO_GO_primary_no_material_F1_ranking_flip,frontier scores available but primary ranking flip criterion did not pass
+auxiliary_available_public_prediction_ranking,ALIGNN-FF;CGCNN;MEGNet,200,completed_auxiliary_diagnostic,true,true,0.058379,GO_auxiliary_if_flip_else_no_auxiliary_consequence,auxiliary legacy/public-prediction diagnostic; no NMI launch from this endpoint alone

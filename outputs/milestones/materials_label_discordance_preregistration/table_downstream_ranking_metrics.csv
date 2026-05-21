@@ -1,0 +1,11 @@
+model,label_source,n_common,predicted_positive_rule,predicted_positive_n,stable_positive_n,stable_class_F1_primary,balanced_accuracy_coprimary,precision_discovery,discovered_stable_count,score_col
+ALIGNN-FF,WBM,270,"top max(5%,20) by lowest frozen score",20,204,0.044642857142857144,0.3986185383244207,0.25,5,score_alignn_ff
+ALIGNN-FF,alex-mp,270,"top max(5%,20) by lowest frozen score",20,71,0.02197802197802198,0.4593035600537901,0.05,1,score_alignn_ff
+CGCNN,WBM,270,"top max(5%,20) by lowest frozen score",20,204,0.08035714285714286,0.4387254901960784,0.45,9,score_cgcnn
+CGCNN,alex-mp,270,"top max(5%,20) by lowest frozen score",20,71,0.02197802197802198,0.4593035600537901,0.05,1,score_cgcnn
+MEGNet,WBM,270,"top max(5%,20) by lowest frozen score",20,204,0.03571428571428571,0.38859180035650626,0.2,4,score_megnet
+MEGNet,alex-mp,270,"top max(5%,20) by lowest frozen score",20,71,0.02197802197802198,0.4593035600537901,0.05,1,score_megnet
+CHGNet,WBM,270,"top max(5%,20) by lowest frozen score",20,204,0.14285714285714285,0.5089126559714795,0.8,16,score_chgnet_frontier
+CHGNet,alex-mp,270,"top max(5%,20) by lowest frozen score",20,71,0.13186813186813187,0.5070776417297757,0.3,6,score_chgnet_frontier
+MACE-MP,WBM,270,"top max(5%,20) by lowest frozen score",20,204,0.13392857142857142,0.498885918003565,0.75,15,score_mace_mp_frontier
+MACE-MP,alex-mp,270,"top max(5%,20) by lowest frozen score",20,71,0.13186813186813187,0.5070776417297757,0.3,6,score_mace_mp_frontier

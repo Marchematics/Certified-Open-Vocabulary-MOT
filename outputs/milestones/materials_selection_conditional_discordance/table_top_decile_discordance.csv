@@ -1,0 +1,4 @@
+model,top_decile_n,top_decile_discordant_n,top_decile_discordance,baseline_discordance,top_decile_enrichment,top_decile_ge_0_30,top_decile_ge_2x_baseline
+ALIGNN-FF,28,5,0.17857142857142858,0.10801393728222997,1.653225806451613,False,False
+CHGNet,28,3,0.10714285714285714,0.10801393728222997,0.9919354838709676,False,False
+MACE-MP,28,3,0.10714285714285714,0.10801393728222997,0.9919354838709676,False,False

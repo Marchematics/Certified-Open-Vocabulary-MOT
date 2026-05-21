@@ -74,3 +74,30 @@ Main facts:
 - Nice-to-have artifacts available: 2/2, with claim boundaries.
 - Main result: positive for a non-A3 reinforcement package, scoped to release-governance and assumption-boundary diagnostics.
 - Ready for `/auto-review-loop`: yes, if the review prompt uses the narrow two-anchor release-governance framing and does not promote A3.
+
+### M5: Materials Label-Discordance Preregistration / Minimal Probe — DONE
+
+Outputs:
+
+- `outputs/milestones/materials_label_discordance_preregistration/`
+
+This package freezes source-access, matching, and go/no-go rules and includes a minimal discordance probe. It supports the material-source uncertainty framing, but it is not a final positive independent-validation result and does not make PARC the primary contribution.
+
+### M6: Selection-Conditional Discordance — DONE NO-GO
+
+Outputs:
+
+- `outputs/milestones/materials_selection_conditional_discordance/table_selection_conditional_go_no_go.csv`
+
+Main facts:
+
+- Source pair: Materials Project vs alex-mp v20.
+- Common denominator: 287.
+- Baseline discordance: 0.1080.
+- Models tested: ALIGNN-FF, CHGNet, MACE-MP.
+- Models supporting the preregistered high-score amplification rule: 0.
+- Go/no-go: `NO_GO_hypothesis_B_not_supported`.
+
+Interpretation:
+
+This is a completed negative diagnostic. It should be used to show that not every plausible source-discordance hypothesis is supported, not as positive validation or headline evidence.

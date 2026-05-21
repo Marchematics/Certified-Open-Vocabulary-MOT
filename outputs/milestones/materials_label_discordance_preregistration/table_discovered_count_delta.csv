@@ -1,0 +1,4 @@
+model,WBM_discovered_stable_count,alex_mp_discovered_stable_count,absolute_delta,relative_delta_vs_WBM,relative_delta_ge_0_25,absolute_delta_ge_50,paper_role
+ALIGNN-FF,5,1,4,0.8,true,false,discovery_consequence_support_not_primary_ranking_flip
+CHGNet,16,6,10,0.625,true,false,discovery_consequence_support_not_primary_ranking_flip
+MACE-MP,15,6,9,0.6,true,false,discovery_consequence_support_not_primary_ranking_flip

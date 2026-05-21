@@ -2,7 +2,7 @@
 
 Status: completed initial bridge execution.
 
-The bridge executed the non-A3 reinforcement plan without modifying A3 selection, DFT manifests, or DFT run packages. The core new run is the verified-positive contamination sensitivity grid. Existing completed atlas, overlay, and blind-audit-packet artifacts were inventoried and scoped.
+The bridge executed the non-A3 reinforcement plan without modifying A3 selection, DFT manifests, or DFT run packages. The core new run is the verified-positive contamination sensitivity grid. Existing completed atlas, label-discordance preregistration, selection-conditional discordance no-go, overlay, and blind-audit-packet artifacts were inventoried and scoped.
 
 ## Claim Boundary
 

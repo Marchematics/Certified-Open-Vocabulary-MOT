@@ -1,0 +1,5 @@
+rule_id,primary_or_sensitivity,match_basis,parameters,allowed_in_primary_discordance,formula_only_allowed,failure_action
+T0_exact_structure_match,primary,same reduced composition plus StructureMatcher high-confidence match,ltol=0.2; stol=0.3; angle_tol=5; primitive_cell=True; scale=True; attempt_supercell=True,true,false,"if exact/high-confidence matched count < 200 or pair coverage < 20%, declare source pair inconclusive"
+T1_formula_only_tag,tag_only,reduced formula / chemical system / anonymous formula,exact string normalization only,false,tag_only,never use formula-only rows to estimate headline discordance
+T2_label_definition,primary,binary exact-stable label,stable if e_above_hull <= 0 eV/atom; missing or failed hull excluded from primary denominator and reported,true,false,"if hull definitions cannot be mapped to e_above_hull, use source only as inventory, not as primary pair"
+T3_near_hull_sensitivity,sensitivity,same exact/high-confidence structure matches as T0,25 meV/atom tolerance; margin-excluded band; far-from-hull subset,false,false,report as localization of discordance only after primary exact-stable endpoint is computed

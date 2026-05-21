@@ -1,0 +1,4 @@
+gate,duration_target,minimum_pass,current_status,if_pass,if_fail
+Step0_data_access,1-2 days,two legally accessible source snapshots including Materials Project or Alexandria plus WBM/Matbench context,not_passed_until_MP_API_or_alternative_second_source_snapshot_is_validated,freeze snapshots and run E1 on exact/high-confidence matches,stop discordance paper and return effort to PARC methods submission
+Step1_minimal_discordance_probe,2-3 days,primary pairwise binary discordance >= 0.40 on matched_n >= 200 exact/high-confidence structures,pending,proceed to downstream conclusion-flip probes,"treat previous 0.522 alex-mp result as source-specific artifact, not NMI nugget"
+Step2_downstream_conclusion_flip,3-5 days,"ranking flip, discovered-count delta, or release-decision flip under source A vs B",pending,launch full discordance paper pipeline,downgrade to interesting diagnostic; do not write NMI article

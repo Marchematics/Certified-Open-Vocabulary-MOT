@@ -22,6 +22,7 @@ def test_non_a3_bridge_outputs_exist() -> None:
 def test_non_a3_bridge_keeps_a3_out_of_headline() -> None:
     status = pd.read_csv(MILESTONE / "table_non_a3_bridge_status.csv")
     assert "verified_positive_contamination_sensitivity" in set(status["milestone"])
+    assert "materials_selection_conditional_discordance" in set(status["milestone"])
     assert not status["milestone"].astype(str).str.contains("A3", case=False).any()
     text = (MILESTONE / "NON_A3_EXPERIMENT_BRIDGE_CLOSEOUT.md").read_text(encoding="utf-8")
     assert "A3 remains outside headline-positive evidence" in text
@@ -33,5 +34,14 @@ def test_non_a3_bridge_claim_boundaries_are_scoped() -> None:
     assert "not prospective discovery" in joined
     assert "not positive independent validation" in joined
     assert "not formal guarantees" in joined
+    assert "hypothesis B not supported" in joined
     audit = status[status["milestone"].eq("external_blind_audit_packet")].iloc[0]
     assert audit["status"] == "packet_completed_labels_pending"
+
+
+def test_selection_conditional_discordance_is_no_go_in_bridge() -> None:
+    status = pd.read_csv(MILESTONE / "table_non_a3_bridge_status.csv")
+    row = status[status["milestone"].eq("materials_selection_conditional_discordance")].iloc[0]
+    assert row["status"] == "completed_no_go_diagnostic"
+    assert row["paper_role"] == "selection_conditional_go_no_go_diagnostic"
+    assert "do not promote" in row["claim_boundary"]

@@ -1,0 +1,541 @@
+material_id,formula,model,score_status,energy_per_atom,score,score_type
+wbm-1-10155,Cl6 Mn2,CHGNet,scored,-5.092705726623535,-5.092705726623535,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10155,Cl6 Mn2,MACE-MP,scored,-4.635004997253418,-4.635004997253418,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10156,Cl6 Mn2,CHGNet,scored,-5.073868751525879,-5.073868751525879,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10156,Cl6 Mn2,MACE-MP,scored,-4.6295976638793945,-4.6295976638793945,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10169,Cl6 Ni2,CHGNet,scored,-3.6358182430267334,-3.6358182430267334,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10169,Cl6 Ni2,MACE-MP,scored,-3.2597737312316895,-3.2597737312316895,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10175,Cl6 Pd2,CHGNet,scored,-3.558156967163086,-3.558156967163086,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10175,Cl6 Pd2,MACE-MP,scored,-3.1115164756774902,-3.1115164756774902,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10361,Ca2 Cl8,CHGNet,scored,-3.5159432888031006,-3.5159432888031006,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10361,Ca2 Cl8,MACE-MP,scored,-3.24267692565918,-3.24267692565918,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10364,Ce2 Cl8,CHGNet,scored,-5.045614719390869,-5.045614719390869,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10364,Ce2 Cl8,MACE-MP,scored,-4.5645099639892575,-4.5645099639892575,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10365,Ce2 Cl8,CHGNet,scored,-5.049884796142578,-5.049884796142578,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10365,Ce2 Cl8,MACE-MP,scored,-4.592742919921875,-4.592742919921875,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10366,Ce2 Cl8,CHGNet,scored,-5.066170692443848,-5.066170692443848,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10366,Ce2 Cl8,MACE-MP,scored,-4.602580261230469,-4.602580261230469,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10389,Cl8 Dy2,CHGNet,scored,-4.576977729797363,-4.576977729797363,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10389,Cl8 Dy2,MACE-MP,scored,-4.169954681396485,-4.169954681396485,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10444,Cl8 Lu2,CHGNet,scored,-4.4259467124938965,-4.4259467124938965,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10444,Cl8 Lu2,MACE-MP,scored,-4.015008544921875,-4.015008544921875,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10447,Cl8 Mn2,CHGNet,scored,-4.514529705047607,-4.514529705047607,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10447,Cl8 Mn2,MACE-MP,scored,-4.007363128662109,-4.007363128662109,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10467,Cl8 Pr2,CHGNet,scored,-4.597962379455566,-4.597962379455566,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10467,Cl8 Pr2,MACE-MP,scored,-4.189241027832031,-4.189241027832031,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10490,Cl8 Sc2,CHGNet,scored,-4.775341510772705,-4.775341510772705,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10490,Cl8 Sc2,MACE-MP,scored,-4.386229705810547,-4.386229705810547,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10493,Cl8 Sm2,CHGNet,scored,-4.597629547119141,-4.597629547119141,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10493,Cl8 Sm2,MACE-MP,scored,-4.182483291625976,-4.182483291625976,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10504,Cl8 Sr2,CHGNet,scored,-3.565579891204834,-3.565579891204834,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10504,Cl8 Sr2,MACE-MP,scored,-3.2331317901611327,-3.2331317901611327,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10508,Cl8 Tb2,CHGNet,scored,-4.595449924468994,-4.595449924468994,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10508,Cl8 Tb2,MACE-MP,scored,-4.176704406738281,-4.176704406738281,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10522,Cl8 Yb2,CHGNet,scored,-3.513633966445923,-3.513633966445923,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10522,Cl8 Yb2,MACE-MP,scored,-3.181139373779297,-3.181139373779297,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10524,Cl8 Y2,CHGNet,scored,-4.94873046875,-4.94873046875,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10524,Cl8 Y2,MACE-MP,scored,-4.537421035766601,-4.537421035766601,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10582,Cl6 Cs2 Er1,CHGNet,scored,-4.282657623291016,-4.282657623291016,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10582,Cl6 Cs2 Er1,MACE-MP,scored,-3.953812493218316,-3.953812493218316,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10587,Cl6 Cs2 Ho1,CHGNet,scored,-4.286273002624512,-4.286273002624512,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10587,Cl6 Cs2 Ho1,MACE-MP,scored,-3.9611638387044272,-3.9611638387044272,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10589,Cl6 Cs2 Lu1,CHGNet,scored,-4.262195587158203,-4.262195587158203,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10589,Cl6 Cs2 Lu1,MACE-MP,scored,-3.9475284152560763,-3.9475284152560763,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10596,Cl6 Cs2 Tm1,CHGNet,scored,-4.270763397216797,-4.270763397216797,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10596,Cl6 Cs2 Tm1,MACE-MP,scored,-3.9598346286349826,-3.9598346286349826,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10605,Cl6 Cu1 Rb2,CHGNet,scored,-3.2243919372558594,-3.2243919372558594,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10605,Cl6 Cu1 Rb2,MACE-MP,scored,-2.905409918891059,-2.905409918891059,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10630,Cl6 Cu1 K2,CHGNet,scored,-3.2583940029144287,-3.2583940029144287,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10630,Cl6 Cu1 K2,MACE-MP,scored,-2.9180789523654513,-2.9180789523654513,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10638,Cl6 K2 Ni1,CHGNet,scored,-3.5461440086364746,-3.5461440086364746,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10638,Cl6 K2 Ni1,MACE-MP,scored,-3.1497364044189453,-3.1497364044189453,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10689,Cl6 Cs2 Ni1,CHGNet,scored,-3.5163886547088623,-3.5163886547088623,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10689,Cl6 Cs2 Ni1,MACE-MP,scored,-3.1264353858100042,-3.1264353858100042,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10690,Cl6 Ni1 Rb2,CHGNet,scored,-3.5168821811676025,-3.5168821811676025,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10690,Cl6 Ni1 Rb2,MACE-MP,scored,-3.1353051927354603,-3.1353051927354603,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10706,Cl6 In1 Rb2,CHGNet,scored,-3.5112273693084717,-3.5112273693084717,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10706,Cl6 In1 Rb2,MACE-MP,scored,-3.1498194800482855,-3.1498194800482855,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10730,Cl6 Cs2 Sc1,CHGNet,scored,-4.450105667114258,-4.450105667114258,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10730,Cl6 Cs2 Sc1,MACE-MP,scored,-4.080376519097222,-4.080376519097222,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10732,Cl6 Rb2 Sc1,CHGNet,scored,-4.430181980133057,-4.430181980133057,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10732,Cl6 Rb2 Sc1,MACE-MP,scored,-4.058986239963108,-4.058986239963108,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10801,Ba1 Cl8 Yb2,CHGNet,scored,-4.15841817855835,-4.15841817855835,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10801,Ba1 Cl8 Yb2,MACE-MP,scored,-3.7581735090775923,-3.7581735090775923,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10803,Ba1 Ca2 Cl8,CHGNet,scored,-4.19399356842041,-4.19399356842041,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10803,Ba1 Ca2 Cl8,MACE-MP,scored,-3.8138112154873935,-3.8138112154873935,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10810,Ba1 Cl8 Sr2,CHGNet,scored,-4.207515716552734,-4.207515716552734,raw_energy_per_atom_lower_is_more_stable
+wbm-1-10810,Ba1 Cl8 Sr2,MACE-MP,scored,-3.7950397838245737,-3.7950397838245737,raw_energy_per_atom_lower_is_more_stable
+wbm-1-11501,Br6 Co2,CHGNet,scored,-3.625685691833496,-3.625685691833496,raw_energy_per_atom_lower_is_more_stable
+wbm-1-11501,Br6 Co2,MACE-MP,scored,-3.26438570022583,-3.26438570022583,raw_energy_per_atom_lower_is_more_stable
+wbm-1-14847,Cu2 F6,CHGNet,scored,-4.10367488861084,-4.10367488861084,raw_energy_per_atom_lower_is_more_stable
+wbm-1-14847,Cu2 F6,MACE-MP,scored,-3.7695748805999756,-3.7695748805999756,raw_energy_per_atom_lower_is_more_stable
+wbm-1-15286,Cu2 F8,CHGNet,scored,-3.6977438926696777,-3.6977438926696777,raw_energy_per_atom_lower_is_more_stable
+wbm-1-15286,Cu2 F8,MACE-MP,scored,-3.3372825622558593,-3.3372825622558593,raw_energy_per_atom_lower_is_more_stable
+wbm-1-15319,Cu2 F8 K2,CHGNet,scored,-4.349325180053711,-4.349325180053711,raw_energy_per_atom_lower_is_more_stable
+wbm-1-15319,Cu2 F8 K2,MACE-MP,scored,-4.0505625406901045,-4.0505625406901045,raw_energy_per_atom_lower_is_more_stable
+wbm-1-15593,Ca1 F6 Sc1,CHGNet,scored,-6.244400501251221,-6.244400501251221,raw_energy_per_atom_lower_is_more_stable
+wbm-1-15593,Ca1 F6 Sc1,MACE-MP,scored,-5.9548139572143555,-5.9548139572143555,raw_energy_per_atom_lower_is_more_stable
+wbm-1-15627,Co1 F6,CHGNet,scored,-3.9712581634521484,-3.9712581634521484,raw_energy_per_atom_lower_is_more_stable
+wbm-1-15627,Co1 F6,MACE-MP,scored,-3.387454169137137,-3.387454169137137,raw_energy_per_atom_lower_is_more_stable
+wbm-1-15667,Ba1 Cu1 F6,CHGNet,scored,-4.711675643920898,-4.711675643920898,raw_energy_per_atom_lower_is_more_stable
+wbm-1-15667,Ba1 Cu1 F6,MACE-MP,scored,-4.35728645324707,-4.35728645324707,raw_energy_per_atom_lower_is_more_stable
+wbm-1-15732,Ba1 F6 In1,CHGNet,scored,-5.025086879730225,-5.025086879730225,raw_energy_per_atom_lower_is_more_stable
+wbm-1-15732,Ba1 F6 In1,MACE-MP,scored,-4.688572883605957,-4.688572883605957,raw_energy_per_atom_lower_is_more_stable
+wbm-1-15864,Cu1 F6 K1,CHGNet,scored,-3.8392603397369385,-3.8392603397369385,raw_energy_per_atom_lower_is_more_stable
+wbm-1-15864,Cu1 F6 K1,MACE-MP,scored,-3.509697914123535,-3.509697914123535,raw_energy_per_atom_lower_is_more_stable
+wbm-1-15962,F6 Mg1 Sc1,CHGNet,scored,-6.025705337524414,-6.025705337524414,raw_energy_per_atom_lower_is_more_stable
+wbm-1-15962,F6 Mg1 Sc1,MACE-MP,scored,-5.701558589935303,-5.701558589935303,raw_energy_per_atom_lower_is_more_stable
+wbm-1-15969,F6 Mg1 Tm1,CHGNet,scored,-5.850512504577637,-5.850512504577637,raw_energy_per_atom_lower_is_more_stable
+wbm-1-15969,F6 Mg1 Tm1,MACE-MP,scored,-5.563234329223633,-5.563234329223633,raw_energy_per_atom_lower_is_more_stable
+wbm-1-16322,Ba1 F6 Sc1,CHGNet,scored,-6.219562530517578,-6.219562530517578,raw_energy_per_atom_lower_is_more_stable
+wbm-1-16322,Ba1 F6 Sc1,MACE-MP,scored,-5.897949695587158,-5.897949695587158,raw_energy_per_atom_lower_is_more_stable
+wbm-1-16335,F6 Sc1 Zn1,CHGNet,scored,-5.522256374359131,-5.522256374359131,raw_energy_per_atom_lower_is_more_stable
+wbm-1-16335,F6 Sc1 Zn1,MACE-MP,scored,-5.169838905334473,-5.169838905334473,raw_energy_per_atom_lower_is_more_stable
+wbm-1-16338,F6 Se1,CHGNet,scored,-4.082177639007568,-4.082177639007568,raw_energy_per_atom_lower_is_more_stable
+wbm-1-16338,F6 Se1,MACE-MP,scored,-3.7071405138288225,-3.7071405138288225,raw_energy_per_atom_lower_is_more_stable
+wbm-1-16339,F6 Se1,CHGNet,scored,-4.087032794952393,-4.087032794952393,raw_energy_per_atom_lower_is_more_stable
+wbm-1-16339,F6 Se1,MACE-MP,scored,-3.7257096426827565,-3.7257096426827565,raw_energy_per_atom_lower_is_more_stable
+wbm-1-16394,Cs1 F6 Ti1,CHGNet,scored,-5.78395414352417,-5.78395414352417,raw_energy_per_atom_lower_is_more_stable
+wbm-1-16394,Cs1 F6 Ti1,MACE-MP,scored,-5.496413230895996,-5.496413230895996,raw_energy_per_atom_lower_is_more_stable
+wbm-1-16449,F6 Tm1 Zn1,CHGNet,scored,-5.353494644165039,-5.353494644165039,raw_energy_per_atom_lower_is_more_stable
+wbm-1-16449,F6 Tm1 Zn1,MACE-MP,scored,-5.0247297286987305,-5.0247297286987305,raw_energy_per_atom_lower_is_more_stable
+wbm-1-16451,F6 Y1 Zn1,CHGNet,scored,-5.577513217926025,-5.577513217926025,raw_energy_per_atom_lower_is_more_stable
+wbm-1-16451,F6 Y1 Zn1,MACE-MP,scored,-5.236285209655762,-5.236285209655762,raw_energy_per_atom_lower_is_more_stable
+wbm-1-16534,F7 Na3 Sr1,CHGNet,scored,-4.482844352722168,-4.482844352722168,raw_energy_per_atom_lower_is_more_stable
+wbm-1-16534,F7 Na3 Sr1,MACE-MP,scored,-4.196559559215199,-4.196559559215199,raw_energy_per_atom_lower_is_more_stable
+wbm-1-16611,Ba1 Ca2 F8,CHGNet,scored,-5.32408332824707,-5.32408332824707,raw_energy_per_atom_lower_is_more_stable
+wbm-1-16611,Ba1 Ca2 F8,MACE-MP,scored,-4.962289983575994,-4.962289983575994,raw_energy_per_atom_lower_is_more_stable
+wbm-1-16618,Ba1 Cu2 F8,CHGNet,scored,-4.671486854553223,-4.671486854553223,raw_energy_per_atom_lower_is_more_stable
+wbm-1-16618,Ba1 Cu2 F8,MACE-MP,scored,-4.335282759232954,-4.335282759232954,raw_energy_per_atom_lower_is_more_stable
+wbm-1-18634,Br3 Er3 Ga1,CHGNet,scored,-4.469491958618164,-4.469491958618164,raw_energy_per_atom_lower_is_more_stable
+wbm-1-18634,Br3 Er3 Ga1,MACE-MP,scored,-4.267282213483538,-4.267282213483538,raw_energy_per_atom_lower_is_more_stable
+wbm-1-21043,Br4 Er2 H2,CHGNet,scored,-4.587494850158691,-4.587494850158691,raw_energy_per_atom_lower_is_more_stable
+wbm-1-21043,Br4 Er2 H2,MACE-MP,scored,-4.261590480804443,-4.261590480804443,raw_energy_per_atom_lower_is_more_stable
+wbm-1-21796,Gd2 I6,CHGNet,scored,-6.36636209487915,-6.36636209487915,raw_energy_per_atom_lower_is_more_stable
+wbm-1-21796,Gd2 I6,MACE-MP,scored,-6.057033538818359,-6.057033538818359,raw_energy_per_atom_lower_is_more_stable
+wbm-1-23510,F6 Li2 Sc1,CHGNet,scored,-5.7691650390625,-5.7691650390625,raw_energy_per_atom_lower_is_more_stable
+wbm-1-23510,F6 Li2 Sc1,MACE-MP,scored,-5.441854688856337,-5.441854688856337,raw_energy_per_atom_lower_is_more_stable
+wbm-1-24972,Ca2 F8 Li2,CHGNet,scored,-5.081640243530273,-5.081640243530273,raw_energy_per_atom_lower_is_more_stable
+wbm-1-24972,Ca2 F8 Li2,MACE-MP,scored,-4.769560178120931,-4.769560178120931,raw_energy_per_atom_lower_is_more_stable
+wbm-1-29475,Br6 Mn2,CHGNet,scored,-4.5368266105651855,-4.5368266105651855,raw_energy_per_atom_lower_is_more_stable
+wbm-1-29475,Br6 Mn2,MACE-MP,scored,-4.152698516845703,-4.152698516845703,raw_energy_per_atom_lower_is_more_stable
+wbm-1-35252,Br6 Ni2,CHGNet,scored,-3.2700939178466797,-3.2700939178466797,raw_energy_per_atom_lower_is_more_stable
+wbm-1-35252,Br6 Ni2,MACE-MP,scored,-2.994931697845459,-2.994931697845459,raw_energy_per_atom_lower_is_more_stable
+wbm-1-45469,Br2 Er2 P1,CHGNet,scored,-5.516124725341797,-5.516124725341797,raw_energy_per_atom_lower_is_more_stable
+wbm-1-45469,Br2 Er2 P1,MACE-MP,scored,-5.338647079467774,-5.338647079467774,raw_energy_per_atom_lower_is_more_stable
+wbm-1-48434,I6 Ru2,CHGNet,scored,-3.748330593109131,-3.748330593109131,raw_energy_per_atom_lower_is_more_stable
+wbm-1-48434,I6 Ru2,MACE-MP,scored,-3.5496017932891846,-3.5496017932891846,raw_energy_per_atom_lower_is_more_stable
+wbm-1-59200,Br10 V2,CHGNet,scored,-3.964923143386841,-3.964923143386841,raw_energy_per_atom_lower_is_more_stable
+wbm-1-59200,Br10 V2,MACE-MP,scored,-3.537682215372721,-3.537682215372721,raw_energy_per_atom_lower_is_more_stable
+wbm-1-6237,Br6 Er2,CHGNet,scored,-4.654660224914551,-4.654660224914551,raw_energy_per_atom_lower_is_more_stable
+wbm-1-6237,Br6 Er2,MACE-MP,scored,-4.277831077575684,-4.277831077575684,raw_energy_per_atom_lower_is_more_stable
+wbm-1-6238,Br6 Er2,CHGNet,scored,-4.603231430053711,-4.603231430053711,raw_energy_per_atom_lower_is_more_stable
+wbm-1-6238,Br6 Er2,MACE-MP,scored,-4.204535484313965,-4.204535484313965,raw_energy_per_atom_lower_is_more_stable
+wbm-1-6239,Br6 Er2,CHGNet,scored,-4.630731582641602,-4.630731582641602,raw_energy_per_atom_lower_is_more_stable
+wbm-1-6239,Br6 Er2,MACE-MP,scored,-4.204482555389404,-4.204482555389404,raw_energy_per_atom_lower_is_more_stable
+wbm-1-6280,Br6 Pd2,CHGNet,scored,-3.205911159515381,-3.205911159515381,raw_energy_per_atom_lower_is_more_stable
+wbm-1-6280,Br6 Pd2,MACE-MP,scored,-2.8246853351593018,-2.8246853351593018,raw_energy_per_atom_lower_is_more_stable
+wbm-1-6397,Br8 Ce2,CHGNet,scored,-4.535430431365967,-4.535430431365967,raw_energy_per_atom_lower_is_more_stable
+wbm-1-6397,Br8 Ce2,MACE-MP,scored,-4.070003509521484,-4.070003509521484,raw_energy_per_atom_lower_is_more_stable
+wbm-1-6398,Br8 Ce2,CHGNet,scored,-4.557807445526123,-4.557807445526123,raw_energy_per_atom_lower_is_more_stable
+wbm-1-6398,Br8 Ce2,MACE-MP,scored,-4.080637741088867,-4.080637741088867,raw_energy_per_atom_lower_is_more_stable
+wbm-1-6408,Br8 Eu2,CHGNet,scored,-4.8982744216918945,-4.8982744216918945,raw_energy_per_atom_lower_is_more_stable
+wbm-1-6408,Br8 Eu2,MACE-MP,scored,-4.638132095336914,-4.638132095336914,raw_energy_per_atom_lower_is_more_stable
+wbm-1-6460,Br8 Sr2,CHGNet,scored,-3.1653504371643066,-3.1653504371643066,raw_energy_per_atom_lower_is_more_stable
+wbm-1-6460,Br8 Sr2,MACE-MP,scored,-2.950541305541992,-2.950541305541992,raw_energy_per_atom_lower_is_more_stable
+wbm-1-6461,Br8 Sr2,CHGNet,scored,-3.064549684524536,-3.064549684524536,raw_energy_per_atom_lower_is_more_stable
+wbm-1-6461,Br8 Sr2,MACE-MP,scored,-2.910061264038086,-2.910061264038086,raw_energy_per_atom_lower_is_more_stable
+wbm-1-6476,Br10 Hf2,CHGNet,scored,-4.582037448883057,-4.582037448883057,raw_energy_per_atom_lower_is_more_stable
+wbm-1-6476,Br10 Hf2,MACE-MP,scored,-4.234699249267578,-4.234699249267578,raw_energy_per_atom_lower_is_more_stable
+wbm-1-6491,Br6 Mo1,CHGNet,scored,-3.7888007164001465,-3.7888007164001465,raw_energy_per_atom_lower_is_more_stable
+wbm-1-6491,Br6 Mo1,MACE-MP,scored,-3.349517277308873,-3.349517277308873,raw_energy_per_atom_lower_is_more_stable
+wbm-1-9744,Cl8 Cs4,CHGNet,scored,-3.006861448287964,-3.006861448287964,raw_energy_per_atom_lower_is_more_stable
+wbm-1-9744,Cl8 Cs4,MACE-MP,scored,-2.8206685384114585,-2.8206685384114585,raw_energy_per_atom_lower_is_more_stable
+wbm-1-9828,Cl8 Rb4,CHGNet,scored,-3.023350238800049,-3.023350238800049,raw_energy_per_atom_lower_is_more_stable
+wbm-1-9828,Cl8 Rb4,MACE-MP,scored,-2.830821990966797,-2.830821990966797,raw_energy_per_atom_lower_is_more_stable
+wbm-1-9948,Cl6 Co2,CHGNet,scored,-4.078737735748291,-4.078737735748291,raw_energy_per_atom_lower_is_more_stable
+wbm-1-9948,Cl6 Co2,MACE-MP,scored,-3.585421085357666,-3.585421085357666,raw_energy_per_atom_lower_is_more_stable
+wbm-2-10005,As1 Cl11,CHGNet,scored,-2.5636205673217773,-2.5636205673217773,raw_energy_per_atom_lower_is_more_stable
+wbm-2-10005,As1 Cl11,MACE-MP,scored,-2.1856228510538735,-2.1856228510538735,raw_energy_per_atom_lower_is_more_stable
+wbm-2-10006,Bi1 Cl11,CHGNet,scored,-2.4977073669433594,-2.4977073669433594,raw_energy_per_atom_lower_is_more_stable
+wbm-2-10006,Bi1 Cl11,MACE-MP,scored,-2.19156551361084,-2.19156551361084,raw_energy_per_atom_lower_is_more_stable
+wbm-2-10112,Ba2 Cl6,CHGNet,scored,-4.095997333526611,-4.095997333526611,raw_energy_per_atom_lower_is_more_stable
+wbm-2-10112,Ba2 Cl6,MACE-MP,scored,-3.7279701232910156,-3.7279701232910156,raw_energy_per_atom_lower_is_more_stable
+wbm-2-10119,Cl6 Co2,CHGNet,scored,-4.07875919342041,-4.07875919342041,raw_energy_per_atom_lower_is_more_stable
+wbm-2-10119,Cl6 Co2,MACE-MP,scored,-3.5854973793029785,-3.5854973793029785,raw_energy_per_atom_lower_is_more_stable
+wbm-2-10219,Cl6 Ni2,CHGNet,scored,-3.6367509365081787,-3.6367509365081787,raw_energy_per_atom_lower_is_more_stable
+wbm-2-10219,Cl6 Ni2,MACE-MP,scored,-3.24214768409729,-3.24214768409729,raw_energy_per_atom_lower_is_more_stable
+wbm-2-10321,Ba2 Cl8,CHGNet,scored,-3.6235179901123047,-3.6235179901123047,raw_energy_per_atom_lower_is_more_stable
+wbm-2-10321,Ba2 Cl8,MACE-MP,scored,-3.3164337158203123,-3.3164337158203123,raw_energy_per_atom_lower_is_more_stable
+wbm-2-10322,Ba2 Cl8,CHGNet,scored,-3.6397347450256348,-3.6397347450256348,raw_energy_per_atom_lower_is_more_stable
+wbm-2-10322,Ba2 Cl8,MACE-MP,scored,-3.348185729980469,-3.348185729980469,raw_energy_per_atom_lower_is_more_stable
+wbm-2-10335,Cl8 Co2,CHGNet,scored,-3.6364777088165283,-3.6364777088165283,raw_energy_per_atom_lower_is_more_stable
+wbm-2-10335,Cl8 Co2,MACE-MP,scored,-3.1592338562011717,-3.1592338562011717,raw_energy_per_atom_lower_is_more_stable
+wbm-2-10391,Cl8 Ni2,CHGNet,scored,-3.1738226413726807,-3.1738226413726807,raw_energy_per_atom_lower_is_more_stable
+wbm-2-10391,Cl8 Ni2,MACE-MP,scored,-2.8128610610961915,-2.8128610610961915,raw_energy_per_atom_lower_is_more_stable
+wbm-2-10407,Cl8 Sc2,CHGNet,scored,-4.779301643371582,-4.779301643371582,raw_energy_per_atom_lower_is_more_stable
+wbm-2-10407,Cl8 Sc2,MACE-MP,scored,-4.38253173828125,-4.38253173828125,raw_energy_per_atom_lower_is_more_stable
+wbm-2-10414,Cl8 Sr2,CHGNet,scored,-3.5753262042999268,-3.5753262042999268,raw_energy_per_atom_lower_is_more_stable
+wbm-2-10414,Cl8 Sr2,MACE-MP,scored,-3.2339576721191405,-3.2339576721191405,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15210,F8 Na2 Sr2,CHGNet,scored,-4.86526346206665,-4.86526346206665,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15210,F8 Na2 Sr2,MACE-MP,scored,-4.589636166890462,-4.589636166890462,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15292,Al1 Ca1 F6,CHGNet,scored,-5.700281620025635,-5.700281620025635,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15292,Al1 Ca1 F6,MACE-MP,scored,-5.377829551696777,-5.377829551696777,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15330,Ba1 Er1 F6,CHGNet,scored,-6.007819175720215,-6.007819175720215,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15330,Ba1 Er1 F6,MACE-MP,scored,-5.7113261222839355,-5.7113261222839355,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15331,Ba1 F6 Gd1,CHGNet,scored,-7.128715515136719,-7.128715515136719,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15331,Ba1 F6 Gd1,MACE-MP,scored,-6.84975004196167,-6.84975004196167,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15335,Ba1 F6 Lu1,CHGNet,scored,-5.995489597320557,-5.995489597320557,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15335,Ba1 F6 Lu1,MACE-MP,scored,-5.7238874435424805,-5.7238874435424805,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15340,Ba1 F6 Tm1,CHGNet,scored,-6.002820014953613,-6.002820014953613,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15340,Ba1 F6 Tm1,MACE-MP,scored,-5.727917194366455,-5.727917194366455,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15347,Ca1 Eu1 F6,CHGNet,scored,-6.48153829574585,-6.48153829574585,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15347,Ca1 Eu1 F6,MACE-MP,scored,-6.201840400695801,-6.201840400695801,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15348,Ca1 F6 Gd1,CHGNet,scored,-7.195553302764893,-7.195553302764893,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15348,Ca1 F6 Gd1,MACE-MP,scored,-6.9413347244262695,-6.9413347244262695,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15384,Cd1 Er1 F6,CHGNet,scored,-5.277721881866455,-5.277721881866455,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15384,Cd1 Er1 F6,MACE-MP,scored,-4.885800361633301,-4.885800361633301,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15385,Cd1 F6 Gd1,CHGNet,scored,-6.395528793334961,-6.395528793334961,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15385,Cd1 F6 Gd1,MACE-MP,scored,-6.038422107696533,-6.038422107696533,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15387,Cd1 F6 Ho1,CHGNet,scored,-5.266797065734863,-5.266797065734863,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15387,Cd1 F6 Ho1,MACE-MP,scored,-4.878313064575195,-4.878313064575195,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15450,Cs2 F6 Nd1,CHGNet,scored,-5.3465189933776855,-5.3465189933776855,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15450,Cs2 F6 Nd1,MACE-MP,scored,-5.1111297607421875,-5.1111297607421875,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15500,Cu1 F6 Rb1,CHGNet,scored,-3.8296103477478027,-3.8296103477478027,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15500,Cu1 F6 Rb1,MACE-MP,scored,-3.5006279945373535,-3.5006279945373535,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15504,Cu1 F6,CHGNet,scored,-3.1204020977020264,-3.1204020977020264,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15504,Cu1 F6,MACE-MP,scored,-2.853268487112863,-2.853268487112863,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15853,Dy1 F6 Mg1,CHGNet,scored,-5.839773654937744,-5.839773654937744,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15853,Dy1 F6 Mg1,MACE-MP,scored,-5.559421062469482,-5.559421062469482,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15854,Er1 F6 Mg1,CHGNet,scored,-5.862011432647705,-5.862011432647705,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15854,Er1 F6 Mg1,MACE-MP,scored,-5.543331623077393,-5.543331623077393,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15855,Eu1 F6 Mg1,CHGNet,scored,-6.264876842498779,-6.264876842498779,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15855,Eu1 F6 Mg1,MACE-MP,scored,-5.973151683807373,-5.973151683807373,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15858,F6 Ho1 Mg1,CHGNet,scored,-5.852088928222656,-5.852088928222656,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15858,F6 Ho1 Mg1,MACE-MP,scored,-5.54484748840332,-5.54484748840332,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15864,F6 Lu1 Mg1,CHGNet,scored,-5.824919700622559,-5.824919700622559,raw_energy_per_atom_lower_is_more_stable
+wbm-2-15864,F6 Lu1 Mg1,MACE-MP,scored,-5.562560081481934,-5.562560081481934,raw_energy_per_atom_lower_is_more_stable
+wbm-2-16012,Cu1 F6 Ni1,CHGNet,scored,-4.420253753662109,-4.420253753662109,raw_energy_per_atom_lower_is_more_stable
+wbm-2-16012,Cu1 F6 Ni1,MACE-MP,scored,-3.706470489501953,-3.706470489501953,raw_energy_per_atom_lower_is_more_stable
+wbm-2-16430,Dy1 F6 Zn1,CHGNet,scored,-5.348840236663818,-5.348840236663818,raw_energy_per_atom_lower_is_more_stable
+wbm-2-16430,Dy1 F6 Zn1,MACE-MP,scored,-5.019425868988037,-5.019425868988037,raw_energy_per_atom_lower_is_more_stable
+wbm-2-16431,Er1 F6 Zn1,CHGNet,scored,-5.366844177246094,-5.366844177246094,raw_energy_per_atom_lower_is_more_stable
+wbm-2-16431,Er1 F6 Zn1,MACE-MP,scored,-4.999489784240723,-4.999489784240723,raw_energy_per_atom_lower_is_more_stable
+wbm-2-16432,Eu1 F6 Zn1,CHGNet,scored,-5.78358268737793,-5.78358268737793,raw_energy_per_atom_lower_is_more_stable
+wbm-2-16432,Eu1 F6 Zn1,MACE-MP,scored,-5.454276084899902,-5.454276084899902,raw_energy_per_atom_lower_is_more_stable
+wbm-2-16434,F6 Ho1 Zn1,CHGNet,scored,-5.357731342315674,-5.357731342315674,raw_energy_per_atom_lower_is_more_stable
+wbm-2-16434,F6 Ho1 Zn1,MACE-MP,scored,-5.006411075592041,-5.006411075592041,raw_energy_per_atom_lower_is_more_stable
+wbm-2-16437,F6 Lu1 Zn1,CHGNet,scored,-5.328878402709961,-5.328878402709961,raw_energy_per_atom_lower_is_more_stable
+wbm-2-16437,F6 Lu1 Zn1,MACE-MP,scored,-5.032317638397217,-5.032317638397217,raw_energy_per_atom_lower_is_more_stable
+wbm-2-16487,Cs1 F7 Tm2,CHGNet,scored,-6.565105438232422,-6.565105438232422,raw_energy_per_atom_lower_is_more_stable
+wbm-2-16487,Cs1 F7 Tm2,MACE-MP,scored,-6.243830871582031,-6.243830871582031,raw_energy_per_atom_lower_is_more_stable
+wbm-2-16572,Cu2 F8 Sr1,CHGNet,scored,-4.649637699127197,-4.649637699127197,raw_energy_per_atom_lower_is_more_stable
+wbm-2-16572,Cu2 F8 Sr1,MACE-MP,scored,-4.310611378062855,-4.310611378062855,raw_energy_per_atom_lower_is_more_stable
+wbm-2-18899,Br2 Er2 Ga2,CHGNet,scored,-4.414216995239258,-4.414216995239258,raw_energy_per_atom_lower_is_more_stable
+wbm-2-18899,Br2 Er2 Ga2,MACE-MP,scored,-4.201277414957683,-4.201277414957683,raw_energy_per_atom_lower_is_more_stable
+wbm-2-20289,Br2 Er2 Ge1,CHGNet,scored,-5.058669567108154,-5.058669567108154,raw_energy_per_atom_lower_is_more_stable
+wbm-2-20289,Br2 Er2 Ge1,MACE-MP,scored,-4.831990814208984,-4.831990814208984,raw_energy_per_atom_lower_is_more_stable
+wbm-2-20290,Br2 Er2 Ge1,CHGNet,scored,-5.059291362762451,-5.059291362762451,raw_energy_per_atom_lower_is_more_stable
+wbm-2-20290,Br2 Er2 Ge1,MACE-MP,scored,-4.832897567749024,-4.832897567749024,raw_energy_per_atom_lower_is_more_stable
+wbm-2-21738,Br4 Er4 H2,CHGNet,scored,-4.5859575271606445,-4.5859575271606445,raw_energy_per_atom_lower_is_more_stable
+wbm-2-21738,Br4 Er4 H2,MACE-MP,scored,-4.381073760986328,-4.381073760986328,raw_energy_per_atom_lower_is_more_stable
+wbm-2-21760,Br2 Er2 H2,CHGNet,scored,-4.593958377838135,-4.593958377838135,raw_energy_per_atom_lower_is_more_stable
+wbm-2-21760,Br2 Er2 H2,MACE-MP,scored,-4.418369611104329,-4.418369611104329,raw_energy_per_atom_lower_is_more_stable
+wbm-2-22291,Ce2 I8,CHGNet,scored,-3.938474416732788,-3.938474416732788,raw_energy_per_atom_lower_is_more_stable
+wbm-2-22291,Ce2 I8,MACE-MP,scored,-3.5804893493652346,-3.5804893493652346,raw_energy_per_atom_lower_is_more_stable
+wbm-2-23645,Eu1 F6 Li2,CHGNet,scored,-5.955787181854248,-5.955787181854248,raw_energy_per_atom_lower_is_more_stable
+wbm-2-23645,Eu1 F6 Li2,MACE-MP,scored,-5.6865344577365455,-5.6865344577365455,raw_energy_per_atom_lower_is_more_stable
+wbm-2-23646,F6 Gd1 Li2,CHGNet,scored,-6.6260905265808105,-6.6260905265808105,raw_energy_per_atom_lower_is_more_stable
+wbm-2-23646,F6 Gd1 Li2,MACE-MP,scored,-6.337771945529514,-6.337771945529514,raw_energy_per_atom_lower_is_more_stable
+wbm-2-23675,Ca1 F8 Li2 Sr1,CHGNet,scored,-5.055068016052246,-5.055068016052246,raw_energy_per_atom_lower_is_more_stable
+wbm-2-23675,Ca1 F8 Li2 Sr1,MACE-MP,scored,-4.749906857808431,-4.749906857808431,raw_energy_per_atom_lower_is_more_stable
+wbm-2-24289,F8 Li2 Zn2,CHGNet,scored,-4.187688827514648,-4.187688827514648,raw_energy_per_atom_lower_is_more_stable
+wbm-2-24289,F8 Li2 Zn2,MACE-MP,scored,-3.8657007217407227,-3.8657007217407227,raw_energy_per_atom_lower_is_more_stable
+wbm-2-24303,F6 Hf1 Li1,CHGNet,scored,-6.350454807281494,-6.350454807281494,raw_energy_per_atom_lower_is_more_stable
+wbm-2-24303,F6 Hf1 Li1,MACE-MP,scored,-6.0387396812438965,-6.0387396812438965,raw_energy_per_atom_lower_is_more_stable
+wbm-2-24324,F6 Li1 Zr1,CHGNet,scored,-6.067306041717529,-6.067306041717529,raw_energy_per_atom_lower_is_more_stable
+wbm-2-24324,F6 Li1 Zr1,MACE-MP,scored,-5.733487129211426,-5.733487129211426,raw_energy_per_atom_lower_is_more_stable
+wbm-2-25692,Br8 Mg2,CHGNet,scored,-2.7414283752441406,-2.7414283752441406,raw_energy_per_atom_lower_is_more_stable
+wbm-2-25692,Br8 Mg2,MACE-MP,scored,-2.4426387786865233,-2.4426387786865233,raw_energy_per_atom_lower_is_more_stable
+wbm-2-27624,Br6 Mn2,CHGNet,scored,-4.573076248168945,-4.573076248168945,raw_energy_per_atom_lower_is_more_stable
+wbm-2-27624,Br6 Mn2,MACE-MP,scored,-4.1655426025390625,-4.1655426025390625,raw_energy_per_atom_lower_is_more_stable
+wbm-2-27626,Br8 Mn2,CHGNet,scored,-4.020374298095703,-4.020374298095703,raw_energy_per_atom_lower_is_more_stable
+wbm-2-27626,Br8 Mn2,MACE-MP,scored,-3.627797317504883,-3.627797317504883,raw_energy_per_atom_lower_is_more_stable
+wbm-2-27627,Br10 Mn2,CHGNet,scored,-3.609055995941162,-3.609055995941162,raw_energy_per_atom_lower_is_more_stable
+wbm-2-27627,Br10 Mn2,MACE-MP,scored,-3.2736384073893228,-3.2736384073893228,raw_energy_per_atom_lower_is_more_stable
+wbm-2-38222,Cl11 P1,CHGNet,scored,-2.6604719161987305,-2.6604719161987305,raw_energy_per_atom_lower_is_more_stable
+wbm-2-38222,Cl11 P1,MACE-MP,scored,-2.2917898495992026,-2.2917898495992026,raw_energy_per_atom_lower_is_more_stable
+wbm-2-38579,Gd2 I1 P1,CHGNet,scored,-10.252981185913086,-10.252981185913086,raw_energy_per_atom_lower_is_more_stable
+wbm-2-38579,Gd2 I1 P1,MACE-MP,scored,-10.220077514648438,-10.220077514648438,raw_energy_per_atom_lower_is_more_stable
+wbm-2-3984,As1 Br2 Er2,CHGNet,scored,-5.31672477722168,-5.31672477722168,raw_energy_per_atom_lower_is_more_stable
+wbm-2-3984,As1 Br2 Er2,MACE-MP,scored,-5.107775497436523,-5.107775497436523,raw_energy_per_atom_lower_is_more_stable
+wbm-2-4129,As1 Gd2 I1,CHGNet,scored,-10.013849258422852,-10.013849258422852,raw_energy_per_atom_lower_is_more_stable
+wbm-2-4129,As1 Gd2 I1,MACE-MP,scored,-9.956098556518555,-9.956098556518555,raw_energy_per_atom_lower_is_more_stable
+wbm-2-50812,Br8 V2,CHGNet,scored,-4.322899341583252,-4.322899341583252,raw_energy_per_atom_lower_is_more_stable
+wbm-2-50812,Br8 V2,MACE-MP,scored,-3.903127670288086,-3.903127670288086,raw_energy_per_atom_lower_is_more_stable
+wbm-2-6782,Br11 Sb1,CHGNet,scored,-2.2238998413085938,-2.2238998413085938,raw_energy_per_atom_lower_is_more_stable
+wbm-2-6782,Br11 Sb1,MACE-MP,scored,-2.056278387705485,-2.056278387705485,raw_energy_per_atom_lower_is_more_stable
+wbm-2-6859,Br6 Er4,CHGNet,scored,-4.569420337677002,-4.569420337677002,raw_energy_per_atom_lower_is_more_stable
+wbm-2-6859,Br6 Er4,MACE-MP,scored,-4.239658355712891,-4.239658355712891,raw_energy_per_atom_lower_is_more_stable
+wbm-2-6860,Br6 Er2,CHGNet,scored,-4.658326625823975,-4.658326625823975,raw_energy_per_atom_lower_is_more_stable
+wbm-2-6860,Br6 Er2,MACE-MP,scored,-4.278328895568848,-4.278328895568848,raw_energy_per_atom_lower_is_more_stable
+wbm-2-6861,Br6 Er2,CHGNet,scored,-4.64501953125,-4.64501953125,raw_energy_per_atom_lower_is_more_stable
+wbm-2-6861,Br6 Er2,MACE-MP,scored,-4.233588218688965,-4.233588218688965,raw_energy_per_atom_lower_is_more_stable
+wbm-2-6996,Br8 Ce2,CHGNet,scored,-4.489650249481201,-4.489650249481201,raw_energy_per_atom_lower_is_more_stable
+wbm-2-6996,Br8 Ce2,MACE-MP,scored,-4.088577651977539,-4.088577651977539,raw_energy_per_atom_lower_is_more_stable
+wbm-2-7138,Br2 Er2,CHGNet,scored,-4.5825300216674805,-4.5825300216674805,raw_energy_per_atom_lower_is_more_stable
+wbm-2-7138,Br2 Er2,MACE-MP,scored,-4.3285746574401855,-4.3285746574401855,raw_energy_per_atom_lower_is_more_stable
+wbm-3-10123,Br2 Er1,CHGNet,scored,-4.588812828063965,-4.588812828063965,raw_energy_per_atom_lower_is_more_stable
+wbm-3-10123,Br2 Er1,MACE-MP,scored,-4.178054173787435,-4.178054173787435,raw_energy_per_atom_lower_is_more_stable
+wbm-3-10163,Br2 Er2 Sb1,CHGNet,scored,-5.02686071395874,-5.02686071395874,raw_energy_per_atom_lower_is_more_stable
+wbm-3-10163,Br2 Er2 Sb1,MACE-MP,scored,-4.747396850585938,-4.747396850585938,raw_energy_per_atom_lower_is_more_stable
+wbm-3-10186,Br2 Er2 Sn1,CHGNet,scored,-4.81173849105835,-4.81173849105835,raw_energy_per_atom_lower_is_more_stable
+wbm-3-10186,Br2 Er2 Sn1,MACE-MP,scored,-4.540192031860352,-4.540192031860352,raw_energy_per_atom_lower_is_more_stable
+wbm-3-10187,Br2 Er2 Sn1,CHGNet,scored,-4.812287330627441,-4.812287330627441,raw_energy_per_atom_lower_is_more_stable
+wbm-3-10187,Br2 Er2 Sn1,MACE-MP,scored,-4.541330337524414,-4.541330337524414,raw_energy_per_atom_lower_is_more_stable
+wbm-3-10261,Br6 Er2,CHGNet,scored,-4.561647891998291,-4.561647891998291,raw_energy_per_atom_lower_is_more_stable
+wbm-3-10261,Br6 Er2,MACE-MP,scored,-4.202733993530273,-4.202733993530273,raw_energy_per_atom_lower_is_more_stable
+wbm-3-10304,Br6 Pb2,CHGNet,scored,-3.154419183731079,-3.154419183731079,raw_energy_per_atom_lower_is_more_stable
+wbm-3-10304,Br6 Pb2,MACE-MP,scored,-2.8040106296539307,-2.8040106296539307,raw_energy_per_atom_lower_is_more_stable
+wbm-3-10473,Br8 Sr2,CHGNet,scored,-3.076268196105957,-3.076268196105957,raw_energy_per_atom_lower_is_more_stable
+wbm-3-10473,Br8 Sr2,MACE-MP,scored,-2.91959285736084,-2.91959285736084,raw_energy_per_atom_lower_is_more_stable
+wbm-3-10531,Br6 Er1 Rb2,CHGNet,scored,-3.8718621730804443,-3.8718621730804443,raw_energy_per_atom_lower_is_more_stable
+wbm-3-10531,Br6 Er1 Rb2,MACE-MP,scored,-3.5395726097954645,-3.5395726097954645,raw_energy_per_atom_lower_is_more_stable
+wbm-3-10532,Br6 Er1 Rb2,CHGNet,scored,-3.8539350032806396,-3.8539350032806396,raw_energy_per_atom_lower_is_more_stable
+wbm-3-10532,Br6 Er1 Rb2,MACE-MP,scored,-3.545610851711697,-3.545610851711697,raw_energy_per_atom_lower_is_more_stable
+wbm-3-14800,Cl6 Pd2,CHGNet,scored,-3.5570883750915527,-3.5570883750915527,raw_energy_per_atom_lower_is_more_stable
+wbm-3-14800,Cl6 Pd2,MACE-MP,scored,-3.109435796737671,-3.109435796737671,raw_energy_per_atom_lower_is_more_stable
+wbm-3-14956,Cl8 Pd2,CHGNet,scored,-3.280137538909912,-3.280137538909912,raw_energy_per_atom_lower_is_more_stable
+wbm-3-14956,Cl8 Pd2,MACE-MP,scored,-2.7787490844726563,-2.7787490844726563,raw_energy_per_atom_lower_is_more_stable
+wbm-3-14957,Cl8 Pt2,CHGNet,scored,-3.5251824855804443,-3.5251824855804443,raw_energy_per_atom_lower_is_more_stable
+wbm-3-14957,Cl8 Pt2,MACE-MP,scored,-3.078989028930664,-3.078989028930664,raw_energy_per_atom_lower_is_more_stable
+wbm-3-14960,Cl8 Rh2,CHGNet,scored,-3.9241862297058105,-3.9241862297058105,raw_energy_per_atom_lower_is_more_stable
+wbm-3-14960,Cl8 Rh2,MACE-MP,scored,-3.431524658203125,-3.431524658203125,raw_energy_per_atom_lower_is_more_stable
+wbm-3-14961,Cl8 Ru2,CHGNet,scored,-4.30576229095459,-4.30576229095459,raw_energy_per_atom_lower_is_more_stable
+wbm-3-14961,Cl8 Ru2,MACE-MP,scored,-3.800990676879883,-3.800990676879883,raw_energy_per_atom_lower_is_more_stable
+wbm-3-15116,Cl6 In1 Rb2,CHGNet,scored,-3.5093634128570557,-3.5093634128570557,raw_energy_per_atom_lower_is_more_stable
+wbm-3-15116,Cl6 In1 Rb2,MACE-MP,scored,-3.1520042419433594,-3.1520042419433594,raw_energy_per_atom_lower_is_more_stable
+wbm-3-16740,Br6 Co2,CHGNet,scored,-3.6327919960021973,-3.6327919960021973,raw_energy_per_atom_lower_is_more_stable
+wbm-3-16740,Br6 Co2,MACE-MP,scored,-3.2196109294891357,-3.2196109294891357,raw_energy_per_atom_lower_is_more_stable
+wbm-3-21975,Ca1 F3,CHGNet,scored,-4.973955154418945,-4.973955154418945,raw_energy_per_atom_lower_is_more_stable
+wbm-3-21975,Ca1 F3,MACE-MP,scored,-4.653571128845215,-4.653571128845215,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22056,Cs2 F4 Tm1,CHGNet,scored,-5.402656555175781,-5.402656555175781,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22056,Cs2 F4 Tm1,MACE-MP,scored,-5.322136470249721,-5.322136470249721,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22091,Ca2 F8 K2,CHGNet,scored,-4.947938919067383,-4.947938919067383,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22091,Ca2 F8 K2,MACE-MP,scored,-4.619280497233073,-4.619280497233073,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22113,Ba2 F8 Na2,CHGNet,scored,-4.864311695098877,-4.864311695098877,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22113,Ba2 F8 Na2,MACE-MP,scored,-4.564669926961263,-4.564669926961263,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22291,Ba1 Eu1 F6,CHGNet,scored,-6.411007881164551,-6.411007881164551,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22291,Ba1 Eu1 F6,MACE-MP,scored,-6.11065673828125,-6.11065673828125,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22292,Ba1 Eu1 F6,CHGNet,scored,-6.448643684387207,-6.448643684387207,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22292,Ba1 Eu1 F6,MACE-MP,scored,-6.211950778961182,-6.211950778961182,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22296,Ba1 F6 Hg1,CHGNet,scored,-4.051701068878174,-4.051701068878174,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22296,Ba1 F6 Hg1,MACE-MP,scored,-3.701327323913574,-3.701327323913574,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22363,Cd1 Eu1 F6,CHGNet,scored,-5.689791679382324,-5.689791679382324,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22363,Cd1 Eu1 F6,MACE-MP,scored,-5.311385154724121,-5.311385154724121,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22364,Cd1 Eu1 F6,CHGNet,scored,-5.692673206329346,-5.692673206329346,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22364,Cd1 Eu1 F6,MACE-MP,scored,-5.337178707122803,-5.337178707122803,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22365,Cd1 F6 Gd1,CHGNet,scored,-6.3885321617126465,-6.3885321617126465,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22365,Cd1 F6 Gd1,MACE-MP,scored,-6.043180465698242,-6.043180465698242,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22367,Cd1 F6 In1,CHGNet,scored,-4.19722843170166,-4.19722843170166,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22367,Cd1 F6 In1,MACE-MP,scored,-3.8511617183685303,-3.8511617183685303,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22408,Co1 Cs1 F6,CHGNet,scored,-4.520179748535156,-4.520179748535156,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22408,Co1 Cs1 F6,MACE-MP,scored,-3.982555866241455,-3.982555866241455,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22580,Cs1 F6 Hg1,CHGNet,scored,-3.1173007488250732,-3.1173007488250732,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22580,Cs1 F6 Hg1,MACE-MP,scored,-2.799846887588501,-2.799846887588501,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22727,Cd1 F6 Ga1,CHGNet,scored,-4.377307891845703,-4.377307891845703,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22727,Cd1 F6 Ga1,MACE-MP,scored,-3.9918549060821533,-3.9918549060821533,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22962,F6 K1 Ti1,CHGNet,scored,-5.762465000152588,-5.762465000152588,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22962,F6 K1 Ti1,MACE-MP,scored,-5.57450008392334,-5.57450008392334,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22990,F6 Ga1 Mg1,CHGNet,scored,-4.917565822601318,-4.917565822601318,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22990,F6 Ga1 Mg1,MACE-MP,scored,-4.607110500335693,-4.607110500335693,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22991,F6 Gd1 Mg1,CHGNet,scored,-6.9786248207092285,-6.9786248207092285,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22991,F6 Gd1 Mg1,MACE-MP,scored,-6.6685404777526855,-6.6685404777526855,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22993,F6 In1 Mg1,CHGNet,scored,-4.7926554679870605,-4.7926554679870605,raw_energy_per_atom_lower_is_more_stable
+wbm-3-22993,F6 In1 Mg1,MACE-MP,scored,-4.506750106811523,-4.506750106811523,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23142,F6 Na1 Ni1,CHGNet,scored,-4.03748083114624,-4.03748083114624,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23142,F6 Na1 Ni1,MACE-MP,scored,-3.4782602787017822,-3.4782602787017822,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23147,F6 Na1 Rh1,CHGNet,scored,-4.630387783050537,-4.630387783050537,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23147,F6 Na1 Rh1,MACE-MP,scored,-4.271120548248291,-4.271120548248291,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23205,Cs1 F6 Ni1,CHGNet,scored,-4.08615255355835,-4.08615255355835,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23205,Cs1 F6 Ni1,MACE-MP,scored,-3.505737543106079,-3.505737543106079,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23218,F6 In1 Ni1,CHGNet,scored,-4.808873176574707,-4.808873176574707,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23218,F6 In1 Ni1,MACE-MP,scored,-4.16025447845459,-4.16025447845459,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23220,F6 La1 Ni1,CHGNet,scored,-5.909139156341553,-5.909139156341553,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23220,F6 La1 Ni1,MACE-MP,scored,-5.284512519836426,-5.284512519836426,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23347,F6 Hg1 Rb1,CHGNet,scored,-3.1092276573181152,-3.1092276573181152,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23347,F6 Hg1 Rb1,MACE-MP,scored,-2.804995536804199,-2.804995536804199,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23431,Ba1 F6 Sc1,CHGNet,scored,-6.210032939910889,-6.210032939910889,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23431,Ba1 F6 Sc1,MACE-MP,scored,-6.000398635864258,-6.000398635864258,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23453,F6 Hg1 Sc1,CHGNet,scored,-5.118131160736084,-5.118131160736084,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23453,F6 Hg1 Sc1,MACE-MP,scored,-4.733952045440674,-4.733952045440674,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23481,F6 Sc1 Sr1,CHGNet,scored,-6.197240829467773,-6.197240829467773,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23481,F6 Sc1 Sr1,MACE-MP,scored,-5.986318588256836,-5.986318588256836,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23560,Eu1 F6 Sr1,CHGNet,scored,-6.431969165802002,-6.431969165802002,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23560,Eu1 F6 Sr1,MACE-MP,scored,-6.20819616317749,-6.20819616317749,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23663,F6 Hg1 Tm1,CHGNet,scored,-4.96510124206543,-4.96510124206543,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23663,F6 Hg1 Tm1,MACE-MP,scored,-4.5890793800354,-4.5890793800354,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23746,Ba1 F6 Zn1,CHGNet,scored,-4.290197849273682,-4.290197849273682,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23746,Ba1 F6 Zn1,MACE-MP,scored,-3.9908859729766846,-3.9908859729766846,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23753,F6 Gd1 Zn1,CHGNet,scored,-6.4966607093811035,-6.4966607093811035,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23753,F6 Gd1 Zn1,MACE-MP,scored,-6.1569647789001465,-6.1569647789001465,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23917,Ca1 F8 Lu1 Na2,CHGNet,scored,-5.609428405761719,-5.609428405761719,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23917,Ca1 F8 Lu1 Na2,MACE-MP,scored,-5.340023676554362,-5.340023676554362,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23931,Ca1 F8 Na2 Tm1,CHGNet,scored,-5.613073348999023,-5.613073348999023,raw_energy_per_atom_lower_is_more_stable
+wbm-3-23931,Ca1 F8 Na2 Tm1,MACE-MP,scored,-5.350440979003906,-5.350440979003906,raw_energy_per_atom_lower_is_more_stable
+wbm-3-33668,Ce2 I8,CHGNet,scored,-3.864086866378784,-3.864086866378784,raw_energy_per_atom_lower_is_more_stable
+wbm-3-33668,Ce2 I8,MACE-MP,scored,-3.571023941040039,-3.571023941040039,raw_energy_per_atom_lower_is_more_stable
+wbm-3-34978,Br6 Er1 K3,CHGNet,scored,-3.944117784500122,-3.944117784500122,raw_energy_per_atom_lower_is_more_stable
+wbm-3-34978,Br6 Er1 K3,MACE-MP,scored,-3.5999107360839844,-3.5999107360839844,raw_energy_per_atom_lower_is_more_stable
+wbm-3-35118,Br6 Er1 K1 Rb2,CHGNet,scored,-3.8908658027648926,-3.8908658027648926,raw_energy_per_atom_lower_is_more_stable
+wbm-3-35118,Br6 Er1 K1 Rb2,MACE-MP,scored,-3.560868835449219,-3.560868835449219,raw_energy_per_atom_lower_is_more_stable
+wbm-3-36021,Ba1 F8 Gd1 Li2,CHGNet,scored,-6.520492076873779,-6.520492076873779,raw_energy_per_atom_lower_is_more_stable
+wbm-3-36021,Ba1 F8 Gd1 Li2,MACE-MP,scored,-6.220404307047526,-6.220404307047526,raw_energy_per_atom_lower_is_more_stable
+wbm-3-36041,Ca1 F8 Gd1 Li2,CHGNet,scored,-6.552675724029541,-6.552675724029541,raw_energy_per_atom_lower_is_more_stable
+wbm-3-36041,Ca1 F8 Gd1 Li2,MACE-MP,scored,-6.250466028849284,-6.250466028849284,raw_energy_per_atom_lower_is_more_stable
+wbm-3-36058,Ca1 F8 Li2 Tm1,CHGNet,scored,-5.787686347961426,-5.787686347961426,raw_energy_per_atom_lower_is_more_stable
+wbm-3-36058,Ca1 F8 Li2 Tm1,MACE-MP,scored,-5.498210271199544,-5.498210271199544,raw_energy_per_atom_lower_is_more_stable
+wbm-3-36145,Dy1 F8 Li2 Sr1,CHGNet,scored,-5.753520965576172,-5.753520965576172,raw_energy_per_atom_lower_is_more_stable
+wbm-3-36145,Dy1 F8 Li2 Sr1,MACE-MP,scored,-5.464237213134766,-5.464237213134766,raw_energy_per_atom_lower_is_more_stable
+wbm-3-36146,Er1 F8 Li2 Sr1,CHGNet,scored,-5.763640403747559,-5.763640403747559,raw_energy_per_atom_lower_is_more_stable
+wbm-3-36146,Er1 F8 Li2 Sr1,MACE-MP,scored,-5.4598439534505205,-5.4598439534505205,raw_energy_per_atom_lower_is_more_stable
+wbm-3-36148,F8 Gd1 Li2 Sr1,CHGNet,scored,-6.522129058837891,-6.522129058837891,raw_energy_per_atom_lower_is_more_stable
+wbm-3-36148,F8 Gd1 Li2 Sr1,MACE-MP,scored,-6.225781122843425,-6.225781122843425,raw_energy_per_atom_lower_is_more_stable
+wbm-3-36150,F8 Ho1 Li2 Sr1,CHGNet,scored,-5.758196830749512,-5.758196830749512,raw_energy_per_atom_lower_is_more_stable
+wbm-3-36150,F8 Ho1 Li2 Sr1,MACE-MP,scored,-5.449298858642578,-5.449298858642578,raw_energy_per_atom_lower_is_more_stable
+wbm-3-36165,F8 Li2 Sr1 Tm1,CHGNet,scored,-5.758101463317871,-5.758101463317871,raw_energy_per_atom_lower_is_more_stable
+wbm-3-36165,F8 Li2 Sr1 Tm1,MACE-MP,scored,-5.469216664632161,-5.469216664632161,raw_energy_per_atom_lower_is_more_stable
+wbm-3-36718,Br6 Er1 Li1 Rb2,CHGNet,scored,-3.9454987049102783,-3.9454987049102783,raw_energy_per_atom_lower_is_more_stable
+wbm-3-36718,Br6 Er1 Li1 Rb2,MACE-MP,scored,-3.6253536224365233,-3.6253536224365233,raw_energy_per_atom_lower_is_more_stable
+wbm-3-38575,Br8 Mg2,CHGNet,scored,-2.723330497741699,-2.723330497741699,raw_energy_per_atom_lower_is_more_stable
+wbm-3-38575,Br8 Mg2,MACE-MP,scored,-2.4840980529785157,-2.4840980529785157,raw_energy_per_atom_lower_is_more_stable
+wbm-3-41495,Br6 Mn2,CHGNet,scored,-4.540949821472168,-4.540949821472168,raw_energy_per_atom_lower_is_more_stable
+wbm-3-41495,Br6 Mn2,MACE-MP,scored,-4.156583309173584,-4.156583309173584,raw_energy_per_atom_lower_is_more_stable
+wbm-3-46128,Br6 Er1 Na1 Rb2,CHGNet,scored,-3.8964743614196777,-3.8964743614196777,raw_energy_per_atom_lower_is_more_stable
+wbm-3-46128,Br6 Er1 Na1 Rb2,MACE-MP,scored,-3.5697311401367187,-3.5697311401367187,raw_energy_per_atom_lower_is_more_stable
+wbm-3-48753,Br8 Ni2,CHGNet,scored,-2.8443145751953125,-2.8443145751953125,raw_energy_per_atom_lower_is_more_stable
+wbm-3-48753,Br8 Ni2,MACE-MP,scored,-2.602683448791504,-2.602683448791504,raw_energy_per_atom_lower_is_more_stable
+wbm-3-65363,Br2 Er2 S1,CHGNet,scored,-5.382778644561768,-5.382778644561768,raw_energy_per_atom_lower_is_more_stable
+wbm-3-65363,Br2 Er2 S1,MACE-MP,scored,-5.073623275756836,-5.073623275756836,raw_energy_per_atom_lower_is_more_stable
+wbm-3-65379,Br2 Er2 S2,CHGNet,scored,-5.812281131744385,-5.812281131744385,raw_energy_per_atom_lower_is_more_stable
+wbm-3-65379,Br2 Er2 S2,MACE-MP,scored,-5.476865768432617,-5.476865768432617,raw_energy_per_atom_lower_is_more_stable
+wbm-3-68170,Br2 Er2 Se1,CHGNet,scored,-5.136542797088623,-5.136542797088623,raw_energy_per_atom_lower_is_more_stable
+wbm-3-68170,Br2 Er2 Se1,MACE-MP,scored,-4.830686950683594,-4.830686950683594,raw_energy_per_atom_lower_is_more_stable
+wbm-3-70437,Br2 Er2 Si1,CHGNet,scored,-5.1507978439331055,-5.1507978439331055,raw_energy_per_atom_lower_is_more_stable
+wbm-3-70437,Br2 Er2 Si1,MACE-MP,scored,-4.912939453125,-4.912939453125,raw_energy_per_atom_lower_is_more_stable
+wbm-3-73689,I8 Sr2,CHGNet,scored,-2.806410312652588,-2.806410312652588,raw_energy_per_atom_lower_is_more_stable
+wbm-3-73689,I8 Sr2,MACE-MP,scored,-2.602878379821777,-2.602878379821777,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10380,Ba1 F6 Gd1,CHGNet,scored,-7.157630920410156,-7.157630920410156,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10380,Ba1 F6 Gd1,MACE-MP,scored,-6.948581695556641,-6.948581695556641,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10381,Ba1 F6 Hg1,CHGNet,scored,-4.008206367492676,-4.008206367492676,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10381,Ba1 F6 Hg1,MACE-MP,scored,-3.6392087936401367,-3.6392087936401367,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10580,Cu1 F6 Tb1,CHGNet,scored,-5.519057750701904,-5.519057750701904,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10580,Cu1 F6 Tb1,MACE-MP,scored,-5.171570777893066,-5.171570777893066,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10582,Cu1 F6 Tm1,CHGNet,scored,-5.526003360748291,-5.526003360748291,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10582,Cu1 F6 Tm1,MACE-MP,scored,-5.183557987213135,-5.183557987213135,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10584,Cu1 F6,CHGNet,scored,-3.061915397644043,-3.061915397644043,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10584,Cu1 F6,MACE-MP,scored,-2.824336460658482,-2.824336460658482,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10749,F6 Hf1 K1,CHGNet,scored,-6.277707099914551,-6.277707099914551,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10749,F6 Hf1 K1,MACE-MP,scored,-6.0848798751831055,-6.0848798751831055,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10762,F6 K1 Zr1,CHGNet,scored,-5.98946475982666,-5.98946475982666,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10762,F6 K1 Zr1,MACE-MP,scored,-5.78941011428833,-5.78941011428833,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10891,Cu1 F6 Na1,CHGNet,scored,-3.7609782218933105,-3.7609782218933105,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10891,Cu1 F6 Na1,MACE-MP,scored,-3.4866411685943604,-3.4866411685943604,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10892,Cu1 F6 Na1,CHGNet,scored,-3.78902530670166,-3.78902530670166,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10892,Cu1 F6 Na1,MACE-MP,scored,-3.46742582321167,-3.46742582321167,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10894,F6 Hf1 Na1,CHGNet,scored,-6.259570121765137,-6.259570121765137,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10894,F6 Hf1 Na1,MACE-MP,scored,-5.995378494262695,-5.995378494262695,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10901,F6 Na1 Pd1,CHGNet,scored,-4.128930568695068,-4.128930568695068,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10901,F6 Na1 Pd1,MACE-MP,scored,-3.8478782176971436,-3.8478782176971436,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10908,F6 Na1 Zr1,CHGNet,scored,-5.977901458740234,-5.977901458740234,raw_energy_per_atom_lower_is_more_stable
+wbm-4-10908,F6 Na1 Zr1,MACE-MP,scored,-5.701389312744141,-5.701389312744141,raw_energy_per_atom_lower_is_more_stable
+wbm-4-11157,F6 Hg1 Sr1,CHGNet,scored,-3.985915184020996,-3.985915184020996,raw_energy_per_atom_lower_is_more_stable
+wbm-4-11157,F6 Hg1 Sr1,MACE-MP,scored,-3.6311323642730713,-3.6311323642730713,raw_energy_per_atom_lower_is_more_stable
+wbm-4-11158,F6 Hg1 Sr1,CHGNet,scored,-3.9839277267456055,-3.9839277267456055,raw_energy_per_atom_lower_is_more_stable
+wbm-4-11158,F6 Hg1 Sr1,MACE-MP,scored,-3.6458072662353516,-3.6458072662353516,raw_energy_per_atom_lower_is_more_stable
+wbm-4-11159,F6 Hg1 Sr1,CHGNet,scored,-3.966419219970703,-3.966419219970703,raw_energy_per_atom_lower_is_more_stable
+wbm-4-11159,F6 Hg1 Sr1,MACE-MP,scored,-3.6053404808044434,-3.6053404808044434,raw_energy_per_atom_lower_is_more_stable
+wbm-4-11174,Cs1 F6 Ti1,CHGNet,scored,-5.784157752990723,-5.784157752990723,raw_energy_per_atom_lower_is_more_stable
+wbm-4-11174,Cs1 F6 Ti1,MACE-MP,scored,-5.500089168548584,-5.500089168548584,raw_energy_per_atom_lower_is_more_stable
+wbm-4-11244,Cs2 F6 Y1,CHGNet,scored,-5.5682525634765625,-5.5682525634765625,raw_energy_per_atom_lower_is_more_stable
+wbm-4-11244,Cs2 F6 Y1,MACE-MP,scored,-5.3073009914822045,-5.3073009914822045,raw_energy_per_atom_lower_is_more_stable
+wbm-4-11272,F6 Tm1 Zn1,CHGNet,scored,-5.365184783935547,-5.365184783935547,raw_energy_per_atom_lower_is_more_stable
+wbm-4-11272,F6 Tm1 Zn1,MACE-MP,scored,-5.019773960113525,-5.019773960113525,raw_energy_per_atom_lower_is_more_stable
+wbm-4-11329,Ba1 Ca1 F8 Na2,CHGNet,scored,-4.885837554931641,-4.885837554931641,raw_energy_per_atom_lower_is_more_stable
+wbm-4-11329,Ba1 Ca1 F8 Na2,MACE-MP,scored,-4.580412228902181,-4.580412228902181,raw_energy_per_atom_lower_is_more_stable
+wbm-4-11381,F8 Na2 Sr1 Tm1,CHGNet,scored,-5.578910827636719,-5.578910827636719,raw_energy_per_atom_lower_is_more_stable
+wbm-4-11381,F8 Na2 Sr1 Tm1,MACE-MP,scored,-5.329478581746419,-5.329478581746419,raw_energy_per_atom_lower_is_more_stable
+wbm-4-14820,Br2 Er2 Ge1,CHGNet,scored,-5.0592451095581055,-5.0592451095581055,raw_energy_per_atom_lower_is_more_stable
+wbm-4-14820,Br2 Er2 Ge1,MACE-MP,scored,-4.83386001586914,-4.83386001586914,raw_energy_per_atom_lower_is_more_stable
+wbm-4-24375,Br2 Er2 Ni2,CHGNet,scored,-5.290664196014404,-5.290664196014404,raw_energy_per_atom_lower_is_more_stable
+wbm-4-24375,Br2 Er2 Ni2,MACE-MP,scored,-5.091440518697103,-5.091440518697103,raw_energy_per_atom_lower_is_more_stable
+wbm-4-32031,I6 Ru2,CHGNet,scored,-3.7447283267974854,-3.7447283267974854,raw_energy_per_atom_lower_is_more_stable
+wbm-4-32031,I6 Ru2,MACE-MP,scored,-3.5474295616149902,-3.5474295616149902,raw_energy_per_atom_lower_is_more_stable
+wbm-4-35480,Br2 Er2 Si1,CHGNet,scored,-5.150509357452393,-5.150509357452393,raw_energy_per_atom_lower_is_more_stable
+wbm-4-35480,Br2 Er2 Si1,MACE-MP,scored,-4.912659454345703,-4.912659454345703,raw_energy_per_atom_lower_is_more_stable
+wbm-4-37186,I8 Sr2,CHGNet,scored,-2.799257755279541,-2.799257755279541,raw_energy_per_atom_lower_is_more_stable
+wbm-4-37186,I8 Sr2,MACE-MP,scored,-2.612082862854004,-2.612082862854004,raw_energy_per_atom_lower_is_more_stable
+wbm-4-4705,Br2 Er2 Pb1,CHGNet,scored,-4.63671350479126,-4.63671350479126,raw_energy_per_atom_lower_is_more_stable
+wbm-4-4705,Br2 Er2 Pb1,MACE-MP,scored,-4.367244720458984,-4.367244720458984,raw_energy_per_atom_lower_is_more_stable
+wbm-4-4706,Br2 Er2 Pb1,CHGNet,scored,-4.637425899505615,-4.637425899505615,raw_energy_per_atom_lower_is_more_stable
+wbm-4-4706,Br2 Er2 Pb1,MACE-MP,scored,-4.368447875976562,-4.368447875976562,raw_energy_per_atom_lower_is_more_stable
+wbm-4-4751,Ba2 Br6,CHGNet,scored,-3.6449711322784424,-3.6449711322784424,raw_energy_per_atom_lower_is_more_stable
+wbm-4-4751,Ba2 Br6,MACE-MP,scored,-3.3814964294433594,-3.3814964294433594,raw_energy_per_atom_lower_is_more_stable
+wbm-4-4767,Br6 Pd2,CHGNet,scored,-3.200425624847412,-3.200425624847412,raw_energy_per_atom_lower_is_more_stable
+wbm-4-4767,Br6 Pd2,MACE-MP,scored,-2.82645583152771,-2.82645583152771,raw_energy_per_atom_lower_is_more_stable
+wbm-4-4775,Br6 Sr2,CHGNet,scored,-3.550642251968384,-3.550642251968384,raw_energy_per_atom_lower_is_more_stable
+wbm-4-4775,Br6 Sr2,MACE-MP,scored,-3.225604772567749,-3.225604772567749,raw_energy_per_atom_lower_is_more_stable
+wbm-4-4780,Br6 Yb2,CHGNet,scored,-3.450129985809326,-3.450129985809326,raw_energy_per_atom_lower_is_more_stable
+wbm-4-4780,Br6 Yb2,MACE-MP,scored,-3.1463606357574463,-3.1463606357574463,raw_energy_per_atom_lower_is_more_stable
+wbm-4-4786,Br8 Pd2,CHGNet,scored,-2.885962724685669,-2.885962724685669,raw_energy_per_atom_lower_is_more_stable
+wbm-4-4786,Br8 Pd2,MACE-MP,scored,-2.4924392700195312,-2.4924392700195312,raw_energy_per_atom_lower_is_more_stable
+wbm-4-4787,Br8 Pt2,CHGNet,scored,-3.151270866394043,-3.151270866394043,raw_energy_per_atom_lower_is_more_stable
+wbm-4-4787,Br8 Pt2,MACE-MP,scored,-2.761730194091797,-2.761730194091797,raw_energy_per_atom_lower_is_more_stable
+wbm-4-5717,Br6 Ca2,CHGNet,scored,-3.5167031288146973,-3.5167031288146973,raw_energy_per_atom_lower_is_more_stable
+wbm-4-5717,Br6 Ca2,MACE-MP,scored,-3.241636276245117,-3.241636276245117,raw_energy_per_atom_lower_is_more_stable
+wbm-4-6660,Cl8 Ir2,CHGNet,scored,-4.1747002601623535,-4.1747002601623535,raw_energy_per_atom_lower_is_more_stable
+wbm-4-6660,Cl8 Ir2,MACE-MP,scored,-3.6824268341064452,-3.6824268341064452,raw_energy_per_atom_lower_is_more_stable
+wbm-4-6675,Cl6 Cs2 Cu1,CHGNet,scored,-3.223217725753784,-3.223217725753784,raw_energy_per_atom_lower_is_more_stable
+wbm-4-6675,Cl6 Cs2 Cu1,MACE-MP,scored,-2.9028875562879772,-2.9028875562879772,raw_energy_per_atom_lower_is_more_stable
+wbm-4-7615,Br6 Co2,CHGNet,scored,-3.625563144683838,-3.625563144683838,raw_energy_per_atom_lower_is_more_stable
+wbm-4-7615,Br6 Co2,MACE-MP,scored,-3.2646543979644775,-3.2646543979644775,raw_energy_per_atom_lower_is_more_stable
+wbm-5-19510,Br2 Cd1 Se6,CHGNet,scored,-3.294416666030884,-3.294416666030884,raw_energy_per_atom_lower_is_more_stable
+wbm-5-19510,Br2 Cd1 Se6,MACE-MP,scored,-3.0432311164008246,-3.0432311164008246,raw_energy_per_atom_lower_is_more_stable
+wbm-5-20078,Br2 Er2 Si1,CHGNet,scored,-5.1506805419921875,-5.1506805419921875,raw_energy_per_atom_lower_is_more_stable
+wbm-5-20078,Br2 Er2 Si1,MACE-MP,scored,-4.91339340209961,-4.91339340209961,raw_energy_per_atom_lower_is_more_stable
+wbm-5-3055,Ba2 Br6,CHGNet,scored,-3.629399299621582,-3.629399299621582,raw_energy_per_atom_lower_is_more_stable
+wbm-5-3055,Ba2 Br6,MACE-MP,scored,-3.3598296642303467,-3.3598296642303467,raw_energy_per_atom_lower_is_more_stable
+wbm-5-3063,Br6 Sr2,CHGNet,scored,-3.5123097896575928,-3.5123097896575928,raw_energy_per_atom_lower_is_more_stable
+wbm-5-3063,Br6 Sr2,MACE-MP,scored,-3.2395870685577393,-3.2395870685577393,raw_energy_per_atom_lower_is_more_stable
+wbm-5-3100,Br2 Er2 Ru2,CHGNet,scored,-6.294253349304199,-6.294253349304199,raw_energy_per_atom_lower_is_more_stable
+wbm-5-3100,Br2 Er2 Ru2,MACE-MP,scored,-6.118710835774739,-6.118710835774739,raw_energy_per_atom_lower_is_more_stable
+wbm-5-5735,Br2 Cu2 Er2,CHGNet,scored,-4.5711164474487305,-4.5711164474487305,raw_energy_per_atom_lower_is_more_stable
+wbm-5-5735,Br2 Cu2 Er2,MACE-MP,scored,-4.458492279052734,-4.458492279052734,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6143,Cd2 F6,CHGNet,scored,-3.414583683013916,-3.414583683013916,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6143,Cd2 F6,MACE-MP,scored,-3.0049350261688232,-3.0049350261688232,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6155,F6 Ni2,CHGNet,scored,-4.665771484375,-4.665771484375,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6155,F6 Ni2,MACE-MP,scored,-3.674952268600464,-3.674952268600464,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6172,F6 Zn2,CHGNet,scored,-3.6507420539855957,-3.6507420539855957,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6172,F6 Zn2,MACE-MP,scored,-3.3167643547058105,-3.3167643547058105,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6218,Ag1 F6,CHGNet,scored,-2.768826961517334,-2.768826961517334,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6218,Ag1 F6,MACE-MP,scored,-2.428442818777902,-2.428442818777902,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6222,Al1 Ca1 F6,CHGNet,scored,-5.703620433807373,-5.703620433807373,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6222,Al1 Ca1 F6,MACE-MP,scored,-5.396777629852295,-5.396777629852295,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6253,Al1 F6 Sr1,CHGNet,scored,-5.660449504852295,-5.660449504852295,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6253,Al1 F6 Sr1,MACE-MP,scored,-5.405833721160889,-5.405833721160889,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6269,Ba1 F6 Hg1,CHGNet,scored,-3.974210739135742,-3.974210739135742,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6269,Ba1 F6 Hg1,MACE-MP,scored,-3.597520589828491,-3.597520589828491,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6289,Ca1 F6 Ga1,CHGNet,scored,-5.156861305236816,-5.156861305236816,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6289,Ca1 F6 Ga1,MACE-MP,scored,-4.824212074279785,-4.824212074279785,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6613,F6 Ga1 Sr1,CHGNet,scored,-5.116257190704346,-5.116257190704346,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6613,F6 Ga1 Sr1,MACE-MP,scored,-4.835651874542236,-4.835651874542236,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6709,Ce1 F6 K1,CHGNet,scored,-5.676084041595459,-5.676084041595459,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6709,Ce1 F6 K1,MACE-MP,scored,-5.293690204620361,-5.293690204620361,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6767,F6 Mg1 Y1,CHGNet,scored,-6.070263862609863,-6.070263862609863,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6767,F6 Mg1 Y1,MACE-MP,scored,-5.780311584472656,-5.780311584472656,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6846,F6 Na1 Ti1,CHGNet,scored,-5.738312244415283,-5.738312244415283,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6846,F6 Na1 Ti1,MACE-MP,scored,-5.4938883781433105,-5.4938883781433105,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6864,Cd1 F6 Ni1,CHGNet,scored,-4.129058837890625,-4.129058837890625,raw_energy_per_atom_lower_is_more_stable
+wbm-5-6864,Cd1 F6 Ni1,MACE-MP,scored,-3.5108418464660645,-3.5108418464660645,raw_energy_per_atom_lower_is_more_stable
+wbm-5-7137,F6 Rb1 Ti1,CHGNet,scored,-5.749131679534912,-5.749131679534912,raw_energy_per_atom_lower_is_more_stable
+wbm-5-7137,F6 Rb1 Ti1,MACE-MP,scored,-5.564120769500732,-5.564120769500732,raw_energy_per_atom_lower_is_more_stable

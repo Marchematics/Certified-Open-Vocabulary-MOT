@@ -8,3 +8,5 @@
 | M2-full | Verified-positive contamination sensitivity full grid | `python scripts/run_verified_positive_contamination_sensitivity.py` | DONE | Completed 1,200 seed rows and 60 summary rows over five target rows. |
 | M3 | Source-uncertainty overlay | `outputs/milestones/materials_queue_source_uncertainty_overlay/` | DONE | Existing candidate-level diagnostic from phase36; not positive validation. |
 | M4 | External blind audit packet | `outputs/milestones/external_blind_audit_packet/` | DONE_PENDING_LABELS | Packet frozen; no positive audit claim until external labels/adjudication return. |
+| M5 | Materials label-discordance preregistration/probe | `outputs/milestones/materials_label_discordance_preregistration/` | DONE | Preregistered source-access/matching/downstream gates plus minimal probe; not final positive validation. |
+| M6 | Selection-conditional discordance | `outputs/milestones/materials_selection_conditional_discordance/` | DONE_NO_GO | Hypothesis B not supported: high-score model regions do not show required discordance amplification. |
