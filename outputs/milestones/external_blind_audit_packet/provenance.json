@@ -1,0 +1,10 @@
+{
+  "status": "external_blind_audit_packet_frozen_labels_pending",
+  "randomization_seed": 20260522,
+  "iwildcam_release_template_sha256": "bef0b798c35368985d24808b29229074fc58e88f891ce52f6d1fb9525dab77fb",
+  "iwildcam_raw_template_sha256": "52603d829f4d4fda5d8d47e5952b7fb724f79b847cefdf807a8e16a8723a096c",
+  "spacenet_release_template_sha256": "9227e6efc0eef0fabbe8c1581f111cca8555371e46aa4d61991c030233c7781b",
+  "spacenet_raw_template_sha256": "430b4b9a981adef32b9c6e47cf97fb8543805d511c6dff2975eb5d2815c2e241",
+  "no_completed_external_labels": true,
+  "not_primary_evidence_until_labels_return": true
+}

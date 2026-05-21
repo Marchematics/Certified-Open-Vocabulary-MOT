@@ -1,0 +1,2 @@
+diagnostic,n_common,models_eligible,top_model_flip,ordering_flip,max_abs_F1_delta,go_no_go,claim_scope,paper_role
+Route_C_plus_existing_probe_reduced_frontier_panel,200,CHGNet|MACE-MP|M3GNet,False,False,0.0673076923076923,NO_GO_existing_probe_no_material_F1_ranking_flip,existing_WBM_vs_alex_probe_only; not full MP-vs-Alex Route C primary,bonus_no_go_diagnostic_only

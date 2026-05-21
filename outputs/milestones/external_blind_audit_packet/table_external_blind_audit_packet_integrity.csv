@@ -1,0 +1,6 @@
+invariant,status
+auditor_templates_do_not_include_source_arm,True
+auditor_templates_do_not_include_scores,True
+auditor_templates_do_not_include_existing_human_labels,True
+spacenet_hidden_true_not_exported,True
+external_labels_pending,True

@@ -1,0 +1,7 @@
+gate,requirement,current_status,if_pass,if_fail
+route_c_independence,Route C must be separate from Route B and created before Route C outcomes,pass_protocol_frozen,may proceed to model-readiness checks,do not run Route C as Route B
+route_b_unconsumed,Route B remains blocked and one-shot outcome unconsumed,pass_blocked_unconsumed,Route C can coexist as alternative protocol,if Route B outcome has been consumed do not mix claims
+third_model_selection,choose SevenNet/MatterSim/Orb/MatGL/M3GNet before outcome inspection,pending,freeze Route C model panel,report CHGNet/MACE-only as reduced-panel diagnostic
+same_denominator,all Route C primary models scored on same exact/high-confidence denominator,pending,compute stable-class F1 ranking endpoint,do not claim primary ranking result
+discordance_gate,binary exact-stability discordance >= 0.40 on n_common >= 200,pending,continue to ranking-flip gate,keep as diagnostic only
+ranking_flip_gate,alternative-frontier stable-F1 ranking flip with abs F1 delta >= 0.05,pending,reopen NMI discordance line,keep NMI line closed
