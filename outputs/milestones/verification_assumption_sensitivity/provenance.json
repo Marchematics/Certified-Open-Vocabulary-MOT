@@ -1,0 +1,59 @@
+{
+  "claim_boundary": "Nonzero contamination rows are assumption-violation diagnostics, not formal guarantees.",
+  "contamination_modes": [
+    "random",
+    "adversarial"
+  ],
+  "contamination_rates": [
+    0.0,
+    0.005,
+    0.01,
+    0.02,
+    0.05,
+    0.1
+  ],
+  "inputs": {
+    "alignn_predictions_sha256": "dc75be97f3bce3ce724680065abf11a19bdc6a3928fdd77ccb42d3f62a02e593",
+    "cgcnn_predictions_sha256": "9fba78430e76e7443436d143d2af9ad1d7e54ef84e73443abe9058e41e4d7ebb",
+    "ctc_universe_sha256": "6f0b4cd93ae92529b28734118f02c9a0b333805445555fa21aa26c3c805ae843",
+    "wbm_summary_sha256": "ff19e59d74115de9762fbc868c9f35900ae099c18f23e9c89d10589af1418225"
+  },
+  "outputs": {
+    "closeout": "outputs/milestones/verification_assumption_sensitivity/VERIFICATION_ASSUMPTION_SENSITIVITY_CLOSEOUT.md",
+    "figure_source": "outputs/milestones/verification_assumption_sensitivity/figure_verified_positive_contamination_sensitivity_source.csv",
+    "seed_rows": "outputs/milestones/verification_assumption_sensitivity/table_verified_positive_contamination_sensitivity_seed_rows.csv",
+    "summary": "outputs/milestones/verification_assumption_sensitivity/table_verified_positive_contamination_sensitivity_summary.csv"
+  },
+  "role": "verification_assumption_boundary_diagnostic",
+  "runtime_sec": 67.38175942283124,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "status": "completed",
+  "target_rows": [
+    "ctc_learned_strict_alpha010_K100",
+    "ctc_learned_strict_alpha010_K300",
+    "materials_alignn_exact_stable_alpha010_K300",
+    "materials_alignn_exact_stable_alpha010_K500",
+    "materials_cgcnn_exact_stable_alpha010_K100"
+  ]
+}

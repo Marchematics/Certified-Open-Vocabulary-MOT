@@ -1,0 +1,12 @@
+{
+  "auto_deploy": "local_cpu",
+  "code_review": "local_only_no_subagent_spawned",
+  "does_not_modify_A3_selection_or_manifests": true,
+  "outputs": [
+    "table_non_a3_bridge_status.csv",
+    "table_non_a3_bridge_initial_results.csv",
+    "NON_A3_EXPERIMENT_BRIDGE_CLOSEOUT.md"
+  ],
+  "skill": "experiment-bridge",
+  "status": "completed"
+}

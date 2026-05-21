@@ -1,0 +1,10 @@
+# Experiment Tracker
+
+| Run ID | Milestone | Command / artifact | Status | Notes |
+| --- | --- | --- | --- | --- |
+| M0 | Inventory and plan freeze | `refine-logs/EXPERIMENT_PLAN.md` | DONE | Plan created from user-supplied non-A3 reinforcement design. |
+| M1 | Materials label-source discordance atlas | `outputs/milestones/materials_label_source_discordance_atlas/` | DONE | Existing completed public-data artifact; 43,139 strict MP-Alex matches and 5,060 disagreements. |
+| M2-smoke | Verified-positive contamination sensitivity sanity | `python scripts/run_verified_positive_contamination_sensitivity.py --seeds 0,1 --contamination-rates 0,0.01 --out-dir /tmp/parc_contam_smoke` | DONE | Sanity passed; outputs parse and claim boundary text generated. |
+| M2-full | Verified-positive contamination sensitivity full grid | `python scripts/run_verified_positive_contamination_sensitivity.py` | DONE | Completed 1,200 seed rows and 60 summary rows over five target rows. |
+| M3 | Source-uncertainty overlay | `outputs/milestones/materials_queue_source_uncertainty_overlay/` | DONE | Existing candidate-level diagnostic from phase36; not positive validation. |
+| M4 | External blind audit packet | `outputs/milestones/external_blind_audit_packet/` | DONE_PENDING_LABELS | Packet frozen; no positive audit claim until external labels/adjudication return. |

@@ -1,0 +1,5 @@
+result,lead_number,source_artifact,claim_scope
+MP-Alex exact-structure discordance atlas,43139 strict matches; 5060 exact-stability disagreements; rate 0.1173,outputs/milestones/materials_label_source_discordance_atlas/table_mp_alex_discordance_atlas_summary.csv,benchmark reliability / source uncertainty
+verified-positive contamination grid,1200 seed rows; 60 summary rows; 5 target rows; 6 epsilon values; 2 modes,outputs/milestones/verification_assumption_sensitivity/table_verified_positive_contamination_sensitivity_summary.csv,assumption-boundary diagnostic
+source-uncertainty overlay,ALIGNN K=300/500 exact-match-only overlay summary completed,outputs/milestones/materials_queue_source_uncertainty_overlay/table_materials_queue_overlay_summary.csv,diagnostic only; not validation
+external blind audit packet,484 blinded items frozen; labels pending,outputs/milestones/external_blind_audit_packet/table_external_blind_audit_packet_summary.csv,packet only until labels return
