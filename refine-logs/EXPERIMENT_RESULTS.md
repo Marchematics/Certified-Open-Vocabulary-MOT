@@ -101,3 +101,49 @@ Main facts:
 Interpretation:
 
 This is a completed negative diagnostic. It should be used to show that not every plausible source-discordance hypothesis is supported, not as positive validation or headline evidence.
+
+### M7: LLM Release-Agent Stress-Test Protocol — BLOCKED, PROTOCOL FROZEN
+
+Outputs:
+
+- `outputs/milestones/llm_release_agent_stress_test/`
+
+Main facts:
+
+- Frozen prompt conditions: minimal curator, one-sided-aware curator, high-pressure scientific curator, PARC-informed curator, and raw-score leaderboard curator.
+- Frozen task manifest covers CTC, materials ALIGNN, SpaceNet, and iWildCam release settings.
+- Credential check found no usable API keys in the environment.
+- No LLM calls were made and no release-agent decisions were scored.
+
+Interpretation:
+
+This is a protocol/task scaffold only. It cannot support a positive LLM-agent headline claim until model outputs are actually run and scored.
+
+### M8: Active Audit Budget Frontier — DONE
+
+Command:
+
+```bash
+python scripts/run_audit_budget_release_frontier.py
+```
+
+Outputs:
+
+- `outputs/milestones/audit_budget_release_frontier/table_audit_budget_frontier_seed_rows.csv`
+- `outputs/milestones/audit_budget_release_frontier/table_audit_budget_frontier_summary.csv`
+- `outputs/milestones/audit_budget_release_frontier/figure_audit_budget_frontier_source.csv`
+- `outputs/milestones/audit_budget_release_frontier/AUDIT_BUDGET_FRONTIER_CLOSEOUT.md`
+
+Main facts:
+
+- Target rows: 5.
+- Seeds: 20.
+- Audit policies: random, top-score, block-balanced top-score, diversity round-robin.
+- Audit budgets: 0, 0.005, 0.01, 0.02, 0.05, 0.10, 0.20 of calibration candidates inspected.
+- Seed-level rows: 2,800.
+- Summary rows: 140.
+- Top-score audit reaches safe release at 0.005 for CTC K=100/K=300 and ALIGNN K=300/K=500 in the simulated-audit grid; random audit does not reach a safe-release transition within the frozen grid for those rows.
+
+Interpretation:
+
+This is completed simulated-audit evidence for an audit-budget release frontier. Hidden full labels are used only to simulate one-sided audit returns and post-hoc FTR, not as new prospective labels. The result supports an audit-governance method claim only under the simulated-audit scope; it is not prospective materials discovery and does not modify A3.

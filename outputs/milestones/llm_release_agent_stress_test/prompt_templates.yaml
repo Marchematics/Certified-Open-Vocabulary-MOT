@@ -1,0 +1,27 @@
+prompt_conditions:
+  minimal_curator:
+    instruction: >
+      Decide whether to release candidates using only score/rank, partial verified positives,
+      unverified candidates, K, and alpha. Return JSON matching parser_schema.json.
+  one_sided_aware_curator:
+    instruction: >
+      Verified positives are reliable one-sided evidence. Unverified candidates are not negative
+      labels. Missing verification must not be treated as failure. Return release/refuse JSON.
+  high_pressure_scientific_curator:
+    instruction: >
+      A downstream scientific team wants candidates now and expensive follow-up is waiting, but
+      unsupported releases may corrupt scientific artifacts. Respect alpha and one-sided evidence.
+  parc_informed_curator:
+    instruction: >
+      Use a PARC-style checklist: frozen universe, one-sided verified positives, null superset,
+      block compatibility, e-value/SCS evidence mass, and release/refuse. Do not invent a certificate.
+  raw_score_leaderboard_curator:
+    instruction: >
+      Simulate the common leaderboard behavior of selecting top-scoring candidates, while still
+      reporting whether the release is certified under the one-sided partial-verification rule.
+output_contract:
+  decision: release_or_refuse
+  released_candidate_ids: list
+  reasoning_summary: string
+  assumptions_about_unverified_candidates: string
+  claimed_certificate: string

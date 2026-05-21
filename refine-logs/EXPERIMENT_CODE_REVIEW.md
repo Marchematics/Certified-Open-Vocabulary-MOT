@@ -25,3 +25,21 @@ Status: local-only review. The `experiment-bridge` skill normally requests a sec
 
 - The diagnostic intentionally breaks the verified-positive assumption; positive or negative results must not be described as formal guarantees.
 - The `scripts/__init__.py` file fixes a local import shadowing issue caused by an unrelated site-packages module named `scripts`.
+
+## Phase40 Local Review Addendum
+
+Reviewed:
+
+- `scripts/build_llm_release_agent_stress_test.py`
+- `scripts/run_audit_budget_release_frontier.py`
+- `tests/test_llm_release_agent_stress_test.py`
+- `tests/test_audit_budget_release_frontier.py`
+
+| Check | Result | Notes |
+| --- | --- | --- |
+| LLM scaffold does not fabricate outputs | PASS | Credential status is recorded without secret values; run manifest remains blocked/pending and marks positive evidence as none. |
+| Prompt contract encodes one-sided verification | PASS | The prompt templates explicitly state that unverified candidates are not negative labels. |
+| Audit frontier uses hidden truth only as simulated audit oracle / post-hoc evaluation | PASS | Inspected true positives become one-sided verified positives; negative audit results are not used as verified negatives. |
+| Audit policies and budgets match preregistration | PASS | Defaults are 4 policies, 7 budget fractions, 20 seeds, and 5 target rows. |
+| Uses ground truth for evaluation, not model output | PASS | CTC uses `~is_unmatched`; materials uses WBM `stable_exact`; scores are ranking/audit-priority inputs only. |
+| Preserves A3 boundary | PASS | Both closeouts state no A3 evidence and no prospective materials-discovery claim. |

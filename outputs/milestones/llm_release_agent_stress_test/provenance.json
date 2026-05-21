@@ -1,0 +1,16 @@
+{
+  "claim_boundary": "no LLM outputs; no A3 evidence; no prospective materials discovery",
+  "evidence_status": "protocol_task_scaffold_only",
+  "outputs": [
+    "LLM_RELEASE_AGENT_PREREGISTRATION.md",
+    "prompt_templates.yaml",
+    "candidate_task_manifest.csv",
+    "model_run_manifest.csv",
+    "parser_schema.json",
+    "credential_status.csv",
+    "LLM_RELEASE_AGENT_STRESS_TEST_CLOSEOUT.md"
+  ],
+  "positive_llm_evidence": false,
+  "secret_values_recorded": false,
+  "status": "blocked_missing_credentials"
+}

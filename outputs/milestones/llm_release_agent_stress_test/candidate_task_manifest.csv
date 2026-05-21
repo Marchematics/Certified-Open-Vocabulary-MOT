@@ -1,0 +1,5 @@
+task_id,domain,candidate_unit,truth_for_posthoc_evaluation,alpha,K,source_artifact,claim_boundary
+ctc_learned_alpha010_K100,biomedical_cell_tracking,cell_link,official held-out GT,0.1,100,outputs/milestones/ctc_strict_anchor/table_ctc_primary_reverse_split_seed_rows.csv,task scaffold only until LLM outputs exist
+materials_alignn_alpha010_K300,materials_discovery,stable_inorganic_crystal_candidate,held-out public WBM DFT label,0.1,300,outputs/milestones/materials_fixed_budget_scientific_utility/table_materials_fixed_budget_lead_numbers.csv,retrospective public-label task; not prospective discovery
+spacenet_audit_alpha020_K50,earth_observation,same_building_link,human audit label,0.2,50,outputs/milestones/spacenet_real_audit_final/table_spacenet_k50_release_audit.csv,operational audit boundary task
+iwildcam_audit_alpha020_K50,ecology_camera_traps,animal_present_candidate,human audit label,0.2,50,outputs/milestones/iwildcam_audit_final/table_iwildcam_release_audit_final.csv,operational audit boundary task

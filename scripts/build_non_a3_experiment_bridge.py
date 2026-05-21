@@ -23,7 +23,7 @@ def sha256_file(path: Path) -> str:
 
 def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
     with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(handle, fieldnames=list(rows[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -59,6 +59,22 @@ def main() -> None:
             "source_artifact": "outputs/milestones/verification_assumption_sensitivity/table_verified_positive_contamination_sensitivity_summary.csv",
             "paper_role": "verification_assumption_boundary_diagnostic",
             "claim_boundary": "nonzero contamination rows are not formal guarantees",
+        },
+        {
+            "milestone": "audit_budget_release_frontier",
+            "priority": "MUST",
+            "status": "completed_simulated_audit_frontier",
+            "source_artifact": "outputs/milestones/audit_budget_release_frontier/table_audit_budget_frontier_summary.csv",
+            "paper_role": "active_audit_budget_methodological_frontier",
+            "claim_boundary": "simulated audit only; not prospective discovery; does not modify A3",
+        },
+        {
+            "milestone": "llm_release_agent_stress_test",
+            "priority": "MUST",
+            "status": "blocked_missing_credentials_protocol_frozen",
+            "source_artifact": "outputs/milestones/llm_release_agent_stress_test/model_run_manifest.csv",
+            "paper_role": "protocol_scaffold_pending_model_outputs",
+            "claim_boundary": "no LLM behavioral evidence until model outputs are run and scored",
         },
         {
             "milestone": "materials_label_discordance_preregistration",
@@ -109,6 +125,18 @@ def main() -> None:
             "claim_scope": "assumption-boundary diagnostic",
         },
         {
+            "result": "active audit budget frontier",
+            "lead_number": "5 target rows; 20 seeds; 4 audit policies; 7 audit budgets",
+            "source_artifact": "outputs/milestones/audit_budget_release_frontier/table_audit_budget_frontier_summary.csv",
+            "claim_scope": "completed simulated-audit release/refusal frontier",
+        },
+        {
+            "result": "LLM release-agent stress test",
+            "lead_number": "protocol, prompt templates, parser schema, task manifest, and model run manifest frozen; credentials blocked",
+            "source_artifact": "outputs/milestones/llm_release_agent_stress_test/model_run_manifest.csv",
+            "claim_scope": "protocol scaffold only; no positive LLM evidence",
+        },
+        {
             "result": "minimal materials label-discordance probe",
             "lead_number": "matched_n >= 200 and discordance >= 0.40 in the preregistered minimal probe",
             "source_artifact": "outputs/milestones/materials_label_discordance_preregistration/table_minimal_discordance_probe.csv",
@@ -142,11 +170,15 @@ def main() -> None:
         "DFT manifests, or DFT run packages. The core new run is the verified-positive "
         "contamination sensitivity grid. Existing completed atlas, label-discordance preregistration, "
         "selection-conditional discordance no-go, overlay, and blind-audit-packet artifacts were "
-        "inventoried and scoped.\n\n"
+        "inventoried and scoped. The active audit budget frontier was added as a completed simulated-audit "
+        "methodological frontier, while the LLM release-agent stress test was frozen as a credentials-blocked "
+        "protocol scaffold with no behavioral evidence claimed.\n\n"
         "## Claim Boundary\n\n"
         "- A3 remains outside headline-positive evidence.\n"
         "- MP-Alex/OQMD remain source-discordance diagnostics, not positive independent validation.\n"
         "- Nonzero verified-positive contamination rows are assumption-violation diagnostics, not formal guarantees.\n"
+        "- Audit-budget rows are simulated-audit results over existing labels, not new verification labels.\n"
+        "- LLM release-agent rows are protocol scaffolds until model outputs are run and scored.\n"
         "- External blind audit packets remain pending until labels and adjudication return.\n",
         encoding="utf-8",
     )

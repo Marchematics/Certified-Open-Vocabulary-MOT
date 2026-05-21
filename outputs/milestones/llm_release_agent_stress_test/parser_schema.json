@@ -1,0 +1,34 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "assumptions_about_unverified_candidates": {
+      "type": "string"
+    },
+    "claimed_certificate": {
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "release",
+        "refuse"
+      ]
+    },
+    "reasoning_summary": {
+      "type": "string"
+    },
+    "released_candidate_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "decision",
+    "released_candidate_ids",
+    "reasoning_summary",
+    "assumptions_about_unverified_candidates",
+    "claimed_certificate"
+  ],
+  "type": "object"
+}

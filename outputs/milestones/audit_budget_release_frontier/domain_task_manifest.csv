@@ -1,0 +1,6 @@
+target_row,domain,alpha,K,seeds
+ctc_learned_strict_alpha010_K100,biomedical_cell_tracking,0.1,100,20
+ctc_learned_strict_alpha010_K300,biomedical_cell_tracking,0.1,300,20
+materials_cgcnn_exact_stable_alpha010_K100,materials_discovery,0.1,100,20
+materials_alignn_exact_stable_alpha010_K300,materials_discovery,0.1,300,20
+materials_alignn_exact_stable_alpha010_K500,materials_discovery,0.1,500,20
