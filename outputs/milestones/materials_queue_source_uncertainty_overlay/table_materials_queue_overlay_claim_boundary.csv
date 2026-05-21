@@ -1,0 +1,4 @@
+rule,setting,reason
+alex_exact_metrics_denominator,exact_structure_match_only,formula-only rows are not valid independent label denominators
+paper_role,diagnostic_only_source_discordance_stress,alex-mp discordance does not support positive independent validation
+prospective_claim,forbidden,no new DFT outcome is used and A3 gates are separate

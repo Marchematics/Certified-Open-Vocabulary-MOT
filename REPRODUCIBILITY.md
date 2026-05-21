@@ -435,3 +435,7 @@ Run `make reproduce-a3-dft-run-package` after Phase29c to rebuild the DFT execut
 ## A3 local Quantum ESPRESSO execution layer
 
 Run `make reproduce-a3-qe-local-run` after `make reproduce-a3-dft-run-package` to derive local QE input decks from the frozen A3 CIF package. This target does not modify `selection_frozen_v4.csv`, does not contain outcomes, and must not be cited as prospective DFT evidence.
+
+## Materials queue source-uncertainty overlay
+
+Run `make reproduce-materials-queue-source-uncertainty-overlay` to rebuild the candidate-level ALIGNN-FF K=300/500 materials queue overlay against the alex-mp A2 exact-structure diagnostic table. Formula-only matches are retained only as tags and are excluded from alex-mp FTR denominators. This target is a source-discordance stress diagnostic, not a positive independent-validation result and not prospective materials discovery.
