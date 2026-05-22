@@ -235,3 +235,35 @@ Main facts:
 Interpretation:
 
 This is a paper-facing postprocess package. It does not add new evidence; it prevents the manuscript from accidentally promoting diagnostics, pending rows, or materials no-go rows into headline claims.
+
+### M12: Active Audit Budget Strong-Positive Gate — DONE
+
+Command:
+
+```bash
+python scripts/build_audit_budget_frontier_strong_positive.py
+python scripts/build_nmi_maintext_evidence_package.py
+python scripts/build_non_a3_experiment_bridge.py
+```
+
+Outputs:
+
+- `outputs/milestones/audit_budget_frontier_strong_positive/table_strong_positive_gate_audit.csv`
+- `outputs/milestones/audit_budget_frontier_strong_positive/table_ctc_primary_seed_rows.csv`
+- `outputs/milestones/audit_budget_frontier_strong_positive/table_audit_budget_policy_contrast.csv`
+- `outputs/milestones/audit_budget_frontier_strong_positive/table_active_audit_effect_sizes.csv`
+- `outputs/milestones/audit_budget_frontier_strong_positive/figure_active_audit_strong_positive_source.csv`
+
+Main facts:
+
+- Primary strong-positive row: `ctc_learned_strict_alpha010_K100`.
+- Top-score audit budget: 0.005 of calibration candidates.
+- Top-score result: 20/20 nonempty safe seeds, 2,000 total releases across seeds, 0 observed false releases, mean FTR 0.
+- Matched-budget random audit: 0/20 nonempty seeds at the same 0.005 budget.
+- Full random audit transition: random reaches 20/20 safe seeds only at 1.0 audit budget, a 200x budget ratio.
+- CTC K=300 is support-only because it is 19/20 safe at the same budget, not 20/20.
+- Materials rows are excluded from this strong-positive gate and remain boundary/secondary.
+
+Interpretation:
+
+This fixes Active audit budget frontier as a clean non-A3 strong positive: a tiny targeted one-sided audit can turn CTC refusal into certified release, while matched-budget random audit cannot. The claim is deliberately CTC-only and simulated-audit scoped; it does not create prospective materials evidence and does not alter A3.

@@ -77,6 +77,14 @@ def main() -> None:
             "claim_boundary": "CTC strict headline candidate; materials ALIGNN rows are mean-operating boundary secondary rows",
         },
         {
+            "milestone": "audit_budget_frontier_strong_positive",
+            "priority": "MUST",
+            "status": "completed_strong_positive_simulated_audit",
+            "source_artifact": "outputs/milestones/audit_budget_frontier_strong_positive/table_strong_positive_gate_audit.csv",
+            "paper_role": "primary_active_audit_strong_positive",
+            "claim_boundary": "CTC K=100 is the only active-audit strong positive; CTC K=300 support only; materials excluded",
+        },
+        {
             "milestone": "nmi_reviewer_p0_hardening",
             "priority": "MUST",
             "status": "completed_aggregation_package",
@@ -90,7 +98,7 @@ def main() -> None:
             "status": "completed_paper_facing_postprocess",
             "source_artifact": "outputs/milestones/nmi_maintext_evidence_package/table_headline_evidence_hierarchy.csv",
             "paper_role": "maintext_claim_sentence_and_figure_source_package",
-            "claim_boundary": "only CTC active-audit row is primary headline; materials prospective discovery remains forbidden",
+            "claim_boundary": "only CTC K=100 active-audit strong-positive row is primary headline; materials prospective discovery remains forbidden",
         },
         {
             "milestone": "llm_release_agent_stress_test",
@@ -161,6 +169,12 @@ def main() -> None:
             "claim_scope": "paper-facing transition package with materials rows scoped as boundary/secondary",
         },
         {
+            "result": "active audit strong positive gate",
+            "lead_number": "CTC K=100: 0.5% top-score audit gives 20/20 nonempty safe seeds and zero false releases; matched-budget random releases 0/20; full random audit is 200x larger",
+            "source_artifact": "outputs/milestones/audit_budget_frontier_strong_positive/table_strong_positive_gate_audit.csv",
+            "claim_scope": "primary strong-positive simulated-audit result for CTC only",
+        },
+        {
             "result": "NMI reviewer P0 hardening package",
             "lead_number": "P0 gap/action matrix; audit CP/Wilson/Jeffreys intervals; baseline target-object map; assumption diagnostics map; refusal attribution table",
             "source_artifact": "outputs/milestones/nmi_reviewer_p0_hardening/table_p0_reviewer_gap_action_matrix.csv",
@@ -168,7 +182,7 @@ def main() -> None:
         },
         {
             "result": "NMI maintext evidence package",
-            "lead_number": "Only primary headline row is CTC active-audit strict transition; materials audit rows scoped as boundary; P0 gaps retained",
+            "lead_number": "Only primary headline row is CTC K=100 active-audit strong-positive gate; materials audit rows scoped as boundary; P0 gaps retained",
             "source_artifact": "outputs/milestones/nmi_maintext_evidence_package/table_headline_evidence_hierarchy.csv",
             "claim_scope": "paper-facing claim sentences and figure sources; no new prospective materials evidence",
         },
@@ -213,7 +227,7 @@ def main() -> None:
         "contamination sensitivity grid. Existing completed atlas, label-discordance preregistration, "
         "selection-conditional discordance no-go, overlay, and blind-audit-packet artifacts were "
         "inventoried and scoped. The active audit budget frontier was added as a completed simulated-audit "
-        "methodological frontier, while the LLM release-agent stress test was frozen as a credentials-blocked "
+        "methodological frontier and tightened into a CTC K=100 strong-positive gate, while the LLM release-agent stress test was frozen as a credentials-blocked "
         "protocol scaffold with no behavioral evidence claimed. The NMI main-text evidence package converts "
         "completed artifacts into exact claim sentences and figure source rows without creating new evidence.\n\n"
         "## Claim Boundary\n\n"
@@ -221,7 +235,8 @@ def main() -> None:
         "- MP-Alex/OQMD remain source-discordance diagnostics, not positive independent validation.\n"
         "- Nonzero verified-positive contamination rows are assumption-violation diagnostics, not formal guarantees.\n"
         "- Audit-budget rows are simulated-audit results over existing labels, not new verification labels.\n"
-        "- Only the CTC active-audit transition is a primary headline row in the main-text evidence package.\n"
+        "- The active-audit strong-positive gate is CTC K=100 only; CTC K=300 is support-only and materials are excluded.\n"
+        "- Only the CTC K=100 active-audit strong-positive gate is a primary headline row in the main-text evidence package.\n"
         "- LLM release-agent rows are protocol scaffolds until model outputs are run and scored.\n"
         "- External blind audit packets remain pending until labels and adjudication return.\n",
         encoding="utf-8",

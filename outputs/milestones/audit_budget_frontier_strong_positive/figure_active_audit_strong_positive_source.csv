@@ -1,0 +1,7 @@
+target_row,audit_policy,audit_budget_fraction,seeds,nonempty_seeds,safe_seeds,alpha_violation_seeds,mean_release,min_release,max_release,total_released,total_false_releases,total_true_releases,mean_FTR,max_FTR,mean_verified_positives,mean_audit_inspected,mean_verified_positive_yield,mean_best_mass_ratio,policy_role
+ctc_learned_strict_alpha010_K100,top_score,0.005,20,20,20,0,100.0,100,100,2000,0.0,2000.0,0.0,0.0,361.6,361.6,1.0,1.3321283238137231,efficient_targeted_audit
+ctc_learned_strict_alpha010_K100,random,0.005,20,0,0,0,0.0,0,0,0,0.0,0.0,0.0,0.0,73.3,361.6,0.20234183669426908,0.04591350417970874,matched_budget_random_control
+ctc_learned_strict_alpha010_K100,random,1.0,20,20,20,0,100.0,100,100,2000,0.0,2000.0,0.0,0.0,14491.15,72299.5,0.2004312475394454,1.3321283238137231,full_random_audit_transition_control
+ctc_learned_strict_alpha010_K300,top_score,0.005,20,19,19,0,275.5,0,300,5510,0.0,5510.0,0.0,0.0,361.6,361.6,1.0,1.2721825492421057,efficient_targeted_audit
+ctc_learned_strict_alpha010_K300,random,0.005,20,0,0,0,0.0,0,0,0,0.0,0.0,0.0,0.0,73.3,361.6,0.20234183669426908,0.036429834089921106,matched_budget_random_control
+ctc_learned_strict_alpha010_K300,random,1.0,20,20,20,0,300.0,300,300,6000,0.0,6000.0,0.0,0.0,14491.15,72299.5,0.2004312475394454,1.3321283238137231,full_random_audit_transition_control

@@ -33,6 +33,9 @@ def source(path: str) -> tuple[str, str]:
 
 
 def build_headline_hierarchy() -> pd.DataFrame:
+    strong_path, strong_sha = source(
+        "outputs/milestones/audit_budget_frontier_strong_positive/table_strong_positive_gate_audit.csv"
+    )
     audit_path, audit_sha = source(
         "outputs/milestones/audit_budget_release_frontier_headline/table_audit_budget_transition_primary.csv"
     )
@@ -49,17 +52,18 @@ def build_headline_hierarchy() -> pd.DataFrame:
     )
     rows = [
         {
-            "evidence_block": "active_audit_ctc_strict_transition",
+            "evidence_block": "active_audit_ctc_strong_positive",
             "allowed_manuscript_role": "primary_headline",
             "status": "completed_evidence",
             "exact_manuscript_sentence": (
-                "In CTC, top-score auditing of only 0.5% of calibration candidates converted refusal into strict "
-                "seed-stable certified release at alpha=0.10 for K=100 and K=300, whereas random audit required "
-                "full calibration-set inspection in the frozen grid."
+                "In CTC K=100, top-score auditing of only 0.5% of calibration candidates produced 20/20 "
+                "nonempty safe releases with zero observed false releases at alpha=0.10, whereas matched-budget "
+                "random audit released no seeds and random auditing required full calibration-set inspection "
+                "in the frozen grid, a 200x budget ratio."
             ),
-            "source_artifact": audit_path,
-            "source_sha256": audit_sha,
-            "claim_boundary": "simulated audit over existing held-out labels; no new labels; no A3 evidence",
+            "source_artifact": strong_path,
+            "source_sha256": strong_sha,
+            "claim_boundary": "completed simulated-audit strong positive for CTC only; no new labels; no A3 evidence",
         },
         {
             "evidence_block": "materials_audit_budget_boundary",
@@ -140,28 +144,31 @@ def build_headline_hierarchy() -> pd.DataFrame:
 
 
 def build_audit_figure_source() -> pd.DataFrame:
+    strong = pd.read_csv(
+        "outputs/milestones/audit_budget_frontier_strong_positive/table_strong_positive_gate_audit.csv"
+    )
     primary = pd.read_csv(
         "outputs/milestones/audit_budget_release_frontier_headline/table_audit_budget_transition_primary.csv"
     )
     rows = []
+    for _, row in strong.iterrows():
+        rows.append(
+            {
+                "panel": "audit_budget_transition",
+                "target_row": row["target_row"],
+                "domain": row["domain"],
+                "role": row["manuscript_role"],
+                "top_score_budget": row["audit_budget_fraction"],
+                "random_budget": row["random_full_transition_budget_fraction"],
+                "efficiency_gain": f"{row['budget_ratio_vs_random_full']:.1f}x",
+                "mean_release": row["top_mean_release"],
+                "actual_FTR": row["top_mean_FTR"],
+                "alpha_violation_rate": row["top_alpha_violation_seeds"] / row["seeds"],
+                "label": "strong-positive CTC active-audit gate",
+            }
+        )
     for _, row in primary.iterrows():
-        if row["manuscript_role"] == "strict_seed_stable_headline_candidate":
-            rows.append(
-                {
-                    "panel": "audit_budget_transition",
-                    "target_row": row["target_row"],
-                    "domain": row["domain"],
-                    "role": "strict_headline",
-                    "top_score_budget": row["top_score_first_strict_budget"],
-                    "random_budget": row["random_first_strict_budget"],
-                    "efficiency_gain": row["top_score_vs_random_efficiency_gain"],
-                    "mean_release": row["top_score_mean_release_at_transition"],
-                    "actual_FTR": row["top_score_actual_FTR_at_transition"],
-                    "alpha_violation_rate": row["top_score_alpha_violation_rate_at_transition"],
-                    "label": "strict seed-stable transition",
-                }
-            )
-        elif row["manuscript_role"] == "mean_operating_boundary_secondary":
+        if row["manuscript_role"] == "mean_operating_boundary_secondary":
             rows.append(
                 {
                     "panel": "audit_budget_transition",
@@ -232,7 +239,7 @@ def write_closeout(out_dir: Path, hierarchy: pd.DataFrame) -> None:
         "## Headline Discipline\n\n"
         f"- Primary headline rows: {len(primary)}\n"
         f"- Explicit not-positive rows: {len(forbidden)}\n"
-        "- The only primary headline in this package is the CTC active-audit strict transition.\n"
+        "- The only primary headline in this package is the CTC K=100 active-audit strong-positive gate.\n"
         "- Materials audit-budget rows remain boundary/secondary, and materials prospective discovery remains forbidden.\n"
     )
     (out_dir / "NMI_MAINTEXT_EVIDENCE_PACKAGE.md").write_text(text, encoding="utf-8")

@@ -1,0 +1,3 @@
+target_row,contrast,mean_delta_release,bootstrap_CI_low,bootstrap_CI_high,seeds,claim_boundary
+ctc_learned_strict_alpha010_K100,top_score_0.005_minus_random_0.005_release_count,100.0,100.0,100.0,20,paired seed bootstrap over simulated-audit rows
+ctc_learned_strict_alpha010_K300,top_score_0.005_minus_random_0.005_release_count,275.5,242.6,295.6,20,paired seed bootstrap over simulated-audit rows

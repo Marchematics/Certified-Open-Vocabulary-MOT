@@ -1,0 +1,12 @@
+{
+  "claim_boundary": "CTC active-audit strong positive only; not A3; not prospective materials discovery",
+  "evidence_status": "completed_strong_positive_simulated_audit",
+  "inputs": {
+    "seed_rows": "outputs/milestones/audit_budget_release_frontier_extended/table_audit_budget_frontier_seed_rows.csv",
+    "seed_rows_sha256": "9713ec32ca15270846cbb892fb0cfc432dfdb4c28ec6bd0f45ad54d653ac967c",
+    "summary": "outputs/milestones/audit_budget_release_frontier_extended/table_audit_budget_frontier_summary.csv",
+    "summary_sha256": "0a77aa8c0331025eac2179f803f5a102565156aa63b235ff4311fcb43befe4dd"
+  },
+  "primary_gate": "CTC K=100 only: 20/20 nonempty safe seeds, zero observed false releases, random matched-budget refusal",
+  "status": "completed"
+}

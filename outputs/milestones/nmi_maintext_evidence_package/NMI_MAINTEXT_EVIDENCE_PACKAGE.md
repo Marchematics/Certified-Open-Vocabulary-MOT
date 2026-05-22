@@ -8,5 +8,5 @@ This package converts completed non-A3 artifacts into exact manuscript sentences
 
 - Primary headline rows: 1
 - Explicit not-positive rows: 1
-- The only primary headline in this package is the CTC active-audit strict transition.
+- The only primary headline in this package is the CTC K=100 active-audit strong-positive gate.
 - Materials audit-budget rows remain boundary/secondary, and materials prospective discovery remains forbidden.

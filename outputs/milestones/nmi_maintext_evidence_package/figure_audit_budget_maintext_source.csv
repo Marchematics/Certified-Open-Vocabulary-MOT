@@ -1,5 +1,5 @@
 panel,target_row,domain,role,top_score_budget,random_budget,efficiency_gain,mean_release,actual_FTR,alpha_violation_rate,label
-audit_budget_transition,ctc_learned_strict_alpha010_K100,biomedical_cell_tracking,strict_headline,0.005,1.0,200.0x,100.0,0.0,0.0,strict seed-stable transition
-audit_budget_transition,ctc_learned_strict_alpha010_K300,biomedical_cell_tracking,strict_headline,0.005,1.0,200.0x,275.5,0.0,0.0,strict seed-stable transition
+audit_budget_transition,ctc_learned_strict_alpha010_K100,biomedical_cell_tracking,primary_strong_positive,0.005,1.0,200.0x,100.0,0.0,0.0,strong-positive CTC active-audit gate
+audit_budget_transition,ctc_learned_strict_alpha010_K300,biomedical_cell_tracking,secondary_support_not_primary,0.005,1.0,200.0x,275.5,0.0,0.0,strong-positive CTC active-audit gate
 audit_budget_transition,materials_alignn_exact_stable_alpha010_K300,materials_discovery,boundary_secondary,0.005,1.0,200.0x,115.1,0.0870024948491858,0.45,mean-operating transition only
 audit_budget_transition,materials_alignn_exact_stable_alpha010_K500,materials_discovery,boundary_secondary,0.005,1.0,200.0x,90.75,0.0482207668261013,0.15,mean-operating transition only

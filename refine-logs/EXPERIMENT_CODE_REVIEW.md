@@ -88,3 +88,20 @@ Reviewed:
 | Keeps materials rows scoped | PASS | Materials audit-budget rows are boundary/secondary; prospective materials discovery remains forbidden. |
 | Preserves bridge boundaries | PASS | The non-A3 bridge now records the package as paper-facing postprocess, not new evidence. |
 | Does not touch A3 selection/manifests | PASS | All new outputs are under `nmi_maintext_evidence_package` and `non_a3_experiment_bridge`. |
+
+## Phase44 Local Review Addendum
+
+Reviewed:
+
+- `scripts/build_audit_budget_frontier_strong_positive.py`
+- `tests/test_audit_budget_frontier_strong_positive.py`
+- updated `scripts/build_nmi_maintext_evidence_package.py`
+- updated `scripts/build_non_a3_experiment_bridge.py`
+
+| Check | Result | Notes |
+| --- | --- | --- |
+| Strong-positive gate is narrow | PASS | Only CTC K=100 is primary strong-positive evidence. |
+| Handles CTC K=300 honestly | PASS | K=300 is 19/20 safe at 0.5% audit budget and is support-only, not primary. |
+| Keeps materials out of strong-positive claim | PASS | Materials rows are excluded from the strong-positive package and remain boundary/secondary elsewhere. |
+| Provides matched-budget random control | PASS | Matched 0.5% random audit releases 0/20 CTC K=100 seeds; full random audit reaches transition at 1.0 budget. |
+| Preserves A3 boundary | PASS | Strong-positive closeout states this is not A3 evidence and does not claim prospective materials discovery. |

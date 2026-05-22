@@ -25,6 +25,7 @@ def test_non_a3_bridge_keeps_a3_out_of_headline() -> None:
     assert "materials_selection_conditional_discordance" in set(status["milestone"])
     assert "audit_budget_release_frontier" in set(status["milestone"])
     assert "audit_budget_release_frontier_headline" in set(status["milestone"])
+    assert "audit_budget_frontier_strong_positive" in set(status["milestone"])
     assert "nmi_reviewer_p0_hardening" in set(status["milestone"])
     assert "nmi_maintext_evidence_package" in set(status["milestone"])
     assert "llm_release_agent_stress_test" in set(status["milestone"])
@@ -42,8 +43,9 @@ def test_non_a3_bridge_claim_boundaries_are_scoped() -> None:
     assert "hypothesis B not supported" in joined
     assert "simulated audit only" in joined
     assert "materials ALIGNN rows are mean-operating boundary secondary rows" in joined
+    assert "CTC K=100 is the only active-audit strong positive" in joined
     assert "diagnostic rows remain scoped" in joined
-    assert "only CTC active-audit row is primary headline" in joined
+    assert "only CTC K=100 active-audit strong-positive row is primary headline" in joined
     assert "no LLM behavioral evidence" in joined
     audit = status[status["milestone"].eq("external_blind_audit_packet")].iloc[0]
     assert audit["status"] == "packet_completed_labels_pending"
@@ -70,4 +72,13 @@ def test_maintext_evidence_package_is_paper_facing_not_new_evidence() -> None:
     row = status[status["milestone"].eq("nmi_maintext_evidence_package")].iloc[0]
     assert row["status"] == "completed_paper_facing_postprocess"
     assert row["paper_role"] == "maintext_claim_sentence_and_figure_source_package"
-    assert "only CTC active-audit row is primary headline" in row["claim_boundary"]
+    assert "only CTC K=100 active-audit strong-positive row is primary headline" in row["claim_boundary"]
+
+
+def test_active_audit_strong_positive_is_ctc_only() -> None:
+    status = pd.read_csv(MILESTONE / "table_non_a3_bridge_status.csv")
+    row = status[status["milestone"].eq("audit_budget_frontier_strong_positive")].iloc[0]
+    assert row["status"] == "completed_strong_positive_simulated_audit"
+    assert row["paper_role"] == "primary_active_audit_strong_positive"
+    assert "CTC K=100" in row["claim_boundary"]
+    assert "materials excluded" in row["claim_boundary"]

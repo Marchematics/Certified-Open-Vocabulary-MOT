@@ -26,8 +26,10 @@ def test_only_ctc_active_audit_is_primary_headline() -> None:
     hierarchy = pd.read_csv(MILESTONE / "table_headline_evidence_hierarchy.csv")
     primary = hierarchy[hierarchy["allowed_manuscript_role"].eq("primary_headline")]
     assert len(primary) == 1
-    assert primary.iloc[0]["evidence_block"] == "active_audit_ctc_strict_transition"
+    assert primary.iloc[0]["evidence_block"] == "active_audit_ctc_strong_positive"
     assert "0.5%" in primary.iloc[0]["exact_manuscript_sentence"]
+    assert "20/20" in primary.iloc[0]["exact_manuscript_sentence"]
+    assert "200x" in primary.iloc[0]["exact_manuscript_sentence"]
     assert primary.iloc[0]["source_sha256"]
 
 
@@ -47,6 +49,15 @@ def test_materials_audit_budget_is_boundary_secondary() -> None:
     assert not materials.empty
     assert set(materials["role"]) == {"boundary_secondary"}
     assert (materials["alpha_violation_rate"].astype(float) > 0).all()
+
+
+def test_ctc_k100_is_strong_positive_figure_row() -> None:
+    figure = pd.read_csv(MILESTONE / "figure_audit_budget_maintext_source.csv")
+    row = figure[figure["target_row"].eq("ctc_learned_strict_alpha010_K100")].iloc[0]
+    assert row["role"] == "primary_strong_positive"
+    assert float(row["top_score_budget"]) == 0.005
+    assert row["efficiency_gain"] == "200.0x"
+    assert float(row["actual_FTR"]) == 0.0
 
 
 def test_all_claim_sentences_have_source_hashes() -> None:
