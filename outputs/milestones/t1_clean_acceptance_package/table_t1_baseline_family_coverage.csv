@@ -1,0 +1,11 @@
+method_family,empirical_rows,domains,has_empirical_row,has_full_release_certificate,deployable,claim_boundary
+raw top-K,11,Materials discovery;visual_scientific_audit,True,False,True,baseline comparator or different target object; not a PARC-style certificate
+raw top-R,5,Materials discovery,True,False,False,baseline comparator or different target object; not a PARC-style certificate
+fixed threshold,5,visual_scientific_audit,True,False,True,baseline comparator or different target object; not a PARC-style certificate
+calibrated threshold,5,visual_scientific_audit,True,False,True,baseline comparator or different target object; not a PARC-style certificate
+split conformal candidate threshold,8,Materials discovery;visual_scientific_audit,True,False,True,baseline comparator or different target object; not a PARC-style certificate
+post-filter e-value,8,Materials discovery;visual_scientific_audit,True,False,True,baseline comparator or different target object; not a PARC-style certificate
+e-BH-style,8,Materials discovery;visual_scientific_audit,True,False,True,baseline comparator or different target object; not a PARC-style certificate
+nnPU classifier release,1,Materials discovery,True,False,True,baseline comparator or different target object; not a PARC-style certificate
+Bao-style selective conformal adaptation,1,Materials discovery,True,False,True,baseline comparator or different target object; not a PARC-style certificate
+PARC,10,Materials discovery;visual_scientific_audit,True,True,True,PARC is the only full set-level release certificate object

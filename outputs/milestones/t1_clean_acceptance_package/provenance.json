@@ -1,0 +1,12 @@
+{
+  "claim_boundary": "stronger empirical baseline frontier; materials validation remains no-go/diagnostic",
+  "evidence_status": "completed_T1_clean_acceptance_hardening",
+  "outputs": [
+    "table_t1_baseline_frontier_summary.csv",
+    "figure_t1_empirical_baseline_frontier_source.csv",
+    "table_t1_baseline_family_coverage.csv",
+    "table_t1_materials_validation_go_no_go.csv",
+    "table_t1_clean_acceptance_lead_numbers.csv"
+  ],
+  "status": "completed"
+}

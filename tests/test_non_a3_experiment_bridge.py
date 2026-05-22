@@ -26,6 +26,7 @@ def test_non_a3_bridge_keeps_a3_out_of_headline() -> None:
     assert "audit_budget_release_frontier" in set(status["milestone"])
     assert "audit_budget_release_frontier_headline" in set(status["milestone"])
     assert "audit_budget_frontier_strong_positive" in set(status["milestone"])
+    assert "t1_clean_acceptance_package" in set(status["milestone"])
     assert "nmi_reviewer_p0_hardening" in set(status["milestone"])
     assert "nmi_maintext_evidence_package" in set(status["milestone"])
     assert "llm_release_agent_stress_test" in set(status["milestone"])
@@ -44,6 +45,7 @@ def test_non_a3_bridge_claim_boundaries_are_scoped() -> None:
     assert "simulated audit only" in joined
     assert "materials ALIGNN rows are mean-operating boundary secondary rows" in joined
     assert "CTC K=100 is the only active-audit strong positive" in joined
+    assert "materials validation remains no-go/diagnostic" in joined
     assert "diagnostic rows remain scoped" in joined
     assert "only CTC K=100 active-audit strong-positive row is primary headline" in joined
     assert "no LLM behavioral evidence" in joined
@@ -82,3 +84,11 @@ def test_active_audit_strong_positive_is_ctc_only() -> None:
     assert row["paper_role"] == "primary_active_audit_strong_positive"
     assert "CTC K=100" in row["claim_boundary"]
     assert "materials excluded" in row["claim_boundary"]
+
+
+def test_t1_clean_acceptance_package_is_bridge_must() -> None:
+    status = pd.read_csv(MILESTONE / "table_non_a3_bridge_status.csv")
+    row = status[status["milestone"].eq("t1_clean_acceptance_package")].iloc[0]
+    assert row["priority"] == "MUST"
+    assert row["status"] == "completed_T1_clean_acceptance_hardening"
+    assert row["paper_role"] == "empirical_baseline_frontier_plus_materials_validation_ledger"

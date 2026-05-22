@@ -85,6 +85,14 @@ def main() -> None:
             "claim_boundary": "CTC K=100 is the only active-audit strong positive; CTC K=300 support only; materials excluded",
         },
         {
+            "milestone": "t1_clean_acceptance_package",
+            "priority": "MUST",
+            "status": "completed_T1_clean_acceptance_hardening",
+            "source_artifact": "outputs/milestones/t1_clean_acceptance_package/table_t1_baseline_frontier_summary.csv",
+            "paper_role": "empirical_baseline_frontier_plus_materials_validation_ledger",
+            "claim_boundary": "stronger empirical baseline frontier; materials validation remains no-go/diagnostic",
+        },
+        {
             "milestone": "nmi_reviewer_p0_hardening",
             "priority": "MUST",
             "status": "completed_aggregation_package",
@@ -175,6 +183,12 @@ def main() -> None:
             "claim_scope": "primary strong-positive simulated-audit result for CTC only",
         },
         {
+            "result": "T1 empirical baseline frontier",
+            "lead_number": "Aggregates visual full baseline matrix, materials public-DFT baseline frontier, and ALIGNN fixed-budget raw/PARC/raw-topR utility; materials validation routes remain no-go or diagnostic",
+            "source_artifact": "outputs/milestones/t1_clean_acceptance_package/table_t1_baseline_frontier_summary.csv",
+            "claim_scope": "clean-acceptance baseline frontier support; not prospective materials validation",
+        },
+        {
             "result": "NMI reviewer P0 hardening package",
             "lead_number": "P0 gap/action matrix; audit CP/Wilson/Jeffreys intervals; baseline target-object map; assumption diagnostics map; refusal attribution table",
             "source_artifact": "outputs/milestones/nmi_reviewer_p0_hardening/table_p0_reviewer_gap_action_matrix.csv",
@@ -227,7 +241,8 @@ def main() -> None:
         "contamination sensitivity grid. Existing completed atlas, label-discordance preregistration, "
         "selection-conditional discordance no-go, overlay, and blind-audit-packet artifacts were "
         "inventoried and scoped. The active audit budget frontier was added as a completed simulated-audit "
-        "methodological frontier and tightened into a CTC K=100 strong-positive gate, while the LLM release-agent stress test was frozen as a credentials-blocked "
+        "methodological frontier and tightened into a CTC K=100 strong-positive gate. The T1 clean-acceptance package "
+        "adds a stronger empirical baseline frontier and a materials-validation no-go ledger, while the LLM release-agent stress test was frozen as a credentials-blocked "
         "protocol scaffold with no behavioral evidence claimed. The NMI main-text evidence package converts "
         "completed artifacts into exact claim sentences and figure source rows without creating new evidence.\n\n"
         "## Claim Boundary\n\n"
@@ -236,6 +251,7 @@ def main() -> None:
         "- Nonzero verified-positive contamination rows are assumption-violation diagnostics, not formal guarantees.\n"
         "- Audit-budget rows are simulated-audit results over existing labels, not new verification labels.\n"
         "- The active-audit strong-positive gate is CTC K=100 only; CTC K=300 is support-only and materials are excluded.\n"
+        "- T1 baseline-frontier rows are target-object-aware; materials validation routes remain no-go/diagnostic.\n"
         "- Only the CTC K=100 active-audit strong-positive gate is a primary headline row in the main-text evidence package.\n"
         "- LLM release-agent rows are protocol scaffolds until model outputs are run and scored.\n"
         "- External blind audit packets remain pending until labels and adjudication return.\n",

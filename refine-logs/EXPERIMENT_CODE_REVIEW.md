@@ -105,3 +105,21 @@ Reviewed:
 | Keeps materials out of strong-positive claim | PASS | Materials rows are excluded from the strong-positive package and remain boundary/secondary elsewhere. |
 | Provides matched-budget random control | PASS | Matched 0.5% random audit releases 0/20 CTC K=100 seeds; full random audit reaches transition at 1.0 budget. |
 | Preserves A3 boundary | PASS | Strong-positive closeout states this is not A3 evidence and does not claim prospective materials discovery. |
+
+## Phase45 Local Review Addendum
+
+Reviewed:
+
+- `scripts/build_t1_clean_acceptance_package.py`
+- `tests/test_t1_clean_acceptance_package.py`
+- updated `scripts/build_nmi_maintext_evidence_package.py`
+- updated `scripts/build_non_a3_experiment_bridge.py`
+
+| Check | Result | Notes |
+| --- | --- | --- |
+| Strengthens empirical baseline frontier | PASS | Builds a combined materials/visual baseline frontier with 11 method families and source SHA256 hashes. |
+| Keeps materials validation scoped | PASS | A1/A2/A3 and external-source routes are recorded as unavailable, negative, diagnostic, or pending; none are promoted to positive evidence. |
+| Preserves matched-volume interpretation | PASS | ALIGNN K=300/500 lead rows report raw top-R matched FTR alongside PARC and raw top-K, so the claim is fixed-budget utility rather than fixed-size ranking improvement. |
+| Restricts full release certificate | PASS | Tests require only PARC rows to have full null-superset + SCS certificate properties. |
+| Maintains maintext hierarchy | PASS | The maintext evidence package consumes the T1 baseline frontier as support while keeping the CTC active-audit row as the only primary headline. |
+| Preserves A3 boundary | PASS | T1 closeout states A3 remains outside positive evidence unless future DFT gates are met. |

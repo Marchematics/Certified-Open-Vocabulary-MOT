@@ -1,4 +1,5 @@
 figure_or_table,source_file,paper_role,claim_boundary
 main_audit_budget_frontier,figure_audit_budget_maintext_source.csv,primary active-audit transition figure,CTC strict headline; materials boundary secondary
 reviewer_p0_support_panel,figure_reviewer_p0_support_source.csv,extended data / reviewer-facing support figure,diagnostic and uncertainty rows remain scoped
+t1_empirical_baseline_frontier,outputs/milestones/t1_clean_acceptance_package/figure_t1_empirical_baseline_frontier_source.csv,clean-acceptance baseline frontier figure,target-object-aware empirical frontier; materials validation remains no-go
 claim_sentence_table,table_maintext_claim_sentences.csv,claim-to-artifact guardrail,exact sentences must preserve allowed manuscript role

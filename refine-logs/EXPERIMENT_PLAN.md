@@ -49,5 +49,6 @@ The initial non-A3 bridge has now been extended into a paper-facing evidence pac
 | M10: NMI reviewer P0 hardening | completed | reviewer-facing support and claim-boundary hardening |
 | M11: NMI main-text evidence package | completed | exact claim sentences and figure source rows |
 | M12: Active audit budget strong-positive gate | completed | CTC K=100 primary strong positive; K=300 support; materials excluded |
+| M13: T1 clean-acceptance baseline frontier | completed | stronger empirical baseline frontier and materials validation no-go ledger |
 
-The current paper-facing hierarchy is: CTC K=100 active-audit strong-positive gate as the only primary headline; CTC K=300 as support; materials fixed/audit-budget rows as retrospective or boundary evidence; external material-source diagnostics as stress/no-go evidence; A3 outside positive claims.
+The current paper-facing hierarchy is: CTC K=100 active-audit strong-positive gate as the only primary headline; CTC K=300 as support; T1 empirical baseline frontier as clean-acceptance support; materials fixed/audit-budget rows as retrospective or boundary evidence; external material-source diagnostics as stress/no-go evidence; A3 outside positive claims.

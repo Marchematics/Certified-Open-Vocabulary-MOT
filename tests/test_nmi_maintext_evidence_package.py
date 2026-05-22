@@ -64,3 +64,13 @@ def test_all_claim_sentences_have_source_hashes() -> None:
     claims = pd.read_csv(MILESTONE / "table_maintext_claim_sentences.csv")
     assert claims["source_artifact"].astype(str).str.len().gt(0).all()
     assert claims["source_sha256"].astype(str).str.len().eq(64).all()
+
+
+def test_t1_baseline_frontier_is_claim_source() -> None:
+    claims = pd.read_csv(MILESTONE / "table_maintext_claim_sentences.csv")
+    row = claims[claims["evidence_block"].eq("baseline_target_object_frontier")].iloc[0]
+    assert row["status"] == "completed_T1_empirical_baseline_frontier"
+    assert "T1 empirical baseline frontier" in row["exact_manuscript_sentence"]
+    assert "t1_clean_acceptance_package" in row["source_artifact"]
+    figures = pd.read_csv(MILESTONE / "table_figures_to_artifacts.csv")
+    assert "t1_empirical_baseline_frontier" in set(figures["figure_or_table"])

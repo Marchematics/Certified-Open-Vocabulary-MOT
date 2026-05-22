@@ -267,3 +267,34 @@ Main facts:
 Interpretation:
 
 This fixes Active audit budget frontier as a clean non-A3 strong positive: a tiny targeted one-sided audit can turn CTC refusal into certified release, while matched-budget random audit cannot. The claim is deliberately CTC-only and simulated-audit scoped; it does not create prospective materials evidence and does not alter A3.
+
+### M13: T1 Clean Acceptance Baseline Frontier — DONE
+
+Command:
+
+```bash
+python scripts/build_t1_clean_acceptance_package.py
+python scripts/build_nmi_maintext_evidence_package.py
+python scripts/build_non_a3_experiment_bridge.py
+```
+
+Outputs:
+
+- `outputs/milestones/t1_clean_acceptance_package/table_t1_baseline_frontier_summary.csv`
+- `outputs/milestones/t1_clean_acceptance_package/figure_t1_empirical_baseline_frontier_source.csv`
+- `outputs/milestones/t1_clean_acceptance_package/table_t1_baseline_family_coverage.csv`
+- `outputs/milestones/t1_clean_acceptance_package/table_t1_materials_validation_go_no_go.csv`
+- `outputs/milestones/t1_clean_acceptance_package/table_t1_clean_acceptance_lead_numbers.csv`
+- `outputs/milestones/t1_clean_acceptance_package/T1_CLEAN_ACCEPTANCE_CLOSEOUT.md`
+
+Main facts:
+
+- ALIGNN K=300 fixed-budget row: raw top-K FTR 0.253, PARC FTR 0.087, raw top-R matched FTR 0.087, and 64.25 unstable follow-ups prevented.
+- ALIGNN K=500 fixed-budget row: raw top-K FTR 0.327, PARC FTR 0.048, raw top-R matched FTR 0.048, and 158.30 unstable follow-ups prevented.
+- CGCNN K=500 baseline frontier: raw top-K FTR 0.326, post-filter e-value FTR 0.163, PARC/raw top-R FTR 0.032; e-BH releases no candidates.
+- The empirical frontier covers 11 method families, including raw top-K, raw top-R, thresholds, split conformal, post-filter e-value, e-BH-style, nnPU, Bao-style selective conformal adaptation, oracle prefix, and PARC.
+- The materials validation ledger marks 5/5 independent/prospective routes as not positive evidence.
+
+Interpretation:
+
+This package addresses the T1 clean-acceptance gap with a stronger empirical baseline frontier figure while preserving the materials boundary. It does not create prospective materials evidence. Raw top-R remains a matched-volume diagnostic, and only PARC rows have the full null-superset + SCS release certificate.

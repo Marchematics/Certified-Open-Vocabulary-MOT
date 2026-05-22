@@ -41,6 +41,9 @@ def build_headline_hierarchy() -> pd.DataFrame:
     )
     p0_path, p0_sha = source("outputs/milestones/nmi_reviewer_p0_hardening/table_p0_reviewer_gap_action_matrix.csv")
     ci_path, ci_sha = source("outputs/milestones/nmi_reviewer_p0_hardening/table_human_audit_uncertainty_intervals.csv")
+    t1_path, t1_sha = source(
+        "outputs/milestones/t1_clean_acceptance_package/table_t1_baseline_frontier_summary.csv"
+    )
     baseline_path, baseline_sha = source(
         "outputs/milestones/nmi_reviewer_p0_hardening/table_baseline_frontier_maintext_map.csv"
     )
@@ -105,15 +108,27 @@ def build_headline_hierarchy() -> pd.DataFrame:
         {
             "evidence_block": "baseline_target_object_frontier",
             "allowed_manuscript_role": "main_or_extended_data_support",
+            "status": "completed_T1_empirical_baseline_frontier",
+            "exact_manuscript_sentence": (
+                "The T1 empirical baseline frontier aggregates raw prefixes, fixed and calibrated thresholds, "
+                "split-conformal, post-filter e-value, e-BH-style, PU/selective-conformal, oracle, and PARC rows; "
+                "only PARC supplies the null-superset, compatibility, and SCS release certificate."
+            ),
+            "source_artifact": t1_path,
+            "source_sha256": t1_sha,
+            "claim_boundary": "do not imply different-target baselines solve the same release certificate object",
+        },
+        {
+            "evidence_block": "legacy_baseline_target_object_map",
+            "allowed_manuscript_role": "extended_data_support",
             "status": "completed_baseline_map",
             "exact_manuscript_sentence": (
-                "The baseline frontier is reported as a target-object-aware comparison: raw prefixes and plug-in "
-                "baselines can be deployable empirical filters, but they do not supply PARC's null-superset, "
-                "compatibility, and SCS release certificate."
+                "The baseline certificate-property map is retained as Extended Data support for target-object "
+                "differences between empirical filters and PARC's finite compatible release set."
             ),
             "source_artifact": baseline_path,
             "source_sha256": baseline_sha,
-            "claim_boundary": "do not imply different-target baselines solve the same release certificate object",
+            "claim_boundary": "supporting map only; T1 empirical frontier is the paper-facing baseline package",
         },
         {
             "evidence_block": "refusal_feasibility_attribution",
@@ -268,6 +283,12 @@ def main() -> None:
                 "source_file": "figure_reviewer_p0_support_source.csv",
                 "paper_role": "extended data / reviewer-facing support figure",
                 "claim_boundary": "diagnostic and uncertainty rows remain scoped",
+            },
+            {
+                "figure_or_table": "t1_empirical_baseline_frontier",
+                "source_file": "outputs/milestones/t1_clean_acceptance_package/figure_t1_empirical_baseline_frontier_source.csv",
+                "paper_role": "clean-acceptance baseline frontier figure",
+                "claim_boundary": "target-object-aware empirical frontier; materials validation remains no-go",
             },
             {
                 "figure_or_table": "claim_sentence_table",
