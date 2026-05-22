@@ -298,3 +298,33 @@ Main facts:
 Interpretation:
 
 This package addresses the T1 clean-acceptance gap with a stronger empirical baseline frontier figure while preserving the materials boundary. It does not create prospective materials evidence. Raw top-R remains a matched-volume diagnostic, and only PARC rows have the full null-superset + SCS release certificate.
+
+### M14: Release-Governance Problem Paradigm — DONE
+
+Command:
+
+```bash
+python scripts/build_release_governance_paradigm_package.py
+python scripts/build_nmi_maintext_evidence_package.py
+python scripts/build_non_a3_experiment_bridge.py
+```
+
+Outputs:
+
+- `outputs/milestones/release_governance_problem_paradigm/table_release_governance_paradigm_components.csv`
+- `outputs/milestones/release_governance_problem_paradigm/table_release_governance_claim_evidence_map.csv`
+- `outputs/milestones/release_governance_problem_paradigm/table_release_governance_figure_blueprint.csv`
+- `outputs/milestones/release_governance_problem_paradigm/release_governance_abstract_v2.md`
+- `outputs/milestones/release_governance_problem_paradigm/release_governance_maintext_skeleton.md`
+- `outputs/milestones/release_governance_problem_paradigm/RELEASE_GOVERNANCE_PARADIGM_CLOSEOUT.md`
+
+Main facts:
+
+- The package defines the paper as release-time governance for frozen scientific candidate universes under scarce one-sided verification.
+- It binds the CTC K=100 active-audit strong-positive row, the T1 empirical baseline frontier, refusal attribution, and audit uncertainty into one claim-evidence closure.
+- The draft abstract keeps the strong headline on CTC active audit and keeps materials as retrospective public-label release-policy frontier evidence.
+- The maintext evidence package now includes the release-governance paradigm as `paper_positioning_frame`, not as a new primary headline.
+
+Interpretation:
+
+This is the route-2 clean-acceptance package. It raises the framing from a collection of diagnostics to a coherent problem paradigm without adding new labels or creating independent materials validation. The only primary headline remains CTC K=100 active audit; T1 remains baseline-frontier support.

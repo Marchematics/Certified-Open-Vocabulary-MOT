@@ -36,6 +36,9 @@ def build_headline_hierarchy() -> pd.DataFrame:
     strong_path, strong_sha = source(
         "outputs/milestones/audit_budget_frontier_strong_positive/table_strong_positive_gate_audit.csv"
     )
+    governance_path, governance_sha = source(
+        "outputs/milestones/release_governance_problem_paradigm/table_release_governance_claim_evidence_map.csv"
+    )
     audit_path, audit_sha = source(
         "outputs/milestones/audit_budget_release_frontier_headline/table_audit_budget_transition_primary.csv"
     )
@@ -54,6 +57,19 @@ def build_headline_hierarchy() -> pd.DataFrame:
         "outputs/milestones/nmi_reviewer_p0_hardening/table_assumption_diagnostics_maintext_map.csv"
     )
     rows = [
+        {
+            "evidence_block": "release_governance_problem_paradigm",
+            "allowed_manuscript_role": "paper_positioning_frame",
+            "status": "completed_paper_facing_synthesis",
+            "exact_manuscript_sentence": (
+                "PARC is positioned as a release-time governance layer for frozen scientific candidate universes "
+                "under scarce one-sided verification: the publication action, not the upstream score alone, is the "
+                "statistical object."
+            ),
+            "source_artifact": governance_path,
+            "source_sha256": governance_sha,
+            "claim_boundary": "framing synthesis only; does not create new materials validation evidence",
+        },
         {
             "evidence_block": "active_audit_ctc_strong_positive",
             "allowed_manuscript_role": "primary_headline",
@@ -272,6 +288,12 @@ def main() -> None:
     reviewer_support = build_reviewer_support_source()
     figures = pd.DataFrame(
         [
+            {
+                "figure_or_table": "release_governance_problem_paradigm",
+                "source_file": "outputs/milestones/release_governance_problem_paradigm/table_release_governance_figure_blueprint.csv",
+                "paper_role": "problem paradigm and figure blueprint",
+                "claim_boundary": "paper-positioning frame; no new evidence",
+            },
             {
                 "figure_or_table": "main_audit_budget_frontier",
                 "source_file": "figure_audit_budget_maintext_source.csv",

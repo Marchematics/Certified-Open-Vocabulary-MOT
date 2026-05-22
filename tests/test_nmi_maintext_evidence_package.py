@@ -74,3 +74,14 @@ def test_t1_baseline_frontier_is_claim_source() -> None:
     assert "t1_clean_acceptance_package" in row["source_artifact"]
     figures = pd.read_csv(MILESTONE / "table_figures_to_artifacts.csv")
     assert "t1_empirical_baseline_frontier" in set(figures["figure_or_table"])
+
+
+def test_release_governance_paradigm_is_positioning_not_headline() -> None:
+    claims = pd.read_csv(MILESTONE / "table_maintext_claim_sentences.csv")
+    row = claims[claims["evidence_block"].eq("release_governance_problem_paradigm")].iloc[0]
+    assert row["allowed_manuscript_role"] == "paper_positioning_frame"
+    assert row["status"] == "completed_paper_facing_synthesis"
+    assert "release-time governance" in row["exact_manuscript_sentence"]
+    assert "release_governance_problem_paradigm" in row["source_artifact"]
+    figures = pd.read_csv(MILESTONE / "table_figures_to_artifacts.csv")
+    assert "release_governance_problem_paradigm" in set(figures["figure_or_table"])

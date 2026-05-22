@@ -1,0 +1,13 @@
+{
+  "claim_boundary": "route-2 release-governance positioning; no new materials validation evidence",
+  "evidence_status": "paper_facing_synthesis_only",
+  "outputs": [
+    "table_release_governance_paradigm_components.csv",
+    "table_release_governance_claim_evidence_map.csv",
+    "table_release_governance_figure_blueprint.csv",
+    "release_governance_abstract_v2.md",
+    "release_governance_maintext_skeleton.md",
+    "RELEASE_GOVERNANCE_PARADIGM_CLOSEOUT.md"
+  ],
+  "status": "completed"
+}

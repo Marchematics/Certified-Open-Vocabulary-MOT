@@ -123,3 +123,20 @@ Reviewed:
 | Restricts full release certificate | PASS | Tests require only PARC rows to have full null-superset + SCS certificate properties. |
 | Maintains maintext hierarchy | PASS | The maintext evidence package consumes the T1 baseline frontier as support while keeping the CTC active-audit row as the only primary headline. |
 | Preserves A3 boundary | PASS | T1 closeout states A3 remains outside positive evidence unless future DFT gates are met. |
+
+## Phase46 Local Review Addendum
+
+Reviewed:
+
+- `scripts/build_release_governance_paradigm_package.py`
+- `tests/test_release_governance_paradigm_package.py`
+- updated `scripts/build_nmi_maintext_evidence_package.py`
+- updated `scripts/build_non_a3_experiment_bridge.py`
+
+| Check | Result | Notes |
+| --- | --- | --- |
+| Defines route-2 positioning | PASS | The package frames the paper as release-time governance under scarce one-sided verification. |
+| Preserves primary-headline discipline | PASS | Maintext tests still require exactly one primary headline: CTC active audit. |
+| Binds evidence into a closure | PASS | CTC active audit, T1 empirical baseline frontier, refusal attribution, and audit uncertainty are all mapped to source artifacts and SHA256 hashes. |
+| Avoids materials overclaim | PASS | Claim-map and abstract tests forbid prospective materials-discovery and independent-validation-success language. |
+| Keeps synthesis separate from new evidence | PASS | The package is marked `paper_facing_synthesis_only` and adds no new materials validation evidence. |

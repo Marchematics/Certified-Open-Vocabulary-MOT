@@ -93,6 +93,14 @@ def main() -> None:
             "claim_boundary": "stronger empirical baseline frontier; materials validation remains no-go/diagnostic",
         },
         {
+            "milestone": "release_governance_problem_paradigm",
+            "priority": "MUST",
+            "status": "completed_paper_facing_synthesis",
+            "source_artifact": "outputs/milestones/release_governance_problem_paradigm/table_release_governance_claim_evidence_map.csv",
+            "paper_role": "route2_release_governance_positioning",
+            "claim_boundary": "problem-paradigm synthesis only; CTC remains only primary headline; adds no new materials validation evidence",
+        },
+        {
             "milestone": "nmi_reviewer_p0_hardening",
             "priority": "MUST",
             "status": "completed_aggregation_package",
@@ -189,6 +197,12 @@ def main() -> None:
             "claim_scope": "clean-acceptance baseline frontier support; not prospective materials validation",
         },
         {
+            "result": "release-governance problem paradigm",
+            "lead_number": "Binds CTC active audit, T1 empirical baseline frontier, refusal attribution, and audit uncertainty into a release-time governance framing",
+            "source_artifact": "outputs/milestones/release_governance_problem_paradigm/table_release_governance_claim_evidence_map.csv",
+            "claim_scope": "paper-facing synthesis only; no new materials validation evidence",
+        },
+        {
             "result": "NMI reviewer P0 hardening package",
             "lead_number": "P0 gap/action matrix; audit CP/Wilson/Jeffreys intervals; baseline target-object map; assumption diagnostics map; refusal attribution table",
             "source_artifact": "outputs/milestones/nmi_reviewer_p0_hardening/table_p0_reviewer_gap_action_matrix.csv",
@@ -242,7 +256,9 @@ def main() -> None:
         "selection-conditional discordance no-go, overlay, and blind-audit-packet artifacts were "
         "inventoried and scoped. The active audit budget frontier was added as a completed simulated-audit "
         "methodological frontier and tightened into a CTC K=100 strong-positive gate. The T1 clean-acceptance package "
-        "adds a stronger empirical baseline frontier and a materials-validation no-go ledger, while the LLM release-agent stress test was frozen as a credentials-blocked "
+        "adds a stronger empirical baseline frontier and a materials-validation no-go ledger. The release-governance "
+        "problem-paradigm package binds CTC, T1, refusal attribution, and audit uncertainty into a route-2 positioning "
+        "frame, while the LLM release-agent stress test was frozen as a credentials-blocked "
         "protocol scaffold with no behavioral evidence claimed. The NMI main-text evidence package converts "
         "completed artifacts into exact claim sentences and figure source rows without creating new evidence.\n\n"
         "## Claim Boundary\n\n"
@@ -252,6 +268,7 @@ def main() -> None:
         "- Audit-budget rows are simulated-audit results over existing labels, not new verification labels.\n"
         "- The active-audit strong-positive gate is CTC K=100 only; CTC K=300 is support-only and materials are excluded.\n"
         "- T1 baseline-frontier rows are target-object-aware; materials validation routes remain no-go/diagnostic.\n"
+        "- The release-governance paradigm package is paper-facing synthesis only; it adds no new materials validation evidence.\n"
         "- Only the CTC K=100 active-audit strong-positive gate is a primary headline row in the main-text evidence package.\n"
         "- LLM release-agent rows are protocol scaffolds until model outputs are run and scored.\n"
         "- External blind audit packets remain pending until labels and adjudication return.\n",

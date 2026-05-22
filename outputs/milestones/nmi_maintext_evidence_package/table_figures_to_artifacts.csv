@@ -1,4 +1,5 @@
 figure_or_table,source_file,paper_role,claim_boundary
+release_governance_problem_paradigm,outputs/milestones/release_governance_problem_paradigm/table_release_governance_figure_blueprint.csv,problem paradigm and figure blueprint,paper-positioning frame; no new evidence
 main_audit_budget_frontier,figure_audit_budget_maintext_source.csv,primary active-audit transition figure,CTC strict headline; materials boundary secondary
 reviewer_p0_support_panel,figure_reviewer_p0_support_source.csv,extended data / reviewer-facing support figure,diagnostic and uncertainty rows remain scoped
 t1_empirical_baseline_frontier,outputs/milestones/t1_clean_acceptance_package/figure_t1_empirical_baseline_frontier_source.csv,clean-acceptance baseline frontier figure,target-object-aware empirical frontier; materials validation remains no-go
