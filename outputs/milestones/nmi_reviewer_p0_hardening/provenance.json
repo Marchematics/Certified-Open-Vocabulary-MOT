@@ -1,0 +1,13 @@
+{
+  "claim_boundary": "does not create prospective materials evidence; diagnostic rows remain scoped",
+  "evidence_status": "aggregation_from_completed_artifacts",
+  "outputs": [
+    "table_p0_reviewer_gap_action_matrix.csv",
+    "table_human_audit_uncertainty_intervals.csv",
+    "table_baseline_frontier_maintext_map.csv",
+    "table_assumption_diagnostics_maintext_map.csv",
+    "table_refusal_feasibility_attribution.csv",
+    "NMI_REVIEWER_P0_HARDENING_CLOSEOUT.md"
+  ],
+  "status": "completed"
+}

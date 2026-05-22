@@ -77,6 +77,14 @@ def main() -> None:
             "claim_boundary": "CTC strict headline candidate; materials ALIGNN rows are mean-operating boundary secondary rows",
         },
         {
+            "milestone": "nmi_reviewer_p0_hardening",
+            "priority": "MUST",
+            "status": "completed_aggregation_package",
+            "source_artifact": "outputs/milestones/nmi_reviewer_p0_hardening/table_p0_reviewer_gap_action_matrix.csv",
+            "paper_role": "reviewer_facing_p0_risk_hardening",
+            "claim_boundary": "does not create prospective materials evidence; diagnostic rows remain scoped",
+        },
+        {
             "milestone": "llm_release_agent_stress_test",
             "priority": "MUST",
             "status": "blocked_missing_credentials_protocol_frozen",
@@ -143,6 +151,12 @@ def main() -> None:
             "lead_number": "CTC K=100/K=300 strict seed-stable transition at 0.5% top-score audit budget; random reaches at 100% in extended grid",
             "source_artifact": "outputs/milestones/audit_budget_release_frontier_headline/table_audit_budget_transition_primary.csv",
             "claim_scope": "paper-facing transition package with materials rows scoped as boundary/secondary",
+        },
+        {
+            "result": "NMI reviewer P0 hardening package",
+            "lead_number": "P0 gap/action matrix; audit CP/Wilson/Jeffreys intervals; baseline target-object map; assumption diagnostics map; refusal attribution table",
+            "source_artifact": "outputs/milestones/nmi_reviewer_p0_hardening/table_p0_reviewer_gap_action_matrix.csv",
+            "claim_scope": "reviewer-facing aggregation; no new prospective materials evidence",
         },
         {
             "result": "LLM release-agent stress test",

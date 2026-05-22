@@ -25,6 +25,7 @@ def test_non_a3_bridge_keeps_a3_out_of_headline() -> None:
     assert "materials_selection_conditional_discordance" in set(status["milestone"])
     assert "audit_budget_release_frontier" in set(status["milestone"])
     assert "audit_budget_release_frontier_headline" in set(status["milestone"])
+    assert "nmi_reviewer_p0_hardening" in set(status["milestone"])
     assert "llm_release_agent_stress_test" in set(status["milestone"])
     assert not status["milestone"].astype(str).str.contains("A3", case=False).any()
     text = (MILESTONE / "NON_A3_EXPERIMENT_BRIDGE_CLOSEOUT.md").read_text(encoding="utf-8")
@@ -40,6 +41,7 @@ def test_non_a3_bridge_claim_boundaries_are_scoped() -> None:
     assert "hypothesis B not supported" in joined
     assert "simulated audit only" in joined
     assert "materials ALIGNN rows are mean-operating boundary secondary rows" in joined
+    assert "diagnostic rows remain scoped" in joined
     assert "no LLM behavioral evidence" in joined
     audit = status[status["milestone"].eq("external_blind_audit_packet")].iloc[0]
     assert audit["status"] == "packet_completed_labels_pending"
