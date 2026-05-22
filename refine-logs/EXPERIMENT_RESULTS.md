@@ -147,3 +147,35 @@ Main facts:
 Interpretation:
 
 This is completed simulated-audit evidence for an audit-budget release frontier. Hidden full labels are used only to simulate one-sided audit returns and post-hoc FTR, not as new prospective labels. The result supports an audit-governance method claim only under the simulated-audit scope; it is not prospective materials discovery and does not modify A3.
+
+### M9: Audit Budget Headline Package — DONE
+
+Commands:
+
+```bash
+python scripts/run_audit_budget_release_frontier.py \
+  --policies random,top_score \
+  --budget-fractions 0,0.005,0.01,0.02,0.05,0.1,0.2,0.5,1.0 \
+  --out-dir outputs/milestones/audit_budget_release_frontier_extended
+python scripts/build_audit_budget_frontier_headline_package.py
+```
+
+Outputs:
+
+- `outputs/milestones/audit_budget_release_frontier_extended/`
+- `outputs/milestones/audit_budget_release_frontier_headline/table_audit_budget_transition_primary.csv`
+- `outputs/milestones/audit_budget_release_frontier_headline/table_audit_policy_efficiency.csv`
+- `outputs/milestones/audit_budget_release_frontier_headline/table_audit_budget_frontier_lead_numbers.csv`
+- `outputs/milestones/audit_budget_release_frontier_headline/figure_audit_budget_transition_source.csv`
+
+Main facts:
+
+- Extended random/top-score grid adds budgets 0.5 and 1.0.
+- CTC K=100 and K=300 meet the strict seed-stable criterion at 0.005 top-score audit budget.
+- Random audit reaches the same strict criterion only at 1.0 for those CTC rows, giving a 200x top-score-vs-random budget ratio in the frozen grid.
+- Materials ALIGNN K=300 and K=500 meet a mean-operating criterion at 0.005, but not the strict seed-stable criterion: seed-level alpha-violation rates are 0.45 and 0.15 respectively.
+- CGCNN K=100 remains a calibration/check row, not a headline utility claim.
+
+Interpretation:
+
+The audit-budget frontier now has one clean strict headline candidate: CTC release certification can transition from refusal to strict seed-stable release with a tiny targeted audit budget. The materials ALIGNN audit-budget rows are useful but must be reported as secondary boundary evidence, not as a strict headline.

@@ -400,9 +400,13 @@ def write_protocol_files(out_dir: Path, budget_fractions: list[float], policies:
 
 
 def write_closeout(out_dir: Path, summary: pd.DataFrame, seed_rows: pd.DataFrame, runtime_sec: float) -> None:
-    random_first = summary[summary["audit_policy"].eq("random")][
-        ["target_row", "first_safe_release_budget_fraction"]
-    ].rename(columns={"first_safe_release_budget_fraction": "random_first_safe"})
+    random_first = (
+        summary[summary["audit_policy"].eq("random")]
+        .groupby("target_row", dropna=False)["first_safe_release_budget_fraction"]
+        .min()
+        .reset_index()
+        .rename(columns={"first_safe_release_budget_fraction": "random_first_safe"})
+    )
     best = (
         summary.groupby(["target_row", "audit_policy"], dropna=False)["first_safe_release_budget_fraction"]
         .min()
@@ -434,8 +438,11 @@ def write_closeout(out_dir: Path, summary: pd.DataFrame, seed_rows: pd.DataFrame
         "This is a simulated audit-budget experiment over existing labels. It is not prospective "
         "materials discovery, does not modify A3 selection or DFT manifests, and does not create new "
         "human or DFT labels. The result may support an audit-governance method claim if reported as "
-        "a frontier over verification cost and release/refusal behavior.\n\n"
-        "## Transition Summary\n\n"
+        "a frontier over verification cost and release/refusal behavior. The transition summary below "
+        "uses the exploratory summary-table criterion from this raw frontier (`safe_release_rate > 0` "
+        "and mean FTR within alpha). Use the phase41 headline package for strict seed-stable "
+        "paper-facing transitions.\n\n"
+        "## Exploratory Transition Summary\n\n"
         f"{transition_text}\n",
         encoding="utf-8",
     )

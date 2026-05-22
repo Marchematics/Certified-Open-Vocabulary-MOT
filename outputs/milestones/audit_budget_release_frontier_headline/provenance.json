@@ -1,0 +1,12 @@
+{
+  "claim_boundary": "simulated audit frontier; not prospective materials discovery; A3 unchanged",
+  "evidence_status": "completed_paper_facing_postprocess",
+  "inputs": {
+    "default_summary": "outputs/milestones/audit_budget_release_frontier/table_audit_budget_frontier_summary.csv",
+    "default_summary_sha256": "1f18430dfcaee2f305f53091cabdd4e8dee304e7205b790e02bd92cfeaa6da49",
+    "extended_summary": "outputs/milestones/audit_budget_release_frontier_extended/table_audit_budget_frontier_summary.csv",
+    "extended_summary_sha256": "0a77aa8c0331025eac2179f803f5a102565156aa63b235ff4311fcb43befe4dd"
+  },
+  "min_safe_release_rate": 0.9,
+  "status": "completed"
+}

@@ -1,0 +1,7 @@
+policies:
+  random: uniform random calibration candidates
+  top_score: highest-score calibration candidates first
+  block_balanced_top_score: one high-score candidate per block in round-robin order
+  diversity_round_robin: round-robin over coarse diversity keys before repeating
+hidden_label_use: simulated_audit_return_and_posthoc_evaluation_only
+claim_boundary: not_prospective_materials_discovery

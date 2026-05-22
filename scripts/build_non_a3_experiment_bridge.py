@@ -69,6 +69,14 @@ def main() -> None:
             "claim_boundary": "simulated audit only; not prospective discovery; does not modify A3",
         },
         {
+            "milestone": "audit_budget_release_frontier_headline",
+            "priority": "MUST",
+            "status": "completed_paper_facing_postprocess",
+            "source_artifact": "outputs/milestones/audit_budget_release_frontier_headline/table_audit_budget_transition_primary.csv",
+            "paper_role": "strict_CTC_headline_plus_materials_boundary",
+            "claim_boundary": "CTC strict headline candidate; materials ALIGNN rows are mean-operating boundary secondary rows",
+        },
+        {
             "milestone": "llm_release_agent_stress_test",
             "priority": "MUST",
             "status": "blocked_missing_credentials_protocol_frozen",
@@ -129,6 +137,12 @@ def main() -> None:
             "lead_number": "5 target rows; 20 seeds; 4 audit policies; 7 audit budgets",
             "source_artifact": "outputs/milestones/audit_budget_release_frontier/table_audit_budget_frontier_summary.csv",
             "claim_scope": "completed simulated-audit release/refusal frontier",
+        },
+        {
+            "result": "audit budget strict transition package",
+            "lead_number": "CTC K=100/K=300 strict seed-stable transition at 0.5% top-score audit budget; random reaches at 100% in extended grid",
+            "source_artifact": "outputs/milestones/audit_budget_release_frontier_headline/table_audit_budget_transition_primary.csv",
+            "claim_scope": "paper-facing transition package with materials rows scoped as boundary/secondary",
         },
         {
             "result": "LLM release-agent stress test",

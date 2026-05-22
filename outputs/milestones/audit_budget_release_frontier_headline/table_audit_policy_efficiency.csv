@@ -1,0 +1,13 @@
+target_row,domain,alpha,K,audit_policy,first_strict_budget,release_rate_at_transition,safe_release_rate_at_transition,mean_release_at_transition,actual_FTR_at_transition,verified_positives_found_mean,cost_per_true_release_mean,manuscript_role
+ctc_learned_strict_alpha010_K100,biomedical_cell_tracking,0.1,100,block_balanced_top_score,0.01,0.95,0.95,90.95,0.0,723.0,7.949422759758108,ctc_strict_anchor_headline_candidate
+ctc_learned_strict_alpha010_K100,biomedical_cell_tracking,0.1,100,diversity_round_robin,0.01,0.95,0.95,90.95,0.0,723.0,7.949422759758108,ctc_strict_anchor_headline_candidate
+ctc_learned_strict_alpha010_K100,biomedical_cell_tracking,0.1,100,random,1.0,1.0,1.0,100.0,0.0,14491.15,722.995,ctc_strict_anchor_headline_candidate
+ctc_learned_strict_alpha010_K100,biomedical_cell_tracking,0.1,100,top_score,0.005,1.0,1.0,100.0,0.0,361.6,3.616,ctc_strict_anchor_headline_candidate
+ctc_learned_strict_alpha010_K300,biomedical_cell_tracking,0.1,300,block_balanced_top_score,0.1,1.0,1.0,300.0,0.0,3968.85,24.099833333333333,ctc_strict_anchor_headline_candidate
+ctc_learned_strict_alpha010_K300,biomedical_cell_tracking,0.1,300,diversity_round_robin,0.1,1.0,1.0,300.0,0.0,3968.85,24.099833333333333,ctc_strict_anchor_headline_candidate
+ctc_learned_strict_alpha010_K300,biomedical_cell_tracking,0.1,300,random,1.0,1.0,1.0,300.0,0.0,14491.15,240.9983333333333,ctc_strict_anchor_headline_candidate
+ctc_learned_strict_alpha010_K300,biomedical_cell_tracking,0.1,300,top_score,0.005,0.95,0.95,275.5,0.0,361.6,1.3125226860254084,ctc_strict_anchor_headline_candidate
+materials_cgcnn_exact_stable_alpha010_K100,materials_discovery,0.1,100,block_balanced_top_score,0.05,1.0,1.0,98.75,0.0272024652504589,1681.35,56.16233090530697,calibration_check_not_headline
+materials_cgcnn_exact_stable_alpha010_K100,materials_discovery,0.1,100,diversity_round_robin,0.005,1.0,1.0,99.1,0.0274390243902439,317.9,5.599066390041494,calibration_check_not_headline
+materials_cgcnn_exact_stable_alpha010_K100,materials_discovery,0.1,100,random,1.0,1.0,1.0,100.0,0.03,16521.5,1112.8159793814432,calibration_check_not_headline
+materials_cgcnn_exact_stable_alpha010_K100,materials_discovery,0.1,100,top_score,0.005,1.0,1.0,100.0,0.03,339.65,5.564432989690721,calibration_check_not_headline

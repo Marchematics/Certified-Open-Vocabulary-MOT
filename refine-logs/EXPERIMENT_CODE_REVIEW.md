@@ -43,3 +43,17 @@ Reviewed:
 | Audit policies and budgets match preregistration | PASS | Defaults are 4 policies, 7 budget fractions, 20 seeds, and 5 target rows. |
 | Uses ground truth for evaluation, not model output | PASS | CTC uses `~is_unmatched`; materials uses WBM `stable_exact`; scores are ranking/audit-priority inputs only. |
 | Preserves A3 boundary | PASS | Both closeouts state no A3 evidence and no prospective materials-discovery claim. |
+
+## Phase41 Local Review Addendum
+
+Reviewed:
+
+- `scripts/build_audit_budget_frontier_headline_package.py`
+- `tests/test_audit_budget_frontier_headline.py`
+
+| Check | Result | Notes |
+| --- | --- | --- |
+| Separates strict and mean-operating criteria | PASS | Strict headline requires `safe_release_rate >= 0.9` and mean FTR within alpha; materials rows that only satisfy mean-operating criteria are secondary boundary rows. |
+| Keeps CGCNN scoped | PASS | CGCNN K=100 is marked `calibration_check_not_headline`. |
+| Provides random comparator | PASS | Extended random/top-score grid reaches 1.0 budget for random and 0.005 for top-score on CTC strict rows. |
+| Avoids prospective materials wording | PASS | Closeout and lead rows explicitly preserve simulated-audit / no-A3 / no-prospective-discovery boundaries. |

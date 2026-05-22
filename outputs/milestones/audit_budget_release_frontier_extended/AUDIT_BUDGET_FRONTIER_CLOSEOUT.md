@@ -2,9 +2,9 @@
 
 Status: completed simulated-audit frontier.
 
-- Seed rows: 2800
-- Summary rows: 140
-- Runtime seconds: 251.15
+- Seed rows: 1800
+- Summary rows: 90
+- Runtime seconds: 67.74
 
 ## Claim Boundary
 
@@ -12,8 +12,8 @@ This is a simulated audit-budget experiment over existing labels. It is not pros
 
 ## Exploratory Transition Summary
 
-- ctc_learned_strict_alpha010_K100: first safe release under `top_score` at 0.005; random/best budget ratio NA.
-- ctc_learned_strict_alpha010_K300: first safe release under `top_score` at 0.005; random/best budget ratio NA.
-- materials_alignn_exact_stable_alpha010_K300: first safe release under `diversity_round_robin` at 0.005; random/best budget ratio NA.
-- materials_alignn_exact_stable_alpha010_K500: first safe release under `diversity_round_robin` at 0.005; random/best budget ratio NA.
-- materials_cgcnn_exact_stable_alpha010_K100: first safe release under `block_balanced_top_score` at 0.0; random/best budget ratio NA.
+- ctc_learned_strict_alpha010_K100: first safe release under `top_score` at 0.005; random/best budget ratio 200.0.
+- ctc_learned_strict_alpha010_K300: first safe release under `top_score` at 0.005; random/best budget ratio 200.0.
+- materials_alignn_exact_stable_alpha010_K300: first safe release under `top_score` at 0.005; random/best budget ratio 100.0.
+- materials_alignn_exact_stable_alpha010_K500: first safe release under `top_score` at 0.005; random/best budget ratio 200.0.
+- materials_cgcnn_exact_stable_alpha010_K100: first safe release under `random` at 0.0; random/best budget ratio NA.

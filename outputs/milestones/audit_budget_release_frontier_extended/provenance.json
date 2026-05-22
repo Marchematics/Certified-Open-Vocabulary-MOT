@@ -1,0 +1,30 @@
+{
+  "audit_policies": [
+    "random",
+    "top_score"
+  ],
+  "budget_fractions": [
+    0.0,
+    0.005,
+    0.01,
+    0.02,
+    0.05,
+    0.1,
+    0.2,
+    0.5,
+    1.0
+  ],
+  "claim_boundary": "simulated audit frontier; not prospective materials discovery; A3 unchanged",
+  "evidence_status": "completed_simulated_audit_frontier",
+  "inputs": {
+    "alignn_predictions_sha256": "dc75be97f3bce3ce724680065abf11a19bdc6a3928fdd77ccb42d3f62a02e593",
+    "cgcnn_predictions_sha256": "9fba78430e76e7443436d143d2af9ad1d7e54ef84e73443abe9058e41e4d7ebb",
+    "ctc_universe_sha256": "6f0b4cd93ae92529b28734118f02c9a0b333805445555fa21aa26c3c805ae843",
+    "wbm_summary_sha256": "ff19e59d74115de9762fbc868c9f35900ae099c18f23e9c89d10589af1418225"
+  },
+  "runtime_sec": 67.73973423521966,
+  "seed_rows": 1800,
+  "status": "completed",
+  "summary_rows": 90,
+  "target_rows": 5
+}
