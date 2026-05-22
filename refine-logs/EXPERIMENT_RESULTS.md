@@ -179,3 +179,59 @@ Main facts:
 Interpretation:
 
 The audit-budget frontier now has one clean strict headline candidate: CTC release certification can transition from refusal to strict seed-stable release with a tiny targeted audit budget. The materials ALIGNN audit-budget rows are useful but must be reported as secondary boundary evidence, not as a strict headline.
+
+### M10: NMI Reviewer P0 Hardening — DONE
+
+Command:
+
+```bash
+python scripts/build_nmi_reviewer_p0_hardening.py
+```
+
+Outputs:
+
+- `outputs/milestones/nmi_reviewer_p0_hardening/table_p0_reviewer_gap_action_matrix.csv`
+- `outputs/milestones/nmi_reviewer_p0_hardening/table_human_audit_uncertainty_intervals.csv`
+- `outputs/milestones/nmi_reviewer_p0_hardening/table_baseline_frontier_maintext_map.csv`
+- `outputs/milestones/nmi_reviewer_p0_hardening/table_assumption_diagnostics_maintext_map.csv`
+- `outputs/milestones/nmi_reviewer_p0_hardening/table_refusal_feasibility_attribution.csv`
+
+Main facts:
+
+- Prospective / independent materials validation remains `not_completed_positive_evidence`.
+- External materials labels remain completed negative/diagnostic-only evidence, not positive validation.
+- iWildCam 167/167 and SpaceNet 147/147 zero-false audit rows now include Clopper-Pearson, Wilson, and Jeffreys upper intervals.
+- Baseline rows are mapped by target object and certificate properties, keeping different-target comparators scoped.
+- Refusal rows are attributed to evidence-mass or finite-resolution gates, not to an unexamined greedy miss.
+
+Interpretation:
+
+This package turns the reviewer P0 checklist into paper-facing support tables. It hardens the claim boundary, but does not create prospective materials evidence.
+
+### M11: NMI Main-Text Evidence Package — DONE
+
+Command:
+
+```bash
+python scripts/build_nmi_maintext_evidence_package.py
+```
+
+Outputs:
+
+- `outputs/milestones/nmi_maintext_evidence_package/table_headline_evidence_hierarchy.csv`
+- `outputs/milestones/nmi_maintext_evidence_package/table_maintext_claim_sentences.csv`
+- `outputs/milestones/nmi_maintext_evidence_package/figure_audit_budget_maintext_source.csv`
+- `outputs/milestones/nmi_maintext_evidence_package/figure_reviewer_p0_support_source.csv`
+- `outputs/milestones/nmi_maintext_evidence_package/table_figures_to_artifacts.csv`
+
+Main facts:
+
+- The only primary-headline row is the CTC active-audit strict transition.
+- The exact primary sentence states that 0.5% top-score audit converted CTC K=100/K=300 refusal into strict seed-stable certified release at alpha=0.10, while random audit required full calibration-set inspection in the frozen grid.
+- Materials audit-budget rows are boundary/secondary because K=300 and K=500 have seed-level alpha-violation rates of 0.45 and 0.15.
+- The materials prospective row is explicitly `not_completed_positive_evidence`.
+- Every claim sentence maps to a source artifact and SHA256 hash.
+
+Interpretation:
+
+This is a paper-facing postprocess package. It does not add new evidence; it prevents the manuscript from accidentally promoting diagnostics, pending rows, or materials no-go rows into headline claims.

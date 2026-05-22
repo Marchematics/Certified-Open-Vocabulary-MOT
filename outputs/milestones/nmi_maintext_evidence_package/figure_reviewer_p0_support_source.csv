@@ -1,0 +1,14 @@
+panel,item,status,numeric_value,label,claim_boundary
+p0_gap_action,P0-1,not_completed_positive_evidence,,prospective / independent materials validation,do not claim prospective materials discovery; keep A1/A2/A3 as diagnostic/no-go unless new DFT gates pass
+p0_gap_action,P0-2,completed_negative_or_diagnostic_only,,external or temporal materials labels,"use source-discordance as stress test, not validation success"
+p0_gap_action,P0-3,completed_but_needs_main_text_centering,,full baseline risk-utility frontier,move target-object-aware frontier to main/extended data; do not imply non-PARC baselines solve same certificate object
+p0_gap_action,P0-4,completed_across_existing_artifacts,,assumption diagnostics,promote as one assumption-diagnostics figure; contamination remains assumption-violation diagnostic
+p0_gap_action,P0-5,completed,,human audit uncertainty intervals,"report zero-false audits with CP/Wilson/Jeffreys upper bounds, not just FTR=0"
+p0_gap_action,P0-6,completed_diagnostic,,refusal feasibility / greedy-vs-ILP attribution,attribute refusal to evidence-mass or finite-resolution gates; do not state greedy optimality where graph is unavailable
+audit_uncertainty,iWildCam:release_audit,completed_interval,0.0177785791936211,CP upper95,zero observed false is reported with interval uncertainty; not universal zero-risk evidence
+audit_uncertainty,SpaceNet7:K50_diagnostic_release_audit,completed_interval,0.0201728800686635,CP upper95,zero observed false is reported with interval uncertainty; not universal zero-risk evidence
+refusal_attribution,ctc_random_score_alpha010_K100,finite_resolution_cap,0.0562513371052834,evidence_mass_phi,ILP/MIS cannot rescue this refusal before evidence-mass/finite-resolution gates
+refusal_attribution,materials_K5000_alpha010,pre_graph_mass_failure,0.2848228670465493,evidence_mass_phi,ILP/MIS cannot rescue this refusal before evidence-mass/finite-resolution gates
+refusal_attribution,iwildcam_strict_alpha010_K50,finite_resolution_cap,0.6455912967197628,evidence_mass_phi,ILP/MIS cannot rescue this refusal before evidence-mass/finite-resolution gates
+refusal_attribution,spacenet7_real_audit_K100,pre_graph_mass_failure,0.6352281046999336,evidence_mass_phi,ILP/MIS cannot rescue this refusal before evidence-mass/finite-resolution gates
+refusal_attribution,spacenet_k100_alpha020_refusal,mass_ratio_below_one,0.6352281046999336,evidence_mass_phi,"K100 refuses because the high-evidence mass ratio is below one in every seed, even though max e exceeds the nominal required e."

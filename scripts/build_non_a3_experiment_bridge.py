@@ -85,6 +85,14 @@ def main() -> None:
             "claim_boundary": "does not create prospective materials evidence; diagnostic rows remain scoped",
         },
         {
+            "milestone": "nmi_maintext_evidence_package",
+            "priority": "MUST",
+            "status": "completed_paper_facing_postprocess",
+            "source_artifact": "outputs/milestones/nmi_maintext_evidence_package/table_headline_evidence_hierarchy.csv",
+            "paper_role": "maintext_claim_sentence_and_figure_source_package",
+            "claim_boundary": "only CTC active-audit row is primary headline; materials prospective discovery remains forbidden",
+        },
+        {
             "milestone": "llm_release_agent_stress_test",
             "priority": "MUST",
             "status": "blocked_missing_credentials_protocol_frozen",
@@ -159,6 +167,12 @@ def main() -> None:
             "claim_scope": "reviewer-facing aggregation; no new prospective materials evidence",
         },
         {
+            "result": "NMI maintext evidence package",
+            "lead_number": "Only primary headline row is CTC active-audit strict transition; materials audit rows scoped as boundary; P0 gaps retained",
+            "source_artifact": "outputs/milestones/nmi_maintext_evidence_package/table_headline_evidence_hierarchy.csv",
+            "claim_scope": "paper-facing claim sentences and figure sources; no new prospective materials evidence",
+        },
+        {
             "result": "LLM release-agent stress test",
             "lead_number": "protocol, prompt templates, parser schema, task manifest, and model run manifest frozen; credentials blocked",
             "source_artifact": "outputs/milestones/llm_release_agent_stress_test/model_run_manifest.csv",
@@ -200,12 +214,14 @@ def main() -> None:
         "selection-conditional discordance no-go, overlay, and blind-audit-packet artifacts were "
         "inventoried and scoped. The active audit budget frontier was added as a completed simulated-audit "
         "methodological frontier, while the LLM release-agent stress test was frozen as a credentials-blocked "
-        "protocol scaffold with no behavioral evidence claimed.\n\n"
+        "protocol scaffold with no behavioral evidence claimed. The NMI main-text evidence package converts "
+        "completed artifacts into exact claim sentences and figure source rows without creating new evidence.\n\n"
         "## Claim Boundary\n\n"
         "- A3 remains outside headline-positive evidence.\n"
         "- MP-Alex/OQMD remain source-discordance diagnostics, not positive independent validation.\n"
         "- Nonzero verified-positive contamination rows are assumption-violation diagnostics, not formal guarantees.\n"
         "- Audit-budget rows are simulated-audit results over existing labels, not new verification labels.\n"
+        "- Only the CTC active-audit transition is a primary headline row in the main-text evidence package.\n"
         "- LLM release-agent rows are protocol scaffolds until model outputs are run and scored.\n"
         "- External blind audit packets remain pending until labels and adjudication return.\n",
         encoding="utf-8",

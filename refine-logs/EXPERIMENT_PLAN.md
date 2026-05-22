@@ -34,3 +34,19 @@ Move the paper away from A3-dependent prospective-materials claims and toward a 
 Backend: local CPU.
 
 Estimated runtime: minutes for table-building; no GPU required.
+
+## Execution Update
+
+The initial non-A3 bridge has now been extended into a paper-facing evidence package.
+
+| Milestone | Status | Claim Role |
+| --- | --- | --- |
+| M5: Materials label-discordance preregistration/probe | completed | source-uncertainty preregistration/probe only |
+| M6: Selection-conditional discordance | completed no-go | completed negative diagnostic |
+| M7: LLM release-agent stress-test protocol | blocked / protocol frozen | no behavioral evidence without model outputs |
+| M8: Active audit budget frontier | completed | simulated audit-governance frontier |
+| M9: Active audit budget headline package | completed | CTC strict headline candidate; materials boundary secondary |
+| M10: NMI reviewer P0 hardening | completed | reviewer-facing support and claim-boundary hardening |
+| M11: NMI main-text evidence package | completed | exact claim sentences and figure source rows |
+
+The current paper-facing hierarchy is: CTC active-audit strict transition as the only primary headline; materials fixed/audit-budget rows as retrospective or boundary evidence; external material-source diagnostics as stress/no-go evidence; A3 outside positive claims.

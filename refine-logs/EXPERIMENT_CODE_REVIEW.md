@@ -57,3 +57,34 @@ Reviewed:
 | Keeps CGCNN scoped | PASS | CGCNN K=100 is marked `calibration_check_not_headline`. |
 | Provides random comparator | PASS | Extended random/top-score grid reaches 1.0 budget for random and 0.005 for top-score on CTC strict rows. |
 | Avoids prospective materials wording | PASS | Closeout and lead rows explicitly preserve simulated-audit / no-A3 / no-prospective-discovery boundaries. |
+
+## Phase42 Local Review Addendum
+
+Reviewed:
+
+- `scripts/build_nmi_reviewer_p0_hardening.py`
+- `tests/test_nmi_reviewer_p0_hardening.py`
+
+| Check | Result | Notes |
+| --- | --- | --- |
+| Keeps materials A1/A2/A3 scoped | PASS | Prospective / independent materials validation remains not-completed positive evidence. |
+| Adds audit uncertainty intervals | PASS | iWildCam and SpaceNet zero-false audit rows include Clopper-Pearson, Wilson, and Jeffreys upper intervals. |
+| Preserves baseline target boundaries | PASS | Different-target baselines are mapped by certificate properties rather than promoted as direct PARC replacements. |
+| Avoids greedy-refusal overclaim | PASS | Refusal attribution distinguishes evidence-mass and finite-resolution gates from selector-power claims. |
+
+## Phase43 Local Review Addendum
+
+Reviewed:
+
+- `scripts/build_nmi_maintext_evidence_package.py`
+- `tests/test_nmi_maintext_evidence_package.py`
+- `scripts/build_non_a3_experiment_bridge.py`
+- `tests/test_non_a3_experiment_bridge.py`
+
+| Check | Result | Notes |
+| --- | --- | --- |
+| Produces exact claim sentences | PASS | Every claim row maps to a source artifact and SHA256 hash. |
+| Restricts primary headline | PASS | The only primary headline row is the CTC active-audit strict transition. |
+| Keeps materials rows scoped | PASS | Materials audit-budget rows are boundary/secondary; prospective materials discovery remains forbidden. |
+| Preserves bridge boundaries | PASS | The non-A3 bridge now records the package as paper-facing postprocess, not new evidence. |
+| Does not touch A3 selection/manifests | PASS | All new outputs are under `nmi_maintext_evidence_package` and `non_a3_experiment_bridge`. |

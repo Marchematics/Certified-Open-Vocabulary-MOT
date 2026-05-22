@@ -1,0 +1,13 @@
+{
+  "claim_boundary": "does not edit manuscript; does not create prospective materials evidence",
+  "evidence_status": "paper_facing_postprocess_only",
+  "outputs": [
+    "table_headline_evidence_hierarchy.csv",
+    "table_maintext_claim_sentences.csv",
+    "figure_audit_budget_maintext_source.csv",
+    "figure_reviewer_p0_support_source.csv",
+    "table_figures_to_artifacts.csv",
+    "NMI_MAINTEXT_EVIDENCE_PACKAGE.md"
+  ],
+  "status": "completed"
+}
