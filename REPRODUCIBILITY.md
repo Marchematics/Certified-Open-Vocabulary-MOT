@@ -63,6 +63,8 @@ outputs/milestones/materials_fixed_budget_scientific_utility/
 outputs/milestones/ctc_scientific_artifact_consequence/
 outputs/milestones/nmi_presubmission_package/
 outputs/milestones/nmi_presubmission_final/
+outputs/milestones/materials_label_discordance_preregistration/
+outputs/milestones/materials_selection_conditional_discordance/
 outputs/milestones/pre_release_repository_cleanup/
 outputs/milestones/reproducibility_freeze/
 outputs/milestones/generality_reliability/

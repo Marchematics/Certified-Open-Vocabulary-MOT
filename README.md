@@ -65,6 +65,8 @@ parc-track/
 │   ├── milestones/ctc_scientific_artifact_consequence/
 │   ├── milestones/nmi_presubmission_package/
 │   ├── milestones/nmi_presubmission_final/
+│   ├── milestones/materials_label_discordance_preregistration/
+│   ├── milestones/materials_selection_conditional_discordance/
 │   ├── milestones/pre_release_repository_cleanup/
 │   ├── milestones/reproducibility_freeze/
 │   └── benchmarks/parc_certification_benchmark/
@@ -78,6 +80,8 @@ parc-track/
 
 - PARC certification code: null-superset block calibration, coverage-conditional empty-block handling, e-value generation, finite-resolution diagnostics, SCS-Greedy release, report builders, TrackEval export helpers, and adapter utilities.
 - Audit benchmark: `outputs/benchmarks/parc_certification_benchmark/audit/` and the full frozen milestone under `outputs/milestones/reliability_fortress/`.
+- Materials-label discordance preregistration: `outputs/milestones/materials_label_discordance_preregistration/` defines a separate go/no-go route for testing public DFT label reproducibility. It is protocol-only and contains no API keys, no new positive evidence, and no prospective-discovery claim.
+- Selection-conditional discordance go/no-go: `outputs/milestones/materials_selection_conditional_discordance/` tests whether MP-vs-alex discordance is amplified in the high-confidence score strata of ALIGNN-FF, CHGNet, and MACE-MP. It is a completed negative diagnostic, not a new materials-discovery claim.
 - Scientific-domain milestones for CTC cell-link certification, learned-hybrid CTC link certification, SpaceNet 7 building-link certification, a prospective iWildCam animal-present human-audit package, and Matbench Discovery stable-material candidate release.
 - Release-certification benchmark cards that package completed CTC, materials, iWildCam, SpaceNet, and downstream-artifact evidence into a reusable scientific AI governance protocol.
 - Block-heterogeneity robustness diagnostics for the current public artifact package: candidate-level size-stratified, size-matched, and downsampled block-max checks for materials, plus scoped aggregate/audit-sample diagnostics for CTC and SpaceNet where candidate-level universes are not included.

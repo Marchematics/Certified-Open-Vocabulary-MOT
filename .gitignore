@@ -19,6 +19,7 @@ tmp/
 third_party/
 outputs/packages/
 outputs/tmp_*/
+outputs/test_tmp/
 outputs/**/qe_outputs/
 outputs/**/dft_outputs/raw/
 outputs/**/dft_outputs/work/

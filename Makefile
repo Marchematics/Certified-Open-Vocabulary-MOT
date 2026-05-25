@@ -1,7 +1,7 @@
 PYTHON ?= python
 PYTHONPATH ?= code/parc_track
 
-.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark reproduce-block-heterogeneity-robustness reproduce-materials-prospective-validation reproduce-materials-alex-mp-a1-a2 reproduce-materials-queue-source-uncertainty-overlay reproduce-phase30-main-evidence reproduce-phase31-claim-alignment reproduce-phase32-presubmission reproduce-phase33-presubmission-final reproduce-phase37-submission-scope-lock reproduce-a3-v4-formal-selection-gate reproduce-a3-v4-dft-manifest-addendum reproduce-a3-v4-phase29c-extra-tail-manifest reproduce-a3-dft-run-package reproduce-a3-qe-local-run reproduce-experimental-finalization phase24-freeze-dft-followup phase24-build-unlabeled-pool phase24-filter-public-labels phase24-score-unlabeled-pool phase24-select-dft-arms phase24-export-dft-jobs validate-public-bundle verify-manifest pre-release-check package-release package-release-story package-scientific-release
+.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark reproduce-block-heterogeneity-robustness reproduce-materials-prospective-validation reproduce-materials-alex-mp-a1-a2 reproduce-materials-label-discordance-preregistration reproduce-materials-label-discordance-experiment reproduce-materials-selection-conditional-discordance reproduce-materials-queue-source-uncertainty-overlay reproduce-phase30-main-evidence reproduce-phase31-claim-alignment reproduce-phase32-presubmission reproduce-phase33-presubmission-final reproduce-phase37-submission-scope-lock reproduce-a3-v4-formal-selection-gate reproduce-a3-v4-dft-manifest-addendum reproduce-a3-v4-phase29c-extra-tail-manifest reproduce-a3-dft-run-package reproduce-a3-qe-local-run reproduce-experimental-finalization phase24-freeze-dft-followup phase24-build-unlabeled-pool phase24-filter-public-labels phase24-score-unlabeled-pool phase24-select-dft-arms phase24-export-dft-jobs validate-public-bundle verify-manifest pre-release-check package-release package-release-story package-scientific-release
 
 test:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q tests
@@ -48,6 +48,16 @@ reproduce-materials-prospective-validation:
 
 reproduce-materials-alex-mp-a1-a2:
 	$(PYTHON) scripts/build_materials_alex_mp_a1_a2_validation.py
+
+reproduce-materials-label-discordance-preregistration:
+	$(PYTHON) scripts/build_materials_label_discordance_preregistration.py
+
+reproduce-materials-label-discordance-experiment:
+	$(PYTHON) scripts/score_materials_label_discordance_frontier_models.py
+	$(PYTHON) scripts/build_materials_label_discordance_experiment.py
+
+reproduce-materials-selection-conditional-discordance:
+	$(PYTHON) scripts/build_materials_selection_conditional_discordance.py
 
 reproduce-materials-queue-source-uncertainty-overlay:
 	$(PYTHON) scripts/build_materials_queue_source_uncertainty_overlay.py
@@ -131,6 +141,7 @@ validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/reproducibility_freeze
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/materials_temporal_replay_completed
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/materials_alex_mp_a1_a2_validation
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/materials_label_discordance_preregistration
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/fixed_budget_scientific_utility_trial
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/adversarial_release_stress_trial
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/selector_optimality_diagnostics
@@ -153,8 +164,6 @@ verify-manifest:
 pre-release-check:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q tests/test_pre_release_repository_cleanup.py
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/pre_release_repository_cleanup
-	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/materials_queue_source_uncertainty_overlay
-	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/submission_scope_lock_phase37
 
 package-release:
 	mkdir -p outputs/packages
