@@ -1,0 +1,30 @@
+# generated using pymatgen
+data_CaF3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.08481693
+_cell_length_b   4.14399018
+_cell_length_c   4.12394028
+_cell_angle_alpha   86.39295996
+_cell_angle_beta   88.13076759
+_cell_angle_gamma   89.96412650
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   CaF3
+_chemical_formula_sum   'Ca1 F3'
+_cell_volume   69.63232412
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ca  Ca0  1  0.99797823  0.98116453  0.02091501  1
+  F  F1  1  0.50380723  0.17371390  0.82522308  1
+  F  F2  1  0.18720495  0.87200444  0.52286767  1
+  F  F3  1  0.81100858  0.47311813  0.13099424  1

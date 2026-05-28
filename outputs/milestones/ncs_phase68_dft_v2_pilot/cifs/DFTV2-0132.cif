@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_BaMgUBiO6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.85098773
+_cell_length_b   6.86163473
+_cell_length_c   5.89864107
+_cell_angle_alpha   59.58922999
+_cell_angle_beta   60.26688332
+_cell_angle_gamma   64.76352468
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   BaMgUBiO6
+_chemical_formula_sum   'Ba1 Mg1 U1 Bi1 O6'
+_cell_volume   172.41768008
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mg  Mg0  1  0.50836425  0.45903032  0.52424117  1
+  U  U1  1  0.13646700  0.44098947  0.28607653  1
+  Bi  Bi2  1  0.95445968  0.08801916  0.00306149  1
+  O  O3  1  0.77056100  0.68271023  0.30812967  1
+  O  O4  1  0.83377991  0.20964248  0.64803912  1
+  O  O5  1  0.74721284  0.37197542  0.13359890  1
+  O  O6  1  0.28790280  0.55958514  0.86460926  1
+  O  O7  1  0.23859909  0.68271023  0.30812967  1
+  O  O8  1  0.30853849  0.20964248  0.64803912  1
+  Ba  Ba9  1  0.71411492  0.79569507  0.77607508  1

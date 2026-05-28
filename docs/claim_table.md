@@ -159,3 +159,9 @@ queues. It compares random, raw-score targeted, PARC-M evidence targeted,
 CHGNet/MACE support targeted, and mass-gain acquisition. The t1 current-MP
 columns are reported only as utility audits and cannot support prospective
 materials-discovery or t1 alpha-control claims.
+
+## Phase68 DFT v2 Pilot
+
+Status: `pre_outcome_blinded_manifest_frozen`.
+
+Phase68 freezes a blinded DFT v2 pilot package with `360` WBM structures. It is execution infrastructure only: no DFT outcomes, no prospective materials-discovery claim, and no t1 alpha certificate are supported until outcomes are returned and analyzed under the conservative failure policy.

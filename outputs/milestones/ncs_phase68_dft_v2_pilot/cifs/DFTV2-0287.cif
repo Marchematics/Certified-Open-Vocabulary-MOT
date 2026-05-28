@@ -1,0 +1,31 @@
+# generated using pymatgen
+data_Er2SiBr2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.07990960
+_cell_length_b   4.07978503
+_cell_length_c   10.91648562
+_cell_angle_alpha   79.20778168
+_cell_angle_beta   79.20591117
+_cell_angle_gamma   60.00277733
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Er2SiBr2
+_chemical_formula_sum   'Er2 Si1 Br2'
+_cell_volume   153.64377064
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Si  Si0  1  0.00002008  0.99998846  0.99999967  1
+  Br  Br1  1  0.22885439  0.22890724  0.31278739  1
+  Br  Br2  1  0.77107893  0.77113226  0.68721241  1
+  Er  Er3  1  0.61745700  0.61749684  0.14740810  1
+  Er  Er4  1  0.38258960  0.38247620  0.85259144  1

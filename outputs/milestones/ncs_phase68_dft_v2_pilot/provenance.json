@@ -1,0 +1,77 @@
+{
+  "arm_feasibility": [
+    {
+      "arm": "parc_release_core",
+      "selected_n": 100,
+      "status": "selected",
+      "target_n": 100
+    },
+    {
+      "arm": "parc_release_boundary_t1_false",
+      "selected_n": 60,
+      "status": "selected",
+      "target_n": 60
+    },
+    {
+      "arm": "raw_only_extra_tail",
+      "selected_n": 150,
+      "status": "selected",
+      "target_n": 150
+    },
+    {
+      "arm": "public_sanity_stable",
+      "selected_n": 25,
+      "status": "selected",
+      "target_n": 25
+    },
+    {
+      "arm": "public_sanity_unstable",
+      "selected_n": 25,
+      "status": "selected",
+      "target_n": 25
+    },
+    {
+      "arm": "matched_raw_topR_nonoverlap",
+      "selected_n": 0,
+      "status": "not_available_raw_topR_coextensive_with_PARC_release",
+      "target_n": 50
+    }
+  ],
+  "arms": {
+    "parc_release_boundary_t1_false": 60,
+    "parc_release_core": 100,
+    "public_sanity_stable": 25,
+    "public_sanity_unstable": 25,
+    "raw_only_extra_tail": 150
+  },
+  "blinding": {
+    "executor_manifest": "dft_v2_blinded_transfer_manifest.csv",
+    "executor_manifest_contains_arm_labels": false,
+    "sealed_analysis_key": "dft_v2_analysis_arm_key.csv"
+  },
+  "claim_scope": "DFT_v2_blinded_recomputation_pilot_pre_outcome;frozen_WBM_queue_structures;no_DFT_outcomes;not_prospective_materials_discovery;not_t1_alpha_certificate",
+  "jobs": 360,
+  "milestone": "ncs_phase68_dft_v2_pilot",
+  "overclaim_guardrails": [
+    "do_not_claim_DFT_outcome",
+    "do_not_claim_prospective_materials_discovery",
+    "do_not_claim_t1_alpha_certificate",
+    "do_not_modify_A3_selection_or_manifests"
+  ],
+  "phase": "phase68",
+  "source_artifacts": {
+    "phase51_candidate_t1_mlip_audit": {
+      "path": "outputs/milestones/ncs_phase51_materials_t1_candidate_explanation/table_materials_t1_mlip_candidate_audit.csv",
+      "sha256": "284caf1ecd43b093402d0f938041c71227a31d0155ce7b7dd8822d7b8a96b14b"
+    },
+    "phase53_chgnet_mace_candidate_audit": {
+      "path": "outputs/milestones/ncs_phase53_chgnet_mace_candidate_audit/table_materials_candidate_level_chgnet_mace_audit.csv",
+      "sha256": "3aa93268cc0e8b49463c373c01f83d188e3f6a1d1bc944d7fb3eb92a1ac525e6"
+    },
+    "private_wbm_structure_cache": {
+      "path": "local_private_WBM_structure_cache_not_distributed",
+      "sha256": "not_public_safe"
+    }
+  },
+  "status": "pre_outcome_blinded_manifest_frozen"
+}

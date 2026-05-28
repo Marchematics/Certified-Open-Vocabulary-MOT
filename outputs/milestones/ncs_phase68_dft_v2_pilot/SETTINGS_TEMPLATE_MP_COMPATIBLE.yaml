@@ -1,0 +1,12 @@
+dft_engine_primary: VASP
+workflow: atomate2/custodian MP-compatible relaxation and static
+functional: PBE-GGA
+encut_eV: 520
+kpoint_density: MPRelaxSet-compatible
+electronic_convergence_eV: 1.0e-5
+force_convergence_eV_per_angstrom: 0.02
+relaxation: full cell and ionic relaxation
+static_after_relax: true
+compatibility_corrections: fixed MP-compatible correction scheme recorded before analysis
+arm_blinding: DFT executor receives only dft_v2_blinded_transfer_manifest.csv and CIFs
+failure_policy: failed_or_missing_jobs_count_not_certified_stable_false_for_conservative_FTR

@@ -1,0 +1,30 @@
+# generated using pymatgen
+data_PmNiTe2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.63862626
+_cell_length_b   3.95465669
+_cell_length_c   5.63862458
+_cell_angle_alpha   69.43636704
+_cell_angle_beta   60.57638862
+_cell_angle_gamma   69.43632785
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   PmNiTe2
+_chemical_formula_sum   'Pm1 Ni1 Te2'
+_cell_volume   100.04646056
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ni  Ni0  1  0.75015497  0.75000196  0.74984554  1
+  Te  Te1  1  0.93592820  0.06398050  0.93605189  1
+  Te  Te2  1  0.56394861  0.43602351  0.56407230  1
+  Pm  Pm3  1  0.24997322  0.25000203  0.25002727  1

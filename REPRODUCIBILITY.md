@@ -676,3 +676,14 @@ Reproduce with:
 make reproduce-ncs-phase65c-materials-active-audit-attempt
 python scripts/validate_public_bundle.py outputs/milestones/ncs_phase65c_materials_active_audit_attempt
 ```
+
+## NCS Phase68 DFT v2 Pilot
+
+Reproduce with:
+
+```bash
+make reproduce-ncs-phase68-dft-v2-pilot
+python scripts/validate_public_bundle.py outputs/milestones/ncs_phase68_dft_v2_pilot
+```
+
+This produces a pre-outcome blinded DFT package. It does not run VASP/QE or create DFT outcomes.

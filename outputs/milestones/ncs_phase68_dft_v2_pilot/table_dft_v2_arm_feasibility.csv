@@ -1,0 +1,7 @@
+arm,target_n,selected_n,status
+parc_release_core,100,100,selected
+parc_release_boundary_t1_false,60,60,selected
+raw_only_extra_tail,150,150,selected
+public_sanity_stable,25,25,selected
+public_sanity_unstable,25,25,selected
+matched_raw_topR_nonoverlap,50,0,not_available_raw_topR_coextensive_with_PARC_release

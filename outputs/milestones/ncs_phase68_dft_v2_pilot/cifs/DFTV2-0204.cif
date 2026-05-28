@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_Li2YbPaF8
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.28669967
+_cell_length_b   5.28268167
+_cell_length_c   6.63553252
+_cell_angle_alpha   113.49192676
+_cell_angle_beta   113.51497516
+_cell_angle_gamma   89.92109280
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Li2YbPaF8
+_chemical_formula_sum   'Li2 Yb1 Pa1 F8'
+_cell_volume   153.07959579
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Pa  Pa0  1  0.74995391  0.24992837  0.49986069  1
+  Li  Li1  1  0.25044787  0.75039055  0.50081600  1
+  Li  Li2  1  0.49965785  0.49980547  0.99945101  1
+  Yb  Yb3  1  0.00001326  0.00007629  0.00009852  1
+  F  F4  1  0.61049155  0.99282824  0.65812569  1
+  F  F5  1  0.13853000  0.25279917  0.83555310  1
+  F  F6  1  0.00772220  0.95221882  0.34188343  1
+  F  F7  1  0.33422797  0.38972668  0.34197027  1
+  F  F8  1  0.04767194  0.66529167  0.65813952  1
+  F  F9  1  0.74649385  0.30289045  0.16430941  1
+  F  F10  1  0.69711056  0.58269128  0.83558252  1
+  F  F11  1  0.41772405  0.86143799  0.16422285  1

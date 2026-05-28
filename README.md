@@ -204,3 +204,5 @@ A formal citation will be added after archival release. Until then, cite the rep
 - NCS Phase65b PARC-A mechanism diagnostics: fine-grid CTC audit frontier plus block-maximum removal and evidence-mass transition tables.
 
 - NCS Phase65c materials active-audit attempt: tests active one-sided verification policies on ALIGNN-FF WBM K=300/500 under t0 labels, with t1 utility reported as a scoped audit.
+
+- NCS Phase68 DFT v2 pilot: freezes a blinded WBM recomputation manifest and CIF package; pre-outcome execution infrastructure only, not DFT evidence.

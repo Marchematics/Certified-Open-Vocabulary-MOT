@@ -1,0 +1,2 @@
+local_execution_status,detected_commands,processes_started,reason,claim_scope
+primary_execution_blocked_no_vasp_atomate2_custodian_secondary_QE_detected_not_started,pw.x|mpirun,0,"Quantum ESPRESSO is available, but the DFT v2 primary workflow is VASP/atomate2/custodian; no local DFT process was started.",pre_outcome_package_only_not_DFT_evidence

@@ -1,0 +1,31 @@
+# generated using pymatgen
+data_Er2SnBr2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.23357365
+_cell_length_b   4.23340882
+_cell_length_c   10.95063786
+_cell_angle_alpha   78.84073925
+_cell_angle_beta   78.84968991
+_cell_angle_gamma   59.97590457
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Er2SnBr2
+_chemical_formula_sum   'Er2 Sn1 Br2'
+_cell_volume   165.63371432
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Sn  Sn0  1  0.99999687  0.99999730  0.00001457  1
+  Br  Br1  1  0.22665099  0.22642212  0.32035579  1
+  Br  Br2  1  0.77333901  0.77357699  0.67964608  1
+  Er  Er3  1  0.61237842  0.61229940  0.16315242  1
+  Er  Er4  1  0.38763770  0.38770519  0.83683014  1

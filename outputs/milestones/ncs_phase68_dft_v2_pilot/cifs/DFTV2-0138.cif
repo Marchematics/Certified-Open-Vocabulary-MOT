@@ -1,0 +1,30 @@
+# generated using pymatgen
+data_PmSnTe2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.52005564
+_cell_length_b   5.52006503
+_cell_length_c   5.52014717
+_cell_angle_alpha   59.99077047
+_cell_angle_beta   59.99063416
+_cell_angle_gamma   59.98998407
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   PmSnTe2
+_chemical_formula_sum   'Pm1 Sn1 Te2'
+_cell_volume   118.91301344
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Te  Te0  1  0.00001435  0.00001438  0.00000839  1
+  Te  Te1  1  0.49998514  0.49998578  0.49999183  1
+  Sn  Sn2  1  0.75000298  0.74999902  0.74999898  1
+  Pm  Pm3  1  0.25000053  0.24999982  0.24999980  1

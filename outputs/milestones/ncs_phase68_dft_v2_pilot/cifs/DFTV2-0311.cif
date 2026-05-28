@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_ErInBr3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.70231209
+_cell_length_b   9.56575861
+_cell_length_c   10.67498054
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   112.48469948
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   ErInBr3
+_chemical_formula_sum   'Er2 In2 Br6'
+_cell_volume   349.31955774
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  In  In0  1  0.50377716  0.52316373  0.75000000  1
+  In  In1  1  0.49622284  0.47683627  0.25000000  1
+  Br  Br2  1  0.77067021  0.76791340  0.44834153  1
+  Br  Br3  1  0.22932979  0.23208660  0.55165847  1
+  Br  Br4  1  0.22932979  0.23208660  0.94834153  1
+  Br  Br5  1  0.77067021  0.76791340  0.05165847  1
+  Br  Br6  1  0.40211652  0.90157038  0.75000000  1
+  Br  Br7  1  0.59788348  0.09842962  0.25000000  1
+  Er  Er8  1  0.50000000  0.00000000  0.00000000  1
+  Er  Er9  1  0.50000000  0.00000000  0.50000000  1

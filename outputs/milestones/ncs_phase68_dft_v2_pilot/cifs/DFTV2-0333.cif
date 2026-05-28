@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_UBiO4
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.49800427
+_cell_length_b   5.49794316
+_cell_length_c   6.67122348
+_cell_angle_alpha   114.40443502
+_cell_angle_beta   114.40908248
+_cell_angle_gamma   89.86540396
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   UBiO4
+_chemical_formula_sum   'U2 Bi2 O8'
+_cell_volume   163.74014913
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  U  U0  1  0.12497863  0.87501172  0.74999392  1
+  U  U1  1  0.87502137  0.12498828  0.25000608  1
+  Bi  Bi2  1  0.62504925  0.37498182  0.75001034  1
+  Bi  Bi3  1  0.37495075  0.62501818  0.24998966  1
+  O  O4  1  0.49922535  0.77113854  0.00011408  1
+  O  O5  1  0.00082768  0.22893408  0.00004126  1
+  O  O6  1  0.22887709  0.00083197  0.49994714  1
+  O  O7  1  0.77112068  0.49913786  0.50006792  1
+  O  O8  1  0.22887932  0.50086214  0.49993208  1
+  O  O9  1  0.77112291  0.99916803  0.50005286  1
+  O  O10  1  0.99917232  0.77106592  0.99995874  1
+  O  O11  1  0.50077465  0.22886146  0.99988592  1

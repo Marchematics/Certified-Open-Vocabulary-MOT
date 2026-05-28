@@ -1,0 +1,34 @@
+# generated using pymatgen
+data_PaCoF6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.03969557
+_cell_length_b   6.03969557
+_cell_length_c   6.01204271
+_cell_angle_alpha   60.15105837
+_cell_angle_beta   60.15105827
+_cell_angle_gamma   59.64641003
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   PaCoF6
+_chemical_formula_sum   'Pa1 Co1 F6'
+_cell_volume   155.00502001
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Pa  Pa0  1  0.50000024  0.50000024  0.50000004  1
+  Co  Co1  1  0.00000024  0.00000024  0.00000003  1
+  F  F2  1  0.24188110  0.75880495  0.24118097  1
+  F  F3  1  0.75880495  0.24188110  0.24118097  1
+  F  F4  1  0.24119566  0.75811935  0.75881914  1
+  F  F5  1  0.75811935  0.24119566  0.75881914  1
+  F  F6  1  0.24686611  0.24686611  0.75234062  1
+  F  F7  1  0.75313436  0.75313436  0.24765909  1

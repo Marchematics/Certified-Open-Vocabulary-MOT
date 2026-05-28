@@ -225,6 +225,7 @@ validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase65_parc_a_certificate_directed_policy
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase65b_parc_a_mechanism_diagnostics
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase65c_materials_active_audit_attempt
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase68_dft_v2_pilot
 
 verify-manifest:
 	sha256sum -c MANIFEST_SHA256.txt
@@ -267,3 +268,6 @@ reproduce-ncs-phase65b-parc-a-mechanism-diagnostics:
 
 reproduce-ncs-phase65c-materials-active-audit-attempt:
 	$(PYTHON) scripts/build_ncs_phase65c_materials_active_audit_attempt.py
+
+reproduce-ncs-phase68-dft-v2-pilot:
+	$(PYTHON) scripts/build_ncs_phase68_dft_v2_pilot.py

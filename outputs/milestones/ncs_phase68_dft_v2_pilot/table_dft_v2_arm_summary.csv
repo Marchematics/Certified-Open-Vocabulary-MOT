@@ -1,0 +1,6 @@
+dft_v2_arm,n_jobs
+parc_release_boundary_t1_false,60
+parc_release_core,100
+public_sanity_stable,25
+public_sanity_unstable,25
+raw_only_extra_tail,150
