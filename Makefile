@@ -222,6 +222,7 @@ validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase62_full_calibration_mlip_evalues
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase63_parc_a_certificate_directed_active_verification
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase64_parc_r_versioned_recertification
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase65_parc_a_certificate_directed_policy
 
 verify-manifest:
 	sha256sum -c MANIFEST_SHA256.txt
@@ -255,3 +256,6 @@ package-scientific-release: package-release
 
 reproduce-ncs-phase64-parc-r-versioned-recertification:
 	$(PYTHON) scripts/build_ncs_phase64_parc_r_versioned_recertification.py
+
+reproduce-ncs-phase65-parc-a-certificate-directed-policy:
+	$(PYTHON) scripts/build_ncs_phase65_parc_a_certificate_directed_policy.py

@@ -198,3 +198,5 @@ A formal citation will be added after archival release. Until then, cite the rep
 - A3 QE local run layer: `outputs/milestones/mattergen_parc_prospective_dft_followup/A3_QE_LOCAL_RUN/` contains Quantum ESPRESSO input decks, a pseudopotential mapping/hash table, and tmux launch scripts for the frozen A3 package. Third-party pseudopotential payload files and runtime `qe_outputs/` are intentionally ignored until outcomes are formally analyzed. It contains no committed DFT outcomes and no prospective materials claim.
 
 - NCS Phase64 PARC-R versioned recertification: queue-limited current-MP recertification refuses unsafe old materials releases rather than inheriting them.
+
+- NCS Phase65 PARC-A certificate-directed policy: compares random, score-targeted, block-max-gain, mass-gain, and diversity-mass-gain audit acquisition on the CTC primary row.

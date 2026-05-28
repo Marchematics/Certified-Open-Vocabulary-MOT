@@ -1,0 +1,16 @@
+{
+  "milestone": "ncs_phase65_parc_a_certificate_directed_policy",
+  "phase": "phase65",
+  "scope": "PARC_A_certificate_directed_acquisition_policy;simulated_one_sided_audit_over_existing_CTC_labels;hidden_labels_used_only_for_audit_return_and_posthoc_FTR;primary_CTC_only;not_new_human_labels;not_DFT_evidence;not_prospective_materials_discovery",
+  "source_tables": {
+    "ctc_universe": {
+      "path": "local_restricted_ctc_learned_hybrid_universe_not_distributed",
+      "sha256": "6f0b4cd93ae92529b28734118f02c9a0b333805445555fa21aa26c3c805ae843"
+    },
+    "phase63_primary_gate": {
+      "path": "outputs/milestones/ncs_phase63_parc_a_certificate_directed_active_verification/table_parc_a_primary_gate.csv",
+      "sha256": "b9ed00767c1cb1ac20f46f558bba5932d83d593db561985e10e967ef4623688b"
+    }
+  },
+  "status": "completed"
+}

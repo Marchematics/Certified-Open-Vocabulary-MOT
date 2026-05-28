@@ -646,3 +646,15 @@ python scripts/validate_public_bundle.py outputs/milestones/ncs_phase64_parc_r_v
 
 The milestone is a versioned refusal boundary, not a nonempty t1 alpha
 certificate or DFT evidence.
+
+## NCS Phase65 PARC-A Certificate-Directed Policy
+
+Reproduce with:
+
+```bash
+make reproduce-ncs-phase65-parc-a-certificate-directed-policy
+python scripts/validate_public_bundle.py outputs/milestones/ncs_phase65_parc_a_certificate_directed_policy
+```
+
+The milestone uses existing CTC labels only for simulated audit returns and
+post-release FTR; it introduces no new labels or DFT.

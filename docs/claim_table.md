@@ -130,3 +130,13 @@ supports a versioned release-card claim: old t0 certificates should not be
 inherited after a database update without recertification. It is not a
 nonempty current-MP materials release, not DFT evidence, and not prospective
 materials discovery.
+
+## Phase65 PARC-A Certificate-Directed Policy
+
+Status: `completed_certificate_directed_active_policy_audit`.
+
+Phase65 tests whether PARC-A can choose one-sided verification targets using
+certificate-directed acquisition policies rather than only a raw score
+heuristic. The primary scope remains CTC. Claims must not imply new human
+labels, DFT evidence, prospective materials discovery, or materials primary
+success.
