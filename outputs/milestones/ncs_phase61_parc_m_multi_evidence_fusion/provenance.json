@@ -1,0 +1,10 @@
+{
+  "evidence_scope": "PARC_M_multi_evidence_fusion_feasibility;empirical_proxy_fusion_not_theorem_grade;CHGNet_MACE_queue_scores_not_full_null_calibration;not_DFT_evidence;not_prospective_discovery",
+  "headline_claim_allowed": false,
+  "milestone": "ncs_phase61_parc_m_multi_evidence_fusion",
+  "source_tables": [
+    "outputs/milestones/ncs_phase51_materials_t1_candidate_explanation/table_materials_t1_mlip_candidate_audit.csv",
+    "outputs/milestones/ncs_phase53_chgnet_mace_candidate_audit/table_materials_candidate_level_chgnet_mace_audit.csv"
+  ],
+  "status": "empirical_medium_signal_not_claim_ready"
+}

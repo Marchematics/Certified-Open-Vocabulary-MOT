@@ -541,6 +541,27 @@ current-MP t1 FTR and does not meet the predeclared <=0.15 or <=0.10 empirical
 thresholds. It is not a full SCS rerun, not a new theorem-grade certificate, not
 DFT evidence, and not prospective materials discovery.
 
+## NCS Phase61 PARC-M multi-evidence fusion audit
+
+Run:
+
+```bash
+make reproduce-ncs-phase61-parc-m-multi-evidence-fusion
+```
+
+This regenerates:
+
+- `outputs/milestones/ncs_phase61_parc_m_multi_evidence_fusion/table_parc_m_primary_results.csv`
+- `outputs/milestones/ncs_phase61_parc_m_multi_evidence_fusion/table_parc_m_candidate_level.csv`
+- `outputs/milestones/ncs_phase61_parc_m_multi_evidence_fusion/table_parc_m_gate_audit.csv`
+- `outputs/milestones/ncs_phase61_parc_m_multi_evidence_fusion/table_parc_m_source_evalue_audit.csv`
+
+Phase61 is a medium empirical feasibility signal, not a claim-ready theorem.
+Fixed mixtures of original PARC evidence and ALIGNN/CHGNet/MACE score-derived
+e-proxies lower current-MP t1 FTR by about 0.03-0.04 while keeping nontrivial
+release sizes. The theorem-grade gate fails because CHGNet/MACE are available
+only as queue-level score proxies, not full null-superset calibration e-values.
+
 ## NCS Phase52/58 materials uncertainty and evidence ledger
 
 Run the compact materials-paperization targets:

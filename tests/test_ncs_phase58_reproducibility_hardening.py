@@ -60,6 +60,10 @@ def test_evidence_ledger_has_hashes_guardrails_and_no_overclaim_scope() -> None:
     assert parc_v["positive_evidence"] == "no"
     assert "no_go_for_headline" in parc_v["scope"]
     assert "t1_alpha_control" in parc_v["overclaim_guardrail"]
+    parc_m = ledger[ledger["claim_id"].eq("M-PARCM-001")].iloc[0]
+    assert parc_m["positive_evidence"] == "partial"
+    assert "empirical_medium_signal" in parc_m["scope"]
+    assert "multi_evidence_evalue_certificate" in parc_m["overclaim_guardrail"]
 
 
 def test_validate_evidence_ledger_script_passes() -> None:

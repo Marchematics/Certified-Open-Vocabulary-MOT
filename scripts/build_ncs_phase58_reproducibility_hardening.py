@@ -117,6 +117,7 @@ This target rebuilds two scoped materials audit layers:
 - Phase53 candidate-level CHGNet/MACE score-support audit when the local
   private WBM raw-structure cache is available.
 - Phase60 PARC-V support-gate feasibility audit.
+- Phase61 PARC-M multi-evidence fusion feasibility audit.
 
 The Phase53 CHGNet/MACE columns are raw energy-per-atom score proxies, not
 reference-hull e_above_hull values. They support a queue-level release-vs-tail
@@ -133,6 +134,16 @@ to regenerate the PARC-V support-gate feasibility audit. Phase60 is a no-go
 for a headline version-aware release claim: CHGNet/MACE support-gating is
 non-empty but does not materially lower current-MP t1 FTR and is not a full SCS
 rerun.
+
+Run:
+
+```bash
+make reproduce-ncs-phase61-parc-m-multi-evidence-fusion
+```
+
+to regenerate the PARC-M fusion audit. Phase61 gives a medium empirical signal
+but is not claim-ready: the auxiliary CHGNet/MACE components are queue-level
+score proxies, not full null-superset calibration e-values.
 """,
         "DATA_PROVENANCE_MATERIALS.md": """# Materials Data Provenance
 
@@ -277,6 +288,17 @@ diagnostics from strict alpha certificates.
             "validation_command": "make reproduce-ncs-phase60-parc-v-version-aware-release",
             "status": "PASS",
             "overclaim_guardrail": "do_not_claim_new_PARC_V_theorem_t1_alpha_control_DFT_or_prospective_discovery",
+        },
+        {
+            "claim_id": "M-PARCM-001",
+            "claim_text": "PARC-M proxy fusion gives a medium empirical t1 improvement but is not a theorem-grade multi-evidence certificate.",
+            "evidence_type": "PARC_M_multi_evidence_fusion_feasibility_audit",
+            "positive_evidence": "partial",
+            "scope": "empirical_medium_signal_not_theorem_grade_or_headline_ready",
+            "artifact_path": "outputs/milestones/ncs_phase61_parc_m_multi_evidence_fusion/table_parc_m_gate_audit.csv",
+            "validation_command": "make reproduce-ncs-phase61-parc-m-multi-evidence-fusion",
+            "status": "PASS",
+            "overclaim_guardrail": "do_not_claim_multi_evidence_evalue_certificate_t1_alpha_control_DFT_or_prospective_discovery",
         },
     ]
     for row in ledger_rows:
