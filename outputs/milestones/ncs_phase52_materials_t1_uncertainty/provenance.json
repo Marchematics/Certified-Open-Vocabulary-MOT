@@ -1,0 +1,8 @@
+{
+  "evidence_scope": "completed_current_MP_hull_shift_utility_audit;not_strict_alpha_temporal_certificate;not_prospective_discovery;no_t1_label_used_for_selection",
+  "milestone": "ncs_phase52_materials_t1_uncertainty",
+  "n_bootstrap": 2000,
+  "n_permutations": 2000,
+  "source_phase49": "outputs/milestones/materials_t0_t1_snapshot_acquisition",
+  "source_phase51": "outputs/milestones/ncs_phase51_materials_t1_candidate_explanation"
+}

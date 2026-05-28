@@ -486,6 +486,25 @@ Run `make reproduce-ncs-phase50-51-materials-paperization` after the Phase49 t0/
 
 The Phase51 candidate-level table includes ALIGNN-FF, CGCNN and MEGNet model-zoo predictions available in the local Matbench Discovery cache. It also records that candidate-level CHGNet and MACE-MP WBM queue scores are unavailable in the public-safe cache. Do not use this milestone to claim CHGNet/MACE consensus validation.
 
+## NCS Phase52/58 materials uncertainty and evidence ledger
+
+Run the compact materials-paperization targets:
+
+```bash
+make reproduce-materials-t0-t1
+make reproduce-materials-mlip-audit
+make reproduce-materials-figures
+make validate-evidence-ledger
+```
+
+`reproduce-materials-figures` regenerates the Phase50/51 paper-facing tables and
+the Phase52 chemical-system bootstrap / rank-bin randomization diagnostics.
+`reproduce-materials-mlip-audit` regenerates the candidate-level explanation
+tables only; it is still not a CHGNet/MACE consensus validation. Phase58 writes
+`outputs/milestones/ncs_phase58_reproducibility_hardening/EVIDENCE_SCOPE_LEDGER.csv`,
+where every materials claim has a source artifact, SHA256 hash, validation
+command, status, and overclaim guardrail.
+
 ## Submission scope lock
 
 Run `make reproduce-phase37-submission-scope-lock` to rebuild the two-anchor evidence hierarchy, release/refuse contract comparator, and forbidden-claim replacement table used for the narrow release-governance submission framing. This target creates no new experiment and does not promote A3, alex-mp/OQMD, Route C, or pending external blind audit rows to positive evidence.
