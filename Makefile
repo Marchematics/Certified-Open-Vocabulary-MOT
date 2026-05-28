@@ -1,7 +1,7 @@
 PYTHON ?= python
 PYTHONPATH ?= code/parc_track
 
-.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark reproduce-block-heterogeneity-robustness reproduce-materials-prospective-validation reproduce-materials-alex-mp-a1-a2 reproduce-materials-label-discordance-preregistration reproduce-materials-label-discordance-experiment reproduce-materials-selection-conditional-discordance reproduce-materials-queue-source-uncertainty-overlay reproduce-phase30-main-evidence reproduce-phase31-claim-alignment reproduce-phase32-presubmission reproduce-phase33-presubmission-final reproduce-phase37-submission-scope-lock reproduce-ncs-week0-protocol-freeze reproduce-materials-temporal-mlip-audit reproduce-a3-v4-formal-selection-gate reproduce-a3-v4-dft-manifest-addendum reproduce-a3-v4-phase29c-extra-tail-manifest reproduce-a3-dft-run-package reproduce-a3-qe-local-run reproduce-experimental-finalization phase24-freeze-dft-followup phase24-build-unlabeled-pool phase24-filter-public-labels phase24-score-unlabeled-pool phase24-select-dft-arms phase24-export-dft-jobs validate-public-bundle verify-manifest pre-release-check package-release package-release-story package-scientific-release
+.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark reproduce-block-heterogeneity-robustness reproduce-materials-prospective-validation reproduce-materials-alex-mp-a1-a2 reproduce-materials-label-discordance-preregistration reproduce-materials-label-discordance-experiment reproduce-materials-selection-conditional-discordance reproduce-materials-queue-source-uncertainty-overlay reproduce-phase30-main-evidence reproduce-phase31-claim-alignment reproduce-phase32-presubmission reproduce-phase33-presubmission-final reproduce-phase37-submission-scope-lock reproduce-ncs-week0-protocol-freeze reproduce-materials-temporal-mlip-audit reproduce-materials-t0-t1-snapshot-acquisition reproduce-a3-v4-formal-selection-gate reproduce-a3-v4-dft-manifest-addendum reproduce-a3-v4-phase29c-extra-tail-manifest reproduce-a3-dft-run-package reproduce-a3-qe-local-run reproduce-experimental-finalization phase24-freeze-dft-followup phase24-build-unlabeled-pool phase24-filter-public-labels phase24-score-unlabeled-pool phase24-select-dft-arms phase24-export-dft-jobs validate-public-bundle verify-manifest pre-release-check package-release package-release-story package-scientific-release
 
 test:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q tests
@@ -82,6 +82,9 @@ reproduce-ncs-week0-protocol-freeze:
 
 reproduce-materials-temporal-mlip-audit:
 	$(PYTHON) scripts/build_materials_temporal_mlip_audit.py
+
+reproduce-materials-t0-t1-snapshot-acquisition:
+	$(PYTHON) scripts/acquire_materials_t0_t1_snapshots.py --reuse-mp-entries
 
 reproduce-a3-v4-formal-selection-gate:
 	$(PYTHON) scripts/build_a3_v4_formal_selection_gate.py
@@ -165,6 +168,7 @@ validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/submission_scope_lock_phase37
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_week0_protocol_freeze
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/materials_temporal_mlip_audit
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/materials_t0_t1_snapshot_acquisition
 
 verify-manifest:
 	sha256sum -c MANIFEST_SHA256.txt

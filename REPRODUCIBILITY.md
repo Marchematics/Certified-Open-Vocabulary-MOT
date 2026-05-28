@@ -470,6 +470,16 @@ Run `make reproduce-a3-qe-local-run` after `make reproduce-a3-dft-run-package` t
 
 Run `make reproduce-materials-queue-source-uncertainty-overlay` to rebuild the candidate-level ALIGNN-FF K=300/500 materials queue overlay against the alex-mp A2 exact-structure diagnostic table. Formula-only matches are retained only as tags and are excluded from alex-mp FTR denominators. This target is a source-discordance stress diagnostic, not a positive independent-validation result and not prospective materials discovery.
 
+## Materials t0/t1 current-MP hull-shift snapshot
+
+Run `make reproduce-materials-t0-t1-snapshot-acquisition` after the current MP entry table has been acquired once. The target reuses the frozen `table_t1_current_mp_entries_by_chemsys.csv` cache and rebuilds the t0/t1 join, FTR summaries, drift diagnostics, gate assessment, manifests, and closeout. A fresh acquisition requires `MP_API_KEY` in the environment:
+
+```bash
+python scripts/acquire_materials_t0_t1_snapshots.py
+```
+
+The milestone is a current-MP hull-shift utility diagnostic. It is not new DFT, not a strict `alpha=0.10` temporal certificate, and not a prospective materials-discovery claim.
+
 ## Submission scope lock
 
 Run `make reproduce-phase37-submission-scope-lock` to rebuild the two-anchor evidence hierarchy, release/refuse contract comparator, and forbidden-claim replacement table used for the narrow release-governance submission framing. This target creates no new experiment and does not promote A3, alex-mp/OQMD, Route C, or pending external blind audit rows to positive evidence.

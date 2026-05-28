@@ -1,0 +1,3 @@
+snapshot,source,source_sha256,version_or_date,rows,status
+t0_wbm_matbench_discovery,local_private_matbench_discovery_cache/2023-12-13-wbm-summary.csv.gz,ff19e59d74115de9762fbc868c9f35900ae099c18f23e9c89d10589af1418225,2023-12-13 file; MP hull release v2022.10.28 per Matbench Discovery/WBM documentation,1191,acquired
+t1_current_materials_project,Materials Project API computed entries via get_entries_in_chemsys,,2025.09.25,29279,acquired_without_API_key_disclosure

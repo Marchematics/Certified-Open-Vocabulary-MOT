@@ -1,0 +1,19 @@
+{
+  "built_at": "2026-05-28T18:43:21+08:00",
+  "claim_boundary": [
+    "hull_shift_audit_not_new_DFT",
+    "current_MP_summary_formation_energy_hull_approximation",
+    "not_prospective_materials_discovery"
+  ],
+  "evidence_status": "completed_t0_t1_hull_shift_acquisition_current_MP_api",
+  "milestone": "materials_t0_t1_snapshot_acquisition",
+  "mp_database_version_t1": "2025.09.25",
+  "mp_thermo_type": "GGA_GGA+U",
+  "n_mp_summary_entries": 29279,
+  "n_target_candidates": 1191,
+  "n_target_chemsys": 774,
+  "target_candidate_source": "outputs/milestones/materials_queue_source_uncertainty_overlay/table_materials_queue_overlay_candidate_rows.csv",
+  "target_candidate_source_sha256": "86b975e283fbe8f2f3b157ca8f28f5b43cc5f9fb50a450bf4c782ff993bbfc24",
+  "wbm_summary_sha256": "ff19e59d74115de9762fbc868c9f35900ae099c18f23e9c89d10589af1418225",
+  "wbm_summary_source": "local_private_matbench_discovery_cache/2023-12-13-wbm-summary.csv.gz"
+}

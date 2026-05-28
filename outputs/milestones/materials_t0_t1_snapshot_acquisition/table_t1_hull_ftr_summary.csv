@@ -1,0 +1,5 @@
+K,arm,n_unique_candidates,false_n_t1_current_mp,unresolved_n_t1_current_mp,unresolved_counted_as_false,FTR_t1_current_mp,stable_to_unstable_n,stable_to_unstable_rate,t0_stable_n,t1_stable_n
+300,PARC_release,304,96,9,True,0.3157894736842105,56,0.18421052631578946,249,208
+300,raw_topK,701,296,19,True,0.4222539229671897,149,0.21255349500713266,499,405
+500,PARC_release,216,67,4,True,0.3101851851851852,44,0.2037037037037037,192,149
+500,raw_topK,1191,580,32,True,0.4869857262804366,264,0.2216624685138539,762,611
