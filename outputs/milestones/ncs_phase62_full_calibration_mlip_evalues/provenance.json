@@ -1,0 +1,12 @@
+{
+  "evidence_scope": "full_calibration_CHGNet_MACE_evalue_audit;uses_frozen_WBM_one_per_composition_family_calibration_denominator;target_overlap_excluded_from_calibration;not_t1_alpha_certificate;not_DFT_evidence;not_prospective_discovery",
+  "known_bad_external_chgnet_file": "private_CHGNet_download_placeholder_not_distributed",
+  "known_bad_external_chgnet_file_type": "HTML placeholder or failed GitHub download, not used",
+  "milestone": "ncs_phase62_full_calibration_mlip_evalues",
+  "source_tables": [
+    "outputs/milestones/materials_prospective_dft_followup_chgnet_v3/calibration_scores_chgnet_v3.csv",
+    "outputs/milestones/ncs_phase51_materials_t1_candidate_explanation/table_materials_t1_mlip_candidate_audit.csv",
+    "outputs/milestones/ncs_phase53_chgnet_mace_candidate_audit/table_materials_candidate_level_chgnet_mace_audit.csv"
+  ],
+  "status": "completed_full_calibration_sources_no_headline_signal"
+}

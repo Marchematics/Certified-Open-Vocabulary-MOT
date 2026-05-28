@@ -562,6 +562,29 @@ e-proxies lower current-MP t1 FTR by about 0.03-0.04 while keeping nontrivial
 release sizes. The theorem-grade gate fails because CHGNet/MACE are available
 only as queue-level score proxies, not full null-superset calibration e-values.
 
+## NCS Phase62 full-calibration CHGNet/MACE e-values
+
+Run:
+
+```bash
+make reproduce-ncs-phase62-full-calibration-mlip-evalues
+```
+
+This regenerates:
+
+- `outputs/milestones/ncs_phase62_full_calibration_mlip_evalues/table_full_calibration_score_inventory.csv`
+- `outputs/milestones/ncs_phase62_full_calibration_mlip_evalues/table_parc_m_full_calibration_results.csv`
+- `outputs/milestones/ncs_phase62_full_calibration_mlip_evalues/table_parc_m_full_calibration_candidate_level.csv`
+- `outputs/milestones/ncs_phase62_full_calibration_mlip_evalues/table_parc_m_full_calibration_gate_audit.csv`
+
+Phase62 resolves the Phase61 auxiliary-source availability blocker by converting
+CHGNet and MACE-MP scores into full-calibration e-values over the frozen WBM
+one-per-composition-family calibration denominator, excluding target-overlap
+rows before block maxima are computed. It remains a scoped t0/t1 queue audit:
+the headline method-upgrade gate fails, and the milestone must not be described
+as DFT evidence, current-MP t1 alpha control, or prospective materials
+discovery.
+
 ## NCS Phase52/58 materials uncertainty and evidence ledger
 
 Run the compact materials-paperization targets:

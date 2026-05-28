@@ -96,3 +96,14 @@ PYTHONPATH=code/parc_track python -m parc_track.cli phase19 success-domain
 | Phase58 hardens reproducibility with an evidence-scope ledger. | `outputs/milestones/ncs_phase58_reproducibility_hardening/EVIDENCE_SCOPE_LEDGER.csv`; `REPRODUCE_PHASE49.md`; `REPRODUCE_T1_HULL_AUDIT.md`; `REPRODUCE_MLIP_AUDIT.md`; `DATA_PROVENANCE_MATERIALS.md` | `python scripts/build_ncs_phase58_reproducibility_hardening.py`; `python scripts/validate_evidence_ledger.py`; `pytest -q tests/test_ncs_phase58_reproducibility_hardening.py` | Every paper-facing materials claim maps to a source artifact, SHA256 hash, validation command, and overclaim guardrail. Boundary rows explicitly forbid prospective discovery, t1 alpha control, and overclaiming Phase53 raw CHGNet/MACE score proxies as reference-hull or DFT evidence. |
 | Phase60 tests a simple PARC-V support-gated version-aware release route. | `outputs/milestones/ncs_phase60_parc_v_version_aware_release/table_parc_v_primary_results.csv`; `table_parc_v_gate_audit.csv`; `PARC_V_PREREGISTRATION.md` | `python scripts/build_ncs_phase60_parc_v_version_aware_release.py`; `pytest -q tests/test_ncs_phase60_parc_v_version_aware_release.py` | The CHGNet/MACE support-gated subset is non-empty but fails the predeclared headline thresholds: it does not lower current-MP t1 FTR to 0.15 or alpha=0.10 and is not a full SCS rerun. The allowed role is completed no-go/feasibility audit, not a new PARC-V theorem, DFT result, or prospective materials discovery claim. |
 | Phase61 tests PARC-M multi-evidence fusion. | `outputs/milestones/ncs_phase61_parc_m_multi_evidence_fusion/table_parc_m_primary_results.csv`; `table_parc_m_source_evalue_audit.csv`; `table_parc_m_gate_audit.csv`; `PARC_M_PREREGISTRATION.md` | `python scripts/build_ncs_phase61_parc_m_multi_evidence_fusion.py`; `pytest -q tests/test_ncs_phase61_parc_m_multi_evidence_fusion.py` | Fixed fusion of original PARC evidence with ALIGNN/CHGNet/MACE score-derived e-proxies gives a medium empirical current-MP t1 improvement (~0.03-0.04 FTR) with nontrivial release sizes, but it fails the theorem-grade/headline gate because auxiliary scores are queue-level proxies without full null-superset calibration. It is not a multi-evidence e-value certificate, DFT result, or prospective discovery claim. |
+
+## Phase62 Full-Calibration MLIP E-Values
+
+Status: `completed_full_calibration_sources_no_headline_signal`.
+
+CHGNet and MACE-MP auxiliary scores are now audited as full-calibration
+e-value sources over the frozen WBM one-per-composition-family calibration
+denominator, with target-overlap rows excluded before computing block maxima.
+This resolves the Phase61 queue-only proxy blocker for source availability, but
+the milestone is still a t0/t1 queue audit: it is not DFT evidence, not a t1
+alpha certificate, and not a prospective materials-discovery claim.
