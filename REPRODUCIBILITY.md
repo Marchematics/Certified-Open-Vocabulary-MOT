@@ -658,3 +658,21 @@ python scripts/validate_public_bundle.py outputs/milestones/ncs_phase65_parc_a_c
 
 The milestone uses existing CTC labels only for simulated audit returns and
 post-release FTR; it introduces no new labels or DFT.
+
+## NCS Phase65b PARC-A Mechanism Diagnostics
+
+Reproduce with:
+
+```bash
+make reproduce-ncs-phase65b-parc-a-mechanism-diagnostics
+python scripts/validate_public_bundle.py outputs/milestones/ncs_phase65b_parc_a_mechanism_diagnostics
+```
+
+## NCS Phase65c Materials Active-Audit Attempt
+
+Reproduce with:
+
+```bash
+make reproduce-ncs-phase65c-materials-active-audit-attempt
+python scripts/validate_public_bundle.py outputs/milestones/ncs_phase65c_materials_active_audit_attempt
+```

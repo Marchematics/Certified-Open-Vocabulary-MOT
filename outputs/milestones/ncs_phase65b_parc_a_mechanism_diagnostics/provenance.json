@@ -1,0 +1,16 @@
+{
+  "milestone": "ncs_phase65b_parc_a_mechanism_diagnostics",
+  "phase": "phase65b",
+  "scope": "PARC_A_mechanism_diagnostic;CTC_primary_only;simulated_one_sided_audit_over_existing_labels;hidden_labels_used_only_for_audit_return_and_posthoc_FTR;not_new_human_labels;not_DFT_evidence;not_prospective_materials_discovery",
+  "source_tables": {
+    "ctc_universe": {
+      "path": "local_restricted_ctc_learned_hybrid_universe_not_distributed",
+      "sha256": "6f0b4cd93ae92529b28734118f02c9a0b333805445555fa21aa26c3c805ae843"
+    },
+    "phase65_claim_gate": {
+      "path": "outputs/milestones/ncs_phase65_parc_a_certificate_directed_policy/table_parc_a_claim_gate.csv",
+      "sha256": "2c173242fe28b3f8245f6d4cbc7159cecd7d7d35ae6f651280a0b54fe1a24402"
+    }
+  },
+  "status": "completed"
+}

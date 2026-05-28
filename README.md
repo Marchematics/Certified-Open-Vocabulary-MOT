@@ -200,3 +200,7 @@ A formal citation will be added after archival release. Until then, cite the rep
 - NCS Phase64 PARC-R versioned recertification: queue-limited current-MP recertification refuses unsafe old materials releases rather than inheriting them.
 
 - NCS Phase65 PARC-A certificate-directed policy: compares random, score-targeted, block-max-gain, mass-gain, and diversity-mass-gain audit acquisition on the CTC primary row.
+
+- NCS Phase65b PARC-A mechanism diagnostics: fine-grid CTC audit frontier plus block-maximum removal and evidence-mass transition tables.
+
+- NCS Phase65c materials active-audit attempt: tests active one-sided verification policies on ALIGNN-FF WBM K=300/500 under t0 labels, with t1 utility reported as a scoped audit.

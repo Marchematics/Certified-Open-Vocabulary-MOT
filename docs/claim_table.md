@@ -140,3 +140,22 @@ certificate-directed acquisition policies rather than only a raw score
 heuristic. The primary scope remains CTC. Claims must not imply new human
 labels, DFT evidence, prospective materials discovery, or materials primary
 success.
+
+## Phase65b PARC-A Mechanism Diagnostics
+
+Status: `completed_mechanism_supported`.
+
+Phase65b explains the CTC score-targeted active-audit transition by measuring
+whether audited positives remove the calibration null-superset block maxima
+that constrain release evidence. This is a mechanism diagnostic over existing
+CTC labels, not new human labeling and not materials evidence.
+
+## Phase65c Materials Active-Audit Attempt
+
+Status: `completed_no_active_advantage`.
+
+Phase65c runs a materials t0 active-audit emulation over frozen ALIGNN-FF WBM
+queues. It compares random, raw-score targeted, PARC-M evidence targeted,
+CHGNet/MACE support targeted, and mass-gain acquisition. The t1 current-MP
+columns are reported only as utility audits and cannot support prospective
+materials-discovery or t1 alpha-control claims.

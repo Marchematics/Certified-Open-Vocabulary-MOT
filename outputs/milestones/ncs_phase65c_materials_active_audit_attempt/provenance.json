@@ -1,0 +1,14 @@
+{
+  "milestone": "ncs_phase65c_materials_active_audit_attempt",
+  "phase": "phase65c",
+  "scope": "materials_t0_active_audit_emulation;existing_public_WBM_labels_only;t1_current_MP_used_only_as_utility_audit;not_prospective_materials_discovery;not_DFT_evidence;not_materials_primary_headline",
+  "source_tables": {
+    "alignn_predictions_sha256": "dc75be97f3bce3ce724680065abf11a19bdc6a3928fdd77ccb42d3f62a02e593",
+    "cgcnn_predictions_sha256": "9fba78430e76e7443436d143d2af9ad1d7e54ef84e73443abe9058e41e4d7ebb",
+    "chgnet_fullcal_scores_sha256": "1da79234242750dc10c95a83fb0f78165a6be0b11d9d572e7b24fc05d23f743f",
+    "mace_fullcal_scores_sha256": "5ece5693396a4a1efeda63261822ea50c9832debf044a8d7201a35bdcac4d0b0",
+    "phase51_t1_candidate_audit_sha256": "284caf1ecd43b093402d0f938041c71227a31d0155ce7b7dd8822d7b8a96b14b",
+    "wbm_summary_sha256": "ff19e59d74115de9762fbc868c9f35900ae099c18f23e9c89d10589af1418225"
+  },
+  "status": "completed"
+}
