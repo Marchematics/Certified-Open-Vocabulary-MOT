@@ -1,0 +1,9 @@
+{
+  "evidence_scope": "completed_t1_MLIP_empirical_baseline_frontier;capability_comparison_not_equal_target_object;not_prospective_discovery;not_matched_volume_ranking_improvement",
+  "milestone": "ncs_phase57_t1_mlip_baseline_frontier",
+  "source_tables": [
+    "outputs/milestones/ncs_phase51_materials_t1_candidate_explanation/table_materials_t1_mlip_candidate_audit.csv",
+    "outputs/milestones/ncs_phase53_chgnet_mace_candidate_audit/table_materials_candidate_level_chgnet_mace_audit.csv"
+  ],
+  "status": "completed_t1_MLIP_empirical_baseline_frontier"
+}

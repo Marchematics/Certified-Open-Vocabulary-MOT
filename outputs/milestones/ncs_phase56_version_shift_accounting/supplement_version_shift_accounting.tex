@@ -1,0 +1,26 @@
+\paragraph{Version-shift accounting.}
+Let \(Y_p^{t}\in\{0,1\}\) denote whether candidate \(p\) is stable under
+truth version \(t\), and let \(R\) be a fixed release set selected before the
+current-version audit. The false-release fraction under version \(t\) is
+\[
+\mathrm{FTR}_{t}(R)=\frac{1}{|R|}\sum_{p\in R}(1-Y_p^{t}).
+\]
+For two truth versions \(t_0,t_1\),
+\[
+\mathrm{FTR}_{t_1}(R)=\mathrm{FTR}_{t_0}(R)
++\frac{|\{p\in R:Y_p^{t_0}=1,Y_p^{t_1}=0\}|}{|R|}
+-\frac{|\{p\in R:Y_p^{t_0}=0,Y_p^{t_1}=1\}|}{|R|}.
+\]
+Consequently,
+\[
+\mathrm{FTR}_{t_1}(R)\le
+\mathrm{FTR}_{t_0}(R)
++\frac{|\{p\in R:Y_p^{t_0}=1,Y_p^{t_1}=0\}|}{|R|}.
+\]
+This is an accounting identity, not a new PARC guarantee. In the current-MP
+audit, unmatched or unresolved current-version entries are conservatively
+treated as \(Y_p^{t_1}=0\), so the exact table reports both the labelable-only
+stable-to-unstable drift and the conservative stable-to-current-not-stable term.
+Thus the t1 audit decomposes current-label burden into original t0 release
+error plus reference-hull drift accounting; it does not certify
+\(\alpha=0.10\) under the t1 truth definition.

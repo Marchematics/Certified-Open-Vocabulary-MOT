@@ -497,6 +497,29 @@ Run `make reproduce-ncs-phase53-chgnet-mace-candidate-audit` after the local pri
 
 The score cache is public-safe: it records structure hashes and score proxies, not raw CIFs or private structure files. The allowed claim is queue-level CHGNet/MACE score-support contrast for PARC release versus raw-only extra-tail. The forbidden claim remains CHGNet/MACE reference-hull validation, DFT evidence, strict t1 alpha control, or prospective materials discovery.
 
+## NCS Phase56/57 version-shift accounting and t1/MLIP baselines
+
+Run:
+
+```bash
+make reproduce-materials-baseline-frontier
+```
+
+This creates:
+
+- `outputs/milestones/ncs_phase56_version_shift_accounting/supplement_version_shift_accounting.tex`
+- `outputs/milestones/ncs_phase56_version_shift_accounting/table_version_shift_decomposition.csv`
+- `outputs/milestones/ncs_phase57_t1_mlip_baseline_frontier/table_t1_mlip_baseline_frontier.csv`
+- `outputs/milestones/ncs_phase57_t1_mlip_baseline_frontier/table_baseline_capability_t1_mlip.csv`
+
+Phase56 is a deterministic accounting identity for a fixed release set across
+two truth versions. It is not a new PARC guarantee. Phase57 extends the baseline
+capability table to current-MP t1 labels and Phase53 CHGNet/MACE score-support
+proxies. The correct interpretation is that some matched-volume baselines can
+match PARC on t1 FTR, but they do not identify that volume with a one-sided
+release certificate or return certified refusal when high-volume release is
+unsupported.
+
 ## NCS Phase52/58 materials uncertainty and evidence ledger
 
 Run the compact materials-paperization targets:
@@ -504,6 +527,7 @@ Run the compact materials-paperization targets:
 ```bash
 make reproduce-materials-t0-t1
 make reproduce-materials-mlip-audit
+make reproduce-materials-baseline-frontier
 make reproduce-materials-figures
 make validate-evidence-ledger
 ```

@@ -1,0 +1,6 @@
+{
+  "evidence_scope": "completed_version_shift_accounting;not_new_alpha_certificate;not_prospective_discovery;versioned_truth_decomposition",
+  "milestone": "ncs_phase56_version_shift_accounting",
+  "source_table": "outputs/milestones/ncs_phase51_materials_t1_candidate_explanation/table_materials_t1_mlip_candidate_audit.csv",
+  "status": "completed_version_shift_accounting_not_new_certificate"
+}

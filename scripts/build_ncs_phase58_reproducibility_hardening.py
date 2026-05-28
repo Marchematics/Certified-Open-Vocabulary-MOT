@@ -86,6 +86,7 @@ Run:
 
 ```bash
 make reproduce-materials-figures
+make reproduce-materials-baseline-frontier
 ```
 
 This regenerates the paper-facing Phase49/50 tables, including:
@@ -95,6 +96,8 @@ This regenerates the paper-facing Phase49/50 tables, including:
 - `figure_t1_hull_shift_inputs.csv`
 - `table_t1_bootstrap_ci.csv`
 - `table_t1_randomization_tests.csv`
+- `table_version_shift_decomposition.csv`
+- `table_t1_mlip_baseline_frontier.csv`
 
 The audit evaluates frozen t0-selected K=300/500 queues under a current-MP
 hull. No t1 label is used for release selection.
@@ -229,6 +232,28 @@ diagnostics from strict alpha certificates.
             "validation_command": "make reproduce-ncs-phase53-chgnet-mace-candidate-audit",
             "status": "PASS",
             "overclaim_guardrail": "do_not_claim_CHGNet_MACE_explains_all_current_MP_false_releases",
+        },
+        {
+            "claim_id": "M-VSHIFT-001",
+            "claim_text": "The current-MP t1 burden decomposes into t0 FTR plus stable-to-current-not-stable drift minus not-stable-to-current-stable drift.",
+            "evidence_type": "version_shift_accounting_identity",
+            "positive_evidence": "yes",
+            "scope": "deterministic_accounting_not_new_alpha_certificate",
+            "artifact_path": "outputs/milestones/ncs_phase56_version_shift_accounting/table_version_shift_decomposition.csv",
+            "validation_command": "make reproduce-ncs-phase56-version-shift-accounting",
+            "status": "PASS",
+            "overclaim_guardrail": "do_not_claim_t1_alpha_control_from_accounting_identity",
+        },
+        {
+            "claim_id": "M-BASE-T1-001",
+            "claim_text": "The t1/CHGNet-MACE baseline frontier preserves the matched-volume boundary: PARC is certified stopping/refusal, not a matched-volume ranking improvement claim.",
+            "evidence_type": "t1_MLIP_empirical_baseline_frontier",
+            "positive_evidence": "yes",
+            "scope": "capability_comparison_not_equal_target_object",
+            "artifact_path": "outputs/milestones/ncs_phase57_t1_mlip_baseline_frontier/table_t1_mlip_baseline_frontier.csv",
+            "validation_command": "make reproduce-ncs-phase57-t1-mlip-baseline-frontier",
+            "status": "PASS",
+            "overclaim_guardrail": "do_not_claim_PARC_matched_volume_ranking_improvement",
         },
     ]
     for row in ledger_rows:
