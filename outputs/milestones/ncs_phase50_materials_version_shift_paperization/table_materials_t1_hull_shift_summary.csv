@@ -1,0 +1,5 @@
+K,arm,n_unique_candidates,false_n_t1_current_mp,unresolved_n_t1_current_mp,unresolved_counted_as_false,FTR_t1_current_mp,stable_to_unstable_n,stable_to_unstable_rate,t0_stable_n,t1_stable_n,raw_minus_PARC_FTR_t1,drift_rate_delta_PARC_minus_raw,alpha_reference_line,paper_interpretation,selection_frozen_before_t1,t1_used_for_calibration_or_release_selection
+300,PARC_release,304,96,9,True,0.3157894736842105,56,0.1842105263157894,249,208,0.1064644492829792,-0.0283429686913432,0.1,current_MP_version_shift_utility_audit_not_strict_alpha_certificate,True,False
+300,raw_topK,701,296,19,True,0.4222539229671897,149,0.2125534950071326,499,405,0.1064644492829792,-0.0283429686913432,0.1,current_MP_version_shift_utility_audit_not_strict_alpha_certificate,True,False
+500,PARC_release,216,67,4,True,0.3101851851851852,44,0.2037037037037037,192,149,0.1768005410952514,-0.0179587648101502,0.1,current_MP_version_shift_utility_audit_not_strict_alpha_certificate,True,False
+500,raw_topK,1191,580,32,True,0.4869857262804366,264,0.2216624685138539,762,611,0.1768005410952514,-0.0179587648101502,0.1,current_MP_version_shift_utility_audit_not_strict_alpha_certificate,True,False

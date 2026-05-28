@@ -1,0 +1,17 @@
+K,primary_queue_status,t1_false_explanation_class,n,false_denominator,fraction_of_false
+300,PARC_release,ALIGNN_FF_disagrees_with_current_MP_label,72,96,0.75
+300,PARC_release,near_hull_25meV_boundary,9,96,0.09375
+300,PARC_release,near_hull_50meV_boundary,6,96,0.0625
+300,PARC_release,unresolved_current_MP_hull_reference,9,96,0.09375
+300,raw_only_requested_budget,ALIGNN_FF_disagrees_with_current_MP_label,109,200,0.545
+300,raw_only_requested_budget,near_hull_25meV_boundary,39,200,0.195
+300,raw_only_requested_budget,near_hull_50meV_boundary,42,200,0.21
+300,raw_only_requested_budget,unresolved_current_MP_hull_reference,10,200,0.05
+500,PARC_release,ALIGNN_FF_disagrees_with_current_MP_label,56,67,0.835820895522388
+500,PARC_release,near_hull_25meV_boundary,2,67,0.029850746268656716
+500,PARC_release,near_hull_50meV_boundary,5,67,0.07462686567164178
+500,PARC_release,unresolved_current_MP_hull_reference,4,67,0.05970149253731343
+500,raw_only_requested_budget,ALIGNN_FF_disagrees_with_current_MP_label,264,513,0.5146198830409356
+500,raw_only_requested_budget,near_hull_25meV_boundary,125,513,0.24366471734892786
+500,raw_only_requested_budget,near_hull_50meV_boundary,96,513,0.1871345029239766
+500,raw_only_requested_budget,unresolved_current_MP_hull_reference,28,513,0.05458089668615984

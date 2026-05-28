@@ -480,6 +480,12 @@ python scripts/acquire_materials_t0_t1_snapshots.py
 
 The milestone is a current-MP hull-shift utility diagnostic. It is not new DFT, not a strict `alpha=0.10` temporal certificate, and not a prospective materials-discovery claim.
 
+## NCS Phase50/51 materials paperization
+
+Run `make reproduce-ncs-phase50-51-materials-paperization` after the Phase49 t0/t1 snapshot exists. The builder creates paper-facing current-MP version-shift figure inputs, evidence-status tables, a six-display-item NCS plan, a 150-word abstract draft, and a candidate-level t1 explanation table for the frozen K=300/500 WBM queues.
+
+The Phase51 candidate-level table includes ALIGNN-FF, CGCNN and MEGNet model-zoo predictions available in the local Matbench Discovery cache. It also records that candidate-level CHGNet and MACE-MP WBM queue scores are unavailable in the public-safe cache. Do not use this milestone to claim CHGNet/MACE consensus validation.
+
 ## Submission scope lock
 
 Run `make reproduce-phase37-submission-scope-lock` to rebuild the two-anchor evidence hierarchy, release/refuse contract comparator, and forbidden-claim replacement table used for the narrow release-governance submission framing. This target creates no new experiment and does not promote A3, alex-mp/OQMD, Route C, or pending external blind audit rows to positive evidence.

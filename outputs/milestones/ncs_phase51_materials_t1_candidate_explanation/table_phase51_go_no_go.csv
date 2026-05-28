@@ -1,0 +1,6 @@
+K,gate,status,lead_metric,claim
+300,far_from_hull_alignn_negative_PARC_false_low,PASS,0/96 PARC false candidates,few PARC t1-false cases are both far from hull and ALIGNN-negative
+300,boundary_explanation_reported,PASS,PARC boundary false 18/96; raw-only boundary false 83/200,"boundary and model-disagreement classes are reported, not hidden"
+500,far_from_hull_alignn_negative_PARC_false_low,PASS,0/67 PARC false candidates,few PARC t1-false cases are both far from hull and ALIGNN-negative
+500,boundary_explanation_reported,PASS,PARC boundary false 7/67; raw-only boundary false 229/513,"boundary and model-disagreement classes are reported, not hidden"
+all,CHGNet_MACE_WBM_queue_availability,NO_GO_FOR_MLIP_CONSENSUS,candidate-level CHGNet/MACE WBM queue scores unavailable in public-safe cache,Phase51 v1 is not a CHGNet/MACE consensus validation

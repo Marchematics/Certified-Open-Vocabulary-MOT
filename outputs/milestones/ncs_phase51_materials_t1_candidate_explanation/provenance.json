@@ -1,0 +1,11 @@
+{
+  "claim_boundary": [
+    "not_CHGNet_MACE_consensus_validation",
+    "not_strict_alpha010_t1_certificate",
+    "not_prospective_materials_discovery"
+  ],
+  "evidence_status": "completed_candidate_level_t1_explanation_v1_no_MLIP_consensus_claim",
+  "milestone": "ncs_phase51_materials_t1_candidate_explanation",
+  "source_phase49": "outputs/milestones/materials_t0_t1_snapshot_acquisition",
+  "source_queue_rows": "outputs/milestones/materials_queue_source_uncertainty_overlay/table_materials_queue_overlay_candidate_rows.csv"
+}
