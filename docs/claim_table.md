@@ -118,3 +118,15 @@ observed false releases, while matched-budget random audit remains empty and the
 random transition control requires 200x the targeted budget. Materials rows are
 kept as boundary/secondary public-label active-audit evidence and must not be
 promoted to prospective materials discovery.
+
+## Phase64 PARC-R Versioned Recertification
+
+Status: `completed_versioned_recertification_refusal_boundary`.
+
+PARC-R reruns a queue-limited current-MP t1 recertification replay for the
+K=300/500 materials queues. It returns certified refusal under both scarce
+10% t1 positive support and full calibration-block t1 positive support. This
+supports a versioned release-card claim: old t0 certificates should not be
+inherited after a database update without recertification. It is not a
+nonempty current-MP materials release, not DFT evidence, and not prospective
+materials discovery.

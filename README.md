@@ -196,3 +196,5 @@ A formal citation will be added after archival release. Until then, cite the rep
 - A3 DFT run package: `outputs/milestones/mattergen_parc_prospective_dft_followup/A3_DFT_RUN_PACKAGE/` contains 75 PARC-release CIFs, 25 raw-top100 extra-tail CIFs, frozen manifests, protocol/settings templates, and package hashes. It contains no DFT outcomes and no prospective materials claim.
 
 - A3 QE local run layer: `outputs/milestones/mattergen_parc_prospective_dft_followup/A3_QE_LOCAL_RUN/` contains Quantum ESPRESSO input decks, a pseudopotential mapping/hash table, and tmux launch scripts for the frozen A3 package. Third-party pseudopotential payload files and runtime `qe_outputs/` are intentionally ignored until outcomes are formally analyzed. It contains no committed DFT outcomes and no prospective materials claim.
+
+- NCS Phase64 PARC-R versioned recertification: queue-limited current-MP recertification refuses unsafe old materials releases rather than inheriting them.

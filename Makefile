@@ -221,6 +221,7 @@ validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase61_parc_m_multi_evidence_fusion
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase62_full_calibration_mlip_evalues
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase63_parc_a_certificate_directed_active_verification
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase64_parc_r_versioned_recertification
 
 verify-manifest:
 	sha256sum -c MANIFEST_SHA256.txt
@@ -251,3 +252,6 @@ package-release-story:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m parc_track.cli phase13 release-story
 
 package-scientific-release: package-release
+
+reproduce-ncs-phase64-parc-r-versioned-recertification:
+	$(PYTHON) scripts/build_ncs_phase64_parc_r_versioned_recertification.py

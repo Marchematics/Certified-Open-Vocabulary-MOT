@@ -1,0 +1,16 @@
+{
+  "milestone": "ncs_phase64_parc_r_versioned_recertification",
+  "phase": "phase64",
+  "scope": "PARC_R_versioned_recertification_queue_limited_audit;uses_current_MP_t1_positives_in_calibration_blocks;heldout_t1_blocks_evaluated_after_decision;not_full_WBM_recertification;not_t1_alpha_certificate_for_old_release;not_DFT_evidence;not_prospective_discovery",
+  "source_tables": {
+    "phase49_t1_ftr": {
+      "path": "outputs/milestones/materials_t0_t1_snapshot_acquisition/table_t1_ftr_by_k_and_policy.csv",
+      "sha256": "d1c17631d1509f71ad182bbf6cbde6d24a54aa2e595feedc95579d4ab90fa553"
+    },
+    "phase51_candidate_level": {
+      "path": "outputs/milestones/ncs_phase51_materials_t1_candidate_explanation/table_materials_candidate_level_t1_mlip_audit.csv",
+      "sha256": "2f493f4e5551a963d5f3936774cc994769f755a378a1659aff1ff81a94adb1f0"
+    }
+  },
+  "status": "completed"
+}

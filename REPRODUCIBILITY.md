@@ -634,3 +634,15 @@ command, status, and overclaim guardrail.
 ## Submission scope lock
 
 Run `make reproduce-phase37-submission-scope-lock` to rebuild the two-anchor evidence hierarchy, release/refuse contract comparator, and forbidden-claim replacement table used for the narrow release-governance submission framing. This target creates no new experiment and does not promote A3, alex-mp/OQMD, Route C, or pending external blind audit rows to positive evidence.
+
+## NCS Phase64 PARC-R Versioned Recertification
+
+Reproduce the queue-limited current-MP recertification audit with:
+
+```bash
+make reproduce-ncs-phase64-parc-r-versioned-recertification
+python scripts/validate_public_bundle.py outputs/milestones/ncs_phase64_parc_r_versioned_recertification
+```
+
+The milestone is a versioned refusal boundary, not a nonempty t1 alpha
+certificate or DFT evidence.
