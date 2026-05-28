@@ -484,7 +484,18 @@ The milestone is a current-MP hull-shift utility diagnostic. It is not new DFT, 
 
 Run `make reproduce-ncs-phase50-51-materials-paperization` after the Phase49 t0/t1 snapshot exists. The builder creates paper-facing current-MP version-shift figure inputs, evidence-status tables, a six-display-item NCS plan, a 150-word abstract draft, and a candidate-level t1 explanation table for the frozen K=300/500 WBM queues.
 
-The Phase51 candidate-level table includes ALIGNN-FF, CGCNN and MEGNet model-zoo predictions available in the local Matbench Discovery cache. It also records that candidate-level CHGNet and MACE-MP WBM queue scores are unavailable in the public-safe cache. Do not use this milestone to claim CHGNet/MACE consensus validation.
+The Phase51 candidate-level table includes ALIGNN-FF, CGCNN and MEGNet model-zoo predictions available in the local Matbench Discovery cache. It does not itself claim CHGNet/MACE consensus validation.
+
+## NCS Phase53 CHGNet/MACE candidate-level audit
+
+Run `make reproduce-ncs-phase53-chgnet-mace-candidate-audit` after the local private WBM raw-structure cache is available. The builder scores the 1,191 frozen K=300/500 WBM queue candidates with CHGNet and MACE-MP and writes:
+
+- `outputs/milestones/ncs_phase53_chgnet_mace_candidate_audit/table_materials_candidate_level_chgnet_mace_audit.csv`
+- `outputs/milestones/ncs_phase53_chgnet_mace_candidate_audit/table_chgnet_mace_support_by_policy.csv`
+- `outputs/milestones/ncs_phase53_chgnet_mace_candidate_audit/table_chgnet_mace_disagreement_by_t1_status.csv`
+- `outputs/milestones/ncs_phase53_chgnet_mace_candidate_audit/figure_chgnet_mace_release_vs_tail_inputs.csv`
+
+The score cache is public-safe: it records structure hashes and score proxies, not raw CIFs or private structure files. The allowed claim is queue-level CHGNet/MACE score-support contrast for PARC release versus raw-only extra-tail. The forbidden claim remains CHGNet/MACE reference-hull validation, DFT evidence, strict t1 alpha control, or prospective materials discovery.
 
 ## NCS Phase52/58 materials uncertainty and evidence ledger
 
@@ -499,8 +510,10 @@ make validate-evidence-ledger
 
 `reproduce-materials-figures` regenerates the Phase50/51 paper-facing tables and
 the Phase52 chemical-system bootstrap / rank-bin randomization diagnostics.
-`reproduce-materials-mlip-audit` regenerates the candidate-level explanation
-tables only; it is still not a CHGNet/MACE consensus validation. Phase58 writes
+`reproduce-materials-mlip-audit` regenerates both the Phase51 model-zoo
+candidate explanation and the Phase53 CHGNet/MACE score-support audit. The
+Phase53 labels are raw-energy score-support proxies, not reference-hull
+stability labels. Phase58 writes
 `outputs/milestones/ncs_phase58_reproducibility_hardening/EVIDENCE_SCOPE_LEDGER.csv`,
 where every materials claim has a source artifact, SHA256 hash, validation
 command, status, and overclaim guardrail.

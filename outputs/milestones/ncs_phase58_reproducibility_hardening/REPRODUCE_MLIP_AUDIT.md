@@ -1,4 +1,4 @@
-# Reproduce Candidate-Level Model-Zoo Audit
+# Reproduce Candidate-Level MLIP Audits
 
 Run:
 
@@ -6,7 +6,14 @@ Run:
 make reproduce-materials-mlip-audit
 ```
 
-The current public-safe WBM queue cache contains ALIGNN-FF, CGCNN and MEGNet
-model-zoo scores, but not candidate-level CHGNet/MACE scores. Therefore the
-Phase51 candidate-level table is an explanation/model-zoo diagnostic and must
-not be cited as CHGNet/MACE consensus validation.
+This target rebuilds two scoped materials audit layers:
+
+- Phase51 candidate-level explanation with ALIGNN-FF, CGCNN and MEGNet
+  model-zoo scores.
+- Phase53 candidate-level CHGNet/MACE score-support audit when the local
+  private WBM raw-structure cache is available.
+
+The Phase53 CHGNet/MACE columns are raw energy-per-atom score proxies, not
+reference-hull e_above_hull values. They support a queue-level release-vs-tail
+score contrast and must not be cited as DFT evidence, strict t1 alpha control,
+or prospective materials discovery.

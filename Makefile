@@ -1,7 +1,7 @@
 PYTHON ?= python
 PYTHONPATH ?= code/parc_track
 
-.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark reproduce-block-heterogeneity-robustness reproduce-materials-prospective-validation reproduce-materials-alex-mp-a1-a2 reproduce-materials-label-discordance-preregistration reproduce-materials-label-discordance-experiment reproduce-materials-selection-conditional-discordance reproduce-materials-queue-source-uncertainty-overlay reproduce-phase30-main-evidence reproduce-phase31-claim-alignment reproduce-phase32-presubmission reproduce-phase33-presubmission-final reproduce-phase37-submission-scope-lock reproduce-ncs-week0-protocol-freeze reproduce-materials-temporal-mlip-audit reproduce-materials-t0-t1-snapshot-acquisition reproduce-ncs-phase50-51-materials-paperization reproduce-ncs-phase52-materials-t1-uncertainty reproduce-ncs-phase58-reproducibility-hardening reproduce-materials-t0-t1 reproduce-materials-mlip-audit reproduce-materials-figures validate-evidence-ledger reproduce-a3-v4-formal-selection-gate reproduce-a3-v4-dft-manifest-addendum reproduce-a3-v4-phase29c-extra-tail-manifest reproduce-a3-dft-run-package reproduce-a3-qe-local-run reproduce-experimental-finalization phase24-freeze-dft-followup phase24-build-unlabeled-pool phase24-filter-public-labels phase24-score-unlabeled-pool phase24-select-dft-arms phase24-export-dft-jobs validate-public-bundle verify-manifest pre-release-check package-release package-release-story package-scientific-release
+.PHONY: test tiny-fixture reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark reproduce-block-heterogeneity-robustness reproduce-materials-prospective-validation reproduce-materials-alex-mp-a1-a2 reproduce-materials-label-discordance-preregistration reproduce-materials-label-discordance-experiment reproduce-materials-selection-conditional-discordance reproduce-materials-queue-source-uncertainty-overlay reproduce-phase30-main-evidence reproduce-phase31-claim-alignment reproduce-phase32-presubmission reproduce-phase33-presubmission-final reproduce-phase37-submission-scope-lock reproduce-ncs-week0-protocol-freeze reproduce-materials-temporal-mlip-audit reproduce-materials-t0-t1-snapshot-acquisition reproduce-ncs-phase50-51-materials-paperization reproduce-ncs-phase52-materials-t1-uncertainty reproduce-ncs-phase53-chgnet-mace-candidate-audit reproduce-ncs-phase58-reproducibility-hardening reproduce-materials-t0-t1 reproduce-materials-mlip-audit reproduce-materials-figures validate-evidence-ledger reproduce-a3-v4-formal-selection-gate reproduce-a3-v4-dft-manifest-addendum reproduce-a3-v4-phase29c-extra-tail-manifest reproduce-a3-dft-run-package reproduce-a3-qe-local-run reproduce-experimental-finalization phase24-freeze-dft-followup phase24-build-unlabeled-pool phase24-filter-public-labels phase24-score-unlabeled-pool phase24-select-dft-arms phase24-export-dft-jobs validate-public-bundle verify-manifest pre-release-check package-release package-release-story package-scientific-release
 
 test:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q tests
@@ -92,12 +92,15 @@ reproduce-ncs-phase50-51-materials-paperization:
 reproduce-ncs-phase52-materials-t1-uncertainty:
 	$(PYTHON) scripts/build_ncs_phase52_materials_t1_uncertainty.py
 
+reproduce-ncs-phase53-chgnet-mace-candidate-audit:
+	$(PYTHON) scripts/build_ncs_phase53_chgnet_mace_candidate_audit.py
+
 reproduce-ncs-phase58-reproducibility-hardening:
 	$(PYTHON) scripts/build_ncs_phase58_reproducibility_hardening.py
 
 reproduce-materials-t0-t1: reproduce-materials-t0-t1-snapshot-acquisition reproduce-ncs-phase50-51-materials-paperization
 
-reproduce-materials-mlip-audit: reproduce-ncs-phase50-51-materials-paperization
+reproduce-materials-mlip-audit: reproduce-ncs-phase50-51-materials-paperization reproduce-ncs-phase53-chgnet-mace-candidate-audit
 
 reproduce-materials-figures: reproduce-ncs-phase50-51-materials-paperization reproduce-ncs-phase52-materials-t1-uncertainty
 
@@ -190,6 +193,7 @@ validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase50_materials_version_shift_paperization
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase51_materials_t1_candidate_explanation
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase52_materials_t1_uncertainty
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase53_chgnet_mace_candidate_audit
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase58_reproducibility_hardening
 
 verify-manifest:

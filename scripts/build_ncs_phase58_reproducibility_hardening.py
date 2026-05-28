@@ -99,7 +99,7 @@ This regenerates the paper-facing Phase49/50 tables, including:
 The audit evaluates frozen t0-selected K=300/500 queues under a current-MP
 hull. No t1 label is used for release selection.
 """,
-        "REPRODUCE_MLIP_AUDIT.md": """# Reproduce Candidate-Level Model-Zoo Audit
+        "REPRODUCE_MLIP_AUDIT.md": """# Reproduce Candidate-Level MLIP Audits
 
 Run:
 
@@ -107,10 +107,17 @@ Run:
 make reproduce-materials-mlip-audit
 ```
 
-The current public-safe WBM queue cache contains ALIGNN-FF, CGCNN and MEGNet
-model-zoo scores, but not candidate-level CHGNet/MACE scores. Therefore the
-Phase51 candidate-level table is an explanation/model-zoo diagnostic and must
-not be cited as CHGNet/MACE consensus validation.
+This target rebuilds two scoped materials audit layers:
+
+- Phase51 candidate-level explanation with ALIGNN-FF, CGCNN and MEGNet
+  model-zoo scores.
+- Phase53 candidate-level CHGNet/MACE score-support audit when the local
+  private WBM raw-structure cache is available.
+
+The Phase53 CHGNet/MACE columns are raw energy-per-atom score proxies, not
+reference-hull e_above_hull values. They support a queue-level release-vs-tail
+score contrast and must not be cited as DFT evidence, strict t1 alpha control,
+or prospective materials discovery.
 """,
         "DATA_PROVENANCE_MATERIALS.md": """# Materials Data Provenance
 
@@ -123,8 +130,9 @@ t1 labels: Materials Project current API GGA/GGA+U ComputedEntry hull audit
 used only after release-set freezing.
 
 Scores: frozen ALIGNN-FF release scores plus local public-source identifiers for
-CGCNN and MEGNet model-zoo predictions. CHGNet/MACE WBM queue scores are absent
-from the public-safe cache in this release.
+CGCNN and MEGNet model-zoo predictions. Phase53 adds CHGNet/MACE score proxies
+computed from the local private WBM raw-structure cache. Public artifacts record
+candidate IDs, structure hashes and scores, but not raw structures.
 
 All claim-bearing tables carry an overclaim guardrail distinguishing utility
 diagnostics from strict alpha certificates.
@@ -202,14 +210,25 @@ diagnostics from strict alpha certificates.
         },
         {
             "claim_id": "M-MLIP-001",
-            "claim_text": "CHGNet/MACE WBM queue consensus is not available in the public-safe cache.",
-            "evidence_type": "availability_guardrail",
-            "positive_evidence": "no",
-            "scope": "MLIP_consensus_blocked",
-            "artifact_path": "outputs/milestones/ncs_phase51_materials_t1_candidate_explanation/table_materials_mlip_availability_status.csv",
-            "validation_command": "make reproduce-materials-mlip-audit",
+            "claim_text": "Phase53 CHGNet/MACE score-support proxies favor PARC release over raw-only extra-tail at K=300/500.",
+            "evidence_type": "candidate_level_CHGNet_MACE_score_audit",
+            "positive_evidence": "yes",
+            "scope": "score_support_proxy_not_reference_hull_or_DFT_evidence",
+            "artifact_path": "outputs/milestones/ncs_phase53_chgnet_mace_candidate_audit/table_chgnet_mace_support_by_policy.csv",
+            "validation_command": "make reproduce-ncs-phase53-chgnet-mace-candidate-audit",
             "status": "PASS",
-            "overclaim_guardrail": "must_not_write_two_MLIP_consensus_support_for_WBM_t1_queue",
+            "overclaim_guardrail": "do_not_claim_reference_hull_ehull_DFT_or_prospective_discovery",
+        },
+        {
+            "claim_id": "M-MLIP-002",
+            "claim_text": "Phase53 t1 false-case explanation is only partial under CHGNet/MACE score proxies.",
+            "evidence_type": "candidate_level_CHGNet_MACE_boundary_diagnostic",
+            "positive_evidence": "no",
+            "scope": "partial_false_case_mechanism_not_completed_stability_validation",
+            "artifact_path": "outputs/milestones/ncs_phase53_chgnet_mace_candidate_audit/table_phase53_go_no_go.csv",
+            "validation_command": "make reproduce-ncs-phase53-chgnet-mace-candidate-audit",
+            "status": "PASS",
+            "overclaim_guardrail": "do_not_claim_CHGNet_MACE_explains_all_current_MP_false_releases",
         },
     ]
     for row in ledger_rows:

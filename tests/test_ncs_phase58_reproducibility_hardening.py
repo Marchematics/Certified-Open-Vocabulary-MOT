@@ -43,6 +43,13 @@ def test_evidence_ledger_has_hashes_guardrails_and_no_overclaim_scope() -> None:
     assert ledger["overclaim_guardrail"].astype(str).str.len().gt(10).all()
     positive = ledger[ledger["positive_evidence"].eq("yes")]
     assert not positive["scope"].isin(["pending", "protocol_only", "diagnostic_only", "failed_gate"]).any()
+    mlip = ledger[ledger["claim_id"].eq("M-MLIP-001")].iloc[0]
+    assert "CHGNet/MACE score-support proxies favor PARC" in mlip["claim_text"]
+    assert mlip["positive_evidence"] == "yes"
+    assert "score_support_proxy" in mlip["scope"]
+    boundary = ledger[ledger["claim_id"].eq("M-MLIP-002")].iloc[0]
+    assert boundary["positive_evidence"] == "no"
+    assert "partial_false_case_mechanism" in boundary["scope"]
 
 
 def test_validate_evidence_ledger_script_passes() -> None:
