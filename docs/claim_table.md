@@ -171,3 +171,16 @@ Phase68 freezes a blinded DFT v2 pilot package with `360` WBM structures. It is 
 Status: `launched_QE_secondary_sensitivity`.
 
 Phase68b resolves the local execution blockers that can be resolved without a VASP license: `atomate2` and `custodian` are installed, Quantum ESPRESSO inputs are generated for all `360` blinded Phase68 jobs, missing actinide pseudopotentials are filled from public QE UPF files, and a tmux session is launched. This is explicitly a QE secondary-sensitivity execution path, not the primary VASP/atomate2/custodian DFT v2 endpoint, not DFT outcome evidence, not prospective materials discovery, and not a t1 alpha certificate.
+
+## Phase66 Certificate Durability Frontier
+
+Status: `completed_certificate_durability_frontier_no_positive_current_MP_recertification`.
+
+Phase66 adds supplement-ready versioned certificate durability statements and
+runs a predeclared K sweep for current-MP PARC-R recertification over
+K = [10, 15, 20, 25, 50, 75, 100, 150, 200, 300, 500]. The full grid is reported. The observed frontier does not satisfy
+the constructive positive gate of non-empty alpha-safe release in at least 18/20
+seeds. The allowed claim is therefore durability accounting, margin-drift
+diagnostics, and versioned refusal/boundary behavior; it is not a positive
+current-MP release result, not DFT evidence, and not prospective materials
+discovery.

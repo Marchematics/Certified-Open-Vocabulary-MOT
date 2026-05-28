@@ -1,0 +1,100 @@
+\subsection{Versioned certificate durability under reference drift}
+\paragraph{Motivation and scope.}
+PARC certificates are defined relative to a frozen candidate universe, a fixed
+score, a one-sided support rule, and a specified reference label version.  When
+the reference database changes, the truth definition changes as well.  A release
+set certified at version \(t_0\) should therefore not be silently inherited at
+version \(t_1\).
+
+\paragraph{Versioned labels.}
+Let \(P\) be a frozen finite candidate universe.  Each candidate \(p\in P\)
+has labels \(Y_p^{(0)},Y_p^{(1)}\in\{0,1\}\), where \(Y_p^{(0)}=1\) means valid
+under reference version \(t_0\), and \(Y_p^{(1)}=1\) means valid under reference
+version \(t_1\).  For any release set \(R\subseteq P\),
+\[
+\mathrm{FTR}_v(R)=
+\frac{\sum_{p\in R}{\bf 1}\{Y_p^{(v)}=0\}}{|R|\vee 1},\qquad v\in\{0,1\}.
+\]
+Define
+\[
+\delta_R^+ =
+\frac{\sum_{p\in R}{\bf 1}\{Y_p^{(0)}=1,Y_p^{(1)}=0\}}{|R|\vee 1},
+\qquad
+\delta_R^- =
+\frac{\sum_{p\in R}{\bf 1}\{Y_p^{(0)}=0,Y_p^{(1)}=1\}}{|R|\vee 1}.
+\]
+
+\paragraph{Proposition X.1: exact version-shift accounting.}
+For any fixed or data-dependent release set \(R\subseteq P\),
+\[
+\mathrm{FTR}_1(R)=\mathrm{FTR}_0(R)+\delta_R^+-\delta_R^-.
+\]
+Consequently, \(\mathrm{FTR}_1(R)\le \mathrm{FTR}_0(R)+\delta_R^+\).
+
+\emph{Proof.}
+For each candidate \(p\),
+\[
+{\bf 1}\{Y_p^{(1)}=0\} =
+{\bf 1}\{Y_p^{(0)}=0\}
++{\bf 1}\{Y_p^{(0)}=1,Y_p^{(1)}=0\}
+-{\bf 1}\{Y_p^{(0)}=0,Y_p^{(1)}=1\}.
+\]
+Summing over \(p\in R\) and dividing by \(|R|\vee 1\) gives the equality.
+Dropping the non-negative term \(\delta_R^-\) gives the inequality.
+
+\paragraph{Corollary X.2: inherited-certificate decay.}
+If a \(t_0\)-version PARC release \(R_0\) satisfies
+\(\mathbb E[\mathrm{FTR}_0(R_0)]\le \alpha\), then under \(t_1\),
+\[
+\mathbb E[\mathrm{FTR}_1(R_0)]\le \alpha+\mathbb E[\delta_{R_0}^+].
+\]
+If an externally calibrated bound \(\delta_{R_0}^+\le \Delta\) is available,
+then \(\mathbb E[\mathrm{FTR}_1(R_0)]\le \alpha+\Delta\).  This is a decay
+accounting statement, not prospective \(t_1\) alpha control.
+
+\paragraph{Corollary X.3: approximate validity plus reference drift.}
+If \(t_0\)-false-candidate e-values obey \(\mathbb E[E_p]\le 1+\eta\), the
+same argument yields
+\[
+\mathbb E[\mathrm{FTR}_1(R_0)]\le \alpha(1+\eta)+\mathbb E[\delta_{R_0}^+].
+\]
+This separates calibration/e-value error from reference-drift penalty.
+
+\paragraph{Margin-buffer durability.}
+Let \(h_p^{(0)}\) and \(h_p^{(1)}\) be versioned energy above hull values, and
+let \(Y_p^{(v)}=1\) correspond to \(h_p^{(v)}\le 0\).  For a \(t_0\)-stable
+candidate, define \(M_p^{(0)}=-h_p^{(0)}\ge 0\) and
+\(D_p=h_p^{(1)}-h_p^{(0)}\).  A \(t_0\)-stable candidate becomes \(t_1\)-unstable
+only if \(D_p>M_p^{(0)}\).  Therefore, if a release rule restricts \(t_0\)-stable
+released candidates to margin at least \(m\), any stable-to-unstable flip must
+satisfy \(D_p>m\).
+
+\paragraph{Corollary X.4: margin-buffer durability bound.}
+If \(R_m\) is \(t_0\)-certified and every \(t_0\)-stable released candidate
+has \(M_p^{(0)}\ge m\), then
+\[
+\delta_{R_m}^+
+\le
+\frac{\sum_{p\in R_m}{\bf 1}\{Y_p^{(0)}=1,D_p>m\}}{|R_m|\vee1}.
+\]
+If a historical or external drift model gives
+\(\Pr(D_p>m\mid p\in R_m,Y_p^{(0)}=1)\le \pi(m)\), then
+\[
+\mathbb E[\mathrm{FTR}_1(R_m)]\le \alpha+\pi(m),
+\]
+or \(\alpha(1+\eta)+\pi(m)\) under approximate e-values.  The empirical
+\(\pi(m)\) used in this paper is a design diagnostic, not an absolute future
+guarantee.
+
+\paragraph{Theorem X.5: versioned recertification.}
+Fix the \(t_1\) reference.  If the candidate universe, scores, budget grid,
+compatibility rule, and block construction are frozen; \(t_1\)-version
+one-sided reliability holds; the PARC exchangeability assumptions hold; and the
+returned set satisfies self-consistency, then
+\[
+\mathbb E[\mathrm{FTR}_1(R_1)]\le \alpha.
+\]
+If no non-empty compatible set satisfies self-consistency, PARC returns
+\(R_1=\varnothing\), for which \(\mathrm{FTR}_1(R_1)=0\).  Recertification
+therefore restores a \(t_1\)-relative certificate or refuses to renew the old
+release; it does not guarantee a non-empty release.

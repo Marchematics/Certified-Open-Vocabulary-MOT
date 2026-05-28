@@ -702,3 +702,18 @@ runtime directory and live QE outputs are local execution artifacts and are not
 distributed as public evidence. This route is not the primary VASP/atomate2 DFT
 v2 workflow and must not be cited as DFT outcome evidence until calculations are
 complete and analyzed under the conservative failure policy.
+
+## NCS Phase66 Certificate Durability Frontier
+
+Reproduce the supplement-ready durability accounting and current-MP
+recertification K-sweep with:
+
+```bash
+make reproduce-ncs-phase66-certificate-durability
+python scripts/validate_public_bundle.py outputs/milestones/ncs_phase66_certificate_durability
+make validate-evidence-ledger
+```
+
+This milestone reports all predeclared K values. It must not be described as a
+post-hoc small-K selection, a t1 alpha certificate for the old release, DFT
+evidence, or prospective materials discovery.

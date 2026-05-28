@@ -207,3 +207,5 @@ A formal citation will be added after archival release. Until then, cite the rep
 
 - NCS Phase68 DFT v2 pilot: freezes a blinded WBM recomputation manifest and CIF package; pre-outcome execution infrastructure only, not DFT evidence.
 - NCS Phase68b QE secondary launch: starts the blinded Phase68 package locally in tmux under Quantum ESPRESSO as secondary sensitivity only; not the primary VASP DFT v2 endpoint and not DFT evidence until outcomes are analyzed.
+
+- NCS Phase66 certificate durability frontier: version-shift accounting, margin-drift diagnostics, and a full K-grid current-MP PARC-R recertification sweep with no positive t1 release headline.
