@@ -1,0 +1,10 @@
+{
+  "built_at": "2026-05-28T18:43:21+08:00",
+  "evidence_status": "preregistered_protocol_freeze_only",
+  "external_registration_status": "ready_for_upload_not_uploaded",
+  "freeze_timestamp": "2026-05-28T18:43:21+08:00",
+  "git_commit": "25aa6fa",
+  "milestone": "ncs_week0_protocol_freeze",
+  "no_outcome_claims": true,
+  "no_post_hoc_endpoint_selection": true
+}

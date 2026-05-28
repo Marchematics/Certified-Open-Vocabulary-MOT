@@ -67,6 +67,7 @@ parc-track/
 │   ├── milestones/nmi_presubmission_final/
 │   ├── milestones/materials_label_discordance_preregistration/
 │   ├── milestones/materials_selection_conditional_discordance/
+│   ├── milestones/ncs_week0_protocol_freeze/
 │   ├── milestones/pre_release_repository_cleanup/
 │   ├── milestones/reproducibility_freeze/
 │   └── benchmarks/parc_certification_benchmark/
@@ -160,6 +161,7 @@ For full benchmark reproduction, see `REPRODUCIBILITY.md`.
 - Materials A1/A2 finalization packages: `outputs/milestones/materials_temporal_validation/` and `outputs/milestones/materials_independent_dft_validation/` (A1 remains protocol-only; A2 now contains a completed low-coverage OQMD exact-structure diagnostic, not a primary independent validation result)
 - Materials queue source-uncertainty overlay: `outputs/milestones/materials_queue_source_uncertainty_overlay/` (candidate-level ALIGNN-FF K=300/500 queue overlay against alex-mp exact-structure diagnostics; diagnostic only, not positive independent validation or prospective discovery)
 - Submission scope lock: `outputs/milestones/submission_scope_lock_phase37/` (two-anchor evidence hierarchy, release/refuse contract comparator, and forbidden-claim replacements; no new experiment)
+- NCS/NMI Week 0 protocol freeze: `outputs/milestones/ncs_week0_protocol_freeze/` (timestamped protocol PDF, frozen candidate universes, model scores, PARC parameters, K/alpha grid, block definitions, DFT audit sampling scheme, t0/t1 hull definitions, MLIP audit models, CTC audit guidelines, and go/no-go rules; protocol-freeze only, no new evidence)
 - Phase31 claim alignment: `outputs/milestones/protocol_claim_alignment/`, `outputs/milestones/materials_fixed_budget_scientific_utility/`, `outputs/milestones/ctc_scientific_artifact_consequence/`, and `docs/abstract_claim_scope.md` (claim role audit, fixed-budget materials lead numbers, CTC artifact consequence tables, and abstract-scope guardrails)
 - Reproducibility freeze: `outputs/milestones/reproducibility_freeze/` and `outputs/artifact_index.csv` (experiment-finalization milestone index and validation commands)
 - Materials prospective CHGNet v2 gate: `outputs/milestones/materials_prospective_dft_followup_chgnet_v2/` (locally executable CHGNet scorer on PGCGM candidates; PARC release remained empty, so no DFT jobs were exported)

@@ -1,0 +1,9 @@
+endpoint_id,domain,K,alpha,role,claim_boundary
+materials_fixed_budget_K300,materials,300,0.1,primary_support,retrospective public-label release-policy frontier
+materials_fixed_budget_K500,materials,500,0.1,primary_support,retrospective public-label release-policy frontier
+materials_high_volume_K5000,materials,5000,0.1,refusal_stress,unsafe-request refusal only
+a3_v4a_strict,materials_A3,100,0.1,pre_dft_protocol_endpoint,pending until DFT gates pass
+a3_v4b_strict_larger,materials_A3,300,0.1,pre_dft_protocol_endpoint,pending until DFT gates pass
+a3_v4c_near_hull,materials_A3,300,0.1,near_hull_boundary_endpoint,near-hull follow-up only; not exact-stability headline
+ctc_active_audit_K100,CTC,100,0.1,primary_strict_anchor,CTC active verification headline
+ctc_support_K300,CTC,300,0.1,secondary_support,supporting active-audit frontier row

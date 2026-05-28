@@ -1,0 +1,6 @@
+gate,pass_rule,no_go_rule,claim_if_pass
+week0_protocol_freeze,"all protocol tables, PDF, provenance, and SHA256 manifest exist before new outcome claims",missing source hashes or fake external registration URL blocks claim use,protocol_freeze_only
+materials_temporal_t0_t1,PARC t1 FTR <= alpha or clearly below raw top-K; stable-to-unstable drift does not concentrate in release,timestamped t0/t1 snapshots absent or raw top-K already trivially safe means diagnostic/no-go,temporal_validation_if_predeclared_inputs_exist
+MLIP_dense_audit,at least two frozen MLIP audit models support the same release/tail contrast direction and disagreements are boundary/hull-sensitive,model disagreement reverses the conclusion or models are chosen after outcomes,pre_outcome_MLIP_support_not_DFT_evidence
+independent_DFT_blind_audit,PARC DFT-audited FTR <= alpha or significantly below raw top-K; matched raw top-R close is claimed only as certified stopping,any DFT outcome seen before comparator-arm freeze prevents primary raw-vs-PARC claim,prospective_DFT_audit_only_if_all_gates_pass
+A3_claim_boundary,"released_n >=25, selection_frozen true, DFT completed_n >=25, primary_FTR <= alpha",otherwise A3 remains diagnostic/failed gate with no prospective materials-discovery claim,prospective_materials_claim_allowed_only_under_gate

@@ -65,6 +65,7 @@ outputs/milestones/nmi_presubmission_package/
 outputs/milestones/nmi_presubmission_final/
 outputs/milestones/materials_label_discordance_preregistration/
 outputs/milestones/materials_selection_conditional_discordance/
+outputs/milestones/ncs_week0_protocol_freeze/
 outputs/milestones/pre_release_repository_cleanup/
 outputs/milestones/reproducibility_freeze/
 outputs/milestones/generality_reliability/
@@ -187,6 +188,19 @@ python scripts/build_phase33_nmi_presubmission_final.py
 This command builds the compressed final inquiry, final evidence table, final
 abstract, editor cold read, forbidden-claims list, cover-letter positioning,
 and go/no-go checklist. All go-required checks must be `PASS`.
+
+Regenerate the NCS/NMI Week 0 protocol-freeze package:
+
+```bash
+python scripts/build_ncs_week0_protocol_freeze.py
+pytest -q tests/test_ncs_week0_protocol_freeze.py
+```
+
+This package freezes the next candidate universes, scores, PARC parameters,
+K/alpha grid, block definitions, DFT audit arms, t0/t1 hull definitions, MLIP
+audit models, CTC audit guidelines, and go/no-go rules. It is preregistration
+infrastructure only: it records OSF/Zenodo targets as ready for upload, not as
+completed external registrations, and it creates no new outcome evidence.
 
 Pre-release archive policy: `outputs/packages/*.tar.gz` files are generated
 artifacts, not source artifacts. They are ignored in Git and can be recreated

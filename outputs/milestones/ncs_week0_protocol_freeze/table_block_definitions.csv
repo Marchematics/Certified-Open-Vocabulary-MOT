@@ -1,0 +1,6 @@
+domain,block_id,role,definition,sensitivity_status
+materials,composition_family,primary,composition-family blocks from frozen PARC materials implementation,chemical-system and Wyckoff sensitivity are support rows only
+materials,chemical_system,sensitivity,chemical-system grouping,not selected post hoc
+materials,wyckoff_family,sensitivity,structural-family sensitivity where available,not selected post hoc
+CTC,sequence_disjoint,primary,train/evaluation sequence separation and sequence-level blocking,leakage audit required
+iWildCam_SpaceNet,camera_or_AOI,audit_boundary,camera-location or area-of-interest blocks where public-safe rows are available,not headline unless completed audit labels exist

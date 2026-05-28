@@ -1,0 +1,4 @@
+domain_or_track,alpha_primary,alpha_secondary,rho_primary,block_definition_primary,calibrator_rule,selector_rule,post_hoc_tuning_allowed
+materials_A3_v4,0.1,0.2,0.1,composition_family,frozen finite-resolution e-calibrator rule from PARC implementation,SCS-Greedy with denominator-aware compatibility,no
+materials_T1_baseline_frontier,0.1,0.2,0.1,composition_family,same frozen PARC rule as completed T1 package,baseline frontier plus PARC reference rows,no
+ctc_active_audit,0.1,,0.005,sequence_disjoint_or_domain_defined_blocks,same frozen PARC rule as CTC active-audit package,top_score_active_audit_primary; random and block-balanced policies are comparators,no

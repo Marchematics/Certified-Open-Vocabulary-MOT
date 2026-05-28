@@ -1,0 +1,4 @@
+guideline_id,source_artifact,source_sha256,rule
+audit_protocol,docs/audit_protocol.md,1e85c619f357c1c3aa4b0d5c99991405427201618b8e109c813ced12ad182a22,"auditors are blind to model, PARC status, rank, and existing labels when external packet is used"
+label_decision_rules,docs/audit_label_decision_rules.md,14ad2bc472996dc9d4269b6ded20d7c1ff682f1c8df6f165c0b05729ede964b5,"positive, false, and uncertain labels are separated; uncertain is conservative for release FTR"
+ctc_feature_provenance,outputs/milestones/ctc_strict_anchor/ctc_feature_provenance.md,cca55cd46139acaf9fcd05b63e3fced73634f56da7398b509aa2f9c00bae2e1f,sequence leakage and GT feature provenance remain audited before CTC headline use

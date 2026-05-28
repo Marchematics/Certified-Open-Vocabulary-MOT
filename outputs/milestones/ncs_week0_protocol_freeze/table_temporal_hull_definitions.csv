@@ -1,0 +1,6 @@
+definition_id,positive_rule,role,claim_boundary
+exact_stable,e_above_hull <= 0 eV/atom,primary exact-stability rule,requires timestamped t0/t1 public snapshots for A1 positive evidence
+near_hull_25meV,e_above_hull <= 0.025 eV/atom,near-hull boundary sensitivity,not exact-stability headline
+margin_excluded_25meV,exclude candidates within +/-25 meV/atom of hull boundary,boundary sensitivity,boundary diagnostic only
+t0_visible_labels,labels publicly visible at frozen t0 only,calibration source,"if t0 provenance is absent, report no-go/diagnostic"
+t1_future_labels,labels visible in later frozen snapshot t1,evaluation source,t1 must not be read before release sets are frozen

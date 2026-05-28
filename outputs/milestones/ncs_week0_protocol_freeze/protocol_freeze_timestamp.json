@@ -1,0 +1,13 @@
+{
+  "claim_boundary": [
+    "no_new_results",
+    "no_positive_materials_evidence",
+    "no_A3_DFT_outcome",
+    "no_prospective_materials_discovery_claim",
+    "no_positive_independent_materials_validation_claim"
+  ],
+  "commit": "25aa6fa",
+  "external_registration_status": "ready_for_upload_not_uploaded",
+  "freeze_timestamp": "2026-05-28T18:43:21+08:00",
+  "timezone": "Asia/Shanghai"
+}

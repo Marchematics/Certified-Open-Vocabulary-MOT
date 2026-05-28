@@ -1,0 +1,3 @@
+registry,registration_status,registration_url,doi,required_payload,no_fake_identifier
+OSF,ready_for_upload_not_uploaded,,,NCS_WEEK0_PROTOCOL_FREEZE.pdf plus CSV/JSON/manifest package,true
+Zenodo,ready_for_upload_not_uploaded,,,archival snapshot after local protocol freeze and before outcome analysis,true
