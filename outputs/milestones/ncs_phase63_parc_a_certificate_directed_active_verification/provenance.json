@@ -1,0 +1,15 @@
+{
+  "claim_boundary": "PARC_A_certificate_directed_active_verification;simulated_one_sided_audit_over_existing_labels;primary_CTC_only;materials_boundary_secondary;not_new_human_labels;not_new_DFT;not_prospective_materials_discovery",
+  "milestone": "ncs_phase63_parc_a_certificate_directed_active_verification",
+  "source_sha256": {
+    "extended_frontier_summary": "0a77aa8c0331025eac2179f803f5a102565156aa63b235ff4311fcb43befe4dd",
+    "strong_gate": "80f2a61c26cf1f83888fa6514f8df322757590ae49ac92f566a58e8d3bdda5d5"
+  },
+  "source_tables": {
+    "extended_frontier_summary": "outputs/milestones/audit_budget_release_frontier_extended/table_audit_budget_frontier_summary.csv",
+    "policy_contrast": "outputs/milestones/audit_budget_frontier_strong_positive/table_audit_budget_policy_contrast.csv",
+    "seed_rows": "outputs/milestones/audit_budget_frontier_strong_positive/table_ctc_primary_seed_rows.csv",
+    "strong_gate": "outputs/milestones/audit_budget_frontier_strong_positive/table_strong_positive_gate_audit.csv"
+  },
+  "status": "primary_strong_positive_CTC_only"
+}

@@ -107,3 +107,14 @@ denominator, with target-overlap rows excluded before computing block maxima.
 This resolves the Phase61 queue-only proxy blocker for source availability, but
 the milestone is still a t0/t1 queue audit: it is not DFT evidence, not a t1
 alpha certificate, and not a prospective materials-discovery claim.
+
+## Phase63 PARC-A Active Verification
+
+Status: `primary_strong_positive_CTC_only`.
+
+PARC-A is a certificate-directed active verification result: in CTC K=100,
+0.5% score-targeted one-sided audit yields 20/20 nonempty safe seeds and zero
+observed false releases, while matched-budget random audit remains empty and the
+random transition control requires 200x the targeted budget. Materials rows are
+kept as boundary/secondary public-label active-audit evidence and must not be
+promoted to prospective materials discovery.

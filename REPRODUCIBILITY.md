@@ -585,6 +585,30 @@ the headline method-upgrade gate fails, and the milestone must not be described
 as DFT evidence, current-MP t1 alpha control, or prospective materials
 discovery.
 
+## NCS Phase63 PARC-A active verification
+
+Run:
+
+```bash
+make reproduce-ncs-phase63-parc-a-active-verification
+```
+
+This regenerates:
+
+- `outputs/milestones/ncs_phase63_parc_a_certificate_directed_active_verification/table_parc_a_primary_gate.csv`
+- `outputs/milestones/ncs_phase63_parc_a_certificate_directed_active_verification/table_parc_a_policy_contrast.csv`
+- `outputs/milestones/ncs_phase63_parc_a_certificate_directed_active_verification/table_parc_a_seed_rows.csv`
+- `outputs/milestones/ncs_phase63_parc_a_certificate_directed_active_verification/table_parc_a_materials_boundary.csv`
+- `outputs/milestones/ncs_phase63_parc_a_certificate_directed_active_verification/table_parc_a_claim_gate_audit.csv`
+
+Phase63 is the paper-facing PARC-A active-verification package. The primary
+claim is deliberately narrow: for CTC K=100, a 0.5% score-targeted one-sided
+audit yields 20/20 nonempty safe seeds and zero observed false releases, while
+matched-budget random audit remains empty and the full random-audit transition
+requires 200x the targeted budget. CTC K=300 is secondary support. Materials
+rows are retained only as public-label boundary/calibration evidence and must
+not be promoted to prospective materials discovery.
+
 ## NCS Phase52/58 materials uncertainty and evidence ledger
 
 Run the compact materials-paperization targets:
