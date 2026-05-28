@@ -18,6 +18,7 @@ import hashlib
 import json
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 
 
@@ -36,6 +37,17 @@ PUBLIC_SOURCE_IDS = {
     "alignn_ff": "local_private_matbench_discovery_cache/2023-07-11-alignn-ff-wbm-IS2RE.csv.gz",
     "cgcnn_ens10": "local_private_matbench_discovery_cache/2023-01-26-cgcnn-ens10-wbm-IS2RE.csv.gz",
     "megnet": "local_private_matbench_discovery_cache/2022-11-18-megnet-wbm-IS2RE.csv.gz",
+}
+EVIDENCE_SCOPE = (
+    "completed_current_MP_hull_shift_utility_audit;"
+    "not_strict_alpha_temporal_certificate;"
+    "not_prospective_discovery;"
+    "no_t1_label_used_for_selection"
+)
+POLICIES = {
+    "PARC": "PARC_release_seed_count",
+    "raw_topK": "raw_topK_requested_budget_seed_count",
+    "raw_topR": "raw_topR_matched_release_size_seed_count",
 }
 
 
@@ -66,7 +78,7 @@ def write_root_manifest() -> None:
             continue
         if ".git" in path.parts or "__pycache__" in path.parts:
             continue
-        if ".pytest_cache" in path.parts or "tmp" in path.parts:
+        if ".pytest_cache" in path.parts or "tmp" in path.parts or "test_tmp" in path.parts:
             continue
         if path.name == "MANIFEST_SHA256.txt":
             continue
@@ -82,12 +94,310 @@ def write_csv(path: Path, rows: list[dict[str, object]], fieldnames: list[str]) 
         writer.writerows(rows)
 
 
+def bool_label(value: object) -> bool:
+    if isinstance(value, bool):
+        return value
+    return str(value).strip().lower() == "true"
+
+
+def policy_column(k: int, policy: str) -> str:
+    return f"K{k}_{POLICIES[policy]}"
+
+
+def stable_label(value: object) -> str:
+    return "stable" if bool_label(value) else "unstable_or_unresolved"
+
+
+def write_phase49_paper_tables(summary: pd.DataFrame, delta: pd.DataFrame, joined: pd.DataFrame) -> None:
+    """Write the Phase50 paper-facing tables into the Phase49 milestone.
+
+    These are aliases and extensions of the Phase49 acquisition outputs, named
+    exactly for the NCS version-shift audit. They intentionally keep the
+    version-shift evidence scope attached to every row.
+    """
+    ftr_rows: list[dict[str, object]] = []
+    drift_rows: list[dict[str, object]] = []
+    matrix_rows: list[dict[str, object]] = []
+    coverage_rows: list[dict[str, object]] = []
+    unmatched_rows: list[dict[str, object]] = []
+
+    for k in [300, 500]:
+        parc_ftr = None
+        policy_stats: dict[str, dict[str, float]] = {}
+        for policy in POLICIES:
+            col = policy_column(k, policy)
+            subset = joined[joined[col].fillna(0) > 0].copy()
+            if subset.empty:
+                continue
+            n = int(len(subset))
+            t1_false = int((~subset["stable_exact_t1_current_mp"].map(bool_label)).sum())
+            t0_false = int((~subset["stable_exact_t0"].map(bool_label)).sum())
+            ftr_t1 = t1_false / n
+            ftr_t0 = t0_false / n
+            policy_stats[policy] = {
+                "ftr_t1": ftr_t1,
+                "ftr_t0": ftr_t0,
+                "n": n,
+            }
+            if policy == "PARC":
+                parc_ftr = ftr_t1
+
+        for policy in POLICIES:
+            col = policy_column(k, policy)
+            subset = joined[joined[col].fillna(0) > 0].copy()
+            if subset.empty:
+                continue
+            n = int(len(subset))
+            t1_false = int((~subset["stable_exact_t1_current_mp"].map(bool_label)).sum())
+            t0_false = int((~subset["stable_exact_t0"].map(bool_label)).sum())
+            raw_minus = (
+                policy_stats.get("raw_topK", {}).get("ftr_t1", np.nan) - parc_ftr
+                if policy in {"PARC", "raw_topK"}
+                else policy_stats[policy]["ftr_t1"] - parc_ftr
+            )
+            ftr_rows.append(
+                {
+                    "K": k,
+                    "policy": policy,
+                    "n_candidates": n,
+                    "n_t1_unstable": t1_false,
+                    "ftr_t1": t1_false / n,
+                    "ftr_t0": t0_false / n,
+                    "raw_minus_parc_t1": raw_minus,
+                    "source_model": "ALIGNN-FF",
+                    "t0_snapshot": "WBM/Matbench Discovery public labels",
+                    "t1_snapshot": "Materials Project current API hull 2025-09-25",
+                    "candidate_universe_hash": sha256_file(PHASE49 / "table_t0_t1_label_join.csv"),
+                    "evidence_scope": EVIDENCE_SCOPE,
+                }
+            )
+
+            t0_stable = subset["stable_exact_t0"].map(bool_label)
+            stable_to_unstable = int(subset["drift_class"].eq("stable_to_unstable").sum())
+            stable_denom = int(t0_stable.sum())
+            raw_drift = np.nan
+            if policy == "PARC" and "raw_topK" in policy_stats:
+                raw_subset = joined[joined[policy_column(k, "raw_topK")].fillna(0) > 0]
+                raw_stu = int(raw_subset["drift_class"].eq("stable_to_unstable").sum())
+                raw_drift = raw_stu / len(raw_subset) - stable_to_unstable / n
+            drift_rows.append(
+                {
+                    "K": k,
+                    "policy": policy,
+                    "n_candidates": n,
+                    "n_t0_stable": stable_denom,
+                    "n_stable_to_unstable_t1": stable_to_unstable,
+                    "drift_rate": stable_to_unstable / n if n else np.nan,
+                    "raw_minus_parc_drift": raw_drift if policy == "PARC" else "",
+                    "chemical_system_count": int(subset["chemical_system"].nunique()),
+                    "evidence_scope": EVIDENCE_SCOPE,
+                }
+            )
+
+            drift_counts = subset["drift_class"].value_counts().to_dict()
+            matrix_rows.append(
+                {
+                    "K": k,
+                    "policy": policy,
+                    "stable_to_stable": int(drift_counts.get("stable_to_stable", 0)),
+                    "stable_to_unstable": int(drift_counts.get("stable_to_unstable", 0)),
+                    "unstable_to_stable": int(drift_counts.get("unstable_to_stable", 0)),
+                    "unstable_to_unstable": int(drift_counts.get("unstable_to_unstable", 0)),
+                    "unmatched_or_uncertain": int(
+                        drift_counts.get("stable_to_unresolved", 0)
+                        + drift_counts.get("unstable_to_unresolved", 0)
+                    ),
+                    "evidence_scope": EVIDENCE_SCOPE,
+                }
+            )
+
+            chemsys = (
+                subset.groupby("chemical_system", as_index=False)
+                .agg(
+                    n_candidates=("material_id", "nunique"),
+                    n_t1_false=("stable_exact_t1_current_mp", lambda s: int((~s.map(bool_label)).sum())),
+                    n_stable_to_unstable=("drift_class", lambda s: int((s == "stable_to_unstable").sum())),
+                )
+                .sort_values(["n_candidates", "chemical_system"], ascending=[False, True])
+            )
+            for chem_row in chemsys.to_dict("records"):
+                coverage_rows.append(
+                    {
+                        "K": k,
+                        "policy": policy,
+                        "chemical_system": chem_row["chemical_system"],
+                        "n_candidates": chem_row["n_candidates"],
+                        "fraction_of_policy": chem_row["n_candidates"] / n,
+                        "n_t1_false": chem_row["n_t1_false"],
+                        "n_stable_to_unstable": chem_row["n_stable_to_unstable"],
+                        "evidence_scope": EVIDENCE_SCOPE,
+                    }
+                )
+
+            unresolved = subset[subset["t1_label_status"] != "labelable_current_MP_hull"].copy()
+            for unresolved_row in unresolved.to_dict("records"):
+                unmatched_rows.append(
+                    {
+                        "K": k,
+                        "policy": policy,
+                        "candidate_id": unresolved_row["material_id"],
+                        "formula": unresolved_row["formula"],
+                        "chemical_system": unresolved_row["chemical_system"],
+                        "t1_label_status": unresolved_row["t1_label_status"],
+                        "missing_current_mp_element_refs": unresolved_row.get("missing_current_mp_element_refs", ""),
+                        "counted_as_t1_false": True,
+                        "evidence_scope": EVIDENCE_SCOPE,
+                    }
+                )
+
+    write_csv(
+        PHASE49 / "table_t1_ftr_by_k_and_policy.csv",
+        ftr_rows,
+        [
+            "K",
+            "policy",
+            "n_candidates",
+            "n_t1_unstable",
+            "ftr_t1",
+            "ftr_t0",
+            "raw_minus_parc_t1",
+            "source_model",
+            "t0_snapshot",
+            "t1_snapshot",
+            "candidate_universe_hash",
+            "evidence_scope",
+        ],
+    )
+    write_csv(
+        PHASE49 / "table_t1_stable_to_unstable_drift.csv",
+        drift_rows,
+        [
+            "K",
+            "policy",
+            "n_candidates",
+            "n_t0_stable",
+            "n_stable_to_unstable_t1",
+            "drift_rate",
+            "raw_minus_parc_drift",
+            "chemical_system_count",
+            "evidence_scope",
+        ],
+    )
+    write_csv(
+        PHASE49 / "table_t1_drift_matrix_by_policy.csv",
+        matrix_rows,
+        [
+            "K",
+            "policy",
+            "stable_to_stable",
+            "stable_to_unstable",
+            "unstable_to_stable",
+            "unstable_to_unstable",
+            "unmatched_or_uncertain",
+            "evidence_scope",
+        ],
+    )
+    write_csv(
+        PHASE49 / "table_t1_chemical_system_coverage.csv",
+        coverage_rows,
+        [
+            "K",
+            "policy",
+            "chemical_system",
+            "n_candidates",
+            "fraction_of_policy",
+            "n_t1_false",
+            "n_stable_to_unstable",
+            "evidence_scope",
+        ],
+    )
+    write_csv(
+        PHASE49 / "table_t1_unmatched_or_failed_entries.csv",
+        unmatched_rows,
+        [
+            "K",
+            "policy",
+            "candidate_id",
+            "formula",
+            "chemical_system",
+            "t1_label_status",
+            "missing_current_mp_element_refs",
+            "counted_as_t1_false",
+            "evidence_scope",
+        ],
+    )
+
+    fig_rows = []
+    for row in ftr_rows:
+        fig_rows.append(
+            {
+                "panel": "t1_current_MP_FTR",
+                "K": row["K"],
+                "policy": row["policy"],
+                "metric": "ftr_t1",
+                "value": row["ftr_t1"],
+                "alpha_reference_line": 0.10,
+                "evidence_scope": row["evidence_scope"],
+            }
+        )
+    for row in drift_rows:
+        fig_rows.append(
+            {
+                "panel": "stable_to_unstable_drift",
+                "K": row["K"],
+                "policy": row["policy"],
+                "metric": "stable_to_unstable_drift_rate_among_t0_stable",
+                "value": row["drift_rate"],
+                "alpha_reference_line": "",
+                "evidence_scope": row["evidence_scope"],
+            }
+        )
+    write_csv(
+        PHASE49 / "figure_t1_hull_shift_inputs.csv",
+        fig_rows,
+        ["panel", "K", "policy", "metric", "value", "alpha_reference_line", "evidence_scope"],
+    )
+
+    shift_summary = delta.copy()
+    shift_summary["evidence_scope"] = EVIDENCE_SCOPE
+    shift_summary["allowed_claim"] = (
+        "Frozen PARC queues have lower current-MP t1 FTR than raw top-K and do not "
+        "concentrate stable-to-unstable drift; this is not t1 alpha control."
+    )
+    shift_summary.to_csv(PHASE49 / "table_t1_hull_shift_summary.csv", index=False)
+
+    readme = f"""# Current-MP Hull-Shift Evidence Scope
+
+Status: `completed_current_MP_hull_shift_utility_audit`
+
+Evidence scope attached to Phase50 tables:
+
+`{EVIDENCE_SCOPE}`
+
+Allowed use:
+
+- compare the same frozen K=300/500 WBM queues under the current Materials
+  Project hull;
+- report current-label false-release burden, stable-to-unstable drift, and
+  chemical-system coverage;
+- state that t1 labels were not used for calibration or release selection.
+
+Forbidden use:
+
+- do not claim strict temporal alpha=0.10 control under t1;
+- do not claim prospective materials discovery;
+- do not tune K, alpha, block definitions, or release rules from t1 outcomes.
+"""
+    (PHASE49 / "README_evidence_scope.md").write_text(readme, encoding="utf-8")
+
+
 def build_phase50() -> None:
     OUT50.mkdir(parents=True, exist_ok=True)
     summary = pd.read_csv(PHASE49 / "table_t1_hull_ftr_summary.csv")
     delta = pd.read_csv(PHASE49 / "table_t1_hull_ftr_delta.csv")
     gates = pd.read_csv(PHASE49 / "table_t0_t1_gate_assessment.csv")
     joined = pd.read_csv(PHASE49 / "table_t0_t1_label_join.csv")
+    write_phase49_paper_tables(summary, delta, joined)
 
     summary_rows = summary.merge(
         delta[
@@ -408,6 +718,64 @@ def build_phase51() -> None:
     )
     rows["t1_false_explanation_class"] = rows.apply(classify_false_explanation, axis=1)
     rows["claim_boundary"] = "candidate_level_explanation_not_MLIP_consensus_validation"
+    rows["structure_hash"] = rows.apply(
+        lambda row: hashlib.sha256(
+            f"{row['material_id']}|{row['formula']}|{row['chemical_system']}|{row.get('wyckoff_spglib', '')}|{row.get('unique_prototype', '')}".encode(
+                "utf-8"
+            )
+        ).hexdigest(),
+        axis=1,
+    )
+    rows["source_model"] = "ALIGNN-FF"
+    rows["raw_score"] = rows["alignn_score"]
+    rows["parc_released"] = rows["parc_seed_count"] > 0
+    rows["policy_status"] = "outside_requested_queue"
+    rows.loc[rows["raw_topK_seed_count"] > 0, "policy_status"] = "raw_topK_only"
+    rows.loc[(rows["raw_topR_seed_count"] > 0) & (~rows["parc_released"]), "policy_status"] = "raw_topR_matched"
+    rows.loc[(rows["raw_only_tail_seed_count"] > 0) & (~rows["parc_released"]), "policy_status"] = "extra_tail"
+    rows.loc[rows["parc_released"], "policy_status"] = "parc_release"
+    rows.loc[rows["parc_released"] & rows["near_hull_50mev_t0_or_t1"], "policy_status"] = "boundary_release"
+    rows["t0_label"] = rows["stable_exact_t0"].map(stable_label)
+    rows["t1_label"] = rows["stable_exact_t1_current_mp"].map(stable_label)
+    rows["mlip_consensus_label"] = "not_available_no_CHGNet_MACE_scores"
+    rows["mlip_consensus_score"] = ""
+    rows["chgnet_score"] = ""
+    rows["mace_score"] = ""
+    rows["alignn_ff_score"] = rows["alignn_score"]
+    rows["is_t1_false_release"] = rows["parc_released"] & rows["t1_false_conservative"]
+    rows["failure_explanation_class"] = "not_a_false_release"
+    false_mask = rows["is_t1_false_release"]
+    rows.loc[false_mask & rows["near_hull_50mev_t0_or_t1"], "failure_explanation_class"] = "near_hull_boundary"
+    rows.loc[
+        false_mask & ~rows["near_hull_50mev_t0_or_t1"] & rows["alignn_disagrees_with_t1"],
+        "failure_explanation_class",
+    ] = "mlip_disagreement"
+    rows.loc[
+        false_mask
+        & ~rows["near_hull_50mev_t0_or_t1"]
+        & ~rows["alignn_disagrees_with_t1"]
+        & rows["drift_class"].eq("stable_to_unstable"),
+        "failure_explanation_class",
+    ] = "stable_to_unstable_drift"
+    rows.loc[
+        false_mask
+        & ~rows["near_hull_50mev_t0_or_t1"]
+        & ~rows["alignn_disagrees_with_t1"]
+        & rows["far_from_hull_alignn_negative_parc_release"],
+        "failure_explanation_class",
+    ] = "far_from_hull_consensus_negative"
+    parc_false_chemsys_counts = (
+        rows[false_mask].groupby(["K", "chemical_system"])["material_id"].transform("nunique")
+    )
+    rows.loc[
+        false_mask
+        & rows["failure_explanation_class"].eq("not_a_false_release")
+        & (parc_false_chemsys_counts >= 3),
+        "failure_explanation_class",
+    ] = "chemistry_sparse"
+    rows.loc[false_mask & rows["failure_explanation_class"].eq("not_a_false_release"), "failure_explanation_class"] = (
+        "unexplained"
+    )
 
     keep_cols = [
         "material_id",
@@ -456,6 +824,51 @@ def build_phase51() -> None:
     ]
     rows[keep_cols].to_csv(OUT51 / "table_materials_t1_mlip_candidate_audit.csv", index=False)
 
+    candidate_cols = [
+        "material_id",
+        "structure_hash",
+        "formula",
+        "chemical_system",
+        "source_model",
+        "K",
+        "raw_rank",
+        "raw_score",
+        "policy_status",
+        "parc_released",
+        "parc_seed_count",
+        "parc_e_value",
+        "self_consistency_margin",
+        "e_above_hull_t0",
+        "t0_label",
+        "e_above_hull_t1_current_mp",
+        "t1_label",
+        "drift_class",
+        "chgnet_score",
+        "mace_score",
+        "alignn_ff_score",
+        "mlip_consensus_score",
+        "mlip_disagreement_count",
+        "mlip_consensus_label",
+        "near_hull_25mev_t0",
+        "near_hull_50mev_t0",
+        "near_hull_25mev_t1",
+        "near_hull_50mev_t1",
+        "is_t1_false_release",
+        "failure_explanation_class",
+        "claim_boundary",
+    ]
+    candidate_alias = rows[candidate_cols].rename(
+        columns={
+            "material_id": "candidate_id",
+            "parc_seed_count": "parc_release_seed_count",
+            "self_consistency_margin": "parc_release_margin",
+            "e_above_hull_t0": "t0_e_above_hull",
+            "e_above_hull_t1_current_mp": "t1_e_above_hull",
+            "drift_class": "drift_type",
+        }
+    )
+    candidate_alias.to_csv(OUT51 / "table_materials_candidate_level_t1_mlip_audit.csv", index=False)
+
     false_rows = rows[rows["t1_false_conservative"] & rows["primary_queue_status"].isin(["PARC_release", "raw_only_requested_budget"])]
     explanation = (
         false_rows.groupby(["K", "primary_queue_status", "t1_false_explanation_class"], as_index=False)
@@ -469,6 +882,68 @@ def build_phase51() -> None:
     explanation["fraction_of_false"] = explanation["n"] / explanation["false_denominator"]
     explanation.to_csv(OUT51 / "table_materials_t1_false_explanation_summary.csv", index=False)
     explanation.to_csv(OUT51 / "figure_materials_t1_false_explanation_inputs.csv", index=False)
+
+    requested_categories = [
+        "near_hull_boundary",
+        "MLIP_disagreement",
+        "stable_to_unstable_drift",
+        "chemistry_family_cluster",
+        "far_from_hull_consensus_negative",
+        "unexplained",
+    ]
+    decomposition_rows: list[dict[str, object]] = []
+    for k in [300, 500]:
+        parc_false = rows[
+            rows["K"].eq(k) & rows["parc_released"] & rows["t1_false_conservative"]
+        ].copy()
+        raw_false = rows[
+            rows["K"].eq(k)
+            & rows["primary_queue_status"].eq("raw_only_requested_budget")
+            & rows["t1_false_conservative"]
+        ].copy()
+        for arm_name, subset in [("PARC_release", parc_false), ("raw_topK_only", raw_false)]:
+            denom_n = int(subset["material_id"].nunique())
+            if denom_n == 0:
+                continue
+            flags = {
+                "near_hull_boundary": subset["near_hull_50mev_t0_or_t1"],
+                "MLIP_disagreement": subset["alignn_disagrees_with_t1"],
+                "stable_to_unstable_drift": subset["drift_class"].eq("stable_to_unstable"),
+                "chemistry_family_cluster": subset.groupby("chemical_system")["material_id"].transform("nunique") >= 3,
+                "far_from_hull_consensus_negative": subset["far_from_hull_alignn_negative_parc_release"],
+            }
+            explained_any = pd.Series(False, index=subset.index)
+            for series in flags.values():
+                explained_any = explained_any | series.astype(bool)
+            flags["unexplained"] = ~explained_any
+            for category in requested_categories:
+                count = int(flags[category].sum())
+                decomposition_rows.append(
+                    {
+                        "K": k,
+                        "arm": arm_name,
+                        "failure_explanation_class": category,
+                        "n_candidates": count,
+                        "false_denominator": denom_n,
+                        "fraction_of_false": count / denom_n,
+                        "assignment_policy": "overlapping_nonexclusive_diagnostic_categories",
+                        "claim_boundary": "explains_t1_false_candidates_not_strict_t1_certificate",
+                    }
+                )
+    write_csv(
+        OUT51 / "table_t1_false_release_decomposition.csv",
+        decomposition_rows,
+        [
+            "K",
+            "arm",
+            "failure_explanation_class",
+            "n_candidates",
+            "false_denominator",
+            "fraction_of_false",
+            "assignment_policy",
+            "claim_boundary",
+        ],
+    )
 
     dist = rows[rows["primary_queue_status"].isin(["PARC_release", "raw_only_requested_budget"])].copy()
     dist["t1_label"] = dist["stable_exact_t1_current_mp"].map({True: "t1_stable", False: "t1_false_or_unresolved"})
@@ -604,6 +1079,9 @@ flags. It explains current-label false candidates at candidate level.
 Claim boundary:
 
 - This is a candidate-level explanation/model-zoo diagnostic.
+- The `structure_hash` column in the public candidate-level alias table is a
+  deterministic public-safe row hash over WBM identifiers and metadata, not a
+  crystallographic structure hash.
 - It is not a CHGNet/MACE consensus validation for the WBM queue, because
   candidate-level CHGNet and MACE-MP WBM queue scores are unavailable in the
   public-safe cache.
@@ -635,6 +1113,7 @@ cases. Do not write that two independent MLIPs validate the WBM t1 release.
 def main() -> None:
     build_phase50()
     build_phase51()
+    write_manifest(PHASE49)
     write_root_manifest()
     print(f"wrote {rel(OUT50)} and {rel(OUT51)}")
 

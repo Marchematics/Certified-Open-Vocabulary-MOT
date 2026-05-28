@@ -10,6 +10,9 @@ flags. It explains current-label false candidates at candidate level.
 Claim boundary:
 
 - This is a candidate-level explanation/model-zoo diagnostic.
+- The `structure_hash` column in the public candidate-level alias table is a
+  deterministic public-safe row hash over WBM identifiers and metadata, not a
+  crystallographic structure hash.
 - It is not a CHGNet/MACE consensus validation for the WBM queue, because
   candidate-level CHGNet and MACE-MP WBM queue scores are unavailable in the
   public-safe cache.

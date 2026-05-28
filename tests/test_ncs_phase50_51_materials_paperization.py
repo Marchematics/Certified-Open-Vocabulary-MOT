@@ -6,6 +6,31 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 PHASE50 = ROOT / "outputs/milestones/ncs_phase50_materials_version_shift_paperization"
 PHASE51 = ROOT / "outputs/milestones/ncs_phase51_materials_t1_candidate_explanation"
+PHASE49 = ROOT / "outputs/milestones/materials_t0_t1_snapshot_acquisition"
+
+
+def test_phase50_phase49_exact_audit_tables_exist_and_scope_is_attached() -> None:
+    expected = {
+        "table_t1_hull_shift_summary.csv",
+        "table_t1_ftr_by_k_and_policy.csv",
+        "table_t1_stable_to_unstable_drift.csv",
+        "table_t1_drift_matrix_by_policy.csv",
+        "table_t1_chemical_system_coverage.csv",
+        "table_t1_unmatched_or_failed_entries.csv",
+        "figure_t1_hull_shift_inputs.csv",
+        "README_evidence_scope.md",
+    }
+    assert not [name for name in expected if not (PHASE49 / name).exists()]
+    ftr = pd.read_csv(PHASE49 / "table_t1_ftr_by_k_and_policy.csv")
+    assert set(ftr["policy"]) == {"PARC", "raw_topK", "raw_topR"}
+    assert set(ftr["K"]) == {300, 500}
+    scope = set(ftr["evidence_scope"])
+    assert scope == {
+        "completed_current_MP_hull_shift_utility_audit;not_strict_alpha_temporal_certificate;not_prospective_discovery;no_t1_label_used_for_selection"
+    }
+    parc = ftr[ftr["policy"].eq("PARC")].set_index("K")
+    raw = ftr[ftr["policy"].eq("raw_topK")].set_index("K")
+    assert (raw["ftr_t1"] > parc["ftr_t1"]).all()
 
 
 def test_phase50_outputs_exist_and_display_plan_has_six_items() -> None:
@@ -63,7 +88,9 @@ def test_phase50_abstract_is_ncs_sized_and_does_not_overclaim() -> None:
 def test_phase51_outputs_exist_and_candidate_audit_is_candidate_level() -> None:
     expected = {
         "table_materials_t1_mlip_candidate_audit.csv",
+        "table_materials_candidate_level_t1_mlip_audit.csv",
         "table_materials_t1_false_explanation_summary.csv",
+        "table_t1_false_release_decomposition.csv",
         "figure_materials_t1_false_explanation_inputs.csv",
         "figure_materials_mlip_t1_distribution_inputs.csv",
         "table_materials_chemistry_coverage_diagnostic.csv",
@@ -79,6 +106,22 @@ def test_phase51_outputs_exist_and_candidate_audit_is_candidate_level() -> None:
     assert audit[["material_id", "K"]].drop_duplicates().shape[0] == len(audit)
     assert audit["material_id"].nunique() == 1191
     assert {"PARC_release", "raw_only_requested_budget"}.issubset(set(audit["primary_queue_status"]))
+    alias = pd.read_csv(PHASE51 / "table_materials_candidate_level_t1_mlip_audit.csv")
+    required = {
+        "candidate_id",
+        "structure_hash",
+        "policy_status",
+        "parc_released",
+        "t0_e_above_hull",
+        "t1_e_above_hull",
+        "drift_type",
+        "alignn_ff_score",
+        "mlip_consensus_label",
+        "is_t1_false_release",
+        "failure_explanation_class",
+    }
+    assert required.issubset(alias.columns)
+    assert alias["structure_hash"].astype(str).str.fullmatch(r"[0-9a-f]{64}").all()
 
 
 def test_phase51_records_model_availability_without_fake_mlip_consensus() -> None:
@@ -98,6 +141,16 @@ def test_phase51_go_no_go_and_false_explanation_scope() -> None:
     assert not false_summary.empty
     assert set(false_summary["primary_queue_status"]) == {"PARC_release", "raw_only_requested_budget"}
     assert false_summary["fraction_of_false"].between(0, 1).all()
+    decomposition = pd.read_csv(PHASE51 / "table_t1_false_release_decomposition.csv")
+    assert {
+        "near_hull_boundary",
+        "MLIP_disagreement",
+        "stable_to_unstable_drift",
+        "chemistry_family_cluster",
+        "far_from_hull_consensus_negative",
+        "unexplained",
+    }.issubset(set(decomposition["failure_explanation_class"]))
+    assert set(decomposition["assignment_policy"]) == {"overlapping_nonexclusive_diagnostic_categories"}
 
 
 def test_phase50_51_public_safety_text() -> None:
