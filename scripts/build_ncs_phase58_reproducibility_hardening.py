@@ -116,11 +116,23 @@ This target rebuilds two scoped materials audit layers:
   model-zoo scores.
 - Phase53 candidate-level CHGNet/MACE score-support audit when the local
   private WBM raw-structure cache is available.
+- Phase60 PARC-V support-gate feasibility audit.
 
 The Phase53 CHGNet/MACE columns are raw energy-per-atom score proxies, not
 reference-hull e_above_hull values. They support a queue-level release-vs-tail
 score contrast and must not be cited as DFT evidence, strict t1 alpha control,
 or prospective materials discovery.
+
+Run:
+
+```bash
+make reproduce-ncs-phase60-parc-v-version-aware-release
+```
+
+to regenerate the PARC-V support-gate feasibility audit. Phase60 is a no-go
+for a headline version-aware release claim: CHGNet/MACE support-gating is
+non-empty but does not materially lower current-MP t1 FTR and is not a full SCS
+rerun.
 """,
         "DATA_PROVENANCE_MATERIALS.md": """# Materials Data Provenance
 
@@ -254,6 +266,17 @@ diagnostics from strict alpha certificates.
             "validation_command": "make reproduce-ncs-phase57-t1-mlip-baseline-frontier",
             "status": "PASS",
             "overclaim_guardrail": "do_not_claim_PARC_matched_volume_ranking_improvement",
+        },
+        {
+            "claim_id": "M-PARCV-001",
+            "claim_text": "A simple CHGNet/MACE support-gated PARC-V subset is non-empty but does not create a headline-capable current-MP t1 release result.",
+            "evidence_type": "PARC_V_support_gate_feasibility_audit",
+            "positive_evidence": "no",
+            "scope": "completed_no_go_for_headline_not_full_SCS_rerun",
+            "artifact_path": "outputs/milestones/ncs_phase60_parc_v_version_aware_release/table_parc_v_gate_audit.csv",
+            "validation_command": "make reproduce-ncs-phase60-parc-v-version-aware-release",
+            "status": "PASS",
+            "overclaim_guardrail": "do_not_claim_new_PARC_V_theorem_t1_alpha_control_DFT_or_prospective_discovery",
         },
     ]
     for row in ledger_rows:

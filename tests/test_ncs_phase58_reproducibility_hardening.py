@@ -56,6 +56,10 @@ def test_evidence_ledger_has_hashes_guardrails_and_no_overclaim_scope() -> None:
     baseline = ledger[ledger["claim_id"].eq("M-BASE-T1-001")].iloc[0]
     assert "matched-volume boundary" in baseline["claim_text"]
     assert "not_equal_target_object" in baseline["scope"]
+    parc_v = ledger[ledger["claim_id"].eq("M-PARCV-001")].iloc[0]
+    assert parc_v["positive_evidence"] == "no"
+    assert "no_go_for_headline" in parc_v["scope"]
+    assert "t1_alpha_control" in parc_v["overclaim_guardrail"]
 
 
 def test_validate_evidence_ledger_script_passes() -> None:

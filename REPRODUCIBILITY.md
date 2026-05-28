@@ -520,6 +520,27 @@ match PARC on t1 FTR, but they do not identify that volume with a one-sided
 release certificate or return certified refusal when high-volume release is
 unsupported.
 
+## NCS Phase60 PARC-V support-gate audit
+
+Run:
+
+```bash
+make reproduce-ncs-phase60-parc-v-version-aware-release
+```
+
+This regenerates:
+
+- `outputs/milestones/ncs_phase60_parc_v_version_aware_release/table_parc_v_candidate_level.csv`
+- `outputs/milestones/ncs_phase60_parc_v_version_aware_release/table_parc_v_primary_results.csv`
+- `outputs/milestones/ncs_phase60_parc_v_version_aware_release/table_parc_v_gate_audit.csv`
+- `outputs/milestones/ncs_phase60_parc_v_version_aware_release/figure_parc_v_version_aware_release_inputs.csv`
+
+The result is a no-go for the simple PARC-V headline route: the frozen
+CHGNet/MACE support-gated subset is non-empty, but it does not materially lower
+current-MP t1 FTR and does not meet the predeclared <=0.15 or <=0.10 empirical
+thresholds. It is not a full SCS rerun, not a new theorem-grade certificate, not
+DFT evidence, and not prospective materials discovery.
+
 ## NCS Phase52/58 materials uncertainty and evidence ledger
 
 Run the compact materials-paperization targets:

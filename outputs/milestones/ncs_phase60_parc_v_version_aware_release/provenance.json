@@ -1,0 +1,10 @@
+{
+  "evidence_scope": "PARC_V_support_gate_feasibility_audit;uses_frozen_CHGNet_MACE_score_proxies;not_full_SCS_rerun;not_new_theorem_certificate;not_DFT_evidence;not_prospective_discovery",
+  "milestone": "ncs_phase60_parc_v_version_aware_release",
+  "primary_headline_allowed": false,
+  "source_tables": [
+    "outputs/milestones/ncs_phase51_materials_t1_candidate_explanation/table_materials_t1_mlip_candidate_audit.csv",
+    "outputs/milestones/ncs_phase53_chgnet_mace_candidate_audit/table_materials_candidate_level_chgnet_mace_audit.csv"
+  ],
+  "status": "no_go_for_headline"
+}
