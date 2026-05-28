@@ -206,3 +206,4 @@ A formal citation will be added after archival release. Until then, cite the rep
 - NCS Phase65c materials active-audit attempt: tests active one-sided verification policies on ALIGNN-FF WBM K=300/500 under t0 labels, with t1 utility reported as a scoped audit.
 
 - NCS Phase68 DFT v2 pilot: freezes a blinded WBM recomputation manifest and CIF package; pre-outcome execution infrastructure only, not DFT evidence.
+- NCS Phase68b QE secondary launch: starts the blinded Phase68 package locally in tmux under Quantum ESPRESSO as secondary sensitivity only; not the primary VASP DFT v2 endpoint and not DFT evidence until outcomes are analyzed.

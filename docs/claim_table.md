@@ -165,3 +165,9 @@ materials-discovery or t1 alpha-control claims.
 Status: `pre_outcome_blinded_manifest_frozen`.
 
 Phase68 freezes a blinded DFT v2 pilot package with `360` WBM structures. It is execution infrastructure only: no DFT outcomes, no prospective materials-discovery claim, and no t1 alpha certificate are supported until outcomes are returned and analyzed under the conservative failure policy.
+
+## Phase68b QE Secondary Local Launch
+
+Status: `launched_QE_secondary_sensitivity`.
+
+Phase68b resolves the local execution blockers that can be resolved without a VASP license: `atomate2` and `custodian` are installed, Quantum ESPRESSO inputs are generated for all `360` blinded Phase68 jobs, missing actinide pseudopotentials are filled from public QE UPF files, and a tmux session is launched. This is explicitly a QE secondary-sensitivity execution path, not the primary VASP/atomate2/custodian DFT v2 endpoint, not DFT outcome evidence, not prospective materials discovery, and not a t1 alpha certificate.

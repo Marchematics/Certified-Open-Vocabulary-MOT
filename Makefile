@@ -271,3 +271,6 @@ reproduce-ncs-phase65c-materials-active-audit-attempt:
 
 reproduce-ncs-phase68-dft-v2-pilot:
 	$(PYTHON) scripts/build_ncs_phase68_dft_v2_pilot.py
+
+reproduce-ncs-phase68b-qe-secondary-local-run:
+	$(PYTHON) scripts/build_ncs_phase68b_qe_secondary_local_run.py

@@ -687,3 +687,18 @@ python scripts/validate_public_bundle.py outputs/milestones/ncs_phase68_dft_v2_p
 ```
 
 This produces a pre-outcome blinded DFT package. It does not run VASP/QE or create DFT outcomes.
+
+## NCS Phase68b QE Secondary Local Run
+
+Build the local QE secondary-sensitivity input layer with:
+
+```bash
+make reproduce-ncs-phase68b-qe-secondary-local-run
+python scripts/validate_public_bundle.py outputs/milestones/ncs_phase68b_qe_secondary_launch
+```
+
+Launching in tmux is intentionally not part of the reproduce target. The
+runtime directory and live QE outputs are local execution artifacts and are not
+distributed as public evidence. This route is not the primary VASP/atomate2 DFT
+v2 workflow and must not be cited as DFT outcome evidence until calculations are
+complete and analyzed under the conservative failure policy.
