@@ -1,0 +1,7 @@
+gate,required_for_strong_materials_claim,status,pass,reason,allowed_claim
+temporal_t0_t1_hull_shift,True,NO_GO,False,timestamped t0/t1 public-label snapshots are absent from the public bundle,no completed temporal positive evidence; retain retrospective public-label utility only
+PARC_t1_hull_vs_raw_topK,True,NOT_EVALUABLE,False,future-label FTR cannot be computed without frozen t1 labels,no t1 hull-shift claim
+stable_to_unstable_drift_concentration,True,NOT_EVALUABLE,False,no drift table exists without t0/t1 snapshots,no drift-resilience claim
+two_or_more_MLIP_models_same_direction,False,PASS_DIRECTIONAL_SUPPORT,True,4 frozen pre-outcome score sources have positive PARC-release versus extra-tail contrast,pre-outcome MLIP directional audit supports formal selection feasibility; not DFT evidence
+boundary_hull_sensitive_explanation,False,PARTIAL_SOURCE_LEVEL_ONLY,True,"MP-Alex source-discordance decomposition supports a hull-boundary interpretation, but not candidate-level A3 validation",boundary/source-label diagnostic only
+overall_week1_4_materials_temporal_mlip,True,PARTIAL_PASS_MLIP_SUPPORT_TEMPORAL_NO_GO,False,"MLIP audit is directionally positive, temporal t0/t1 validation remains blocked",MLIP pre-outcome scorer audit completed; no prospective/temporal materials positive claim

@@ -66,6 +66,7 @@ outputs/milestones/nmi_presubmission_final/
 outputs/milestones/materials_label_discordance_preregistration/
 outputs/milestones/materials_selection_conditional_discordance/
 outputs/milestones/ncs_week0_protocol_freeze/
+outputs/milestones/materials_temporal_mlip_audit/
 outputs/milestones/pre_release_repository_cleanup/
 outputs/milestones/reproducibility_freeze/
 outputs/milestones/generality_reliability/
@@ -201,6 +202,19 @@ K/alpha grid, block definitions, DFT audit arms, t0/t1 hull definitions, MLIP
 audit models, CTC audit guidelines, and go/no-go rules. It is preregistration
 infrastructure only: it records OSF/Zenodo targets as ready for upload, not as
 completed external registrations, and it creates no new outcome evidence.
+
+Regenerate the Week 1-4 materials temporal + MLIP audit package:
+
+```bash
+python scripts/build_materials_temporal_mlip_audit.py
+pytest -q tests/test_materials_temporal_mlip_audit.py
+```
+
+This package reports a split outcome: timestamped t0/t1 temporal hull-shift
+validation remains no-go in the public bundle, while frozen CHGNet, MACE-MP,
+and ALIGNN-FF pre-outcome score tables provide directional release-vs-tail MLIP
+support. It does not modify A3 selection/manifests and does not create DFT
+evidence.
 
 Pre-release archive policy: `outputs/packages/*.tar.gz` files are generated
 artifacts, not source artifacts. They are ignored in Git and can be recreated

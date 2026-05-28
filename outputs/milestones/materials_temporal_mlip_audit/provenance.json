@@ -1,0 +1,13 @@
+{
+  "built_at": "2026-05-28T18:43:21+08:00",
+  "changes_A3_selection_or_manifest": false,
+  "claim_boundary": [
+    "no_prospective_materials_discovery_claim",
+    "no_positive_independent_materials_validation_claim",
+    "MLIP_pre_outcome_scorer_audit_only",
+    "temporal_t0_t1_no_go_until_snapshots_exist"
+  ],
+  "creates_DFT_outcome": false,
+  "evidence_status": "partial_pass_MLIP_support_temporal_no_go",
+  "milestone": "materials_temporal_mlip_audit"
+}
