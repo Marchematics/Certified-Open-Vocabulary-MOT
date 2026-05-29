@@ -1,0 +1,17 @@
+{
+  "status": "completed_durability_risk_prediction_diagnostic",
+  "input_table": "outputs/milestones/ncs_phase51_materials_t1_candidate_explanation/table_materials_candidate_level_t1_mlip_audit.csv",
+  "input_sha256": "2f493f4e5551a963d5f3936774cc994769f755a378a1659aff1ff81a94adb1f0",
+  "population_rows": 441,
+  "chemical_systems": 156,
+  "positive_rate": 0.22675736961451248,
+  "feature_sets": [
+    "candidate_margin_only",
+    "candidate_t0_score_only",
+    "chemical_system_exploration_only",
+    "candidate_plus_system"
+  ],
+  "cv_scheme": "GroupKFold_by_chemical_system",
+  "headline_positive_allowed": true,
+  "scope": "completed_durability_risk_prediction_diagnostic;features_t0_only_candidate_and_chemical_system;label_stable_to_unstable_t1_drift;group_cv_by_chemical_system;not_release_certificate;not_prospective_discovery;not_DFT_evidence"
+}
