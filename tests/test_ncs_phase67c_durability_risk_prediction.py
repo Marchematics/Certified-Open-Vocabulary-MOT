@@ -17,12 +17,15 @@ FEATURE_SETS = {
 def test_phase67c_outputs_expected_feature_sets_without_t1_feature_leakage() -> None:
     summary = pd.read_csv(PHASE67C / "table_durability_risk_prediction_model_comparison.csv")
     metrics = pd.read_csv(PHASE67C / "table_durability_risk_cv_fold_metrics.csv")
+    provenance = pd.read_csv(PHASE67C / "table_durability_risk_feature_provenance.csv")
     assert set(summary["feature_set"]) == FEATURE_SETS
     assert set(metrics["feature_set"]) == FEATURE_SETS
     forbidden = ["t1", "drift", "stable_to_unstable", "failure", "label"]
     feature_blob = ";".join(summary["feature_names"].astype(str).tolist()).lower()
     for token in forbidden:
         assert token not in feature_blob
+    assert provenance["leakage_status"].str.contains("PASS_no_t1_or_post_update_information").all()
+    assert not provenance["source_columns"].str.contains("t1|drift|stable_to_unstable", case=False, regex=True).any()
     assert summary["cv_scheme"].eq("GroupKFold_by_chemical_system").all()
 
 
@@ -50,6 +53,22 @@ def test_phase67c_primary_signal_requires_system_model_to_beat_margin() -> None:
     assert system["mean_roc_auc"] > margin["mean_roc_auc"]
 
 
+def test_phase67c_ablation_and_by_k_robustness_tables_exist() -> None:
+    ablation = pd.read_csv(PHASE67C / "table_durability_risk_ablation_model_comparison.csv")
+    by_k = pd.read_csv(PHASE67C / "table_durability_risk_by_k_model_comparison.csv")
+    assert {
+        "system_size_activity_proxy",
+        "system_near_hull_density",
+        "system_margin_distribution",
+        "system_raw_score_context",
+    } == set(ablation["feature_set"])
+    assert {300, 500} == set(by_k["K"])
+    system_by_k = by_k[by_k["feature_set"].eq("chemical_system_exploration_only")]
+    assert system_by_k["mean_roc_auc"].gt(0.60).all()
+    margin_by_k = by_k[by_k["feature_set"].eq("candidate_margin_only")]
+    assert (system_by_k["mean_roc_auc"].to_numpy() > margin_by_k["mean_roc_auc"].to_numpy()).all()
+
+
 def test_phase67c_readme_forbids_overclaiming() -> None:
     text = (PHASE67C / "README_evidence_scope.md").read_text(encoding="utf-8")
     for phrase in [
@@ -57,6 +76,7 @@ def test_phase67c_readme_forbids_overclaiming() -> None:
         "no prospective materials discovery",
         "no DFT evidence",
         "no t1 features used as predictors",
+        "t0-public-label-dependent system features",
     ]:
         assert phrase in text
 

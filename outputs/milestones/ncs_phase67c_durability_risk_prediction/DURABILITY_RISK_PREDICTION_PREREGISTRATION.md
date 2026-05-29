@@ -20,4 +20,6 @@ evidence.
 - Candidate plus system features.
 
 No t1 labels, t1 near-hull flags, drift labels or post-update features are used
-as predictors.
+as predictors. Several system-level predictors depend on t0 public hull labels;
+these are valid for a versioned public-label durability audit but should not be
+described as label-free deployment features.

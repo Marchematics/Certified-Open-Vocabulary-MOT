@@ -25,4 +25,6 @@ Guardrails:
 - no prospective materials discovery;
 - no DFT evidence;
 - no t1 features used as predictors;
+- t0-public-label-dependent system features are scoped as durability-audit
+  features, not label-free deployment features;
 - report candidate-only, system-only and combined models together.
