@@ -1,0 +1,42 @@
+{
+  "status": "completed_margin_stable_certification_diagnostic",
+  "input_table": "outputs/milestones/ncs_phase51_materials_t1_candidate_explanation/table_materials_candidate_level_t1_mlip_audit.csv",
+  "input_sha256": "2f493f4e5551a963d5f3936774cc994769f755a378a1659aff1ff81a94adb1f0",
+  "K_grid": [
+    10,
+    15,
+    20,
+    25,
+    50,
+    75,
+    100,
+    150,
+    200,
+    300,
+    500
+  ],
+  "margin_grid_eV_atom": [
+    0.0,
+    0.01,
+    0.025,
+    0.05,
+    0.075,
+    0.1,
+    0.15,
+    0.2,
+    0.3,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0
+  ],
+  "support_modes": [
+    "margin_10pct_support",
+    "margin_full_calibration_block_support"
+  ],
+  "seed_rows": 6600,
+  "headline_positive_allowed": false,
+  "scope": "completed_margin_stable_certification_diagnostic;validity_event_t0_ehull_le_minus_m;score_is_t0_margin_not_raw_model_score;queue_limited_K500_WBM_union;t1_used_only_for_post_release_survival_audit;not_prospective_discovery;not_DFT_evidence;not_independent_validation"
+}
