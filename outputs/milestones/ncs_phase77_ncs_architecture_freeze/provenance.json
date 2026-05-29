@@ -1,0 +1,8 @@
+{
+  "phase": "phase77",
+  "scope": "NCS_architecture_freeze;paper_spine_claim_hierarchy_display_plan_guardrails;no_new_empirical_evidence;materials_as_lifecycle_stress_test;PARC_A_as_primary_empirical_positive;not_DFT_evidence;not_prospective_materials_discovery",
+  "source_phase63": "outputs/milestones/ncs_phase63_parc_a_certificate_directed_active_verification",
+  "source_phase69": "outputs/milestones/ncs_phase69_durability_budgeted_parc",
+  "source_phase76": "outputs/milestones/ncs_phase76_parc_lifecycle_calculus",
+  "status": "completed_NCS_architecture_freeze"
+}

@@ -119,28 +119,6 @@ random transition control requires 200x the targeted budget. Materials rows are
 kept as boundary/secondary public-label active-audit evidence and must not be
 promoted to prospective materials discovery.
 
-## Phase64 PARC-R Versioned Recertification
-
-Status: `completed_versioned_recertification_refusal_boundary`.
-
-PARC-R reruns a queue-limited current-MP t1 recertification replay for the
-K=300/500 materials queues. It returns certified refusal under both scarce
-10% t1 positive support and full calibration-block t1 positive support. This
-supports a versioned release-card claim: old t0 certificates should not be
-inherited after a database update without recertification. It is not a
-nonempty current-MP materials release, not DFT evidence, and not prospective
-materials discovery.
-
-## Phase65 PARC-A Certificate-Directed Policy
-
-Status: `completed_certificate_directed_active_policy_audit`.
-
-Phase65 tests whether PARC-A can choose one-sided verification targets using
-certificate-directed acquisition policies rather than only a raw score
-heuristic. The primary scope remains CTC. Claims must not imply new human
-labels, DFT evidence, prospective materials discovery, or materials primary
-success.
-
 ## Phase65b PARC-A Mechanism Diagnostics
 
 Status: `completed_mechanism_supported`.
@@ -150,37 +128,78 @@ whether audited positives remove the calibration null-superset block maxima
 that constrain release evidence. This is a mechanism diagnostic over existing
 CTC labels, not new human labeling and not materials evidence.
 
-## Phase65c Materials Active-Audit Attempt
+## Phase69 Durability-Budgeted PARC
 
-Status: `completed_no_active_advantage`.
+Status: `completed_durability_budgeted_release_card_diagnostic`.
 
-Phase65c runs a materials t0 active-audit emulation over frozen ALIGNN-FF WBM
-queues. It compares random, raw-score targeted, PARC-M evidence targeted,
-CHGNet/MACE support targeted, and mass-gain acquisition. The t1 current-MP
-columns are reported only as utility audits and cannot support prospective
-materials-discovery or t1 alpha-control claims.
+Phase69 converts the Phase67c t0-only durability-risk predictor into
+release-card decision artifacts. Candidate-level durability-budget support:
+`true`. Risk-triage support:
+`true`.
 
-## Phase68 DFT v2 Pilot
-
-Status: `pre_outcome_blinded_manifest_frozen`.
-
-Phase68 freezes a blinded DFT v2 pilot package with `360` WBM structures. It is execution infrastructure only: no DFT outcomes, no prospective materials-discovery claim, and no t1 alpha certificate are supported until outcomes are returned and analyzed under the conservative failure policy.
-
-## Phase68b QE Secondary Local Launch
-
-Status: `launched_QE_secondary_sensitivity`.
-
-Phase68b resolves the local execution blockers that can be resolved without a VASP license: `atomate2` and `custodian` are installed, Quantum ESPRESSO inputs are generated for all `360` blinded Phase68 jobs, missing actinide pseudopotentials are filled from public QE UPF files, and a tmux session is launched. This is explicitly a QE secondary-sensitivity execution path, not the primary VASP/atomate2/custodian DFT v2 endpoint, not DFT outcome evidence, not prospective materials discovery, and not a t1 alpha certificate.
-
-## Phase66 Certificate Durability Frontier
-
-Status: `completed_certificate_durability_frontier_no_positive_current_MP_recertification`.
-
-Phase66 adds supplement-ready versioned certificate durability statements and
-runs a predeclared K sweep for current-MP PARC-R recertification over
-K = [10, 15, 20, 25, 50, 75, 100, 150, 200, 300, 500]. The full grid is reported. The observed frontier does not satisfy
-the constructive positive gate of non-empty alpha-safe release in at least 18/20
-seeds. The allowed claim is therefore durability accounting, margin-drift
-diagnostics, and versioned refusal/boundary behavior; it is not a positive
-current-MP release result, not DFT evidence, and not prospective materials
+The allowed claim is that t0 public-label release-card features can route
+high-risk materials candidates to recertification and reduce retained
+stable-to-unstable burden. Unless the stricter budget gate passes, this is not a
+repaired `alpha=0.10` certificate. Even when the candidate-level budget gate
+passes, it remains scoped to t0-stable released rows and is not a full
+seed-level release certificate, not DFT evidence, and not prospective materials
 discovery.
+
+## Phase74 Risk-Gated Recertification
+
+Status: `completed_risk_gated_recertification_no_go`.
+
+Phase74 tests the strongest constructive follow-up to Phase69b: move the
+durability-risk gate upstream, rebuild the filtered null-superset denominator,
+recompute e-values and rerun SCS. The primary prior row
+(`K=300`, retain fraction `0.4`,
+support `t1_10pct_support`) returns `0/20`
+non-empty seeds. The full grid does not recover a non-empty self-consistent
+current-MP release certificate. The allowed claim is therefore a principled
+no-go for risk-gated recertification on the queue-limited current-MP audit; it
+does not supersede Phase69b risk triage.
+
+## Phase75 Active Versioned Recertification
+
+Status: `completed_active_recertification_no_go`.
+
+Phase75 closes the active versioned recertification route on the frozen grid: targeted calibration-side t1 support does not restore a GO-medium/GO-strong current-MP release.
+
+Allowed scope: versioned public-label recertification emulation. Forbidden
+claims: prospective materials discovery, DFT validation, label-free durability
+prediction, or current-MP alpha control unless the GO-strong row is explicitly
+reported with its public-label scope.
+
+## Phase76 PARC Lifecycle Calculus
+
+Status: `completed_lifecycle_calculus_synthesis`.
+
+Phase76 consolidates PARC as a release-card lifecycle calculus rather than a
+single selection rule. It supplies supplement-ready theory statements, a JSON
+release-card schema, lifecycle state table, CTC active-audit replay, materials
+reference-update replay, and lifecycle capability baselines. The allowed claim
+is conceptual and infrastructural: PARC supports release, refusal, audit
+acquisition, expiry and recertification states. It does not convert Phase74 or
+Phase75 materials no-go outcomes into a current-MP alpha certificate.
+
+## Phase77 NCS Architecture Freeze
+
+Status: `completed_NCS_architecture_freeze`.
+
+Phase77 freezes the NCS manuscript spine around PARC release-card lifecycle
+certification. The primary empirical positive is PARC-A in CTC active
+verification. Materials is frozen as a lifecycle stress test showing
+reference-version expiry, risk triage and recertification/refusal boundaries.
+Phase77 explicitly stops further materials fast-fix tuning from entering the
+main story.
+
+## Phase78 CTC Real One-Sided Audit
+
+Status: `completed_CTC_real_one_sided_audit_integration`.
+
+Phase78 integrates the existing CTC strict human-confirmed audit package into
+the NCS lifecycle story. The strict-release queue has 1064 human-confirmed rows
+with zero not-same and zero uncertain labels. This strengthens PARC-A practical
+credibility, but it should be described as trained/human-confirmed one-sided
+review rather than microscopy-expert adjudication unless a separate expert
+review is documented.

@@ -1,0 +1,8 @@
+gate_id,timing_disclosure,gate_type,pass_condition,failure_action,allowed_main_text_role
+DFT2-GATE-001,"Frozen after observing 9 completed and 2 failed local VASP jobs, before any e_above_hull or stable_exact outcome table existed.",workflow_validity,"Overall primary-analysis workflow failure fraction <= 0.10.","Report DFT v2 as workflow-limited supplementary feasibility/sensitivity evidence.","main_text_positive_only_if_passed"
+DFT2-GATE-002,"Same timing disclosure as DFT2-GATE-001.",workflow_validity,"PARC release core workflow failure fraction <= 0.10.","Do not use PARC core completed-only FTR as a clean validation claim.","main_text_positive_only_if_passed"
+DFT2-GATE-003,"Same timing disclosure as DFT2-GATE-001.",workflow_validity,"Raw-only extra-tail workflow failure fraction <= 0.10.","Do not use raw-only completed-only FTR as the clean comparator.","main_text_positive_only_if_passed"
+DFT2-GATE-004,"Same timing disclosure as DFT2-GATE-001.",workflow_balance,"Absolute PARC-core minus raw-only-extra-tail failure-fraction difference <= 0.10.","Treat any arm contrast as execution-confounded.","main_text_positive_only_if_passed"
+DFT2-GATE-005,"No DFT stability outcomes were available at gate freeze.",efficacy,"PARC release core primary conservative FTR <= alpha=0.10.","DFT v2 cannot support clean positive validation.","main_text_positive_only_if_passed"
+DFT2-GATE-006,"No DFT stability outcomes were available at gate freeze.",release_vs_tail_utility,"Raw-only extra-tail primary conservative FTR exceeds PARC release core by >=0.10.","If not met, DFT v2 is at most limited release stability validation, not strong release-vs-tail utility.","strong_main_text_utility_only_if_passed"
+

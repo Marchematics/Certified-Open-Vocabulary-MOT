@@ -1,0 +1,8 @@
+{
+  "expert_review_claimed": false,
+  "phase": "phase78",
+  "scope": "completed_CTC_real_one_sided_audit_integration;human_confirmed_trained_review_not_expert_adjudication;supports_PARC_A_primary_positive;not_new_domain;not_materials_evidence;not_DFT_evidence",
+  "source_milestone": "outputs/milestones/ctc_strict_human_audit",
+  "source_rows": 2564,
+  "status": "completed_CTC_real_one_sided_audit_integration"
+}

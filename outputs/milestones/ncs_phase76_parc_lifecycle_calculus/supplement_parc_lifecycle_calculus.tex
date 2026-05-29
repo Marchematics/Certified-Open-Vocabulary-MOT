@@ -1,0 +1,92 @@
+\section{PARC lifecycle calculus}
+\label{sec:parc-lifecycle-calculus}
+
+PARC is a lifecycle rule for finite scientific candidate queues under
+one-sided partial verification.  The object is not only a selected set.  The
+object is a release card: a versioned statement of the candidate universe,
+reference label version, one-sided support source, score, block construction,
+release/refusal decision and recertification status.
+
+\paragraph{Setup.}
+Let \(P\) be a frozen finite candidate universe and let \(Y_p\in\{0,1\}\)
+denote validity under a fixed reference version.  One-sided support is a
+binary observation \(A_p\) satisfying
+\[
+  A_p=1 \Rightarrow Y_p=1 .
+\]
+For a calibration block \(b\), PARC removes only verified positives from the
+calibration null superset and keeps all unverified candidates in the null
+superset.  Candidate scores and block definitions are frozen before release.
+
+\begin{theorem}[Least-favourable null-superset dominance]
+If one-sided reliability holds, every false calibration candidate remains in
+the calibration null superset.  Therefore the maximum score over the
+calibration null superset is least-favourable for the false-candidate score in
+the corresponding exchangeable test block.  The resulting block rank
+\(p\)-value is super-uniform for false candidates, and any monotone
+calibrating transform that yields an e-value remains valid for false
+candidates.
+\end{theorem}
+
+\begin{proof}
+One-sided reliability removes only candidates known to be valid.  Hence no
+false candidate is removed from the calibration null superset.  The block
+maximum over this superset is at least as large as the maximum over the
+unobserved false-only subset.  Under the stated block-exchangeability
+condition, ranking a false test score against this superset maximum is
+conservative.  The e-value statement follows from the standard
+super-uniform-to-e-value transform used by PARC.
+\end{proof}
+
+\begin{proposition}[Refusal lower bound]
+For a requested budget \(K\), risk target \(\alpha\), and compatible release
+set \(R\), PARC self-consistency requires
+\[
+  E_p \ge \frac{K}{\alpha |R|}
+  \quad \text{for all } p\in R .
+\]
+If no compatible non-empty set satisfies this inequality, PARC returns
+certified refusal.  This refusal is a statement about evidence insufficiency
+for the frozen release card, not a claim that no valid candidates exist.
+\end{proposition}
+
+\begin{proposition}[Active audit gain]
+Consider a calibration candidate \(q\) that is currently a high-scoring member
+of the calibration null superset.  If auditing \(q\) returns one-sided support
+\(A_q=1\), then \(q\) is removed from the null superset.  This can weakly reduce
+the relevant calibration block maximum and can increase the e-values of
+follow-up candidates whose scores are compared against that block.  Targeted
+audit policies can therefore turn certified refusal into certified release
+without treating unverified candidates as negatives.
+\end{proposition}
+
+\begin{proposition}[Versioned certificate accounting]
+Let \(Y_p^{(0)}\) and \(Y_p^{(1)}\) denote validity under reference versions
+\(t_0\) and \(t_1\).  For any release set \(R\),
+\[
+ \mathrm{FTR}_{1}(R)
+ =
+ \mathrm{FTR}_{0}(R)
+ + \frac{|\{p\in R:Y_p^{(0)}=1,Y_p^{(1)}=0\}|}{|R|\vee 1}
+ - \frac{|\{p\in R:Y_p^{(0)}=0,Y_p^{(1)}=1\}|}{|R|\vee 1}.
+\]
+Thus inherited current-reference burden is the old-reference burden plus
+stable-to-unstable drift minus unstable-to-stable correction.
+\end{proposition}
+
+\begin{theorem}[Versioned recertification]
+Fix a new reference version \(t_1\).  If candidate universe, score, blocks,
+compatibility and release grid are frozen, and if \(t_1\)-version one-sided
+support satisfies \(A_p^{(1)}=1\Rightarrow Y_p^{(1)}=1\), then rerunning PARC
+at \(t_1\) restores an expected \(t_1\)-relative false-release guarantee
+whenever the returned set is non-empty and self-consistent.  If no such set is
+found, PARC returns recertified refusal.
+\end{theorem}
+
+\paragraph{Lifecycle interpretation.}
+The same calculus supports several release-card states: certified release,
+certified refusal, active-audit requirement, expiry after reference update,
+recertified release, recertified refusal and risk-triage requirement.  The
+states are mutually scoped to the recorded reference version and evidence
+sources.  They should not be read as prospective materials discovery, DFT
+validation or absolute physical truth.

@@ -1,0 +1,42 @@
+{
+  "K_grid": [
+    20,
+    50,
+    100,
+    150,
+    300,
+    500
+  ],
+  "budget_fraction_grid": [
+    0.001,
+    0.002,
+    0.005,
+    0.01,
+    0.02,
+    0.05,
+    0.1,
+    0.2,
+    1.0
+  ],
+  "candidate_universe_rows": 1191,
+  "phase": "phase75",
+  "policies": [
+    "random_t1_audit",
+    "score_targeted_t1_audit",
+    "low_risk_score_targeted_t1_audit",
+    "system_margin_distribution_low_risk_then_score",
+    "blockmax_gain_t1_audit",
+    "mass_gain_t1_audit",
+    "diversity_mass_gain_t1_audit"
+  ],
+  "scope": "active_versioned_recertification;current_MP_t1_public_label_emulation;t1_labels_used_only_as_calibration_side_one_sided_positives;test_side_t1_labels_used_only_after_release_for_FTR;audit_policy_frozen_before_release;nullsuperset_denominator_recomputed_after_audit;self_consistency_recalculated;not_DFT_evidence;not_prospective_materials_discovery",
+  "source_phase51": "outputs/milestones/ncs_phase51_materials_t1_candidate_explanation",
+  "source_phase51_t1_table_sha256": "284caf1ecd43b093402d0f938041c71227a31d0155ce7b7dd8822d7b8a96b14b",
+  "source_phase69": "outputs/milestones/ncs_phase69_durability_budgeted_parc",
+  "source_phase69_crossfit_risk_sha256": "5b3f9ea933962dad0edae359842d8f9cbc3e09fc1fc16bf8a73926f538fe590d",
+  "status": "completed_active_recertification_no_go",
+  "support_modes": {
+    "t1_10pct_support": 0.1,
+    "t1_full_calibration_block_support": 1.0
+  }
+}

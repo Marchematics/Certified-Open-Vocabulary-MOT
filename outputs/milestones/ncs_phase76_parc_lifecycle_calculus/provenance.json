@@ -1,0 +1,13 @@
+{
+  "phase": "phase76",
+  "scope": "PARC_lifecycle_calculus;synthesis_of_completed_artifacts;not_new_empirical_claim;not_DFT_evidence;not_prospective_materials_discovery",
+  "source_artifacts": {
+    "phase63_primary_gate": "outputs/milestones/ncs_phase63_parc_a_certificate_directed_active_verification/table_parc_a_primary_gate.csv",
+    "phase65b_mechanism_gate": "outputs/milestones/ncs_phase65b_parc_a_mechanism_diagnostics/table_parc_a_mechanism_gate.csv",
+    "phase69_triage": "outputs/milestones/ncs_phase69_durability_budgeted_parc/table_risk_triage_frontier.csv",
+    "phase70_dft_checkpoint": "outputs/milestones/ncs_phase70_dft_v2_checkpoint/table_dft_v2_execution_checkpoint_summary.csv",
+    "phase74_primary": "outputs/milestones/ncs_phase74_risk_gated_recertification/table_risk_gated_primary_row.csv",
+    "phase75_policy_comparison": "outputs/milestones/ncs_phase75_active_versioned_recertification/table_active_recertification_policy_comparison.csv"
+  },
+  "status": "completed_lifecycle_calculus_synthesis"
+}

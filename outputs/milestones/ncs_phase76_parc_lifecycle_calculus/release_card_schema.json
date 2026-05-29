@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "active_audit_policy": {
+      "type": "string"
+    },
+    "alpha": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "artifact_paths": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "block_definition": {
+      "type": "string"
+    },
+    "candidate_universe_hash": {
+      "type": "string"
+    },
+    "durability_risk_model": {
+      "type": "string"
+    },
+    "evidence_scope": {
+      "type": "string"
+    },
+    "guardrails": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "lifecycle_state": {
+      "enum": [
+        "certified_release",
+        "certified_refusal",
+        "expired_after_reference_update",
+        "recertified_release",
+        "recertified_refusal",
+        "risk_triage_required",
+        "active_audit_required"
+      ],
+      "type": "string"
+    },
+    "one_sided_support_source": {
+      "type": "string"
+    },
+    "recertification_status": {
+      "type": "string"
+    },
+    "reference_version": {
+      "type": "string"
+    },
+    "release_card_id": {
+      "type": "string"
+    },
+    "release_size": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "requested_budget_K": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "score_source": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "release_card_id",
+    "candidate_universe_hash",
+    "reference_version",
+    "score_source",
+    "block_definition",
+    "alpha",
+    "requested_budget_K",
+    "lifecycle_state",
+    "evidence_scope",
+    "guardrails"
+  ],
+  "title": "PARC release-card lifecycle schema",
+  "type": "object"
+}

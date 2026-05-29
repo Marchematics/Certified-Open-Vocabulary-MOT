@@ -1,0 +1,12 @@
+{
+  "status": "execution_checkpoint_no_stability_outcomes",
+  "run_root_label": "ncs_phase68_dft_v2_pilot_nonspin_fixedcell_safe",
+  "run_root_scope": "local execution path withheld from public bundle",
+  "phase68_manifest_sha256": "4c010c290d7b8ffc5ea4347fddee52f6ee496e87923855caedda83c420ea2b51",
+  "completed_jobs": 11,
+  "failed_jobs": 2,
+  "running_jobs": 3,
+  "e_above_hull_outcomes_available": false,
+  "stable_exact_outcomes_available": false,
+  "scope": "DFT_v2_execution_checkpoint;local_VASP_nonspin_fixedcell_safe;final_energy_only_no_reference_hull;no_e_above_hull;no_stable_exact;not_DFT_validation_evidence;not_prospective_materials_discovery"
+}

@@ -1,0 +1,14 @@
+{
+  "status": "completed_PARC_D_hardening",
+  "source_phase69": "outputs/milestones/ncs_phase69_durability_budgeted_parc",
+  "source_phase69_manifest_sha256": "12e397cb9d5e3148711d4b03f9a219ab26dca6c8baaf05fff3b1d748cee7014e",
+  "source_phase51": "outputs/milestones/ncs_phase51_materials_t1_candidate_explanation",
+  "primary_row": {
+    "risk_model": "system_margin_distribution",
+    "K": 300,
+    "alpha0": 0.01,
+    "retain_fraction": 0.4
+  },
+  "postfilter_self_consistency_passes": false,
+  "scope": "PARC_D_hardening;phase69_candidate_level_durability_budget_audit;self_consistency_postfilter_checked;t0_public_label_release_card_features_not_label_free;not_full_current_MP_alpha_certificate;not_DFT_evidence;not_prospective_materials_discovery"
+}

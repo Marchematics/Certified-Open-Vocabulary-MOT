@@ -1,0 +1,33 @@
+{
+  "status": "completed_durability_budgeted_release_card_diagnostic",
+  "source_phase67c": "outputs/milestones/ncs_phase67c_durability_risk_prediction",
+  "source_phase67c_manifest_sha256": "535fdaafee8be32c1ac67ec7f796e0a8f5d9dc5c598166a51ffaa0730a187d73",
+  "risk_models": [
+    "system_margin_distribution",
+    "system_size_activity_proxy",
+    "chemical_system_exploration_only",
+    "candidate_plus_system",
+    "candidate_margin_only",
+    "candidate_t0_score_only"
+  ],
+  "primary_risk_model": "system_margin_distribution",
+  "alpha0_grid": [
+    0.01,
+    0.025,
+    0.05,
+    0.075
+  ],
+  "retain_fraction_grid": [
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    1.0
+  ],
+  "total_alpha": 0.1,
+  "scope": "durability_budgeted_release_card_diagnostic;crossfit_risk_scores_grouped_by_chemical_system;t0_public_label_features_not_label_free;candidate_level_t0_stable_release_rows;not_full_release_alpha_certificate;not_DFT_evidence;not_prospective_materials_discovery",
+  "candidate_level_budget_positive": true,
+  "risk_triage_positive": true
+}
