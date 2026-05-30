@@ -1,0 +1,17 @@
+{
+  "allowed_labels": [
+    "same_cell_supported",
+    "unsupported",
+    "uncertain"
+  ],
+  "one_sided_positive_label": "same_cell_supported",
+  "forbidden_negative_use": "unsupported and uncertain labels are audit outcomes only; PARC calibration may use only same_cell_supported as verified positives",
+  "required_return_columns": [
+    "audit_item_id",
+    "auditor_label",
+    "auditor_confidence",
+    "auditor_notes"
+  ],
+  "arm_blinding": "Auditor templates exclude arm, score, rank, previous human label, PARC status and official GT fields.",
+  "pending_status": "No Phase81 label outcome is claimed until returned templates are ingested and adjudicated."
+}

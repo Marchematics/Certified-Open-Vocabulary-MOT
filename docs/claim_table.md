@@ -248,3 +248,16 @@ release-card durability-risk triage.
 
 Forbidden claim: label-free deployment prediction, current-MP alpha repair, DFT
 validation, or prospective materials discovery.
+
+## Phase81 CTC External Blind Audit Mini-Study
+
+Status: `packet_frozen_pending_independent_labels`.
+
+Phase81 freezes a two-auditor blind CTC link-audit mini-study packet (600 rows)
+with auditor templates, adjudication template, ingest schema and arm registry.
+It is designed to turn the PARC-A CTC active-audit result into a real
+verification-workflow study once independent labels are returned.  Current
+tracked source rows do not contain a true raw-only top-K arm; this is recorded
+as a blocker.  Phase81 is not completed positive evidence and must not be
+written as expert microscopy adjudication, raw-only comparator success, or a
+new CTC benchmark.
