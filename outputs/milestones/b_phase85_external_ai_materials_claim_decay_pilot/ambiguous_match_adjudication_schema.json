@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Phase85 ambiguous match adjudication schema",
+  "type": "object",
+  "required": [
+    "claim_uid",
+    "match_decision",
+    "reason_code",
+    "confidence"
+  ],
+  "properties": {
+    "claim_uid": {
+      "type": "string"
+    },
+    "match_decision": {
+      "type": "string",
+      "enum": [
+        "same",
+        "distorted_same",
+        "not_same",
+        "uncertain"
+      ]
+    },
+    "reason_code": {
+      "type": "string",
+      "enum": [
+        "exact_structure_match",
+        "relaxed_or_distorted_match",
+        "composition_only_match",
+        "polymorph_conflict",
+        "missing_current_reference",
+        "insufficient_metadata",
+        "other"
+      ]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "reviewer_notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

@@ -6,6 +6,7 @@ PYTHONPATH ?= code/parc_track
 .PHONY: reproduce-ncs-phase82-ctc-ai-preannotation-for-human-review
 .PHONY: reproduce-ncs-phase83-necessity-and-prevented-harm
 .PHONY: reproduce-ncs-phase84-real-audit-parc-a-replication
+.PHONY: reproduce-b-phase85-external-ai-materials-claim-decay-pilot
 .PHONY: reproduce-ncs-phase67d-durability-risk-headline-hardening
 
 .PHONY: test tiny-fixture reproduce-ncs-phase66-certificate-durability reproduce-ncs-phase67-margin-stable-certification reproduce-ncs-phase67b-hard-margin-eligibility reproduce-ncs-phase67c-durability-risk-prediction reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark reproduce-block-heterogeneity-robustness reproduce-materials-prospective-validation reproduce-materials-alex-mp-a1-a2 reproduce-materials-label-discordance-preregistration reproduce-materials-label-discordance-experiment reproduce-materials-selection-conditional-discordance reproduce-materials-queue-source-uncertainty-overlay reproduce-phase30-main-evidence reproduce-phase31-claim-alignment reproduce-phase32-presubmission reproduce-phase33-presubmission-final reproduce-phase37-submission-scope-lock reproduce-ncs-week0-protocol-freeze reproduce-materials-temporal-mlip-audit reproduce-materials-t0-t1-snapshot-acquisition reproduce-ncs-phase50-51-materials-paperization reproduce-ncs-phase52-materials-t1-uncertainty reproduce-ncs-phase53-chgnet-mace-candidate-audit reproduce-ncs-phase56-version-shift-accounting reproduce-ncs-phase57-t1-mlip-baseline-frontier reproduce-ncs-phase58-reproducibility-hardening reproduce-ncs-phase60-parc-v-version-aware-release reproduce-ncs-phase61-parc-m-multi-evidence-fusion reproduce-ncs-phase62-full-calibration-mlip-evalues reproduce-ncs-phase63-parc-a-active-verification reproduce-materials-t0-t1 reproduce-materials-mlip-audit reproduce-materials-baseline-frontier reproduce-materials-figures validate-evidence-ledger reproduce-a3-v4-formal-selection-gate reproduce-a3-v4-dft-manifest-addendum reproduce-a3-v4-phase29c-extra-tail-manifest reproduce-a3-dft-run-package reproduce-a3-qe-local-run reproduce-experimental-finalization phase24-freeze-dft-followup phase24-build-unlabeled-pool phase24-filter-public-labels phase24-score-unlabeled-pool phase24-select-dft-arms phase24-export-dft-jobs validate-public-bundle verify-manifest pre-release-check package-release package-release-story package-scientific-release reproduce-ncs-phase77-architecture-freeze reproduce-ncs-phase78-ctc-real-one-sided-audit reproduce-ncs-phase79-controlled-evolving-reference-simulation
@@ -248,6 +249,7 @@ validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase82_ctc_ai_preannotation_for_human_review
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase83_necessity_and_prevented_harm
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase84_real_audit_parc_a_replication
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/b_phase85_external_ai_materials_claim_decay_pilot
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_durability_risk_manuscript_spine
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase68_dft_v2_pilot
 
@@ -355,3 +357,6 @@ reproduce-ncs-phase83-necessity-and-prevented-harm:
 
 reproduce-ncs-phase84-real-audit-parc-a-replication:
 	$(PYTHON) scripts/build_ncs_phase84_real_audit_parc_a_replication.py
+
+reproduce-b-phase85-external-ai-materials-claim-decay-pilot:
+	$(PYTHON) scripts/build_b_phase85_external_ai_materials_claim_decay_pilot.py

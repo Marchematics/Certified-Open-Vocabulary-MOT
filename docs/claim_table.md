@@ -297,3 +297,14 @@ returned, PARC-A has not been rerun from human calibration positives, and no
 real-audit success claim is allowed.  The tracked Phase81 source still lacks a
 true raw-only top-K arm, so random same-budget control is the primary workflow
 control and raw-overlap rows remain diagnostic.
+
+## Phase85 External AI-Materials Claim-Decay Audit Pilot
+
+Status: `protocol_frozen_current_reference_verdicts_pending`.
+
+Phase85 freezes a B-line pilot protocol for auditing whether public AI/materials
+stability claims remain stable under frozen current-reference checks.  Current
+status is protocol only: no current-reference verdicts have been produced, no
+source-specific decay rate is claimed, and this is not A-paper main evidence.
+The pilot is designed to decide whether B should expand into an independent
+claim-decay paper or stop without delaying A.

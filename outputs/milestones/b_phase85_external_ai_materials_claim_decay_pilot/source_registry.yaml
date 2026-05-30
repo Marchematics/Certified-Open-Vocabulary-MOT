@@ -1,0 +1,48 @@
+# Phase85 source registry
+evidence_scope: b_line_external_ai_materials_claim_decay_pilot;protocol_frozen;current_reference_verdicts_pending;not_completed_positive_evidence;not_A_paper_main_evidence;not_prospective_discovery;not_new_DFT_evidence
+sources:
+  - source_id: matbench_discovery_wbm
+    role: primary_claim_surface
+    claim_unit: structure_or_unique_prototype_stability_claim
+    minimum_pilot_claims: 150
+    access_mode: public_download_or_python_api
+    license_boundary: verify_at_ingest_before_redistribution
+    redistribution_policy: publish_hashes_ids_verdicts_and_rebuild_recipe_not_bulk_raw_structures_by_default
+    pilot_priority: high
+    status: frozen_source_pending_ingest
+  - source_id: gnome_public_stable_materials
+    role: primary_claim_surface
+    claim_unit: public_ai_stable_structure_claim
+    minimum_pilot_claims: 150
+    access_mode: public_repository_or_materials_project_explorer_with_terms
+    license_boundary: noncommercial_or_restricted_terms_must_be_respected
+    redistribution_policy: publish_derivative_audit_registry_and_hashes_not_repackaged_raw_data_without_permission
+    pilot_priority: high
+    status: frozen_source_pending_ingest
+  - source_id: alexandria_hull_or_claim_surface
+    role: third_claim_or_reference_source
+    claim_unit: open_hull_or_structure_level_stability_record
+    minimum_pilot_claims: 150
+    access_mode: public_download_or_optimade
+    license_boundary: verify_cc_by_terms_and_required_attribution
+    redistribution_policy: publish_derivative_verdicts_and_rebuild_recipe
+    pilot_priority: high
+    status: frozen_source_pending_ingest
+  - source_id: materials_project_current
+    role: current_reference
+    claim_unit: current_version_summary_or_thermo_reference
+    minimum_pilot_claims: 0
+    access_mode: api_key_required
+    license_boundary: record_database_version_and_api_terms
+    redistribution_policy: publish_query_manifest_version_hashes_and_derived_verdicts
+    pilot_priority: reference
+    status: frozen_reference_pending_query
+  - source_id: oqmd_current
+    role: independent_current_reference
+    claim_unit: current_entry_or_phase_diagram_reference
+    minimum_pilot_claims: 0
+    access_mode: public_api_or_optimade
+    license_boundary: verify_terms_and_required_attribution
+    redistribution_policy: publish_query_manifest_version_hashes_and_derived_verdicts
+    pilot_priority: reference
+    status: frozen_reference_pending_query
