@@ -272,3 +272,15 @@ only blinded geometry/frame metadata and does not use arm membership, score,
 rank, prior human labels or official GT.  These labels are review aids only:
 Phase82 is not completed human evidence, external audit success, expert
 microscopy adjudication or new CTC ground truth.
+
+## Phase83 Necessity and Prevented Harm
+
+Status: `completed_paperization_synthesis_not_new_empirical_result`.
+
+Phase83 packages the one-sided necessity argument and completed downstream
+harm artifacts into a paper-facing release-card framing.  It supports the claim
+that PARC is not just a selector: the one-sided information structure requires
+a null-superset denominator, a refusal state and active-audit logic.  It also
+summarizes completed prevented-harm rows for CTC, materials and SpaceNet.  It
+is synthesis only and does not add new labels, DFT evidence, prospective
+materials discovery or a new alpha certificate.

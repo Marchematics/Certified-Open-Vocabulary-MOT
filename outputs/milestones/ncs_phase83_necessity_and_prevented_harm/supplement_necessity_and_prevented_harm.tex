@@ -1,0 +1,41 @@
+\section{Necessity of release/refusal under one-sided verification}
+\label{sec:necessity-prevented-harm}
+
+The PARC lifecycle is motivated by the information structure of scientific
+candidate queues.  The setting provides one-sided support:
+\[
+  A_p=1 \Rightarrow Y_p=1 ,
+\]
+but it does not provide the converse.  Therefore an unverified candidate cannot
+be treated as negative without adding an assumption not present in the data.
+
+\paragraph{Least-favourable null-superset principle.}
+Under one-sided support, every false calibration candidate remains in the
+calibration null superset.  Any method that removes unverified candidates from
+the denominator must justify an additional assumption about their validity.  In
+the absence of such an assumption, the conservative null-superset denominator
+is the least-favourable release-card denominator.
+
+\paragraph{Refusal lower bound.}
+For requested budget \(K\), target \(\alpha\), and candidate e-values \(E_p\),
+a compatible non-empty release \(R\) must satisfy
+\[
+  \min_{p\in R} E_p \ge {K \over \alpha |R|}.
+\]
+When no compatible non-empty set satisfies this inequality, refusal is the
+evidence-supported output.  This is not a statement that no scientifically
+valid candidates exist; it is a statement that the current release card lacks
+enough one-sided evidence for the requested release.
+
+\paragraph{Active-audit gain principle.}
+Targeted verification can change the release-card state by removing verified
+positives from limiting null-superset block maxima.  This explains why a small
+number of high-value one-sided audits can unlock release while random audits of
+the same size may leave the denominator unchanged.
+
+\paragraph{Prevented-harm interpretation.}
+False-release control is not only a statistical object.  It prevents concrete
+scientific artifacts from being polluted: false lineage edges in cell tracking,
+unstable crystal follow-ups in materials screening, and false persistence links
+in temporal mapping.  Phase83 reports these quantities only by reformatting
+completed artifacts; it does not add new empirical labels or new DFT evidence.
