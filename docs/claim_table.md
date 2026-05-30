@@ -308,3 +308,13 @@ status is protocol only: no current-reference verdicts have been produced, no
 source-specific decay rate is claimed, and this is not A-paper main evidence.
 The pilot is designed to decide whether B should expand into an independent
 claim-decay paper or stop without delaying A.
+
+## Phase86 Claim-Decay Access Preflight
+
+Status: `access_preflight_completed_claim_registry_empty`.
+
+Phase86 records dependency status, source endpoint smoke checks, Materials
+Project version status when available, and empty claim/current-reference
+registry templates for the B-line external AI-materials claim-decay audit.  It
+is preflight only: no claim rows have been ingested, no current-reference
+verdicts have been produced, and no decay result is allowed.

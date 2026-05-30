@@ -1,0 +1,2 @@
+reference_source,api_key_present,database_version,status,error_type,note,evidence_scope
+materials_project_current,True,2025.09.25,version_captured,,API key value is never written to artifacts,b_line_claim_decay_access_preflight;source_access_smoke_only;claim_registry_empty;current_reference_verdicts_pending;not_completed_positive_evidence;not_A_paper_main_evidence;not_prospective_discovery;not_new_DFT_evidence
