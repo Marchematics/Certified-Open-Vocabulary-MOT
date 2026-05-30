@@ -1,0 +1,17 @@
+Data and code availability DOI:
+https://doi.org/10.5281/zenodo.20395413
+
+Development repository:
+https://github.com/Marchematics/PARC-Certified-Open-Vocabulary-MOT
+
+Source data included with this submission package:
+- 05_parc_a_mechanism_source_data/: CTC PARC-A fine-grid audit frontier, block-maximum removal and evidence-mass mechanism source CSVs.
+- 06_materials_version_shift_source_data/: current-MP hull-shift utility and drift diagnostic source CSVs.
+- 07_materials_chgnet_mace_candidate_audit_source_data/: CHGNet/MACE candidate-level score-support audit source CSVs and go/no-go table.
+- 08_parc_d_hardening_source_data/: PARC-D risk-triage selection, self-consistency boundary and feature-ablation source CSVs.
+
+Scope note:
+These files support the manuscript's release-card lifecycle claims. They do not constitute a strict temporal alpha certificate, prospective materials discovery claim, independent DFT validation success or CHGNet/MACE consensus validation claim.
+
+Correspondence and requests for materials:
+Yu Chen <chenyu@zua.edu.cn>

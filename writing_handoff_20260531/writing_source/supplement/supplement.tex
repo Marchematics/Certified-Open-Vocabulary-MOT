@@ -1,0 +1,1875 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[mathlines]{lineno}
+\usepackage[hidelinks]{hyperref}
+\emergencystretch=3em
+
+\title{Supplementary Information for\\Release cards for scientific AI candidate queues under scarce verification and reference drift}
+\author{\begin{tabular}{c}
+Yu Chen\textsuperscript{1,*,\textdagger} \quad
+Jiahao Zhang\textsuperscript{1,\textdagger} \quad
+Xinling Wen\textsuperscript{1} \quad
+Shuai Liu\textsuperscript{2} \quad
+Yawei Hou\textsuperscript{1}\\[0.25em]
+\textsuperscript{1}Zhengzhou University of Aeronautics, Zhengzhou, Henan, China\\
+\textsuperscript{2}University of Chinese Academy of Sciences, Beijing, China\\
+\textsuperscript{\textdagger}These authors contributed equally: Yu Chen and Jiahao Zhang.\\
+\textsuperscript{*}Correspondence: \href{mailto:chenyu@zua.edu.cn}{chenyu@zua.edu.cn}
+\end{tabular}}
+\date{}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newcommand{\Pcal}{\mathcal P}
+\newcommand{\Ncal}{\mathcal N}
+\newcommand{\Fcal}{\mathcal F}
+\newcommand{\Hcal}{\mathcal H}
+\newcommand{\Rcal}{\mathcal R}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Prob}{\mathbb P}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\FDP}{\mathrm{FDP}}
+
+\begin{document}
+\modulolinenumbers[1]
+\linenumbers
+\maketitle
+\sloppy
+
+\section*{Supplement A: Formal definitions and proofs}
+
+For a frozen generated universe \(\Pcal_{\mathrm{full}}=\{p_1,\ldots,p_N\}\), each candidate unit has a score \(S_p\), a latent validity label \(Y_p\in\{0,1\}\), and an observed one-sided audit or official-support label \(A_p\in\{0,1\}\).
+Each certification row fixes a candidate budget \(K\) and evaluates the corresponding top-\(K\) run universe.
+Below, \(\Pcal\) denotes that evaluated run universe unless stated otherwise, so \(|\Pcal|\le K\).
+The one-sided condition is \(A_p=1\Rightarrow Y_p=1\).
+For calibration video \(i\), define the true false set and the null superset
+\[
+\Fcal_i=\{p:Y_p=0\},\qquad
+\Ncal_i=\{p:A_p=0\}.
+\]
+By one-sided reliability, \(\Fcal_i\subseteq\Ncal_i\).
+Let
+\[
+M_i^F=\max_{p\in\Fcal_i}S_p,\qquad
+B_i^{\mathrm{ns}}=\max_{p\in\Ncal_i}S_p,
+\]
+with the convention that empty maxima follow the policy specified in the main text.
+The main text distinguishes the full generated universe size \(N\) from the predeclared candidate budget \(K\).
+In this supplement, \(\Pcal\) denotes the evaluated run universe after the fixed budget/ranking rule has been applied.
+The self-consistency denominator uses the predeclared budget \(K\); when the evaluated run universe contains fewer than \(K\) candidates, this is conservative relative to using \(|\Pcal|\).
+When implementation logs use \(m\), it is the same run-level quantity.
+
+\begin{table}[h]
+\centering
+\caption{Notation used throughout the Supplementary Information.}
+\small
+\begin{tabular}{p{0.22\linewidth}p{0.68\linewidth}}
+\toprule
+Symbol & Meaning \\
+\midrule
+\(\Pcal\) & Frozen run-level candidate universe for the evaluated split after the fixed proposal, linking, ranking and candidate-budget rules are applied. In the main text this budget is denoted \(K\); here \(M=|\Pcal|=K\). \\
+\(p\) & Candidate unit: a cell link, building link, detection, object path or tracklet, depending on the domain. A unit has block id, compatibility fields and frozen score. \\
+\(S_p\) & Frozen unit score used for release calibration. It is fixed before calibration/test evaluation and never uses test labels. \\
+\(Y_p\) & Latent unit validity: \(Y_p=1\) denotes a valid candidate and \(Y_p=0\) denotes an actual false release candidate. \\
+\(A_p\) & One-sided observed support/audit label. The only structural assumption is \(A_p=1\Rightarrow Y_p=1\). \\
+\(\Fcal_i\) & Unobserved false units in calibration block \(i\). \\
+\(\Ncal_i\) & Null-superset units in calibration block \(i\), obtained by removing only verified positives and retaining all unverified candidates. \\
+\(B_i^{\mathrm{ns}}\) & Null-superset block maximum for calibration block \(i\). \\
+\(q_p\), \(q_p^{\mathrm{any}}\) & Block p-value and release-grid p-value for candidate unit \(p\). \\
+\(E_p\) & E-value obtained by applying an e-calibrator to \(q_p^{\mathrm{any}}\). \\
+\(\Rcal\) & Data-dependent released set returned by SCS-Greedy. \\
+\(\alpha\) & Target false-release fraction risk. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The candidate universe is conditional throughout.
+All validity statements are made after fixing the proposal backend, prompt/query set, linking rule, score rule, release grid, calibration/test split and candidate budget.
+This conditioning is essential: PARC certifies a release decision for a specified finite proposal universe, not discovery over all possible unknown objects.
+
+\begin{table}[h]
+\centering
+\caption{Core assumptions and where they enter the proof.}
+\small
+\begin{tabular}{p{0.27\linewidth}p{0.43\linewidth}p{0.22\linewidth}}
+\toprule
+Assumption & Role & Main consequence \\
+\midrule
+Frozen proposal universe & Candidate generation, scoring, release grid and budget are fixed before calibration/test evaluation. & Conditions the hypothesis set used in SCS. \\
+Block-level exchangeability & Calibration blocks and the test block are exchangeable under the domain block construction. & Enables the rank p-value proof. \\
+One-sided positive reliability & \(A_p=1\Rightarrow Y_p=1\). & Ensures false candidates are contained in the null superset. \\
+Coverage-conditional exchangeability & Covered calibration blocks and covered test false blocks remain exchangeable after conditioning on coverage. & Enables the paper-facing covered-regime policy. \\
+Graph compatibility is frozen & Detection-node conflicts and protected components are defined before selection. & Allows data-dependent greedy selection under final self-consistency. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{lemma}[Null-superset dominance]
+For every calibration block with non-empty false and null-superset blocks,
+\[
+B_i^{\mathrm{ns}}\ge M_i^F .
+\]
+\end{lemma}
+\begin{proof}
+The result follows directly from \(\Fcal_i\subseteq\Ncal_i\): the maximum over a superset cannot be smaller than the maximum over a subset.
+\end{proof}
+
+\begin{theorem}[Block p-value validity]
+Assume (i) calibration blocks and the test block are exchangeable under the domain block construction, (ii) one-sided audit reliability holds, \(A_p=1\Rightarrow Y_p=1\), and (iii) the candidate generator and score are frozen before calibration and testing.
+For every actual false test candidate \(p\), the null-superset block p-value
+\[
+q_p=
+\frac{1+\sum_{i=1}^{n}\ind[B_i^{\mathrm{ns}}\ge S_p]}{n+1}
+\]
+is super-uniform: \(\Prob(q_p\le u)\le u\) for all \(u\in[0,1]\).
+\end{theorem}
+\begin{proof}
+First consider the oracle false-only p-value formed by replacing \(B_i^{\mathrm{ns}}\) with \(M_i^F\) and including the test false block in the exchangeable sequence.
+The rank argument for exchangeable block maxima gives a super-uniform p-value for a false test candidate.
+By the dominance lemma, replacing each \(M_i^F\) by \(B_i^{\mathrm{ns}}\) can only increase the number of calibration maxima exceeding \(S_p\), and therefore cannot decrease the p-value.
+Thus the null-superset p-value is at least as conservative as the false-only p-value.
+\end{proof}
+
+For a release grid \(\mathcal L\) with weights \(w_j>0\) and \(\sum_jw_j\le1\), define
+\[
+q_p^{\mathrm{any}}
+=
+\min_{j:L_j\le L_p}
+\left(\frac{q_{p,j}}{w_j}\right)\wedge1 .
+\]
+The weighted-min construction is valid by the union bound:
+\[
+\Pr\!\left(q_p^{\mathrm{any}}\le u\right)
+\le
+\sum_j\Pr(q_{p,j}\le uw_j)
+\le
+u\sum_j w_j
+\le u .
+\]
+If \(f_\gamma(u)=\gamma u^{\gamma-1}\) with \(0<\gamma<1\), then \(E_p=f_\gamma(q_p^{\mathrm{any}})\) is an e-value for every false path because a super-uniform p-value \(U\) satisfies
+\[
+\E[f_\gamma(U)]\le \int_0^1\gamma u^{\gamma-1}\,du=1 .
+\]
+
+\begin{theorem}[Self-consistent FTR control]
+Let \(\Hcal_0\subseteq\Pcal\) be the false candidates.
+Assume every false candidate has an e-value \(E_p\) with \(\E[E_p]\le1\).
+If the selected set \(R\) satisfies
+\[
+p\in R\Rightarrow
+E_p\ge \frac{K}{\alpha(|R|\vee1)},
+\]
+then
+\[
+\E\left[
+\frac{|R\cap\Hcal_0|}{|R|\vee1}
+\right]\le\alpha .
+\]
+\end{theorem}
+\begin{proof}
+For any false path \(p\), self-consistency implies
+\[
+\frac{\ind[p\in R]}{|R|\vee1}
+\le
+\frac{\alpha}{K}E_p .
+\]
+Summing over \(p\in\Hcal_0\) and taking expectations gives
+\[
+\E[\FDP(R)]
+\le
+\frac{\alpha}{K}\sum_{p\in\Hcal_0}\E[E_p]
+\le
+\frac{\alpha}{K}|\Hcal_0|
+\le \alpha,
+\]
+because \(|\Hcal_0|\le K\).
+The proof allows \(R\) to be data-dependent; it only uses the final self-consistency inequality.
+\end{proof}
+
+If no non-empty compatible set satisfies the self-consistency inequality, the empty release is returned.
+Its false-release proportion is zero by definition, so refusal is a valid certified decision.
+
+\paragraph{Empty-block policies.}
+The conservative empty-block policy sets \(B_i^{\mathrm{ns}}=+\infty\) whenever the calibration block has no covered null-superset candidate.
+This yields a marginally valid but often powerless p-value.
+The coverage-conditional policy instead conditions on the event that the cell/checkpoint is covered and applies the rank argument within the covered regime.
+Its additional assumption is conditional exchangeability of the covered calibration block maxima and the covered test false block.
+When this assumption is not defensible, the conservative empty-block policy remains the fallback.
+
+\begin{table}[h]
+\centering
+\caption{Validity-power tradeoff for empty-block policies.}
+\small
+\begin{tabular}{p{0.25\linewidth}p{0.34\linewidth}p{0.30\linewidth}}
+\toprule
+Policy & Validity statement & Practical role \\
+\midrule
+Conservative \(+\infty\) block & Marginally valid under video-level exchangeability and one-sided positives. & Always available, often powerless when many blocks are empty. \\
+Coverage-conditional block & Valid in the covered regime under conditional exchangeability. & Paper-facing setting for non-empty release. \\
+Diagnostic best-\(K\) grid & No deployment guarantee unless selected by a tuning-fixed rule. & Used only to understand power/frontier behaviour. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Finite resolution.}
+With \(n\) covered calibration videos and \(G\) release checkpoints, the smallest Bonferroni-weighted release-grid p-value is on the order of \(G/(n+1)\).
+This caps the maximum attainable e-value for a fixed calibrator.
+Even when the cap is high enough, release still requires enough high-evidence candidates to satisfy self-consistency.
+The mass statistic \(\max_k \alpha k E_{(k)}/K\) characterizes the unconstrained self-consistency frontier before graph conflicts.
+
+\paragraph{Why finite resolution can force refusal.}
+Let \(q_{\min}\) be the smallest attainable release-grid p-value after weighting.
+For a power e-calibrator \(f_\gamma(u)=\gamma u^{\gamma-1}\), the largest attainable e-value is
+\[
+E_{\max}=f_\gamma(q_{\min}).
+\]
+If \(E_{\max}<K/\alpha\), then even a single path cannot cross the \(k=1\) self-consistency threshold.
+If \(E_{\max}\) is above \(K/\alpha\), a non-empty release is still not automatic: the selected set of size \(k\) requires at least \(k\) mutually compatible candidates above \(K/(\alpha k)\).
+The feasibility mass
+\[
+\Phi=\max_{k\ge 1}\frac{\alpha k E_{(k)}}{K}
+\]
+is therefore a pre-selection characterization of the uniform self-consistency frontier.
+When \(\Phi<1\), no non-empty uniform self-consistent release exists before considering graph conflicts.
+When \(\Phi\ge1\), the graph selector may still return a smaller set, or return empty if all high-evidence candidates conflict, but the evidence mass itself is sufficient.
+
+\paragraph{Coverage-conditional scope.}
+The paper-facing covered-regime rows use the coverage-conditional policy.
+The guarantee should be read literally: it is a guarantee inside the covered regime induced by the fixed generator, cell/checkpoint definition and candidate budget.
+It is not a marginal guarantee over videos or cells that contain no relevant candidate coverage.
+The conservative \(+\infty\) policy remains the marginal fallback, and its lower power is reported to make the validity--power tradeoff explicit.
+
+\clearpage
+
+\section*{Supplement B: Algorithms}
+
+The implementation is a four-stage post-hoc certification pipeline.
+First, a frozen proposal source exports a finite candidate universe.
+Second, calibration videos define null-superset block maxima after removing only verified positives.
+Third, release-grid p-values are converted into e-values.
+Fourth, SCS-Greedy selects a compatible release set or returns a valid empty release.
+
+\begin{table}[h]
+\centering
+\caption{Pipeline stages and label access.}
+\small
+\begin{tabular}{p{0.22\linewidth}p{0.42\linewidth}p{0.25\linewidth}}
+\toprule
+Stage & Operation & Label access \\
+\midrule
+Proposal export & Generate candidate units, scores, blocks, optional nodes/edges and conflicts. & No audit or test labels. \\
+Calibration & Remove verified positives and compute null-superset block maxima. & Calibration one-sided labels only. \\
+E-value construction & Convert release-grid p-values into candidate e-values. & No test labels. \\
+SCS release & Greedily select compatible candidates satisfying self-consistency. & No labels. \\
+Diagnostics & Report UTR, audited FTR and conservative FTR. & Evaluation/audit labels after release. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Algorithm B1: PARC certification pipeline.}
+\begin{verbatim}
+Input:
+    frozen candidate universes for tuning, calibration and test videos
+    one-sided support/audit labels on calibration videos
+    fixed candidate budget M, release grid L, risk level alpha
+    e-calibrator f_gamma and compatibility predicate compatible(.,.)
+Output:
+    released set R_out or empty certified refusal
+
+1. Freeze the proposal backend, linking/conflict rule, score rule and grid.
+2. For every calibration block i and grid checkpoint L_j:
+       remove only verified positives;
+       retain all unverified candidates as the null superset N_{i,j};
+       store B^{ns}_{i,j} = max_{p in N_{i,j}} S_{p,j}.
+3. For every test candidate unit p:
+       compute block p-values q_{p,j};
+       combine grid checkpoints into q_p^{any};
+       convert q_p^{any} to an e-value E_p.
+4. Run SCS-Greedy on test candidates, E-values and the compatibility graph.
+5. Report R_out, or the empty release if SCS-Greedy returns no non-empty set.
+6. Compute UTR, audited FTR and conservative FTR only after release.
+\end{verbatim}
+
+\paragraph{Algorithm B2: Null-superset block construction.}
+\begin{verbatim}
+Input: calibration block i, checkpoint L_j, frozen score S_p, labels A_p
+N <- empty set
+for candidate unit p in calibration block i:
+    if unit p is eligible at checkpoint L_j:
+        if A_p != 1:
+            add p to N
+if N is non-empty:
+    return max_{p in N} S_p
+else if conservative empty-block policy:
+    return +infinity
+else if coverage-conditional policy:
+    mark cell/checkpoint as uncovered and exclude from covered-rank set
+\end{verbatim}
+
+\paragraph{Algorithm B3: Release-grid e-values.}
+\begin{verbatim}
+Input: test candidate p, calibration block maxima B^{ns}_{i,j},
+       checkpoint weights w_j, calibrator f_gamma
+for every eligible checkpoint L_j <= L_p:
+    q_{p,j} <- (1 + number of calibration blocks with B^{ns}_{i,j} >= S_{p,j})
+               / (n_j + 1)
+q_p_any <- min_j q_{p,j} / w_j, clipped at 1
+E_p <- f_gamma(q_p_any)
+return E_p
+\end{verbatim}
+
+\paragraph{Main release grid and e-calibrator choices.}
+The main protocol uses a single release-grid point with weight \(w_1=1\).
+For time-indexed CTC rows this point corresponds to the fixed adjacent-frame link window used to define candidate eligibility; non-time-indexed rows use the same one-point release grid without a domain-specific time interpretation:
+\[
+\mathcal L=\{L_1\},\qquad w_1=1.
+\]
+This means the main table does not rely on a long anytime grid; the release-grid notation is kept because the implementation and proofs support multiple grid points.
+The power e-calibrator is \(f_\gamma(u)=\gamma u^{\gamma-1}\).
+For the frozen experiment rows, \(\gamma\) is selected before test evaluation from finite-resolution information using the tuning rule
+\[
+\gamma^\star=-\frac{1}{\log r},
+\]
+where \(r\) is the smallest attainable weighted rank p-value for the covered calibration block.
+No test audit labels, released-set labels or conservative diagnostics are used to choose \(\gamma\).
+The selected \(\gamma\) values are row-specific because covered calibration denominators differ by dataset, source and seed; the CTC and SpaceNet 7 implementation rows use \(\gamma=0.229\) and \(\gamma=0.235\), respectively, and the materials row records its analogous finite-resolution choice in the provenance sidecars.
+The choice is the finite-resolution optimum within the power-calibrator family: for smallest attainable p-value \(r\), the derivative of \(\log f_\gamma(r)=\log\gamma+(\gamma-1)\log r\) vanishes at \(\gamma^\star=-1/\log r\), yielding \(f_{\gamma^\star}(r)=1/(e\,r[-\log r])\).
+Gamma sensitivity beyond this finite-resolution rule is a power diagnostic, not a validity requirement: every fixed \(0<\gamma<1\) remains an e-calibrator.
+
+SCS-Greedy is the selector used in the main experiments.
+It enforces graph compatibility but does not need to solve an optimal path-packing problem for the risk guarantee.
+
+\begin{verbatim}
+Input: candidates P, e-values E_p, utilities U_p,
+       compatibility predicate compatible(.,.), risk level alpha
+M <- |P|
+for k = M, M-1, ..., 1:
+    tau <- M / (alpha * k)
+    C <- {p in P : E_p >= tau}
+    sort C by decreasing utility U_p
+    R <- empty set
+    for p in C:
+        if p is compatible with every candidate in R:
+            R <- R union {p}
+        if |R| = k:
+            assert every p in R satisfies E_p >= M / (alpha * |R|)
+            return R
+return empty set
+\end{verbatim}
+
+The implementation uses domain-specific conflicts supplied by the frozen candidate graph.
+For links these conflicts are mutually inconsistent identity assignments; for detections they are duplicate detections when exported; for tracks or paths they include shared detection nodes, duplicate hypotheses and protected components when present in the graph.
+Candidate utilities are frozen before calibration and never use audit or official-support labels.
+For \(m\) scanned candidates and \(q\) conflicts, the naive scan is \(O(m^2+q)\) per risk level; the released experiments are much smaller than the regime where a specialized maximum independent-set approximation is needed.
+
+\begin{table}[h]
+\centering
+\caption{Compatibility predicate used by SCS-Greedy.}
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{p{0.24\linewidth}p{0.56\linewidth}p{0.14\linewidth}}
+\toprule
+Constraint & Interpretation & Frozen? \\
+\midrule
+Identity/link conflict & Two links cannot both be released if they assign the same object to inconsistent parents or successors. & yes \\
+Detection-node conflict & Two paths cannot both be released if they share the same underlying detection node at a frame. & yes \\
+Duplicate hypothesis & Near-duplicate candidates from the same proposal component are treated as mutually incompatible when exported as conflicts. & yes \\
+Protected component & Optional connected components can be protected to avoid releasing mutually inconsistent alternatives. & yes \\
+Temporal eligibility & A candidate must be eligible for the release checkpoint used to construct its e-value. & yes \\
+Label information & Audit/support labels are not used by SCS-Greedy; they enter calibration construction and post-release diagnostics only. & fixed \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\paragraph{Refusal condition.}
+SCS-Greedy returns an empty release when no scanned release size \(k\) yields \(k\) mutually compatible candidates satisfying \(E_p\ge K/(\alpha k)\).
+This is a certified refusal, not a declaration that all candidates are false.
+The empty release is risk-valid by construction, and the accompanying diagnostics identify whether refusal is due to low evidence mass, sparse coverage or graph conflicts.
+
+\paragraph{Greedy optimality scope.}
+The formal certificate depends only on the final returned set satisfying self-consistency and compatibility.
+It does not require SCS-Greedy to find the largest compatible self-consistent set.
+An exact maximum-independent-set or ILP feasibility oracle is a power diagnostic: it can show whether the deployed polynomial selector missed a larger releasable set, but it does not change the validity proof for the set actually returned.
+The selector-optimality diagnostics included here apply this oracle only to scoped refusal rows where the public package provides the required aggregate or compatibility information.
+For those rows, the reported refusals are finite-resolution or pre-graph evidence-mass failures and the ILP oracle is not feasible; we therefore do not attribute those empty outputs to SCS-Greedy compatibility loss.
+The paper still does not claim a general selector approximation ratio or global optimality theorem.
+This limitation is separated from refusal validity: if SCS-Greedy returns a non-empty self-consistent set, the set is certified; if it returns empty outside the oracle-diagnosed rows, the refusal should be read as a deployed-selector and evidence-mass diagnostic rather than as a mathematical impossibility result for every conceivable graph solver.
+
+\clearpage
+
+\section*{Supplement C: Main protocol, data provenance and baselines}
+
+This note documents the exact scope of the main protocol and explains why some rows are reported as main results while others are retained as appendix or provenance-only evidence.
+The central manuscript claims are made on non-oracle partial-verification rows for CTC biomedical cell links, retrospective WBM materials-screening candidates, a project-audited iWildCam animal-present ecology row, and a SpaceNet 7 same-building release/refusal check.
+Rows with \(\rho=1.0\) are full-information oracle diagnostics, not primary evidence.
+The iWildCam species-level and strict \(\alpha=0.10\) animal-present rows remain operating-envelope diagnostics, and OVT-B/TAO/BURST/LVIS rows are scoped open-world perception generality evidence.
+
+\begin{table}[h]
+\centering
+\caption{Scientific-AI main protocol scope. Detailed per-seed rows are supplied as Supplementary Data.}
+\small
+\begin{tabular}{p{0.20\linewidth}p{0.33\linewidth}p{0.34\linewidth}}
+\toprule
+Item & Main setting & Notes \\
+\midrule
+Primary and scoped domains & CTC primary active-audit headline; WBM materials screening release-policy frontier; iWildCam and SpaceNet 7 deployment checks & Link-level release in CTC/SpaceNet, crystal-candidate release in WBM and animal-present detection release in iWildCam. \\
+Verification fraction & \(\rho<1\) & \(\rho=1.0\) is oracle diagnostic only. \\
+Risk levels & strict \(\alpha=0.10\), operational \(\alpha=0.20\) & Learned-hybrid CTC supplies strict controlled release; CGCNN supplies the predeclared materials calibration endpoint; ALIGNN-FF supplies requested-budget stopping and fixed-budget utility evidence. iWildCam supplies an operational internally audited ecology release; SpaceNet remains a relaxed-risk release/refusal check. \\
+Seeds & 0--19 & Reported as non-empty seeds and mean release size. \\
+Primary row rule & predeclared by \(\rho\), \(K\), \(\alpha\) and non-empty seeds & Held-out FTR is reported after row selection, not optimized. \\
+Boundary/general rows & iWildCam strict/species rows and open-world perception & Scope-marked as operating-envelope or generality evidence. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Data-provenance policy.}
+\small
+\begin{tabular}{p{0.25\linewidth}p{0.38\linewidth}p{0.26\linewidth}}
+\toprule
+Artifact class & Included in review package & Excluded from review package \\
+\midrule
+Derived tables & Paper-facing CSV summaries, per-seed table inputs, figure inputs and provenance sidecars. & None. \\
+Audit data & Audit summaries, label-count tables, Boundary-500/Audit2000 reannotation summaries and SHA256 manifests. & Raw private montage browsing cache if it contains benchmark frames. \\
+Candidate outputs & Public-safe candidate summaries and release diagnostics. & Raw frames, detector caches, model weights and benchmark videos. \\
+Code & Certification, table-generation and plotting scripts; tiny fixtures and validation commands. & Scripts that require private credentials or raw benchmark redistribution. \\
+Benchmarks & Dataset names, split definitions and license pointers. & Raw OVT-B, TAO, BURST and LVIS files. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Main-table inclusion criteria.}
+A CTC, materials, iWildCam or SpaceNet 7 row appears in the primary quantitative table only if it has a frozen candidate universe, a documented proposal source, seeds 0--19, a fixed candidate budget and risk level, and post-release FTR computed against the declared held-out, public-DFT or human-audit source.
+The strict calibration target is \(\alpha=0.10\) with at least 18/20 non-empty seeds.
+The learned-hybrid CTC source meets this target as the strict controlled row, and the public CGCNN WBM source meets it as the predeclared materials calibration endpoint; the ALIGNN-FF WBM row is reported as materials source-sensitivity evidence because it shows requested-budget certified stopping and high-volume refusal relative to full raw top-\(K\) release at larger budgets.
+When this target is not met, predeclared \(\alpha=0.20\) rows may be reported only as relaxed-risk evidence.
+Rows using \(\rho=1.0\), iWildCam species-level or strict-risk boundary diagnostics, LVIS detection, mask-path scaffolds or OVT-B/TAO/BURST tracking are scope-marked outside the primary scientific-domain claim.
+
+\paragraph{CTC learned-hybrid strict-risk source.}
+The learned-hybrid CTC source is sequence-disjoint: sequence 01 is used to train the scorer and sequence 02 is used for held-out PARC certification.
+The frozen score combines geometry with crop appearance and correlation signals, and GT/matching leakage columns are excluded from the model report.
+The held-out sequence-02 universe contains 146,230 candidate links and 29,306 GT-supported links.
+Under \(\rho=0.10\), top-score partial verification and \(\alpha=0.10\), \(K\in\{10,25,50,75,100,300\}\) releases in 20/20 calibration-mask seeds with held-out FTR 0.000.
+The \(K=100\) row has maximum observed e-value 13.378, required e-value 10.0 and best mass ratio 1.338.
+The reverse split trains on sequence 02 and certifies on held-out sequence 01, again releasing in 20/20 calibration-mask seeds with held-out FTR 0.000 across the same \(K\) grid.
+The random-score negative control preserves the held-out candidate universe, labels and blocks but destroys ranking evidence; raw top-\(K\) FTR is 0.76--0.81 and PARC refuses every row at \(\alpha=0.10\) and \(\alpha=0.20\).
+The leakage audit records no train/evaluation sequence overlap, no GT or matching-label fields in the score, training-sequence-only normalization and a scorer frozen before PARC calibration.
+This row is used as the strict controlled AI-assisted release row; the geometric CTC row is retained as a transparent structured-source control.
+The active audit-budget frontier varies the calibration-candidate inspection budget under top-score and random audit policies.
+For CTC \(K=100\), top-score audit at 0.5\% budget gives 20/20 non-empty safe seeds, 2,000 total released links and 0 observed false releases.
+Matched-budget random audit has 0/20 non-empty seeds, and full random audit requires a 1.0 budget in the frozen grid, 200-fold larger.
+The \(K=300\) active-audit row is retained as support-only because it is 19/20 safe.
+This is reported as a controlled targeted-audit budget-efficiency result, not as a universal optimal-audit theorem.
+
+\paragraph{Materials-screening strict-risk source.}
+The materials-screening row uses public Matbench Discovery/WBM candidates as a retrospective release-certification task.
+The release unit is one WBM unique prototype and the positive event is DFT stability, \(e_{\mathrm{above\ hull}}\le 0\) eV per atom.
+The public CGCNN 10-member ensemble supplies a frozen learned ranking over 215,486 candidates; DFT stability labels are masked for calibration and used only after release to compute actual FTR.
+The primary block definition groups candidates by reduced-composition family, with exact-composition and Wyckoff-aware rows retained as sensitivity diagnostics.
+At the primary endpoint \(\rho=0.10\), \(\alpha=0.10\), \(K=100\), PARC releases in 20/20 calibration-mask seeds with mean release 100 and held-out FTR 0.030.
+The \(K=300\) row also releases in 20/20 calibration-mask seeds but has mean FTR 0.0916 and is reported as a larger-volume sensitivity, not as the primary materials claim.
+Random-score controls at \(\alpha=0.10\), \(K=300/1000\) are refused despite raw top-\(K\) FTR about 0.85, and the \(K=5000\) CGCNN request is refused where raw top-\(K\) FTR is 0.4065.
+Modern-model sensitivity uses a public ALIGNN-FF WBM prediction source on the same candidate universe and blocks.
+At \(\alpha=0.10\), \(K=300\), raw top-\(K\) FTR is 0.253 while PARC FTR is 0.087; at \(K=500\), raw top-\(K\) FTR is 0.327 while PARC FTR is 0.048.
+This row is reported as source-sensitivity utility evidence for the materials claim, not as a replacement for the predeclared CGCNN calibration endpoint.
+The row is a retrospective certificate for a public WBM/DFT benchmark slice; it is not a claim of new materials discovery, prospective synthesis or experimental synthesizability.
+The block-size heterogeneity package adds candidate-level materials reruns in which block maxima are size-matched or downsampled before certification.
+These reruns retain the qualitative release/refusal pattern or expose conservative power loss; CTC and SpaceNet are explicitly limited to aggregate or audit-sample diagnostics because the public paper package does not redistribute candidate-level artifacts needed for an equivalent rerun.
+The fixed-budget utility package reports the same materials rows as downstream follow-up decisions: unstable follow-ups prevented, cost per true candidate and high-volume refusal value.
+At \(\alpha=0.10,K=500\), the CGCNN, ALIGNN-FF and MEGNet certified queues prevent 158.25, 158.3 and 105.4 unstable follow-ups per seed, respectively; at \(K=5000\), refusal prevents 2,032.6, 2,577.4 and 2,683.5 unstable follow-ups per seed.
+The T1 clean-acceptance baseline frontier compares 11 empirical baseline families, including raw top-\(K\), raw top-\(R\), thresholding, split conformal, post-filter e-values, e-BH-style selection, nnPU, Bao-style selective conformal and oracle diagnostics.
+For ALIGNN-FF \(K=300\), raw top-\(K\) FTR is 0.253, PARC and matched-size raw top-\(R\) have FTR 0.087, and 64.25 unstable follow-ups are avoided relative to the requested queue.
+For ALIGNN-FF \(K=500\), raw top-\(K\) FTR is 0.327, PARC and raw top-\(R\) have FTR 0.048, and 158.30 unstable follow-ups are avoided.
+For CGCNN \(K=500\), raw top-\(K\) FTR is 0.326, post-filter e-value FTR is 0.163, and PARC/raw top-\(R\) FTR is 0.032.
+The current-MP hull-shift audit freezes the \(t_0\) WBM/Matbench queue candidates and release decisions and re-evaluates the same candidates against the Materials Project API snapshot dated 2025.09.25.
+It covers 1,191 frozen \(K=300/500\) WBM queue candidates, 774 chemical systems and 29,279 Materials Project entries.
+At \(K=300\), current-MP FTR is 0.316 for PARC versus 0.422 for raw top-\(K\), and at \(K=500\) it is 0.310 for PARC versus 0.487 for raw top-\(K\).
+Stable-to-unstable drift does not concentrate in PARC releases: rates are 0.184 versus 0.213 at \(K=300\), and 0.204 versus 0.222 at \(K=500\), for PARC and raw top-\(K\), respectively.
+This is a completed version-shift utility and drift diagnostic.
+It is not a strict \(\alpha=0.10\) temporal certificate, because the later-hull FTR exceeds the original risk target, and it is not a prospective materials discovery claim.
+The Phase51 candidate-level explanation table decomposes current-MP false candidates into ALIGNN-FF disagreement with the later hull label, near-hull boundary cases and unresolved current-MP references counted conservatively as false.
+For PARC releases, 72/96 \(K=300\) and 56/67 \(K=500\) current-MP false candidates fall in the ALIGNN-disagreement class, with the rest explained by near-hull or unresolved-reference classes.
+No PARC current-MP false candidate is both far from hull and ALIGNN-negative in the available public-source diagnostic.
+This is a model-zoo explanation diagnostic, not a CHGNet/MACE consensus validation: candidate-level CHGNet and MACE-MP scores for the WBM queue are unavailable in the public-safe cache.
+The materials active audit-budget frontier is scoped differently from the CTC frontier.
+For ALIGNN-FF \(K=300\) and \(K=500\), top-score audit at 0.5\% reaches a mean-operating transition but has seed-level \(\alpha\)-violation rates 0.45 and 0.15.
+These rows are therefore boundary or secondary diagnostics, not strict positive headline evidence.
+The prospective-materials package is not used as completed positive evidence: A1 now contributes a current-MP hull-shift utility and drift diagnostic rather than a strict temporal certificate, A2 independent DFT cross-validation requires an external source-join table, and prospective DFT follow-up remains a protocol for future independent validation rather than a completed result.
+
+\begin{table}[h]
+\centering
+\caption{Seed variability and FTR uncertainty for the primary rows. Intervals are seed bootstraps over the 20 fixed split seeds; they summarize run-to-run variability and are not independent Bernoulli confidence intervals over released links.}
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llrrrrrrr}
+\toprule
+Domain/source & Role & \(\rho\) & \(K\) & \(\alpha\) & Non-empty & Release mean [range; CI] & FTR mean [max; CI] & Raw top-\(K\) FTR \\
+\midrule
+CTC learned-hybrid & strict controlled release & 0.10 & 100 & 0.10 & 20/20 & 100.00 [100--100; 100--100] & 0.000 [0.000; 0.000--0.000] & 0.000 \\
+Materials CGCNN & calibration release row & 0.10 & 100 & 0.10 & 20/20 & 100.00 [100--100; 100--100] & 0.030 [0.100; 0.016--0.045] & -- \\
+CTC geometric linker & structured-source control & 0.10 & 100 & 0.20 & 20/20 & 100.00 [100--100; 100--100] & 0.000 [0.000; 0.000--0.000] & 0.000 \\
+SpaceNet geometry linker & relaxed masked-label operating check & 0.10 & 100 & 0.20 & 17/20 & 81.75 [0--100; 65.35--95.85] & 0.003 [0.010; 0.001--0.005] & 0.003 \\
+SpaceNet randomized linker & unsafe-source refusal & 0.10 & 100 & 0.20 & 0/20 & 0.00 [0--0; 0--0] & 0.000 [0.000; 0.000--0.000] & 0.6575 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\paragraph{SpaceNet 7 human-audit operating check.}
+In addition to the masked-label SpaceNet rows, the artifact includes a protocolized real-audit loop for same-building links.
+The calibration audit inspected 800 high-score candidates and supplied one-sided verified positives; unconfirmed candidates were retained as unsupported rather than used as trusted negatives.
+The pre-registered real-audit operating point was \(K=100,\alpha=0.20\), which produced certified refusal in 20/20 fixed-protocol audit seeds.
+The failure diagnostic reports a mean required e-value of 5.0, a mean maximum observed e-value of 6.061, and a mean best mass ratio of 0.635; the dominant failure mode was insufficient high-evidence mass for uniform SCS.
+A pre-specified \(K=50,\alpha=0.20\) diagnostic row produced non-empty releases in 18/20 fixed-protocol audit seeds with mean release size 43.95.
+Internal blind visual review of the 147 unique released candidates found 147 same-building links, no false links and no uncertain labels, giving visual-audit FTR 0.000 and uncertain-as-false FTR 0.000.
+Official metadata is reported only as a proxy diagnostic and is not substituted for the visual-audit FTR.
+
+\begin{table}[h]
+\centering
+\caption{SpaceNet 7 human-audit operating checks. The \(K=100\) row is the pre-registered human-audit request and is interpreted as certified refusal. The \(K=50\) row is a diagnostic low-volume release confirmed by internal blind visual review, not a replacement for a \(K=100\) deployment claim.}
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llrrrrrl}
+\toprule
+Regime & Status & \(K\) & \(\alpha\) & Non-empty & Mean release & Audit/FTR outcome & Interpretation \\
+\midrule
+Primary human-audit request & real-audit refusal & 100 & 0.20 & 0/20 & 0.00 & -- & audited calibration signal did not support original volume \\
+Diagnostic low-volume row & human-confirmed release & 50 & 0.20 & 18/20 & 43.95 & human FTR 0.000; \(n=147\); uncertain 0 & lower-volume diagnostic release \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\paragraph{SpaceNet 7 human-audit files.}
+The complete real-audit package includes \(K=50\) release-audit labels, \(K=100\) failure diagnostics, block coverage, raw top-\(K\) audit, calibration-audit summaries and per-seed rows.
+Exact paper-facing filenames are listed in the Supplementary Data index.
+The release-audit gate is human-confirmed; auxiliary calibration-coverage and raw-top-\(K\) files retain their raw review-status fields and are used as protocol diagnostics rather than as independent second-review reliability claims.
+
+\paragraph{iWildCam human-audit second review.}
+The iWildCam operational ecology row now includes a formal human second review.
+The reviewed set contains all 167 released candidates, all 586 calibration not-animal rows, a random 300 calibration animal rows and all 300 raw top-\(K\) rows.
+Across 1,123 rows, the second review has 110 disagreements with the primary audit, label agreement 0.902, verified-positive agreement 0.902 and Cohen's \(\kappa=0.804\) with bootstrap 95\% interval [0.768, 0.838].
+The release-audit subset remains 167/167 animal-present under the second review, while disagreements are concentrated in calibration-review candidates and are handled conservatively for verified-positive use.
+
+Raw top-\(K\) releases the highest-scoring \(K\) candidates without a certificate.
+The fixed score threshold releases candidates above a pre-specified score cutoff.
+The per-source calibrated threshold uses the tuning split to choose a score threshold for each proposal source.
+The split conformal p-value threshold releases candidates whose candidate-level p-values pass a nominal threshold but does not account for set-level false-release fraction risk.
+The post-filter e-value rule thresholds candidates and then reports risk diagnostics without the SCS condition.
+The e-BH-style row applies an e-value multiple-testing rule without enforcing the domain compatibility and partial-verification structure used by PARC.
+Equivalently, PARC's final self-consistency threshold can be read as an e-BH-style denominator applied to a candidate release set; the difference is that PARC first constructs valid e-values from a one-sided null superset and then applies the compatibility-aware release/refusal rule.
+The oracle true upper bound uses audit/latent labels for a diagnostic upper bound and is not a deployable method.
+
+\paragraph{Exact baseline rules.}
+Raw top-\(K\) sorts the frozen candidate universe by the same frozen utility used by the selector and releases the first \(K\) candidates, ignoring graph compatibility and risk calibration.
+Fixed thresholding uses a pre-specified detector-score cutoff; it is deployable but has no finite-sample false-release certificate under partial verification.
+The per-source calibrated threshold chooses a score cutoff separately for each proposal source on tuning/calibration material, then releases above-threshold candidates in the test universe.
+The split-conformal threshold converts candidate scores into p-values but thresholds individual candidates rather than controlling the set-level false-release rate.
+The post-filter e-value baseline constructs e-values but releases by an individual evidence cutoff without the SCS denominator \(K/(\alpha|\Rcal|)\).
+The e-BH-style selection row follows an e-value multiple-testing flavour but does not enforce the domain compatibility and final self-consistency condition used by PARC.
+The oracle true upper bound is a non-deployable diagnostic: it uses audit/latent truth to estimate the best possible release under the same frozen candidates.
+
+\paragraph{Positive--unlabeled baselines.}
+PU-learning methods estimate a classifier or class prior from positives and unlabeled examples.
+They are relevant because PARC also starts from verified positives and unverified candidates.
+However, standard PU risk estimators do not directly output a finite-sample set-level release certificate under block exchangeability and graph compatibility.
+We therefore report a concrete nnPU classifier-release benchmark and a Bao-style post-selection selective-conformal adaptation as different-target comparators rather than as certified substitutes.
+The matrix spans the CTC learned, materials and iWildCam human-audit rows and records whether each row has a PARC-style set-level guarantee; the nnPU and Bao-style rows do not.
+The main Article panel is drawn from the paper-facing frontier CSV (\texttt{figure\_table2b\_baseline\_frontier.csv}), the full benchmark summary (\texttt{table\_pu\_selective\_conformal\_benchmark.csv}) and seed-level rows (\texttt{table\_pu\_selective\_conformal\_benchmark\_seed\_rows.csv}).
+A minimal baseline table (\texttt{table\_pu\_selective\_conformal\_minimal\_baselines.csv}) and the generation script (\texttt{scripts/build\_pu\_selective\_conformal\_benchmark.py}) are included in the release artifact; the script fixes \(\alpha=0.10\), \(K=100\), \(\rho=0.10\) and 20 fixed split seeds for the comparator benchmark.
+
+\begin{table}[h]
+\centering
+\caption{Comparator target objects. Empirical filters can release individual candidates but do not provide a finite set-level release/refusal certificate under one-sided partial verification. Oracle diagnostics use labels unavailable at deployment.}
+\small
+\begin{tabular}{llll}
+\toprule
+Method & CTC & Materials & iWildCam \\
+\midrule
+Raw top-\(K\) & no certificate & no certificate & no certificate \\
+nnPU & no certificate & no certificate & no certificate \\
+Bao selective conformal & no certificate & no certificate & no certificate \\
+Oracle diagnostic & oracle-only & oracle-only & oracle-only \\
+\textbf{PARC} & \textbf{certified release} & \textbf{certified release} & \textbf{certified refusal} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Why threshold baselines have high conservative diagnostics.}
+Thresholding rewards high detector confidence, and real unannotated objects often have high detector confidence.
+Under partial verification, unsupported or uncertain released candidates therefore accumulate in the conservative label-uncertainty diagnostic even when the candidate may be real.
+PARC differs by attaching a set-level certificate to the release decision and by refusing when the null-superset calibration evidence is insufficient.
+
+\paragraph{Truth-known actual-FTR validation.}
+The Article reports two known-truth validation blocks.
+In the controlled simulation, every candidate unit has latent truth and PARC has no seed-level FTR-bound violation across \(\alpha\in\{0.05,0.10,0.20\}\); the mean actual FTR at \(\alpha=0.20\) is \(2.18\times10^{-4}\).
+In the harder adversarial score-overlap simulation, false-candidate scores are shifted toward the verified-positive distribution.
+Mean actual FTR remains below the target risk at all three risk levels: 0.018 at \(\alpha=0.05\), 0.046 at \(\alpha=0.10\), and 0.111 at \(\alpha=0.20\).
+The hardest \(\alpha=0.05\) block has a 1\% seed-level exceedance, which is compatible with an expectation-level theorem and is reported rather than hidden.
+
+\begin{table}[h]
+\centering
+\caption{Truth-known actual-FTR validation summary. The theorem controls expected released-set risk, so the mean actual FTR is the primary validation target; seed-level exceedances are reported separately.}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Validation block & \(\alpha\) & Trials & Mean actual FTR & Violation rate \\
+\midrule
+Controlled known truth & 0.05 & 100 & 0.000 & 0.00 \\
+Controlled known truth & 0.10 & 100 & 0.000 & 0.00 \\
+Controlled known truth & 0.20 & 100 & 0.000218 & 0.00 \\
+Adversarial score overlap & 0.05 & 100 & 0.018 & 0.01 \\
+Adversarial score overlap & 0.10 & 100 & 0.046 & 0.00 \\
+Adversarial score overlap & 0.20 & 100 & 0.111 & 0.00 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Aggregate baseline summary used in the main risk--utility figure.}
+\small
+\begin{tabular}{lrr}
+\toprule
+Method family & Mean release & Conservative FTR diagnostic \\
+\midrule
+Raw top-\(K\) / threshold / split conformal & 150.0 & 0.589 \\
+Post-filter e-value threshold & 58.4 & 0.174 \\
+e-BH-style selection & 68.4 & 0.156 \\
+Full PARC & 58.4 & 0.020 \\
+Oracle true upper bound & 58.8 & 0.000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Baseline taxonomy. ``Certificate'' means the PARC false-release certificate under the stated assumptions, not merely a calibrated threshold.}
+\scriptsize
+\begin{tabular}{lccccc}
+\toprule
+Method & Calib. & e-values & SCS & Graph compat. & Certificate \\
+\midrule
+Raw top-\(K\) & no & no & no & no & no \\
+Fixed threshold & no/tune & no & no & no & no \\
+Per-generator threshold & yes & no & no & no & no \\
+Split conformal threshold & yes & no & no & no & no FTR certificate \\
+Post-filter e-value & yes & yes & no & no & no SCS certificate \\
+e-BH-style selection & yes & yes & partial & no & not PARC \\
+Full PARC & yes & yes & yes & yes & yes \\
+Oracle upper bound & labels & no & no & optional & diagnostic only \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Relation to conformal risk control, e-value selection and PARC.}
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{p{0.18\linewidth}p{0.25\linewidth}p{0.18\linewidth}p{0.18\linewidth}p{0.25\linewidth}}
+\toprule
+Family & Object controlled & Partial labels? & Graph-compatible set? & PARC distinction \\
+\midrule
+CRC / learn-then-test & Expected risk of a calibrated decision rule. & Usually requires risk labels or observable losses. & Usually not built around domain conflicts. & PARC constructs false-candidate evidence from a one-sided null superset and controls released-set false-release fraction. \\
+PU learning & Classification or class-prior estimation from positives and unlabeled examples. & Yes, but usually as a learning problem. & No set-level compatibility certificate by default. & PARC is a post-hoc release certificate, not a retrained PU classifier. \\
+e-BH / e-FDR & Discoveries among hypotheses using valid e-values. & Requires valid e-values; partial-label construction is external. & No domain graph by default. & PARC adds block-level null-superset e-values, compatibility and the final \(K/(\alpha|\Rcal|)\) self-consistency denominator. \\
+PARC & Expected false-release fraction among released candidates. & Yes: verified positives are one-sided and unverified candidates remain in the null superset. & Yes, when the domain exports conflicts. & Certified release or certified refusal in a fixed proposal universe. \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\paragraph{How to read the baseline table.}
+The column ``Certificate'' is intentionally strict.
+A method can be calibrated, useful, or visually strong and still lack the PARC false-release certificate.
+The comparison is therefore not a claim that all baselines are poor trackers; it is a claim that their release decision does not carry the same set-level risk statement under one-sided partial annotations.
+
+\clearpage
+
+\section*{Supplement D: Ablation details}
+
+The ablation suite separates structural components of the certification layer from diagnostic or stress modifications.
+Rows marked as actual frozen matrices are produced by rerunning the certification rule on the frozen candidate/e-value matrices.
+Rows marked as derived sensitivities use the same frozen matrices and alter a documented component such as empty-block interpretation, cell aggregation or label treatment.
+Negative controls intentionally violate a design principle to expose failure modes; they are not proposed deployment protocols.
+
+\begin{table}[h]
+\centering
+\caption{Ablation summary used for the main-text component discussion. Conservative FTR values are label-uncertainty diagnostics.}
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrl}
+\toprule
+Row & Mean release & Cons. FTR & Status \\
+\midrule
+Full PARC & 58.4 & 0.020 & actual frozen matrix \\
+Without verified-positive removal & 58.4 & 0.020 & actual frozen matrix \\
+Post-filter only, without SCS & 58.4 & 0.174 & actual frozen matrix \\
+Conservative empty-block policy & 32.1 & 0.008 & derived sensitivity \\
+Coverage-conditional empty-block policy & 58.4 & 0.008 & derived sensitivity \\
+Global calibration only & 52.6 & 0.009 & derived sensitivity \\
+Random audit-positive removal & 43.8 & 0.010 & negative-control sensitivity \\
+Wrongly removing uncertain cases & 10.0 & 0.020 & negative-control sensitivity \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+The no-audit and full-PARC rows can coincide in fixed high-evidence settings.
+This does not mean audit labels are irrelevant: they establish the one-sided annotation model and are required for safe null-superset shrinkage when the release frontier is sensitive to verified positives.
+We therefore added a candidate-level rerun on the scientific CTC/materials target rows rather than inferring component behavior from summary tables.
+Across six target rows and 360 seed-level reruns, leaving verified positives inside the calibration null or removing the same number of random positives reduces release in every row.
+The effect is a power and release-frontier effect, not an FTR comparison at fixed release size: ablated rows often release fewer candidates and can therefore have lower realized FTR while failing to support the requested certified release.
+
+\begin{table}[h]
+\centering
+\caption{Candidate-level verified-positive removal rerun on CTC/materials target rows. Values are mean released candidates over 20 calibration-mask seeds. The ALIGNN margin-excluded row is retained as a boundary-sensitivity row, not a strict pass.}
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrrl}
+\toprule
+Target row & Full PARC & No removal & Random removal & Full FTR & Interpretation \\
+\midrule
+CTC learned \(\alpha=0.10,K=100\) & 100.00 & 0.00 & 0.00 & 0.000 & load-bearing \\
+CTC learned \(\alpha=0.10,K=300\) & 300.00 & 0.00 & 0.00 & 0.000 & load-bearing \\
+ALIGNN exact-stable \(\alpha=0.10,K=300\) & 115.10 & 0.00 & 0.00 & 0.087 & load-bearing \\
+ALIGNN exact-stable \(\alpha=0.10,K=500\) & 90.75 & 0.00 & 0.00 & 0.048 & load-bearing \\
+ALIGNN margin-excluded 25 meV \(\alpha=0.10,K=100\) & 100.00 & 18.40 & 18.40 & 0.111 & boundary sensitivity \\
+CGCNN exact-stable \(\alpha=0.10,K=100\) & 100.00 & 36.75 & 36.75 & 0.030 & load-bearing calibration check \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Ablation hypotheses and expected failure modes.}
+\small
+\begin{tabular}{p{0.28\linewidth}p{0.38\linewidth}p{0.24\linewidth}}
+\toprule
+Ablation & Question tested & Expected interpretation \\
+\midrule
+Without verified-positive removal & Does audit-based null shrinkage change release power in this fixed matrix? & May coincide with Full PARC when high-evidence mass dominates; still removes a formal component. \\
+Without SCS / post-filter only & Is individual evidence thresholding enough? & Release count can match PARC, but conservative diagnostic increases because set-level denominator is ignored. \\
+Conservative empty-block policy & What is the marginal-valid fallback cost? & More cautious and often lower power. \\
+Coverage-conditional policy & What is the paper-facing covered-regime result? & Practical power under the conditional exchangeability assumption. \\
+Global calibration only & Does coarser calibration help power? & Can increase coverage but may obscure heterogeneity. \\
+Fine Mondrian cells & Does finer conditioning improve diagnostics? & Can reduce unsupported diagnostics but often loses power due to sparse cells. \\
+Random audit-positive removal & Is any removal of calibration paths sufficient? & Negative control; removal must be one-sided reliable. \\
+Wrongly removing uncertain cases & What happens if ambiguous paths are treated as positives? & Negative control; can damage validity/power interpretation. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Verified-positive removal versus release count.}
+Release count is not the only role of the audit.
+In the fixed OVT-B rows, the no-verified-positive-removal ablation and Full PARC can return the same mean release because the top evidence mass already clears the self-consistency threshold.
+This should not be read as evidence that verified positives are unnecessary.
+The audit supplies the one-sided label model, documents null contamination and enables safe null-superset shrinkage in regimes where the frontier is tighter.
+
+\paragraph{SCS versus post-filtering.}
+The post-filter e-value baseline demonstrates why set-level self-consistency is not cosmetic.
+Individual e-values are valid evidence objects for false paths, but the selected set still needs a denominator-aware condition of the form \(E_p\ge K/(\alpha|\Rcal|)\).
+Without this condition, the release may have similar utility but a much larger conservative label-uncertainty diagnostic.
+
+\paragraph{Cell granularity and power.}
+Fine Mondrian cells are not automatically better.
+They can reduce within-cell heterogeneity and lower unsupported diagnostics, but they also reduce calibration coverage.
+The OVT-B and TAO cell-granularity rows therefore support the deployed choice of global or fallback calibration for paper-facing power, with fine cells retained as a conservative/power tradeoff diagnostic.
+
+\paragraph{Supplementary Data pointer.}
+The CSV file \texttt{table\_ablation\_components.csv} records dataset, generator, risk level, seed, release count, UTR, audited FTR, conservative FTR, mass ratio, maximum e-value, empty reason, experiment basis, component name, baseline family and notes.
+This table is the authoritative source for per-row ablation values; the compact table above only summarizes the manuscript-facing contrasts.
+
+\clearpage
+
+\section*{Supplement E: Stress tests}
+
+Stress rows are reported with provenance sidecars that mark whether they are actual frozen-matrix reruns, actual stress reruns, derived sensitivities, or design rows.
+Null-inflation stress increases the number of true-but-unverified paths retained in the null superset.
+Non-exchangeability stress changes calibration/test score distributions.
+Audit-noise stress perturbs verified-positive flags.
+Score-miscalibration stress applies monotone and noisy transformations to candidate scores.
+The main conclusion is qualitative: low-evidence or shifted regimes lead to refusal rather than forced nominal release, while high-evidence regimes remain releasable until the self-consistency mass drops below one.
+
+\begin{table}[h]
+\centering
+\caption{Stress-test provenance summary. Full per-row CSVs are distributed as Supplementary Data.}
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrl}
+\toprule
+Stress family & Rows & Main variables & Provenance type \\
+\midrule
+Null inflation & 1,800 & label keep rate, uncertain inflation & actual rerun + derived label sensitivity \\
+Non-exchangeability & 102 & dataset/class/size/track shifts & 12 actual reruns, 90 derived sensitivities \\
+Audit noise & 750 & flip/add/remove verified-positive flags & derived audit-noise sensitivity \\
+Score miscalibration & see data & monotone/noisy score transforms & derived sensitivity \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\subsection*{E.1 Null-inflation stress}
+
+Null inflation simulates the central difficulty of partial annotations: the null superset contains many true but unverified paths.
+The stress varies the verified-positive keep/removal rate and the uncertain-rate inflation parameter.
+Rows with lower verified-positive removal rates retain more true positives in the calibration null, which raises block maxima and reduces evidence mass.
+Rows with higher uncertain inflation increase the conservative label-uncertainty numerator after release.
+The source CSV \texttt{table\_stress\_null\_inflation.csv} records label keep rate, verified-positive removal rate, uncertain-rate inflation, release count, UTR, audited FTR, conservative FTR, mass ratio, e-value ceiling and empty reason.
+
+\begin{table}[h]
+\centering
+\caption{Null-inflation variables.}
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{p{0.24\linewidth}p{0.56\linewidth}p{0.14\linewidth}}
+\toprule
+Variable & Meaning & Source \\
+\midrule
+Label keep rate & Fraction of originally available verified-positive information retained. Lower values make the null superset more inflated. & mixed \\
+Verified-positive removal rate & Fraction of calibration paths removed as verified positives. & rerun \\
+Uncertain-rate inflation & Additional conservative unknown/uncertain mass counted in the diagnostic. & derived \\
+Mass ratio & \(\max_k \alpha kE_{(k)}/M\), the uniform self-consistency frontier before conflicts. & computed \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\subsection*{E.2 Non-exchangeability stress}
+
+Non-exchangeability stress probes how release changes when calibration and test regimes differ.
+The scenarios include dataset transfer (OVT-B to TAO, TAO to BURST), scene and object shifts (clear to occluded, large to small, long to short), category-frequency shift (head to tail), and severe sparse-annotation shift.
+Some rows are actual reruns of the certification matrix under a changed split; others are derived sensitivities computed from frozen source matrices.
+The provenance sidecar marks this distinction for every row.
+The main manuscript uses reader-facing labels such as ``head \(\to\) tail''; the source CSV retains machine-readable identifiers for reproducibility.
+
+\begin{table}[h]
+\centering
+\caption{Reader-facing labels for non-exchangeability stress.}
+\small
+\begin{tabular}{p{0.35\linewidth}p{0.48\linewidth}}
+\toprule
+Manuscript label & Source-field meaning \\
+\midrule
+OVT-B \(\to\) TAO & Calibration distribution from OVT-B, test distribution from TAO-style rows. \\
+TAO \(\to\) BURST & Calibration distribution from TAO, test distribution from BURST-style rows. \\
+clear \(\to\) occluded & Scene visibility shift. \\
+head \(\to\) tail & Query/category frequency shift. \\
+large \(\to\) small & Object-scale shift. \\
+long \(\to\) short & Temporal-support shift. \\
+sparse annotation & Severe sparse-annotation stress row. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{E.3 Audit-noise stress}
+
+Audit-noise stress perturbs verified-positive flags and diagnostic label assignments.
+False-to-true flips are the dangerous direction for null-superset validity because they may remove a false path from calibration.
+True-to-false flips are conservative for validity but can reduce power by keeping more true paths in the null superset.
+The manuscript treats these rows as assumption-boundary diagnostics rather than new benchmark reruns.
+The source CSV \texttt{table\_stress\_audit\_noise.csv} records the noise type, noise rate, release count, conservative FTR and empty reason.
+
+\subsection*{E.4 Score-miscalibration stress}
+
+Score-miscalibration stress applies monotone or noisy transformations to path scores.
+Pure monotone transformations preserve score ranks and therefore often preserve rank-based release behaviour when the same transformation is applied consistently to calibration and test.
+Noisy or split-dependent transformations can change block maxima, evidence mass and graph selection.
+PARC is not a replacement for a stable proposal score: it certifies release under the frozen scoring rule and exchangeability assumptions supplied to calibration.
+
+\paragraph{Interpretation boundary.}
+Stress tests should be read as assumption-boundary diagnostics.
+They do not create new benchmark claims and they do not replace the formal theorem.
+Their purpose is to show how the certification layer behaves when the assumptions that make the theorem useful become strained: release shrinks, diagnostics worsen, or the system refuses.
+
+\subsection*{E.5 Block-size heterogeneity robustness}
+
+The block-size heterogeneity package separates completed candidate-level reruns from scoped aggregate diagnostics.
+For materials screening, the public WBM candidate table is available in the derived package, so the certification matrix can be rerun after size-matching calibration blocks and after downsampling block maxima.
+For CTC and SpaceNet, the review package does not redistribute the candidate-level artifacts required for an equivalent rerun; those rows are therefore labelled as aggregate-only or audit-sample diagnostics and are not used as completed candidate-level robustness evidence.
+This scope distinction prevents the robustness table from silently converting unavailable candidate-level reruns into paper claims.
+
+\begin{table}[h]
+\centering
+\caption{Block-size heterogeneity robustness status. Materials rows are completed candidate-level diagnostics; CTC and SpaceNet rows are scoped diagnostics because the public package does not contain the necessary candidate-level artifacts.}
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llll}
+\toprule
+Domain & Completed diagnostic & Scope status & Interpretation \\
+\midrule
+Materials screening & size-stratified p-value diagnostic; 12 size-matched rerun rows; 8 downsampled block-max rows & candidate-level completed & Release/refusal pattern is retained or power becomes conservative under stricter block-size matching. \\
+Biomedical cell tracking & aggregate block-size summary & aggregate-only public package & No candidate-level rerun is claimed without redistributed CTC candidate artifacts. \\
+Earth observation & audit-sample block summary and aggregate diagnostic & audit-sample diagnostic & The audit sample is underpowered for a candidate-level rerun and is reported only as a scoped diagnostic. \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+The source files are \texttt{table\_block\_size\_heterogeneity\_summary.csv}, \texttt{figure\_block\_size\_superuniformity.csv}, \texttt{table\_size\_matched\_rerun.csv} and \texttt{table\_downsampled\_blockmax\_stress.csv}.
+The figure file \texttt{extended\_data\_block\_size\_superuniformity.pdf} visualizes the size-stratified diagnostic and should be read as an assumption check rather than as a new theorem.
+
+\clearpage
+
+\section*{Supplement F: Human audit protocol}
+
+Audited paths are labelled as actually true, actually false or uncertain.
+A stricter verified-positive flag is assigned only when the object identity, path localization and semantic query match are clear enough for calibration use.
+Uncertain cases are treated conservatively in reported diagnostics.
+The BURST audit follows the same two-pass author visual-review protocol as OVT-B and TAO; no model-generated labels are used to assign BURST verified-positive status.
+These open-world audits are reported as annotation-workflow evidence and reproducibility support.
+They motivate the paper's null-superset treatment of unsupported benchmark candidates, but they are not the primary FTR evaluation source for the CTC or SpaceNet 7 scientific-domain rows.
+In the Audit2000 label-count summary, high-scoring unsupported rows are often visually true, with 1,927 actually true, 33 actually false and 40 uncertain rows under the final taxonomy; this observation is used as evidence of annotation incompleteness rather than as a cross-domain theorem validation.
+
+\subsection*{F.1 Label taxonomy}
+
+\begin{table}[h]
+\centering
+\caption{Audit label taxonomy.}
+\small
+\begin{tabular}{p{0.22\linewidth}p{0.48\linewidth}p{0.20\linewidth}}
+\toprule
+Audit label & Visual criterion & Diagnostic treatment \\
+\midrule
+Actually true & A real object instance matching the query/category is visible and the path localization is acceptable for the audited temporal extent. & Not counted as false in audited FTR. \\
+Actually false & The path is a hallucination, background region, wrong semantic object, severe drift, or otherwise not a valid tracklet. & Counted as false. \\
+Uncertain & Visual evidence is ambiguous due to occlusion, heavy truncation, category ambiguity, severe localization uncertainty or insufficient temporal support. & Counted conservatively in conservative FTR. \\
+Verified positive & A stricter subset of actually true: semantic match, localization and temporal consistency are clear enough to remove the path from the calibration null. & May be removed from calibration null. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{F.2 Review information and blindness}
+
+Reviewers inspect candidate-path visual evidence and metadata needed to apply the taxonomy: query/category name, path identifier, sampled frames or montage crops, and the path's localization over time.
+The closeout second review is blind to the prior round's assigned label and verified-positive flag.
+The second review is not instructed by model-generated labels.
+Score and source metadata can be present as provenance, but the label guideline instructs reviewers to decide from visual evidence and the semantic query rather than from score rank.
+When visual evidence is insufficient, the uncertain label is used.
+
+\begin{table}[h]
+\centering
+\caption{Blind-review fields.}
+\small
+\begin{tabular}{p{0.32\linewidth}p{0.22\linewidth}p{0.34\linewidth}}
+\toprule
+Field & Visible in closeout review? & Purpose \\
+\midrule
+Path montage / sampled crops & yes & Primary visual evidence. \\
+Text query or category & yes & Determines semantic match. \\
+Path id and dataset id & yes & Provenance and bookkeeping. \\
+Previous audit label & no & Prevents direct copying of first-pass label. \\
+Previous verified-positive flag & no & Prevents direct copying of calibration-grade flag. \\
+Model-generated label & no & No model-generated labels assign verified-positive status. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Annotator independence and visibility. ``Independent'' here means blind to the previous label within the project audit workflow; it does not imply an external commercial annotation vendor.}
+\small
+\begin{tabular}{p{0.28\linewidth}p{0.28\linewidth}p{0.28\linewidth}}
+\toprule
+Item & First review & Closeout second review \\
+\midrule
+Reviewer role & Project-team first visual audit & Project-team blind visual review \\
+Previous label visible & no & no \\
+Verified-positive flag visible & no & no \\
+Model-generated label visible & no & no \\
+Release decision visible & no & no \\
+Query/category visible & yes & yes \\
+Path montage or sampled crops visible & yes & yes \\
+Score/source metadata & provenance only & provenance only \\
+Uncertain label allowed & yes & yes \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For the closeout reliability check, the paper-facing package separates hard-case ambiguity measurement from primary release-evaluation evidence.
+The boundary challenge contains 500 deliberately difficult rows sampled from previous uncertain/false neighborhoods, low- or medium-confidence rows, small objects, partial boxes, category-boundary cases, temporal fragments and released-unsupported boundary examples.
+It yields 25 disagreements, label agreement 0.950 and Cohen's \(\kappa=0.833\), with exact verified-positive agreement.
+The full Audit2000 blind reannotation yields 25 disagreements over 2,000 rows, label agreement 0.9875 and Cohen's \(\kappa=0.849\), again with exact verified-positive agreement.
+These values are used as annotation-workflow credibility checks, not as the main empirical claim of the Article and not as a substitute for CTC or SpaceNet held-out FTR measurement.
+Agreement is computed as exact agreement on the three-way label and exact agreement on the verified-positive flag.
+For labels \(L^{(1)}_r,L^{(2)}_r\) and verified-positive flags \(V^{(1)}_r,V^{(2)}_r\), the reported exact-agreement rates are
+\[
+\frac{1}{N}\sum_{r=1}^{N}\ind[L^{(1)}_r=L^{(2)}_r],
+\qquad
+\frac{1}{N}\sum_{r=1}^{N}\ind[V^{(1)}_r=V^{(2)}_r].
+\]
+Disagreement policy, if triggered, is consensus review with the uncertain label used unless the visual evidence is clear.
+The row list, label files and SHA256 provenance are included in the supplementary archive.
+
+\begin{table}[h]
+\centering
+\caption{Audit2000 primary label-count summary. These counts motivate the null-superset treatment of unsupported open-world candidates; they are not used as primary CTC or SpaceNet 7 evidence.}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Dataset & Rows & Actually true & Actually false & Uncertain & Verified positive \\
+\midrule
+OVT-B & 700 & 655 & 18 & 27 & 38 \\
+TAO & 700 & 685 & 15 & 0 & 32 \\
+BURST & 600 & 587 & 0 & 13 & 25 \\
+\midrule
+Total & 2,000 & 1,927 & 33 & 40 & 95 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Blind-review agreement under the updated audit closeout. Boundary-500 is the hard-case ambiguity challenge; Audit2000 reannotation is the full benchmark reannotation. Both rows have exact verified-positive agreement.}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Review block & Rows & Label agreement & Cohen's \(\kappa\) & Disagreements & VP agreement \\
+\midrule
+Boundary-500 challenge & 500 & 0.9500 & 0.8326 & 25 & 1.0000 \\
+Audit2000 reannotation & 2,000 & 0.9875 & 0.8490 & 25 & 1.0000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Second-review label distributions. The full reannotation shifts 25 primary actually-true rows into uncertain, reflecting conservative handling of boundary ambiguity.}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Review block & Actually true & Actually false & Uncertain \\
+\midrule
+Boundary-500 primary & 427 & 33 & 40 \\
+Boundary-500 second review & 402 & 33 & 65 \\
+Audit2000 primary & 1,927 & 33 & 40 \\
+Audit2000 second review & 1,902 & 33 & 65 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Verified-positive precision margin in reviewed subsets. No false verified-positive was observed among reviewed verified-positive cases. The upper bound is the one-sided exact binomial 95\% upper bound for zero observed false verified positives, using the number of reviewed verified-positive cases as denominator.}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Reviewed set & Reviewed VP cases & False VP observed & 95\% upper bound \\
+\midrule
+Audit2000 reannotation & 95 & 0 & 0.031 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The audit closeout is not presented as a replacement for the formal risk theorem.
+It is an audit-quality check showing that the final taxonomy and verified-positive rule are reproducible, including on deliberately difficult boundary cases.
+
+\subsection*{F.3 Sampling and agreement interpretation}
+
+The boundary challenge is designed to measure ambiguity in hard cases, not to tune agreement to a target value.
+Its 25 disagreements are all resolved conservatively into uncertain in the second-review labels.
+The full Audit2000 reannotation gives the same number of disagreements over a larger sample, again by moving boundary true cases into uncertain rather than creating additional false or verified-positive rows.
+For this reason, the agreement results should be read as audit-workflow reliability checks, not as theorem-level empirical validation of all latent labels.
+
+\subsection*{F.4 Disagreement and adjudication policy}
+
+If a second-review row disagrees with the primary audit label, the row is sent to consensus review.
+The default consensus outcome is uncertain unless the visual evidence is clear.
+If the disagreement concerns verified-positive status rather than the three-way visual label, the path is not used as a verified positive unless both reviews agree that it satisfies semantic, localization and temporal consistency criteria.
+This policy is intentionally conservative: disagreement cannot create an additional calibration positive without consensus.
+
+\subsection*{F.5 Audit file provenance}
+
+The supplementary archive includes the label-count summaries, Boundary-500 challenge summary, Audit2000 reannotation summary, SHA256 manifests and provenance sidecars identifying the review version.
+The archive does not redistribute raw benchmark video frames.
+If montage files contain benchmark imagery, they are treated as restricted review artifacts under the original dataset licenses rather than public data.
+
+\clearpage
+
+\section*{Supplement G: Generality}
+
+The paper uses separate naming for generality rows.
+LVIS denotes single-frame open-vocabulary detection.
+LVVIS or LV-VIS denotes video or mask-path settings.
+OVVIS/mask-path scaffold rows are proof-of-principle evidence unless full official mask benchmark provenance is available.
+Main claims about certified tracking release are made on OVT-B, TAO and the box-converted BURST validation protocol; LVIS and mask-path rows are scoped as generality evidence.
+
+\begin{table}[h]
+\centering
+\caption{Task naming and permitted claims.}
+\small
+\begin{tabular}{p{0.18\linewidth}p{0.28\linewidth}p{0.38\linewidth}}
+\toprule
+Name & Task scope & Claim allowed in this manuscript \\
+\midrule
+OVT-B & Open-vocabulary video tracking benchmark. & Main tracking certification evidence. \\
+TAO & Federated video tracking/long-tail annotation regime. & Main hard partial-annotation regime and refusal evidence. \\
+BURST boxes & Box-converted validation protocol from segmentation annotations. & Third annotation-regime validation; not a native OVMOT replacement. \\
+LVIS & Single-frame open-vocabulary detection. & Generality evidence for single-frame release; not tracking. \\
+LVVIS / LV-VIS & Video or mask-path task, depending on source. & Scoped appendix evidence only unless official provenance is complete. \\
+OVVIS / mask-path scaffold & Box-to-mask or video-instance proof-of-principle scaffold. & Proof-of-principle; no full official mask benchmark claim. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{LVIS detection rows.}
+LVIS rows are single-frame release-certification evidence.
+The GroundingDINO rows are positive official-support-proxy rows.
+OWLv2 rows are retained as stress evidence because high-score unmatched audit labels are outside the completed Article evidence.
+These rows support the idea that the null-superset release logic can be applied beyond video tracking, but they do not establish a full open-vocabulary tracking claim.
+The LVIS audit scaffold currently contains 500 high-score unmatched candidates, all marked as outside the completed human-audit evidence; no LVIS human-audit FTR is claimed in the Article.
+
+\begin{table}[h]
+\centering
+\caption{LVIS audit-closeout status. These rows are scoped official-support-proxy cross-task evidence rather than visual-audit FTR evidence.}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Detector & Candidates & Human-labelled & Verified-positive & Status \\
+\midrule
+GroundingDINO & 139 & 0 & 0 & outside Article audit evidence \\
+OWLv2 & 361 & 0 & 0 & outside Article audit evidence \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Mask-path and OVVIS/LVVIS rows.}
+Mask-path rows are treated as proof-of-principle.
+They may use box-to-mask conversion or mask prompting, and are reported only when the paper can state the conversion scope without implying an official mask benchmark result.
+If full official mask benchmark provenance is unavailable, the row remains appendix evidence and cannot be used as a headline result.
+
+\paragraph{Published tracker adapters.}
+Published tracker rows are useful because they test whether PARC can wrap existing systems.
+However, public tracker outputs require careful provenance: official prediction file hashes, conversion scripts, split definitions, category-query mapping and support/matching conventions.
+Without this provenance, the row demonstrates a failure mode or wrapper diagnostic but is not a leaderboard comparison.
+
+\clearpage
+
+\section*{Supplement H: Reproducibility}
+
+The supplementary archive contains derived CSV tables, audit summaries, released-set diagnostics, figure-generation inputs, provenance JSON sidecars and SHA256 manifests.
+The review repository contains certification code, table-generation scripts, public fixtures, environment files, Makefiles and continuous-integration recipes.
+Raw benchmark videos, raw benchmark annotations, model weights, detector caches and frame caches are not redistributed and remain subject to their original licenses.
+Publication figures are regenerated with Matplotlib, Seaborn and SciencePlots and exported as vector PDF.
+OpenCV and supervision are installed for CV montage and detection/track overlay generation when qualitative figures are included.
+
+Core commands are:
+\begin{verbatim}
+make test
+make tiny-fixture
+make reproduce-main-tables
+make reproduce-main-figures
+make validate-public-bundle
+make verify-manifest
+\end{verbatim}
+The public-safe bundle excludes raw datasets, raw annotations, model weights, detector caches and frame caches.
+SHA256 manifests cover derived tables, figures, audit summaries and provenance sidecars.
+
+\begin{table}[h]
+\centering
+\caption{Reproducibility command map.}
+\small
+\begin{tabular}{p{0.28\linewidth}p{0.50\linewidth}p{0.14\linewidth}}
+\toprule
+Command & Purpose & Requires raw data? \\
+\midrule
+\texttt{make test} & Run unit tests for score construction, label metrics, SCS self-consistency and bundle validation. & no \\
+\texttt{make tiny-fixture} & Run the certification pipeline on a public-safe synthetic fixture. & no \\
+\texttt{make reproduce-main-tables} & Rebuild manuscript tables from derived CSV summaries. & no \\
+\texttt{make reproduce-main-figures} & Regenerate manuscript figures from figure input CSVs. & no \\
+\texttt{make validate-public-bundle} & Check that public artifacts do not include raw frames, model weights or private caches. & no \\
+\texttt{make verify-manifest} & Verify SHA256 hashes for derived artifacts and provenance sidecars. & no \\
+\texttt{phase2 propose} & Generate raw candidate universes from videos and models. & yes \\
+\texttt{phase3 matrix} & Build certification matrices from candidate universes. & depends on candidate files \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Included and excluded artifact classes.}
+\small
+\begin{tabular}{p{0.30\linewidth}p{0.30\linewidth}p{0.28\linewidth}}
+\toprule
+Artifact & Review package & Public release after acceptance \\
+\midrule
+Derived CSV summaries & included & included \\
+Figure input CSVs and vector PDFs & included & included \\
+Audit summaries and second-review counts & included & included where licenses permit \\
+Provenance JSON sidecars and SHA256 manifests & included & included \\
+Certification code and plotting scripts & included in anonymized form & public repository \\
+Raw benchmark videos and annotations & excluded & excluded; original licenses apply \\
+Model weights and HF/cache files & excluded & excluded; users download from original providers \\
+Frame caches and private montage viewers & excluded & excluded unless dataset license allows redistribution \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Environment.}
+The plotting stack used for manuscript figures is Matplotlib, Seaborn and SciencePlots.
+OpenCV and supervision are installed for computer-vision overlay and montage construction.
+Interactive libraries such as Plotly and Altair are optional and used only for exploration; paper figures are exported as static vector PDF.
+The repository includes environment and lock-file instructions so that reviewers can rebuild tables and figures without downloading raw benchmark data.
+
+\clearpage
+
+\section*{Supplement I: Extended Data and Supplementary Data inventory}
+
+The Extended Data package contains manuscript-facing versions of the following supporting displays: evidence map; full baseline risk--utility frontier; ablation heatmap; null-inflation sensitivity; non-exchangeability shifts; audit-noise and score-miscalibration sensitivity; block-size heterogeneity diagnostics; human-audit sample composition and confusion matrix; LVIS raw detector versus PARC; mask-path proof-of-principle rows; visual release/refusal examples; release-card maps; prospective-protocol status; and a reproducibility/provenance checklist.
+The Supplementary Data package contains the per-seed CSVs, figure input CSVs, provenance JSON sidecars and SHA256 manifests.
+Large raw datasets, raw annotations, model weights and detector caches are excluded.
+
+\begin{table}[h]
+\centering
+\caption{Extended Data display inventory.}
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{p{0.24\linewidth}p{0.48\linewidth}p{0.18\linewidth}}
+\toprule
+Display & Content & Source \\
+\midrule
+Extended Data Fig. 1 & Main protocol coverage map over datasets, proposal sources, seeds and inclusion status. & main protocol coverage CSV \\
+Extended Data Fig. 2 & Full baseline risk--utility frontier including all threshold baselines. & baseline comparison CSV \\
+Extended Data Fig. 3 & Ablation component heatmap and component taxonomy. & ablation component CSV \\
+Extended Data Fig. 4 & Null-inflation sensitivity over label keep rate and uncertain inflation. & null-inflation CSV \\
+Extended Data Fig. 5 & Non-exchangeability shifts with actual-rerun versus derived-sensitivity markers. & non-exchangeability CSV \\
+Extended Data Fig. 6 & Audit-noise and score-miscalibration sensitivity. & audit-noise and score-miscalibration CSVs \\
+Extended Data Fig. 7 & Human-audit sample composition and confusion matrix. & audit summary and second-review CSVs \\
+Extended Data Fig. 8 & LVIS detection raw detector versus PARC scoped evidence. & LVIS detection CSV \\
+Extended Data Fig. 9 & Mask-path proof-of-principle rows. & mask-path proof-of-principle CSV \\
+Extended Data Fig. 10 & Visual examples of released and refused candidate units across microscopy, satellite and camera-trap workflows. & qualitative asset bundle \\
+Extended Data Fig. 11 & Success-domain map summarizing evidence mass, coverage, raw risk and release/refusal outcomes. & success-domain feature CSVs \\
+Extended Data Fig. 12 & Release-certification benchmark-card map over reusable tracks and downstream artifacts. & release-certification benchmark CSVs \\
+Extended Data Fig. 13 & Block-size heterogeneity and size-stratified super-uniformity diagnostics. & block heterogeneity robustness CSVs \\
+Extended Data Table 1 & Evidence map summarizing primary, robustness, audit, boundary and breadth evidence classes. & evidence map CSV \\
+Extended Data Table 2 & Reproducibility and provenance checklist. & SHA256 manifests and reproducibility scripts \\
+Extended Data Table 3 & Release-certification benchmark tracks and card schema. & release-card registry CSVs \\
+Extended Data Table 4 & Prospective-materials protocol and feasibility status for A1/A2/A3. & prospective validation status CSVs \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Extended Data Table 3: release-certification benchmark tracks. Each track is represented by release cards in the supplementary archive; the table summarizes the reusable computational release object rather than adding a new experimental claim.}
+\scriptsize
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllll}
+\toprule
+Track & Candidate unit & Verification source & Downstream artifact & Decision type \\
+\midrule
+Materials follow-up & crystal candidate & public DFT labels & computational follow-up queue & release / refusal \\
+CTC cell-link release & adjacent-frame cell link & masked official positives; queue audit & cell lineage graph & strict release \\
+iWildCam ecology & animal-present box & human audit & animal-detection release list & operational release \\
+CTC lineage guardrail & adjacent-frame cell link & official CTC identities & cell lineage graph & refusal / guardrail \\
+SpaceNet map guardrail & same-building temporal link & official building identities & building-persistence map & refusal / guardrail \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Extended Data Table 4: materials validation and version-shift status. These rows separate completed utility diagnostics from strict temporal certificates and prospective validation.}
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llll}
+\toprule
+Protocol & Intended validation & Current blocker & Manuscript status \\
+\midrule
+A1 current-MP hull-shift audit & Re-evaluate frozen \(t_0\) WBM release decisions under a later public Materials Project hull snapshot & PARC has lower current-label FTR than raw top-\(K\), but FTR remains above \(\alpha=0.10\) & completed utility/drift diagnostic; no strict temporal certificate \\
+A2 independent DFT cross-validation & Join released candidates to an independent DFT label source & External source mapping and join table required & protocol / feasibility only \\
+A3-v4 prospective DFT follow-up & Freeze a future PARC-release DFT follow-up arm under a conservative validity policy & protocol retained for future independent validation; no stability-FTR result is claimed & protocol-only; not completed positive evidence \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Evidence map for the release-certification package. This table makes the supporting experiment matrix visible without turning every robustness or boundary row into a primary main-text claim. Artifact paths are paper-facing public-bundle locations or the corresponding exported CSV names.}
+\scriptsize
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llllll}
+\toprule
+Evidence class & Domain/source & Scale or result & Role & Placement & Artifact \\
+\midrule
+Flagship positive & CTC learned-hybrid & \(\rho=0.10\), \(\alpha=0.10\), \(K=10\)--300; 20/20 non-empty; held-out FTR 0.000 & primary positive & Table 1 / Fig. 2 & CTC learned strict CSV \\
+Flagship positive & Materials Discovery CGCNN & WBM unique prototypes; \(\rho=0.10\), \(\alpha=0.10\), \(K=100\); 20/20 non-empty; held-out FTR 0.030 & predeclared calibration check & Table 1 / Fig. 3 & materials primary CSV \\
+Split robustness & CTC reverse split & Train sequence 02 \(\rightarrow\) certify sequence 01; 20/20 calibration-mask seeds; FTR 0.000 & robustness & Article text / Supp. C & CTC reverse split CSV \\
+Leakage audit & CTC learned source & No train--test sequence overlap; no GT identity or matching-label fields; train-only normalization & source validity & Article text / Supp. C & CTC leakage audit CSV \\
+Negative control & CTC random score & Raw top-\(K\) FTR 0.76--0.81; all PARC rows refused & source-quality check & Fig. 2 / Supplement & CTC random-score CSV \\
+Negative control & Materials random score & Raw top-\(K\) FTR about 0.85; PARC refuses \(\alpha=0.10,K=300/1000\) & source-quality check & Fig. 3 / Supplement & materials random-score CSV \\
+Model sensitivity & Materials ALIGNN-FF & \(K=300/500\): certified stopping releases 115/91 candidates with FTR 0.087/0.048; full raw top-\(K\) requests have FTR 0.253/0.327 & requested-budget value demonstration, not fixed-size rank improvement & Fig. 3 / Article text & materials modern-model CSV \\
+Scientific consequence & Materials computational follow-up & ALIGNN-FF top-500 prevents 158.3 unstable follow-ups per seed; top-5000 refusal prevents 2,577.4 unstable follow-ups per seed & downstream impact translation & Article consequence figure / text & materials computational trial CSVs \\
+Fixed-budget utility & Materials model zoo & CGCNN/ALIGNN-FF/MEGNet \(K=500\) rows prevent 158.25/158.3/105.4 unstable follow-ups per seed; \(K=5000\) refusal prevents 2,032.6/2,577.4/2,683.5 & completed public-label utility evidence & Article text / Supplementary Data & fixed-budget scientific utility CSVs \\
+Scientific consequence & Official downstream artifacts & CTC noisy \(K=5000\) prevents 2,907.5 false lineage edges per seed; CTC random-score prevents 3,997.1; SpaceNet randomized prevents 3,398.9 false persistence links & official-label consequence metrics & Article consequence figure / text & official downstream consequence CSVs \\
+Audit frontier & CTC active audit budget & \(K=100\): top-score audit at 0.5\% budget gives 20/20 non-empty safe seeds, 2,000 total releases and 0 observed false releases; matched-budget random audit has 0/20 non-empty seeds; full random audit uses a 1.0 budget & primary controlled targeted-audit budget-efficiency evidence & Article text / Supplementary Data & audit-budget frontier strong-positive CSVs \\
+Support frontier & CTC active audit budget & \(K=300\): support-only because the safe-seed rate is 19/20 & support-only, not primary headline & Supplementary Data & audit-budget frontier strong-positive CSVs \\
+Boundary frontier & Materials ALIGNN audit budget & \(K=300/500\): top-score audit reaches mean-operating transition at 0.5\%, but seed-level \(\alpha\)-violation rates are 0.45/0.15 & boundary/secondary diagnostic, not strict headline & Article text / Supplementary Data & audit-budget frontier headline CSVs \\
+Baseline frontier & T1 materials clean acceptance & 11 empirical baseline families; ALIGNN \(K=300/500\) raw top-\(K\) FTR 0.253/0.327, PARC and raw top-\(R\) FTR 0.087/0.048; CGCNN \(K=500\) post-filter e-value FTR 0.163 versus PARC/raw top-\(R\) 0.032 & practical baseline frontier; reinforces certified stopping/refusal rather than fixed-size rank gain & Article text / Supplementary Data & T1 clean acceptance CSVs \\
+Benchmark cards & Release-certification tracks & Five reusable tracks covering materials follow-up, CTC link release, iWildCam animal release, CTC lineage guardrail and SpaceNet persistence-map guardrail & release-certification protocol & Extended Data / Data package & release-certification benchmark CSVs \\
+Block heterogeneity & Materials / CTC / SpaceNet & Materials candidate-level size-matched and downsampled reruns; CTC aggregate-only; SpaceNet audit-sample diagnostic & assumption robustness and scope control & Supp. E / Extended Data & block heterogeneity robustness CSVs \\
+Adversarial stress & Scientific release rows & Score corruption, unsafe high-\(K\) requests and block-shift/downsampled stress rows shrink or refuse unsupported releases & completed diagnostic & Supp. E / Supplementary Data & adversarial release stress CSVs \\
+Selector optimality & Refusal rows & Greedy-vs-ILP diagnostics show reported refusals are finite-resolution or pre-graph mass failures, not greedy compatibility artifacts & completed diagnostic & Article text / Supplementary Data & selector optimality CSVs \\
+Prospective protocols & Materials validation A1/A2/A3-v4 & Temporal replay needs an auditable \(t_0/t_1\) snapshot; independent DFT needs a join table; prospective DFT follow-up remains protocol-only before stability FTR is claimed & protocol / feasibility only & Extended Data / Data package & prospective validation and formal-QE CSVs \\
+Version-shift utility & Materials current-MP hull-shift audit & \(K=300/500\): current-MP FTR 0.316/0.310 for PARC versus 0.422/0.487 for raw top-\(K\); stable-to-unstable drift is not concentrated in PARC & completed utility/drift diagnostic; no strict \(\alpha=0.10\) temporal certificate & Article text / Supplementary Data & materials \(t_0/t_1\) snapshot CSVs \\
+Candidate explanation & Materials \(t_1\) candidate audit & PARC \(t_1\)-false cases are decomposed into ALIGNN-disagreement, near-hull and unresolved-reference classes; CHGNet/MACE WBM queue scores are not available in the public-safe cache & explanation diagnostic; no MLIP consensus validation & Article text / Supplementary Data & materials \(t_1\) candidate-explanation CSVs \\
+Component ablation & Verified-positive removal & 6 CTC/materials target rows; 360 seed-level reruns; no-removal or random-removal reduces release in 6/6 rows & load-bearing component check & Article text / Supp. D & verified-positive-removal load-bearing CSV \\
+Earth-observation check & SpaceNet 7 geometry & 18 AOIs, 6.34M links; \(\alpha=0.20\); 17/20 non-empty, below the predeclared non-empty gate; held-out FTR 0.003 & relaxed masked-label operating check & Table 1 / Article text & SpaceNet geometry CSV \\
+Real audit & SpaceNet 7 human audit & 800 calibration candidates; \(K=100\) refused; \(K=50\), \(n=147\) release audit; human FTR 0.000 & deployment check & Article text & SpaceNet audit CSV \\
+Human-audited positive & iWildCam animal-present & \(\alpha=0.20,K=50\); 20/20 non-empty; 167/167 release audit; human FTR 0.000 & operational ecology release & Table 1 / Fig. 4 & iWildCam human-audit CSV \\
+Unsafe source & SpaceNet randomized & Raw top-\(K\) FTR about 0.66--0.68; PARC refused & safety refusal & Supplement & SpaceNet randomized CSV \\
+Boundary & iWildCam species prompts & Semantic mismatch under one-sided verification & assumption boundary & Table 1 / Fig. 4 & iWildCam assumption note \\
+Boundary & iWildCam strict animal-present & Strict \(\alpha=0.10\) internally audited rows refuse at \(K=25,50,100\) & strict-risk boundary & Table 1 / Fig. 4 & iWildCam human-audit CSV \\
+Breadth & OVT-B/BURST/TAO/LVIS & Tracking, path and detection rows outside primary scientific candidate-release tasks & auxiliary generality & Supp. E / ED & generality\_reliability/ \\
+Diagnostics & Block, seed and prevented-release rows & Exchangeability, variability and refusal diagnostics & assumption support & Supplementary Data & release\_story/paper\_diagnostics/ \\
+Baselines & nnPU/selective conformal benchmark & CTC, materials and iWildCam rows; no PARC set-level guarantee for comparator rows & different-target baseline & Supp. D & PU/selective benchmark CSV \\
+Runtime & Scientific-domain certification overhead & WBM table-level grid about 4.3 s excluding model inference; SpaceNet selector subsecond after precomputed block ids & compute diagnostic & Supplementary Data & runtime overhead CSV \\
+Second review & iWildCam human audit & 1,123 rows; 110 disagreements; label agreement 0.902; \(\kappa=0.804\) [0.768, 0.838]; release subset 167/167 & audit reliability & Supp. F & iWildCam second-review CSVs \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begingroup
+\small
+\begin{longtable}{p{0.34\linewidth}p{0.56\linewidth}}
+\caption{Supplementary Data index.}\\
+\toprule
+File & Purpose \\
+\midrule
+\endfirsthead
+\toprule
+File & Purpose \\
+\midrule
+\endhead
+table evidence map & Primary, robustness, audit, boundary, breadth and diagnostics evidence matrix. \\
+table main raw-vs-PARC summary & Main fixed-protocol release/refusal and raw top-\(K\) comparison. \\
+table released-set audit summary & Released-set support/audit bridge used by the main quantitative table. \\
+table main raw-vs-PARC full & Per-seed released-set support/audit fields and evidence diagnostics. \\
+table alpha frontier & Risk-level sensitivity rows, including the TAO \(\alpha=0.20\) positive operating point. \\
+table baseline comparison summary & Aggregate baseline comparison used in risk--utility analysis. \\
+table ablation components & Component ablations and derived sensitivities. \\
+table safe-refusal diagnostics & Evidence-mass and empty-reason rows for refusal diagnostics. \\
+table stress null inflation & Null-inflation stress inputs. \\
+table stress non-exchangeability & Dataset, covariate and annotation-shift stress inputs. \\
+table stress audit noise & Audit-noise sensitivity inputs. \\
+table stress score miscalibration & Score-miscalibration sensitivity inputs. \\
+figure stratified reliability & Stratified reliability heatmap inputs. \\
+audit labels 2000 summary & Audit2000 label-count summary. \\
+boundary challenge agreement summary & Boundary-500 hard-case agreement and kappa summary. \\
+Audit2000 reannotation agreement summary & Full Audit2000 blind reannotation agreement and kappa summary. \\
+table second-review challenge closeout & Paper-facing boundary and Audit2000 closeout rows. \\
+table actual-FTR validation summary & Known-truth simulation and hard-regime actual-FTR validation summary. \\
+table actual-FTR validation & Per-seed known-truth actual-FTR validation rows. \\
+table seed variability FTR uncertainty & Seed-level release variability and seed-bootstrap FTR intervals for primary rows. \\
+table block exchangeability diagnostics main & Compact main-text block coverage and assumption-boundary diagnostics. \\
+table CTC learned-hybrid main & Sequence-disjoint learned-hybrid CTC release rows and strict \(\alpha=0.10\) small-\(K\) extension. \\
+table CTC learned reverse split & Reverse sequence-disjoint split rows for train sequence 02 and held-out sequence 01 certification. \\
+table CTC learned negative control & Random-score negative-control rows showing high raw false-link rates and certified refusal. \\
+table CTC learned leakage audit & Feature, split and normalization audit for the learned-hybrid source and controls. \\
+table CTC learned model report & Learned-hybrid source provenance, features and leakage-exclusion summary. \\
+table CTC learned versus geometry & Structured-source comparison between learned-hybrid and geometric CTC rows. \\
+table materials primary results & Matbench Discovery/WBM CGCNN release rows, including the strict \(\alpha=0.10,K=100\) primary endpoint and sensitivity rows. \\
+table materials candidate universe summary & WBM unique-prototype universe size, DFT-stable count and block definition. \\
+table materials random-score control & Destroyed-ranking materials controls with certified refusals at \(\alpha=0.10,K=300/1000\). \\
+table materials modern-model sensitivity & ALIGNN-FF WBM source-sensitivity rows, including \(K=300/500\) raw top-\(K\) versus PARC FTR. \\
+table materials high-volume refusal & Materials high-volume refusal rows and counterfactual raw top-\(K\) FTR. \\
+table materials leakage audit & Public CGCNN prediction provenance, forbidden-label checks and ranking-source scope. \\
+table verification budget by domain & Verification-budget summary for learned CTC, materials and SpaceNet real-audit rows when available. \\
+table assumption diagnostic panel & Main-text block, evidence-mass and assumption-boundary diagnostic panel. \\
+table prevented false releases & Raw top-\(K\) false-release counts prevented by certified refusal rows. \\
+table PU/selective conformal benchmark & Concrete nnPU classifier-release, Bao-style selective-conformal, raw top-\(K\), oracle diagnostic and PARC reference rows for CTC, materials and iWildCam. \\
+table PU/selective conformal minimal baselines & Minimal PU plug-in, naive one-sided split-conformal and oracle-prefix comparator rows used to document why these baselines are different-target demonstrations rather than set-level certificates. \\
+table runtime compute overhead & Table-level certification overhead for the scientific-domain rows, excluding upstream model inference. \\
+table no-human consequence summary & Paper-facing consequence-level summary for materials follow-up queues, CTC lineage graphs and SpaceNet persistence maps without new human annotation. \\
+figure no-human consequence main & Source data for the main no-human-consequence figure. \\
+figure materials model-zoo frontier & Source data for the locally available public materials prediction-source frontier; unavailable modern-model prediction files are not-run rows. \\
+No-human paper integration note & Closeout note mapping the no-human consequence milestone to main-text impact evidence. \\
+table materials computational trial summary & Retrospective public-label materials follow-up queue results for CGCNN, ALIGNN-FF and MEGNet across \(K\) and \(\alpha\). \\
+figure materials computational trial main & Source data for the materials computational follow-up component of the main consequence figure. \\
+table official downstream consequence summary & Official-label CTC lineage and SpaceNet persistence-map consequence summary. \\
+figure official downstream consequence & Source data for official downstream consequence panels. \\
+table release certification track registry & Reusable benchmark-card track registry with release units, verification sources, downstream artifacts and intended use. \\
+table release certification cards & Card-level release/refusal records for completed tracks. \\
+table release certification benchmark index & Benchmark-card index summarizing strict, human-confirmed and guardrail cards by track. \\
+table release card field schema & Field-level schema for release-certification cards. \\
+release certification protocol & Markdown protocol for using release cards as reusable certification benchmarks. \\
+table verified-positive removal load-bearing & Candidate-level CTC/materials reruns showing that no-removal or random-removal reduces release in 6/6 target rows. \\
+table verified-positive removal load-bearing seed rows & Seed-level counterpart for the load-bearing ablation, 360 rows across six target rows, three removal modes and 20 calibration-mask seeds. \\
+table block size heterogeneity summary & Scope-labelled block-size heterogeneity status for materials, CTC and SpaceNet. \\
+figure block size superuniformity & Size-stratified p-value diagnostic source data for the block-heterogeneity Extended Data display. \\
+table size matched rerun & Candidate-level materials size-matched rerun summary; CTC and SpaceNet rows are explicitly scoped as unavailable for public candidate-level rerun. \\
+table size matched rerun seed rows & Seed-level materials size-matched rerun rows. \\
+table downsampled blockmax stress & Materials downsampled block-maximum stress summary. \\
+table downsampled blockmax stress seed rows & Seed-level materials downsampled block-maximum stress rows. \\
+B2 approximate e-value validity lemma & Markdown note proving the \(\alpha(1+\eta)\) expectation-level inflation bound under approximate e-value validity. \\
+table materials prospective validation go/no-go & Manuscript-facing A1/A2/A3 gate table; rows are protocol-only or feasibility-scoped evidence. \\
+table materials temporal split feasibility & Historical A1 timestamp/snapshot feasibility status, superseded for the main manuscript by the current-MP hull-shift utility audit. \\
+table materials independent DFT source feasibility & A2 external DFT-source availability and join-table feasibility status. \\
+table materials prospective validation cards & Protocol-card status for prospective materials validation tracks. \\
+table DFT followup freeze status & A3/A3-v4 prospective follow-up protocol metadata. \\
+table unlabeled pool build status & A3 generated candidate-pool provenance and public-label exclusion status. \\
+table selection freeze status & A3/A3-v4 selection-freeze status. \\
+table DFT job export status & A3/A3-v4 DFT job manifest export status for protocol tracking. \\
+table ALIGNN-FF score status & A3 ALIGNN-FF or successor scoring status for prospective candidate pools. \\
+materials \(t_0/t_1\) snapshot closeout & Completed current-MP hull-shift acquisition and utility/drift diagnostic closeout. \\
+table temporal claim scope & Claim-scope table marking the current-MP hull-shift analysis as utility/drift evidence, not a strict temporal certificate. \\
+table temporal primary & Current-MP hull-shift summary for frozen WBM \(K=300/500\) candidates. \\
+table temporal raw vs PARC & Raw-versus-PARC current-MP FTR and drift rows for the hull-shift audit. \\
+table temporal snapshot inventory & \(t_0\) WBM/Matbench and \(t_1\) current-MP snapshot inventory. \\
+fixed-budget scientific utility closeout & Completed public-label/official-GT utility milestone closeout. \\
+table fixed-budget primary & Materials fixed-budget utility rows with release size, FTR, unstable follow-ups and efficiency fields. \\
+table fixed-budget seed rows & Seed-level counterpart for the fixed-budget utility rows. \\
+table decision curve & Materials decision curve over \(K\), \(\alpha\), release status and unstable follow-ups prevented. \\
+table false followups prevented & Materials model-zoo unstable follow-ups prevented by PARC release/refusal. \\
+table cost per true candidate & Cost-per-true-candidate utility rows for raw and PARC queues. \\
+table refusal value & High-volume refusal-value rows for materials follow-up queues. \\
+table CTC downstream artifact utility & Official-GT lineage-edge and component-corruption consequence rows. \\
+table SpaceNet downstream artifact utility & Official building-identity persistence-link consequence rows. \\
+adversarial release stress closeout & Completed diagnostic stress-package closeout. \\
+table adversarial stress trials & Score-corruption, high-\(K\) unsafe request and block-shift stress rows. \\
+table refusal boundary & Refusal-boundary diagnostic rows for adversarial stress. \\
+table stress claim scope & Claim-scope table separating stress diagnostics from primary evidence. \\
+selector optimality diagnostics closeout & Completed selector-diagnostic closeout. \\
+table greedy vs ILP & Greedy-vs-ILP diagnostic rows for reported refusals. \\
+table mass vs graph failure & Refusal classification into finite-resolution, pre-graph mass and selector-power modes. \\
+table conflict loss & Conflict-loss diagnostics where public compatibility information is available. \\
+table selector claim scope & Claim-scope table for selector optimality diagnostics. \\
+iWildCam second-review package & Human-confirmed labels, agreement summary, disagreement cases and status file; release subset remains 167/167 animal-present. \\
+SpaceNet 7 real-audit closeout & Closeout status for K100 certified refusal and K50 human-confirmed diagnostic release. \\
+SpaceNet 7 human gate & Human-audit gate for the 147-candidate K50 diagnostic release set. \\
+table SpaceNet 7 K100 failure summary & Certified-refusal diagnostics for the pre-registered K100 human-audit request. \\
+table SpaceNet 7 K50 release audit & Human-confirmed diagnostic release audit for 147 unique released candidates. \\
+table SpaceNet 7 audit coverage and raw top-K & Block coverage, calibration summary, raw top-K audit and per-seed real-audit rows. \\
+table LVIS detection main & Scoped LVIS detection generality rows. \\
+table LVIS raw detector vs PARC & LVIS raw top-\(K\) versus PARC official-support-proxy comparison. \\
+audit labels LVIS status summary & LVIS audit scaffold status showing labels still require human review. \\
+table mask-path proof-of-principle & Scoped mask-path proof-of-principle rows. \\
+\bottomrule
+\end{longtable}
+\endgroup
+
+Exact filenames are listed below.
+\begingroup
+\scriptsize
+\begin{longtable}{ll}
+SD0 & \texttt{table\_evidence\_map.csv} \\
+SD1 & \texttt{table\_main\_raw\_vs\_parc\_summary.csv} \\
+SD1b & \texttt{table\_released\_set\_audit\_summary.csv} \\
+SD1c & \texttt{table\_main\_raw\_vs\_parc.csv} \\
+SD1d & \texttt{table\_alpha\_frontier.csv} \\
+SD2 & \texttt{table\_baseline\_comparison\_summary.csv} \\
+SD3 & \texttt{table\_ablation\_components.csv} \\
+SD4 & \texttt{table\_safe\_refusal\_diagnostics.csv} \\
+SD5a & \texttt{table\_stress\_null\_inflation.csv} \\
+SD5b & \texttt{table\_stress\_nonexchangeability.csv} \\
+SD5c & \texttt{table\_stress\_audit\_noise.csv} \\
+SD5d & \texttt{table\_stress\_score\_miscalibration.csv} \\
+SD6 & \texttt{figure\_stratified\_reliability.csv} \\
+SD7a & \texttt{audit\_labels\_2000\_human\_reviewed\_summary.csv} \\
+SD7b & \texttt{audit\_labels\_2000\_human\_reviewed\_verified\_summary.csv} \\
+SD7c & \texttt{audit\_boundary\_challenge\_500\_agreement\_summary.csv} \\
+SD7d & \texttt{audit2000\_reannotation\_agreement\_summary.csv} \\
+SD7e & \texttt{table\_second\_review\_challenge\_closeout.csv} \\
+SD7e2 & \texttt{audit\_boundary\_challenge\_500\_confirmed\_disagreements.csv} \\
+SD7e3 & \texttt{audit2000\_human\_reannotation\_labels.csv} \\
+SD7f & \texttt{table\_actual\_ftr\_validation\_summary.csv} \\
+SD7g & \texttt{table\_actual\_ftr\_validation.csv} \\
+SD7h & \texttt{table\_actual\_ftr\_hard\_regime\_summary.csv} \\
+SD7i & \texttt{table\_seed\_variability\_ftr\_uncertainty.csv} \\
+SD7i2 & \texttt{table\_pu\_selective\_conformal\_benchmark.csv} \\
+SD7i3 & \texttt{table\_pu\_selective\_conformal\_benchmark\_seed\_rows.csv} \\
+SD7i4 & \texttt{figure\_table2b\_baseline\_frontier.csv} \\
+SD7i5 & \texttt{PU\_SELECTIVE\_CONFORMAL\_BENCHMARK\_CLOSEOUT.md} \\
+SD7i6 & \texttt{table\_runtime\_compute\_overhead\_scientific\_domains.csv} \\
+SD7i7 & \texttt{table\_iwildcam\_second\_review\_status.csv} \\
+SD7i8 & \texttt{table\_iwildcam\_second\_review\_agreement\_summary.csv} \\
+SD7i9 & \texttt{table\_iwildcam\_second\_review\_disagreement\_cases.csv} \\
+SD7i10 & \texttt{iwildcam\_second\_review\_human\_confirmed\_labels.csv} \\
+SD7i11 & \texttt{iwildcam\_second\_review\_human\_confirmed\_comparison.csv} \\
+SD7i12 & \texttt{table\_materials\_modern\_model\_sensitivity.csv} \\
+SD7i13 & \texttt{table\_no\_human\_consequence\_summary.csv} \\
+SD7i14 & \texttt{figure\_no\_human\_consequence\_main.csv} \\
+SD7i15 & \texttt{figure\_materials\_model\_zoo\_frontier.csv} \\
+SD7i16 & \texttt{NO\_HUMAN\_PAPER\_INTEGRATION.md} \\
+SD7i17 & \texttt{table\_materials\_computational\_trial\_summary.csv} \\
+SD7i18 & \texttt{figure\_materials\_computational\_trial\_main.csv} \\
+SD7i19 & \texttt{table\_official\_downstream\_consequence\_summary.csv} \\
+SD7i20 & \texttt{figure\_official\_downstream\_consequence.csv} \\
+SD7i21 & \texttt{table\_release\_certification\_track\_registry.csv} \\
+SD7i22 & \texttt{table\_release\_certification\_cards.csv} \\
+SD7i23 & \texttt{table\_release\_certification\_benchmark\_index.csv} \\
+SD7i24 & \texttt{table\_release\_card\_field\_schema.csv} \\
+SD7i25 & \texttt{RELEASE\_CERTIFICATION\_GOVERNANCE\_PROTOCOL.md} \\
+SD7i26 & \texttt{table\_verified\_positive\_removal\_load\_bearing.csv} \\
+SD7i27 & \texttt{table\_verified\_positive\_removal\_load\_bearing\_seed\_rows.csv} \\
+SD7i28 & \texttt{table\_block\_size\_heterogeneity\_summary.csv} \\
+SD7i29 & \texttt{figure\_block\_size\_superuniformity.csv} \\
+SD7i30 & \texttt{table\_size\_matched\_rerun.csv} \\
+SD7i31 & \texttt{table\_size\_matched\_rerun\_seed\_rows.csv} \\
+SD7i32 & \texttt{table\_downsampled\_blockmax\_stress.csv} \\
+SD7i33 & \texttt{table\_downsampled\_blockmax\_stress\_seed\_rows.csv} \\
+SD7i34 & \texttt{B2\_APPROXIMATE\_EVALUE\_VALIDITY\_LEMMA.md} \\
+SD7i35 & \texttt{table\_materials\_prospective\_validation\_go\_no\_go.csv} \\
+SD7i36 & \texttt{table\_materials\_temporal\_split\_feasibility.csv} \\
+SD7i37 & \texttt{table\_materials\_independent\_dft\_source\_feasibility.csv} \\
+SD7i38 & \texttt{table\_materials\_prospective\_validation\_cards.csv} \\
+SD7i39 & \texttt{table\_dft\_followup\_freeze\_status.csv} \\
+SD7i40 & \texttt{table\_unlabeled\_pool\_build\_status.csv} \\
+SD7i41 & \texttt{table\_selection\_freeze\_status.csv} \\
+SD7i42 & \texttt{table\_dft\_job\_export\_status.csv} \\
+SD7i43 & \texttt{table\_alignnff\_score\_status.csv} \\
+SD7i44 & \texttt{MATERIALS\_TEMPORAL\_REPLAY\_CLOSEOUT.md} \\
+SD7i45 & \texttt{table\_temporal\_claim\_scope.csv} \\
+SD7i46 & \texttt{table\_temporal\_primary.csv} \\
+SD7i47 & \texttt{table\_temporal\_raw\_vs\_parc.csv} \\
+SD7i48 & \texttt{table\_temporal\_snapshot\_inventory.csv} \\
+SD7i49 & \texttt{FIXED\_BUDGET\_SCIENTIFIC\_UTILITY\_CLOSEOUT.md} \\
+SD7i50 & \texttt{table\_fixed\_budget\_primary.csv} \\
+SD7i51 & \texttt{table\_fixed\_budget\_seed\_rows.csv} \\
+SD7i52 & \texttt{table\_decision\_curve.csv} \\
+SD7i53 & \texttt{table\_false\_followups\_prevented.csv} \\
+SD7i54 & \texttt{table\_cost\_per\_true\_candidate.csv} \\
+SD7i55 & \texttt{table\_refusal\_value.csv} \\
+SD7i56 & \texttt{table\_ctc\_downstream\_artifact\_utility.csv} \\
+SD7i57 & \texttt{table\_spacenet\_downstream\_artifact\_utility.csv} \\
+SD7i58 & \texttt{ADVERSARIAL\_RELEASE\_STRESS\_CLOSEOUT.md} \\
+SD7i59 & \texttt{table\_adversarial\_stress\_trials.csv} \\
+SD7i60 & \texttt{table\_refusal\_boundary.csv} \\
+SD7i61 & \texttt{table\_stress\_claim\_scope.csv} \\
+SD7i62 & \texttt{SELECTOR\_OPTIMALITY\_DIAGNOSTICS\_CLOSEOUT.md} \\
+SD7i63 & \texttt{table\_greedy\_vs\_ilp.csv} \\
+SD7i64 & \texttt{table\_mass\_vs\_graph\_failure.csv} \\
+SD7i65 & \texttt{table\_conflict\_loss.csv} \\
+SD7i66 & \texttt{table\_selector\_claim\_scope.csv} \\
+SD7j & \texttt{spacenet7\_real\_audit\_closeout.json} \\
+SD7k & \texttt{table\_spacenet7\_real\_audit\_k100\_failure\_summary.csv} \\
+SD7l & \texttt{table\_spacenet7\_real\_audit\_k50\_completed\_summary.csv} \\
+SD7m & \texttt{spacenet7\_real\_audit\_human\_gate.json} \\
+SD7n & \texttt{table\_spacenet7\_real\_audit\_calibration\_summary.csv} \\
+SD7o & \texttt{table\_spacenet7\_real\_audit\_block\_coverage.csv} \\
+SD7p & \texttt{table\_spacenet7\_real\_audit\_block\_coverage\_summary.csv} \\
+SD7q & \texttt{table\_spacenet7\_real\_audit\_primary\_refusal\_diagnostics.csv} \\
+SD7r & \texttt{table\_spacenet7\_real\_audit\_k100\_evalue\_failure\_by\_seed.csv} \\
+SD7s & \texttt{table\_spacenet7\_real\_audit\_raw\_topK\_audit.csv} \\
+SD7t & \texttt{table\_spacenet7\_real\_audit\_seed\_results.csv} \\
+SD7u & \texttt{table\_spacenet7\_real\_audit\_k50\_release\_audit.csv} \\
+SD8 & \texttt{table\_lvis\_detection\_main.csv} \\
+SD8b & \texttt{table\_lvis\_raw\_detector\_vs\_parc.csv} \\
+SD8c & \texttt{audit\_labels\_lvis\_status\_summary.csv} \\
+SD9 & \texttt{table\_mask\_path\_proof\_of\_principle.csv}
+\end{longtable}
+\endgroup
+
+\clearpage
+
+\section*{Supplement J: Extended Data captions and construction notes}
+
+This note records the construction of the Extended Data displays.
+The main Article keeps six display items; the Extended Data package carries broader evidence without overloading the main narrative.
+Each Extended Data display is generated from the Supplementary Data files listed in Supplement I and is read with the same scope limitations as the main text.
+
+\paragraph{Extended Data Table 1: Evidence map.}
+The evidence map is a scope-control device rather than a new result.
+It summarizes which rows are primary positives, which rows are robustness checks, which rows are human-audit operating checks, which rows are boundary diagnostics and which rows are auxiliary breadth evidence.
+This prevents the main Article from reading as a benchmark pile while making the full certification package auditable.
+
+\paragraph{Extended Data Fig. 1: Main protocol coverage map.}
+This display visualizes which dataset--generator--risk-level rows are included in the main protocol and which rows are appendix, stress or scoped generality evidence.
+Rows are grouped by dataset (OVT-B, TAO, BURST, LVIS and mask-path scaffolds), proposal source (GroundingDINO, GroundingDINO plus tracker, OWLv2, OWL-ViT and third-party tracker adapters), and risk level.
+The figure distinguishes complete three-seed rows from incomplete or provenance-only rows.
+Its purpose is not to add a new result; it is a reader map for the experiment scope.
+
+\paragraph{Extended Data Fig. 2: Full baseline risk--utility frontier.}
+The main risk--utility figure shows the representative frontier.
+The Extended Data version includes raw top-\(K\), fixed score threshold, per-generator calibrated score threshold, split-conformal p-value threshold, post-filter e-value threshold, e-BH-style selection, Full PARC and the oracle diagnostic upper bound.
+All points are plotted using the same conservative label-uncertainty diagnostic.
+The figure emphasizes that threshold families can release aggressively but do not carry the PARC set-level certificate.
+
+\paragraph{Extended Data Fig. 3: Ablation component heatmap.}
+This heatmap shows release count, conservative FTR diagnostic and feasibility mass for component ablations.
+Rows include Full PARC, no verified-positive removal, post-filter without SCS, conservative empty-block policy, coverage-conditional policy, global calibration only, random audit-positive removal and wrongly removing uncertain cases.
+Actual frozen-matrix reruns and derived sensitivities are marked separately.
+
+\paragraph{Extended Data Fig. 4: Null-inflation sensitivity.}
+This display shows how release count and mass ratio change as verified-positive information is removed and uncertain-rate inflation is increased.
+It supports the claim that null-superset conservatism has a power cost: retaining more true-but-unverified paths in calibration raises block maxima and lowers release feasibility.
+
+\paragraph{Extended Data Fig. 5: Non-exchangeability shifts.}
+This display shows dataset transfer and covariate shifts using reader-facing labels.
+Actual reruns and derived sensitivities are indicated by different markers.
+The figure is interpreted as an assumption-boundary diagnostic rather than as a new benchmark comparison.
+
+\paragraph{Extended Data Fig. 6: Audit-noise and score-miscalibration sensitivity.}
+This display combines verified-positive perturbation and score-transformation sensitivity.
+False-to-true audit flips are highlighted as the validity-relevant direction because they can incorrectly remove false paths from the calibration null.
+True-to-false flips are power-relevant because they keep additional true paths in the null superset.
+Score transformations are labelled as monotone or noisy to distinguish rank-preserving and rank-disrupting changes.
+
+\paragraph{Extended Data Fig. 7: Human-audit sample composition and agreement.}
+This display contains Audit2000 label composition and the Boundary-500/Audit2000 reannotation agreement summaries.
+Verified-positive agreement is reported alongside the three-way label agreement.
+The caption explicitly states that the result is an audit-workflow reliability check, not a substitute for the formal risk theorem.
+
+\paragraph{Extended Data Fig. 8: LVIS single-frame scoped evidence.}
+This display shows the single-frame LVIS detection rows.
+GroundingDINO rows are plotted as scoped positive evidence under the official-unsupported proxy.
+OWLv2 rows are plotted as stress evidence because high-score unmatched audit labels are outside the completed Article evidence.
+The caption does not describe LVIS as video tracking.
+
+\paragraph{Extended Data Fig. 9: Mask-path proof-of-principle rows.}
+This display shows box-to-mask or mask-path scaffold rows.
+It is captioned as proof-of-principle evidence, not a full official mask benchmark.
+Rows document how the release logic would be carried to a mask-path setting when the conversion and official benchmark provenance are complete.
+
+\paragraph{Extended Data Fig. 10: Visual release/refusal examples.}
+This display uses paper-facing visual assets to show the candidate units behind the statistical rows: adjacent-frame CTC cell links, SpaceNet same-building correspondences and camera-trap detections.
+The examples are illustrative visualizations of release and refusal decisions, not additional evidence for the guarantees.
+Public-domain wildlife images are used as schematic substitutes for iWildCam visual modes: species-level localized prompts can fail one-sided reliability, whereas animal-present detections are the unit used in the internally audited operational release.
+
+\paragraph{Extended Data Fig. 11: Success-domain map.}
+This display summarizes release/refusal outcomes against measurable certification features such as evidence mass, coverage, raw risk and conflict density.
+It is descriptive and is not used as a predictive theorem.
+
+\paragraph{Extended Data Fig. 12: Release-certification benchmark-card map.}
+This display maps reusable release-card tracks to the downstream artifacts they govern.
+It records the frozen universe, positive-support rule, block definition, risk level, decision and claim scope for each completed track.
+
+\paragraph{Extended Data Fig. 13: Block-size heterogeneity diagnostic.}
+This display visualizes size-stratified p-value diagnostics and block-size stress rows.
+Only the materials rows are completed candidate-level reruns; CTC and SpaceNet entries are labelled as aggregate or audit-sample diagnostics.
+
+\paragraph{Extended Data Table 2: Reproducibility and provenance checklist.}
+This table lists the exact review-safe artifacts included in the supplementary archive, the commands that rebuild each manuscript display, and the artifacts excluded because of benchmark licenses or model-cache restrictions.
+It also records SHA256 manifest coverage.
+
+\paragraph{Extended Data Table 3: Release-certification benchmark tracks.}
+This table summarizes the reusable release-card tracks.
+It is a release-certification index for the supplementary release cards rather than an additional experiment.
+
+\paragraph{Extended Data Table 4: Materials validation and version-shift status.}
+This table separates the completed current-MP hull-shift utility and drift diagnostic from stricter temporal-certificate and prospective-validation claims.
+It makes explicit that prospective materials discovery and independent DFT validation are future work and are not used as completed positive evidence in the present manuscript.
+
+\clearpage
+
+\section*{Supplement K: Supplementary Data schema and provenance sidecars}
+
+The Supplementary Data files are machine-readable and independently checkable.
+Every row contains enough information to identify the dataset, proposal source, risk level, candidate budget, seed, release decision and provenance class.
+The schema is intentionally redundant: several columns repeat values used in the manuscript so that figures can be regenerated without consulting the main PDF.
+
+\begin{table}[h]
+\centering
+\caption{Common schema fields across release and stress CSVs.}
+\small
+\begin{tabular}{p{0.26\linewidth}p{0.58\linewidth}}
+\toprule
+Field family & Fields and meaning \\
+\midrule
+Protocol identifiers & Dataset, task, generator, policy, risk level \(\alpha\), budget \(K\), seed and candidate-universe identifier. \\
+Release outputs & Release count, non-empty indicator, safe-refusal indicator, empty reason and decision label. \\
+Risk diagnostics & UTR, audited FTR, conservative FTR, conservative unknown-as-false rate and audit coverage status. \\
+Evidence diagnostics & Mass ratio, maximum observed e-value, required e-value threshold, selected e-value minimum/mean/maximum and self-consistency margin. \\
+Provenance & Experiment basis, actual rerun versus derived sensitivity flag, source table id, source manifest hash and notes. \\
+Scope & Main, appendix, stress, scoped generality, proof-of-principle or provenance-only placement. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Provenance sidecar fields.}
+\small
+\begin{tabular}{p{0.26\linewidth}p{0.58\linewidth}}
+\toprule
+Field & Meaning \\
+\midrule
+Source command & Command or script family that generated the row. \\
+Input manifest & SHA256 manifest for input derived tables or candidate matrices. \\
+Output manifest & SHA256 manifest for generated table, figure or diagnostic. \\
+Environment & Python version, package lock file and plotting stack when relevant. \\
+Raw-data requirement & Whether regenerating the row requires raw benchmark videos, raw annotations, model weights or detector caches. \\
+Anonymization status & Whether path names, usernames, hostnames and repository identifiers have been stripped. \\
+License restriction & Whether the artifact can be redistributed publicly or only described by provenance. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Release summary schema.}
+The main release summary file records each dataset--generator row at the fixed main protocol.
+Required fields include dataset, generator, risk level, \(K\), seeds, non-empty seeds, safe-refusal seeds, PARC mean release, raw top-\(K\) mean release, UTR, conservative label-uncertainty FTR, mass ratio, minimum mass ratio, safe-refusal rate and dominant refusal reason.
+Rows with empty release report conservative FTR as empty-release not applicable in the manuscript table, even though the mathematical empty-set FDP is zero.
+
+\paragraph{Baseline summary schema.}
+The baseline summary file aggregates method families.
+Required fields include baseline name, number of rows, dataset list, mean release and conservative FTR diagnostic.
+The source rows are grouped only after confirming that they use the same conservative diagnostic denominator.
+The file is used to plot the risk--utility frontier and to state the raw/threshold aggregate comparison in the main text.
+
+\paragraph{Ablation schema.}
+The ablation file records component name, baseline family, experiment basis, release count, risk diagnostics, mass ratio, maximum e-value, runtime where available and notes.
+Rows with experiment basis \texttt{actual\_frozen\_ablation\_matrix} are actual reruns on frozen matrices.
+Rows with \texttt{derived\_component\_sensitivity} are sensitivity calculations from the Full PARC matrix.
+The manuscript distinguishes these categories.
+
+\paragraph{Stress schema.}
+Stress files contain stress-family-specific parameters.
+Null-inflation rows include label keep rate, verified-positive removal rate and uncertain-rate inflation.
+Non-exchangeability rows include shift scenario, split rule and assumption status.
+Audit-noise rows include noise type and noise rate.
+All stress files include release, conservative FTR, mass ratio, empty reason and result status.
+
+\paragraph{Audit schema.}
+Audit summary files contain dataset, label type and count.
+The updated audit closeout summaries contain row count, three-way label agreement, Cohen's \(\kappa\), disagreement count, exact verified-positive agreement and review status.
+If full row-level audit labels are distributed separately, the row-level schema contains anonymized row id, dataset, path id, review round, three-way label, verified-positive flag, uncertainty reason and SHA256 provenance for the visual evidence bundle.
+
+\paragraph{Public-safe archive schema.}
+The public-safe archive excludes local home directories, machine hostnames, restricted source-media paths and unredacted absolute paths.
+Author and correspondence metadata are provided by the manuscript title block and the Zenodo metadata, while audit rows continue to use anonymized review identifiers.
+
+\clearpage
+
+\section*{Supplement L: Additional proof details and edge cases}
+
+This note expands the compact proof in Supplement A into the edge cases most likely to arise during review: ties in block ranks, conditioning on the fixed universe, pooled versus per-row interpretation, empty releases, and data-dependent selection.
+The statements below are not additional assumptions; they make explicit the conventions used by the main theorem.
+
+\subsection*{L.1 Rank super-uniformity with ties}
+
+Let \(Z_1,\ldots,Z_n,Z_{n+1}\) be exchangeable calibration and test block scores, where \(Z_{n+1}\) is the block score associated with an actual false test path.
+Define the conservative rank p-value
+\[
+q=\frac{1+\sum_{i=1}^n\ind[Z_i\ge Z_{n+1}]}{n+1}.
+\]
+For any \(u\in[0,1]\), the event \(q\le u\) implies that at most \(\lfloor u(n+1)\rfloor-1\) of the \(n\) calibration blocks are at least as large as the test block.
+Equivalently, the test block must lie among the largest \(\lfloor u(n+1)\rfloor\) blocks under the conservative tie convention.
+Exchangeability makes the test index uniformly distributed over the \(n+1\) positions after random tie-breaking, and the non-random conservative tie rule can only increase \(q\).
+Therefore \(\Pr(q\le u)\le u\).
+This is the rank-super-uniform lemma used in the block p-value proof.
+
+\subsection*{L.2 Conditioning on a frozen proposal universe}
+
+All validity statements are conditional on the event that the proposal universe has been fixed.
+Formally, let \(\mathcal G\) be the sigma-field generated by the proposal backend, prompt set, score rule, linking rule, candidate budget, release grid, graph conflicts and tuning decisions.
+The proof is read conditionally on \(\mathcal G\).
+After conditioning, the remaining randomness is the calibration/test sampling and latent validity labels under the stated exchangeability model.
+Conditioning on the observed verified-positive set is also part of this fixed-universe view: validity requires that the scores of actual false candidates within covered blocks remain exchangeable after the one-sided positives have been removed, because targeted verification changes the null-superset composition but may not remove false candidates.
+The theorem therefore certifies release for the realized finite universe \(\Pcal\), not for an unbounded space of objects that the proposal source did not generate.
+
+\subsection*{L.3 False-only block and null-superset block}
+
+The proof compares two p-values.
+The unobservable false-only p-value uses
+\[
+M_i^F=\max_{p\in\Fcal_i}S_p,
+\]
+where \(\Fcal_i=\{p:Y_p=0\}\).
+The observable null-superset p-value uses
+\[
+B_i^{\mathrm{ns}}=\max_{p\in\Ncal_i}S_p,
+\]
+where \(\Ncal_i=\{p:A_p=0\}\).
+Because \(A_p=1\Rightarrow Y_p=1\), every false path has \(A_p=0\), so \(\Fcal_i\subseteq\Ncal_i\).
+Thus \(B_i^{\mathrm{ns}}\ge M_i^F\), and the null-superset p-value is at least the false-only p-value.
+The construction may lose power when true but unverified paths have high scores, but it does not become anti-conservative through this inclusion.
+
+\subsection*{L.4 Empty blocks}
+
+An empty null-superset block can occur when no eligible unverified candidate exists in a cell/checkpoint.
+Two conventions are used.
+The conservative convention sets \(B_i^{\mathrm{ns}}=+\infty\), causing the block to count as exceeding every finite test score.
+This is marginally valid but can be powerless.
+The coverage-conditional convention removes the uncovered cell/checkpoint from the covered rank set and states the theorem inside the covered regime.
+Its additional assumption is conditional exchangeability after conditioning on coverage.
+The main text reports this distinction because the coverage convention supplies useful release power while the \(+\infty\) convention supplies the conservative fallback.
+
+\subsection*{L.5 E-calibrator details}
+
+The power calibrator \(f_\gamma(u)=\gamma u^{\gamma-1}\), \(0<\gamma<1\), satisfies
+\[
+\int_0^1 f_\gamma(u)\,du=1.
+\]
+If \(U\) is super-uniform, then for any non-increasing nonnegative \(f\) with unit integral, \(\E[f(U)]\le1\).
+The power calibrator is non-increasing for \(0<\gamma<1\), so \(E_p=f_\gamma(q_p^{\mathrm{any}})\) is an e-value for every actual false path.
+The manuscript uses a tuning-fixed \(\gamma\); no test labels are used to choose it.
+Because the reported \(\gamma\) is a deterministic function of the frozen calibration resolution, replacing one fixed valid calibrator by this pre-evaluation deterministic choice preserves e-value validity under the same super-uniform p-value assumption.
+
+\subsection*{L.6 Approximate e-value validity}
+
+The block-heterogeneity diagnostics also report a bounded-inflation interpretation.
+If a diagnostic or approximation argument establishes
+\[
+\E[E_p]\le 1+\eta
+\]
+for every actual false candidate rather than exact e-value validity, the same self-consistency proof yields an inflated expectation-level bound:
+\[
+\E[\mathrm{FTR}(R)] \le \alpha(1+\eta).
+\]
+Indeed, the pointwise self-consistency inequality in Supplement L.7 gives
+\[
+\frac{\ind[p\in R]}{|R|\vee1}\le\frac{\alpha}{K}E_p
+\]
+for each false candidate \(p\).
+Summing over the at most \(K\) false candidates in the fixed universe and taking expectations gives \(\alpha K^{-1}\sum_p \E[E_p]\le \alpha(1+\eta)\) when the same \(\eta\) bound applies to each false candidate.
+This lemma is not used to upgrade the main theorem; it records how bounded diagnostic inflation would translate into the same release selector.
+
+\subsection*{L.7 Data-dependent release set}
+
+The SCS proof allows \(R\) to depend on all test e-values and graph conflicts.
+The only required final property is self-consistency.
+For each false path \(p\),
+\[
+\ind[p\in R]>0
+\quad\Rightarrow\quad
+E_p\ge\frac{K}{\alpha(|R|\vee1)}.
+\]
+Rearranging yields
+\[
+\frac{\ind[p\in R]}{|R|\vee1}\le \frac{\alpha}{K}E_p.
+\]
+The inequality is pointwise in the realized data, so it remains valid even though \(R\) is selected after observing all e-values.
+Summing over false paths and taking expectations gives the FTR control statement.
+
+\subsection*{L.8 Per-universe and pooled reporting}
+
+The theorem applies to the frozen evaluated run universe with candidate budget \(K\).
+When the paper reports mean release across seeds or datasets, those are empirical summaries of repeated fixed-universe rows.
+The formal guarantee is attached to each row's fixed universe under its own assumptions.
+If multiple independent universes are pooled into one release set, the proof can be applied to the pooled run universe with \(K\) equal to the total number of evaluated hypotheses and with e-values valid under the pooled calibration design.
+The manuscript does not rely on an unproved pooled guarantee across heterogeneous datasets; it reports row-level decisions and aggregates them descriptively.
+
+\subsection*{L.9 Conservative diagnostics versus theorem target}
+
+The theorem target is the actual false-tracklet proportion
+\[
+\frac{|R\cap\Hcal_0|}{|R|\vee1},
+\]
+where \(\Hcal_0=\{p:Y_p=0\}\) is unobserved.
+The paper also reports UTR, audited FTR and conservative FTR diagnostics.
+These diagnostics are intentionally not treated as the theorem target.
+The conservative FTR diagnostic counts unsupported uncertain or unlabeled released paths as false in order to stress-test release behaviour under label uncertainty.
+It can therefore be larger than the actual false-tracklet proportion when many unsupported paths are visually true but unverified.
+
+\subsection*{L.10 Finite-resolution feasibility}
+
+Let \(E_{(1)}\ge E_{(2)}\ge\cdots\) denote sorted e-values before graph conflicts.
+A uniform self-consistent set of size \(k\) can exist only if
+\[
+E_{(k)}\ge \frac{K}{\alpha k}.
+\]
+Equivalently,
+\[
+\frac{\alpha kE_{(k)}}{K}\ge1.
+\]
+Thus \(\max_k\alpha kE_{(k)}/M\ge1\) is a necessary and sufficient condition for a non-empty uniform self-consistent frontier before compatibility constraints.
+This is a feasibility characterization, not an independent predictive model.
+Graph conflicts can only reduce the selected size relative to this frontier.
+
+\paragraph{Proof edge cases and manuscript conventions.}
+Ties use the conservative \(\ge\) rank count; empty null blocks use the \(+\infty\) fallback or covered-regime conditioning; data-dependent \(R\) only needs final self-consistency; graph conflicts are frozen before selection and can reduce power but not invalidate the proof; pooled summaries are descriptive unless a pooled universe is explicitly formed; conservative FTR is a label-uncertainty diagnostic, not the theorem target.
+
+\end{document}

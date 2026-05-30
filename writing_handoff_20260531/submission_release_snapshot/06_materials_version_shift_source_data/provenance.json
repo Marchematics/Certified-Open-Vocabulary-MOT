@@ -1,0 +1,11 @@
+{
+  "claim_boundary": [
+    "not_strict_alpha010_t1_certificate",
+    "not_prospective_materials_discovery",
+    "t1_not_used_for_calibration_or_selection"
+  ],
+  "evidence_status": "completed_paper_facing_current_MP_hull_shift_utility_diagnostic",
+  "milestone": "ncs_phase50_materials_version_shift_paperization",
+  "source_phase49": "outputs/milestones/materials_t0_t1_snapshot_acquisition",
+  "source_phase49_manifest_sha256": "6f43be09276996ba8cac51e83bba028dbd7b3565284a3bb5fa5d22783f57e64f"
+}

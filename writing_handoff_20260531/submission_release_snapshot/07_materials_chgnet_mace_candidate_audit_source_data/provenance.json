@@ -1,0 +1,10 @@
+{
+  "chgnet": "CHGNet.load()",
+  "claim_status": "queue_level_CHGNet_MACE_support_passes_false_case_mechanism_partial",
+  "device": "cuda",
+  "evidence_scope": "completed_candidate_level_CHGNet_MACE_score_audit;score_support_proxy_not_reference_hull_ehull;not_DFT_evidence;not_prospective_discovery",
+  "mace": "mace_mp(model='small', default_dtype='float32')",
+  "milestone": "ncs_phase53_chgnet_mace_candidate_audit",
+  "n_unique_candidates": 1191,
+  "structure_source": "local_private_WBM_raw_structure_cache_not_distributed"
+}

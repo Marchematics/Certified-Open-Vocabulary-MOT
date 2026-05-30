@@ -1,0 +1,99 @@
+NMI KEY TEXT EXTRACTS
+Generated from main.tex
+
+=== ABSTRACT ===
+Open-world perception systems expose candidate objects, tracks and regions to downstream decisions, but these outputs are often calibrated under incomplete labels, where unmatched predictions may be real. We instantiate this release-time reliability problem in open-vocabulary tracking and introduce PARC-Track, a post-hoc certification layer for partial annotations. PARC-Track removes only one-sided verified positives and keeps unverified trajectories as a conservative null superset of false tracks. Video-block conformal p-values/e-values give finite-sample validity without tracklet-level independence, and a self-consistent graph selector releases only when evidence mass supports target risk; otherwise it returns a certified refusal. Controlled truth-known simulation directly measures released-set actual FTR: mean FTR stays below target risk across \(\alpha\in\{0.05,0.10,0.20\}\), with no controlled seed exceedance over 100 seeds. On OVT-B, TAO and BURST, PARC reduces the conservative false-tracklet diagnostic from 0.59 for raw top-\(M\)/threshold baselines to 0.02 at \(\alpha=0.10\).
+
+=== INTRODUCTION FIRST PARAGRAPH ===
+Open-world perception systems increasingly produce more candidate evidence than downstream users should automatically trust.
+Autonomous vehicles may generate tentative object tracks for rare hazards, biodiversity cameras may surface candidate species trajectories for expert review, and content-understanding systems may expose detected objects or events to moderation and retrieval pipelines.
+In each case, the deployment question is not simply how many candidates a model can predict, but which candidates can be responsibly released with an explicit reliability statement.
+Open-vocabulary multi-object tracking is a concrete and demanding instance of this broader release problem: it produces object trajectories for arbitrary text queries rather than for a closed class vocabulary \cite{li2023ovtrack,qian2024vovtrack,liang2024ovtb,li2025ovtr}.
+Tracking metrics such as HOTA, IDF1, CLEAR-MOT and TETA describe benchmark quality \cite{bernardin2008clearmot,luiten2021hota,li2022teta}; they do not decide which predictions should be exposed as a risk-certified released set.
+
+=== FULL INTRODUCTION ===
+Open-world perception systems increasingly produce more candidate evidence than downstream users should automatically trust.
+Autonomous vehicles may generate tentative object tracks for rare hazards, biodiversity cameras may surface candidate species trajectories for expert review, and content-understanding systems may expose detected objects or events to moderation and retrieval pipelines.
+In each case, the deployment question is not simply how many candidates a model can predict, but which candidates can be responsibly released with an explicit reliability statement.
+Open-vocabulary multi-object tracking is a concrete and demanding instance of this broader release problem: it produces object trajectories for arbitrary text queries rather than for a closed class vocabulary \cite{li2023ovtrack,qian2024vovtrack,liang2024ovtb,li2025ovtr}.
+Tracking metrics such as HOTA, IDF1, CLEAR-MOT and TETA describe benchmark quality \cite{bernardin2008clearmot,luiten2021hota,li2022teta}; they do not decide which predictions should be exposed as a risk-certified released set.
+
+Partial annotations make release-time calibration hazardous.
+In open-vocabulary and long-tail video datasets, an unmatched prediction may be a real object omitted by the annotation policy rather than a false track \cite{dave2020tao,gupta2019lvis}.
+A calibration rule that treats all unmatched predictions as negatives therefore contaminates the null distribution with real objects.
+This is not a bookkeeping nuisance: real but unannotated objects tend to have high detector confidence, semantic consistency and temporal support, exactly the evidence that a release rule should reward.
+
+PARC-Track turns tracking into an auditable certified-release problem.
+Given a frozen proposal source, PARC-Track either releases a mutually compatible subset of tracks with a false-tracklet risk certificate, or refuses to release when the proposal universe lacks sufficient high-evidence mass.
+Its core idea is null-superset calibration.
+Instead of assuming reliable negatives, PARC-Track removes only one-sided verified positives from calibration videos and retains all other unverified paths as a conservative superset of false tracks.
+Video-block maxima over this null superset yield p-values and e-values for actual false paths without assuming tracklet-level independence.
+A polynomial self-consistent graph selector then releases only compatible tracks whose e-values support the requested risk level.
+A certified refusal means that the empty release is risk-valid and that no non-empty self-consistent set was found; it does not assert that every candidate track is false.
+
+PARC-Track is closest in spirit to conformal risk control and learn-then-test procedures, which calibrate data-dependent prediction rules to control expectation-type risks \cite{angelopoulos2024conformalrisk,angelopoulos2022learntest,vovk2005algorithmic,angelopoulos2021gentle}.
+Its setting differs in three ways.
+First, the target loss is a graph-compatible released-set false-tracklet fraction, not an individual prediction error.
+Second, partial annotations provide one-sided positives rather than reliable negatives, so calibration must use a null superset.
+Third, e-values and e-BH-style multiple testing \cite{vovk2021evalues,wang2022false,ramdas2023gametheoretic,benjamini1995controlling,benjamini2001dependency} are used inside a final self-consistency condition with denominator \(M/(\alpha|\Rcal|)\); thresholding individual e-values alone does not give the PARC certificate.
+
+Our contributions are:
+\begin{itemize}
+  \item a release-time certification formulation for open-world perception under one-sided audit labels, instantiated for open-vocabulary object tracks;
+  \item null-superset video-block e-values for partial annotations and a self-consistent graph release rule that makes certified refusal a first-class output;
+  \item direct empirical validation of the released-set FTR bound: controlled truth-known simulation shows no violation across \(\alpha\in\{0.05,0.10,0.20\}\), adversarial hard-regime stress keeps mean actual FTR below the target risk, and released-set audits on OVT-B, TAO and BURST anchor the bound on real data;
+  \item a reproducibility and audit package including credibility-tracked Audit2000 review, public fixtures and a sealed candidate universe.
+\end{itemize}
+
+=== DISCUSSION FINAL PARAGRAPH ===
+Partial annotation is structural in open-world visual AI.
+It changes which labels are safe for calibration.
+The null-superset construction gives a conservative remedy when reliable negatives are unavailable: remove only high-precision verified positives, keep unverified tracks as a superset of the false set, and calibrate at the video-block level.
+The price is power.
+If the null superset contains many true but unverified tracks, block maxima become large and release may be impossible at the requested risk level.
+
+The broader implication is a release-time interface for open-vocabulary perception.
+Open-world systems increasingly expose candidate predictions to downstream users, data-curation pipelines and autonomous decision stacks, but benchmark scores alone do not decide which predictions should be released.
+PARC-Track makes the release decision explicit: a proposal source either supplies enough calibrated evidence for a risk-certified subset, or the system returns an auditable refusal rather than silently publishing weak evidence.
+Although this paper instantiates the framework for object tracks, the same statistical hazard appears whenever detection, segmentation, action recognition or dense prediction systems are evaluated with partial labels.
+The transferable abstraction is a frozen candidate universe, high-precision one-sided positives, a null superset for unverified candidates and a set-level release rule that can abstain.
+Adapting the graph compatibility and block statistic to other perception outputs is a modelling task, but the release interface is not tracking-specific.
+
+=== MAIN THEOREM STATEMENTS ===
+\subsection{Finite-sample guarantees}
+
+\begin{theorem}[Block p-value validity]
+Assume (i) calibration videos and the test video are exchangeable at the video level, (ii) one-sided audit reliability holds, \(A_p=1\Rightarrow Y_p=1\), and (iii) the candidate generator and score are frozen before calibration and testing.
+For every actual false test path \(p\), the null-superset block p-value
+\[
+q_p=
+\frac{1+\sum_{i=1}^{n}\ind[B_i^{\mathrm{ns}}\ge S_p]}{n+1}
+\]
+is super-uniform: \(\Prob(q_p\le u)\le u\) for all \(u\in[0,1]\).
+\end{theorem}
+
+\begin{theorem}[Self-consistent FTR control]
+Under the assumptions of Theorem 1, let \(E_p=f(q_p^{\mathrm{any}})\) where \(f\) is any e-calibrator satisfying \(\int_0^1 f(u)\,du\le1\).
+Let \(\Hcal_0=\{p:Y_p=0\}\) be the false paths in the frozen candidate universe.
+If the final, data-dependent release set \(\Rcal\) satisfies
+\[
+  p\in\Rcal \Rightarrow E_p\ge \frac{M}{\alpha|\Rcal|},
+\]
+then
+\[
+  \E\left[\frac{|\Rcal\cap\Hcal_0|}{|\Rcal|\vee1}\right]\le\alpha .
+\]
+\end{theorem}
+
+The proof is short.
+Theorem 1 and the e-calibrator imply \(\E[E_p]\le1\) for every false path.
+If the final release set satisfies self-consistency, then for every false path
+\[
+  \frac{\ind[p\in\Rcal]}{|\Rcal|\vee1}
+  \le \frac{\alpha}{M}E_p.
+\]
+Summing over false paths and taking expectations gives
+\[
+  \E\left[\frac{|\Rcal\cap\Hcal_0|}{|\Rcal|\vee1}\right]\le\alpha .
+\]
+The full proof, release-grid argument and coverage-conditional discussion are in Supplementary Note A.
