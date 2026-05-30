@@ -1,6 +1,8 @@
 PYTHON ?= python
 PYTHONPATH ?= code/parc_track
 
+.PHONY: reproduce-ncs-phase80-finding-first-submission-package
+
 .PHONY: test tiny-fixture reproduce-ncs-phase66-certificate-durability reproduce-ncs-phase67-margin-stable-certification reproduce-ncs-phase67b-hard-margin-eligibility reproduce-ncs-phase67c-durability-risk-prediction reproduce-main-tables reproduce-main-figures reproduce-no-human-consequence reproduce-materials-computational-trial reproduce-official-downstream-consequence reproduce-release-certification-benchmark reproduce-block-heterogeneity-robustness reproduce-materials-prospective-validation reproduce-materials-alex-mp-a1-a2 reproduce-materials-label-discordance-preregistration reproduce-materials-label-discordance-experiment reproduce-materials-selection-conditional-discordance reproduce-materials-queue-source-uncertainty-overlay reproduce-phase30-main-evidence reproduce-phase31-claim-alignment reproduce-phase32-presubmission reproduce-phase33-presubmission-final reproduce-phase37-submission-scope-lock reproduce-ncs-week0-protocol-freeze reproduce-materials-temporal-mlip-audit reproduce-materials-t0-t1-snapshot-acquisition reproduce-ncs-phase50-51-materials-paperization reproduce-ncs-phase52-materials-t1-uncertainty reproduce-ncs-phase53-chgnet-mace-candidate-audit reproduce-ncs-phase56-version-shift-accounting reproduce-ncs-phase57-t1-mlip-baseline-frontier reproduce-ncs-phase58-reproducibility-hardening reproduce-ncs-phase60-parc-v-version-aware-release reproduce-ncs-phase61-parc-m-multi-evidence-fusion reproduce-ncs-phase62-full-calibration-mlip-evalues reproduce-ncs-phase63-parc-a-active-verification reproduce-materials-t0-t1 reproduce-materials-mlip-audit reproduce-materials-baseline-frontier reproduce-materials-figures validate-evidence-ledger reproduce-a3-v4-formal-selection-gate reproduce-a3-v4-dft-manifest-addendum reproduce-a3-v4-phase29c-extra-tail-manifest reproduce-a3-dft-run-package reproduce-a3-qe-local-run reproduce-experimental-finalization phase24-freeze-dft-followup phase24-build-unlabeled-pool phase24-filter-public-labels phase24-score-unlabeled-pool phase24-select-dft-arms phase24-export-dft-jobs validate-public-bundle verify-manifest pre-release-check package-release package-release-story package-scientific-release reproduce-ncs-phase77-architecture-freeze reproduce-ncs-phase78-ctc-real-one-sided-audit reproduce-ncs-phase79-controlled-evolving-reference-simulation
 
 test:
@@ -235,6 +237,7 @@ validate-public-bundle:
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase77_ncs_architecture_freeze
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase78_ctc_real_one_sided_audit
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase79_controlled_evolving_reference_simulation
+	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase80_finding_first_submission_package
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_durability_risk_manuscript_spine
 	$(PYTHON) scripts/validate_public_bundle.py outputs/milestones/ncs_phase68_dft_v2_pilot
 
@@ -324,3 +327,6 @@ reproduce-ncs-phase78-ctc-real-one-sided-audit:
 
 reproduce-ncs-phase79-controlled-evolving-reference-simulation:
 	$(PYTHON) scripts/build_ncs_phase79_controlled_evolving_reference_simulation.py
+
+reproduce-ncs-phase80-finding-first-submission-package:
+	$(PYTHON) scripts/build_ncs_phase80_finding_first_submission_package.py

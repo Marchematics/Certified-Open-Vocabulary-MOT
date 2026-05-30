@@ -1,0 +1,15 @@
+{
+  "inputs": [
+    "outputs/milestones/ncs_phase63_parc_a_certificate_directed_active_verification",
+    "outputs/milestones/ncs_phase65b_parc_a_mechanism_diagnostics",
+    "outputs/milestones/ncs_phase67c_durability_risk_prediction",
+    "outputs/milestones/ncs_phase76_parc_lifecycle_calculus",
+    "outputs/milestones/ncs_phase77_ncs_architecture_freeze",
+    "outputs/milestones/ncs_phase78_ctc_real_one_sided_audit",
+    "outputs/milestones/ncs_phase79_controlled_evolving_reference_simulation",
+    "outputs/milestones/ncs_phase70_dft_v2_checkpoint"
+  ],
+  "phase": "phase80",
+  "scope": "NCS_phase80_finding_first_submission_package;synthesis_of_completed_phase67c_76_78_79_artifacts;not_new_empirical_result;not_release_certificate;not_DFT_evidence;not_prospective_materials_discovery",
+  "status": "completed_finding_first_submission_package"
+}

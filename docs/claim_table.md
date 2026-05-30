@@ -216,3 +216,18 @@ a new external domain and not a release certificate.
 GO status: `True`. If GO is true, the NCS text may claim that the materials
 pattern has a controlled generality demonstration. If false, the durability-risk
 claim remains materials-specific.
+## Phase80 Finding-First NCS Submission Package
+
+
+Status: `completed_finding_first_submission_package`.
+
+Phase80 incorporates Phase79 into the NCS paper spine and reframes the
+submission as a reliability study of scientific AI candidate release. The
+allowed center is: targeted one-sided audit can unlock certified release, while
+reference-update durability risk is primarily a chemical-system/reference
+neighborhood property rather than a candidate-margin/rank property. Phase79
+adds controlled mechanism support for this breadth claim.
+
+This is not a new empirical result, not a release certificate, not DFT evidence
+and not prospective materials discovery. DFT v2 remains quarantined until
+stable_exact and workflow gates pass.
