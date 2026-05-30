@@ -1,0 +1,3 @@
+command_id,command,writes_raw_data,git_tracked
+download_gnome_zip,python scripts/build_b_phase89_exact_structure_audit_readiness.py --download-gnome-zip,cache/b_phase89/gnome/by_id.zip,False
+reproduce_readiness_only,make reproduce-b-phase89-exact-structure-audit-readiness,no,True

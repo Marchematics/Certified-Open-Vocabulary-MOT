@@ -1,0 +1,5 @@
+step,operation,implementation,output,guardrail
+1,raw_structure_ingest,"download GNoME by_id.zip into cache/b_phase89/gnome/by_id.zip, extract only registry material ids",derived structure hashes and temporary local structures outside git,do_not_commit_raw_structures
+2,mp_prefilter,query current Materials Project by chemical system/formula candidates using MP_API_KEY from env only,candidate MP entry ids and redacted query log,do_not_store_credentials
+3,structure_match,pymatgen StructureMatcher with frozen tolerances; formula-only matches remain ambiguous,"exact_match, near_match, ambiguous, no_match adjudication table",do_not_count_formula_only_matches_as_exact_decay
+4,current_reference_verdict,compute current stability only for matched/adjudicated structures,SCDR/TDB/EDMB candidates only after exact/near-exact adjudication,do_not_report_source_level_decay_before_match_gate

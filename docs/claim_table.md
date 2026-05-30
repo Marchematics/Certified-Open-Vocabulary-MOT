@@ -345,3 +345,19 @@ Phase88 performs a low-cost current-reference smoke using the frozen Phase87
 registry and the existing WBM t0/t1 snapshot. It provides WBM existing-snapshot
 smoke verdicts only. GNoME and OQMD remain pending, exact raw-structure matching
 is not complete, and no source-level claim-decay metric is allowed.
+
+## Phase89 B-Line Exact-Structure Audit Readiness
+
+Status: `readiness_and_protocol_only_current_verdicts_pending`.
+
+Phase89 prepares the B-line exact-structure audit by checking GNoME raw-zip
+access, defining local cache rules, freezing the extraction and matching plan,
+and keeping current-reference verdicts pending. It is not claim-decay evidence.
+
+## Phase89 NCS Submission Integration Map
+
+Status: `integration_plan_ready_not_manuscript_rewrite`.
+
+Phase89 maps Phase88 low-cost editorial hardening artifacts to concrete
+A-manuscript integration targets and blocking submission checks. It is not new
+evidence and not a completed manuscript submission.
