@@ -318,3 +318,12 @@ Project version status when available, and empty claim/current-reference
 registry templates for the B-line external AI-materials claim-decay audit.  It
 is preflight only: no claim rows have been ingested, no current-reference
 verdicts have been produced, and no decay result is allowed.
+
+## Phase87 Minimal External Claim Registry
+
+Status: `minimal_registry_frozen_current_reference_verdicts_pending`.
+
+Phase87 freezes a two-source B-line claim registry for Matbench Discovery/WBM
+and GNoME public stable-materials rows.  Current status is registry only: no
+current-reference verdicts have been produced, exact raw-structure matching is
+not complete, and no claim-decay result is allowed.
