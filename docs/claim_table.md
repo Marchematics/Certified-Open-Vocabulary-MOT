@@ -261,3 +261,14 @@ tracked source rows do not contain a true raw-only top-K arm; this is recorded
 as a blocker.  Phase81 is not completed positive evidence and must not be
 written as expert microscopy adjudication, raw-only comparator success, or a
 new CTC benchmark.
+
+## Phase82 CTC AI Preannotation for Human Review
+
+Status: `ai_preannotations_completed_human_review_pending`.
+
+Phase82 generates geometry-only AI preannotations for the frozen Phase81 CTC
+blind-audit packet and writes an AI-assisted human review sheet.  The AI uses
+only blinded geometry/frame metadata and does not use arm membership, score,
+rank, prior human labels or official GT.  These labels are review aids only:
+Phase82 is not completed human evidence, external audit success, expert
+microscopy adjudication or new CTC ground truth.
