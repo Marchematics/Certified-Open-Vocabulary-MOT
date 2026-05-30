@@ -12,6 +12,7 @@ PYTHONPATH ?= code/parc_track
 .PHONY: reproduce-b-phase88-current-reference-smoke
 .PHONY: reproduce-ncs-phase88-low-cost-editorial-hardening
 .PHONY: reproduce-b-phase89-exact-structure-audit-readiness
+.PHONY: reproduce-b-phase90-gnome-raw-structure-ingest
 .PHONY: reproduce-ncs-phase89-submission-integration-map
 .PHONY: reproduce-ncs-phase67d-durability-risk-headline-hardening
 
@@ -387,6 +388,9 @@ reproduce-ncs-phase88-low-cost-editorial-hardening:
 
 reproduce-b-phase89-exact-structure-audit-readiness:
 	$(PYTHON) scripts/build_b_phase89_exact_structure_audit_readiness.py
+
+reproduce-b-phase90-gnome-raw-structure-ingest:
+	$(PYTHON) scripts/build_b_phase90_gnome_raw_structure_ingest.py
 
 reproduce-ncs-phase89-submission-integration-map:
 	$(PYTHON) scripts/build_ncs_phase89_submission_integration_map.py

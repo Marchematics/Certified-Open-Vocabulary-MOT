@@ -361,3 +361,13 @@ Status: `integration_plan_ready_not_manuscript_rewrite`.
 Phase89 maps Phase88 low-cost editorial hardening artifacts to concrete
 A-manuscript integration targets and blocking submission checks. It is not new
 evidence and not a completed manuscript submission.
+
+## Phase90 B-Line GNoME Raw-Structure Ingest
+
+Status: `derived_structure_ingest_completed_current_verdicts_pending`.
+
+Phase90 completes public-safe derived raw-structure ingest for the frozen
+GNoME registry rows by reading the local `by_id.zip` cache, hashing raw CIF
+bytes, and extracting pymatgen structure metadata. Raw CIF files remain outside
+git-tracked artifacts. Exact MP matching and current-reference verdicts remain
+pending, so Phase90 is not claim-decay evidence.

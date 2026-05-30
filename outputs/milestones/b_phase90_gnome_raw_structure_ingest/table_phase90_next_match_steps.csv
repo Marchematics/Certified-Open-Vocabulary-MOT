@@ -1,0 +1,4 @@
+step,input,output,status,guardrail
+mp_formula_prefilter,table_phase90_gnome_raw_structure_ingest.csv,candidate MP current-reference structures by chemical system/formula,pending,do_not_query_or_report current-reference verdicts in Phase90
+structure_matcher_exact_or_near_exact,raw GNoME structures from local cache plus MP candidate structures,exact_match / near_match / ambiguous / no_match adjudication,pending,formula-only links cannot count as exact claim decay
+current_reference_claim_decay_metrics,adjudicated exact/near-exact rows only,SCDR/TDB/EDMB/CAR metrics if coverage gates pass,pending,no source-level decay claim until matching and verdict gates pass

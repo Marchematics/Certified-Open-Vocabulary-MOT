@@ -369,10 +369,11 @@ def upsert_artifact_index() -> None:
         "evidence_state": "workflow_replication_packet_frozen_pending_external_labels_not_positive_evidence",
         "manifest": rel(OUT / "MANIFEST_SHA256.txt"),
         "public_bundle_check": "python scripts/validate_public_bundle.py outputs/milestones/ncs_phase84_real_audit_parc_a_replication",
+        "notes": "External real-audit PARC-A replication packet; labels pending; no positive evidence.",
     }
     index = pd.read_csv(ARTIFACT_INDEX)
     index = index[index["milestone"] != row["milestone"]]
-    index = pd.concat([index, pd.DataFrame([row])[index.columns]], ignore_index=True)
+    index = pd.concat([index, pd.DataFrame([row]).reindex(columns=index.columns)], ignore_index=True)
     index.to_csv(ARTIFACT_INDEX, index=False)
 
 
@@ -400,7 +401,10 @@ def upsert_claim_table() -> None:
     text = CLAIM_TABLE.read_text(encoding="utf-8")
     marker = "## Phase84 Real-Audit PARC-A Replication"
     if marker in text:
-        text = text[: text.index(marker)].rstrip() + "\n" + section
+        before = text.split(marker)[0].rstrip()
+        after = text.split(marker, 1)[1]
+        next_idx = after.find("\n## ")
+        text = before + "\n" + section + (after[next_idx:] if next_idx >= 0 else "")
     else:
         text = text.rstrip() + "\n" + section
     CLAIM_TABLE.write_text(text, encoding="utf-8")
