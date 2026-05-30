@@ -1,0 +1,9 @@
+{
+  "n_replicates": 20,
+  "n_systems_per_replicate": 180,
+  "phase": "phase79",
+  "random_seed": 20260530,
+  "scope": "controlled_evolving_reference_generality_simulation;pre_update_features_only;synthetic_mechanism_demonstration_not_external_domain;not_release_certificate;not_DFT_evidence;not_prospective_materials_discovery",
+  "source_phase67c": "outputs/milestones/ncs_phase67c_durability_risk_prediction",
+  "status": "completed_controlled_generality_simulation"
+}

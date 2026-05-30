@@ -203,3 +203,16 @@ with zero not-same and zero uncertain labels. This strengthens PARC-A practical
 credibility, but it should be described as trained/human-confirmed one-sided
 review rather than microscopy-expert adjudication unless a separate expert
 review is documented.
+
+## Phase79 Controlled Evolving-Reference Generality Simulation
+
+Status: `completed_controlled_generality_simulation`.
+
+Phase79 is the Phase B breadth check. It shows whether the Phase67c materials
+durability-risk pattern is recoverable as a controlled neighborhood-driven
+reference-update mechanism. Phase79 is a synthetic mechanism demonstration, not
+a new external domain and not a release certificate.
+
+GO status: `True`. If GO is true, the NCS text may claim that the materials
+pattern has a controlled generality demonstration. If false, the durability-risk
+claim remains materials-specific.
