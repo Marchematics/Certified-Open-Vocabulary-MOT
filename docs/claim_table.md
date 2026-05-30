@@ -231,3 +231,20 @@ adds controlled mechanism support for this breadth claim.
 This is not a new empirical result, not a release certificate, not DFT evidence
 and not prospective materials discovery. DFT v2 remains quarantined until
 stable_exact and workflow gates pass.
+## Phase67d Durability-Risk Headline Hardening
+
+
+Status: `completed_headline_display_hardening`.
+
+Phase67d completes the review-facing hardening for the durability-risk
+centerpiece. The headline model is the pruned t0-only system
+margin-landscape/activity model, with ROC-AUC `0.809`
+and chemical-system bootstrap 95% CI `0.722` to
+`0.874`. Calibration, base-rate and memorization controls
+are frozen in the Phase67d artifact.
+
+Allowed claim: t0 public-label system margin landscape and activity support
+release-card durability-risk triage.
+
+Forbidden claim: label-free deployment prediction, current-MP alpha repair, DFT
+validation, or prospective materials discovery.

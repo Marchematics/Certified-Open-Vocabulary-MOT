@@ -1,0 +1,25 @@
+{
+  "headline_feature_set": "headline_pruned_margin_distribution_plus_size_activity",
+  "headline_features": [
+    "chemsys_t0_margin_mean",
+    "chemsys_t0_margin_std",
+    "chemsys_t0_margin_min",
+    "chemsys_t0_margin_max",
+    "chemsys_t0_margin_median",
+    "chemsys_t0_margin_ge_010_count",
+    "chemsys_t0_margin_ge_020_count",
+    "chemsys_t0_margin_ge_050_count",
+    "chemsys_n_candidates",
+    "chemsys_log_n_candidates",
+    "chemsys_n_elements",
+    "chemsys_t0_stable_count",
+    "chemsys_t0_stable_frac"
+  ],
+  "n_bootstrap": 1000,
+  "n_chemical_systems": 156,
+  "n_rows": 441,
+  "phase": "phase67d",
+  "scope": "completed_durability_risk_headline_hardening;phase67c_review_hardening;features_t0_only;group_cv_by_chemical_system;chemical_system_bootstrap_CI;calibration_and_base_rate_controls;not_release_certificate;not_DFT_evidence;not_prospective_materials_discovery",
+  "source_phase": "outputs/milestones/ncs_phase67c_durability_risk_prediction",
+  "status": "completed_headline_display_hardening"
+}
