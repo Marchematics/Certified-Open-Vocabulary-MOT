@@ -284,3 +284,16 @@ a null-superset denominator, a refusal state and active-audit logic.  It also
 summarizes completed prevented-harm rows for CTC, materials and SpaceNet.  It
 is synthesis only and does not add new labels, DFT evidence, prospective
 materials discovery or a new alpha certificate.
+
+## Phase84 Real-Audit PARC-A Replication
+
+Status: `workflow_replication_packet_frozen_pending_external_labels`.
+
+Phase84 freezes a stronger PARC-A real-audit workflow replication packet.  The
+primary question is whether external human one-sided calibration support can
+rerun PARC-A and unlock a K=100 CTC release, followed by an independent release
+audit.  Current status is protocol/packet only: external labels have not been
+returned, PARC-A has not been rerun from human calibration positives, and no
+real-audit success claim is allowed.  The tracked Phase81 source still lacks a
+true raw-only top-K arm, so random same-budget control is the primary workflow
+control and raw-overlap rows remain diagnostic.

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Phase84 returned human label schema",
+  "type": "object",
+  "required": [
+    "audit_item_id",
+    "auditor_id",
+    "human_label",
+    "human_confidence"
+  ],
+  "properties": {
+    "audit_item_id": {
+      "type": "string",
+      "pattern": "^CTC-PHASE81-[0-9]{4}$"
+    },
+    "auditor_id": {
+      "type": "string"
+    },
+    "human_label": {
+      "type": "string",
+      "enum": [
+        "same_cell_supported",
+        "unsupported",
+        "uncertain"
+      ]
+    },
+    "human_confidence": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "human_notes": {
+      "type": "string"
+    },
+    "human_accepts_ai_label": {
+      "type": [
+        "string",
+        "boolean",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
