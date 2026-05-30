@@ -327,3 +327,21 @@ Phase87 freezes a two-source B-line claim registry for Matbench Discovery/WBM
 and GNoME public stable-materials rows.  Current status is registry only: no
 current-reference verdicts have been produced, exact raw-structure matching is
 not complete, and no claim-decay result is allowed.
+
+## Phase88 Low-Cost Editorial Hardening
+
+Status: `completed_editorial_synthesis_not_new_evidence`.
+
+Phase88 packages low-cost NCS submission hardening actions: first-screen
+release-card framing, Phase83 necessity/prevented-harm placement, lifecycle
+capability table, Phase81/83 write-permission boundaries, and overclaim scrub.
+It is synthesis only and must not be used as new empirical evidence.
+
+## Phase88 B-Line Current-Reference Smoke
+
+Status: `low_cost_smoke_completed_not_claim_decay`.
+
+Phase88 performs a low-cost current-reference smoke using the frozen Phase87
+registry and the existing WBM t0/t1 snapshot. It provides WBM existing-snapshot
+smoke verdicts only. GNoME and OQMD remain pending, exact raw-structure matching
+is not complete, and no source-level claim-decay metric is allowed.
