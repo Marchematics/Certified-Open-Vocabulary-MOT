@@ -8,6 +8,7 @@ PYTHONPATH ?= code/parc_track
 .PHONY: reproduce-ncs-phase84-real-audit-parc-a-replication
 .PHONY: reproduce-ncs-phase91-ctc-strong-model-annotation
 .PHONY: reproduce-ncs-phase92-ctc-model-surrogate-gate-replay
+.PHONY: reproduce-ncs-phase93-ctc-strong-model-calibration
 .PHONY: reproduce-b-phase85-external-ai-materials-claim-decay-pilot
 .PHONY: reproduce-b-phase86-claim-decay-access-preflight
 .PHONY: reproduce-b-phase87-minimal-claim-registry
@@ -17,6 +18,7 @@ PYTHONPATH ?= code/parc_track
 .PHONY: reproduce-b-phase90-gnome-raw-structure-ingest
 .PHONY: reproduce-b-phase91-gnome-mp-formula-prefilter
 .PHONY: reproduce-b-phase92-gnome-mp-neighbor-gap-analysis
+.PHONY: reproduce-b-phase93-wbm-versioned-claim-decay-pilot
 .PHONY: reproduce-ncs-phase89-submission-integration-map
 .PHONY: reproduce-ncs-phase67d-durability-risk-headline-hardening
 
@@ -381,6 +383,9 @@ reproduce-ncs-phase91-ctc-strong-model-annotation:
 reproduce-ncs-phase92-ctc-model-surrogate-gate-replay:
 	$(PYTHON) scripts/build_ncs_phase92_ctc_model_surrogate_gate_replay.py
 
+reproduce-ncs-phase93-ctc-strong-model-calibration:
+	$(PYTHON) scripts/build_ncs_phase93_ctc_strong_model_calibration.py
+
 reproduce-b-phase85-external-ai-materials-claim-decay-pilot:
 	$(PYTHON) scripts/build_b_phase85_external_ai_materials_claim_decay_pilot.py
 
@@ -407,6 +412,9 @@ reproduce-b-phase91-gnome-mp-formula-prefilter:
 
 reproduce-b-phase92-gnome-mp-neighbor-gap-analysis:
 	$(PYTHON) scripts/build_b_phase92_gnome_mp_neighbor_gap_analysis.py
+
+reproduce-b-phase93-wbm-versioned-claim-decay-pilot:
+	$(PYTHON) scripts/build_b_phase93_wbm_versioned_claim_decay_pilot.py
 
 reproduce-ncs-phase89-submission-integration-map:
 	$(PYTHON) scripts/build_ncs_phase89_submission_integration_map.py

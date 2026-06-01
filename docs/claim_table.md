@@ -411,3 +411,24 @@ neighbors and confirms that the frozen GNoME subset does not have an exact
 reduced-formula MP path in the current low-cost prefilter. It is not exact
 structure matching, current stability evidence, source-level claim decay,
 A-paper evidence, prospective discovery, or new DFT evidence.
+
+## Phase93 B-Line WBM Versioned Claim-Decay Pilot
+
+Status: `public_versioned_reference_decay_pilot_completed_not_independent_DFT`.
+
+Phase93 joins the frozen B-line WBM registry subset to the existing public
+WBM t0/current-MP t1 reference snapshot and reports stable-to-stable,
+stable-to-unstable and unresolved current-reference rows. It is public
+versioned-reference drift evidence only, not independent DFT validation,
+exact-structure source claim decay, prospective discovery, A-paper main
+evidence, or physical ground truth.
+
+## Phase93 CTC Strong-Model Calibration
+
+Status: `retrospective_surrogate_calibration_passed_against_existing_human_labels`.
+
+Phase93 calibrates Phase91 deterministic CTC surrogate labels against existing
+CTC strict human-audit labels on the frozen Phase81 packet. It supports dry-run
+surrogate reliability assessment only. It is not new external human audit
+evidence, official CTC ground truth, completed real-audit PARC-A replication,
+materials evidence, or DFT evidence.
