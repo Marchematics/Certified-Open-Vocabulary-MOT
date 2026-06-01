@@ -1,0 +1,3 @@
+step,input,status,guardrail
+fetch_candidate_mp_structures,table_phase91_mp_formula_prefilter_candidates.csv,pending,do not report stability verdicts before exact/near-exact structure matching
+structure_matcher,GNoME raw structures plus MP formula-prefilter candidates,pending,formula-only candidates cannot count as claim-decay evidence

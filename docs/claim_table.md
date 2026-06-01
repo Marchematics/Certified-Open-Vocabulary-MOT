@@ -371,3 +371,23 @@ GNoME registry rows by reading the local `by_id.zip` cache, hashing raw CIF
 bytes, and extracting pymatgen structure metadata. Raw CIF files remain outside
 git-tracked artifacts. Exact MP matching and current-reference verdicts remain
 pending, so Phase90 is not claim-decay evidence.
+
+## Phase91 CTC Strong-Model Surrogate Annotation
+
+Status: `strong_model_surrogate_annotations_completed_not_human_evidence`.
+
+Phase91 uses a deterministic image-based surrogate annotator over the frozen
+Phase84 CTC blind-audit packets and writes human-label-compatible replacement
+CSVs. It can replace manual labeling operationally for dry runs, but it is not external human audit evidence and not external human evidence. It is also not
+expert microscopy adjudication, official CTC ground truth, completed real-audit
+PARC-A replication, or materials/DFT evidence.
+
+## Phase91 B-Line GNoME MP Formula Prefilter
+
+Status: `mp_formula_prefilter_completed_exact_matching_pending`.
+
+Phase91 queries current Materials Project summary records by chemical system
+for frozen GNoME rows and writes formula-prefilter candidate IDs. It does not
+report current stability verdicts, does not perform exact structure matching,
+and is not source-level claim-decay evidence, A-paper evidence, prospective
+discovery, or new DFT evidence.
