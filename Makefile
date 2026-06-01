@@ -9,6 +9,7 @@ PYTHONPATH ?= code/parc_track
 .PHONY: reproduce-ncs-phase91-ctc-strong-model-annotation
 .PHONY: reproduce-ncs-phase92-ctc-model-surrogate-gate-replay
 .PHONY: reproduce-ncs-phase93-ctc-strong-model-calibration
+.PHONY: reproduce-ncs-phase94-current-mp-relaxed-recertification-frontier
 .PHONY: reproduce-b-phase85-external-ai-materials-claim-decay-pilot
 .PHONY: reproduce-b-phase86-claim-decay-access-preflight
 .PHONY: reproduce-b-phase87-minimal-claim-registry
@@ -385,6 +386,9 @@ reproduce-ncs-phase92-ctc-model-surrogate-gate-replay:
 
 reproduce-ncs-phase93-ctc-strong-model-calibration:
 	$(PYTHON) scripts/build_ncs_phase93_ctc_strong_model_calibration.py
+
+reproduce-ncs-phase94-current-mp-relaxed-recertification-frontier:
+	PYTHONPATH=scripts $(PYTHON) scripts/build_ncs_phase94_current_mp_relaxed_recertification_frontier.py
 
 reproduce-b-phase85-external-ai-materials-claim-decay-pilot:
 	$(PYTHON) scripts/build_b_phase85_external_ai_materials_claim_decay_pilot.py

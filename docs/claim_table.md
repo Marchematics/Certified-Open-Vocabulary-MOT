@@ -432,3 +432,16 @@ CTC strict human-audit labels on the frozen Phase81 packet. It supports dry-run
 surrogate reliability assessment only. It is not new external human audit
 evidence, official CTC ground truth, completed real-audit PARC-A replication,
 materials evidence, or DFT evidence.
+
+## Phase94 Current-MP Relaxed Recertification Frontier
+
+Status: `completed_current_mp_relaxed_recertification_boundary_no_go`.
+
+Phase94 sweeps small K and relaxed alpha values for current-MP public-label
+recertification. The best boundary row is alpha `0.2`, K
+`25`, policy `low_risk_score_targeted_t1_audit`, support `t1_10pct_support`,
+with nonempty `14/20` seeds, safe `11/20`
+seeds, and mean t1 FTR `0.202619` if nonempty.
+This is a queue-limited public-reference recertification frontier, not DFT
+evidence, not prospective discovery, and not a strict alpha=0.10 current-MP
+certificate unless the strict gate passes.

@@ -610,33 +610,29 @@ Scope and guardrails:
 
 def update_artifact_index(status: str) -> None:
     path = ROOT / "outputs/artifact_index.csv"
-    rows = list(csv.DictReader(path.open()))
-    rows = [row for row in rows if row["milestone"] != "ncs_phase75_active_versioned_recertification"]
-    rows.append(
-        {
-            "milestone": "ncs_phase75_active_versioned_recertification",
-            "path": "outputs/milestones/ncs_phase75_active_versioned_recertification/",
-            "evidence_state": status,
-            "manifest": "outputs/milestones/ncs_phase75_active_versioned_recertification/MANIFEST_SHA256.txt",
-            "public_bundle_check": "python scripts/validate_public_bundle.py outputs/milestones/ncs_phase75_active_versioned_recertification",
-        }
-    )
-    with path.open("w", newline="") as handle:
-        writer = csv.DictWriter(
-            handle,
-            fieldnames=["milestone", "path", "evidence_state", "manifest", "public_bundle_check"],
-            lineterminator="\n",
-        )
-        writer.writeheader()
-        writer.writerows(rows)
+    row = {
+        "milestone": "ncs_phase75_active_versioned_recertification",
+        "path": "outputs/milestones/ncs_phase75_active_versioned_recertification/",
+        "evidence_state": status,
+        "manifest": "outputs/milestones/ncs_phase75_active_versioned_recertification/MANIFEST_SHA256.txt",
+        "public_bundle_check": "python scripts/validate_public_bundle.py outputs/milestones/ncs_phase75_active_versioned_recertification",
+        "notes": "Active current-MP public-label recertification grid; not DFT evidence.",
+    }
+    df = pd.read_csv(path)
+    df = df[df["milestone"] != row["milestone"]]
+    pd.concat([df, pd.DataFrame([row]).reindex(columns=df.columns)], ignore_index=True).to_csv(path, index=False)
 
 
 def update_claim_table(status: str, comparison: pd.DataFrame) -> None:
     path = ROOT / "docs/claim_table.md"
     text = path.read_text(encoding="utf-8")
     marker = "## Phase75 Active Versioned Recertification"
+    trailing = ""
     if marker in text:
-        text = text.split(marker)[0].rstrip() + "\n"
+        before, after = text.split(marker, 1)
+        next_idx = after.find("\n## ")
+        trailing = after[next_idx:] if next_idx >= 0 else ""
+        text = before.rstrip() + "\n"
     positives = comparison[comparison["go_strong"].astype(bool)]
     mediums = comparison[comparison["go_medium"].astype(bool)]
     if len(positives):
@@ -673,7 +669,7 @@ claims: prospective materials discovery, DFT validation, label-free durability
 prediction, or current-MP alpha control unless the GO-strong row is explicitly
 reported with its public-label scope.
 """
-    path.write_text(text.rstrip() + addition, encoding="utf-8")
+    path.write_text(text.rstrip() + addition + trailing, encoding="utf-8")
 
 
 def update_evidence_ledger(status: str, comparison: pd.DataFrame) -> None:
