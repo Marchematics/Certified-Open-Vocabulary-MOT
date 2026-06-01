@@ -391,3 +391,23 @@ for frozen GNoME rows and writes formula-prefilter candidate IDs. It does not
 report current stability verdicts, does not perform exact structure matching,
 and is not source-level claim-decay evidence, A-paper evidence, prospective
 discovery, or new DFT evidence.
+
+## Phase92 CTC Model-Surrogate Gate Replay
+
+Status: `model_surrogate_gate_replay_completed_not_human_evidence`.
+
+Phase92 replays Phase84 CTC calibration/release/random-control gates using
+Phase91 model-surrogate labels as an operational replacement for returned human
+labels. It is a dry-run gate replay, not external human audit evidence,
+expert microscopy adjudication, official CTC ground truth, completed real-audit
+PARC-A replication, or materials/DFT evidence.
+
+## Phase92 B-Line GNoME MP Neighbor Gap Analysis
+
+Status: `neighbor_gap_analysis_completed_no_exact_match_path`.
+
+Phase92 analyzes Phase91 current-MP chemical-system candidates as composition
+neighbors and confirms that the frozen GNoME subset does not have an exact
+reduced-formula MP path in the current low-cost prefilter. It is not exact
+structure matching, current stability evidence, source-level claim decay,
+A-paper evidence, prospective discovery, or new DFT evidence.
